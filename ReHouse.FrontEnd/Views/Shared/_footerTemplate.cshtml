@@ -1,0 +1,107 @@
+﻿@using ReHouse.FrontEnd.Helpers
+@using ReHouse.FrontEnd.Models
+
+
+<div class="clearfix" style="height:1px">
+    <div class="forms-wrapper" style="position: relative;
+  margin-bottom: 0px !important;
+  display: inline-block;">
+
+        <div class="form-drop feedback-form f-dropdown content-mod medium" tabindex="-1" data-dropdown-content="" aria-hidden="true" style="margin-right:310px;bottom:-50px;" id="feedback-modal">
+            <div class="head-form">Обратная связь</div>
+            <div class="body-form">
+                <button class="button-close"></button>
+                @{
+                    var feedback = new FeedbackModel();
+                    var session = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+                    if (session != null)
+                    {
+                        feedback.FirstName = session.SecondName + " " + session.Name + " " + session.FatherName;
+                        feedback.Email = session.Email;
+                    }
+                }
+                @Html.Partial("_FeedbackPartial", feedback)
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="footer" style="">
+
+
+    <div class="logo-copy">
+
+        <div class="logo-blue"></div>
+        <copyright> © 2015 </copyright>
+    </div>
+
+    <div class="first-link-row">
+        @using (Html.BeginForm("Delivery", "Common", FormMethod.Get))
+        {
+            <button type="submit">Доставка и оплата</button>
+        }
+        @using (Html.BeginForm("Warranty", "Common", FormMethod.Get))
+        {
+            <button type="submit">Гарантия</button>
+        }
+        @using (Html.BeginForm("WorkWithUs", "Common", FormMethod.Get))
+        {
+            <button type="submit">Сотрудничество с нами</button>
+        }
+        @*<a href="@Url.Action("Delivery", "Common")">Доставка и оплата</a>
+        <a href="@Url.Action("Warranty", "Common")">Гарантия</a>
+        <a href="@Url.Action("TermsOfUse", "Common")">Сотрудничество с нами</a>*@
+
+    </div>
+    <div class="second-link-row">
+        <li>
+        @using (Html.BeginForm("TermsOfUse", "Common", FormMethod.Get))
+        {
+            <button type="submit">Условия использования сайта</button>
+        }
+        </li>
+        <li class="feedback">
+            <button class="feed" data-dropdown="feedback-modal" aria-controls="feedback-modal" aria-expanded="false" href="/feedback-modal">Обратная связь</button>
+        </li>
+        <li>
+        @using (Html.BeginForm("Contacts", "Common", FormMethod.Get))
+        {
+            <button type="submit">Контакты</button>
+        }
+        </li>
+        @*<li>
+            <a href="@Url.Action("TermsOfUse", "Common")">Условия использования сайта</a>
+        </li>*@
+        @*<li class="feedback">
+            <a class="" data-dropdown="feedback-modal" aria-controls="feedback-modal" aria-expanded="false" href="/feedback-modal">Обратная связь</a>
+        </li>*@
+        @*<li>
+            <a href="@Url.Action("Contacts", "Common")">Контакты</a>
+
+        </li>*@
+    </div>
+    <div class="social-block">
+        <span class="text-social">ReHouse поделиться:</span>
+
+        <div class="icons">
+            @{
+                var href2 = "http://vk.com/share.php?url=" + HttpContext.Current.Request.Url;
+            }
+            <a class="vk social-icon" href="@href2" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"></a>
+            @*<a target="_blank" href="twitter.com/creative_punch" class="vk social-icon"></a>*@
+            <a class="facebook social-icon" onclick="facebook()"></a>
+                @*<a target="_blank" href="https://www.facebook.com/creativepunch.net" class=" facebook social-icon"></a>*@
+            <a class="google-plus social-icon" href="https://plus.google.com/share?url=@Html.HtmlText(HttpContext.Current.Request.Url.ToString())" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"></a>
+                @*<a target="_blank" href="https://plus.google.com/+CreativepunchNetBlog" class=" google-plus social-icon"></a>*@
+                @*<a target="_blank" href="https://plus.google.com/+CreativepunchNetBlog" class="odnoclasniki social-icon"></a>*@
+</div>
+    </div>
+    @*<div class="created">
+        <span>created by</span>
+        <a href="https://vk.com/idnikolenko" class="createdby">Nilsenj</a>
+        <span>and</span>
+        <a href="https://vk.com/maximkovalchuk" class="createdby">Max</a>
+    </div>*@ 
+
+</div>

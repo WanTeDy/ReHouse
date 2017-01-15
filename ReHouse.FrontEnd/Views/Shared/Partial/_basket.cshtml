@@ -1,0 +1,97 @@
+﻿@using System.ServiceModel
+@using ITfamily.Utils
+@using ITfamily.Utils.DataBase.AuxiliaryData
+@using ITFamily.FrontEnd.Helpers
+@using ITFamily.FrontEnd.Models
+@model ITFamily.FrontEnd.Models.HelperCatalog
+
+<div class="basket">
+    <div class="clearfix"></div>
+    <div class="basket-header">
+        Корзина
+    </div>
+    <div class="basket-title">В вашей корзине:</div>
+    <div class="clearfix"></div>
+    @if (Model != null)
+    {
+        foreach (var item in Model.Basket)
+        {
+            <div class="row">
+                <div class="first-block">
+                    <div class="goodsImage">
+                        <img src="@item.Image" alt="">
+                    </div>
+                    <div class="goodsName">@item.ProductName</div>
+                </div>
+                <div class="second-block">
+                    @using (Html.BeginForm("DeleteProduct", "Cart", FormMethod.Post))
+                    {
+                        @Html.Hidden("productId", item.ProductId)
+                        <button class="button-close"></button>
+                    }
+                    
+                    <div class="second-block-info">
+                        <div class="price">@item.SoldPriceUah грн</div>
+
+                        @using (Html.BeginForm("ChangeQuantity", "Cart", FormMethod.Post, new { @class = "amount" }))
+                        {
+                            @Html.Hidden("productId", item.ProductId)
+                            <input class="styler mod" type="number" name="quantity" value="@item.Quantity" size="6" onchange="this.form.submit()">
+                            <span class="sht">шт.</span>
+                        }
+                        <div class="goods-price">@item.SoldPriceUah грн</div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    <div class="go-back">
+        <button class="back"><i class="fa fa-reply"></i>
+            @if (HttpContext.Current.Request.UrlReferrer != null)
+            {
+                <a href="@HttpContext.Current.Request.UrlReferrer.AbsoluteUri">Вернуться назад</a>
+            }
+        </button>
+    </div>
+
+    <div class="result">
+        @if (Model != null && Model.Basket.Any())
+        {
+            var amount = Model.Basket.Sum(x => x.Quantity*x.SoldPriceUah);
+            @Html.HtmlText("Итого: "+ amount + " грн")
+        }
+    </div>
+    <div class="clearfix"></div>
+    @{
+        var orderModel = new OrderGoodsModel();
+        var session = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+        if (session != null)
+        {
+            orderModel.FIO = "";
+            if (!String.IsNullOrEmpty(session.SecondName))
+            {
+                orderModel.FIO += session.SecondName;
+                if (!String.IsNullOrEmpty(session.Name) || !String.IsNullOrEmpty(session.FatherName))
+                {
+                    orderModel.FIO += " ";
+                }
+            }
+            if (!String.IsNullOrEmpty(session.Name))
+            {
+                orderModel.FIO += session.Name;
+                if (!String.IsNullOrEmpty(session.FatherName))
+                {
+                    orderModel.FIO += " ";
+                }
+            }
+            if (!String.IsNullOrEmpty(session.FatherName))
+            {
+                orderModel.FIO += session.FatherName;
+            }
+            orderModel.Phone = session.Phone;
+            orderModel.Email = session.Email;
+        }
+    }
+    @Html.Partial("Partial/_OrderGoods", orderModel)
+</div>

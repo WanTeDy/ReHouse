@@ -1,0 +1,72 @@
+﻿@using ITfamily.Utils
+@using ITFamily.FrontEnd.Helpers
+@using ITFamily.FrontEnd.Models
+@model SessionModel
+<div class="form-drop info-fin-drop f-dropdown content-mod medium" tabindex="-1" data-dropdown-content aria-hidden="true" id="inform-fin-modal">
+    @{
+        Decimal courseCash = 0;
+        Decimal CourseExtractCashless = 0;
+        Decimal creditLimit = 0;
+        if (Model != null && Model.RoleName == ConstV.RolePartner)
+        {
+            courseCash = Model.CourseCash;
+            CourseExtractCashless = Model.CourseExtractCashless;
+            creditLimit = Model.CreditLimit;
+        }
+
+    }
+    <div class="row-one bonuses">
+        @*<span class="wb-id"> Web-ID: 03342</span>*@
+        <button class="button-close"></button>
+        <div class=" clearfix"></div>
+        <div class="table-holder">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Курс выписки (б/н)</th>
+                        <th>Курс (н)</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@DateTime.Now.ToString("yyyy\\/MM\\/dd")</td>
+                        <td>@CourseExtractCashless</td>
+                        <td>@courseCash</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="info-fin">
+        <li class="row">
+            <span class="row-item-first">Кредит: </span>
+            <span class="row-item-second">@creditLimit $</span>
+        </li>
+        <div class="clearfix"></div>
+        <li class="row">
+            <span class="row-item-first">Глубина кредита, дней: </span>
+            <span class="row-item-second">7</span>
+        </li>
+        <div class="clearfix"></div>
+        <li class="row">
+            <span class="row-item-first">Кредитная ставка, %: </span>
+            <span class="row-item-second">24</span>
+        </li>
+        <div class="clearfix"></div>
+        <li class="row">
+            <span class="row-item-first">Резерв: </span>
+            <span class="row-item-second">3000 $</span>
+        </li>
+        <div class="clearfix"></div>
+        @*<li class="row">
+                <span class="row-item-first">Срок бронирования, дней: </span>
+                <span class="row-item-second">5</span>
+            </li>*@
+        <div class="clearfix"></div>
+
+    </div>
+
+
+</div>

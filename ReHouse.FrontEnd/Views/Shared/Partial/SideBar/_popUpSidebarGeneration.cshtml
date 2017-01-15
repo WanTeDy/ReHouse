@@ -1,0 +1,227 @@
+﻿@using ITfamily.Utils.DataBase
+@using ITfamily.Utils.DataBase.OurStocks
+@using ITFamily.FrontEnd.Helpers
+@model System.Collections.Generic.List<ITfamily.Utils.DataBase.OurStocks.ItFamilyCategory>
+
+<div class="sidebar">
+  
+    <div class="main-wrap">
+        <div class="main-col main-col-fat-menu-large clearfix">
+            <div class="clearfix">
+                <nav class="m-side"> @* начало сайдбара *@
+                    <ul class="m-side-l" id="m-side"> @* главный ul *@
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var mp in Model)
+                            {
+                                if (mp.Name == "Услуги") { continue; }
+                                <li class="m-side-l-i" name="m-side-i">
+                                    @if (mp.Categories.Any())
+                                    {
+                                    @*первый li*@
+                                        <a href="#" data-id="b" class="m-side-link m-side-link-arrow" level="level1" is_new="">
+                                            @* первая ссылка блока отображается в первом ряду  *@
+                                            @mp.Name
+                                        </a>
+                                    }
+                                    else {
+                                        @Html.ActionLink(mp.Name, "Products", "Catalog", new { categoryId = mp.Id }, new { @class = "m-side-link", @level = "level1", @is_new = "" })
+                                    }
+
+                                    @if (mp.Categories.Any())
+                                    {
+                                        <div class="m-side-second">
+                                            @*начало второго блока c li эллементами //начало подменю для данного li  *@
+                                            <div class="m-side-scroll" style="height: 100%;">
+                                                @* просто добавь этот блок *@
+                                                <div style="height: 100%;">
+                                                    @* просто добавь этот блок *@
+                                                    <div class="m-side-scroll-wrap" style="overflow-y: scroll">
+                                                        @* просто добавь этот блок *@
+                                                        <ul class="m-side-subl">
+                                                            @* отображает li эллементы и все внутренности второго уровня и третего уровня *@
+                                                            @RenderMenuItem2(mp)
+                                                        </ul> @* конец ul отображает li эллементы и все внутренности второго уровня и третего уровня *@
+                                                        <a href="#" class=" m-side-scroll-arrow m-side-scroll-arrow-top hidden" data-direction="left"></a>
+                                                        <a href="#" class=" m-side-scroll-arrow m-side-scroll-arrow-bottom hidden" data-direction="right"></a>
+                                                    </div> @*  просто  конец дива очередного *@
+                                                </div> @*  просто  конец дива очередного *@
+                                            </div> @*  просто  конец дива очередного *@
+                                        </div> @* конец второго блока c li эллементами *@
+                                    }
+                                </li>
+                            }
+
+                            //SessionHelpers.Cookie("Sidebar", "Success");
+                        }
+                    </ul>
+                </nav>@* конец сайдбара *@
+            </div> @*  просто  конец дива очередного *@
+        </div>@*  просто  конец дива очередного *@
+    </div>@*  просто  конец дива очередного *@
+</div> @* начало всего сайдбара *@
+
+@helper RenderMenuItem2(ItFamilyCategory mi)
+{
+    foreach (var cp in mi.Categories)
+    {
+        <li class="m-side-l-i m-side-second-l" name="m-side-i-l">@* начало li эллемента второго уровня *@
+            @if (cp.Categories != null && cp.Categories.Any())
+            {
+                <a href="#" class="m-side-link m-side-link-arrow" level="level2" is_new="">@cp.Name</a> @* ссылка отображаемая во втором уровне *@
+            }
+            else
+            {
+                @Html.ActionLink(cp.Name, "Products", "Catalog", new { categoryId = cp.Id }, new { @class = "m-side-link", @level = "level2", @is_new = "new" } )
+               
+            }
+            
+            <div class="m-side-third">@* начало третего уровня *@
+                <div style="height: 100%">@* просто добавь этот блок *@
+                    <div class="m-side-scroll-wrap" style="overflow-y: scroll;">@* просто добавь этот блок *@
+                        <div class="clearfix">@* просто добавь этот блок *@
+                            <div name="m-side-i-l1" class="clearfix">@* это блок вреппер для li-ok 3-го уровня *@
+                                @if (cp.Categories != null && cp.Categories.Count>6) //menuList.Count(p => p.parentID == cp.categoryID) > 6)
+                                {
+                                    @:<ul class="m-menu-third-l one-column">@* это блок вреппер для li-ok 3-го уровня !! смотри примечание ниже *@
+                                    @*var count = cp.Categories.Count(p => p.parentID == cp.categoryID);
+                                    var firstObj = count - count/2;
+                                    var cp1 = cp;
+                                    var first = cp.Categories.OrderBy(x => x.name).Where(p => p.parentID == cp1.categoryID).Take(firstObj).ToList();
+                                    var second = cp.Categories.OrderByDescending(x => x.name).Where(p => p.parentID == cp1.categoryID).Take(count - firstObj).OrderBy(x => x.name).ToList();
+                                    @RenderMenuItem3(first, cp)
+                                    @:</ul><ul class="m-menu-third-l one-column">
+                                    @RenderMenuItem3(second, cp)*@
+                                    @RenderMenuItem3(cp.Categories, cp)
+                                    @:</ul>
+                                }
+                                else
+                                {
+                                    @:<ul class="m-menu-third-l one-column">@* это блок вреппер для li-ok 3-го уровня !! смотри примечание ниже *@
+                                    @RenderMenuItem3(cp.Categories, cp)
+                                    @:</ul>
+                                }
+
+                            </div> @* конец блок вреппер для li-ok 3-го *@
+                        </div> @*  просто  конец дива очередного *@
+                    </div> @*  просто  конец дива очередного *@
+                </div> @*  просто  конец дива очередного *@
+
+                <a href="#" class=" m-side-scroll-arrow m-side-scroll-arrow-top hidden" data-direction="left"></a>
+                <a href="#" class=" m-side-scroll-arrow m-side-scroll-arrow-bottom hidden" data-direction="right"></a>
+
+            </div> @*  конец третего уровня *@
+        </li> @* конец li эллемента второго уровня *@
+    }
+}
+
+@helper RenderMenuItem3(List<ItFamilyCategory> menuList, ItFamilyCategory mi)
+{
+    if (!menuList.Any(p => p.ItFamilyParentId == mi.Id))
+    {
+        <span class="m-side-second-banner">
+            @* начало баннера где купить товар выводится только здесь на все уровни  *@
+            <div class="good">
+                @* от слова товар начало самого блока *@
+                <div class="proposal-info">
+                    Наше предложение вам!
+                </div>
+                @{
+                    var url = "";
+                    var name = "";
+                    var price = "";
+                    if (mi.BrainProductModel != null)
+                    {
+                        url = mi.BrainProductModel.MediumImage;
+                        name = mi.BrainProductModel.name;
+                        if (mi.BrainProductModel.PriceUahForClients != 0)
+                        {
+                            price = Math.Ceiling(Math.Ceiling(mi.BrainProductModel.PriceUahForClients*100)/100) + " грн";
+                        }
+                        else if (mi.BrainProductModel.PriceUsdForManager != 0)
+                        {
+                            price = (Math.Ceiling(mi.BrainProductModel.PriceUsdForManager*100)/100) + " USD";
+                        }
+                        else if (mi.BrainProductModel.PriceUsdForPartner != 0)
+                        {
+                            price = (Math.Ceiling(mi.BrainProductModel.PriceUsdForPartner*100)/100) + " USD";
+                        }
+                        else if (mi.BrainProductModel.price_uah != 0)
+                        {
+                            price = Math.Ceiling(Math.Ceiling(mi.BrainProductModel.price_uah * 100) / 100) + " грн";
+                        }
+                    }
+                }
+                <img src="@url" alt=""> @* указать ссылку сгенерированную на картинку и альт для поиска хорошо *@
+                @if (mi.BrainProductModel != null)
+                {
+                    <a class="link-description" href="@Url.Action("ReviewGood", "Catalog", new {@categoryId = mi.BrainProductModel.ItfamilyCategoryID, @productId = mi.BrainProductModel.Id})">@name</a> @* описание для ссылки на товар и альт вставь для поиска хорошо   *@
+                }
+
+                @*<div class="price-changed">6 320 грн</div>*@ @*  блок показует старую цену перечеркнутая на шаблоне *@
+                <div class="price-now">@price</div> @* цена сейчас  *@
+                
+                @if (mi.BrainProductModel != null)
+                {
+                    using (Html.BeginForm("BuyGood", "Cart", FormMethod.Get, new { @class = "form-buy" }))
+                    {
+                        if (mi != null && mi.BrainProductModel != null)
+                        {
+                            @Html.Hidden("productId", @mi.BrainProductModel.Id)
+                            @Html.Hidden("categoryId", @mi.BrainProductModel.ItfamilyCategoryID)
+                            var page = 1;
+                            if (Session["page"] is int)
+                            {
+                                page = (int)Session["page"];
+                            }
+                            @Html.Hidden("page", page)
+                            @Html.Hidden("quantity", 1)
+                        }
+                        <button class="button buy">Купить</button>
+                        @*<a href="#" class="link-to-credit">Купить в кредит</a>*@
+                    }
+                }
+               
+                <div class="inform-side">
+                   * В данной категории нет вложенности 
+                    жмите на навденную ссылку 
+
+                </div>
+            </div>
+        </span> @* закончился баннер с рекламой товара *@
+    }
+    foreach (var cp in menuList)
+    {
+        @* эти li генерируй для для каждого эллемента 3-го уровня относящийся к эллементу второго *@
+
+        <li class="m-menu-third-l-i">
+            @* li 3-го уровня *@
+            @Html.ActionLink(cp.Name, "Products", "Catalog", new { categoryId = cp.Id }, new { @class = "m-menu-third-i-link sprite-side", @level="level3", @is_new="" })
+            @*<a href="@Url." class="m-menu-third-i-link sprite-side" level="level3" is_new="">*@
+                @* a 3-го уровня 
+                @cp.name*@
+
+                @* !!!!!!!!!!!!!!!!!!!
+                        на случай нового товара на ссылке
+                    встав код сюда
+                    <span class="new m-side-l-i-new">NEW</span>
+                        !!!!!!!!!!!!!!!!!!!
+                *@
+            @*</a>*@
+
+        </li> @* конец li 3-го уровня *@
+    @*
+
+      на случай если не надо генерировать в 2 ряда 3-го уровня!
+         просто сделай один ul и не забудь добавить класс
+
+         one-column
+         до класса
+         m-menu-third-l
+         шаблон
+    <ul class="m-menu-third-l one-column">
+         li  идут одинаково и a тоже
+     </ul>
+    *@
+    }
+}

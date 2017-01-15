@@ -1,0 +1,32 @@
+﻿@using ITFamily.FrontEnd.Models
+@model ITFamily.FrontEnd.Models.HelperCatalog
+
+@Html.Partial("Partial/SideBar/_popUpSidebarGeneration", Model.SelecedCategory.ItFamilyCategories)
+
+<div class="content-wrap">
+    <div class="form-reg">
+        <div class="reg-title">
+            Регистрация корпоративного клиента
+        </div>
+        <div class="clearfix"></div>
+
+        @Html.Partial("_RegisterCorporativePartial", new RegisterCorporativeClient())
+
+    </div>
+    <div class="clearfix" style=""></div>
+    <div class="index-textpage" style="width: 100%; margin-top: 30px">
+        <div class="text-head">Добро пожаловать в компанию "ITfamily"!</div>
+
+        <div class="simple-text">
+            В задачи корпоративного отдела компании "ITfamily" входит сопровождение предприятий малого, среднего и крупного бизнеса, а также государственных организаций и других юридических лиц, в жизненных циклах которых вопросы качества и надежности используемого оборудования стоят на первом месте.
+        </div>
+        <div class="simple-text">
+            Вопрос обеспечения в корпоративном сегменте включает в себя не только поставку оборудования,
+            но и его монтаж, настройку и сопровождение. Это требует присутствия в коллективе высококлассных
+            специалистов, практически по всем основным направлениям развития компьютерного рынка. Их
+            поставляемой техники и программных решений, так и подтверждающих компетенцию в соответсвующей предметной области.
+        </div>
+      
+
+    </div>
+</div>

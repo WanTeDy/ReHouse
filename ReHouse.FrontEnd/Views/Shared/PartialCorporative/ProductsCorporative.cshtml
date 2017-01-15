@@ -1,0 +1,81 @@
+﻿@using ITFamily.FrontEnd.Helpers
+@using ITFamily.FrontEnd.Models
+@model ITFamily.FrontEnd.Models.HelperCatalog
+    
+@if (Model != null)
+{
+    <div class="row-one orders corp-catalog">
+
+        <div class="table-holder">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Код</th>
+                    <th>Артикул</th>
+                    <th>Наименование</th>
+                    <th class="row price  tooltip tooltipstered" title="Выберите валюту">
+                        <span class="price-title">Цена</span>
+                        <form action="/" method="post">
+                            <select class="width-100" name="priceValute" onchange=" this.form.submit() ">
+                                <option>
+                                    USD
+                                </option>
+                                <option>
+                                    UAH
+                                </option>
+                            </select>
+                        </form>
+                    </th>
+                    <th class="form-count">Количество</th>
+                </tr>
+                </thead>
+
+                @foreach (var brainProducModel in Model.BrainProductModels)
+                {
+                    <tbody>
+                    <tr class="">
+                        <th scope="row">@brainProducModel.Id</th>
+                        <td>@brainProducModel.articul</td>
+                        <td>
+                            <a target="_blank" href="@Url.Action("ReviewGood", "Catalog", new {@categoryId = brainProducModel.ItfamilyCategoryID, @productId = brainProducModel.Id})" class="goodsName">@brainProducModel.name</a>
+                            <div class="goodsBrief_description">
+                                @brainProducModel.brief_description
+                            </div>
+                        </td>
+
+                        <td class="price-body tooltip tooltipstered" title="Цена в $" @*укажи здесь цену по изминению селекта с валютой*@>@brainProducModel.PriceUsdForPartner</td>
+                        <td class="form-count">
+                            @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Get))
+                            {
+                                @Html.Hidden("productId", @brainProducModel.Id)
+                                @Html.Hidden("categoryId", @brainProducModel.ItfamilyCategoryID)
+                                var page = 1;
+                                if (Session["page"] is int)
+                                {
+                                    page = (int) Session["page"];
+                                }
+                                @Html.Hidden("page", page)
+                                @*@Html.Hidden("quantity", 1)*@
+                                <input class="styler mod input tooltip tooltipstered" title="выберите количество" type="number" name="quantity" value="" size="6" @*onchange="this.form.submit()"*@>
+                                <div class="clearfix"></div>
+
+                                <button type="submit" class="button button-cart tooltip tooltipstered" title="Добавить в корзину"></button>
+                            }
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+}
+<div class="clearfix"></div>
+<div class="pagination">
+    @if (Model != null && Model.SelecedCategory != null && Model.SelecedCategory.CategoryId != 0 && Model.PagingInfo != null)
+    {
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("Products", "Catalog", new {categoryId = Model.SelecedCategory.CategoryId, page = x}))
+    }
+</div>
+

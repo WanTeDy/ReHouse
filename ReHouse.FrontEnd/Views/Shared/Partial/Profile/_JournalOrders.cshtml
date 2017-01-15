@@ -1,0 +1,17 @@
+﻿@using ReHouse.Utils.DataBase.ModelForUI
+@using ReHouse.FrontEnd.Helpers
+@*@model List<OrderComesModel>*@
+
+@if (Model != null)
+{
+    foreach (var orderComesModel in Model)
+    {
+        <tr class="info">
+            <th scope="row">@orderComesModel.OrderType</th>
+            <td>@orderComesModel.Id</td>
+            @{ var amount = orderComesModel.Amount + orderComesModel.Currency; }
+            <td>@amount</td>
+            <td>@orderComesModel.PointOfDelivery</td>
+        </tr>
+    }
+}

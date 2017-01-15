@@ -1,0 +1,148 @@
+﻿@using System.ServiceModel
+@using ReHouse.FrontEnd.Helpers
+@using ReHouse.FrontEnd.Models
+@using Newtonsoft.Json
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/ico" href="~/Images/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if (!String.IsNullOrEmpty(ViewBag.Title))
+    {
+        <title>@ViewBag.Title</title>
+        <meta property="og:title" content="@ViewBag.Title"/>
+        <meta name="twitter:title" content="@ViewBag.Title">
+        <meta itemprop="name" content="@ViewBag.Title"/>
+        <meta property="og:site_name" content="@ViewBag.Title"/>
+    }
+    else
+    {
+        <title>Интернет магазин ReHouse.com.ua</title>
+        <meta property="og:title" content="Интернет магазин ReHouse.com.ua"/>
+        <meta name="twitter:title" content="Интернет магазин ReHouse.com.ua">
+        <meta itemprop="name" content="Интернет магазин ReHouse.com.ua"/>
+        <meta property="og:site_name" content="Интернет магазин ReHouse.com.ua"/>
+    }
+    <meta name="keywords" content="Интернет магазин ReHouse.com.ua"/>
+    @if (!String.IsNullOrEmpty(ViewBag.Description))
+    {
+        <meta name="description" content="@ViewBag.Description"/>
+        <meta property="og:description" content="@ViewBag.Description"/>
+        <meta name="twitter:description" content="@ViewBag.Description"/>
+        <meta itemprop="description" content="@ViewBag.Description"/>
+    }
+    @if (!String.IsNullOrEmpty(ViewBag.Image))
+    {
+        <meta property="og:image" content="@ViewBag.Image"/>
+        <meta name="twitter:image:src" content="@ViewBag.Image"/>
+        <meta itemprop="image" content="@ViewBag.Image"/>
+    }
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/mainCss")
+</head>
+<body>
+<div id="fb-root"></div>
+<script type="text/javascript">
+    function facebook() {
+        FB.ui({
+            method: 'share',
+            href: '@Html.HtmlText(HttpContext.Current.Request.Url.ToString())',
+        }, function(response) {});
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4&appId=648864971916843";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="container">
+   
+    
+    @Html.Partial("Partial/_ModalPopUp")
+
+    @Html.Partial("_header")
+    <h5 class="testing-mode">
+        @Html.HtmlText("<span> Сайт работает в тестовом режиме, ведутся разработки, скоро открытие!</span> <b> С ув. команда ReHouse.</b>")
+    </h5>
+
+    @if (Session != null && Session["user"] is SessionModel)
+    {
+        @Html.Partial("_user-profile")
+        <div class="clearfix"></div>
+    }
+    else
+    {
+        <div class="clearfix" style="margin-top: 30px"></div>
+
+    }
+    
+    <div class="content" style="min-height: 530px;">
+
+
+        @RenderBody()
+
+
+
+
+
+    </div>
+    @{
+        var mainPage = ViewBag.MainPage as bool?;
+        //if(( HttpContext.Current.Request.Path.ToLower() == "/") || (HttpContext.Current.Request.Path.ToLower() == "/home") || (HttpContext.Current.Request.Path.ToLower() == "/home/") || (HttpContext.Current.Request.Path.ToLower() == "/home/index"))
+        //@if ((HttpContext.Current.Request.Path.ToLower() == "authorize/registercorporative") || (HttpContext.Current.Request.Path.ToLower() == "/authorize/registercorporative") || (HttpContext.Current.Request.Path.ToLower() == "/authorize/registercorporative/"))
+        var registCorporative = ViewBag.Corporative as bool?;
+    }
+    @if (mainPage.HasValue && mainPage.Value)
+    {
+        <div class="clearfix" style="margin-top: 30px"></div>
+        <div class="nice-people" style="margin-top: 150px; width: 555px; background-size: 555px;"></div>
+        @Html.Partial("_index-info")
+    }
+
+    @if (registCorporative.HasValue && registCorporative.Value)
+    {
+        <div class="clearfix" style="margin-top: 10px"></div>
+        <div class="nice-people-corp"></div>
+        @Html.Partial("PartialCorporative/_index-info-corp")
+    }
+
+    <div class="clearfix"></div>
+    <footer>
+        @Html.Partial("_footerTemplate")
+    </footer>
+</div>
+<input id="sidebar-cookie" type="hidden" value=""/>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/unob")
+
+@Scripts.Render("~/Scripts/vendorJs")
+@Scripts.Render("~/Scripts/foundation")
+@Scripts.Render("~/Scripts/indexJs")
+
+@Scripts.Render("~/Scripts/modulesJs")
+
+@if (Session != null && Session["user"] != null)
+{
+
+    @Scripts.Render(("~/Scripts/client"))
+
+}
+@RenderSection("scripts", required: false)
+<!-- Foundation -->
+
+<script type="text/javascript">
+    $(document).foundation();
+    $(document).foundation('dropdown', 'reflow');
+</script>
+@*@RenderSection("scripts", required: false)*@
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿@model ReHouse.FrontEnd.Models.RegisterModel
+@section Scripts {
+    @Scripts.Render("~/Scripts/jqueryval")
+}
+
+@using (Ajax.BeginForm("Register", "Authorize", null, new AjaxOptions
+{
+    UpdateTargetId = "register",
+    OnSuccess = "RegisterComplete"
+}, new { @Id = "register", @class = "form-main" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="label">Ваше имя</div>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-main-input", @placeholder = "минимум 3 символа" })
+    @*<input type="text" required minlength="3" placeholder="минимум 3 символа" maxlength="120" name="name" class="form-main-input">*@
+    <div class="label">Ваша почта</div>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-main-input", @placeholder = "минимум 4 символа" })
+    @*<input type="email" required minlength="3" placeholder="минимум 3 символа" maxlength="120" name="email" class="form-main-input">*@
+    <div class="label">Придумайте пароль</div>
+    @Html.PasswordFor(x => x.Password, new { @class = "form-main-input", @placeholder = "минимум 8 символов" })
+    @*<input type="password" required minlength="6" placeholder="минимум 6 символов" maxlength="25" name="password" class="form-main-input">*@
+    <div class="label">Подтвердите пароль</div>
+    @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-main-input", @placeholder = "минимум 8 символов" })
+    <div class="clearfix"></div>
+
+    <div class="error-text">
+        @Html.ValidationMessage("OtherError", new { @class = ""})
+        @Html.ValidationMessageFor(model => model.Name, null, new {@class = ""})
+        @Html.ValidationMessageFor(model => model.Email, null, new {@class = ""})
+        @Html.ValidationMessageFor(model => model.Password, null, new {@class = ""})
+        @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "" })
+        @*Исправте ошибки*@
+    </div>
+    <button type="submit" class="button confirm-button">Зарегистрироваться</button>
+}

@@ -1,0 +1,57 @@
+﻿@using Microsoft.Owin.Security
+@model ReHouse.FrontEnd.Models.RegisterModel
+<div class="form-drop content-mod medium" tabindex="-1" data-dropdown-content aria-hidden="true" id="register-modal">
+    <div class="head-form">РЕГИСТРАЦИЯ</div>
+    <div class="body-form">
+        <button class="button-close"></button>
+        @Html.Partial("UnregisteredUsers/_registerPartial", Model)
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-foot">
+
+        @{
+            var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+            if (loginProviders != null && loginProviders.Any())
+            {
+                using (Html.BeginForm("ExternalLogin", "Authorize"))
+                {
+                    <div class="orSocial">ИЛИ ВОСПОЛЬЗУЙТЕСЬ УЧЕТНОЙ ЗАПИСЬЮ:</div>
+    <a class="button vk" href="https://oauth.vk.com/authorize?client_id=5037819&display=popup&redirect_uri=http://www.ReHouse.com.ua/Authorize/VkCallback&scope=ads&response_type=code&v=5.37">
+        Vkontakte
+        <span class="fa fa-vk"></span>
+        @*<a href="https://oauth.vk.com/authorize?client_id=5037819&display=popup&redirect_uri=http://localhost:20169/Authorize/VkCallback&scope=ads&response_type=code&v=5.37">Vkontakte</a>*@
+        @*onclick="window.open('https://oauth.vk.com/authorize?client_id=5037819&display=popup&redirect_uri=http://localhost:20169/Authorize/VkCallback&scope=ads&response_type=code&v=5.37', 'name', 'width=900, height=400')"*@
+    </a>
+                    <div class="clearfix"></div>
+                    @Html.AntiForgeryToken()
+                    foreach (AuthenticationDescription p in loginProviders)
+                    {
+                        if (p.AuthenticationType == "Facebook")
+                        {
+                            <button type="submit" class="btn btn-default button facebook" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">
+                                <span class="fa fa-facebook"></span>
+                                @p.AuthenticationType
+                            </button>
+                        }
+                        if (p.AuthenticationType == "Google")
+                        {
+                            <button type="submit" class="btn btn-default button google" id="@p.AuthenticationType" name="provider"
+                                    value="@p.AuthenticationType" title="Войдите используя @p.Caption аккаунт">
+                                <span class="fa fa-google-plus"></span>
+
+                                @p.AuthenticationType
+                            </button>
+                        }
+                    }
+                }
+            }
+        }
+
+        @*<div class="orSocial">ИЛИ ВОСПОЛЬЗУЙТЕСЬ УЧЕТНОЙ ЗАПИСЬЮ:</div>
+        <div class="clearfix"></div>
+
+        <button class="button vk"><span class="fa fa-vk"></span> Vkontakte</button>
+        <div class="clearfix"></div>
+        <button class="button facebook"><span class="fa fa-facebook"></span>Facebook</button>*@
+    </div>
+</div>

@@ -1,0 +1,103 @@
+﻿@using ITfamily.Utils
+@using ITFamily.FrontEnd.Helpers
+@using ITFamily.FrontEnd.Models
+<header>
+
+    <div class="pre-header corp-header">
+       <div class="align-content-corp">
+        <div class="header-bg"></div>
+        <div class="triangle-green"></div>
+        <div class="triangle-rose"></div>
+        <span class="pre-header-menu corp-menu">
+            <li class="logo">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="@Url.Content("~/images/logo-corp.png")" alt="itfamily - семейный магазин" title="itfamily - семейный магазин">
+                </a>
+            </li>
+            <span class="row-links">
+                <li><a class="cabinet-link " data-dropdown="cabinet-modal" aria-controls="cabinet-modal" aria-expanded="false" href="/cabinet-info">Кабинет <i class=""></i></a></li>
+                <li><a class="" data-dropdown="inform-fin-modal" aria-controls="inform-fin-modal" aria-expanded="false" href="/finance-info">Финансовая информация</a></li>
+                <li><a href="/Corporative/CorporativeProfils">Профиль</a></li>
+                <li>@Html.ActionLink("Выход", "LogOut", "Authorize")</li>
+            </span>
+  
+           
+            <form action="/Cart/Basket" class="basket-form" method="get">
+                <button class="basket-button tooltip-bottom" title="Ваша корзина">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="count">
+                        <span class="number">
+                            @{
+                                var count = 0;
+                                if (Session["CountProducts"] is int)
+                                {
+                                    count = (int) Session["CountProducts"];
+                                }
+                            }
+                            @count
+                        </span>
+                    </span>
+                </button>
+            </form>
+        </span>
+    </div>
+
+
+    <div class="header header-corp">
+        <div class="forms-wrapper">
+            @{
+                var user = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+                Decimal amount = 0;
+                var name = "";
+                if (user != null && user.RoleName == ConstV.RolePartner)
+                {
+                    amount = Math.Ceiling(user.AmountUah*100)/100;
+                    name = user.Name;
+                }
+                else
+                {
+                    user = new SessionModel();
+                }
+            }
+
+            @Html.Partial("PartialCorporative/_cabinet-drop")
+            @Html.Partial("PartialCorporative/_information-finance", user)            
+
+        </div>
+
+        <div class="navigation">
+            @using (Html.BeginForm("Search", "Catalog", FormMethod.Get, new { @class = "search-form", @autocomplete = "off" }))
+            {
+                <input type="search" name="searchName" placeholder="Что помочь найти?">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            }
+
+            <span class="pre-header-menu-right">
+                <li>Здравствуйте, @name!</li>
+
+            </span>
+        </div>
+
+        <div class="balance-order">
+
+            <span class="your-order">
+                Ваш заказ. Количество позиций: @count. На сумму: @amount грн.
+            </span>
+            @*
+                
+                там есть два состояния смотри ниже span с классом order-success в случае ошибки генирируй order-errror
+            *@
+            <span class="balance-order-text">
+                Баланс пересчитан, проведите повторную сверку!
+            </span>
+            <div class="order-success"></div>
+        </div>
+
+    </div>
+    </div>
+
+</header>
+
+

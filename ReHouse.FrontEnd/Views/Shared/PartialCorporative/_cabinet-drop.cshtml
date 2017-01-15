@@ -1,0 +1,15 @@
+﻿<div class="form-drop cabinet-drop f-dropdown content-mod medium" tabindex="-1" data-dropdown-content aria-hidden="true" id="cabinet-modal">
+    <li class="li-drop">
+        <a href="@Url.Action("CorporativeZakazy", "Corporative")" class="a-drop">Заказы</a>
+        @*<a href="#" class="a-drop">Заказы</a>*@
+    </li>
+    <li class="li-drop">
+        <a href="@Url.Action("CorporativeReports", "Corporative")" class="a-drop">
+            Отчеты
+        </a>
+    </li>
+    <li class="li-drop">
+        @*@Html.ActionLink("Сверка баланса", "CorporativeBalans", "Corporative", "", new { @class = "a-drop" })*@
+        <a href="@Url.Action("CorporativeBalans", "Corporative")" class="a-drop">Сверка баланса</a>
+    </li>
+</div>

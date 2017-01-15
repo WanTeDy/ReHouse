@@ -1,0 +1,43 @@
+﻿@model ReHouse.FrontEnd.Models.LoginModel
+@section Scripts {
+    @Scripts.Render("~/Scripts/jqueryval")
+}
+
+@using (Ajax.BeginForm("Login", "Authorize", null, new AjaxOptions
+{
+    UpdateTargetId = "login", OnSuccess = "LoginOnComplete"
+}, new { @Id = "login", @class = "form-main" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="label">Эл. почта</div>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-main-input", @placeholder = "минимум 4 символа" })
+    @*<input type="email" required minlength="3" maxlength="120" placeholder="минимум 3 символа" name="email" class="form-main-input">*@
+    
+    <div class="label">Введите пароль</div>
+    @Html.PasswordFor(x => x.Password, new { @class = "form-main-input", @placeholder = "минимум 8 символа" })
+    @*<input type="password" required minlength="6" placeholder="минимум 6 символов" maxlength="25" name="password" class="form-main-input">*@
+    
+    <a href="@Url.Action("RemindPassword", "Authorize")" class="linkTo">напомнить пароль</a><div class="clearfix"></div>
+
+
+
+    <div class="error-text">
+        @Html.ValidationMessage("OtherError", new { @class = "" })
+        <div class="clearfix"></div>
+        @Html.ValidationMessageFor(model => model.Email, null, new {@class = ""})
+        <div class="clearfix"></div>
+        @Html.ValidationMessageFor(model => model.Password, null, new {@class = ""})
+        @*Исправте ошибки*@
+    </div>
+
+    
+    <button type="submit" class="button confirm-button">Войти</button>
+    <a href="#" data-dropdown="register-modal" aria-controls="register-modal" class="f linkTo">зарегистрироваться</a>
+}
+@*<form action="" id="login" method="POST" class="form-main">
+
+
+    </form>*@
+<div class="clearfix"></div>

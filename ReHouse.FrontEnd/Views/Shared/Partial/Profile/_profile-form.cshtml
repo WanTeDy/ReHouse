@@ -1,0 +1,51 @@
+﻿@model ReHouse.FrontEnd.Models.ClientsDataModel
+@section Scripts {
+    @Scripts.Render("~/Scripts/jqueryval")
+}
+<div class="row-one">
+
+    @using (Ajax.BeginForm("ChangeClientsData", "Authorize", null, new AjaxOptions
+    {
+        OnSuccess = "ChangeClientsData"
+    }, new { @class = "user" }))
+    {
+        <label for="profile-name">Имя</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "input", @placeholder = "ваше имя пожалуйcта" })
+        <div class="clearfix"></div>
+        <label for="profile-surname">Фамилия</label>
+        @Html.TextBoxFor(x => x.SecondName, new { @class = "input", @placeholder = "ваше фамилия пожалуйcта" })
+        <div class="clearfix"></div>
+        <label for="profile-secondname">Отчество</label>
+        @Html.TextBoxFor(x => x.FatherName, new { @Id = "profile-secondname", @class = "input", @placeholder = "ваше отчество пожалуйcта" })
+        <div class="clearfix"></div>
+        <label for="profile-email">Адрес электорнной почты</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "input", @placeholder = "ваш email пожалуйcта" })
+        <div class="clearfix"></div>
+        <label for="profile-email">Телефон</label>
+        @Html.TextBoxFor(x => x.Phone, new { @class = "input", @placeholder = "ваш телефон пожалуйcта" })
+        <div class="clearfix"></div>
+        
+
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="error-text" style="text-align: center;">
+            @Html.ValidationMessage("OtherError", new { @class = "" })
+            <div class="clearfix"></div>
+            @Html.ValidationMessageFor(model => model.Email, null, new { @class = "" })
+            <div class="clearfix"></div>
+            @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "" })
+            <div class="clearfix"></div>
+            @Html.ValidationMessageFor(model => model.SecondName, null, new { @class = "" })
+            <div class="clearfix"></div>
+            @Html.ValidationMessageFor(model => model.Name, null, new { @class = "" })
+            <div class="clearfix"></div>
+            @Html.ValidationMessageFor(model => model.FatherName, null, new { @class = "" })
+            <div class="clearfix"></div>
+        </div>
+        <div class="button-folder">
+            <button type="submit" class="button save">Сохранить</button>
+            <button type="reset" class="button cancel" onclick="formHide2()">Отмена</button>
+        </div>
+    }
+
+</div>

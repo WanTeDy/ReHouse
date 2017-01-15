@@ -1,0 +1,51 @@
+﻿@model ITFamily.FrontEnd.Models.SelectedCategory
+
+<div class="clearfix" ></div>
+<div class="breadcrumbs" style="width: 89% !important; margin-top: 10px;">
+    <a class="breadcrumb-link" href="@Url.Action("Index", "Home")">Главная</a>
+    @*@Html.ActionLink("Главная", "Index", "Home", "", new { @class = "breadcrumb-link" })*@
+
+    @*<a class="breadcrumb-link" href="/home"> Главная </a>*@
+
+@if (Model != null && Model.CategoryModel != null)
+{
+    if (Model.CategoryModel.Categories != null && Model.CategoryModel.Categories.Any())
+    {
+        <i class="fa fa-ellipsis-h"></i>
+        <a class="breadcrumb-link" href="#">@Model.CategoryModel.name</a>
+        var cat = Model.CategoryModel.Categories.FirstOrDefault(x => x.IsActive);
+        if (cat != null)
+        {
+            if (cat.Categories != null && cat.Categories.Any())
+            {
+                <i class="fa fa-ellipsis-h"></i>
+                <a class="breadcrumb-link" href="#">@cat.name</a>
+                cat = cat.Categories.FirstOrDefault(x => x.IsActive);
+                if (cat != null)
+                {
+                    <i class="fa fa-ellipsis-h"></i>
+                    @Html.ActionLink(cat.name, "Products", "Catalog", new {categoryId = cat.categoryID}, new {@class = "breadcrumb-link"})
+                }
+            }
+            else
+            {
+                <i class="fa fa-ellipsis-h"></i>
+                @Html.ActionLink(cat.name, "Products", "Catalog", new {categoryId = cat.categoryID}, new {@class = "breadcrumb-link"})
+            }
+        }
+    }
+    else
+    {
+        <i class="fa fa-ellipsis-h"></i>
+        @Html.ActionLink(Model.CategoryModel.name, "Products", "Catalog", new {categoryId = Model.CategoryModel.categoryID}, new {@class = "breadcrumb-link"})
+    }
+    }
+else
+{
+    <i class="fa fa-ellipsis-h"></i>
+}
+    @*<a class="breadcrumb-link" href="/home/catagory"> Ноутбуки, Планшеты, Компютеры </a>
+    <i class="fa fa-ellipsis-h"></i>
+    <a class="breadcrumb-link" href="/home/catagory"> Ноутбуки </a>*@
+
+</div>

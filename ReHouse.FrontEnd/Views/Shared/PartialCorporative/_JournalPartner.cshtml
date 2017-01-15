@@ -1,0 +1,49 @@
+﻿@using ITfamily.Utils
+@using ITfamily.Utils.DataBase.AuxiliaryData
+@using ITfamily.Utils.DataBase.ModelForUI
+@using ITFamily.FrontEnd.Helpers
+@model List<OrderComesModel>
+
+@if (Model != null)
+{
+    foreach (var orderComesModel in Model)
+    {
+        <tr class="info">
+            <th scope="row">@orderComesModel.OrderType + @orderComesModel.PaymentStatus</th>
+            <td>
+                @{
+        if (orderComesModel.ShipingDate.HasValue)
+        {
+            @:@orderComesModel.ShipingDate.Value.ToString("yyyy-MM-dd")
+                                }
+                }
+            </td>
+            <td>
+                @{
+        if (orderComesModel.DeliveryDate.HasValue)
+        {
+            @:@orderComesModel.DeliveryDate.Value.ToString("yyyy-MM-dd")
+                                }
+                }
+            </td>
+
+            <td>@orderComesModel.Id</td>
+            @{ var amount = orderComesModel.Amount + orderComesModel.Currency; }
+            <td>@amount</td>
+            <td>@orderComesModel.Quantity</td>
+            <td>@orderComesModel.PointOfDelivery</td>
+            <td>
+                <form action="/" method="post">
+                    <select class="width-100" name="itemsPerPage" onchange="this.form.submit()">
+                        <option>
+                            Копировать в корзину
+                        </option>
+                        <option>
+                            Удалить
+                        </option>
+                    </select>
+                </form>
+            </td>
+        </tr>
+    }
+}

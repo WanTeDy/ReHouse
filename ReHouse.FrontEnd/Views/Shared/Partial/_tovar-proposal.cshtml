@@ -1,0 +1,123 @@
+﻿@using ITfamily.Utils
+@using ITfamily.Utils.DataBase.ModelForUI
+@using ITFamily.FrontEnd.Helpers
+@using ITFamily.FrontEnd.Models
+<div class="clearfix"></div>
+
+@{
+    List<BrainProductModel> oftenBuy = null;
+    if (ViewBag != null && ViewBag.OftenBuyProducts != null)
+    {
+        oftenBuy = ViewBag.OftenBuyProducts as List<BrainProductModel>;
+    }
+}
+@if (oftenBuy != null && oftenBuy.Any())
+{
+    <div class="proposals">
+        <h2> ТОП ТОВАРОВ:</h2>
+        <div class="carousel" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+            @{ var user = SessionHelpers.Session("user", typeof (SessionModel)) as SessionModel; }
+            @foreach (var prod in oftenBuy)
+            {
+                <a href="@Url.Action("ReviewGood", "Catalog", new {@categoryId = prod.ItfamilyCategoryID, @productId = prod.Id})">
+                    <div class="goodsAddToCard">
+                        @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Get, new { @class = "form-addToCard" }))
+                        {
+                            var page = 1;
+                            if (Session["page"] is int)
+                            {
+                                page = (int)Session["page"];
+                            }
+                            <input type="hidden" name="categoryId" value="@prod.ItfamilyCategoryID">
+                            <input type="hidden" name="productId" value="@prod.Id">
+                            <input type="hidden" name="page" value="@page">
+                            <input type="hidden" name="quantity" value="1">
+
+                            @*@Html.Hidden("categoryId", prod.categoryID)
+                            @Html.Hidden("productId", prod.productID)
+                            @Html.Hidden("page", page)
+                            @Html.Hidden("quantity", 1)*@
+                            <button class="button button-cart tooltip" title="Добавить в корзину" alt="Добавить в корзину">
+                                <i></i>
+                            </button>
+                        }
+                    </div>
+
+                    <img src="@prod.MediumImage" alt="">
+                    <div class="title-proposal">@prod.name</div>
+                    @{
+
+                        //var uah = Math.Ceiling(Math.Ceiling(Model.Product.price_uah * 100) / 100);
+                        var price = "";
+                        if (user != null && !String.IsNullOrEmpty(user.RoleName))
+                        {
+                            if (user.RoleName == ConstV.RolePartner)
+                            {
+                                price = (Math.Ceiling(prod.PriceUsdForPartner*100)/100) + " usd";
+                            }
+                            else if (user.RoleName == ConstV.RoleManager)
+                            {
+                                price = (Math.Ceiling(prod.PriceUsdForManager*100)/100) + " usd";
+                            }
+                            else if (user.RoleName == ConstV.RoleAdministrator)
+                            {
+                                price = (Math.Ceiling(prod.price*100)/100) + " usd";
+                            }
+                            else
+                            {
+                                price = Math.Ceiling(Math.Ceiling(prod.PriceUahForClients*100)/100) + " грн";
+                            }
+                        }
+                        else
+                        {
+                            price = Math.Ceiling(Math.Ceiling(prod.PriceUahForClients*100)/100) + " грн";
+                        }
+                    }
+                    <div class="price-proposal">@price</div>
+                    @*<div class="price-proposal-previous"> 175 грн</div>*@
+                </a>
+            }
+        </div>
+    </div>
+}
+
+
+@*<div class="proposals">
+    <h2> С ЭТИМ ТОВАРОМ ЧАСТО ПОКУПАЮТ:</h2>
+    <div class="carousel" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+        <a href="#">
+            <img src="../images/proposal.png" alt="">
+            <div class="title-proposal"> Чистящий набор 3 в 1 ColorWay CW-4130</div>
+            <div class="price-proposal"> 145 грн</div>
+        </a>
+        <a href="#">
+            <img src="../images/proposal.png" alt="">
+            <div class="title-proposal"> Чистящий набор 3 в 1 ColorWay CW-4130</div>
+            <div class="price-proposal"> 145 грн</div>
+        </a>
+        <a href="#">
+            <img src="../images/proposal.png" alt="">
+            <div class="title-proposal"> Чистящий набор 3 в 1 ColorWay CW-4130</div>
+            <div class="price-proposal"> 145 грн</div>
+            <div class="price-proposal-previous"> 175 грн</div>
+        </a>
+        <a href="#">
+            <img src="../images/proposal.png" alt="">
+            <div class="title-proposal"> Чистящий набор 3 в 1 ColorWay CW-4130</div>
+            <div class="price-proposal"> 145 грн</div>
+            <div class="price-proposal-previous"> 175 грн</div>
+        </a>
+        <a href="#">
+            <img src="../images/proposal.png" alt="">
+            <div class="title-proposal"> Чистящий набор 3 в 1 ColorWay CW-4130</div>
+            <div class="price-proposal"> 145 грн</div>
+        </a>
+        <a href="#">
+            <img src="../images/proposal.png" alt="">
+            <div class="title-proposal"> Чистящий набор 3 в 1 ColorWay CW-4130</div>
+            <div class="price-proposal"> 145 грн</div>
+            <div class="price-proposal-previous"> 175 грн</div>
+        </a>
+    </div>
+</div>*@
+

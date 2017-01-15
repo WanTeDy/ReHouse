@@ -1,0 +1,118 @@
+﻿@using ReHouse.FrontEnd.Helpers
+@using ReHouse.FrontEnd.Models
+<header>
+    <div class="pre-header-shadow"></div>
+    <div class="pre-header">
+        <span class="pre-header-menu">
+            @if (Session == null || !(Session["user"] is SessionModel))
+            {
+                <span class="heder-block-items">
+                    <li>@Html.ActionLink("ДОСТАВКА И ОПЛАТА", "Delivery", "Common")</li>
+                    <li>@Html.ActionLink("ГАРАНТИЯ", "Warranty", "Common")</li>
+                    <li>@Html.ActionLink("СОТРУДНИЧЕСТВО С НАМИ", "WorkWithUs", "Common")</li>
+                    <li>@Html.ActionLink("КОНТАКТЫ", "Contacts", "Common")</li>
+                </span>
+                <span class="pre-header-menu-right">
+                    <li class="user-welcome"><a class="f" data-dropdown="pre-register" aria-controls="pre-register" aria-expanded="false" href="/register"><div class="profile-name">Регистрация</div></a> <i class=""></i></li>
+                    <li><a class="f" data-dropdown="login-modal" aria-controls="login-modal" aria-expanded="false" href="/login">Вход</a></li>
+                </span>
+            }
+            else
+            {
+                var session = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+                var name = "";
+                if (session != null)
+                {
+                    if (!String.IsNullOrEmpty(session.SecondName))
+                    {
+                        name = session.SecondName + " ";
+                    }
+                    if (!String.IsNullOrEmpty(session.Name))
+                    {
+                        name += session.Name + " ";
+                    }
+                    if (!String.IsNullOrEmpty(session.FatherName))
+                    {
+                        name += session.FatherName;
+                    }
+                    if (String.IsNullOrEmpty(name) && session.User != null)
+                    {
+                        name = session.User.Email;
+                    }
+                }
+                <span class="heder-block-items" style="width: 732px;">
+                    <li>@Html.ActionLink("ДОСТАВКА И ОПЛАТА", "Delivery", "Common")</li>
+                    <li>@Html.ActionLink("ГАРАНТИЯ", "Warranty", "Common")</li>
+                    <li>@Html.ActionLink("СОТРУДНИЧЕСТВО С НАМИ", "WorkWithUs", "Common")</li>
+                    <li>@Html.ActionLink("КОНТАКТЫ", "Contacts", "Common")</li>
+                </span>
+
+                <span class="pre-header-menu-right" style="width: 430px;">
+                    <li class="user-welcome"><span class="greeting">Здравствуйте:</span> <a class="f" data-dropdown="user-profile-modal" aria-controls="user-profile-modal" aria-expanded="false" href="/profile"><div class="" style="max-width: 210px;">@name</div></a><i class=""></i></li>
+                    <li>@Html.ActionLink("Выход", "LogOut", "Authorize")</li>
+                </span>
+            }
+        </span>
+    </div>
+
+    <div class="header">
+        <div class="header-bg"></div>
+        <div class="triangle-green"></div>
+        <div class="triangle-rose"></div>
+        <div class="logo" style="position: relative">
+            <a href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/images/logo.png")" alt="ReHouse - семейный магазин" title="ReHouse - семейный магазин">
+            </a>
+        </div>
+        <div class="forms-wrapper">
+            @if (Session == null || Session["user"] == null)
+            {
+                @Html.Partial("UnregisteredUsers/_loginDialogModal", new LoginModel())
+                @Html.Partial("UnregisteredUsers/_registerDialogModal", new RegisterModel())
+                @Html.Partial("UnregisteredUsers/_preRegister")
+            }
+
+        </div>
+        <div class="clearfix" style="position: relative; ">
+            <div class="navigation">
+
+                @using (Html.BeginForm("Search", "Catalog", FormMethod.Get, new { @class = "search-form", @autocomplete = "off" }))
+                {
+                    <input type="search" name="searchName" placeholder="Что помочь найти?">
+                    <button type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                }
+                @*<form class="search-form" method="post" action="SearchController@querySearch" autocomplete="off"></form>*@
+
+
+            </div>
+            @using (Html.BeginForm("Basket", "Cart", FormMethod.Post, new { @class = "basket-form" }))
+            {
+                <button class="basket-button tooltip-bottom" title="Ваша корзина">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="count">
+                        <span class="number">
+                            @{
+                                var count = 0;
+                                if (Session["CountProducts"] is int)
+                                {
+                                    count = (int)Session["CountProducts"];
+                                }
+                            }
+                            @count
+                        </span>
+                    </span>
+                </button>
+                                }
+
+            <div class="phone-info">
+                <li class="line">(044) 537-02-22,</li>
+                <li class="line">(044) 537-02-22</li>
+            </div>
+
+        </div>
+    </div>
+
+
+</header>

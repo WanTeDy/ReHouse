@@ -1,0 +1,89 @@
+﻿@using ReHouse.Utils
+@using ReHouse.FrontEnd.Helpers
+@section Scripts {
+    @Scripts.Render("~/Scripts/jqueryval")
+}
+<div class="row-one orders">
+
+    <div class="row date-row">
+        @using (Ajax.BeginForm("Journal", "Common", null, new AjaxOptions
+        {
+            UpdateTargetId = "journal",
+            //HttpMethod = "Post",
+        }, new { @Id = "parent" }))
+        {
+            <span>Период с </span>
+            <div class="date-r pre-date-mar">
+                @*placeholder="@DateTime.Today.Year.@DateTime.Today.Month.@DateTime.Today.Day"*@
+                <input type="text" id="left" value="@DateTime.Now.ToString("yyyy-MM")-01" class="pre-date date inline" name="From" onchange="this.form.submit()" />
+
+            </div>
+            <span class="calendar-icon"><i class="fa fa-calendar"></i></span>
+            <span> по </span>
+            <div class="date-r">
+
+                <input type="text" id="right" value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" class="post-date date inline " name="To" onchange="this.form.submit()" />
+
+            </div>
+            <span class="calendar-icon"><i class="fa fa-calendar"></i></span>
+    <button type="submit" class="button save">Применить</button>
+        }
+
+    </div>
+    <div class="table-holder">
+        <table class="table table-striped">
+            <thead>
+                <tr >
+                    <th>Статус</th>
+                    <th>№</th>
+                    <th>Сумма</th>
+                    <th>Пункт выдачи</th>
+                </tr>
+            </thead>
+            <tbody id="journal">
+            @*@{
+                var orders = SessionHelpers.Session("journal", typeof (List<OrderComesModel>)) as List<OrderComesModel>;
+            }
+                @if (orders != null)
+                {
+                    foreach (var orderComesModel in orders)
+                    {
+                        <tr class="info">
+                            <th scope="row">@orderComesModel.OrderType</th>
+                            <td>@orderComesModel.Id</td>
+                            @{ var amount = orderComesModel.Amount + orderComesModel.Currency; }
+                            <td>@amount</td>
+                            <td>@orderComesModel.PointOfDelivery</td>
+                        </tr>
+                    }
+                }*@
+                @*<tr class="info">
+                    <th scope="row">Выписан счет</th>
+                    <td>1221314343</td>
+                    <td>255 грн</td>
+                    <td>Одесса</td>
+                </tr>
+                <tr class="success">
+                    <th scope="row">Оплачен</th>
+                    <td>3242345654</td>
+                    <td>1230 грн</td>
+                    <td>Киев</td>
+                </tr>
+                <tr class="warning">
+                    <th scope="row">Отправлен</th>
+                    <td>5352554666</td>
+                    <td>4390 грн</td>
+                    <td>Херсон</td>
+                </tr>
+                <tr class="danger">
+                    <th scope="row">Отгружен</th>
+                    <td>6689792544</td>
+                    <td>12003 грн</td>
+                    <td>Ужгород</td>
+                </tr>*@
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

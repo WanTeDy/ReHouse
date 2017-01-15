@@ -1,0 +1,50 @@
+﻿@using ReHouse.FrontEnd.Helpers
+@using ReHouse.FrontEnd.Models
+
+<div class="forms-wrapper" style="position: relative;
+  margin-bottom: 0px !important;
+  display: inline-block;">
+
+    <div class="form-drop user content-mod medium" tabindex="-1" data-dropdown-content aria-hidden="true" id="user-profile-modal">
+
+        <div class="tabs tabs_default">
+
+            <li class="cabinet-title">Личный кабинет</li>
+            <ul class='horizontal'>
+
+                <li><a href="#tab-1">Профиль</a></li>
+                <li><a href="#tab-2">Мои заказы</a></li>
+                <li class="hidden"><a href="#tab-3">Мои бонусы</a></li>
+
+            </ul>
+
+            <li class="profile-close"> <button class="button-close"></button> </li>
+            <div class="tab-content" id='tab-1'>
+                @{
+                    var profileData = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+                    
+                        var profile = new ClientsDataModel
+                        {
+                            Name = profileData != null && !String.IsNullOrEmpty(profileData.Name) ? profileData.Name : "",
+                            SecondName = profileData != null && !String.IsNullOrEmpty(profileData.SecondName) ? profileData.SecondName : "",
+                            FatherName = profileData != null && !String.IsNullOrEmpty(profileData.FatherName) ? profileData.FatherName : "",
+                            Email = profileData != null && !String.IsNullOrEmpty(profileData.Email) ? profileData.Email : "",                            
+                        };
+                }
+                @Html.Partial("Partial/Profile/_profile-form", profile)
+            </div>
+            <div class="tab-content" id='tab-2'>
+                @Html.Partial("Partial/Profile/_orders-form")
+
+
+            </div>
+            <div class="tab-content" id='tab-3'>
+                @Html.Partial("Partial/Profile/_bonuses-profile")
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

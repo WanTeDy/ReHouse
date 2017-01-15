@@ -1,0 +1,115 @@
+﻿@using ITfamily.Utils.Brain.Models
+@using ITfamily.Utils.DataBase.ModelForUI
+<div class="clearfix" style="margin-top: 20px"></div>
+<div class="row-first">
+    <a href="#" class="stock hidden">
+        <div class="stock-label ribbon index-label pink">АКЦИЯ</div>
+        <div class="clearfix"></div>
+        <div class="stock-text">
+            <span class="when">в октябре</span>
+            <span class="percentage">-20%</span>
+            <span class="what">НА ВСЮ БЫТОВУЮ ТЕХНИКУ</span>
+        </div>
+        <img src="../images/stock-image.png" alt="" class="stock-img">
+    </a>
+    <div class="review">
+        <div class="review-label  ribbon index-label blue">Обзор</div>
+        @{
+            if (ViewBag != null && ViewBag.ProductsOverview != null)
+            {
+                var overview = ViewBag.ProductsOverview as List<BrainProductFullInfo>;
+                if (overview != null && overview.Count == 3)
+                {
+                    var i = 1;
+                    foreach (var product in overview)
+                    {
+                        <div class="review-item">
+                            <div class="review-block">
+                                <div class="clearfix"></div>
+                                <img src="@product.medium_image" alt="" class="review-image">
+                                <div class="review-time">@product.date_modified</div>
+                                <a href="@Url.Action("ReviewGood", "Catalog", new {@categoryId = product.categoryID, @productId = product.Id})" class="review-descript">Обзор @product.name</a>
+                            </div>
+                        </div>
+                        if (i != 3)
+                        {
+                            <div class="line-dashed"></div>
+                        }
+                        i++;
+                    }
+                    @*<div class="review-item">
+                        <div class="review-block">
+                            <div class="clearfix"></div>
+                            <img src="@overview[0].medium_image" alt="" class="review-image">
+                            <div class="review-time">@overview[0].date_modified</div>
+                            <a href="#" class="review-descript">Обзор @overview[0].name</a>
+                        </div>
+                    </div>
+                    <div class="line-dashed"></div>
+                    <div class="review-item">
+                        <div class="review-block">
+                            <div class="clearfix"></div>
+                            <img src="@overview[1].medium_image" alt="" class="review-image">
+                            <div class="review-time">@overview[1].date_modified</div>
+                            <a href="#" class="review-descript">Обзор @overview[1].name</a>
+                        </div>
+                    </div>*@
+                }
+            }
+        }
+
+    </div>
+</div>
+
+
+
+<div class="row-second">
+    @*<a href="#" class="info-stock hidden">К фотоапарату Nikon в подарок сумка и карта памяти!</a>*@
+    @{
+        if (ViewBag != null && ViewBag.ProductsBestsellers != null)
+        {
+            var sellers = ViewBag.ProductsBestsellers as List<BrainProductModel>;
+            if (sellers != null)
+            {
+                <div class="hits">
+                    <span class="hits-label ribbon index-label right pink">Хиты Продаж</span>
+                    <div class="clearfix"></div>
+                    @{ var index = 1; }
+                    @foreach (var product in sellers)
+                    {
+                        if (index == 1)
+                        {
+                            @:<div class="hits-item info">
+                        }
+                        else if (index == 2)
+                        {
+                            @:<div class="hits-item pink">
+                        }
+                        else if (index == 3)
+                        {
+                            @:<div class="hits-item green">
+                        }
+
+                        <div class="hits-block">
+                            <div class="hits-item-image">
+                                <img src="@product.MediumImage" alt="" align="middle">
+                            </div>
+                            <a href="@Url.Action("ReviewGood", "Catalog", new {@categoryId = product.ItfamilyCategoryID, @productId = product.Id})" class="hits-item-link">
+                                <div class="hits-item-name">
+                                    @product.name
+                                </div>
+                                @{ var uah = Math.Ceiling(product.PriceUahForClients * 100) / 100; }
+                                <div class="hits-item-price">@uah грн</div>
+                            </a>
+                        </div>
+                        @:</div>
+                        index++;
+                    }
+                </div>
+            }
+        }
+    }
+    <div class="clearfix"></div>
+
+</div>
+

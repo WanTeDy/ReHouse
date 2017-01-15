@@ -1,0 +1,18 @@
+﻿@using ITFamily.FrontEnd.Helpers
+@using ITFamily.FrontEnd.Models
+@model dynamic
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+
+<div class="nothing-found">
+
+    <h3 class="errorFound">
+        Произойшла внутренняя ошибка сервера.
+    </h3>
+    <h4>
+        @Html.HtmlText("Ошибка 500. <br/>Приносим свои извинения за причиненный неудобства.<br/> С ув. команда Itfamily.</b>")
+    </h4>
+</div>

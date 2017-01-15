@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{329A7D53-3A76-47E0-A2D5-A9C495A3D04B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReHouse.FrontEnd</RootNamespace>
+    <AssemblyName>ReHouse.FrontEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.0.1\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog.Web, Version=0.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Web.4.2.1\lib\net35\NLog.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid, Version=6.3.4.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.CSharp.HTTP.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=79219bf4e5ecaaca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.CSharp.HTTP.Client.3.0.0\lib\SendGrid.CSharp.HTTP.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.3.1.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.3.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGridMail, Version=6.3.4.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGridMail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Controllers\AuthorizeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Filters\MyAuthorizeAttribute.cs" />
+    <Compile Include="Filters\MyIdentity.cs" />
+    <Compile Include="Filters\MyUser.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ErrorHelpers.cs" />
+    <Compile Include="Helpers\PagingHelpers.cs" />
+    <Compile Include="Helpers\SessionHelpers.cs" />
+    <Compile Include="Helpers\TextOutHelpers.cs" />
+    <Compile Include="Helpers\UrlHelpers.cs" />
+    <Compile Include="Models\ClientsDataModel.cs" />
+    <Compile Include="Models\FeedbackModel.cs" />
+    <Compile Include="Models\ForVkModel.cs" />
+    <Compile Include="Models\HelperCatalog.cs" />
+    <Compile Include="Models\JournalModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\NothingFound.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\RecoveryPasswordModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\RestorePasswordModel.cs" />
+    <Compile Include="Models\RouteEnum.cs" />
+    <Compile Include="Models\SelecedCategory.cs" />
+    <Compile Include="Models\SessionModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\main.css" />
+    <Content Include="Content\main.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Bold.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-BoldItalic.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBold.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBoldItalic.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Italic.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Light.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-LightItalic.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Regular.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Semibold.svg" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-SemiboldItalic.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\helveticaneuecyr-black-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-blackitalic-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-bold-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-bolditalic-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-heavyitalic-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-italic-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-light-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-lightitalic-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-medium-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-mediumitaicl-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-roman-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-thin-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-thinitalic-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-ultralight-webfont.svg" />
+    <Content Include="fonts\helveticaneuecyr-ultralightitalic-webfont.svg" />
+    <Content Include="fonts\opensans\OpenSans-Bold.svg" />
+    <Content Include="fonts\opensans\OpenSans-BoldItalic.svg" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBold.svg" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBoldItalic.svg" />
+    <Content Include="fonts\opensans\OpenSans-Italic.svg" />
+    <Content Include="fonts\opensans\OpenSans-Light.svg" />
+    <Content Include="fonts\opensans\OpenSans-LightItalic.svg" />
+    <Content Include="fonts\opensans\OpenSans-Regular.svg" />
+    <Content Include="fonts\opensans\OpenSans-Semibold.svg" />
+    <Content Include="fonts\opensans\OpenSans-SemiboldItalic.svg" />
+    <Content Include="fonts\slick.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\main.css.map" />
+    <Content Include="images\accept-button-corp.png" />
+    <Content Include="images\accept-button.png" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\arrow prev.png" />
+    <Content Include="images\arrow-next.png" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\arrow_prev.png" />
+    <Content Include="images\balance-order-error.png" />
+    <Content Include="images\balance-order.png" />
+    <Content Include="images\basket-catalog.png" />
+    <Content Include="images\basket-corp.png" />
+    <Content Include="images\basket-image-ex.png" />
+    <Content Include="images\basket.png" />
+    <Content Include="images\bg copy.png" />
+    <Content Include="images\bg.png" />
+    <Content Include="images\blue-copy.png" />
+    <Content Include="images\blue.png" />
+    <Content Include="images\busket.png" />
+    <Content Include="images\button-buy-pressed.png" />
+    <Content Include="images\button-buy.png" />
+    <Content Include="images\button-close.png" />
+    <Content Include="images\button-hover.png" />
+    <Content Include="images\close-red.png" />
+    <Content Include="images\confirm-button.png" />
+    <Content Include="images\count-basket.png" />
+    <Content Include="images\down-arrow.png" />
+    <Content Include="images\Ellipse-8.png" />
+    <Content Include="images\facebook-button-bg.png" />
+    <Content Include="images\family-carousel.png" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\green.png" />
+    <Content Include="images\hit-one.png" />
+    <Content Include="images\hit-three.png" />
+    <Content Include="images\hit-two.png" />
+    <Content Include="images\Layer-56-copy.png" />
+    <Content Include="images\Layer-62.png" />
+    <Content Include="images\line.png" />
+    <Content Include="images\logo-blue.png" />
+    <Content Include="images\logo-corp.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\MergedLayers.png" />
+    <Content Include="images\nice-people-corp.png" />
+    <Content Include="images\nice-people.png" />
+    <Content Include="images\odnoclasniki.png" />
+    <Content Include="images\pre-header.png" />
+    <Content Include="images\proposal.png" />
+    <Content Include="images\reject-button-corp.png" />
+    <Content Include="images\reject-button-not-active.png" />
+    <Content Include="images\reject-button.png" />
+    <Content Include="images\review-item-image.png" />
+    <Content Include="images\review\U0101135.jpg" />
+    <Content Include="images\review\U0101135_2big.jpg" />
+    <Content Include="images\review\U0101135_2small.jpg" />
+    <Content Include="images\review\U0101135_3big.jpg" />
+    <Content Include="images\review\U0101135_3small.jpg" />
+    <Content Include="images\review\U0101135_4big.jpg" />
+    <Content Include="images\review\U0101135_4small.jpg" />
+    <Content Include="images\review\U0101135_5big.jpg" />
+    <Content Include="images\review\U0101135_5small.jpg" />
+    <Content Include="images\review\U0101135_6big.jpg" />
+    <Content Include="images\review\U0101135_6small.jpg" />
+    <Content Include="images\review\U0101135_7big.jpg" />
+    <Content Include="images\review\U0101135_7small.jpg" />
+    <Content Include="images\review\U0101135_8big.jpg" />
+    <Content Include="images\review\U0101135_8small.jpg" />
+    <Content Include="images\rose-corp.png" />
+    <Content Include="images\rose.png" />
+    <Content Include="images\shadow-facebook.png" />
+    <Content Include="images\shadow-google.png" />
+    <Content Include="images\shadow-odnoclasniki.png" />
+    <Content Include="images\shadow-vk.png" />
+    <Content Include="images\shadow.png" />
+    <Content Include="images\stock-image.png" />
+    <Content Include="images\tab-triangle.png" />
+    <Content Include="images\vk-button-bg.png" />
+    <Content Include="Scripts\ajaxFunc.js" />
+    <Content Include="Scripts\client\client.js" />
+    <Content Include="Scripts\coffee.js" />
+    <Content Include="Scripts\corp\corp.js" />
+    <Content Include="Scripts\fastclick.js" />
+    <Content Include="Scripts\foundation.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\modules.js" />
+    <Content Include="Scripts\modules.min.js" />
+    <Content Include="Scripts\vendor\hoverIntent.js" />
+    <Content Include="Scripts\vendor\jquery.cookie.min.js" />
+    <Content Include="Scripts\vendor\jquery.formstyler.min.js" />
+    <Content Include="Scripts\vendor\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\vendor\jquery.min.js" />
+    <Content Include="Scripts\vendor\jquery.navgoco.min.js" />
+    <Content Include="Scripts\vendor\jquery.tabslet.min.js" />
+    <Content Include="Scripts\vendor\jquery.tooltipster.min.js" />
+    <Content Include="Scripts\vendor\jquery.transit.js" />
+    <Content Include="Scripts\vendor\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\vendor\jquery.validate.min.js" />
+    <Content Include="Scripts\vendor\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\vendor\legacy.js" />
+    <Content Include="Scripts\vendor\modernizr.js" />
+    <Content Include="Scripts\vendor\moment.min.js" />
+    <Content Include="Scripts\vendor\picker.date.js" />
+    <Content Include="Scripts\vendor\picker.js" />
+    <Content Include="Scripts\vendor\respond.min.js" />
+    <Content Include="Scripts\vendor\rome.standalone.min.js" />
+    <Content Include="Scripts\vendor\ru.js" />
+    <Content Include="Scripts\vendor\ru_RU.js" />
+    <Content Include="Scripts\vendor\slick.js\slick\fonts\slick.svg" />
+    <Content Include="Scripts\vendor\slick.min.js" />
+    <Content Include="Scripts\vendor\superfish.js" />
+    <Content Include="Scripts\vendor\superfish.min.js" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Bold.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Bold.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Bold.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-BoldItalic.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-BoldItalic.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-BoldItalic.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBold.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBold.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBold.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBoldItalic.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBoldItalic.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-ExtraBoldItalic.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Italic.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Italic.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Italic.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Italic.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Light.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Light.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Light.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Light.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-LightItalic.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-LightItalic.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-LightItalic.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-LightItalic.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Regular.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Regular.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Regular.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Semibold.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Semibold.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Semibold.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-Semibold.woff2" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-SemiboldItalic.eot" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-SemiboldItalic.woff" />
+    <Content Include="fonts\fonts\OpenSans\OpenSans-SemiboldItalic.woff2" />
+    <Content Include="fonts\helveticaneuecyr-black-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-black-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-black-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-black-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-blackitalic-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-blackitalic-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-blackitalic-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-blackitalic-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-bold-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-bold-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-bold-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-bold-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-bolditalic-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-bolditalic-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-bolditalic-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-bolditalic-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-heavyitalic-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-heavyitalic-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-heavyitalic-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-heavyitalic-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-italic-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-italic-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-italic-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-italic-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-light-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-light-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-light-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-light-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-lightitalic-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-lightitalic-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-lightitalic-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-lightitalic-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-medium-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-medium-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-medium-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-medium-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-mediumitaicl-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-mediumitaicl-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-mediumitaicl-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-mediumitaicl-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-roman-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-roman-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-roman-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-roman-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-thin-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-thin-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-thin-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-thin-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-thinitalic-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-thinitalic-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-thinitalic-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-thinitalic-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-ultralight-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-ultralight-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-ultralight-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-ultralight-webfont.woff2" />
+    <Content Include="fonts\helveticaneuecyr-ultralightitalic-webfont.eot" />
+    <Content Include="fonts\helveticaneuecyr-ultralightitalic-webfont.ttf" />
+    <Content Include="fonts\helveticaneuecyr-ultralightitalic-webfont.woff" />
+    <Content Include="fonts\helveticaneuecyr-ultralightitalic-webfont.woff2" />
+    <Content Include="fonts\opensans\OpenSans-Bold.eot" />
+    <Content Include="fonts\opensans\OpenSans-Bold.ttf" />
+    <Content Include="fonts\opensans\OpenSans-Bold.woff" />
+    <Content Include="fonts\opensans\OpenSans-Bold.woff2" />
+    <Content Include="fonts\opensans\OpenSans-BoldItalic.eot" />
+    <Content Include="fonts\opensans\OpenSans-BoldItalic.ttf" />
+    <Content Include="fonts\opensans\OpenSans-BoldItalic.woff" />
+    <Content Include="fonts\opensans\OpenSans-BoldItalic.woff2" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBold.eot" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBold.ttf" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBold.woff" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBold.woff2" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBoldItalic.eot" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBoldItalic.woff" />
+    <Content Include="fonts\opensans\OpenSans-ExtraBoldItalic.woff2" />
+    <Content Include="fonts\opensans\OpenSans-Italic.eot" />
+    <Content Include="fonts\opensans\OpenSans-Italic.ttf" />
+    <Content Include="fonts\opensans\OpenSans-Italic.woff" />
+    <Content Include="fonts\opensans\OpenSans-Italic.woff2" />
+    <Content Include="fonts\opensans\OpenSans-Light.eot" />
+    <Content Include="fonts\opensans\OpenSans-Light.ttf" />
+    <Content Include="fonts\opensans\OpenSans-Light.woff" />
+    <Content Include="fonts\opensans\OpenSans-Light.woff2" />
+    <Content Include="fonts\opensans\OpenSans-LightItalic.eot" />
+    <Content Include="fonts\opensans\OpenSans-LightItalic.ttf" />
+    <Content Include="fonts\opensans\OpenSans-LightItalic.woff" />
+    <Content Include="fonts\opensans\OpenSans-LightItalic.woff2" />
+    <Content Include="fonts\opensans\OpenSans-Regular.eot" />
+    <Content Include="fonts\opensans\OpenSans-Regular.ttf" />
+    <Content Include="fonts\opensans\OpenSans-Regular.woff" />
+    <Content Include="fonts\opensans\OpenSans-Regular.woff2" />
+    <Content Include="fonts\opensans\OpenSans-Semibold.eot" />
+    <Content Include="fonts\opensans\OpenSans-Semibold.ttf" />
+    <Content Include="fonts\opensans\OpenSans-Semibold.woff" />
+    <Content Include="fonts\opensans\OpenSans-Semibold.woff2" />
+    <Content Include="fonts\opensans\OpenSans-SemiboldItalic.eot" />
+    <Content Include="fonts\opensans\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="fonts\opensans\OpenSans-SemiboldItalic.woff" />
+    <Content Include="fonts\opensans\OpenSans-SemiboldItalic.woff2" />
+    <Content Include="fonts\slick.eot" />
+    <Content Include="fonts\slick.ttf" />
+    <Content Include="fonts\slick.woff" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\InternalServerError.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\ServiceUnavailable.cshtml" />
+    <Content Include="Views\Authorize\RecoveryPassword.cshtml" />
+    <Content Include="Views\Authorize\RecoveryPasswordPartial.cshtml" />
+    <Content Include="Views\Authorize\RegisterCorporative.cshtml" />
+    <Content Include="Views\Authorize\RemindPassword.cshtml" />
+    <Content Include="Views\Authorize\RestorePasswordPartial.cshtml" />
+    <Content Include="Views\Authorize\VkCallback.cshtml" />
+    <Content Include="Views\Authorize\_RegisterCorporativePartial.cshtml" />
+    <Content Include="Views\Shared\PartialCorporative\ProductsCorporative.cshtml" />
+    <Content Include="Views\Shared\PartialCorporative\_cabinet-drop.cshtml" />
+    <Content Include="Views\Shared\PartialCorporative\_headerCorporative.cshtml" />
+    <Content Include="Views\Shared\PartialCorporative\_index-info-corp.cshtml" />
+    <Content Include="Views\Shared\PartialCorporative\_information-finance.cshtml" />
+    <Content Include="Views\Shared\PartialCorporative\_JournalPartner.cshtml" />
+    <Content Include="Views\Shared\Partial\Profile\_bonuses-profile.cshtml" />
+    <Content Include="Views\Shared\Partial\Profile\_JournalOrders.cshtml" />
+    <Content Include="Views\Shared\Partial\Profile\_orders-form.cshtml" />
+    <Content Include="Views\Shared\Partial\Profile\_profile-form.cshtml" />
+    <Content Include="Views\Shared\Partial\SideBar\_mainSidebarTemplate.cshtml" />
+    <Content Include="Views\Shared\Partial\SideBar\_popUpSidebarGeneration.cshtml" />
+    <Content Include="Views\Shared\Partial\SideBar\_subSideBar.cshtml" />
+    <Content Include="Views\Shared\Partial\_basket.cshtml" />
+    <Content Include="Views\Shared\Partial\_breadcrumbs.cshtml" />
+    <Content Include="Views\Shared\Partial\_catalogTemplate.cshtml" />
+    <Content Include="Views\Shared\Partial\_index.cshtml" />
+    <Content Include="Views\Shared\Partial\_ModalPopUp.cshtml" />
+    <Content Include="Views\Shared\Partial\_NothingFound.cshtml" />
+    <Content Include="Views\Shared\Partial\_OrderGoods.cshtml" />
+    <Content Include="Views\Shared\Partial\_tovar-proposal.cshtml" />
+    <Content Include="Views\Shared\Partial\_tovar-review-good.cshtml" />
+    <Content Include="Views\Shared\UnregisteredUsers\_loginDialogModal.cshtml" />
+    <Content Include="Views\Shared\UnregisteredUsers\_loginPartial.cshtml" />
+    <Content Include="Views\Shared\UnregisteredUsers\_preRegister.cshtml" />
+    <Content Include="Views\Shared\UnregisteredUsers\_registerDialogModal.cshtml" />
+    <Content Include="Views\Shared\UnregisteredUsers\_registerPartial.cshtml" />
+    <Content Include="Views\Shared\_carouselTemplate.cshtml" />
+    <Content Include="Views\Shared\_feedback.cshtml" />
+    <Content Include="Views\Shared\_FeedbackPartial.cshtml" />
+    <Content Include="Views\Shared\_footerTemplate.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Shared\_index-info.cshtml" />
+    <Content Include="Views\Shared\_LayoutCorporative.cshtml" />
+    <Content Include="Views\Shared\_text-page.cshtml" />
+    <Content Include="Views\Shared\_user-profile.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Roles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\vendor\slick.js\slick\fonts\slick.eot" />
+    <Content Include="Scripts\vendor\slick.js\slick\fonts\slick.ttf" />
+    <Content Include="Scripts\vendor\slick.js\slick\fonts\slick.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReHouse.Utils\ReHouse.Utils.csproj">
+      <Project>{e8256a0c-5f55-41e3-bc9a-a6658a396492}</Project>
+      <Name>ReHouse.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1307</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1307/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

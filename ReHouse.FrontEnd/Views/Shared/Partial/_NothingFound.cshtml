@@ -1,0 +1,15 @@
+﻿@using ITFamily.FrontEnd.Helpers
+@model ITFamily.FrontEnd.Models.NothingFound
+           
+@if (Model != null)
+{
+    <div class="nothing-found">
+
+        <h3 class="errorFound">
+            Извините ничего не найдено!!!
+        </h3>
+        <h4>
+            @Html.HtmlText(Model.Text)
+        </h4>
+    </div>
+}

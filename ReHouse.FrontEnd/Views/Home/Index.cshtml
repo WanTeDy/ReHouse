@@ -1,0 +1,25 @@
+﻿@using ReHouse.Utils
+@using ReHouse.FrontEnd.Helpers
+@using ReHouse.FrontEnd.Models
+@model ReHouse.FrontEnd.Models.HelperCatalog
+
+@{
+    var user = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+    var role = "";
+    if (user != null)
+    {
+        role = user.Role.Name;
+    }    
+}
+
+<div class="content-wrap">
+
+    @if (role != ConstV.RolePartner)
+    {
+        @Html.Partial("_carouselTemplate")
+    }
+    
+</div>
+
+
+

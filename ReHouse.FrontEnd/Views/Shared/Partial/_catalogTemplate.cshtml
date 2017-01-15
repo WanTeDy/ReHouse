@@ -1,0 +1,79 @@
+﻿@using ITFamily.FrontEnd.Helpers
+@model ITFamily.FrontEnd.Models.HelperCatalog
+
+        @if (Model != null)
+        {
+            <div class="catalog-list">
+                @foreach (var brainProducModel in Model.BrainProductModels)
+                {
+                    <div class="good-single">
+                        <div class="goodsImage">
+                            
+                            <img src="@brainProducModel.MediumImage" class="tooltip" title="@brainProducModel.name" alt="@brainProducModel.name"/>
+                        </div>
+                        <div class="goodsInfo">
+
+                            <a class="goodsName" target="_blank" href="@Url.Action("ReviewGood", "Catalog", new {@categoryId = brainProducModel.ItfamilyCategoryID, @productId = brainProducModel.Id})">@brainProducModel.name</a>
+                            <div class="goodsBrief_description">@brainProducModel.brief_description</div>
+
+                        </div>
+                        <div class="goodsPriceUahForClients">
+                            @{
+                                var r = Math.Ceiling(Math.Ceiling(brainProducModel.PriceUahForClients * 100) / 100);
+                                if (!brainProducModel.IsAv)
+                                {
+                                    <span>Нет в наличии</span>
+                                }
+                                else
+                                {
+                                    <span>@r грн </span>
+                                }
+                            }
+                            @*  для новых акционных или уменьшенных цен!!! если есть такие сверху span убрать
+                                эти вставить 
+                                <span class="new">@brainProducModel.PriceUahForClients грн </span>
+                                    <span class="previous">4044 грн </span>
+                            *@
+                        </div>
+                        <div class="goodsButtons">
+                            <div class="goodsAddToCard">
+                                @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Get, new { @class = "form-addToCard" }))
+                                {
+                                    var page = 1;
+                                    if (Session["page"] is int)
+                                    {
+                                        page = (int)Session["page"];
+                                    }
+                                    @Html.Hidden("categoryId", @brainProducModel.ItfamilyCategoryID)
+                                    @Html.Hidden("productId", @brainProducModel.Id)
+                                    @Html.Hidden("page", page)
+                                    @Html.Hidden("quantity", 1)
+                                    <button class="button button-cart tooltip" title="Добавить в корзину" alt="Добавить в корзину">
+                                        <i></i>
+                                    </button>
+                                }
+                              </div>
+                            <div class="goodsReviewId">
+                                @using (Html.BeginForm("ReviewGood", "Catalog", FormMethod.Get, new { @class = "form-ReviewGood", target = "_blank" }))
+                                {
+                                    @Html.Hidden("categoryId", @brainProducModel.ItfamilyCategoryID)
+                                    @Html.Hidden("productId", @brainProducModel.Id)
+                                    <button class="button button-review tooltip" title="Просмотреть" alt="Просмотреть">
+                                        <i class="fa fa-chevron-circle-right"></i>
+                                        @*@Html.ActionLink("", "ReviewGood", "Catalog", new { categoryId = @brainProducModel.categoryID }, new { @class = "fa fa-chevron-circle-right" })*@
+                                    </button>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        }
+        <div class="clearfix"></div>
+<div class="pagination">
+    @if (Model != null && Model.SelecedCategory != null && Model.SelecedCategory.CategoryId != 0 && Model.PagingInfo != null)
+    {
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("Products", "Catalog", new { categoryId = Model.SelecedCategory.CategoryId, page = x }))
+    }
+</div>

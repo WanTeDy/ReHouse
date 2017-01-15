@@ -1,0 +1,61 @@
+﻿@using ITfamily.Utils.Helpers
+@using ITfamily.Utils.WebApi.Facade
+@model ITFamily.FrontEnd.Models.SelectedCategory
+<div class="sidebar">
+    <a href="#" id="main-sidebar-button"><span class="catalog-title sub-catalog">КАТАЛОГ ТОВАРОВ  <i class=""></i></span></a>
+    <ul id="category-sidebar" class="nav">
+        @if (Model != null && Model.CategoryModel != null)
+        {
+            <li class="active">
+                @if (Model.CategoryModel.Categories != null && Model.CategoryModel.Categories.Any())
+                {
+                    <a href=""><p class="list-items">@Model.CategoryModel.name</p></a>
+                    <ul>
+                        @foreach (var c2 in Model.CategoryModel.Categories)
+                        {
+                            if (c2.IsActive)
+                            {
+                                @:<li class="active">
+                            }
+                            else
+                            {
+                                @:<li>
+                            }
+                            if (c2.Categories != null && c2.Categories.Any())
+                            {
+                                <a href="">@c2.name</a>
+                                <ul>
+                                    @foreach (var c3 in c2.Categories)
+                                    {
+                                        if (c3.IsActive)
+                                        {
+                                            @:<li class="active">
+                                        }
+                                        else
+                                        {
+                                            @:<li>
+                                        }
+                                        @Html.ActionLink(c3.name, "Products", "Catalog", new {categoryId = c3.categoryID}, new {})
+                                        @:</li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                @Html.ActionLink(c2.name, "Products", "Catalog", new {categoryId = c2.categoryID}, new {})
+                            }
+                            @:</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    @Html.ActionLink(Model.CategoryModel.name, "Products", "Catalog", new {categoryId = Model.CategoryModel.categoryID}, new {})
+                }
+
+            </li>
+        }
+    </ul>
+    <div class="clearfix"></div>
+
+</div>

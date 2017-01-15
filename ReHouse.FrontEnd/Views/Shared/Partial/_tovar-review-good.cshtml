@@ -1,0 +1,229 @@
+﻿@using ITfamily.Utils
+@using ITFamily.FrontEnd.Helpers
+@using ITFamily.FrontEnd.Models
+@model ITFamily.FrontEnd.Models.HelperCatalog
+
+<div class="row-review-first">
+    <div class="modal-show">
+        <div class="html-code grid-of-images">
+            <div class="popup-gallery">
+                @if (Model != null && Model.Product != null && Model.Product.Images != null)
+                {
+                    foreach (var image in Model.Product.Images)
+                    {
+                        <a href="@image.BigImage" title="">
+                            <img src="@image.SmallImage" width="75" height="75">
+                        </a>
+                    }
+                }
+                @*<a href="../images/review/U0101135_2big.jpg" title="Тут описание">
+                    <img src="../images/review/U0101135.jpg" width="75" height="75">
+                </a>
+
+                <a href="../images/review/U0101135_3big.jpg" title="Тут описание">
+                    <img src="../images/review/U0101135.jpg" width="75" height="75">
+                </a>
+                <a href="../images/review/U0101135_6big.jpg" title="Тут описание">
+                    <img src="../images/review/U0101135.jpg" width="75" height="75">
+                </a>
+                <a href="../images/review/U0101135_4big.jpg" title="Тут описание">
+                    <img  src="../images/review/U0101135.jpg" width="75" height="75">
+                </a>
+
+                <a href="../images/review/U0101135_4big.jpg" title="Тут описание">
+                    <img src="../images/review/U0101135.jpg" width="75" height="75">
+                </a>
+
+                <a href="../images/review/U0101135_3big.jpg" title="Тут описание">
+                    <img src="../images/review/U0101135.jpg" width="75" height="75">
+                </a>*@
+            </div>
+        </div>
+        <div class="main-img">
+            @if (Model != null && Model.Product != null)
+            {
+                <img src="@Model.Product.MediumImage" />
+            }
+        </div>
+    </div>
+    <div class="descript-form">
+        <div class="goodsName">
+            @if (Model != null && Model.Product != null)
+            {
+                @Model.Product.name
+            }
+            </div>
+        <div class="row">
+            <div class="goodsPriceUahForClients">
+                @if (Model != null && Model.Product != null)
+                {
+                    var user = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+                    //var uah = Math.Ceiling(Math.Ceiling(Model.Product.price_uah * 100) / 100);
+                    var price = "";
+                    if (user != null && !String.IsNullOrEmpty(user.RoleName))
+                    {
+                        if (user.RoleName == ConstV.RolePartner)
+                        {
+                            price = (Math.Ceiling(Model.Product.PriceUsdForPartner * 100) / 100) + " usd";
+                        }
+                        else if (user.RoleName == ConstV.RoleManager)
+                        {
+                            price = (Math.Ceiling(Model.Product.PriceUsdForManager * 100) / 100) + " usd";
+                        }
+                        else if (user.RoleName == ConstV.RoleAdministrator)
+                        {
+                            price = (Math.Ceiling(Model.Product.price * 100) / 100) + " usd";
+                        }
+                        else
+                        {
+                            price = Math.Ceiling(Math.Ceiling(Model.Product.PriceUahForClients * 100) / 100) + " грн";
+                        }
+                    }
+                    else
+                    {
+                        price = Math.Ceiling(Math.Ceiling(Model.Product.PriceUahForClients * 100) / 100) + " грн";
+                    }
+                    if (!Model.Product.IsAv)
+                    {
+                        <span>Нет в наличии</span>
+                    }
+                    else
+                    {
+                        <span>@price</span>
+                    }
+                }
+            </div>
+            @using (Html.BeginForm("BuyGood", "Cart", FormMethod.Get, new { @class = "form-buy" }))
+            {
+                if (Model != null && Model.Product != null)
+                {
+                    @Html.Hidden("productId", @Model.Product.productID)
+                    @Html.Hidden("categoryId", @Model.Product.ItfamilyCategoryID)
+                    var page = 1;
+                    if (Session["page"] is int)
+                    {
+                        page = (int)Session["page"];
+                    }
+                    @Html.Hidden("page", page)
+                    @Html.Hidden("quantity", 1)
+                }
+                <button class="button buy">Купить</button>
+                @*<a href="#" class="link-to-credit">Купить в кредит</a>*@
+            }
+        </div>
+    </div>
+</div>
+<div class="row-review-second">
+    <div class="first-line">
+
+        <div class="tabs tabs_default">
+
+            <ul class='horizontal'>
+                <li><a href="#tab-1">Характеристики</a></li>
+                @if (Model != null && Model.ProductFullInfo != null && !String.IsNullOrEmpty(Model.ProductFullInfo.description))
+                {
+                    <li><a href="#tab-2">Читать обзор</a></li>
+                }
+                <div class="sharify-line">
+                    <span> ПОДЕЛИТЬСЯ:</span>
+                    @{
+                        var href = "http://vk.com/share.php?url=" + HttpContext.Current.Request.Url;
+                        if (Model != null && Model.Product != null && !String.IsNullOrEmpty(Model.Product.MediumImage))
+                        {
+                            href += "&image=" + Model.Product.MediumImage;
+                        }
+                    }
+                    
+                    <button class="button socials" onclick="facebook()"><i class="fa fa-facebook"></i></button>
+
+                    <a class="button socials" href="@href" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                        <i class="fa fa-vk"></i>
+                    </a>
+                    <a class="button socials" href="https://plus.google.com/share?url=@Html.HtmlText(HttpContext.Current.Request.Url.ToString())" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                    @{
+                        var text = "Интернет магазин ITFamily.com.ua\n";
+                    }
+                    <a href="https://twitter.com/share?@Html.HtmlText(HttpContext.Current.Request.Url.ToString() + "&text=")@text" class="button socials" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </div>
+            </ul>
+
+
+            <div class="tab-content" id='tab-1' style="font: 600 14px/26px 'Open Sans';">
+                @if (Model != null && Model.ProductFullInfo != null && Model.ProductFullInfo.options != null)
+                {
+                    <div class="info-characterictics">
+                        @foreach (var specification in Model.ProductFullInfo.options)
+                        {
+                            <li class="row">
+                                <span class="row-item-first">@specification.name: </span>
+                                <span class="row-item-second">@specification.value</span>
+                            </li>
+                            <div class="clearfix"></div>
+                        }
+                    </div>
+                    @*<div class="row-first-desc">
+                        @foreach (var specification in Model.ProductFullInfo.options)
+                        {
+                            <li>@specification.name:</li>
+                        }
+                    </div>
+                    <div class="row-second-desc">
+                        @foreach (var specification in Model.ProductFullInfo.options)
+                        {
+                            <li>@specification.value</li>
+                        }
+                    </div>*@
+                }
+                <div class="clearfix"></div>
+                <div class="descript-item-brief">
+                    @if (Model != null && Model.ProductFullInfo != null && !String.IsNullOrEmpty(Model.ProductFullInfo.brief_description))
+                    {
+                        <span class="descript-title">Описание: </span> <br />
+                        @Html.HtmlText(Model.ProductFullInfo.brief_description)
+                    }
+                </div>
+            </div>
+            @if (Model != null && Model.ProductFullInfo != null && !String.IsNullOrEmpty(Model.ProductFullInfo.description))
+            {
+                <div class="tab-content" id='tab-2'>
+                    <div class="review-block">
+
+                        <div class="simple-text-header" style="font-weight: 400;">
+                            @Html.HtmlText(Model.ProductFullInfo.description)
+                        </div>
+                        @*<div class="simple-text">
+                                    Я бросил учебу в Reed college через полгода с момента поступления, но продолжал ходить на лекции и жить в студгородке еще 18 месяцев, пока не забросил это дело окончательно. Так почему я бросил учебу?
+
+                                    Эта история началась до моего рождения. Моя биологическая мать, молодая незамужняя аспирантка, решила отдать меня на усыновление. Ей очень хотелось, чтобы меня усыновили люди с высшим образованием. И все было готово для того, чтобы меня взяли на воспитание в семью некоего юриста. Но к моменту моего рождения юрист и его жена вдруг решили, что на самом деле им нужна девочка, а не мальчик. Так что моим будущим родителям, которые были следующими в очереди, позвонили среди ночи с вопросом: «У нас есть внеплановый ребенок. Мальчик. Возьмете его?» И они ответили «Конечно». Позже моя биологическая мать узнала, что моя реальная мать не заканчивала никакого колледжа, и что мой отец не закончил даже средней школы. Она отказалась подписать окончательные бумаги на усыновление. Лишь несколько месяцев спустя моим родителям удалось ее уговорить. Они пообещали, что обязательно отдадут меня в колледж. Так началась моя жизнь.
+                                </div>
+                                <div class="simple-text-header"> Second point sub header</div>
+
+                                <div class="simple-text">
+                                    17 лет спустя я пошел-таки в колледж. По наивности, я выбрал очень дорогой колледж – почти как Стенфорд – и все сбережения моих небогатых родителей уходили на оплату моей учебы. Через полгода я понял, что в учебе нет никакого смысла: я понятия не имел ни чем я хочу заниматься в жизни, ни как колледж поможет мне это понять. При этом на учебу я тратил все, что мои родители скопили за всю свою жизнь. Поэтому я решил бросить учебу и надеяться на то, что все как-нибудь образуется.
+                                </div>
+                                <div class="simple-text-header"> Third point sub header</div>
+
+                                <div class="simple-text">
+                                    Конечно, не все было гладко. У меня не было комнаты в общежитии, и ночевать приходилось на полу в комнатах друзей. Я сдавал бутылки из-под колы по 5 центов за штуку, чтобы покупать еду. Каждое воскресенье я ходил пешком по 7 миль через весь город, чтобы раз в неделю хорошо поесть у кришнаитов. Еда там была замечательная (В оригинале "I loved it"", парафраз знаменитого слогана McDonalds).
+                                </div>
+                                <div class="simple-text-header"> Fourth point sub header</div>
+
+                                <div class="simple-text">
+                                    Многое из того, что я открыл для себя в те времена, подчиняясь своему любопытству и интуиции, впоследствии оказалось бесценным. Приведу один пример. Reed college тогда предлагал лучшее в стране образование в области каллиграфии. Любой плакат, любая надпись на любом шкафчике в любом месте студенческого городка были замечательно выведены от руки по всем законам искусства каллиграфии. Я был отчислен, мне не нужно было посещать обычные занятия, и я решил изучать каллиграфию. Я узнал многое о гарнитурах шрифтов (serif, sans-serif), о варьировании расстояния между различными сочетаниями букв – обо всем, что делает великолепную типографику великолепной. В этих занятиях была какая-то красота, история, тонкость искусства, недоступная науке… меня это завораживало.
+                                </div>
+                                <div class="simple-text-header"> Fifth point sub header</div>
+
+                                <div class="simple-text">
+                                    Тогда мне казалось, что все это не имеет ни малейшего шанса на практическое применение. Но 10 лет спустя, когда мы разрабатывали первый Макинтош, все мои знания по каллиграфии вернулись ко мне – и пригодились. Макинтош стал первым компьютером с красивыми шрифтами. Если бы я не стал посещать эти занятия в колледже, в Маках не было бы возможности использовать разные гарнитуры, шрифты не были бы пропорциональными… А поскольку Windows – это всего лишь калька Макинтоша, с большой вероятностью этого не было бы ни у одного компьютера в мире. Итак, если бы я не бросил колледж и не пошел на курсы каллиграфии, у современных компьютеров, вероятно, не было бы тех замечательных шрифтов, которые есть у них сегодня.
+                                </div>*@
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@Html.Partial("Partial/_tovar-proposal")

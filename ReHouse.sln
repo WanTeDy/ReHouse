@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReHouse.FrontEnd", "ReHouse.FrontEnd\ReHouse.FrontEnd.csproj", "{329A7D53-3A76-47E0-A2D5-A9C495A3D04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReHouse.Utils", "ReHouse.Utils\ReHouse.Utils.csproj", "{E8256A0C-5F55-41E3-BC9A-A6658A396492}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{329A7D53-3A76-47E0-A2D5-A9C495A3D04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329A7D53-3A76-47E0-A2D5-A9C495A3D04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329A7D53-3A76-47E0-A2D5-A9C495A3D04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329A7D53-3A76-47E0-A2D5-A9C495A3D04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8256A0C-5F55-41E3-BC9A-A6658A396492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8256A0C-5F55-41E3-BC9A-A6658A396492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8256A0C-5F55-41E3-BC9A-A6658A396492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8256A0C-5F55-41E3-BC9A-A6658A396492}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,26 @@
+﻿@model ReHouse.FrontEnd.Models.FeedbackModel
+
+@using (Ajax.BeginForm("FeedbackPost", "Common", null, new AjaxOptions
+{
+    UpdateTargetId = "feedback",
+    OnSuccess = "FeedbackResponse"
+}, new { @Id = "feedback", @class = "form-main" }))
+{
+    <div class="label">Ваше имя</div>
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-main-input", @placeholder = "минимум 4 символа" })
+    <div class="label">Ваша почта</div>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-main-input", @placeholder = "минимум 4 символа" })
+    <div class="label">Сообщение</div>
+    @Html.TextAreaFor(x => x.Message, new { @class = "form-main-input", @placeholder = "минимум 25 символа", @style = "height:153px!important;" })
+    <div class="clearfix"></div>
+    <div class="error-text">
+        @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "" })
+        <div class="clearfix"></div>
+        @Html.ValidationMessageFor(x => x.Email, null, new { @class = "" })
+        <div class="clearfix"></div>
+        @Html.ValidationMessageFor(x => x.Message, null, new { @class = "" })
+        <div class="clearfix"></div>
+        @Html.ValidationMessage("Error", new { @class = "" })
+    </div>
+    <button class="button confirm-button">Отправить</button>
+}
