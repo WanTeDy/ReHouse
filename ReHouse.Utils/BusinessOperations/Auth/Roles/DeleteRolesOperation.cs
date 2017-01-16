@@ -9,9 +9,9 @@ namespace ReHouse.Utils.BusinessOperations.Auth.Roles
     public class DeleteRolesOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        private Role _role { get; set; }
-        public Int32 _roleId { get; set; }
-
+        private Int32 _roleId { get; set; }
+        public Role _role { get; set; }
+        
         public DeleteRolesOperation(string tokenHash, int roleId)
         {
             _tokenHash = tokenHash;

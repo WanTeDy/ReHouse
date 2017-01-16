@@ -1,27 +1,43 @@
 ﻿using System;
 using System.Linq;
-using ITfamily.Utils.Except;
+using ReHouse.Utils.Except;
+using ReHouse.Utils.DataBase.Security;
 
-namespace ITfamily.Utils.BusinessOperations.Auth
+namespace ReHouse.Utils.BusinessOperations.Auth
 {
     public class SetPasswordOperation : BaseOperation
     {
-        public String Password { get; set; }
-        public String TokenHash { get; set; }
-        public String Email { get; set; }
+        private String _password { get; set; }
+        private String _tokenHash { get; set; }
+        public User _user { get; set; }        
+
         public SetPasswordOperation(string password, string tokenHash)
         {
-            Password = password;
-            TokenHash = tokenHash;
+            _password = password;
+            _tokenHash = tokenHash;
         }
 
         protected override void InTransaction()
         {
-            var contr = Context.Contractors.FirstOrDefault(x => x.TokenHash == TokenHash && !x.Deleted && x.IsActive);
-            if (contr == null)
-                throw new ObjectNotFoundException("Данный " + TokenHash + " не найден");
-            contr.Password = Password;
-            Email = contr.Email;
+            var user = Context.Users.Include("Phones").Include("Role").FirstOrDefault(x => x.TokenHash == _tokenHash && !x.Deleted && x.IsActive);
+            if (user == null)
+                throw new ActionNotAllowedException("Данный " + _tokenHash + " не найден");
+            user.Password = _password;
+            _user = new User
+            {
+                FatherName = user.FatherName,
+                Email = user.Email,
+                SecondName = user.SecondName,
+                TokenHash = user.TokenHash,
+                FirstName = user.FirstName,
+                Id = user.Id,
+                IsActive = user.IsActive,
+                Phones = user.Phones,
+                Adress = user.Adress,
+                Login = user.Login,
+                RoleId = user.RoleId,
+                Role = user.Role,
+            };
             Context.SaveChanges();
         }
     }

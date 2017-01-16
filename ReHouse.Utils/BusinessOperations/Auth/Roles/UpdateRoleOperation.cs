@@ -10,7 +10,7 @@ namespace ReHouse.Utils.BusinessOperations.Auth.Roles
         private String _tokenHash { get; set; }
         private String _name { get; set; }
         private String _russianName { get; set; }
-        public Int32 _roleId { get; set; }
+        private Int32 _roleId { get; set; }
         public Role _role { get; set; }
 
 

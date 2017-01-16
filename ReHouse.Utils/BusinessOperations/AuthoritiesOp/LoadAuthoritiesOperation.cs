@@ -9,6 +9,7 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
     {
         private String _tokenHash { get; set; }
         public List<Authority> _authorities { get; set; }
+
         public LoadAuthoritiesOperation(string tokenHash)
         {
             _tokenHash = tokenHash;

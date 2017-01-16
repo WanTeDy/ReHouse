@@ -5,8 +5,9 @@ namespace ReHouse.Utils.BusinessOperations.Auth
 {
     public class CheckTokenForAccessOperation : BaseOperation
     {
-        public Boolean _access { get; set; }
         public String _tokenHash { get; set; }
+        public Boolean _access { get; set; }
+
         public CheckTokenForAccessOperation(string tokenHash)
         {
             _access = false;

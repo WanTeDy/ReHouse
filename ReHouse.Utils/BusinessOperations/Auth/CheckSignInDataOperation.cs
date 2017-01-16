@@ -10,10 +10,9 @@ namespace ReHouse.Utils.BusinessOperations.Auth
     {
         private String _login { get; set; }
         private String _password { get; set; }
-        public String _tokenHash { get; set; }
-        public Role _role { get; set; }
+        private String _tokenHash { get; set; }
+        private Role _role { get; set; }
         public User _user { get; set; }
-        public List<Authority> _authorities { get; set; }
 
         public CheckSignInDataOperation(string login, string password)
         {

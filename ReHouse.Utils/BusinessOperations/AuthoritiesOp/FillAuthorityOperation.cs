@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ReHouse.Utils.BusinessOperations.Auth.Roles;
+using ReHouse.Utils.BusinessOperations.Users;
 using ReHouse.Utils.DataBase.Security;
 
 namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
@@ -19,6 +20,11 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
                 new DeleteRolesOperation(null, 0),
                 new LoadDataRolesOperation(null),
                 new UpdateRoleOperation(null, 0, null, null),
+                new LoadUsersOperation(null),
+                new LoadUserOperation(null, 0),
+                new AddUserOperation(null, null, null, 0),
+                new DeleteUserOperation(0, null),
+                new UpdateUserOperation(null, null),
 
             };            
         }

@@ -8,14 +8,12 @@ namespace ReHouse.Utils.BusinessOperations.Users
 {
     public class AddUserOperation : BaseOperation
     {
-        public User _user { get; set; }
         private String _login { get; set; }
-        public String _email { get; set; }
+        private String _email { get; set; }
         private String _password { get; set; }
-        public Int32 _roleId { get; set; }
-        public String _tokenHash { get; set; }
-        public String _name { get; set; }
-        public Role _role { get; set; }
+        private Int32 _roleId { get; set; }
+        private String _tokenHash { get; set; }
+        public User _user { get; set; }
 
         public AddUserOperation(string login, string email, string password, int roleId)
         {
@@ -23,10 +21,12 @@ namespace ReHouse.Utils.BusinessOperations.Users
             _email = email;
             _password = password;
             _roleId = roleId;
+            RussianName = "Добавление нового пользователя";
         }
 
         protected override void InTransaction()
         {
+            var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             var role = Context.Roles.FirstOrDefault(x => x.Id == _roleId && !x.Deleted);
             if (role == null)
                 Errors.Add("RoleId", "Роль с Id= " + _roleId + " не найдена!");

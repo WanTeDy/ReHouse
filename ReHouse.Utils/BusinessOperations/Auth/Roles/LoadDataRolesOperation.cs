@@ -10,6 +10,7 @@ namespace ReHouse.Utils.BusinessOperations.Auth.Roles
     {
         private String _tokenHash { get; set; }
         public List<Role> _roles { get; set; }
+
         public LoadDataRolesOperation(string tokenHash)
         {
             _tokenHash = tokenHash;

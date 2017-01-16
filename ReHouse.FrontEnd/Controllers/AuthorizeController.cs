@@ -80,7 +80,7 @@ namespace ReHouse.FrontEnd.Controllers
                     var user = operation._user;
                     return SetSessionData(user);
                 }
-                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);                          
+                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
             }
             return PartialView("UnregisteredUsers/_registerPartial", model);
 
@@ -116,7 +116,7 @@ namespace ReHouse.FrontEnd.Controllers
                 }
             }
             else
-                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);            
+                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
             return PartialView(m);
         }
 
@@ -201,22 +201,22 @@ namespace ReHouse.FrontEnd.Controllers
         {
             if (m.Password == m.ConfirmPassword)
             {
-                //var pass = HashHelper.GetMd5Hash(m.Password);
-                //var res = AuthFacade.SetPassword(m.TokenHash, pass).Result;
-                //if (res != null && res.ErrorCode == (int)ErrorCodes.Success)
-                //{
-                //    ViewBag.Success = true;
-                //    return SetSessionData(res);
-                //}
-                //if (res != null)
-                //{
-                //    ViewBag.Error = res.ExceptionMessage;
-                //}
-                //check in session or from model
+                var pass = HashHelper.GetMd5Hash(m.Password);
+                var operation = new SetPasswordOperation(pass, m.TokenHash);
+                operation.ExcecuteTransaction();
+                if (operation.Success)
+                {
+                    var user = operation._user;
+                    ViewBag.Success = true;
+                    return SetSessionData(user);
+                }
+                else
+                    ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
             }
             else
             {
-                ViewBag.Success = true;
+                ModelState.AddModelError("Password", "Пароль не совпадают!");
+                ViewBag.Success = false;
             }
             return PartialView(m);
         }

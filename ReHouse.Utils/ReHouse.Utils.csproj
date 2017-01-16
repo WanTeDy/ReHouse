@@ -60,6 +60,7 @@
     <Compile Include="BusinessOperations\Auth\Roles\AddRoleOperation.cs" />
     <Compile Include="BusinessOperations\Auth\Roles\DeleteRolesOperation.cs" />
     <Compile Include="BusinessOperations\Auth\Roles\UpdateRoleOperation.cs" />
+    <Compile Include="BusinessOperations\Auth\SetPasswordOperation.cs" />
     <Compile Include="BusinessOperations\CheckUserRoleAuthorityOperation.cs" />
     <Compile Include="BusinessOperations\AuthoritiesOp\LoadAuthoritiesOperation.cs" />
     <Compile Include="BusinessOperations\Auth\CheckSignInDataOperation.cs" />
@@ -69,6 +70,10 @@
     <Compile Include="BusinessOperations\BaseOperation.cs" />
     <Compile Include="BusinessOperations\HashHelper.cs" />
     <Compile Include="BusinessOperations\Users\AddUserOperation.cs" />
+    <Compile Include="BusinessOperations\Users\DeleteUserOperation.cs" />
+    <Compile Include="BusinessOperations\Users\LoadUserOperation.cs" />
+    <Compile Include="BusinessOperations\Users\LoadUsersOperation.cs" />
+    <Compile Include="BusinessOperations\Users\UpdateUserOperation.cs" />
     <Compile Include="ConstV.cs" />
     <Compile Include="DataBase\AdvertParams\AdvertPropertyValue.cs" />
     <Compile Include="DataBase\AdvertParams\AdvertProperty.cs" />

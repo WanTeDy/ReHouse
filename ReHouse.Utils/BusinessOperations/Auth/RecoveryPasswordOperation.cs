@@ -7,8 +7,8 @@ namespace ReHouse.Utils.BusinessOperations.Auth
 {
     public class RecoveryPasswordOperation : BaseOperation
     {
-        public String _email { get; set; }
-        public String _tokenHash { get; set; }
+        private String _email { get; set; }
+        private String _tokenHash { get; set; }
         public User _user { get; set; }
 
         public RecoveryPasswordOperation(string email)
