@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Casper';
+    src: local('Casper'), url('casper.woff2') format('woff2'), url('casper.woff') format('woff'), url('casper.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Casper';
+    src: local('Casper Italic'), local('CasperItalic'), url('casperitalic.woff2') format('woff2'), url('casperitalic.woff') format('woff'), url('casperitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Casper';
+    src: local('Casper Bold'), local('CasperBold'), url('casperbold.woff2') format('woff2'), url('casperbold.woff') format('woff'), url('casperbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Casper';
+    src: local('Casper Bold Italic'), local('CasperBoldItalic'), url('casperbolditalic.woff2') format('woff2'), url('casperbolditalic.woff') format('woff'), url('casperbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}

@@ -1,148 +1,306 @@
-﻿@using System.ServiceModel
-@using ReHouse.FrontEnd.Helpers
+﻿@using ReHouse.FrontEnd.Helpers
 @using ReHouse.FrontEnd.Models
-@using Newtonsoft.Json
 
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/ico" href="~/Images/favicon.ico">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" type="image/ico" href="~/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @if (!String.IsNullOrEmpty(ViewBag.Title))
     {
         <title>@ViewBag.Title</title>
-        <meta property="og:title" content="@ViewBag.Title"/>
+        <meta property="og:title" content="@ViewBag.Title" />
         <meta name="twitter:title" content="@ViewBag.Title">
-        <meta itemprop="name" content="@ViewBag.Title"/>
-        <meta property="og:site_name" content="@ViewBag.Title"/>
+        <meta itemprop="name" content="@ViewBag.Title" />
+        <meta property="og:site_name" content="@ViewBag.Title" />
     }
     else
     {
-        <title>Интернет магазин ReHouse.com.ua</title>
-        <meta property="og:title" content="Интернет магазин ReHouse.com.ua"/>
-        <meta name="twitter:title" content="Интернет магазин ReHouse.com.ua">
-        <meta itemprop="name" content="Интернет магазин ReHouse.com.ua"/>
-        <meta property="og:site_name" content="Интернет магазин ReHouse.com.ua"/>
+        <title>Агенство недвижимости ReHouse.com.ua</title>
+        <meta property="og:title" content="Агенство недвижимости ReHouse.com.ua" />
+        <meta name="twitter:title" content="Агенство недвижимости ReHouse.com.ua">
+        <meta itemprop="name" content="Агенство недвижимости ReHouse.com.ua" />
+        <meta property="og:site_name" content="Агенство недвижимости ReHouse.com.ua" />
     }
-    <meta name="keywords" content="Интернет магазин ReHouse.com.ua"/>
+    <meta name="keywords" content="Агенство недвижимости ReHouse.com.ua" />
     @if (!String.IsNullOrEmpty(ViewBag.Description))
     {
-        <meta name="description" content="@ViewBag.Description"/>
-        <meta property="og:description" content="@ViewBag.Description"/>
-        <meta name="twitter:description" content="@ViewBag.Description"/>
-        <meta itemprop="description" content="@ViewBag.Description"/>
+        <meta name="description" content="@ViewBag.Description" />
+        <meta property="og:description" content="@ViewBag.Description" />
+        <meta name="twitter:description" content="@ViewBag.Description" />
+        <meta itemprop="description" content="@ViewBag.Description" />
     }
     @if (!String.IsNullOrEmpty(ViewBag.Image))
     {
-        <meta property="og:image" content="@ViewBag.Image"/>
-        <meta name="twitter:image:src" content="@ViewBag.Image"/>
-        <meta itemprop="image" content="@ViewBag.Image"/>
+        <meta property="og:image" content="@ViewBag.Image" />
+        <meta name="twitter:image:src" content="@ViewBag.Image" />
+        <meta itemprop="image" content="@ViewBag.Image" />
     }
 
 
-    @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/mainCss")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/styleCss")
+    @Scripts.Render("~/bundles/jcarouselLite")
+    <script type="text/javascript">
+        $(function () {
+            $('#slidebox').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".previous",
+                btnNext: ".next",
+                visible: 1,
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+                btnGo:
+        		[".1", ".2",
+        		".3", ".4"],
+
+                afterEnd: function (a, to, btnGo) {
+                    if (btnGo.length <= to) {
+                        to = 0;
+                    }
+                    $(".thumbActive").removeClass("thumbActive");
+                    $(btnGo[to]).addClass("thumbActive");
+                }
+            });
+        });
+    </script>
+    <!-- TO TOP -->
+    <script>
+
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 800);
+            });
+        });
+    </script>
 </head>
 <body>
-<div id="fb-root"></div>
-<script type="text/javascript">
-    function facebook() {
-        FB.ui({
-            method: 'share',
-            href: '@Html.HtmlText(HttpContext.Current.Request.Url.ToString())',
-        }, function(response) {});
-    };
+    <div class="container" id="container">
 
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4&appId=648864971916843";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
+        <div id="slidebox">
+            <div class="textinslider">
+                <div class="header">
 
-<div class="container">
-   
-    
-    @Html.Partial("Partial/_ModalPopUp")
+                    <div class="logo">
+                        <a href="#" id=""><img src="~/Content/images/logo.png"></a>
+                    </div>
 
-    @Html.Partial("_header")
-    <h5 class="testing-mode">
-        @Html.HtmlText("<span> Сайт работает в тестовом режиме, ведутся разработки, скоро открытие!</span> <b> С ув. команда ReHouse.</b>")
-    </h5>
+                    <div class="search">
+                        <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
+                    </div>
 
-    @if (Session != null && Session["user"] is SessionModel)
-    {
-        @Html.Partial("_user-profile")
-        <div class="clearfix"></div>
-    }
-    else
-    {
-        <div class="clearfix" style="margin-top: 30px"></div>
+                    <div class="contactinfo">
+                        <div class="tel">
+                            <div class="imgtel">
+                                <img src="~/Content/images/tel.png">
+                            </div>
+                            <div class="number">
+                                <p>+38063 000 0000</p>
+                                <p>+38063 000 0000</p>
+                            </div>
+                        </div>
+                        <div class="social">
+                            <a href="#" class="fb"></a>
+                            <a href="#" class="tw"></a>
+                            <a href="#" class="gmail"></a>
+                            <a href="#" class="vk"></a>
+                        </div>
+                    </div>
 
-    }
-    
-    <div class="content" style="min-height: 530px;">
+                    <div class="feedback">
+                        <a href="#" id="fav">Список желаний</a>
+                        <a href="feedback.html" id="blink">Обратный звонок</a>
+                    </div>
+
+                </div>
+
+                <div id="nav">
+                    <div class="navigation">
+                        <ol>
+                            <li>
+                                <a href="#" id="">Продажа</a>
+                                <ol>
+                                    <li><a href="#">Купить квартиру</a></li>
+                                    <li><a href="#">Купить дом</a></li>
+                                    <li><a href="#">Купить участок</a></li>
+                                    <li><a href="#">Купить коммерческую</a></li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#" id="">Аренда</a>
+                                <ol>
+                                    <li><a href="#">Снять квартиру</a></li>
+                                    <li><a href="#">Снять дом</a></li>
+                                    <li><a href="#">Снять участок</a></li>
+                                </ol>
+                            </li>
+                            <li><a href="#" id="">Новостройки</a></li>
+                            <li><a href="#" id="">Менеджеры</a></li>
+                            <li>
+                                <a href="#" id="">О нас</a>
+                                <ol>
+                                    <li><a href="#">О компании</a></li>
+                                    <li><a href="#">Вакансии агенства</a></li>
+                                </ol>
 
 
+                            </li>
+                            <li>
+                                @if (Session == null || Session["user"] == null)
+                                {
+                                    <a class="f" data-dropdown="login-modal" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+                                    <div class="forms-wrapper">
+                                        <div class="form-drop f-dropdown content-mod medium" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
+                                            <ol class="login">
+                                                <li>
+                                                    <div class="login">
+                                                        <div class="bodyform">
+                                                            @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Выйти", "LogOut", "Authorize")
+                                }
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="sell">
+                        <a href="#" id="">Хочу продать!</a>
+                    </div>
+                </div>
+
+                <div class="h1">
+                    <h1>REHOUSE</h1>
+                </div>
+
+
+                <div class="h2">
+                    <h2>Ваш дом - наш успех</h2>
+                </div>
+                <div class="knowmore">
+                    <a href="#" id="#">Узнать больше</a>
+                </div>
+            </div>
+            <div class="next"></div>
+            <div class="previous"></div>
+            <div class="thumbs">
+                <a href="#" onclick="" class="1 thumbActive" id="a"></a> <!-- ◯ -->
+                <a href="#" onclick="" class="2" id="b"></a> <!-- ◯ -->
+                <a href="#" onclick="" class="3" id="c"></a> <!-- ◯ -->
+                <a href="#" onclick="" class="4" id="d"></a> <!-- ◯ -->
+            </div>
+            <ul class="listofimg">
+                <li><img src="~/Content/images/1.jpg" width="1500px" height="613px"></li>
+                <li><img src="~/Content/images/2.jpg" width="1500px" height="613px"></li>
+                <li><img src="~/Content/images/3.jpg" width="1500px" height="613px"></li>
+                <li><img src="~/Content/images/4.jpg" width="1500px" height="613px"></li>
+            </ul>
+        </div>
         @RenderBody()
 
-
-
-
-
+        <div class="footer">
+            <div id="toTop"></div>
+            <div class="social">
+                <a href="#" class="fb"></a>
+                <a href="#" class="tw"></a>
+                <a href="#" class="gmail"></a>
+                <a href="#" class="vk"></a>
+            </div>
+            <div class="bottomnav">
+                <a href="#" class="">Новости</a>
+                <a href="#" class="">Контакты</a>
+                <a href="#" class="">Карта сайта</a>
+                <a href="#" class="">Отзывы</a>
+                <a href="#" class="">Правила</a>
+            </div>
+        </div>
     </div>
-    @{
-        var mainPage = ViewBag.MainPage as bool?;
-        //if(( HttpContext.Current.Request.Path.ToLower() == "/") || (HttpContext.Current.Request.Path.ToLower() == "/home") || (HttpContext.Current.Request.Path.ToLower() == "/home/") || (HttpContext.Current.Request.Path.ToLower() == "/home/index"))
-        //@if ((HttpContext.Current.Request.Path.ToLower() == "authorize/registercorporative") || (HttpContext.Current.Request.Path.ToLower() == "/authorize/registercorporative") || (HttpContext.Current.Request.Path.ToLower() == "/authorize/registercorporative/"))
-        var registCorporative = ViewBag.Corporative as bool?;
-    }
-    @if (mainPage.HasValue && mainPage.Value)
-    {
-        <div class="clearfix" style="margin-top: 30px"></div>
-        <div class="nice-people" style="margin-top: 150px; width: 555px; background-size: 555px;"></div>
-        @Html.Partial("_index-info")
-    }
 
-    @if (registCorporative.HasValue && registCorporative.Value)
-    {
-        <div class="clearfix" style="margin-top: 10px"></div>
-        <div class="nice-people-corp"></div>
-        @Html.Partial("PartialCorporative/_index-info-corp")
-    }
 
-    <div class="clearfix"></div>
-    <footer>
-        @Html.Partial("_footerTemplate")
-    </footer>
-</div>
-<input id="sidebar-cookie" type="hidden" value=""/>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/unob")
+    @*@Html.Partial("Partial/_ModalPopUp")
 
-@Scripts.Render("~/Scripts/vendorJs")
-@Scripts.Render("~/Scripts/foundation")
-@Scripts.Render("~/Scripts/indexJs")
+            @Html.Partial("_header")
+            <h5 class="testing-mode">
+                @Html.HtmlText("<span> Сайт работает в тестовом режиме, ведутся разработки, скоро открытие!</span> <b> С ув. команда ReHouse.</b>")
+            </h5>
 
-@Scripts.Render("~/Scripts/modulesJs")
+            @if (Session != null && Session["user"] is SessionModel)
+            {
+                @Html.Partial("_user-profile")
+                <div class="clearfix"></div>
+            }
+            else
+            {
+                <div class="clearfix" style="margin-top: 30px"></div>
 
-@if (Session != null && Session["user"] != null)
-{
+            }
 
-    @Scripts.Render(("~/Scripts/client"))
+            <div class="content" style="min-height: 530px;">
 
-}
-@RenderSection("scripts", required: false)
-<!-- Foundation -->
 
-<script type="text/javascript">
-    $(document).foundation();
-    $(document).foundation('dropdown', 'reflow');
-</script>
-@*@RenderSection("scripts", required: false)*@
+                @RenderBody()
+
+
+
+
+
+            </div>
+            @{
+                var mainPage = ViewBag.MainPage as bool?;
+                //if(( HttpContext.Current.Request.Path.ToLower() == "/") || (HttpContext.Current.Request.Path.ToLower() == "/home") || (HttpContext.Current.Request.Path.ToLower() == "/home/") || (HttpContext.Current.Request.Path.ToLower() == "/home/index"))
+                //@if ((HttpContext.Current.Request.Path.ToLower() == "authorize/registercorporative") || (HttpContext.Current.Request.Path.ToLower() == "/authorize/registercorporative") || (HttpContext.Current.Request.Path.ToLower() == "/authorize/registercorporative/"))
+                var registCorporative = ViewBag.Corporative as bool?;
+            }
+            @if (mainPage.HasValue && mainPage.Value)
+            {
+                <div class="clearfix" style="margin-top: 30px"></div>
+                <div class="nice-people" style="margin-top: 150px; width: 555px; background-size: 555px;"></div>
+                @Html.Partial("_index-info")
+            }
+
+            @if (registCorporative.HasValue && registCorporative.Value)
+            {
+                <div class="clearfix" style="margin-top: 10px"></div>
+                <div class="nice-people-corp"></div>
+                @Html.Partial("PartialCorporative/_index-info-corp")
+            }
+
+            <div class="clearfix"></div>
+            <footer>
+                @Html.Partial("_footerTemplate")
+            </footer>
+        </div>
+        <input id="sidebar-cookie" type="hidden" value="" />*@
+
+    @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/bundles/unob")
+    @Scripts.Render("~/Scripts/foundation")
+    @Scripts.Render("~/Scripts/vendorJs")
+    @Scripts.Render("~/Scripts/modulesJs")
+    <script type="text/javascript">
+        $(document).foundation();
+        $(document).foundation('dropdown', 'reflow');
+    </script>
 </body>
 </html>

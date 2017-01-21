@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 using ReHouse.Utils.DataBase.Security;
 
@@ -8,17 +8,16 @@ namespace ReHouse.Utils.BusinessOperations.Auth.Roles
     public class UpdateRoleOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        private String _name { get; set; }
         private String _russianName { get; set; }
+        private List<Authority> _authorities { get; set; }
         private Int32 _roleId { get; set; }
         public Role _role { get; set; }
 
 
-        public UpdateRoleOperation(string tokenHash, int roleId, string name, string russianName)
+        public UpdateRoleOperation(string tokenHash, int roleId, string russianName, List<Authority> authorities)
         {
             _tokenHash = tokenHash;
             _roleId = roleId;
-            _name = name;
             _russianName = russianName;
             RussianName = "Изменение роли";
         }
@@ -35,11 +34,12 @@ namespace ReHouse.Utils.BusinessOperations.Auth.Roles
             }
             else
             {
-                var role = Context.Roles.FirstOrDefault(x => x.RussianName == _russianName);
+                var role = Context.Roles.Include("Authorities").FirstOrDefault(x => x.RussianName == _russianName);
                 if (role != null)
                     Errors.Add("Name", "Такая роль уже существует!");
                 else
                 {
+                    role.Authorities = _authorities;
                     role.RussianName = _russianName;
                     Context.SaveChanges();
                 }

@@ -57,7 +57,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                     user.Email = _user.Email;
                 else
                     Errors.Add("Email", "Такой email уже сужествует.");
-            }   
+            }
             //TODO: Correct checking phones and roles. Noone can set admin role. Only 1 user admin can be admin         
             //if (user.Phone != _user.Phone)
             //{
@@ -66,6 +66,10 @@ namespace ReHouse.Utils.BusinessOperations.Users
             //        throw new ExistsObjectException("Такой телефон уже сужествует.");
             //    user.Phone = _user.Phone;
             //}
+            if(user.RoleId != _user.RoleId)
+            {
+
+            }
             //if (_user.RoleId != 0 && CommonAccess.CheckContractorRoleAuthorityBool(Context, _tokenHash, ConstV.ChangeRoles))
             //    x.RoleId = _user.RoleId;
             //if (CommonAccess.CheckContractorRoleAuthorityBool(Context, _tokenHash, ConstV.ChangeCreditLimit))

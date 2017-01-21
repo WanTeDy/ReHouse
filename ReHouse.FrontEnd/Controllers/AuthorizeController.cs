@@ -27,12 +27,12 @@ namespace ReHouse.FrontEnd.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Login([Bind(Include = "Email,Password")]LoginModel model)
+        public ActionResult Login([Bind(Include = "Login,Password")]LoginModel model)
         {
             if (ModelState.IsValid)
             {
                 var pass = HashHelper.GetMd5Hash(model.Password);
-                var operation = new CheckSignInDataOperation(model.Email, pass);
+                var operation = new CheckSignInDataOperation(model.Login, pass);
                 operation.ExcecuteTransaction();
                 if (operation.Success)
                 {

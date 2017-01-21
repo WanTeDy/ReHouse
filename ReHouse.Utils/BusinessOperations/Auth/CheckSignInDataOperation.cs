@@ -24,7 +24,7 @@ namespace ReHouse.Utils.BusinessOperations.Auth
         {
             var user = Context.Users.Include("Phones").FirstOrDefault(x => (x.Email == _login || x.Login == _login) && x.Password == _password && !x.Deleted && x.IsActive);
             if (user == null)
-                Errors.Add("Email", "Неправильный логин или пароль");
+                Errors.Add("Login", "Неправильный логин или пароль");
             else
             {
                 user.TokenHash = GenerateHash.GetSha1Hash(Guid.NewGuid() + user.Password + Guid.NewGuid() + user.Email);

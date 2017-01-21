@@ -8,17 +8,455 @@
     var role = "";
     if (user != null)
     {
-        role = user.Role.Name;
-    }    
+        role = user.Role.RussianName;
+    }
 }
 
-<div class="content-wrap">
+@Scripts.Render("~/bundles/jcarousel")
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('.d-carousel .carousel').jcarousel({
+            scroll: 1
+        });
+    });
+</script>
 
-    @if (role != ConstV.RolePartner)
-    {
-        @Html.Partial("_carouselTemplate")
-    }
-    
+<div class="slider-of-products">
+    <div class="d-carousel" id="p">
+        <h2>Горячие предложения</h2>
+        <ul class="carousel">
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 0000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+
+        </ul>
+        <a href="#" id="more">Подробнее</a>
+    </div>
+    <div class="streak"></div>
+
+    <div class="d-carousel" id="p">
+        <h2>Новостройки</h2>
+        <ul class="carousel">
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+
+        </ul>
+        <a href="#" id="more">Подробнее</a>
+    </div>
+    <div class="streak"></div>
+
+    <div class="d-carousel" id="p">
+        <h2>Продажа квартир</h2>
+        <ul class="carousel">
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+
+        </ul>
+        <a href="#" id="more">Подробнее</a>
+    </div>
+    <div class="streak"></div>
+
+    <div class="d-carousel" id="p">
+        <h2>Продажа домов и участков</h2>
+        <ul class="carousel">
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                <div class="min-content">
+                    <h3>1-к квартира</h3>
+                    <h4>Lorem ipsum dolor sitddddddddddddddddddddddddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd amet eter vestibulum eget nunc. </h4>
+                    <p class="cost">35 000 $</p>
+                    <a href="#" id="follow">❯</a>
+                </div>
+            </li>
+
+        </ul>
+        <a href="#" id="more">Подробнее</a>
+    </div>
+    <div class="streak"></div>
+</div>
+
+<div class="news">
+    <h2>Новости</h2>
+    <div class="firstnews">
+        <div class="img">
+            <img src="~/Content/images/news1.jpg">
+        </div>
+        <div class="content1">
+            <h3>Шикарные апартаменты в центре города</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conseq magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est lqui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore mamet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore m</p>
+            <h4>12.08.2016 в 17:43</h4>
+            <a href="#" id="more">Подробнее</a>
+        </div>
+    </div>
+    <div class="secondnews">
+        <div class="img">
+            <img src="~/Content/images/news2.jpg">
+        </div>
+        <div class="content2">
+            <h3>Обвал цен</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conseq magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est lqui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore mamet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore m</p>
+            <h4>28.06.2016 в 13:34</h4>
+            <a href="#" id="more">Подробнее</a>
+        </div>
+    </div>
+
+    <div class="morenews">
+        <a href="#" id="more">Все новости</a>
+    </div>
 </div>
 
 
