@@ -100,6 +100,17 @@
 
                     <div class="search">
                         <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
+                        
+                        @if (Session != null && Session["user"] is SessionModel)
+                        {
+                            var session = Session["user"] as SessionModel;
+
+                            <div class="your_name">
+                                <div><p>Ваш логин:</p></div>
+                                <div class="your_login"><p><a href="#" class="" id="#">@session.User.Login</a></p></div>
+                                <div class="logout"><p>@Html.ActionLink("Выйти", "LogOut", "Authorize")</p></div>
+                            </div>
+                        }
                     </div>
 
                     <div class="contactinfo">

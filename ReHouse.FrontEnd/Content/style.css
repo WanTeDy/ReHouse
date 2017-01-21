@@ -2,10 +2,7 @@
 	font-family: Casper;
 	src: url(fonts/casper/casper.woff);
 }
-.form-drop {
-  left: -9999px; 
-  position:absolute;
-}
+
 
 body {
 	margin:0; 
@@ -123,8 +120,47 @@ background-image: linear-gradient(to top, #0e2447 0%, #0e2447 13.5%, #163d7d 50%
 	font-size: 16px;
 	box-sizing: border-box;
 }
+.your_name {
+	width: 275px;
+	display: flex;
+	color: #ffffff;
+	font-family: Casper;
+	font-size: 12px;
+	margin-left: 533px;
+	margin-top: 39px;
+}
+.your_name a {
+	text-decoration:none; 
+	color: #ffffff;
+	font-family: Casper;
+	font-size: 12px;
+}
+.your_name a:hover {
+	color: gold;
+}
+.your_login {
+	margin-right: 10px;
+	margin-left: 4px;
+}
+.logout {
+	padding-left: 23px;
+	width: 103px;
+	position: relative;
+}
+.logout:before {
+	content: "";
+	display: block;
+	position: absolute;
+	background-image: url('images/logout.png');
+	background-repeat: no-repeat;
+	
+	left: 2px;
+	top: -6px;
+	width: 18px;
+	height: 18px;		
+}
 .contactinfo {
-	margin-left: 12px;
+	margin-left: 10px;
 	margin-top: 20px;
 	color: white;
 	font-family: "Casper";
@@ -346,9 +382,6 @@ margin-right: 5px;
 	-webkit-transition: .3s ease;
 	transition: .3s ease;
 }
-.navigation ol ol.login {
-    display:block;
-}
 #nav .sell {
 	margin-left: 118px;
 	margin-top: 33px;	
@@ -414,24 +447,13 @@ margin-right: 5px;
 	top: 0px;
 	left: 0px;
 }
-
-
-
-
-
 .d-carousel .redimg {
 	position: absolute;
 	z-index: 10000;
 	width: 70px;
 	height: 70px;
-	/*left: 183px;*/
 	margin-left: 180px;
 }
-
-
-
-
-
 .d-carousel {
 	margin-left: 181px;
 }
@@ -582,14 +604,6 @@ background-color: #ffffff;
 margin-top: 29px;
 margin-left: 84px;
 }
-
-/*.d-carousel .jcarousel-item-horizontal #p li {
-	background-image: url('images/redcorner.png');
-	background-position: top right;
-	z-index: 10000;
-
-}*/
-
 .news {
 	width: 1332px;
 }
@@ -791,9 +805,7 @@ margin-top: 22px;
 #toTop:hover {
 	background-image: url('images/totop_hover.png');
 	background-repeat: no-repeat;
-
 }
-
 .login-form {  
   width: 228px;
   margin: 0 auto;
@@ -865,13 +877,15 @@ margin-top: 22px;
 #forgotpas {
 	margin-left: 10px;
 }
-
 .errortext {
 	margin-top: 15px;
 	font-size: 14px;
 	color: red;
 }
-
-.erroremail, .errorpas {
+.form-drop {
+  left: -9999px; 
+  position:absolute;
+}
+.navigation ol ol.login, .erroremail, .errorpas {
     display:block;
 }

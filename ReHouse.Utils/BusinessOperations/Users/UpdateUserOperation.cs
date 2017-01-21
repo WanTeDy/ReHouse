@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.Except;
 
@@ -58,25 +59,53 @@ namespace ReHouse.Utils.BusinessOperations.Users
                 else
                     Errors.Add("Email", "Такой email уже сужествует.");
             }
-            //TODO: Correct checking phones and roles. Noone can set admin role. Only 1 user admin can be admin         
-            //if (user.Phone != _user.Phone)
-            //{
-            //    var otherPhone = Context.Contractors.FirstOrDefault(c => c.Phone == _user.Phone);
-            //    if (otherPhone != null)
-            //        throw new ExistsObjectException("Такой телефон уже сужествует.");
-            //    user.Phone = _user.Phone;
-            //}
-            if(user.RoleId != _user.RoleId)
+            //TODO: Correct checking phones.        
+            if (user.Phones.Count > 0)
             {
-
+                IEnumerable<Phone> newPhones = null;
+                foreach (var phone in _user.Phones)
+                {
+                    newPhones = user.Phones.Where(x => x.TelePhone != phone.TelePhone);
+                }
+                if (newPhones != null)
+                {
+                    bool exists = false;
+                    foreach (var phone in newPhones)
+                    {
+                        var searchPhone = Context.Phones.FirstOrDefault(x => x.TelePhone == phone.TelePhone && !x.Deleted);
+                        if (searchPhone != null)
+                            exists = true;
+                    }
+                    if(exists)
+                        Errors.Add("Phone", "Такой телефон уже существует");
+                    else
+                    {
+                        user.Phones = _user.Phones;
+                    }
+                }
             }
-            //if (_user.RoleId != 0 && CommonAccess.CheckContractorRoleAuthorityBool(Context, _tokenHash, ConstV.ChangeRoles))
-            //    x.RoleId = _user.RoleId;
-            //if (CommonAccess.CheckContractorRoleAuthorityBool(Context, _tokenHash, ConstV.ChangeCreditLimit))
-            //    x.CreditLimit = _user.CreditLimit;
-            //if (CommonAccess.CheckContractorRoleAuthorityBool(Context, _tokenHash, ConstV.IsActive))
-            //    x.IsActive = _user.IsActive;
-            //x.Password = _user.Password;
-        }        
+            //TODO: This must be the new operation named like UpdateRoleForUserOperation.   Noone can set admin role. Only 1 user admin can be admin  
+            //if (user.RoleId != _user.RoleId)
+            //{
+            //    if (user.Role.RussianName == ConstV.RoleAdministrator)
+            //    {
+            //        Errors.Add("Id", "Нельзя изменять пользователя с ролью администратора!");
+            //    }
+            //    else
+            //    {
+            //        var role = Context.Roles.FirstOrDefault(x => x.Id == _user.RoleId && !x.Deleted);
+            //        if (role == null)
+            //            Errors.Add("Id", "Выбраная роль не найдена. RoleId = " + _user.RoleId);
+            //        else if (role.RussianName == ConstV.RoleAdministrator)
+            //        {
+            //            Errors.Add("Id", "Нельзя больше иметь администраторов!");
+            //        }
+            //        else
+            //        {
+            //            user.RoleId = _user.RoleId;
+            //        }
+            //    }
+            //}
+        }
     }
 }

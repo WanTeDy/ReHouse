@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using ReHouse.Utils.DataBase.AdvertParams;
 
 namespace ReHouse.Utils.DataBase.Security
 {
@@ -39,6 +40,10 @@ namespace ReHouse.Utils.DataBase.Security
         /// </summary>
         public Int32 RoleId { get; set; }
         /// <summary>
+        /// Id user's Image
+        /// </summary>
+        public Int32 ImageId { get; set; }
+        /// <summary>
         /// TokenHash
         /// </summary>
         public String TokenHash { get; set; }
@@ -48,6 +53,7 @@ namespace ReHouse.Utils.DataBase.Security
         public Boolean IsActive { get; set; }   
              
         public virtual Role Role { get; set; }
+        public virtual Image Image { get; set; }
         public virtual List<Phone> Phones { get; set; }        
     }
 }

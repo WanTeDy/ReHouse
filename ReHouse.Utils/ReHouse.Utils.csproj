@@ -73,6 +73,7 @@
     <Compile Include="BusinessOperations\Users\DeleteUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\LoadUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\LoadUsersOperation.cs" />
+    <Compile Include="BusinessOperations\Users\UpdateRoleForUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\UpdateUserOperation.cs" />
     <Compile Include="ConstV.cs" />
     <Compile Include="DataBase\AdvertParams\AdvertPropertyValue.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="DataBase\DbReHouse.cs" />
     <Compile Include="DataBase\Geo\District.cs" />
     <Compile Include="DataBase\Geo\City.cs" />
+    <Compile Include="DataBase\News\Article.cs" />
     <Compile Include="DataBase\Security\Authority.cs" />
     <Compile Include="DataBase\Security\Phone.cs" />
     <Compile Include="DataBase\Security\Role.cs" />

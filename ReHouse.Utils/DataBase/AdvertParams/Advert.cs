@@ -58,5 +58,6 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         public virtual District District { get; set; }
         public virtual User User { get; set; }
         public virtual List<Image> Images { get; set; }
+        public virtual List<AdvertPropertyValue> AdvertPropertyValues { get; set; }
     }
 }

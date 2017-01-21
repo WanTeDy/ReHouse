@@ -5,6 +5,7 @@
 //using ReHouse.Utils.DataBase.ModelForUI;
 //using ReHouse.Utils.DataBase.OtherOurDataForDb;
 using ReHouse.Utils.DataBase.Geo;
+using ReHouse.Utils.DataBase.News;
 using ReHouse.Utils.DataBase.AdvertParams;
 using ReHouse.Utils.DataBase.Security;
 
@@ -13,7 +14,8 @@ namespace ReHouse.Utils.DataBase
     public class DbReHouse : DbContext
     {
         public DbReHouse()
-            :base("Local")
+        :base("Local")
+        //:base("smarterAsp")
         { }
     //    public DbSet<Feedback> Feedbacks { get; set; }
     //    public DbSet<UnitOfCommodity> UnitOfCommodities { get; set; }
@@ -29,6 +31,7 @@ namespace ReHouse.Utils.DataBase
         public DbSet<District> Districts { get; set; }
         public DbSet<PriceFilter> PriceFilters { get; set; }
         public DbSet<Image> Images { get; set; }        
+        public DbSet<Article> Articles { get; set; }        
         public DbSet<Category> Categories { get; set; }
         public DbSet<AdvertProperty> AdvertProperties { get; set; }
         public DbSet<AdvertPropertyValue> AdvertPropertyValues { get; set; }

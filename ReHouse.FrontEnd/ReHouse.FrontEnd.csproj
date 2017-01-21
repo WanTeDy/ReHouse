@@ -254,6 +254,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\logout.png" />
     <Content Include="Content\images\OSo6WLs.png" />
     <Content Include="Content\images\PhJdR34.png" />
     <Content Include="Content\reset.css" />
@@ -349,6 +350,7 @@
     <Content Include="Content\fonts\casper\casperitalic.ttf" />
     <Content Include="Content\fonts\casper\casperitalic.woff" />
     <Content Include="Content\fonts\casper\casperitalic.woff2" />
+    <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
