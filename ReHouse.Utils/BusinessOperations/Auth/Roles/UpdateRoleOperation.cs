@@ -25,7 +25,7 @@ namespace ReHouse.Utils.BusinessOperations.Auth.Roles
         protected override void InTransaction()
         {
             var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _role = Context.Roles.FirstOrDefault(x => x.Id == _roleId && !x.Deleted);
+            _role = Context.Roles.Include("Authorities").FirstOrDefault(x => x.Id == _roleId && !x.Deleted);
             if (_role == null)
                 Errors.Add("Id", "Выбраная роль не найдена. RoleId = " + _roleId);
             else if (_role.RussianName == ConstV.RoleAdministrator)
@@ -34,13 +34,12 @@ namespace ReHouse.Utils.BusinessOperations.Auth.Roles
             }
             else
             {
-                var role = Context.Roles.Include("Authorities").FirstOrDefault(x => x.RussianName == _russianName);
-                if (role != null)
+                if(_role.RussianName.ToLower() == _russianName.ToLower())
                     Errors.Add("Name", "Такая роль уже существует!");
                 else
                 {
-                    role.Authorities = _authorities;
-                    role.RussianName = _russianName;
+                    _role.Authorities = _authorities;
+                    _role.RussianName = _russianName;
                     Context.SaveChanges();
                 }
             }

@@ -9,6 +9,5 @@ namespace ReHouse.Utils.DataBase.Geo
         /// City's name in Russian
         /// </summary>       
         public String RussianName { get; set; }
-        public virtual List<District> Districts { get; set; }
     }
 }

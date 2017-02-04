@@ -32,12 +32,12 @@ namespace ReHouse.Utils.BusinessOperations.Users
                 Errors.Add("RoleId", "Роль с Id= " + _roleId + " не найдена!");
             else
             {
-                var userLogin = Context.Users.FirstOrDefault(x => !x.Deleted && x.Login == _login);
+                var userLogin = Context.Users.FirstOrDefault(x => !x.Deleted && x.Login.ToLower() == _login.ToLower());
                 if (userLogin != null)
                     Errors.Add("Name", "Пользователь с таким логином уже существует!");
                 else
                 {
-                    var userEmail = Context.Users.FirstOrDefault(x => !x.Deleted && x.Email == _email);
+                    var userEmail = Context.Users.FirstOrDefault(x => !x.Deleted && x.Email.ToLower() == _email.ToLower());
                     if (userEmail != null)
                         Errors.Add("Email", "Такой электронный адрес уже используется!");
                     else

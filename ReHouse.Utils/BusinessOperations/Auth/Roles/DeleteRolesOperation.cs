@@ -6,13 +6,13 @@ using ReHouse.Utils.DataBase.Security;
 
 namespace ReHouse.Utils.BusinessOperations.Auth.Roles
 {
-    public class DeleteRolesOperation : BaseOperation
+    public class DeleteRoleOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
         private Int32 _roleId { get; set; }
         public Role _role { get; set; }
         
-        public DeleteRolesOperation(string tokenHash, int roleId)
+        public DeleteRoleOperation(string tokenHash, int roleId)
         {
             _tokenHash = tokenHash;
             _roleId = roleId;

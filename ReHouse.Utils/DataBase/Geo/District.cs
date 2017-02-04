@@ -10,11 +10,8 @@ namespace ReHouse.Utils.DataBase.Geo
         /// District's name in Russian
         /// </summary>       
         public String RussianName { get; set; }
-        /// <summary>
-        /// City's id of this district
-        /// </summary>       
-        public Int32 CityId { get; set; }
-        public virtual City City { get; set; }
+
         public virtual List<Advert> Adverts { get; set; }
+        public virtual List<NewBuilding> NewBuildings { get; set; }
     }
 }

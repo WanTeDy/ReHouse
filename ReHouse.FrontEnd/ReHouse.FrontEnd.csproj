@@ -223,6 +223,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
+    <Compile Include="Controllers\NewBuildingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Filters\MyAuthorizeAttribute.cs" />
@@ -236,14 +237,18 @@
     <Compile Include="Helpers\SessionHelpers.cs" />
     <Compile Include="Helpers\TextOutHelpers.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
+    <Compile Include="Models\PageAndFilterModel.cs" />
+    <Compile Include="Models\BuilderModel.cs" />
     <Compile Include="Models\ClientsDataModel.cs" />
     <Compile Include="Models\FeedbackModel.cs" />
     <Compile Include="Models\ForVkModel.cs" />
     <Compile Include="Models\HelperCatalog.cs" />
     <Compile Include="Models\JournalModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\NewBuildingModel.cs" />
     <Compile Include="Models\NothingFound.cs" />
     <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\PhoneModel.cs" />
     <Compile Include="Models\RecoveryPasswordModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\RestorePasswordModel.cs" />
@@ -254,9 +259,29 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\altair1.jpg" />
+    <Content Include="Content\images\altair2.jpg" />
+    <Content Include="Content\images\altair3.jpg" />
+    <Content Include="Content\images\altair4.jpg" />
+    <Content Include="Content\images\arrow-next.png" />
+    <Content Include="Content\images\arrow-prev.png" />
+    <Content Include="Content\images\flat1.jpg" />
+    <Content Include="Content\images\flat2.jpg" />
+    <Content Include="Content\images\flat3.jpg" />
+    <Content Include="Content\images\flat3.png" />
+    <Content Include="Content\images\load.gif" />
     <Content Include="Content\images\logout.png" />
+    <Content Include="Content\images\newred.png" />
     <Content Include="Content\images\OSo6WLs.png" />
     <Content Include="Content\images\PhJdR34.png" />
+    <Content Include="Content\images\plan1.jpg" />
+    <Content Include="Content\images\plan2.jpg" />
+    <Content Include="Content\images\plan3.jpg" />
+    <Content Include="Content\images\plan4.jpg" />
+    <Content Include="Content\images\rehousemin.jpg" />
+    <Content Include="Content\images\select.png" />
+    <Content Include="Content\images\select_hover.png" />
+    <Content Include="Content\minslider.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style\images\bg.png" />
@@ -311,6 +336,7 @@
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jcarousel\js\jquery.jcarousel.js" />
     <Content Include="Scripts\jcarousel_lite\jcarousellite_1.0.1c5.js" />
+    <Content Include="Scripts\jquery.1.10.min.js" />
     <Content Include="Scripts\modules.js" />
     <Content Include="Scripts\modules.min.js" />
     <Content Include="Scripts\vendor\hoverIntent.js" />
@@ -352,6 +378,12 @@
     <Content Include="Content\fonts\casper\casperitalic.woff2" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\NewB\3.cshtml" />
+    <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
+    <Content Include="Views\NewBuilding\Add.cshtml" />
+    <None Include="Views\Shared\NewB\4.cshtml" />
+    <Content Include="Scripts\lazyload.js" />
+    <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -381,6 +413,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Roles.cshtml" />
     <Content Include="Views\Shared\UnregisteredUsers\_loginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdverts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

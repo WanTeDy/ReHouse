@@ -53,10 +53,6 @@ namespace ReHouse.Utils.BusinessOperations.Users
                     }
                 }
             }
-
-
-
-
         }
     }
 }

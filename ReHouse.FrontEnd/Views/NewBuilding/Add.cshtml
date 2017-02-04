@@ -1,0 +1,39 @@
+﻿@using ReHouse.FrontEnd.Models
+@model NewBuildingModel
+
+<div class="navigation_string">
+    <div class="way">
+        @Html.ActionLink("Главная", "Index", "Home")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink("Новостройки", "Index", "NewBuilding")
+    </div>
+</div>
+<h2>Новостройки</h2>
+@using (Html.BeginForm("Add", "NewBuilding"))
+{
+    @Html.EditorForModel();
+    <div id="items">
+        @Html.LabelFor(m => m.Builders[0].BuilderName)
+        @Html.EditorFor(m => m.Builders[0].BuilderName)
+        @Html.LabelFor(m => m.Builders[0].BuilderUrl)
+        @Html.EditorFor(m => m.Builders[0].BuilderUrl)
+    </div>
+    <p><a id="addLink" style="cursor:pointer">Добавить еще застройщика</a></p>
+    <input type="submit" />
+}
+@section Scripts {
+    <script>
+       $(function () {
+           var i = 0;
+           $('#addLink').click(function()
+           {
+               i++;
+               var html2Add=         
+                    "<input type='text' name='Builders["+i+"].BuilderName' /> <input type='text' name='Builders["+i+"].BuilderUrl' />";
+               $('#items').append(html2Add);
+           })
+       })
+    </script>
+}

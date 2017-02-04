@@ -38,11 +38,7 @@ namespace ReHouse.Utils.DataBase.Security
         /// <summary>
         /// Id user's Role
         /// </summary>
-        public Int32 RoleId { get; set; }
-        /// <summary>
-        /// Id user's Image
-        /// </summary>
-        public Int32 ImageId { get; set; }
+        public Int32 RoleId { get; set; }        
         /// <summary>
         /// TokenHash
         /// </summary>
@@ -53,7 +49,8 @@ namespace ReHouse.Utils.DataBase.Security
         public Boolean IsActive { get; set; }   
              
         public virtual Role Role { get; set; }
-        public virtual Image Image { get; set; }
+        public virtual List<Avatar> Avatars { get; set; }
         public virtual List<Phone> Phones { get; set; }        
+        public virtual List<NewBuilding> NewBuildings { get; set; }        
     }
 }

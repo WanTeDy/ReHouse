@@ -61,6 +61,7 @@
     <Compile Include="BusinessOperations\Auth\Roles\DeleteRolesOperation.cs" />
     <Compile Include="BusinessOperations\Auth\Roles\UpdateRoleOperation.cs" />
     <Compile Include="BusinessOperations\Auth\SetPasswordOperation.cs" />
+    <Compile Include="BusinessOperations\Building\LoadFiltersOperation.cs" />
     <Compile Include="BusinessOperations\CheckUserRoleAuthorityOperation.cs" />
     <Compile Include="BusinessOperations\AuthoritiesOp\LoadAuthoritiesOperation.cs" />
     <Compile Include="BusinessOperations\Auth\CheckSignInDataOperation.cs" />
@@ -69,6 +70,19 @@
     <Compile Include="BusinessOperations\Auth\Roles\LoadDataRolesOperation.cs" />
     <Compile Include="BusinessOperations\BaseOperation.cs" />
     <Compile Include="BusinessOperations\HashHelper.cs" />
+    <Compile Include="BusinessOperations\Building\AddNewBuildingOperation.cs" />
+    <Compile Include="BusinessOperations\Building\DeleteNewBuildingOperation.cs" />
+    <Compile Include="BusinessOperations\Building\LoadNewBuildingOperation.cs" />
+    <Compile Include="BusinessOperations\Building\LoadNewBuildingsOperation.cs" />
+    <Compile Include="BusinessOperations\Building\UpdateNewBuildingOperation.cs" />
+    <Compile Include="BusinessOperations\News\AddArticleOperation.cs" />
+    <Compile Include="BusinessOperations\News\DeleteArticleOperation.cs" />
+    <Compile Include="BusinessOperations\News\LoadArticlesOperation.cs" />
+    <Compile Include="BusinessOperations\News\UpdateArticleOperation.cs" />
+    <Compile Include="BusinessOperations\Titles\AddTitleOperation.cs" />
+    <Compile Include="BusinessOperations\Titles\DeleteTitleOperation.cs" />
+    <Compile Include="BusinessOperations\Titles\LoadTitlesOperation.cs" />
+    <Compile Include="BusinessOperations\Titles\UpdateTitleOperation.cs" />
     <Compile Include="BusinessOperations\Users\AddUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\DeleteUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\LoadUserOperation.cs" />
@@ -76,10 +90,14 @@
     <Compile Include="BusinessOperations\Users\UpdateRoleForUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\UpdateUserOperation.cs" />
     <Compile Include="ConstV.cs" />
+    <Compile Include="DataBase\AdvertParams\ExpluatationDate.cs" />
+    <Compile Include="DataBase\AdvertParams\Builder.cs" />
+    <Compile Include="DataBase\AdvertParams\NewBuilding.cs" />
     <Compile Include="DataBase\AdvertParams\AdvertPropertyValue.cs" />
     <Compile Include="DataBase\AdvertParams\AdvertProperty.cs" />
     <Compile Include="DataBase\AdvertParams\Category.cs" />
     <Compile Include="DataBase\AdvertParams\Image.cs" />
+    <Compile Include="DataBase\AdvertParams\PriceFilterNewBuilding.cs" />
     <Compile Include="DataBase\AdvertParams\PriceFilter.cs" />
     <Compile Include="DataBase\AdvertParams\Advert.cs" />
     <Compile Include="DataBase\AdvertParams\Title.cs" />
@@ -89,7 +107,9 @@
     <Compile Include="DataBase\Geo\City.cs" />
     <Compile Include="DataBase\News\Article.cs" />
     <Compile Include="DataBase\Security\Authority.cs" />
+    <Compile Include="DataBase\Security\Avatar.cs" />
     <Compile Include="DataBase\Security\Phone.cs" />
+    <Compile Include="DataBase\Security\Function.cs" />
     <Compile Include="DataBase\Security\Role.cs" />
     <Compile Include="DataBase\Security\User.cs" />
     <Compile Include="Except\ActionNotAllowedException.cs" />
@@ -107,6 +127,34 @@
     <Compile Include="Migrations\201701141604511_Migrate2.cs" />
     <Compile Include="Migrations\201701141604511_Migrate2.Designer.cs">
       <DependentUpon>201701141604511_Migrate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701231727184_ver3.4.cs" />
+    <Compile Include="Migrations\201701231727184_ver3.4.Designer.cs">
+      <DependentUpon>201701231727184_ver3.4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701251923319_newbuildings.cs" />
+    <Compile Include="Migrations\201701251923319_newbuildings.Designer.cs">
+      <DependentUpon>201701251923319_newbuildings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701262001109_vers.cs" />
+    <Compile Include="Migrations\201701262001109_vers.Designer.cs">
+      <DependentUpon>201701262001109_vers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702011805042_filters.cs" />
+    <Compile Include="Migrations\201702011805042_filters.Designer.cs">
+      <DependentUpon>201702011805042_filters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702011914357_filters2.cs" />
+    <Compile Include="Migrations\201702011914357_filters2.Designer.cs">
+      <DependentUpon>201702011914357_filters2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702011947356_filters3.cs" />
+    <Compile Include="Migrations\201702011947356_filters3.Designer.cs">
+      <DependentUpon>201702011947356_filters3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702022000469_filters5.cs" />
+    <Compile Include="Migrations\201702022000469_filters5.Designer.cs">
+      <DependentUpon>201702022000469_filters5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +174,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701141604511_Migrate2.resx">
       <DependentUpon>201701141604511_Migrate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701231727184_ver3.4.resx">
+      <DependentUpon>201701231727184_ver3.4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701251923319_newbuildings.resx">
+      <DependentUpon>201701251923319_newbuildings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701262001109_vers.resx">
+      <DependentUpon>201701262001109_vers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702011805042_filters.resx">
+      <DependentUpon>201702011805042_filters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702011914357_filters2.resx">
+      <DependentUpon>201702011914357_filters2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702011947356_filters3.resx">
+      <DependentUpon>201702011947356_filters3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702022000469_filters5.resx">
+      <DependentUpon>201702022000469_filters5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

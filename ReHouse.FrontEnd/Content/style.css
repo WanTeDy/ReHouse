@@ -356,6 +356,11 @@ margin-right: 5px;
 	margin:0;
 	padding:0
 }
+.bodyform form {
+	z-index: 10001;
+    position:relative;
+}
+
 .navigation ol li a:hover {
 	color: white;
 	-webkit-transition: .2s ease;
@@ -888,4 +893,378 @@ margin-top: 22px;
 }
 .navigation ol ol.login, .erroremail, .errorpas {
     display:block;
+}
+
+#loading-div {
+    display:none;
+}
+
+/*Second page novostroy*/
+
+
+.navigation_string {
+	width: 100%;
+	min-width: 1500px;
+	border-bottom: 1px solid #c6c95e;
+}
+.navigation_string .way {
+	display: flex;
+	flex-direction: row;
+	color: #bcbcbc;
+	font-size: 14px;
+	margin-top: 24px;
+	margin-left: 87px;
+	
+}
+.navigation_string .way a {	
+	color: #bcbcbc;
+	font-family: Casper;
+	font-size: 12px;
+	text-decoration: none;
+}
+.navigation_string .way a:hover {
+	color: gold;
+}
+
+.selection {
+	display: flex;
+	flex-direction: row;
+	width: 1055px;
+	justify-content: space-between;
+	margin-top: 32px;
+	margin-left: 225px;
+}
+.h2novostroy h2 {
+	color: white;
+	font-family: "Casper";
+	font-size: 24px;
+	font-weight: 700;	
+	text-transform: uppercase;
+	margin-left: 225px;
+	margin-top: 59px;
+}
+.h2prodsale h2 {
+	color: white;
+	font-family: "Casper";
+	font-size: 24px;
+	font-weight: 700;	
+	text-transform: uppercase;
+	margin-left: 225px;
+	/*margin-top: 59px;*/
+}
+select {
+	width: 199px;
+	height: 51px;
+	 -moz-appearance: none;
+  	appearance: none;
+    -webkit-appearance: none;
+	background: transparent;
+	background: url(images/select.png) no-repeat right;
+	color: #ffffff;
+	font-family: "Century Gothic";
+	font-size: 15px;
+	font-weight: 700;
+	/*text-transform: uppercase;*/
+	border-bottom: 1px solid white;
+	border-left: 1px solid white;
+	border-top: 1px solid white;
+	padding-left: 5px;
+}
+select option {
+	background-color: #163d7d;
+	color: #ffffff;
+	font-family: "Century Gothic";
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: none;
+}
+select:focus {
+	color: gold;
+	background: url(images/select_hover.png) no-repeat right;
+}
+select:hover {
+	color: gold;
+	background: url(images/select_hover.png) no-repeat right;
+	-webkit-transition: .5s ease;
+	transition: .5s ease;
+}
+.search-button {
+	width: 186px;	
+	color: #25406a;
+	font-family: "Century Gothic";
+	font-size: 15px;
+	font-weight: 700;
+	margin-top: 17.5px;
+}
+.search-button a {
+	padding: 14px 68px 13px 68px;
+	text-decoration: none;	
+	border: 1px solid white;
+	color: white;
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: 700;
+	/*background-color: rgba(15, 37, 71, 0.8);*/
+	background: transparent;	
+}
+.search-button a:hover {
+	background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
+    color: #25406a;
+    -webkit-transition: .5s ease;
+	transition: .5s ease;
+}
+
+.products {
+	margin-left: 225px;
+	margin-top: 18px;
+}
+.products .prods {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	position: relative;
+	width: 1100px;
+}
+.products .prods li {
+	margin-bottom: 50px;
+	margin-right: 20px;
+}
+.products .prods .redimg {
+	position: absolute;
+	z-index: 10000;
+	width: 70px;
+	height: 70px;
+	margin-left: 180px;
+}
+.products .prods h3 {
+	color: white;
+	font-family: "Casper";
+	font-size: 19px;
+	font-weight: 600;
+
+	margin-top: 10px;
+	margin-left: 69px;
+}
+.products .prods h4 {
+	margin: 11px 10px 0px 15px;
+	color: white;
+	font-family: Casper;
+	font-size: 12px;
+	width: 215px;
+	overflow: hidden;
+	text-align: center;
+}
+.products #more {
+	padding: 11px 443px 10px 443px;
+	
+	border-radius: 10px;
+	background: none;
+	border: 1px solid white;
+
+	color: white;
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: 700;
+	text-decoration: none;
+	
+}
+.products #more:hover {
+	background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
+	color: #213b64;
+    -webkit-transition: .5s ease;
+	transition: .5s ease;
+}
+.prods li img {
+	object-fit: cover;
+}
+#mapnovostroy { 
+	height: 495px;
+	width: 1065px;
+}
+#mapnovostroy iframe {
+	margin-left: 225px;
+	margin-top: 46px;
+}
+.seotext {
+	width: 1065px;
+	margin-left: 225px;
+	margin-top: 82px;
+	margin-bottom: 96px;
+}
+.seotext p {
+	color: #ffffff;
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 20px;
+	opacity: 0.6;
+	text-align: justify;
+}
+.seotext2 {
+	width: 1065px;
+	margin-left: 225px;
+	margin-top: 18px;
+	margin-bottom: 54px;
+}
+.seotext2 p {
+	color: #ffffff;
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 20px;
+	opacity: 0.6;
+	text-align: justify;
+}
+.table_of_prod table {
+	width: 1055px;
+	margin-left: 225px;
+	margin-top: 29px;
+	border: 1px solid white;
+	opacity: 0.8;
+	color: #ffffff;
+	font-family: "Century Gothic";
+	font-size: 24px;
+	font-weight: 700;
+}
+.table_of_prod table tr td {
+	border: 1px solid white;
+	padding: 6px 0px 6px 22px;
+}
+.planirovka {
+	width: 1055px;
+	margin-left: 225px;
+	margin-top: 29px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.planirovka img {
+	margin-bottom: 14px;
+}
+.video-youtube {
+	margin-left: 395px;
+	margin-top: 14px;
+}
+#mapnovostroy_prod { 
+	height: 495px;
+	width: 1065px;
+}
+#mapnovostroy_prod iframe {
+	margin-left: 225px;
+	margin-top: 14px;
+}
+
+.othernovostroy {
+	margin-top: 29px;
+	margin-left: 225px;
+	margin-bottom: 36px;
+}
+.othernovostroy .prods {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	position: relative;
+	width: 1100px;
+}
+.othernovostroy .prods li {
+	margin-bottom: 50px;
+	margin-right: 20px;
+}
+.othernovostroy .prods .redimg {
+	position: absolute;
+	z-index: 10000;
+	width: 70px;
+	height: 70px;
+	margin-left: 180px;
+}
+.othernovostroy .prods h3 {
+	color: white;
+	font-family: "Casper";
+	font-size: 19px;
+	font-weight: 600;
+
+	margin-top: 10px;
+	margin-left: 69px;
+}
+.othernovostroy .prods h4 {
+	margin: 11px 10px 0px 15px;
+	color: white;
+	font-family: Casper;
+	font-size: 12px;
+	width: 215px;
+	overflow: hidden;
+	text-align: center;
+}
+.prods li img {
+	object-fit: cover;
+}
+.sorting {
+	display: flex;
+	flex-direction: row;
+	width: 1065px;
+	justify-content: space-between;
+	margin-top: 54px;
+	margin-left: 232px;
+	margin-bottom: 65px;
+}
+.rooms {
+	width: 260px;	
+	color: #25406a;
+	font-family: "Century Gothic";
+	font-size: 15px;
+	font-weight: 700;
+	margin-top: 17.5px;
+}
+.rooms a {
+	padding: 14px 60px 13px 60px;
+	text-decoration: none;	
+	border: 1px solid white;
+	color: white;
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: 700;
+	background: transparent;	
+}
+.rooms a:hover {
+	background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
+	color: #25406a;
+    -webkit-transition: .5s ease;
+	transition: .5s ease;
+}
+
+.h2sale h2 {
+	color: white;
+	font-family: "Casper";
+	font-size: 24px;
+	font-weight: 700;	
+	text-transform: uppercase;
+	margin-bottom: 32px;
+}
+.seotext3 {
+	width: 1065px;
+	margin-left: 225px;
+	margin-top: 32px;
+	margin-bottom: 54px;
+}
+.seotext3 p {
+	color: #ffffff;
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 20px;
+	opacity: 0.6;
+	text-align: justify;
+}
+
+/*dirty hack*/
+.othernovostroy ul .data-item li .fix {
+	vertical-align: sub;
+	font-size: 0;
+}
+.products ul .data-item li .fix {
+	vertical-align: sub;
+	font-size: 0;
 }

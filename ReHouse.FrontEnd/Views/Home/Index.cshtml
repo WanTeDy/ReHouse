@@ -4,6 +4,10 @@
 @model ReHouse.FrontEnd.Models.HelperCatalog
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
     var user = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
     var role = "";
     if (user != null)

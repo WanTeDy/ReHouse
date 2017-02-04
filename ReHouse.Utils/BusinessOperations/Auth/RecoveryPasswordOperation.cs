@@ -18,7 +18,7 @@ namespace ReHouse.Utils.BusinessOperations.Auth
 
         protected override void InTransaction()
         {
-            var _user = Context.Users.FirstOrDefault(x => x.Email == _email && !x.Deleted && x.IsActive);
+            var _user = Context.Users.FirstOrDefault(x => x.Email.ToLower() == _email.ToLower() && !x.Deleted && x.IsActive);
             if (_user == null)
                 Errors.Add("Email", "Такого почтового адреса не существует!");
             else

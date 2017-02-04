@@ -9,6 +9,7 @@ namespace ReHouse.FrontEnd
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        //"~/Scripts/jquery.1.10.min.js"
                         "~/Scripts/vendor/jquery.min.js"
                         ));
             bundles.Add(new ScriptBundle("~/bundles/jcarouselLite").Include(
@@ -16,6 +17,10 @@ namespace ReHouse.FrontEnd
                         ));
             bundles.Add(new ScriptBundle("~/bundles/jcarousel").Include(
                         "~/Scripts/jcarousel/js/jquery.jcarousel.js"
+                        ));
+            bundles.Add(new ScriptBundle("~/bundles/lazyLoad").Include(
+                        "~/Scripts/lazyload.js"
+                        //"~/Scripts/jquery.1.10.min.js"
                         ));
             bundles.Add(new ScriptBundle("~/bundles/unob").Include(
                         "~/Scripts/vendor/jquery.unobtrusive-ajax.min.js"
@@ -27,14 +32,15 @@ namespace ReHouse.FrontEnd
 
             //// Use the development version of Modernizr to develop with and learn from. Then, when you're
             //// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/vendor/modernizr.js"
-                        ));
+            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+            //            "~/Scripts/vendor/modernizr.js"
+            //            ));
 
 
             bundles.Add(new StyleBundle("~/Content/styleCss").Include(
                      "~/Content/style.css",
-                     "~/Content/reset.css"));
+                     "~/Content/reset.css",
+                     "~/Content/minslider.css"));
             //bundles.Add(new StyleBundle("~/Content/vendorCss").Include(
             //         "~/Content/vendor/*.css"));
             bundles.Add(new ScriptBundle("~/Scripts/indexJs").Include(
@@ -44,22 +50,22 @@ namespace ReHouse.FrontEnd
             bundles.Add(new ScriptBundle("~/Scripts/modulesJs").Include(
                 "~/Scripts/modules.min.js"));
             bundles.Add(new ScriptBundle("~/Scripts/vendorJs").Include(
-                "~/Scripts/vendor/jquery.cookie.min.js",
-                "~/Scripts/vendor/jquery.navgoco.min.js",
-                "~/Scripts/vendor/slick.min.js",
-                "~/Scripts/vendor/hoverintent.js",
-                "~/Scripts/vendor/superfish.js",
-                "~/Scripts/vendor/respond.min.js",
+                //"~/Scripts/vendor/jquery.cookie.min.js",
+                //"~/Scripts/vendor/jquery.navgoco.min.js",
+                //"~/Scripts/vendor/slick.min.js",
+                //"~/Scripts/vendor/hoverintent.js",
+                //"~/Scripts/vendor/superfish.js",
+                //"~/Scripts/vendor/respond.min.js",
                 "~/Scripts/vendor/jquery.validate.min.js",
                 "~/Scripts/vendor/jquery.validate.unobtrusive.min.js",
 
-                "~/Scripts/vendor/jquery.tooltipster.min.js",
-                "~/Scripts/vendor/jquery.formstyler.min.js",
-                "~/Scripts/vendor/jquery.tabslet.min.js",
-                "~/Scripts/vendor/moment.min.js",
-                "~/Scripts/vendor/ru.js",
-                "~/Scripts/vendor/rome.standalone.min.js",
-                 "~/Scripts/vendor/jquery.magnific-popup.min.js"
+                "~/Scripts/vendor/jquery.tooltipster.min.js"
+                //"~/Scripts/vendor/jquery.formstyler.min.js",
+                //"~/Scripts/vendor/jquery.tabslet.min.js",
+                //"~/Scripts/vendor/moment.min.js",
+                //"~/Scripts/vendor/ru.js",
+                //"~/Scripts/vendor/rome.standalone.min.js",
+                // "~/Scripts/vendor/jquery.magnific-popup.min.js"
                 ));
             bundles.Add(new ScriptBundle("~/Scripts/jqueryval").Include(
                 "~/Scripts/vendor/jquery.validate.min.js",

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using ReHouse.Utils.BusinessOperations.Auth.Roles;
 using ReHouse.Utils.BusinessOperations.Users;
+using ReHouse.Utils.BusinessOperations.Titles;
+using ReHouse.Utils.BusinessOperations.News;
 using ReHouse.Utils.DataBase.Security;
 
 namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
@@ -17,7 +19,7 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
                 new LoadAuthoritiesOperation(null),
                 new LoadRolesWithAuthorityOperation(null),
                 new AddRoleOperation(null, null, null),
-                new DeleteRolesOperation(null, 0),
+                new DeleteRoleOperation(null, 0),
                 new LoadDataRolesOperation(null),
                 new UpdateRoleOperation(null, 0, null, null),
                 new LoadUsersOperation(null),
@@ -26,7 +28,12 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
                 new DeleteUserOperation(0, null),
                 new UpdateUserOperation(null, null),
                 new UpdateRoleForUserOperation(0, 0, null),
-
+                new UpdateTitleOperation(null, 0, null),
+                new AddTitleOperation(null, null),
+                new DeleteTitleOperation(null, 0),                
+                new UpdateArticleOperation(null, 0, null, null),
+                new AddArticleOperation(null, null, null),
+                new DeleteArticleOperation(null, 0),
 
             };            
         }
@@ -35,11 +42,11 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
         {
             var addAuthority = new List<Authority>();
             foreach (var baseOperation in BaseOperations)
-            {
+            {                
                 var authority = Context.Authorities.FirstOrDefault(x => x.NameBusinessOperation == baseOperation.Name);
                 if (authority == null)
                 {
-                    authority = Context.Authorities.FirstOrDefault(x => x.RussianNameOperation == baseOperation.RussianName);
+                    authority = Context.Authorities.FirstOrDefault(x => x.RussianNameOperation == baseOperation.RussianName);                    
                     if (authority != null)
                         authority.NameBusinessOperation = baseOperation.Name;
                     else
@@ -72,11 +79,12 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
                 {
                     var baseOp = BaseOperations.FirstOrDefault(x => x.Name == authority.NameBusinessOperation);
                     if (baseOp == null)
-                        //Context.Authorities.Remove(authority); Полное удаление
-                        authority.Deleted = true;
+                        Context.Authorities.Remove(authority); //Полное удаление
+                        //var opForDeleting = Context.Authorities.FirstOrDefault(x => x.NameBusinessOperation == authority.NameBusinessOperation);
+                        //opForDeleting.Deleted = true;
                 }
                 Context.SaveChanges();
             }
-        }
+        }       
     }
 }

@@ -22,7 +22,8 @@ namespace ReHouse.Utils.BusinessOperations.Auth
 
         protected override void InTransaction()
         {
-            var user = Context.Users.Include("Phones").FirstOrDefault(x => (x.Email == _login || x.Login == _login) && x.Password == _password && !x.Deleted && x.IsActive);
+            var user = Context.Users.Include("Phones").FirstOrDefault(x => (x.Email.ToLower() == _login.ToLower() 
+                || x.Login.ToLower() == _login.ToLower()) && x.Password == _password && !x.Deleted && x.IsActive);
             if (user == null)
                 Errors.Add("Login", "Неправильный логин или пароль");
             else

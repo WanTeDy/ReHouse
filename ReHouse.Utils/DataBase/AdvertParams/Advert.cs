@@ -32,10 +32,6 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// </summary>
         public Int32 Price { get; set; }
         /// <summary>
-        /// PriceFilter's id for this advert
-        /// </summary>
-        public Int32 PriceFilterId { get; set; }
-        /// <summary>
         /// Discription for this advert
         /// </summary>
         public String Description { get; set; }
@@ -43,6 +39,10 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// Expire date for this advert
         /// </summary>
         public DateTime ExpireDate { get; set; }
+        /// <summary>
+        /// Publication date for this advert
+        /// </summary>
+        public DateTime PublicationDate { get; set; }
         /// <summary>
         /// Url to YouTube for this advert
         /// </summary>
@@ -53,7 +53,6 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         public Boolean IsHot { get; set; }
 
         public virtual Category Category { get; set; }
-        public virtual PriceFilter PriceFilter { get; set; }
         public virtual Title Title { get; set; }
         public virtual District District { get; set; }
         public virtual User User { get; set; }

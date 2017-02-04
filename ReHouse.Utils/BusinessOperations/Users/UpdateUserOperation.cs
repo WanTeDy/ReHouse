@@ -51,7 +51,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
             user.FirstName = _user.FirstName;
             user.SecondName = _user.SecondName;
             user.FatherName = _user.FatherName;
-            if (user.Email != _user.Email)
+            if (user.Email.ToLower() != _user.Email.ToLower())
             {
                 var otherEmail = Context.Users.FirstOrDefault(x => x.Email == _user.Email);
                 if (otherEmail == null)
@@ -84,28 +84,6 @@ namespace ReHouse.Utils.BusinessOperations.Users
                     }
                 }
             }
-            //TODO: This must be the new operation named like UpdateRoleForUserOperation.   Noone can set admin role. Only 1 user admin can be admin  
-            //if (user.RoleId != _user.RoleId)
-            //{
-            //    if (user.Role.RussianName == ConstV.RoleAdministrator)
-            //    {
-            //        Errors.Add("Id", "Нельзя изменять пользователя с ролью администратора!");
-            //    }
-            //    else
-            //    {
-            //        var role = Context.Roles.FirstOrDefault(x => x.Id == _user.RoleId && !x.Deleted);
-            //        if (role == null)
-            //            Errors.Add("Id", "Выбраная роль не найдена. RoleId = " + _user.RoleId);
-            //        else if (role.RussianName == ConstV.RoleAdministrator)
-            //        {
-            //            Errors.Add("Id", "Нельзя больше иметь администраторов!");
-            //        }
-            //        else
-            //        {
-            //            user.RoleId = _user.RoleId;
-            //        }
-            //    }
-            //}
         }
     }
 }

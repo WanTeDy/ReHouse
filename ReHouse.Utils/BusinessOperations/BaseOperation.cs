@@ -13,7 +13,7 @@ namespace ReHouse.Utils.BusinessOperations
 
         public BaseOperation()
         {
-            Name = GetType().ToString();
+            Name = getShortName(GetType().ToString());
             Errors = new Dictionary<string, string>();
         }
 
@@ -68,6 +68,12 @@ namespace ReHouse.Utils.BusinessOperations
             //выполнение тр.
 
             CloseTransaction();
+        }
+        private static string getShortName(string str)
+        {
+            int start = str.LastIndexOf('.') + 1;
+            int end = str.LastIndexOf("Operation");
+            return str.Substring(start, end - start).ToLower();
         }
     }
 }

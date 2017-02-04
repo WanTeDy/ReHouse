@@ -4,11 +4,14 @@ using System.Collections.Generic;
 namespace ReHouse.Utils.DataBase.AdvertParams
 {
     public class PriceFilter : BaseObj
-    {      
+    {
         /// <summary>
-        /// Name of price filter in Russian
+        /// min price filter in Russian
         /// </summary>
-        public String RussianName { get; set; }        
-        public virtual List<Advert> Adverts { get; set; }
+        public Int32 Min { get; set; }
+        /// <summary>
+        /// max price filter in Russian
+        /// </summary>    
+        public Int32 Max { get; set; }
     }
 }

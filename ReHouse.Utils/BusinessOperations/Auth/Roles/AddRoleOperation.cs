@@ -23,7 +23,7 @@ namespace ReHouse.Utils.BusinessOperations.Auth.Roles
         protected override void InTransaction()
         {
             var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            var role = Context.Roles.FirstOrDefault(x => x.RussianName == _russianName);
+            var role = Context.Roles.FirstOrDefault(x => x.RussianName.ToLower() == _russianName.ToLower());
             if (role != null)
                 Errors.Add("Name", "Такая роль уже существует!");
             else
