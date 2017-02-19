@@ -1,4 +1,5 @@
 ﻿using System;
+using ReHouse.Utils.Helpers;
 using System.Collections.Generic;
 
 namespace ReHouse.Utils.DataBase.AdvertParams
@@ -13,5 +14,10 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// max price filter in Russian
         /// </summary>    
         public Int32 Max { get; set; }
+        /// <summary>
+        /// max price filter in Russian
+        /// </summary>    
+        public AdvertsType AdvertType { get; set; }
+
     }
 }

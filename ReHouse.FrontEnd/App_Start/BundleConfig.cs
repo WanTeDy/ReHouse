@@ -12,6 +12,10 @@ namespace ReHouse.FrontEnd
                         //"~/Scripts/jquery.1.10.min.js"
                         "~/Scripts/vendor/jquery.min.js"
                         ));
+            bundles.Add(new ScriptBundle("~/bundles/fancybox").Include(
+                        "~/Content/fancybox/jquery.easing.1.3.js",
+                        "~/Content/fancybox/jquery.fancybox-1.2.1.pack.js"
+                        ));
             bundles.Add(new ScriptBundle("~/bundles/jcarouselLite").Include(
                         "~/Scripts/jcarousel_lite/jcarousellite_1.0.1c5.js"
                         ));
@@ -21,6 +25,9 @@ namespace ReHouse.FrontEnd
             bundles.Add(new ScriptBundle("~/bundles/lazyLoad").Include(
                         "~/Scripts/lazyload.js"
                         //"~/Scripts/jquery.1.10.min.js"
+                        ));
+            bundles.Add(new ScriptBundle("~/bundles/slides").Include(
+                        "~/Scripts/slides.min.jquery.js"
                         ));
             bundles.Add(new ScriptBundle("~/bundles/unob").Include(
                         "~/Scripts/vendor/jquery.unobtrusive-ajax.min.js"
@@ -40,7 +47,9 @@ namespace ReHouse.FrontEnd
             bundles.Add(new StyleBundle("~/Content/styleCss").Include(
                      "~/Content/style.css",
                      "~/Content/reset.css",
-                     "~/Content/minslider.css"));
+                     "~/Content/minslider.css",
+                     "~/Content/fancybox/jquery.fancybox.css"
+                     ));
             //bundles.Add(new StyleBundle("~/Content/vendorCss").Include(
             //         "~/Content/vendor/*.css"));
             bundles.Add(new ScriptBundle("~/Scripts/indexJs").Include(

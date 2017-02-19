@@ -19,8 +19,7 @@ var lazyload = lazyload || {};
         var districtID = $('#district').val(),
             price = $('#price').val(),
             builderId = $('#builder').val(),
-            expluatationId = $('#date').val();
-        var url = "./NewBuilding/Index/";
+            expluatationId = $('#date').val();        
         if (search) {
             page = 1;
         } else {
@@ -46,7 +45,7 @@ var lazyload = lazyload || {};
             success: function (response) {
                 if (response.noElements) {
                     $(buttonId).fadeOut();
-                    $(loadingId).text("");
+                    $(loadingId).hide();
                     if (page == 1) {
                         $('#data-container').html("По вашему запросу не были найдены объявления");
                     }

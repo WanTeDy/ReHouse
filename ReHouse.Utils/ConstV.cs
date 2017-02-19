@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-//using ReHouse.Utils.DataBase.AuxiliaryData;
+using ReHouse.Utils.Helpers;
 //using ReHouse.Utils.DataBase.ModelForUI;
 //using ReHouse.Utils.DataBase.PriceRules;
 
@@ -72,16 +72,7 @@ namespace ReHouse.Utils
         //    {FromWhatProvider.All, "Все поставщки"},
         //    //{FromWhatProvider.Provider2, "От 2 Поставщика"},            
         //};
-        //public static readonly Dictionary<OrderOutType, String> OrderOutTypeToString = new Dictionary<OrderOutType, string>
-        //{
-        //    {OrderOutType.All, "Все"},
-        //    {OrderOutType.New, "Черновик"},
-        //    {OrderOutType.invoice, "Счет invoice"},
-        //    {OrderOutType.ordered, "Отгрузка"},
-        //    {OrderOutType.prepaid, "Отгрузка по предоплате"},
-        //    {OrderOutType.quotation, "Счет quotation"},
-        //    {OrderOutType.reserved, "Бронь"},
-        //};
+        
         //public static readonly Dictionary<String, OrderOutType> OrderOutTypeFromString = new Dictionary<string, OrderOutType>
         //{
         //    //{"Все", OrderOutType.All},

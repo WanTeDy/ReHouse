@@ -1,0 +1,28 @@
+﻿@using ReHouse.Utils.DataBase.AdvertParams
+@model List<Advert>
+
+@if (Model.Count > 0)
+{
+    foreach (var item in Model)
+    {
+        <div class="data-item">
+            <li>
+                @if (item.IsHot)
+                {
+                    <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                }
+                else
+                {
+                    <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                }                
+                <a href="#" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                <div class="min-content">
+                    <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                    <h4>@item.Description</h4>
+                    <p class="cost">@item.Price $</p>
+                    <a href="~/sale/detail/@item.Id" id="follow">❯</a>
+                </div>
+            </li>
+        </div>
+    }
+}

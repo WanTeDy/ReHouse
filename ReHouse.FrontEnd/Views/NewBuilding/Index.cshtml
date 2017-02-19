@@ -1,12 +1,13 @@
-﻿@using ReHouse.Utils.DataBase.AdvertParams
-@model List<NewBuilding>
+﻿@using ReHouse.FrontEnd.Models
+@model LoadNewBuildingsModel
+
 <div class="navigation_string">
     <div class="way">
-        @Html.ActionLink("Главная", "Index", "Home")
+        @Html.ActionLink("Главная", "index", "home")
         <pre> </pre>
         <p>/</p>
         <pre> </pre>
-        @Html.ActionLink("Новостройки", "Index", "NewBuilding")
+        @Html.ActionLink("Новостройки", "index", "newbuilding")
     </div>
 </div>
 <div class="h2novostroy"><h2>Новостройки</h2></div>
@@ -14,7 +15,7 @@
     <div class="region">
         <select id="district">
             <option selected value="0">Выбрать район</option>
-            @foreach (var district in ViewBag.Districts)
+            @foreach (var district in Model.Districts)
             {
                 <option value="@district.Id">@district.RussianName</option>
             }
@@ -23,20 +24,20 @@
 
     <div class="_cost">
         <select id="price">
-            <option selected value="0">Цена за кв. м</option>
-            @for (int i = 0; i < ViewBag.Prices.Count; i++)
+            <option selected value="0">Цена за м²</option>
+            @for (int i = 0; i < Model.Prices.Count; i++)
             {
                 if (i == 0)
                 {
-                    <option value="@ViewBag.Prices[i].Id">до @ViewBag.Prices[i].Max грн</option>
+                    <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн</option>
                 }
-                else if (i == ViewBag.Prices.Count - 1)
+                else if (i == Model.Prices.Count - 1)
                 {
-                    <option value="@ViewBag.Prices[i].Id">выше @ViewBag.Prices[i].Min грн</option>
+                    <option value="@Model.Prices[i].Id">выше @Model.Prices[i].Min грн</option>
                 }
                 else
                 {
-                    <option value="@ViewBag.Prices[i].Id">@ViewBag.Prices[i].Min-@ViewBag.Prices[i].Max грн</option>
+                    <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн</option>
                 }
             }
         </select>
@@ -45,7 +46,7 @@
     <div class="ck">
         <select id="builder">
             <option selected value="0">Выбрать по CK</option>
-            @foreach (var builder in ViewBag.Builders)
+            @foreach (var builder in Model.Builders)
             {
                 <option value="@builder.Id">@builder.Name</option>
             }
@@ -55,7 +56,7 @@
     <div class="timeofready">
         <select id="date">
             <option selected value="0">Cрок сдачи</option>
-            @foreach (var date in ViewBag.ExpluatationDates)
+            @foreach (var date in Model.ExpluatationDates)
             {
                 <option value="@date.Id">@date.Name</option>
             }
@@ -71,14 +72,13 @@
 {
     <div class="products">
         <ul class="prods" id="data-container">
-            @Html.Partial("NewB/_listOfNewBuildings", Model);
+            @Html.Partial("NewB/_listOfNewBuildings", Model.NewBuildings);
         </ul>
         <div id="button-more" onclick="lazyload.load()">
             <a id="more">Больше объявлений</a>
         </div>
     </div>
     <div id="loading-div">
-        <p><img style="filter:hue-rotate(-25deg)" src="~/Content/images/load.gif" /></p>
     </div>
 }
 <div id="mapnovostroy">
@@ -90,9 +90,9 @@
 
 <script>
     var search = false;
-
+    var url = "./NewBuilding/Index/";
     $('#search').click(function () {
-        search = true;
+        search = true;        
         lazyload.load();
     });
 </script>

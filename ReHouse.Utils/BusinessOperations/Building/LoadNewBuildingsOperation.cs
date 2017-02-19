@@ -38,7 +38,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
             }
             if (_priceId != 0)
             {
-                var priceFilter = Context.PriceFilterNewBuildings.FirstOrDefault(x => !x.Deleted && x.Id == _priceId);
+                var priceFilter = Context.PriceFilters.FirstOrDefault(x => !x.Deleted && x.Id == _priceId && x.AdvertType == Helpers.AdvertsType.NewBuilding);
                 if (priceFilter != null)
                 {
                     tempList = tempList.Where(x => x.Price >= priceFilter.Min && x.Price < priceFilter.Max).ToList();

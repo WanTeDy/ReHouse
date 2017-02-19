@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.DataBase.Geo;
+using ReHouse.Utils.Helpers;
 
 namespace ReHouse.Utils.DataBase.AdvertParams
 {
@@ -23,6 +24,14 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// District's id for this advert
         /// </summary>
         public Int32 DistrictId { get; set; }
+        /// <summary>
+        /// TrimCondition's id for this advert
+        /// </summary>
+        public Int32? TrimConditionId { get; set; }
+        /// <summary>
+        /// MarketType's id for this advert
+        /// </summary>
+        public Int32 MarketTypeId { get; set; }
         /// <summary>
         /// Street for this advert
         /// </summary>
@@ -51,10 +60,16 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// Is this advert marked "HOT"
         /// </summary>
         public Boolean IsHot { get; set; }
+        /// <summary>
+        /// Type of this advert
+        /// </summary>
+        public AdvertsType Type { get; set; }
 
         public virtual Category Category { get; set; }
+        public virtual MarketType MarketType { get; set; }
         public virtual Title Title { get; set; }
         public virtual District District { get; set; }
+        public virtual TrimCondition TrimCondition { get; set; }
         public virtual User User { get; set; }
         public virtual List<Image> Images { get; set; }
         public virtual List<AdvertPropertyValue> AdvertPropertyValues { get; set; }

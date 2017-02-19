@@ -8,8 +8,13 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// <summary>
         /// Property's name in Russian
         /// </summary>     
-        public String RussianName { get; set; }        
-                
+        public String RussianName { get; set; }
+
+        /// <summary>
+        /// Property's priority in the list
+        /// </summary>     
+        public Int32 Priority { get; set; }
+
         public virtual List<Category> Categories { get; set; }        
         public virtual List<AdvertPropertyValue> AdvertPropertyValues { get; set; }
     }

@@ -27,13 +27,15 @@ namespace ReHouse.Utils.DataBase
         public DbSet<Builder> Builders { get; set; }
         public DbSet<NewBuilding> NewBuildings { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<MarketType> MarketTypes { get; set; }
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Advert> Adverts { get; set; }
         public DbSet<Title> Titles { get; set; }    
         public DbSet<Role> Roles { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<District> Districts { get; set; }
-        public DbSet<PriceFilterNewBuilding> PriceFilterNewBuildings { get; set; }
+        public DbSet<TrimCondition> TrimConditions { get; set; }
+        //public DbSet<PriceFilterNewBuilding> PriceFilterNewBuildings { get; set; }
         public DbSet<PriceFilter> PriceFilters { get; set; }
         public DbSet<Image> Images { get; set; }        
         public DbSet<Avatar> Avatars { get; set; }        

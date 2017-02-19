@@ -61,7 +61,12 @@
     <Compile Include="BusinessOperations\Auth\Roles\DeleteRolesOperation.cs" />
     <Compile Include="BusinessOperations\Auth\Roles\UpdateRoleOperation.cs" />
     <Compile Include="BusinessOperations\Auth\SetPasswordOperation.cs" />
-    <Compile Include="BusinessOperations\Building\LoadFiltersOperation.cs" />
+    <Compile Include="BusinessOperations\Flat\AddFlatOperation.cs" />
+    <Compile Include="BusinessOperations\Flat\DeleteFlatOperation.cs" />
+    <Compile Include="BusinessOperations\Filters\LoadFiltersOperation.cs" />
+    <Compile Include="BusinessOperations\Flat\LoadFlatOperation.cs" />
+    <Compile Include="BusinessOperations\Flat\LoadFlatsOperation.cs" />
+    <Compile Include="BusinessOperations\Flat\UpdateFlatOperation.cs" />
     <Compile Include="BusinessOperations\CheckUserRoleAuthorityOperation.cs" />
     <Compile Include="BusinessOperations\AuthoritiesOp\LoadAuthoritiesOperation.cs" />
     <Compile Include="BusinessOperations\Auth\CheckSignInDataOperation.cs" />
@@ -97,9 +102,9 @@
     <Compile Include="DataBase\AdvertParams\AdvertProperty.cs" />
     <Compile Include="DataBase\AdvertParams\Category.cs" />
     <Compile Include="DataBase\AdvertParams\Image.cs" />
-    <Compile Include="DataBase\AdvertParams\PriceFilterNewBuilding.cs" />
     <Compile Include="DataBase\AdvertParams\PriceFilter.cs" />
     <Compile Include="DataBase\AdvertParams\Advert.cs" />
+    <Compile Include="DataBase\AdvertParams\MarketType.cs" />
     <Compile Include="DataBase\AdvertParams\Title.cs" />
     <Compile Include="DataBase\BaseObj.cs" />
     <Compile Include="DataBase\DbReHouse.cs" />
@@ -114,7 +119,10 @@
     <Compile Include="DataBase\Security\User.cs" />
     <Compile Include="Except\ActionNotAllowedException.cs" />
     <Compile Include="Except\ReHouseException.cs" />
+    <Compile Include="Helpers\ParrentCategories.cs" />
+    <Compile Include="Helpers\AdvertsType.cs" />
     <Compile Include="Helpers\GenerateHash.cs" />
+    <Compile Include="DataBase\AdvertParams\TrimCondition.cs" />
     <Compile Include="Internet.cs" />
     <Compile Include="Migrations\201701111238155_InitialCreate.cs" />
     <Compile Include="Migrations\201701111238155_InitialCreate.Designer.cs">
@@ -156,6 +164,26 @@
     <Compile Include="Migrations\201702022000469_filters5.Designer.cs">
       <DependentUpon>201702022000469_filters5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702132112025_sale-controller.cs" />
+    <Compile Include="Migrations\201702132112025_sale-controller.Designer.cs">
+      <DependentUpon>201702132112025_sale-controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702151759275_trim.cs" />
+    <Compile Include="Migrations\201702151759275_trim.Designer.cs">
+      <DependentUpon>201702151759275_trim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702191724132_advert_prop.cs" />
+    <Compile Include="Migrations\201702191724132_advert_prop.Designer.cs">
+      <DependentUpon>201702191724132_advert_prop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702191755161_advert_markettype.cs" />
+    <Compile Include="Migrations\201702191755161_advert_markettype.Designer.cs">
+      <DependentUpon>201702191755161_advert_markettype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702191758404_advert_markettype1.cs" />
+    <Compile Include="Migrations\201702191758404_advert_markettype1.Designer.cs">
+      <DependentUpon>201702191758404_advert_markettype1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -195,6 +223,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702022000469_filters5.resx">
       <DependentUpon>201702022000469_filters5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702132112025_sale-controller.resx">
+      <DependentUpon>201702132112025_sale-controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702151759275_trim.resx">
+      <DependentUpon>201702151759275_trim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702191724132_advert_prop.resx">
+      <DependentUpon>201702191724132_advert_prop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702191755161_advert_markettype.resx">
+      <DependentUpon>201702191755161_advert_markettype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702191758404_advert_markettype1.resx">
+      <DependentUpon>201702191758404_advert_markettype1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

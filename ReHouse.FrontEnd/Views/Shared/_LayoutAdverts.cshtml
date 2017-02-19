@@ -38,11 +38,8 @@
         <meta name="twitter:image:src" content="@ViewBag.Image" />
         <meta itemprop="image" content="@ViewBag.Image" />
     }
-
-
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/styleCss")
-    @Scripts.Render("~/bundles/lazyLoad")
     
     <!-- TO TOP -->
     <script>
@@ -68,7 +65,8 @@
         <div class="header">
 
             <div class="logo">
-                <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png"></a>
+                <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="300"></a>
+                <p class="textlogo">Международная риэлторская инвестиционная компания</p>
             </div>
 
             <div class="search">
@@ -81,7 +79,7 @@
                     <div class="your_name">
                         <div><p>Ваш логин:</p></div>
                         <div class="your_login"><p><a href="#" class="" id="#">@session.User.Login</a></p></div>
-                        <div class="logout"><p>@Html.ActionLink("Выйти", "LogOut", "Authorize")</p></div>
+                        <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
                     </div>
                 }
             </div>
@@ -115,12 +113,12 @@
             <div class="navigation">
                 <ol>
                     <li>
-                        <a href="#" id="">Продажа</a>
+                        <a id="">Продажа</a>
                         <ol>
-                            <li><a href="#">Купить квартиру</a></li>
-                            <li><a href="#">Купить дом</a></li>
-                            <li><a href="#">Купить участок</a></li>
-                            <li><a href="#">Купить коммерческую</a></li>
+                            <li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
+                            <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
+                            <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
+                            <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>
                         </ol>
                     </li>
                     <li>
@@ -131,7 +129,7 @@
                             <li><a href="#">Снять участок</a></li>
                         </ol>
                     </li>
-                    <li>@Html.ActionLink("Новостройки", "Index", "NewBuilding")</li>
+                    <li>@Html.ActionLink("Новостройки", "index", "newbuilding")</li>
                     <li><a href="#" id="">Менеджеры</a></li>
                     <li>
                         <a href="#" id="">О нас</a>
@@ -160,7 +158,7 @@
                         }
                         else
                         {
-                            @Html.ActionLink("Выйти", "LogOut", "Authorize")
+                            @Html.ActionLink("Выйти", "logout", "authorize")
                         }
                     </li>
                 </ol>
@@ -191,8 +189,8 @@
             </div>
         </div>
     </div>
-    @RenderSection("scripts", required: false)
-
+    @RenderSection("scripts", required: false)    
+    @Scripts.Render("~/bundles/lazyLoad")
     @Scripts.Render("~/bundles/unob")
     @Scripts.Render("~/Scripts/foundation")
     @Scripts.Render("~/Scripts/vendorJs")

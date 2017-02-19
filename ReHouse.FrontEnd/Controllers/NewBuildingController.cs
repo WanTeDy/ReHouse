@@ -7,8 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Web.Mvc;
 using System.Web.Services;
-using ReHouse.Utils.DataBase;
-using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.Helpers;
+using ReHouse.Utils.BusinessOperations.Filters;
 using ReHouse.Utils.BusinessOperations.Building;
 using ReHouse.Utils;
 using ReHouse.FrontEnd.Helpers;
@@ -21,45 +21,27 @@ namespace ReHouse.FrontEnd.Controllers
     {
         [HttpGet]
         public ActionResult Index()
-        {
-            //DbReHouse db = new DbReHouse();
-            //for (int i = 1; i < 50; i++)
-            //{
-            //    int builderId1 = new Random().Next(1, 10);
-            //    int builderId2 = new Random().Next(1, 10);
-            //    var obj = new NewBuilding
-            //    {
-            //        Adress = "Адресс новостроя: Ленина " + i,
-            //        Name = "ЖК Новострой " + i,
-            //        Price = new Random().Next(5000, 40000),
-            //        ExpluatationDateId = new Random().Next(1, 32),
-            //        PublicationDate = DateTime.Now,
-            //        UserId = 2,
-            //        DistrictId = new Random().Next(1, 21),
-            //};
-            //    var bui1 = db.Builders.Include("NewBuildings").FirstOrDefault(x => x.Id == builderId1);
-            //    var bui2 = db.Builders.Include("NewBuildings").FirstOrDefault(x => x.Id == builderId2);
-            //    bui1.NewBuildings.Add(obj);
-            //    bui2.NewBuildings.Add(obj);
-            //    Thread.Sleep(1000);
-            //}
-            //db.SaveChanges();
+        {            
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             var tokenHash = "";
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
-            var operationFilter = new LoadFiltersOperation(tokenHash);
+            var operationFilter = new LoadFiltersOperation(tokenHash, AdvertsType.NewBuilding);
             operationFilter.ExcecuteTransaction();
-            ViewBag.Districts = operationFilter._districts;
-            ViewBag.Builders = operationFilter._builders;
-            ViewBag.Prices = operationFilter._prices;
-            ViewBag.ExpluatationDates = operationFilter._expluatationDates;
+            var model = new LoadNewBuildingsModel
+            {
+                Districts = operationFilter._districts,
+                Builders = operationFilter._builders,
+                Prices = operationFilter._prices,
+                ExpluatationDates = operationFilter._expluatationDates,
+            };
             var operation = new LoadNewBuildingsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0);
             operation.ExcecuteTransaction();
-            if (operation._newBuildings == null || operation._newBuildings.Count == 0)
-                ViewBag.NoElements = true;
+            model.NewBuildings = operation._newBuildings;
             ViewBag.NoElements = false;
-            return View(operation._newBuildings);
+            if (operation._newBuildings == null || operation._newBuildings.Count == 0)
+                ViewBag.NoElements = true;            
+            return View(model);
         }
         [HttpPost]
         public ActionResult Index(PageAndFilterModel pageAndFilter)
@@ -77,6 +59,25 @@ namespace ReHouse.FrontEnd.Controllers
             else
                 return PartialView("NewB/_listOfNewBuildings", operation._newBuildings);
         }
+
+        [HttpGet]
+        public ActionResult Detail(int id)
+        {
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+            var tokenHash = "";
+            if (sessionModel != null)
+                tokenHash = sessionModel.TokenHash;
+            var operation = new LoadNewBuildingOperation(tokenHash, id, 1, ConstV.ItemsPerPage);
+            operation.ExcecuteTransaction();
+            if (operation._newBuilding == null)
+                return HttpNotFound();
+            return View(new LoadNewBuildingModel
+            {
+                NewBuilding = operation._newBuilding,
+                OtherNewBuildings = operation._otherNewBuilding
+            });
+        }
+
         [HttpGet]
         public ActionResult Add()
         {
@@ -91,6 +92,29 @@ namespace ReHouse.FrontEnd.Controllers
         }
     }
 }
+
+//DbReHouse db = new DbReHouse();
+//for (int i = 1; i < 50; i++)
+//{
+//    int builderId1 = new Random().Next(1, 10);
+//    int builderId2 = new Random().Next(1, 10);
+//    var obj = new NewBuilding
+//    {
+//        Adress = "Адресс новостроя: Ленина " + i,
+//        Name = "ЖК Новострой " + i,
+//        Price = new Random().Next(5000, 40000),
+//        ExpluatationDateId = new Random().Next(1, 32),
+//        PublicationDate = DateTime.Now,
+//        UserId = 2,
+//        DistrictId = new Random().Next(1, 21),
+//};
+//    var bui1 = db.Builders.Include("NewBuildings").FirstOrDefault(x => x.Id == builderId1);
+//    var bui2 = db.Builders.Include("NewBuildings").FirstOrDefault(x => x.Id == builderId2);
+//    bui1.NewBuildings.Add(obj);
+//    bui2.NewBuildings.Add(obj);
+//    Thread.Sleep(1000);
+//}
+//db.SaveChanges();
 
 
 //DbReHouse db = new DbReHouse();

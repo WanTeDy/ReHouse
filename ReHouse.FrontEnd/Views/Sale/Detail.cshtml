@@ -1,0 +1,194 @@
+﻿@using ReHouse.Utils.Helpers
+@model ReHouse.FrontEnd.Models.LoadAdvertModel
+
+@section scripts {
+    @Scripts.Render("~/bundles/slides");
+    <script>
+        $(function () {
+            $('#products').slides({
+                preload: true,
+                preloadImage: '',
+                effect: 'slide, fade',
+                crossfade: true,
+                slideSpeed: 200,
+                fadeSpeed: 500,
+                generateNextPrev: true,
+                generatePagination: false
+            });
+        });
+    </script>
+}
+
+<div class="navigation_string">
+    <div class="way">
+        @Html.ActionLink("Главная", "Index", "Home")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+
+        @{ string action = "", desc = "", pricePerSquere = ""; }
+        @if (Model.Square > 0)
+        {
+            pricePerSquere = Model.Advert.Price / Model.Square + " $ за м²";
+        }
+        @switch (Model.Advert.Category.ParentId)
+        {
+            case (int)ParrentCategories.Flat:
+                desc = "Купить квартиру";
+                action = "flat";                
+                break;
+            case (int)ParrentCategories.House:
+                desc = "Купить дом";
+                action = "house";               
+                break;
+            case (int)ParrentCategories.Homestead:
+                desc = "Купить участок";
+                action = "homestead";
+                break;
+            case (int)ParrentCategories.Commerce:
+                desc = "Купить коммерческую";
+                action = "commerce";
+                pricePerSquere = Math.Round(Model.Advert.Price / (double)50) + " $ за м²";
+                break;
+        }
+
+        @Html.ActionLink(desc, action, "sale")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        <a href="~/sale/flat/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+    </div>
+</div>
+
+<div class="h2novostroy">
+    <h2>Продам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>    
+    <div class="favorite">
+        <a href="#" id="favorite">Добавить в избранное</a>
+    </div>  
+</div>
+
+
+
+<div id="products_example">
+    <div id="products">
+        <div class="slides_container">
+            <a><img src="~/Content/images/flat1.jpg" width="767" height="600" alt=""></a>
+            <a><img src="~/Content/images/flat2.jpg" width="767" height="600" alt=""></a>
+            <a><img src="~/Content/images/flat3.jpg" width="767" height="600" alt=""></a>
+        </div>
+        <ul class="pagination">
+            <li><a href="#"><img src="~/Content/images/flat1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="~/Content/images/flat2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="~/Content/images/flat3.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</div>
+<div class="seotext3">
+    <div class="h2sale"><h2>Описание</h2></div>
+
+    <div class="h3cost">
+        @if (ViewBag.UAH != 0)
+        {
+            <p class="grn">@ViewBag.UAH грн</p>
+            <pre></pre>
+            <p class="dot">·</p>
+            <pre> </pre>
+        }        
+        <p class="DolUSA">@Model.Advert.Price $</p>
+        <pre></pre>
+        @if (ViewBag.EUR != 0)
+        {
+            <p class="dot">·</p>
+            <pre> </pre>
+            <p class="grn">@ViewBag.EUR €</p>
+            <pre></pre>
+            <p class="dot">·</p>
+            <pre> </pre>
+        }        
+        <p class="square_meter">@pricePerSquere</p>
+    </div>
+
+    <p>@*@Model.Advert.Description*@Продам 1-ком. квартиру. Дом внутри квартала, 2-й ряд. Окна выходят в большой палисадник, есть возможность большой пристройки. Общая площадь – 34 кв. м, комната – 18 кв. м., кухня – 9 кв. м. Санузел раздельный. Парадная чистая, дверь на кодовом замке. Большой двор с детской площадкой, зонами отдыха, парковкой. Рядом рынок Южный, супермаркеты, школа, детский сад. Хорошая транспортная развязка. 24 тыс., торг!</p>
+</div>
+<div class="table_of_prod">
+    <table>
+        <tr>
+            <td>Тип рынка:</td>
+            <td>@Model.Advert.MarketType.RussianName</td>  
+        </tr>
+        <tr>
+            <td>Адрес</td>
+            <td>@Model.Advert.Street</td>
+        </tr>
+        @foreach (var prop in Model.Properties)
+        {
+            <tr>
+                <td>@prop.Key.RussianName</td>
+                <td>@prop.Value.PropertiesValue</td>
+            </tr>
+        }
+        
+    </table>
+</div>
+
+<div class="map_managercard">  
+    <div id="mapapart_prod">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
+    <div class="manager">
+        <div class="photo">
+            <img src="~/Content/images/manager.png" width="90p" height="90">
+        </div>
+        <div class="manager_info">
+            <div class="imgtel">
+                <img src="~/Content/images/minphone.png">
+            </div>
+            <div class="number">
+                @foreach (var phone in Model.Advert.User.Phones)
+                {
+                    <p>@phone.TelePhone</p>
+                }
+                <p>@Model.Advert.User.Email</p>
+                <p class="name">@Model.Advert.User.FirstName</p>                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="video-youtube">
+    <iframe width="711" height="533" src="@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="h2prodsale"><h2>Новинки продаж</h2></div>
+
+<div class="othernovostroy">
+    <ul class="prods" id="data-container">
+        @if (Model.OtherAdverts.Count > 0)
+        {
+            foreach (var item in Model.OtherAdverts)
+            {
+                <div class="data-item">
+                    <li>
+                        @if (item.IsHot)
+                        {
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                        }
+                        else
+                        {
+                            <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                        }
+                        <a href="#" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                        <div class="min-content">
+                            <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                            <h4>@item.Description</h4>
+                            <p class="cost">@item.Price $</p>
+                            <a href="~/sale/detail/@item.Id" id="follow">❯</a>
+                        </div>
+                    </li>
+                </div>
+            }
+        }
+    </ul>
+</div>

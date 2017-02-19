@@ -9,23 +9,26 @@ namespace ReHouse.Utils.BusinessOperations.Building
     public class LoadNewBuildingOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        public List<Title> _titles { get; set; }
+        private Int32 _id { get; set; }
+        private Int32 _page { get; set; }
+        private Int32 _count { get; set; }
+        public NewBuilding _newBuilding { get; set; }
+        public List<NewBuilding> _otherNewBuilding { get; set; }
 
-        public LoadNewBuildingOperation(string tokenHash)
+        public LoadNewBuildingOperation(string tokenHash, int id, int page, int count)
         {
             _tokenHash = tokenHash;
-            RussianName = "Получение всех заголовков объявлений";
+            _id = id;
+            _page = page;
+            _count = count;
+            RussianName = "Получение обьявления по новостройке";
         }
 
         protected override void InTransaction()
         {
-            var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            var titles = Context.Titles.Where(x => !x.Deleted).ToList();
-            _titles = titles.Select(x => new Title
-            {
-                Id = x.Id,
-                RussianName = x.RussianName,
-            }).ToList();
+            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            _newBuilding = Context.NewBuildings.FirstOrDefault(x => !x.Deleted && x.Id == _id);
+            _otherNewBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.Id != _id).OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
         }
     }
 }

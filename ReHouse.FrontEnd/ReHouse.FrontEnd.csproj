@@ -223,6 +223,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
+    <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\NewBuildingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -232,11 +233,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CurrencyHelper.cs" />
     <Compile Include="Helpers\ErrorHelpers.cs" />
     <Compile Include="Helpers\PagingHelpers.cs" />
     <Compile Include="Helpers\SessionHelpers.cs" />
     <Compile Include="Helpers\TextOutHelpers.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
+    <Compile Include="Models\LoadAdvertsModel.cs" />
+    <Compile Include="Models\LoadAdvertModel.cs" />
+    <Compile Include="Models\LoadNewBuildingsModel.cs" />
+    <Compile Include="Models\LoadNewBuildingModel.cs" />
+    <Compile Include="Models\AdvertPropertyModel.cs" />
     <Compile Include="Models\PageAndFilterModel.cs" />
     <Compile Include="Models\BuilderModel.cs" />
     <Compile Include="Models\ClientsDataModel.cs" />
@@ -259,6 +266,24 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\fancybox\fancy_closebox.png" />
+    <Content Include="Content\fancybox\fancy_left.png" />
+    <Content Include="Content\fancybox\fancy_progress.png" />
+    <Content Include="Content\fancybox\fancy_right.png" />
+    <Content Include="Content\fancybox\fancy_shadow_e.png" />
+    <Content Include="Content\fancybox\fancy_shadow_n.png" />
+    <Content Include="Content\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Content\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Content\fancybox\fancy_shadow_s.png" />
+    <Content Include="Content\fancybox\fancy_shadow_se.png" />
+    <Content Include="Content\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Content\fancybox\fancy_shadow_w.png" />
+    <Content Include="Content\fancybox\fancy_title_left.png" />
+    <Content Include="Content\fancybox\fancy_title_main.png" />
+    <Content Include="Content\fancybox\fancy_title_right.png" />
+    <Content Include="Content\fancybox\jquery.easing.1.3.js" />
+    <Content Include="Content\fancybox\jquery.fancybox-1.2.1.pack.js" />
+    <Content Include="Content\fancybox\jquery.fancybox.css" />
     <Content Include="Content\images\altair1.jpg" />
     <Content Include="Content\images\altair2.jpg" />
     <Content Include="Content\images\altair3.jpg" />
@@ -271,6 +296,9 @@
     <Content Include="Content\images\flat3.png" />
     <Content Include="Content\images\load.gif" />
     <Content Include="Content\images\logout.png" />
+    <Content Include="Content\images\manager.jpg" />
+    <Content Include="Content\images\manager.png" />
+    <Content Include="Content\images\minphone.png" />
     <Content Include="Content\images\newred.png" />
     <Content Include="Content\images\OSo6WLs.png" />
     <Content Include="Content\images\PhJdR34.png" />
@@ -339,6 +367,7 @@
     <Content Include="Scripts\jquery.1.10.min.js" />
     <Content Include="Scripts\modules.js" />
     <Content Include="Scripts\modules.min.js" />
+    <Content Include="Scripts\slides.min.jquery.js" />
     <Content Include="Scripts\vendor\hoverIntent.js" />
     <Content Include="Scripts\vendor\jquery.cookie.min.js" />
     <Content Include="Scripts\vendor\jquery.formstyler.min.js" />
@@ -378,11 +407,12 @@
     <Content Include="Content\fonts\casper\casperitalic.woff2" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Views\Shared\NewB\3.cshtml" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
     <Content Include="Views\NewBuilding\Add.cshtml" />
-    <None Include="Views\Shared\NewB\4.cshtml" />
+    <Content Include="Views\NewBuilding\Detail.cshtml" />
     <Content Include="Scripts\lazyload.js" />
+    <Content Include="Views\Sale\Detail.cshtml" />
+    <Content Include="Views\Sale\Flat.cshtml" />
     <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
@@ -414,6 +444,12 @@
     <Content Include="Views\Profile\Roles.cshtml" />
     <Content Include="Views\Shared\UnregisteredUsers\_loginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutAdverts.cshtml" />
+    <Content Include="Views\Shared\Advert\_listOfAdverts.cshtml" />
+    <Content Include="Views\Shared\Advert\_filters.cshtml" />
+    <Content Include="Views\Sale\House.cshtml" />
+    <Content Include="Views\Sale\Homestead.cshtml" />
+    <Content Include="Views\Sale\Commerce.cshtml" />
+    <Content Include="Views\Sale\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

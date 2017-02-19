@@ -1,0 +1,194 @@
+﻿@model ReHouse.FrontEnd.Models.LoadNewBuildingModel
+
+@section scripts {
+    <!-- Min Slider -->
+    @Scripts.Render("~/bundles/slides");
+    <script>
+        $(function () {
+            $('#products').slides({
+                preload: true,
+                preloadImage: '',
+                effect: 'slide, fade',
+                crossfade: true,
+                slideSpeed: 200,
+                fadeSpeed: 500,
+                generateNextPrev: true,
+                generatePagination: false
+            });
+        });
+    </script>
+
+    <!--  FancyBox -->
+@Scripts.Render("~/bundles/fancybox");
+<script type="text/javascript">
+            $(document).ready(function() {
+            $("a.plan").fancybox();
+            // $("a.plan").fancybox({"frameWidth":1560,"frameHeight":1340});
+            });
+</script>
+}
+
+<div class="navigation_string">
+    <div class="way">
+        @Html.ActionLink("Главная", "index", "home")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink("Новостройки", "index", "newbuilding")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink(Model.NewBuilding.Name, "detail", "newbuilding", new { id = Model.NewBuilding.Id })
+    </div>
+</div>
+<div class="h2novostroy">
+    <h2>@Model.NewBuilding.Name</h2>
+    <div class="favorite">
+        <a href="#" id="favorite">Добавить в избранное</a>
+    </div> 
+</div>
+
+<div id="products_example">
+    <div id="products">
+        <div class="slides_container">
+            <a><img src="~/Content/images/altair1.jpg" width="767" height="600" alt=""></a>
+            <a><img src="~/Content/images/altair2.jpg" width="767" height="600" alt=""></a>
+            <a><img src="~/Content/images/altair3.jpg" width="767" height="600" alt=""></a>
+        </div>
+        <ul class="pagination">
+            <li><a href="#"><img src="~/Content/images/altair1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="~/Content/images/altair2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="~/Content/images/altair3.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="table_of_prod">
+    <table>
+        <tr>
+            <td>Цена</td>
+            <td>от @Model.NewBuilding.Price грн/м²</td>
+        </tr>
+        <tr>
+            <td>Адрес</td>
+            <td>@Model.NewBuilding.Adress</td>
+        </tr>
+        <tr>
+            <td>Количество домов</td>
+            <td>@Model.NewBuilding.HouseQuantity</td>
+        </tr>
+        <tr>
+            <td>Количество секций</td>
+            <td>@Model.NewBuilding.SectionQuantity</td>
+        </tr>
+        <tr>
+            <td>Этажность</td>
+            <td>@Model.NewBuilding.FloorQuantity</td>
+        </tr>
+        <tr>
+            <td>Количество квартир</td>
+            <td>@Model.NewBuilding.FloatQuantity</td>
+        </tr>
+        <tr>
+            <td>Планировка квартир</td>
+            <td>@Model.NewBuilding.Construct</td>
+        </tr>
+        <tr>
+            <td>Материал стен</td>
+            <td>@Model.NewBuilding.WallMaterial</td>
+        </tr>
+        <tr>
+            <td>Высота потолков</td>
+            <td>@Model.NewBuilding.WallHeight метра</td>
+        </tr>
+        <tr>
+            <td>Отопление</td>
+            <td>@Model.NewBuilding.Heating</td>
+        </tr>
+        <tr>
+            <td>Парковка</td>
+            <td>@Model.NewBuilding.Parking</td>
+        </tr>
+        <tr>
+            <td>Сдача в эксплуатацию</td>
+            <td>@Model.NewBuilding.ExpluatationDate.Name</td>
+        </tr>
+        <tr>
+            <td>Застройщик</td>
+            <td>
+                @{string s = ""; }
+                @for (int i = 0; i < Model.NewBuilding.Builders.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        s += Model.NewBuilding.Builders[i].Name;
+                    }
+                    else
+                    {
+                        s += ", " + Model.NewBuilding.Builders[i].Name;
+                    }
+                }
+                @s
+            </td>
+        </tr>
+        <tr>
+            <td>Отдел продаж</td>
+            <td>
+                @{s = ""; }
+                @for (int i = 0; i < Model.NewBuilding.Phones.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        s += Model.NewBuilding.Phones[i].TelePhone;
+                    }
+                    else
+                    {
+                        s += ", " + Model.NewBuilding.Phones[i].TelePhone;
+                    }
+                }
+                @s
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="planirovka">
+    <a class="plan" rel="group" title="Планировка" href="~/Content/images/plan1.jpg"><img src="~/Content/images/plan1.jpg" border="0" /></a>
+    <a class="plan" rel="group" title="Планировка" href="~/Content/images/plan1.jpg"><img src="~/Content/images/plan1.jpg" border="0" /></a>
+    <a class="plan" rel="group" title="Планировка" href="~/Content/images/plan1.jpg"><img src="~/Content/images/plan1.jpg" border="0" /></a>
+    <a class="plan" rel="group" title="Планировка" href="~/Content/images/1.jpg"><img src="~/Content/images/1.jpg" border="0" /></a>
+</div>
+
+<div class="video-youtube">
+    <iframe width="711" height="533" @*@Model.NewBuilding.YouTubeUrl*@ src="https://www.youtube.com/embed/pP9YV_P6WsM" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="mapnovostroy_prod">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="1065px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+
+<div class="h2novostroy"><h2>Другие Новостройки</h2></div>
+
+<div class="othernovostroy">
+    <ul class="prods" id="data-container">
+        @if (Model.OtherNewBuildings.Count > 0)
+        {
+            foreach (var item in Model.OtherNewBuildings)
+            {
+                <div class="data-item">
+                    <li>
+                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                        <a href="#" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
+                        <div class="min-content">
+                            <h3>@item.Name</h3>
+                            <h4>@item.Adress <br />Сдача: @item.ExpluatationDate.Name</h4>
+                            <p class="cost">от @item.Price грн/м²</p>
+                            <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>
+                        </div>
+                    </li>
+                </div>
+            }
+        }
+    </ul>
+</div>
+
