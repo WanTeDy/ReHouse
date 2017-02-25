@@ -101,7 +101,7 @@
 
                     <div class="search">
                         <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
-                        
+
                         @if (Session != null && Session["user"] is SessionModel)
                         {
                             var session = Session["user"] as SessionModel;
@@ -143,23 +143,30 @@
                     <div class="navigation">
                         <ol>
                             <li>
-                                <a href="#" id="">Продажа</a>
+                                <a id="">Продажа</a>
                                 <ol>
-                                    <li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
-                                    <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
-                                    <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
-                                    <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>
+                                    @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
+                                        <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
+                                        <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
+                                        <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
+                                    <li><a href="~/sale/flat">Купить квартиру</a></li>
+                                    <li><a href="~/sale/house">Купить дом</a></li>
+                                    <li><a href="~/sale/homestead">Купить участок</a></li>
+                                    <li><a href="~/sale/commerce">Купить коммерческую</a></li>
                                 </ol>
                             </li>
                             <li>
                                 <a href="#" id="">Аренда</a>
                                 <ol>
-                                    <li><a href="#">Снять квартиру</a></li>
-                                    <li><a href="#">Снять дом</a></li>
-                                    <li><a href="#">Снять участок</a></li>
+                                    @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
+                                    @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
+                                    @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
+                                    <li><a href="~/rent/flat">Снять квартиру</a></li>
+                                    <li><a href="~/rent/house">Снять дом</a></li>
+                                    <li><a href="~/rent/homestead">Снять участок</a></li>
                                 </ol>
-                            </li>
-                            <li>@Html.ActionLink("Новостройки", "index", "newbuilding")</li>
+                            </li>                            
+                            <li><a href="~/newbuilding/">Новостройки</a></li>
                             <li><a href="#" id="">Менеджеры</a></li>
                             <li>
                                 <a href="#" id="">О нас</a>
@@ -247,63 +254,6 @@
             </div>
         </div>
     </div>
-
-
-    @*@Html.Partial("Partial/_ModalPopUp")
-
-            @Html.Partial("_header")
-            <h5 class="testing-mode">
-                @Html.HtmlText("<span> Сайт работает в тестовом режиме, ведутся разработки, скоро открытие!</span> <b> С ув. команда ReHouse.</b>")
-            </h5>
-
-            @if (Session != null && Session["user"] is SessionModel)
-            {
-                @Html.Partial("_user-profile")
-                <div class="clearfix"></div>
-            }
-            else
-            {
-                <div class="clearfix" style="margin-top: 30px"></div>
-
-            }
-
-            <div class="content" style="min-height: 530px;">
-
-
-                @RenderBody()
-
-
-
-
-
-            </div>
-            @{
-                var mainPage = ViewBag.MainPage as bool?;
-                //if(( HttpContext.Current.Request.Path.ToLower() == "/") || (HttpContext.Current.Request.Path.ToLower() == "/home") || (HttpContext.Current.Request.Path.ToLower() == "/home/") || (HttpContext.Current.Request.Path.ToLower() == "/home/index"))
-                //@if ((HttpContext.Current.Request.Path.ToLower() == "authorize/registercorporative") || (HttpContext.Current.Request.Path.ToLower() == "/authorize/registercorporative") || (HttpContext.Current.Request.Path.ToLower() == "/authorize/registercorporative/"))
-                var registCorporative = ViewBag.Corporative as bool?;
-            }
-            @if (mainPage.HasValue && mainPage.Value)
-            {
-                <div class="clearfix" style="margin-top: 30px"></div>
-                <div class="nice-people" style="margin-top: 150px; width: 555px; background-size: 555px;"></div>
-                @Html.Partial("_index-info")
-            }
-
-            @if (registCorporative.HasValue && registCorporative.Value)
-            {
-                <div class="clearfix" style="margin-top: 10px"></div>
-                <div class="nice-people-corp"></div>
-                @Html.Partial("PartialCorporative/_index-info-corp")
-            }
-
-            <div class="clearfix"></div>
-            <footer>
-                @Html.Partial("_footerTemplate")
-            </footer>
-        </div>
-        <input id="sidebar-cookie" type="hidden" value="" />*@
-
     @RenderSection("scripts", required: false)
 
     @Scripts.Render("~/bundles/unob")

@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
 using ReHouse.Utils.DataBase;
-using ReHouse.Utils.BusinessOperations;
+using ReHouse.Utils.BusinessOperations.Home;
 using ReHouse.Utils.Helpers;
 using ReHouse.FrontEnd.Helpers;
 using ReHouse.FrontEnd.Models;
@@ -42,8 +42,16 @@ namespace ReHouse.FrontEnd.Controllers
                 tokenHash = sessionModel.TokenHash;
             else
                 SessionHelpers.Session("CountProducts", 0);
-            
-            return View();// model);
+            var operation = new LoadAdvertsForHomePageOperation(tokenHash);
+            operation.ExcecuteTransaction();
+            var model = new LoadAdvertsForHomePageModel
+            {
+                HotAdverts = operation._hotAdverts,
+                FlatSaleAdverts = operation._flatSaleAdverts,
+                HouseSaleAdverts = operation._houseSaleAdverts,
+                NewBuildingAdverts = operation._newBuildingAdverts,
+            };
+            return View(model);
         }
     }
 }

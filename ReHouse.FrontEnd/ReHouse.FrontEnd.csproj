@@ -223,6 +223,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
+    <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\NewBuildingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -239,11 +240,13 @@
     <Compile Include="Helpers\SessionHelpers.cs" />
     <Compile Include="Helpers\TextOutHelpers.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
+    <Compile Include="Models\LoadAdvertsForHomePageModel.cs" />
     <Compile Include="Models\LoadAdvertsModel.cs" />
     <Compile Include="Models\LoadAdvertModel.cs" />
     <Compile Include="Models\LoadNewBuildingsModel.cs" />
     <Compile Include="Models\LoadNewBuildingModel.cs" />
     <Compile Include="Models\AdvertPropertyModel.cs" />
+    <Compile Include="Models\PageAndFilterForAdvertsModel.cs" />
     <Compile Include="Models\PageAndFilterModel.cs" />
     <Compile Include="Models\BuilderModel.cs" />
     <Compile Include="Models\ClientsDataModel.cs" />
@@ -355,6 +358,7 @@
     <Content Include="Content\images\tw.png" />
     <Content Include="Content\images\vk-g.png" />
     <Content Include="Content\images\vk.png" />
+    <Content Include="Scripts\advertSettings.js" />
     <Content Include="Scripts\ajaxFunc.js" />
     <Content Include="Scripts\client\client.js" />
     <Content Include="Scripts\coffee.js" />
@@ -450,6 +454,12 @@
     <Content Include="Views\Sale\Homestead.cshtml" />
     <Content Include="Views\Sale\Commerce.cshtml" />
     <Content Include="Views\Sale\Add.cshtml" />
+    <Content Include="Views\Rent\Add.cshtml" />
+    <Content Include="Views\Rent\Commerce.cshtml" />
+    <Content Include="Views\Rent\Detail.cshtml" />
+    <Content Include="Views\Rent\Flat.cshtml" />
+    <Content Include="Views\Rent\Homestead.cshtml" />
+    <Content Include="Views\Rent\House.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

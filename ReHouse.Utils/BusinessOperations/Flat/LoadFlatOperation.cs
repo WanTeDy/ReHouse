@@ -44,7 +44,9 @@ namespace ReHouse.Utils.BusinessOperations.Flat //TODO
                     _properties.Add(prop, advertValues.FirstOrDefault(x=>x.AdvertPropertyId == prop.Id));
                 }
                 int temp = 0;
-                Int32.TryParse(_properties.FirstOrDefault(x => x.Key.Priority == 1).Value.PropertiesValue, out temp);
+                var propertySquare = _properties.FirstOrDefault(x => x.Key.Priority == 1).Value;
+                if(propertySquare != null)
+                    Int32.TryParse(propertySquare.PropertiesValue, out temp);
                 _square = temp;
             }
         }

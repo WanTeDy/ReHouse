@@ -11,6 +11,8 @@ using ReHouse.Utils.Helpers;
 using ReHouse.Utils.BusinessOperations.Filters;
 using ReHouse.Utils.BusinessOperations.Building;
 using ReHouse.Utils;
+using ReHouse.Utils.DataBase;
+using ReHouse.Utils.DataBase.AdvertParams;
 using ReHouse.FrontEnd.Helpers;
 using ReHouse.FrontEnd.Models;
 
@@ -21,7 +23,7 @@ namespace ReHouse.FrontEnd.Controllers
     {
         [HttpGet]
         public ActionResult Index()
-        {            
+        {
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             var tokenHash = "";
             if (sessionModel != null)
@@ -40,14 +42,14 @@ namespace ReHouse.FrontEnd.Controllers
             model.NewBuildings = operation._newBuildings;
             ViewBag.NoElements = false;
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
-                ViewBag.NoElements = true;            
+                ViewBag.NoElements = true;
             return View(model);
         }
         [HttpPost]
         public ActionResult Index(PageAndFilterModel pageAndFilter)
         {
             if (pageAndFilter.PageNumber < 1)
-                return HttpNotFound();
+                return Json(new { noElements = true });
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             var tokenHash = "";
             if (sessionModel != null)
@@ -56,8 +58,7 @@ namespace ReHouse.FrontEnd.Controllers
             operation.ExcecuteTransaction();
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
                 return Json(new { noElements = true });
-            else
-                return PartialView("NewB/_listOfNewBuildings", operation._newBuildings);
+            return PartialView("NewB/_listOfNewBuildings", operation._newBuildings);
         }
 
         [HttpGet]
@@ -166,14 +167,14 @@ namespace ReHouse.FrontEnd.Controllers
 //}
 //db.SaveChanges();
 //DbReHouse db = new DbReHouse();
-//db.PriceFilterNewBuildings.Add(new PriceFilterNewBuilding {Min = 0, Max = 10000 });
-//            db.PriceFilterNewBuildings.Add(new PriceFilterNewBuilding {Min = 10000, Max = 15000 });
-//            db.PriceFilterNewBuildings.Add(new PriceFilterNewBuilding {Min = 15000, Max = 20000 });
-//            db.PriceFilterNewBuildings.Add(new PriceFilterNewBuilding {Min = 20000, Max = 25000 });
-//            db.PriceFilterNewBuildings.Add(new PriceFilterNewBuilding {Min = 25000, Max = 30000 });
-//            db.PriceFilterNewBuildings.Add(new PriceFilterNewBuilding {Min = 30000, Max = 35000 });
-//            db.PriceFilterNewBuildings.Add(new PriceFilterNewBuilding {Min = 35000, Max = 40000 });
-//            db.PriceFilterNewBuildings.Add(new PriceFilterNewBuilding {Min = 40000, Max = 45000 });
+//db.PriceFilters.Add(new PriceFilter { Min = 0, Max = 10000, AdvertType = AdvertsType.NewBuilding });
+//            db.PriceFilters.Add(new PriceFilter { Min = 10000, Max = 15000, AdvertType = AdvertsType.NewBuilding });
+//            db.PriceFilters.Add(new PriceFilter { Min = 15000, Max = 20000, AdvertType = AdvertsType.NewBuilding });
+//            db.PriceFilters.Add(new PriceFilter { Min = 20000, Max = 25000, AdvertType = AdvertsType.NewBuilding });
+//            db.PriceFilters.Add(new PriceFilter { Min = 25000, Max = 30000, AdvertType = AdvertsType.NewBuilding });
+//            db.PriceFilters.Add(new PriceFilter { Min = 30000, Max = 35000, AdvertType = AdvertsType.NewBuilding });
+//            db.PriceFilters.Add(new PriceFilter { Min = 35000, Max = 40000, AdvertType = AdvertsType.NewBuilding });
+//            db.PriceFilters.Add(new PriceFilter { Min = 40000, Max = 45000, AdvertType = AdvertsType.NewBuilding });
 //            db.SaveChanges();
 
 //DbReHouse db = new DbReHouse();

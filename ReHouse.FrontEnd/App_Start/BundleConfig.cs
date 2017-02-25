@@ -12,6 +12,9 @@ namespace ReHouse.FrontEnd
                         //"~/Scripts/jquery.1.10.min.js"
                         "~/Scripts/vendor/jquery.min.js"
                         ));
+            bundles.Add(new ScriptBundle("~/bundles/advertSettings").Include(
+                        "~/Scripts/advertSettings.js"
+                        ));
             bundles.Add(new ScriptBundle("~/bundles/fancybox").Include(
                         "~/Content/fancybox/jquery.easing.1.3.js",
                         "~/Content/fancybox/jquery.fancybox-1.2.1.pack.js"

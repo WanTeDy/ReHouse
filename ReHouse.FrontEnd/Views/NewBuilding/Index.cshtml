@@ -74,7 +74,7 @@
         <ul class="prods" id="data-container">
             @Html.Partial("NewB/_listOfNewBuildings", Model.NewBuildings);
         </ul>
-        <div id="button-more" onclick="lazyload.load()">
+        <div id="button-more">
             <a id="more">Больше объявлений</a>
         </div>
     </div>
@@ -89,10 +89,35 @@
 </div>
 
 <script>
-    var search = false;
-    var url = "./NewBuilding/Index/";
+    var url = "./Index/";    
+    $('#button-more').click(function () {
+
+        var districtID = $('#district').val(),
+                price = $('#price').val(),
+                builderId = $('#builder').val(),
+                expluatationId = $('#date').val();
+        var obj = {
+            "DistrictId": districtID,
+            "Price": price,
+            "BuilderId": builderId,
+            "ExpluatationDateId": expluatationId
+        }
+
+        lazyload(obj, url, false);
+    });
+
     $('#search').click(function () {
-        search = true;        
-        lazyload.load();
+        var districtID = $('#district').val(),
+                price = $('#price').val(),
+                builderId = $('#builder').val(),
+                expluatationId = $('#date').val();
+        var obj = {
+            "DistrictId": districtID,
+            "Price": price,
+            "BuilderId": builderId,
+            "ExpluatationDateId": expluatationId
+        }
+
+        lazyload(obj, url, true);
     });
 </script>

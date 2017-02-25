@@ -7,10 +7,10 @@
         <pre> </pre>
         <p>/</p>
         <pre> </pre>
-        @Html.ActionLink("Купить коммерческую", "commerce", "sale")
+        @Html.ActionLink("Снять дом", "house", "rent")
     </div>
 </div>
-<div class="h2novostroy"><h2>Продажа коммерческой в Одессе</h2></div>
+<div class="h2novostroy"><h2>Аренда домов в Одессе</h2></div>
 
 @Html.Partial("Advert/_filters", Model)
 
@@ -22,7 +22,7 @@
     @foreach (var category in Model.Categories)
     {
         <div class="rooms">
-            <a href="~/sale/commerce/@category.Id">@category.RussianName</a>
+            <a href="~/rent/house/@category.Id">@category.RussianName</a>
         </div>
     }
 
@@ -34,8 +34,8 @@
     <div class="products">
         <ul class="prods" id="data-container">
 
-            @Html.Partial("Advert/_listOfAdverts", Model.Adverts);  
-                      
+            @Html.Partial("Advert/_listOfAdverts", Model.Adverts);
+
         </ul>
         <div id="button-more">
             <a id="more">Больше объявлений</a>

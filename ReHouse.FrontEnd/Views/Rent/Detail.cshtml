@@ -27,40 +27,37 @@
         <pre> </pre>
 
         @{ string action = "", desc = "", pricePerSquere = ""; }
-        @if (Model.Square > 0)
-        {
-            pricePerSquere = Model.Advert.Price / Model.Square + " $ за м²";
-        }
+        
         @switch (Model.Advert.Category.ParentId)
         {
             case (int)ParrentCategories.Flat:
-                desc = "Купить квартиру";
+                desc = "Снять квартиру";
                 action = "flat";
                 break;
             case (int)ParrentCategories.House:
-                desc = "Купить дом";
+                desc = "Снять дом";
                 action = "house";
                 break;
             case (int)ParrentCategories.Homestead:
-                desc = "Купить участок";
+                desc = "Снять участок";
                 action = "homestead";
                 break;
             case (int)ParrentCategories.Commerce:
-                desc = "Купить коммерческую";
+                desc = "Снять коммерческую";
                 action = "commerce";
                 break;
         }
 
-        @Html.ActionLink(desc, action, "sale")
+        @Html.ActionLink(desc, action, "rent")
         <pre> </pre>
         <p>/</p>
         <pre> </pre>
-        <a href="~/sale/flat/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+        <a href="~/rent/flat/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
     </div>
 </div>
 
 <div class="h2novostroy">
-    <h2>Продам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>
+    <h2>Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>
     <div class="favorite">
         <a href="#" id="favorite">Добавить в избранное</a>
     </div>
@@ -88,26 +85,23 @@
     <div class="h3cost">
         @if (ViewBag.UAH != 0)
         {
-            <p class="grn">@ViewBag.UAH грн</p>
+            <p class="grn">@ViewBag.UAH грн/мес</p>
             <pre></pre>
             <p class="dot">·</p>
             <pre> </pre>
         }
-        <p class="DolUSA">@Model.Advert.Price $</p>
+        <p class="DolUSA">@Model.Advert.Price $/мес</p>
         <pre></pre>
         @if (ViewBag.EUR != 0)
         {
             <p class="dot">·</p>
             <pre> </pre>
-            <p class="grn">@ViewBag.EUR €</p>
+            <p class="grn">@ViewBag.EUR €/мес</p>
             <pre></pre>
-            <p class="dot">·</p>
-            <pre> </pre>
-        }
-        <p class="square_meter">@pricePerSquere</p>
+        }        
     </div>
 
-    <p>@*@Model.Advert.Description*@Продам 1-ком. квартиру. Дом внутри квартала, 2-й ряд. Окна выходят в большой палисадник, есть возможность большой пристройки. Общая площадь – 34 кв. м, комната – 18 кв. м., кухня – 9 кв. м. Санузел раздельный. Парадная чистая, дверь на кодовом замке. Большой двор с детской площадкой, зонами отдыха, парковкой. Рядом рынок Южный, супермаркеты, школа, детский сад. Хорошая транспортная развязка. 24 тыс., торг!</p>
+    <p>@*@Model.Advert.Description*@Сдам 1-ком. квартиру. Дом внутри квартала, 2-й ряд. Окна выходят в большой палисадник, есть возможность большой пристройки. Общая площадь – 34 кв. м, комната – 18 кв. м., кухня – 9 кв. м. Санузел раздельный. Парадная чистая, дверь на кодовом замке. Большой двор с детской площадкой, зонами отдыха, парковкой. Рядом рынок Южный, супермаркеты, школа, детский сад. Хорошая транспортная развязка. 24 тыс., торг!</p>
 </div>
 <div class="table_of_prodapart">
     <table>
@@ -167,7 +161,7 @@
     <iframe width="711" height="533" src="@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
 </div>
 
-<div class="h2prodsale"><h2>Новинки продаж</h2></div>
+<div class="h2prodsale"><h2>Новинки аренды</h2></div>
 
 <div class="othernovostroy">
     <ul class="prods" id="data-container">
@@ -187,10 +181,10 @@
                         }
                         <a href="#" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
                         <div class="min-content">
-                            <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                            <h3>Сдам @item.Title.RussianName.ToLower()</h3>
                             <h4>@item.Description</h4>
                             <p class="cost">@item.Price $</p>
-                            <a href="~/sale/detail/@item.Id" id="follow">❯</a>
+                            <a href="~/rent/detail/@item.Id" id="follow">❯</a>
                         </div>
                     </li>
                 </div>

@@ -115,21 +115,28 @@
                     <li>
                         <a id="">Продажа</a>
                         <ol>
-                            <li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
+                            @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
                             <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
                             <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
-                            <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>
+                            <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
+                            <li><a href="~/sale/flat">Купить квартиру</a></li>
+                            <li><a href="~/sale/house">Купить дом</a></li>
+                            <li><a href="~/sale/homestead">Купить участок</a></li>
+                            <li><a href="~/sale/commerce">Купить коммерческую</a></li>
                         </ol>
                     </li>
                     <li>
                         <a href="#" id="">Аренда</a>
                         <ol>
-                            <li><a href="#">Снять квартиру</a></li>
-                            <li><a href="#">Снять дом</a></li>
-                            <li><a href="#">Снять участок</a></li>
+                            @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
+                            @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
+                            @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
+                            <li><a href="~/rent/flat">Снять квартиру</a></li>
+                            <li><a href="~/rent/house">Снять дом</a></li>
+                            <li><a href="~/rent/homestead">Снять участок</a></li>                            
                         </ol>
                     </li>
-                    <li>@Html.ActionLink("Новостройки", "index", "newbuilding")</li>
+                    <li><a href="~/newbuilding/">Новостройки</a></li>
                     <li><a href="#" id="">Менеджеры</a></li>
                     <li>
                         <a href="#" id="">О нас</a>

@@ -80,6 +80,7 @@
     <Compile Include="BusinessOperations\Building\LoadNewBuildingOperation.cs" />
     <Compile Include="BusinessOperations\Building\LoadNewBuildingsOperation.cs" />
     <Compile Include="BusinessOperations\Building\UpdateNewBuildingOperation.cs" />
+    <Compile Include="BusinessOperations\Home\LoadAdvertsForHomePageOperation.cs" />
     <Compile Include="BusinessOperations\News\AddArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\DeleteArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\LoadArticlesOperation.cs" />

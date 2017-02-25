@@ -3,8 +3,8 @@
 
 <div class="selection">
     <div class="typeofproperty">
-        <select>
-            <option selected value="0">Тип недвижимости</option>
+        <select id="category">
+            <option selected value="@Model.CategoryId">Тип недвижимости</option>
             @foreach (var category in Model.Categories)
             {
                 <option value="@category.Id">@category.RussianName</option>
@@ -45,7 +45,7 @@
     @if (Model.TrimConditions != null)
     {
         <div class="trimcondition">
-            <select>
+            <select id="trimcondition">
                 <option selected value="0">Состояние отделки</option>
                 @foreach (var condition in Model.TrimConditions)
                 {

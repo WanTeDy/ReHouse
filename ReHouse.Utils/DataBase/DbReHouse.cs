@@ -14,8 +14,8 @@ namespace ReHouse.Utils.DataBase
     public class DbReHouse : DbContext
     {
         public DbReHouse()
-        :base("Local")
-        //:base("smarterAsp")
+        //:base("Local")
+        :base("smarterAsp")
         { }
     //    public DbSet<Feedback> Feedbacks { get; set; }
     //    public DbSet<UnitOfCommodity> UnitOfCommodities { get; set; }

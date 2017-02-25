@@ -13,5 +13,6 @@ namespace ReHouse.FrontEnd.Models
         public List<PriceFilter> Prices { get; set; }
         public List<District> Districts { get; set; }
         public List<TrimCondition> TrimConditions { get; set; }
+        public Int32 CategoryId { get; set; }
     }
 }
