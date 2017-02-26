@@ -1,5 +1,5 @@
-﻿@using ReHouse.Utils.DataBase.AdvertParams
-@model List<Advert>
+﻿@using ReHouse.Utils.Helpers
+@model List<CartAdvertModel>
 
 @if (Model.Count > 0)
 {
@@ -19,19 +19,26 @@
                 <div class="min-content">
                     @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
                     {
-                        <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                        <h3>Продам @item.Name.ToLower()</h3>
                         <h4>@item.Description</h4>
                         <p class="cost">@item.Price $</p>
                         <a href="~/sale/detail/@item.Id" id="follow">❯</a>
                     }
+                    else if (item.Type == ReHouse.Utils.Helpers.AdvertsType.NewBuilding)
+                    {
+                        <h3>@item.Name</h3>
+                        <h4>@item.Adress <br />Сдача: @item.Description</h4>
+                        <p class="cost">от @item.Price грн/м²</p>
+                        <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>
+                    }
                     else
                     {
-                        <h3>Сдам @item.Title.RussianName.ToLower()</h3>
+                        <h3>Сдам @item.Name.ToLower()</h3>
                         <h4>@item.Description</h4>
                         <p class="cost">@item.Price $</p>
                         <a href="~/rent/detail/@item.Id" id="follow">❯</a>
                     }
-                    <a onclick="addtocart(@item.Id, '@item.Type', true);">&#10084;</a>
+                    <a onclick="addtocart(@item.Id, '@item.Type', false);">&#10084;</a>
                 </div>
             </li>
         </div>

@@ -1,8 +1,3 @@
-/**
- * @author Shaumik Daityari
- * @copyright Copyright © 2013 All rights reserved.
- */
-
 var page = 1,
         buttonId = "#button-more",
         loadingId = "#loading-div",

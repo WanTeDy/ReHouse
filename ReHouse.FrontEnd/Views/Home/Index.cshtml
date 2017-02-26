@@ -1,6 +1,7 @@
 ﻿@using ReHouse.Utils
 @using ReHouse.FrontEnd.Helpers
 @using ReHouse.FrontEnd.Models
+@using ReHouse.Utils.Helpers
 @model ReHouse.FrontEnd.Models.LoadAdvertsForHomePageModel
 
 @{
@@ -29,26 +30,27 @@
     <div class="d-carousel" id="p">
         <h2>Горячие предложения</h2>
         <ul class="carousel">
-            @foreach (var advert in Model.HotAdverts)
+            @foreach (var item in Model.HotAdverts)
             {
                 <li>
                     <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                     <a class="fix" href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
                     <div class="min-content">                        
-                        @if (advert.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+                        @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
                         {
-                            <h3>Продам @advert.Title.RussianName.ToLower()</h3>
-                            <h4>@advert.Description</h4>
-                            <p class="cost">@advert.Price $</p>
-                            <a href="~/sale/detail/@advert.Id" id="follow">❯</a>
+                            <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                            <h4>@item.Description</h4>
+                            <p class="cost">@item.Price $</p>
+                            <a href="~/sale/detail/@item.Id" id="follow">❯</a>
                         }
                         else
                         {
-                            <h3>Сдам @advert.Title.RussianName.ToLower()</h3>
-                            <h4>@advert.Description</h4>
-                            <p class="cost">@advert.Price $</p>
-                            <a href="~/rent/detail/@advert.Id" id="follow">❯</a>
+                            <h3>Сдам @item.Title.RussianName.ToLower()</h3>
+                            <h4>@item.Description</h4>
+                            <p class="cost">@item.Price $</p>
+                            <a href="~/rent/detail/@item.Id" id="follow">❯</a>
                         }
+                        <a onclick="addtocart(@item.Id, '@item.Type', true);">&#10084;</a>
                     </div>
                 </li>
             }
@@ -60,15 +62,16 @@
     <div class="d-carousel" id="p">
         <h2>Новостройки</h2>
         <ul class="carousel">
-            @foreach (var advert in Model.NewBuildingAdverts)
+            @foreach (var item in Model.NewBuildingAdverts)
             {
                 <li>
                     <a class="fix" href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
                     <div class="min-content">
-                        <h3>@advert.Name</h3>
-                        <h4>@advert.Adress <br />Сдача: @advert.ExpluatationDate.Name</h4>
-                        <p class="cost">от @advert.Price грн/м²</p>
-                        <a href="~/newbuilding/detail/@advert.Id" id="follow">❯</a>
+                        <h3>@item.Name</h3>
+                        <h4>@item.Adress <br />Сдача: @item.ExpluatationDate.Name</h4>
+                        <p class="cost">от @item.Price грн/м²</p>
+                        <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>
+                        <a onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true);">&#10084;</a>
                     </div>
                 </li>
             }
@@ -80,15 +83,16 @@
     <div class="d-carousel" id="p">
         <h2>Продажа квартир</h2>
         <ul class="carousel">
-            @foreach (var advert in Model.FlatSaleAdverts)
+            @foreach (var item in Model.FlatSaleAdverts)
             {
                 <li>
                     <a class="fix" href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
                     <div class="min-content">
-                        <h3>Продам @advert.Title.RussianName.ToLower()</h3>
-                        <h4>@advert.Description</h4>
-                        <p class="cost">@advert.Price $</p>
-                        <a href="~/sale/detail/@advert.Id" id="follow">❯</a>
+                        <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                        <h4>@item.Description</h4>
+                        <p class="cost">@item.Price $</p>
+                        <a href="~/sale/detail/@item.Id" id="follow">❯</a>
+                        <a onclick="addtocart(@item.Id, '@item.Type', true);">&#10084;</a>
                     </div>
                 </li>
             }
@@ -101,15 +105,16 @@
     <div class="d-carousel" id="p">
         <h2>Продажа домов и участков</h2>
         <ul class="carousel">
-            @foreach (var advert in Model.HouseSaleAdverts)
+            @foreach (var item in Model.HouseSaleAdverts)
             {
                 <li>
                     <a class="fix" href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
                     <div class="min-content">
-                        <h3>Продам @advert.Title.RussianName.ToLower()</h3>
-                        <h4>@advert.Description</h4>
-                        <p class="cost">@advert.Price $</p>
-                        <a href="~/sale/detail/@advert.Id" id="follow">❯</a>
+                        <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                        <h4>@item.Description</h4>
+                        <p class="cost">@item.Price $</p>
+                        <a href="~/sale/detail/@item.Id" id="follow">❯</a>
+                        <a onclick="addtocart(@item.Id, '@item.Type', true);">&#10084;</a>
                     </div>
                 </li>
             }

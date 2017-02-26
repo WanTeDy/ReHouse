@@ -103,7 +103,7 @@
             </div>
 
             <div class="feedback">
-                <a href="#" id="fav">Список желаний</a>
+                <a href="~/cart/index" id="fav">Список желаний</a>
                 <a href="feedback.html" id="blink">Обратный звонок</a>
             </div>
 
@@ -197,6 +197,7 @@
         </div>
     </div>
     @RenderSection("scripts", required: false)    
+    @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")
     @Scripts.Render("~/bundles/unob")
     @Scripts.Render("~/Scripts/foundation")

@@ -7,6 +7,12 @@ namespace ReHouse.FrontEnd.Helpers
 {
     public static class SessionHelpers
     {
+        public static object Session(string key)
+        {
+            var obj = HttpContext.Current.Session[key];
+            return obj;
+        }
+
         public static object Session(string key, Type responseType)
         {
             var obj = HttpContext.Current.Session[key];

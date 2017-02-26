@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ReHouse.FrontEnd</RootNamespace>
     <AssemblyName>ReHouse.FrontEnd</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -124,11 +125,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -223,6 +220,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\NewBuildingController.cs" />
@@ -241,6 +239,7 @@
     <Compile Include="Helpers\TextOutHelpers.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="Models\LoadAdvertsForHomePageModel.cs" />
+    <Compile Include="Models\LoadCartModel.cs" />
     <Compile Include="Models\LoadAdvertsModel.cs" />
     <Compile Include="Models\LoadAdvertModel.cs" />
     <Compile Include="Models\LoadNewBuildingsModel.cs" />
@@ -358,6 +357,7 @@
     <Content Include="Content\images\tw.png" />
     <Content Include="Content\images\vk-g.png" />
     <Content Include="Content\images\vk.png" />
+    <Content Include="Scripts\advertSettingsRent.js" />
     <Content Include="Scripts\advertSettings.js" />
     <Content Include="Scripts\ajaxFunc.js" />
     <Content Include="Scripts\client\client.js" />
@@ -369,6 +369,7 @@
     <Content Include="Scripts\jcarousel\js\jquery.jcarousel.js" />
     <Content Include="Scripts\jcarousel_lite\jcarousellite_1.0.1c5.js" />
     <Content Include="Scripts\jquery.1.10.min.js" />
+    <Content Include="Scripts\addtocart.js" />
     <Content Include="Scripts\modules.js" />
     <Content Include="Scripts\modules.min.js" />
     <Content Include="Scripts\slides.min.jquery.js" />
@@ -417,6 +418,7 @@
     <Content Include="Scripts\lazyload.js" />
     <Content Include="Views\Sale\Detail.cshtml" />
     <Content Include="Views\Sale\Flat.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
@@ -460,6 +462,7 @@
     <Content Include="Views\Rent\Flat.cshtml" />
     <Content Include="Views\Rent\Homestead.cshtml" />
     <Content Include="Views\Rent\House.cshtml" />
+    <Content Include="Views\Shared\Cart\_listOfAdverts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
