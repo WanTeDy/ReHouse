@@ -38,7 +38,7 @@
                         <p class="cost">@item.Price $</p>
                         <a href="~/rent/detail/@item.Id" id="follow">❯</a>
                     }
-                    <a onclick="addtocart(@item.Id, '@item.Type', false);">&#10084;</a>
+                    <a onclick="addtocart(@item.Id, '@item.Type', false, this);">&#10084;</a>
                 </div>
             </li>
         </div>

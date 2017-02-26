@@ -62,7 +62,7 @@
 <div class="h2novostroy">
     <h2>Продам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>
     <div class="favorite">
-        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true);" id="favorite">Добавить в избранное</a>
+        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
     </div>
 </div>
 
@@ -191,7 +191,7 @@
                             <h4>@item.Description</h4>
                             <p class="cost">@item.Price $</p>
                             <a href="~/sale/detail/@item.Id" id="follow">❯</a>
-                            <a onclick="addtocart(@item.Id, '@item.Type', true);">&#10084;</a>
+                            <a onclick="addtocart(@item.Id, '@item.Type', true, this);">&#10084;</a>
                         </div>
                     </li>
                 </div>

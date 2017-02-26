@@ -42,7 +42,7 @@
 <div class="h2novostroy">
     <h2>@Model.NewBuilding.Name</h2>
     <div class="favorite">
-        <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true);" id="favorite">Добавить в избранное</a>
+        <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true, this);" id="favorite">Добавить в избранное</a>
     </div>
 </div>
 <div id="products_example">
@@ -175,7 +175,7 @@
                             <h4>@item.Adress <br />Сдача: @item.ExpluatationDate.Name</h4>
                             <p class="cost">от @item.Price грн/м²</p>
                             <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>
-                            <a onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true);">&#10084;</a>
+                            <a onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);">&#10084;</a>
                         </div>
                     </li>
                 </div>
