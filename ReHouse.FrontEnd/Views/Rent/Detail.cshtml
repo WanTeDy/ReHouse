@@ -181,11 +181,11 @@
                         }
                         <a href="#" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
                         <div class="min-content">
+                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
                             <h3>Сдам @item.Title.RussianName.ToLower()</h3>
                             <h4>@item.Description</h4>
                             <p class="cost">@item.Price $</p>
                             <a href="~/rent/detail/@item.Id" id="follow">❯</a>
-                            <a onclick="addtocart(@item.Id, '@item.Type', true, this);">&#10084;</a>
                         </div>
                     </li>
                 </div>

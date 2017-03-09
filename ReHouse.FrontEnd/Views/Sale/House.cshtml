@@ -19,13 +19,12 @@
 </div>
 
 <div class="sorting">
-    @foreach (var category in Model.Categories)
-    {
-        <div class="rooms">
-            <a href="~/sale/house/@category.Id">@category.RussianName</a>
-        </div>
-    }
-
+    <form>
+        @foreach (var category in Model.Categories)
+        {
+            <a href="~/sale/house/@category.Id"><button>@category.RussianName</button></a>
+        }
+    </form>
 </div>
 
 <div class="h2novostroy"><h2>Новые объявления</h2></div>

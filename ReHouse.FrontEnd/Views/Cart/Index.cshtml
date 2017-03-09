@@ -14,17 +14,17 @@
 
 @if (!ViewBag.NoElements)
 {
-    <div class="products">
+    <div class="othernovostroy">
         <ul class="prods" id="data-container">
 
-            @Html.Partial("Cart/_listOfAdverts", Model.Adverts);  
-                      
-        </ul>
-        <div id="button-more">
-            <a id="more">Больше объявлений</a>
-        </div>
-    </div>
-    <div id="loading-div">
+            @Html.Partial("Cart/_listOfAdverts", Model.Adverts);
 
+        </ul>
+        @*<div id="button-more">
+            <a id="more">Больше объявлений</a>
+        </div>*@
     </div>
+    @*<div id="loading-div">
+
+    </div>*@
 }

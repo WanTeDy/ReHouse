@@ -19,18 +19,13 @@ function addtocart(id, type, isAdd, element) {
         contentType: 'application/json; charset=utf-8',
         data: json,
         success: function (response) {
-            //if (response.noElements) {
-            //    $(buttonId).fadeOut();
-            //    $(loadingId).hide();
-            //    return;
-            //} else if (search) {
-            //    search = false;
-            //    $(buttonId).show();
-            //    $(loadingId).hide();
-            //    $('#data-container').html(response);
-            //    return;
-            //}
-            //appendContests(response);
+            if (isAdd) {
+                $(element).removeClass("like");
+                $(element).addClass("liked");
+            } else {
+                $(element).removeClass("liked");
+                $(element).addClass("like");
+            }
         },
         error: function (response) {
         //    $(loadingId).hide();

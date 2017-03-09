@@ -1,0 +1,47 @@
+﻿@using ReHouse.FrontEnd.Models
+@*@model LoadCartModel*@
+
+<div class="navigation_string">
+    <div class="way">
+        @Html.ActionLink("Главная", "index", "home")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink("Карта сайта", "index", "map")
+    </div>
+</div>
+<div class="h2novostroy"><h2>Карта сайта <span>REHOUSE</span></h2></div>
+<div class="map_website">
+    <ol type="1">
+        <li>@Html.ActionLink("1. Главная", "index", "home")</li>
+        <li>
+            <a>2. Продажа</a>
+            <ul>
+                <li>@Html.ActionLink("- Купить квартиру", "flat", "sale")</li>
+                <li>@Html.ActionLink("- Купить дом", "house", "sale")</li>
+                <li>@Html.ActionLink("- Купить участок", "homestead", "sale")</li>
+                <li>@Html.ActionLink("- Купить коммерческую", "commerce", "sale")</li>
+            </ul>
+        </li>
+        <li>
+            <a> 3. Аренда</a>
+            <ul>
+                <li>@Html.ActionLink("- Снять квартиру", "flat", "rent")</li>
+                <li>@Html.ActionLink("- Снять дом", "house", "rent")</li>
+                <li>@Html.ActionLink("- Снять участок", "homestead", "rent")</li>
+            </ul>
+        </li>
+        <li>@Html.ActionLink("4. Новостройки", "index", "newbuilding")</li>
+        <li><a href="#"> 5. Менеджеры</a></li>
+        <li>
+            <a> 6. О нас</a>
+            <ul>
+                <li><a href="#">- О компании</a></li>
+                <li><a href="#">- Вакансии агентства</a></</li>
+            </ul>
+        </li>
+        <li>@Html.ActionLink("7. Новости", "index", "news")</li>
+        <li>@Html.ActionLink("8. Отзывы", "index", "feedback")</li>
+        <li><a href="#"> 9. Обратная связь</a></li>
+    </ol>
+</div>
