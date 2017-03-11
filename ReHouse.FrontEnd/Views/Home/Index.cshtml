@@ -33,30 +33,37 @@
             @foreach (var item in Model.HotAdverts)
             {
                 <li>
-                    <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                    <a class="fix" href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
-                    <div class="min-content">
-                        <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>                        
-                        @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
-                        {
+                    @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+                    {
+                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                        <a class="fix" href="~/sale/detail/@item.Id"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                        <div class="min-content">
+                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
+
                             <h3>Продам @item.Title.RussianName.ToLower()</h3>
                             <h4>@item.Description</h4>
                             <p class="cost">@item.Price $</p>
                             <a href="~/sale/detail/@item.Id" id="follow">❯</a>
-                        }
-                        else
-                        {
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                        <a class="fix" href="~/rent/detail/@item.Id"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                        <div class="min-content">
+                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
                             <h3>Сдам @item.Title.RussianName.ToLower()</h3>
                             <h4>@item.Description</h4>
                             <p class="cost">@item.Price $</p>
                             <a href="~/rent/detail/@item.Id" id="follow">❯</a>
-                        }                        
-                    </div>
-                </li>
+                        </div>
+                    }
+
+                    </li>
             }
-        </ul>
-        <a href="#" id="more">Подробнее</a>
-    </div>
+            </ul>
+            <a href="#" id="more">Подробнее</a>
+        </div>
     <div class="streak"></div>
 
     <div class="d-carousel" id="p">
@@ -65,7 +72,7 @@
             @foreach (var item in Model.NewBuildingAdverts)
             {
                 <li>
-                    <a class="fix" href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                    <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="~/Content/images/prod1.jpg" alt="" /></a>
                     <div class="min-content">
                         <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"></div> 
                         <h3>@item.Name</h3>
@@ -86,7 +93,7 @@
             @foreach (var item in Model.FlatSaleAdverts)
             {
                 <li>
-                    <a class="fix" href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                    <a class="fix" href="~/sale/detail/@item.Id"><img src="~/Content/images/prod1.jpg" alt="" /></a>
                     <div class="min-content">
                         <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div> 
                         <h3>Продам @item.Title.RussianName.ToLower()</h3>
@@ -108,7 +115,7 @@
             @foreach (var item in Model.HouseSaleAdverts)
             {
                 <li>
-                    <a class="fix" href="#"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                    <a class="fix" href="~/sale/detail/@item.Id"><img src="~/Content/images/prod1.jpg" alt="" /></a>
                     <div class="min-content">
                         <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
                         <h3>Продам @item.Title.RussianName.ToLower()</h3>

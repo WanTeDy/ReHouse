@@ -14,32 +14,41 @@
                 else
                 {
                     <div class="redimg"><img src="~/Content/images/newred.png"></div>
-                }                
-                <a href="#" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                } 
+                @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+                {
+                <a href="~/sale/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
                 <div class="min-content">
                     <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
-                    @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
-                    {
-                        <h3>Продам @item.Name.ToLower()</h3>
-                        <h4>@item.Description</h4>
-                        <p class="cost">@item.Price $</p>
-                        <a href="~/sale/detail/@item.Id" id="follow">❯</a>
-                    }
-                    else if (item.Type == ReHouse.Utils.Helpers.AdvertsType.NewBuilding)
-                    {
+
+                    <h3>Продам @item.Name.ToLower()</h3>
+                    <h4>@item.Description</h4>
+                    <p class="cost">@item.Price $</p>
+                    <a href="~/sale/detail/@item.Id" id="follow">❯</a>
+                </div>
+                }
+                else if (item.Type == ReHouse.Utils.Helpers.AdvertsType.NewBuilding)
+                {
+                    <a href="~/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                    <div class="min-content">
+                        <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
                         <h3>@item.Name</h3>
                         <h4>@item.Adress <br />Сдача: @item.Description</h4>
                         <p class="cost">от @item.Price грн/м²</p>
                         <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>
-                    }
-                    else
-                    {
+                    </div>
+                }
+                else
+                {
+                    <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                    <div class="min-content">
+                        <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
                         <h3>Сдам @item.Name.ToLower()</h3>
                         <h4>@item.Description</h4>
                         <p class="cost">@item.Price $</p>
                         <a href="~/rent/detail/@item.Id" id="follow">❯</a>
-                    }
-                </div>
+                    </div>
+                }
             </li>
         </div>
     }
