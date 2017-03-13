@@ -22,7 +22,7 @@
     <form>
         @foreach (var category in Model.Categories)
         {
-            <a href="~/rent/homestead/@category.Id"><button>@category.RussianName</button></a>
+            <a href="~/rent/homestead/@category.Id">@category.RussianName</a>
         }
     </form>
 </div>

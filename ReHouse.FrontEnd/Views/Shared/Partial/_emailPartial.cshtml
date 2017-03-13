@@ -1,0 +1,39 @@
+﻿@model ReHouse.FrontEnd.Models.EmailModel
+@section Scripts {
+    @Scripts.Render("~/Scripts/jqueryval")
+}
+
+
+@using (Ajax.BeginForm("index", "email", null, new AjaxOptions
+{
+    UpdateTargetId = "application",
+    OnSuccess = "LoginOnComplete"
+}, new { @Id = "application" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <h3>Имя</h3>
+    @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "Введите ваше имя", @id = "applicationName" })
+    <div class="errortext">
+        @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "erroremail" })
+    </div>
+            <h3>Email</h3>
+            @Html.TextBoxFor(x => x.Email, new { @placeholder = "Введите ваш Email", @id = "applicationEmail" })
+            <div class="errortext">
+                @Html.ValidationMessageFor(model => model.Email, null, new { @class = "erroremail" })
+            </div>
+            <h3>Телефон</h3>
+            @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Введите ваш телефон", @id = "applicationTelephone" })
+            <div class="errortext">
+                @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "erroremail" })
+            </div>
+            <h3>Сообщение</h3>
+            <p>@Html.TextAreaFor(x => x.Message, new { @placeholder = "Введите ваше сообщение", @rows = 10, @cols = 45, @id = "applicationText" })</p>
+            <div class="errortext">
+                @Html.ValidationMessageFor(model => model.Message, null, new { @class = "erroremail" })
+            </div>
+
+            <button class="applicationButton" type="submit" form="application">Отправить</button>
+
+}

@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using ReHouse.Utils.Helpers;
 using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.DataBase.News;
 
 namespace ReHouse.Utils.BusinessOperations.Home
 {
     public class LoadAdvertsForHomePageOperation : BaseOperation
     {
         private Int32 _count = 10;
+        private Int32 _articlesCount = 2;
         private String _tokenHash { get; set; }        
         public List<Advert> _hotAdverts { get; set; }
         public List<Advert> _flatSaleAdverts { get; set; }
         public List<NewBuilding> _newBuildingAdverts { get; set; }
         public List<Advert> _houseSaleAdverts { get; set; }
+        public List<Article> _articles { get; set; }
 
         public LoadAdvertsForHomePageOperation(string tokenHash)
         {
@@ -32,6 +35,8 @@ namespace ReHouse.Utils.BusinessOperations.Home
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
             _newBuildingAdverts = Context.NewBuildings.Where(x => !x.Deleted)
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
+            _articles = Context.Articles.Where(x => !x.Deleted)
+                .OrderByDescending(x => x.Date).Take(_articlesCount).ToList();
         }
     }
 }

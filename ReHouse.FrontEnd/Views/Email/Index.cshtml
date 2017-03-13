@@ -1,0 +1,19 @@
+﻿@using ReHouse.FrontEnd.Models
+@model EmailModel
+
+<div class="navigation_string">
+    <div class="way">
+        @Html.ActionLink("Главная", "index", "home")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink("Обратный звонок", "index", "email")
+    </div>
+</div>
+<div class="managers">
+    <h2>Свяжитесь с нами, заполнив форму ниже</h2>
+
+    <div class="form">        
+        @Html.Partial("Partial/_emailPartial", Model)
+    </div>
+</div>

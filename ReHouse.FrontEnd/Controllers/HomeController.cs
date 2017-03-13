@@ -50,6 +50,7 @@ namespace ReHouse.FrontEnd.Controllers
                 FlatSaleAdverts = operation._flatSaleAdverts,
                 HouseSaleAdverts = operation._houseSaleAdverts,
                 NewBuildingAdverts = operation._newBuildingAdverts,
+                Articles = operation._articles,
             };
             return View(model);
         }
