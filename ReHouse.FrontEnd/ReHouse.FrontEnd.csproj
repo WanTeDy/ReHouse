@@ -252,6 +252,7 @@
     <Compile Include="Models\LoadNewBuildingModel.cs" />
     <Compile Include="Models\AdvertPropertyModel.cs" />
     <Compile Include="Models\PageAndFilterForAdvertsModel.cs" />
+    <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\PageAndFilterModel.cs" />
     <Compile Include="Models\BuilderModel.cs" />
     <Compile Include="Models\ClientsDataModel.cs" />
@@ -484,6 +485,7 @@
     <Content Include="Views\Shared\Cart\_listOfAdverts.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Shared\Partial\_emailPartial.cshtml" />
+    <Content Include="Views\Shared\Article\_listOfArticles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

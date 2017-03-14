@@ -2,6 +2,57 @@
 @model List<Article>
 
 @Scripts.Render("~/bundles/showDetails")
+@section Scripts {
+    <script>
+        var articlePage = 2,
+        buttonId = "#button-more",
+        loadingId = "#loading-div",
+        container = "#data-container";
+
+        function load() {
+
+            var obj = {
+                "PageNumber": articlePage
+            }
+
+            var json = JSON.stringify(obj);
+            $(buttonId).hide();
+            $(loadingId).show();
+
+            $.ajax({
+                url: '/news/load',
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: json,
+                success: function (response) {
+                    if (response.noElements) {
+                        $(buttonId).fadeOut();
+                        $(loadingId).hide();
+                        if (articlePage == 1) {
+                            $('#data-container').html("На данный момент новостей нет");
+                        }
+                        return;
+                    } 
+                    appendContent(response);
+                },
+                error: function (response) {
+                    $(loadingId).hide();
+                    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
+                }
+            });
+        };
+
+        var appendContent = function (response) {
+            var id = $(buttonId);
+
+            $(buttonId).show();
+            $(loadingId).hide();
+
+            $(response).appendTo($(container));
+            articlePage += 1;
+        };
+    </script>
+}
 
 <div class="navigation_string">
     <div class="way">
@@ -14,30 +65,11 @@
 </div>
 <div class="news">
     <h2>Новости</h2>
-    @foreach (var article in Model)
-    {
-        <div class="firstnews">
-            <div class="img">
-                <img src="~/Content/images/news1.jpg" width="440" height="263">
-            </div>
-            <div class="content1">
-                <h3>@article.Title</h3>
-                @if (@article.Description.Length > 750)
-                {
-                    <p id="news_@article.Id">@article.Description.Substring(0, 749) ...</p>
-                }
-                else
-                {
-                    <p>@article.Description</p>
-                }
-                <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
-                <a onclick="showDetails(@article.Id, this);" id="more">Подробнее</a>
-                <p id="newsHidden_@article.Id" style="display:none">@article.Description</p>
-            </div>
-        </div>
-    }
-    <div class="morenews1" id="button-more" onclick="return false;">
-        <a href="#" id="more">Больше новостей</a>
+    <div id="data-container">
+        @Html.Partial("Article/_listOfArticles", Model)
+    </div>
+    <div class="morenews1" id="button-more" onclick="load();">
+        <a id="more">Больше новостей</a>
     </div>
     <div id="loading-div">
     </div>

@@ -29,5 +29,21 @@ namespace ReHouse.FrontEnd.Controllers
             operation.ExcecuteTransaction();            
             return View(operation._articles);
         }
+
+        [HttpPost]
+        public ActionResult Load(PageModel page)
+        {
+            if (page.PageNumber < 1)
+                return Json(new { noElements = true });
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+            var tokenHash = "";
+            if (sessionModel != null)
+                tokenHash = sessionModel.TokenHash;
+            var operation = new LoadArticlesOperation(tokenHash, page.PageNumber, ConstV.ItemsPerPage);
+            operation.ExcecuteTransaction();
+            if (operation._articles == null || operation._articles.Count == 0)
+                return Json(new { noElements = true });
+            return PartialView("Article/_listOfArticles", operation._articles);
+        }
     }
 }
