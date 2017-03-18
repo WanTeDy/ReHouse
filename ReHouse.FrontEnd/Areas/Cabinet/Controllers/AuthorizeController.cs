@@ -20,7 +20,7 @@ using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using SendGrid;
 
-namespace ReHouse.FrontEnd.Controllers
+namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 {
     public class AuthorizeController : Controller
     {
@@ -62,7 +62,7 @@ namespace ReHouse.FrontEnd.Controllers
             };
             SessionHelpers.Session("user", session);
             //return RedirectToAction("Index", "Home");
-            return Json(new { url = Url.Action("Index", "Home") });
+            return Json(new { url = Url.Action("Index", "Profile") });
         }
 
         [HttpPost]
@@ -215,7 +215,7 @@ namespace ReHouse.FrontEnd.Controllers
             }
             else
             {
-                ModelState.AddModelError("Password", "Пароль не совпадают!");
+                ModelState.AddModelError("Password", "Пароли не совпадают!");
                 ViewBag.Success = false;
             }
             return PartialView(m);

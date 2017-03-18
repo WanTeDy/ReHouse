@@ -1,5 +1,57 @@
-﻿@using ReHouse.FrontEnd.Models
-@*@model LoadCartModel*@
+﻿@using ReHouse.Utils.DataBase.Feedback
+@model List<UserFeedback>
+
+@section Scripts {
+    <script>
+        var feedbackPage = 2,
+        buttonId = "#button-more",
+        loadingId = "#loading-div",
+        container = "#data-container";
+
+        function load() {
+
+            var obj = {
+                "PageNumber": feedbackPage
+            }
+
+            var json = JSON.stringify(obj);
+            $(buttonId).hide();
+            $(loadingId).show();
+
+            $.ajax({
+                url: '/feedback/load',
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: json,
+                success: function (response) {
+                    if (response.noElements) {
+                        $(buttonId).fadeOut();
+                        $(loadingId).hide();
+                        if (feedbackPage == 1) {
+                            $('#data-container').html("На данный момент отзывов нет");
+                        }
+                        return;
+                    }
+                    appendContent(response);
+                },
+                error: function (response) {
+                    $(loadingId).hide();
+                    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
+                }
+            });
+        };
+
+        var appendContent = function (response) {
+            var id = $(buttonId);
+
+            $(buttonId).show();
+            $(loadingId).hide();
+
+            $(response).appendTo($(container));
+            feedbackPage += 1;
+        };
+    </script>
+}
 
 <div class="navigation_string">
     <div class="way">
@@ -12,22 +64,13 @@
 </div>
 <div class="news1">
     <h2>Отзывы</h2>
-    <div class="firstnews">
-        <div class="comment1">
-            <div class="name_date"><h3 class="name">Сергей</h3><pre> </pre><h4 class="time">(28.06.2016 в 13:34)</h4></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conseq magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est lqui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore mamet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore m</p>
-        </div>
-    </div>
-    <div class="secondnews">
-        <div class="comment2">
-            <div class="name_date"><h3 class="name">Владимир</h3><pre> </pre><h4 class="time">(28.06.2016 в 13:34)</h4></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conseq magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est lqui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidoccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est lqui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incid est lqui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incid est lqui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incid est lqui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore mamet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore m</p>
-        </div>
-    </div>
+    <div id="data-container">
+        @Html.Partial("Feedback/_listOfFeedbacks", Model)
+    </div> 
 
 
     <div class="morenews1" id="button-more" onclick="">
-        <a href="#" id="more">Больше отзывов</a>
+        <a onclick="load();" id="more">Больше отзывов</a>
     </div>
     <div id="loading-div">
     </div>

@@ -220,8 +220,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\ProfileController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
-    <Compile Include="Controllers\AuthorizeController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
@@ -275,6 +277,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\admin.css" />
     <Content Include="Content\fancybox\fancy_closebox.png" />
     <Content Include="Content\fancybox\fancy_left.png" />
     <Content Include="Content\fancybox\fancy_progress.png" />
@@ -427,6 +430,7 @@
     <Content Include="Content\fonts\casper\casperitalic.woff" />
     <Content Include="Content\fonts\casper\casperitalic.woff2" />
     <Content Include="Areas\Cabinet\Views\web.config" />
+    <Content Include="Areas\Cabinet\Views\Shared\_Layout.cshtml" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
@@ -439,7 +443,7 @@
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Map\Index.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
-    <Content Include="Views\admin.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Profile\Index.cshtml" />
     <Content Include="Views\Email\Index.cshtml" />
     <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -486,12 +490,13 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Shared\Partial\_emailPartial.cshtml" />
     <Content Include="Views\Shared\Article\_listOfArticles.cshtml" />
+    <Content Include="Views\Shared\Feedback\_listOfFeedbacks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Cabinet\Controllers\" />
     <Folder Include="Areas\Cabinet\Models\" />
-    <Folder Include="Areas\Cabinet\Views\Shared\" />
+    <Folder Include="Areas\Cabinet\Views\Authorize\" />
+    <Folder Include="Areas\Cabinet\Views\News\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -62,6 +62,10 @@ namespace ReHouse.FrontEnd
                      "~/Content/minslider.css",
                      "~/Content/fancybox/jquery.fancybox.css"
                      ));
+
+            bundles.Add(new StyleBundle("~/Content/adminCss").Include(
+                     "~/Content/admin.css"
+                     ));
             //bundles.Add(new StyleBundle("~/Content/vendorCss").Include(
             //         "~/Content/vendor/*.css"));
             bundles.Add(new ScriptBundle("~/Scripts/indexJs").Include(

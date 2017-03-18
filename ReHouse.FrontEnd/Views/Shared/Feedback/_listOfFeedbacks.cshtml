@@ -1,0 +1,15 @@
+﻿@using ReHouse.Utils.DataBase.Feedback
+@model List<UserFeedback>
+
+@if (Model.Count > 0)
+{
+    foreach (var feedback in Model)
+    {
+        <div class="firstnews">
+            <div class="comment1">
+                <div class="name_date"><h3 class="name">@feedback.Username</h3><pre> </pre><h4 class="time">(@feedback.Date.ToShortDateString() в @feedback.Date.ToShortTimeString())</h4></div>
+                <p>@feedback.Description</p>
+            </div>
+        </div>
+    }
+}

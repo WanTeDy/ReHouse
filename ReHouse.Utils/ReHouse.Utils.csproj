@@ -83,6 +83,10 @@
     <Compile Include="BusinessOperations\Building\LoadNewBuildingsOperation.cs" />
     <Compile Include="BusinessOperations\Building\UpdateNewBuildingOperation.cs" />
     <Compile Include="BusinessOperations\Home\LoadAdvertsForHomePageOperation.cs" />
+    <Compile Include="BusinessOperations\Feedbacks\AddFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\Feedbacks\DeleteFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\Feedbacks\LoadFeedbacksOperation.cs" />
+    <Compile Include="BusinessOperations\Feedbacks\UpdateFeedbackOperation.cs" />
     <Compile Include="BusinessOperations\News\AddArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\DeleteArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\LoadArticlesOperation.cs" />
@@ -111,6 +115,7 @@
     <Compile Include="DataBase\AdvertParams\Title.cs" />
     <Compile Include="DataBase\BaseObj.cs" />
     <Compile Include="DataBase\DbReHouse.cs" />
+    <Compile Include="DataBase\Feedback\UserFeedback.cs" />
     <Compile Include="DataBase\Geo\District.cs" />
     <Compile Include="DataBase\Geo\City.cs" />
     <Compile Include="DataBase\News\Article.cs" />
@@ -189,6 +194,10 @@
     <Compile Include="Migrations\201702191758404_advert_markettype1.Designer.cs">
       <DependentUpon>201702191758404_advert_markettype1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703161945191_feedback.cs" />
+    <Compile Include="Migrations\201703161945191_feedback.Designer.cs">
+      <DependentUpon>201703161945191_feedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -243,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702191758404_advert_markettype1.resx">
       <DependentUpon>201702191758404_advert_markettype1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161945191_feedback.resx">
+      <DependentUpon>201703161945191_feedback.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

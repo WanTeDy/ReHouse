@@ -27,7 +27,7 @@ namespace ReHouse.FrontEnd
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Authorize/Login"),
+                LoginPath = new PathString("/Cabinet/Authorize/Login"),
                 Provider = new CookieAuthenticationProvider()                
             });            
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);

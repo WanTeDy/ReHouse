@@ -1,0 +1,226 @@
+﻿@using ReHouse.FrontEnd.Helpers
+@using ReHouse.FrontEnd.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/jpg" href="~/Content/images/rehousemin.jpg">
+    <meta charset="utf-8">
+    <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if (!String.IsNullOrEmpty(ViewBag.Title))
+    {
+        <title>@ViewBag.Title</title>
+        <meta property="og:title" content="@ViewBag.Title" />
+        <meta name="twitter:title" content="@ViewBag.Title">
+        <meta itemprop="name" content="@ViewBag.Title" />
+        <meta property="og:site_name" content="@ViewBag.Title" />
+    }
+    else
+    {
+        <title>Агенство недвижимости ReHouse.com.ua</title>
+        <meta property="og:title" content="Агенство недвижимости ReHouse.com.ua" />
+        <meta name="twitter:title" content="Агенство недвижимости ReHouse.com.ua">
+        <meta itemprop="name" content="Агенство недвижимости ReHouse.com.ua" />
+        <meta property="og:site_name" content="Агенство недвижимости ReHouse.com.ua" />
+    }
+    <meta name="keywords" content="Агенство недвижимости ReHouse.com.ua" />
+    @if (!String.IsNullOrEmpty(ViewBag.Description))
+    {
+        <meta name="description" content="@ViewBag.Description" />
+        <meta property="og:description" content="@ViewBag.Description" />
+        <meta name="twitter:description" content="@ViewBag.Description" />
+        <meta itemprop="description" content="@ViewBag.Description" />
+    }
+    @if (!String.IsNullOrEmpty(ViewBag.Image))
+    {
+        <meta property="og:image" content="@ViewBag.Image" />
+        <meta name="twitter:image:src" content="@ViewBag.Image" />
+        <meta itemprop="image" content="@ViewBag.Image" />
+    }
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/styleCss")
+    @Styles.Render("~/Content/adminCss")
+
+    <!-- TO TOP -->
+    <script>
+
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 800);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container" id="container">
+
+
+        <div class="header">
+
+            <div class="logo">
+                <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="300"></a>
+                <p class="textlogo">Международная риэлторская инвестиционная компания</p>
+            </div>
+
+            <div class="search">
+                <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
+
+                @if (Session != null && Session["user"] is SessionModel)
+                {
+                    var session = Session["user"] as SessionModel;
+
+                    <div class="your_name">
+                        <div><p>Ваш логин:</p></div>
+                        <div class="your_login"><p><a href="#" class="" id="#">@session.User.Login</a></p></div>
+                        <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
+                    </div>
+                }
+            </div>
+
+            <div class="contactinfo">
+                <div class="tel">
+                    <div class="imgtel">
+                        <img src="~/Content/images/tel.png">
+                    </div>
+                    <div class="number">
+                        <p>+38063 000 0000</p>
+                        <p>+38063 000 0000</p>
+                    </div>
+                </div>
+                <div class="social">
+                    <a href="#" class="fb"></a>
+                    <a href="#" class="yt"></a>
+                    <a href="#" class="gmail"></a>
+                    <a href="#" class="vk"></a>
+                </div>
+            </div>
+
+            <div class="feedback">
+                <a href="~/cart/index" id="fav">Список желаний</a>
+                <a href="~/email/index" id="blink">Обратный звонок</a>
+            </div>
+
+        </div>
+
+        <div id="nav">
+            <div class="navigation">
+                <ol>
+                    <li>
+                        <a id="">Продажа</a>
+                        <ol>
+                            @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
+                                <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
+                                <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
+                                <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
+                            <li><a href="~/sale/flat">Купить квартиру</a></li>
+                            <li><a href="~/sale/house">Купить дом</a></li>
+                            <li><a href="~/sale/homestead">Купить участок</a></li>
+                            <li><a href="~/sale/commerce">Купить коммерческую</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#" id="">Аренда</a>
+                        <ol>
+                            @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
+                            @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
+                            @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
+                            <li><a href="~/rent/flat">Снять квартиру</a></li>
+                            <li><a href="~/rent/house">Снять дом</a></li>
+                            <li><a href="~/rent/homestead">Снять участок</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="~/newbuilding/">Новостройки</a></li>
+                    <li><a href="~/manager/" id="">Менеджеры</a></li>
+                    <li>
+                        <a href="#" id="">О нас</a>
+                        <ol>
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Вакансии агенства</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        @if (Session == null || Session["user"] == null)
+                        {
+                            <a class="f" data-dropdown="login-modal" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+                            <div class="forms-wrapper">
+                                <div class="form-drop f-dropdown content-mod medium" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
+                                    <ol class="login">
+                                        <li>
+                                            <div class="login">
+                                                <div class="bodyform">
+                                                    @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Выйти", "logout", "authorize")
+                        }
+                    </li>
+                </ol>
+            </div>
+
+            <div class="sell">
+                <a href="#" id="">Хочу продать!</a>
+            </div>
+        </div>
+        <div id="pagecontent">
+
+            <div class="list_">
+                <h2 class="tabset_label">Table of Contents</h2>
+                <ul class="tabset_tabs">
+                    <li class="firstchild"><a href="#adminka1" class="preActive active">My Profile</a></li>
+                    <li><a class="1" href="#adminka2">Продажа</a></li>
+                    <li><a class="2" href="#adminka3">Аренда</a></li>
+                    <li><a class="3" href="#adminka4">Новостройки</a></li>
+                    <li><a class="4" href="#adminka5">Новости</a></li>
+                    <li><a class="5" href="#adminka6">Adminka</a></li>
+                    <li><a class="6" href="#adminka7">Adminka</a></li>
+                    <li><a class="7" href="#adminka8">Adminka</a></li>
+                </ul>
+            </div>
+
+            @RenderBody()
+        </div>
+        <div class="footer">
+            <div id="toTop"></div>
+            <div class="social">
+                <a href="#" class="fb"></a>
+                <a href="#" class="yt"></a>
+                <a href="#" class="gmail"></a>
+                <a href="#" class="vk"></a>
+            </div>
+            <div class="bottomnav">
+                <a href="~/news/index" class="">Новости</a>
+                <a href="#" class="">Контакты</a>
+                <a href="~/map/index" class="">Карта сайта</a>
+                <a href="~/feedback/index" class="">Отзывы</a>
+                <a href="#" class="">Правила</a>
+            </div>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/addtocart")
+    @Scripts.Render("~/bundles/lazyLoad")
+    @Scripts.Render("~/bundles/unob")
+    @Scripts.Render("~/Scripts/foundation")
+    @Scripts.Render("~/Scripts/vendorJs")
+    @Scripts.Render("~/Scripts/modulesJs")
+    <script type="text/javascript">
+        $(document).foundation();
+        $(document).foundation('dropdown', 'reflow');
+    </script>
+</body>
+</html>
