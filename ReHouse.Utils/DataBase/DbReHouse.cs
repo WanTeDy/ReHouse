@@ -140,9 +140,10 @@ namespace ReHouse.Utils.DataBase
             //        modelBuilder.Entity<CustomerCard>()
             //        .HasOptional<OrderComes>(u => u.OrderComes)
             //        .WithOptionalDependent(c => c.CustomerCard).Map(p => p.MapKey("OrderComesId"));
-            //        modelBuilder.Entity<CustomerCard>()
-            //        .HasOptional<ComesMoney>(u => u.ComesMoney)
-            //        .WithOptionalDependent(c => c.CustomerCard).Map(p => p.MapKey("ComesMoneyId"));
+            //        
+            modelBuilder.Entity<User>()
+                    .HasOptional<Avatar>(u => u.Avatar)
+                    .WithRequired(c => c.User).Map(p => p.MapKey("UserId"));
             //        //modelBuilder.Entity<CustomerCard>().HasOptional(s=>s.OrderComes).WithRequired(ad=>ad.CustomerCard);
             //        //modelBuilder.Entity<CustomerCard>().HasOptional(s=>s.ComesMoney).WithRequired(ad=>ad.CustomerCard);
 

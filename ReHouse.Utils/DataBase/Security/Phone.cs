@@ -10,10 +10,8 @@ namespace ReHouse.Utils.DataBase.Security
     public class Phone : BaseObj
     {
         /// <summary>
-        /// User's telephone 
+        /// Telephone 
         /// </summary>
         public String TelePhone { get; set; }
-        public virtual User User { get; set; }
-        public virtual Builder Builder { get; set; }
     }
 }

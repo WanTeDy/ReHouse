@@ -62,7 +62,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             };
             SessionHelpers.Session("user", session);
             //return RedirectToAction("Index", "Home");
-            return Json(new { url = Url.Action("Index", "Profile") });
+            return Json(new { url = Url.Action("Index", "Profile", new { Area = "Cabinet" }) });
         }
 
         [HttpPost]

@@ -20,6 +20,10 @@ namespace ReHouse.Utils.DataBase.Security
         /// </summary>
         public String FatherName { get; set; }
         /// <summary>
+        /// User's Position
+        /// </summary>
+        public String Position { get; set; }
+        /// <summary>
         /// FatherName
         /// </summary>
         public String Adress { get; set; }
@@ -38,18 +42,26 @@ namespace ReHouse.Utils.DataBase.Security
         /// <summary>
         /// Id user's Role
         /// </summary>
-        public Int32 RoleId { get; set; }        
+        public Int32 RoleId { get; set; }
+        /// <summary>
+        /// Id user's avatar
+        /// </summary>
+        public Int32 AvatarId { get; set; }
         /// <summary>
         /// TokenHash
         /// </summary>
         public String TokenHash { get; set; }
+        /// <summary>
+        /// About user
+        /// </summary>
+        public String About { get; set; }
         /// <summary>
         /// User is Active
         /// </summary>
         public Boolean IsActive { get; set; }   
              
         public virtual Role Role { get; set; }
-        public virtual List<Avatar> Avatars { get; set; }
+        public virtual Avatar Avatar { get; set; }
         public virtual List<Phone> Phones { get; set; }        
         public virtual List<NewBuilding> NewBuildings { get; set; }        
     }

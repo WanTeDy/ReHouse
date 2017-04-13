@@ -17,5 +17,6 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         public String Url { get; set; }
 
         public virtual List<NewBuilding> NewBuildings { get; set; }
+        public virtual List<Phone> Phones { get; set; }
     }
 }

@@ -15,6 +15,16 @@ namespace ReHouse.FrontEnd
             bundles.Add(new ScriptBundle("~/bundles/advertSettings").Include(
                         "~/Scripts/advertSettings.js"
                         ));
+
+            bundles.Add(new ScriptBundle("~/bundles/deleteAdverts").Include(
+                        "~/Scripts/deleteAdverts.js"
+                        ));
+            bundles.Add(new ScriptBundle("~/bundles/advertSettingsAdmin").Include(
+                        "~/Scripts/advertSettingsAdmin.js"
+                        ));
+            bundles.Add(new ScriptBundle("~/bundles/advertSettingsRentAdmin").Include(
+                        "~/Scripts/advertSettingsRentAdmin.js"
+                        ));
             bundles.Add(new ScriptBundle("~/bundles/showDetails").Include(
                        "~/Scripts/detailsNews.js"
                        ));

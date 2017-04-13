@@ -17,7 +17,9 @@ namespace ReHouse.FrontEnd.Areas.Cabinet
             context.MapRoute(
                 "Cabinet_default",
                 "Cabinet/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "profile", action = "index", id = UrlParameter.Optional },
+                new[] { "ReHouse.FrontEnd.Areas.Cabinet.Controllers" }
+
             );
         }
     }

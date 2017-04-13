@@ -40,6 +40,7 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                             Image = el.Images.FirstOrDefault(x => !x.Deleted),
                             IsHot = false,
                         };
+                        _adverts.Add(adv);
                     }
                 }
                 else
@@ -58,9 +59,9 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                             Image = el.Images.FirstOrDefault(x => !x.Deleted),
                             IsHot = el.IsHot,
                         };
+                        _adverts.Add(adv);
                     }
                 }
-            _adverts.Add(adv);
             }
         }
     }

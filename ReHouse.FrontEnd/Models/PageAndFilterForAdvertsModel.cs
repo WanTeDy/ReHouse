@@ -16,5 +16,7 @@ namespace ReHouse.FrontEnd.Models
         public Int32 TrimconditionId { get; set; }
 
         public Int32 PageNumber { get; set; }
+
+        public Boolean IsOnlyUser { get; set; }
     }
 }

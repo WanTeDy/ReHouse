@@ -12,30 +12,19 @@ using ReHouse.Utils.BusinessOperations.Home;
 using ReHouse.Utils.Helpers;
 using ReHouse.FrontEnd.Helpers;
 using ReHouse.FrontEnd.Models;
-
+using ReHouse.Utils.DataBase.News;
+using ReHouse.Utils.DataBase.Feedback;
+using ReHouse.Utils.BusinessOperations;
 
 namespace ReHouse.FrontEnd.Controllers
 {
     public class HomeController : Controller
-    {
-        [HttpPost]
-        public string GetSidebarStatus()
-        {
-            var r = Request.Cookies["Success"];
-            return r != null ? r.Value : "Нету cookie";
-        }
-        [WebMethod]
-        public void SetSidebarStatus(string status)
-        {
-            var userCookie = new HttpCookie("Sidebar", status);
-            userCookie.Expires = userCookie.Expires.AddHours(6);
-            Response.Cookies.Add(userCookie);
-        }
+    {        
         public ActionResult Index()
         {
             ViewBag.Route = RouteEnum.HomeIndex;
             ViewBag.MainPage = true;
-
+                        
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             var tokenHash = "";
             if (sessionModel != null)

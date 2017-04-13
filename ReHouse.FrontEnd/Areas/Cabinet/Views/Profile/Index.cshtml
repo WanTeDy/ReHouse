@@ -1,45 +1,94 @@
-﻿@{
+﻿@using ReHouse.Utils.DataBase.Security
+@model User
+@{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
+<div class="list_">
+    <h2 class="tabset_label">Table of Contents</h2>
+    <ul class="tabset_tabs">
+        <li class="firstchild preActive active"><a href="~/cabinet/profile">Профиль</a></li>
+        <li>
+            <a class="1">Продажа</a>
+            <ol>
+                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/sale/house">Дома</a></li>
+                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерческие</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a class="2">Аренда</a>
+            <ol>
+                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/rent/house">Дома</a></li>
+                <li><a href="~/cabinet/rent/homestead">Участки</a></li>
+            </ol>
+        </li>
+        <li><a class="3" href="~/cabinet/newbuilding/list">Новостройки</a></li>
+        <li><a class="4" href="~/cabinet/news/list">Новости</a></li>
+    </ul>
+</div>
 <div id="adminka1" class="tabset_content tabset_content_active">
     <h2 class="tabset_label">adminka</h2>
-
+    
     <div class="photo_of_manager">
+        @if (Model.Avatar != null)
+        {
+            <img src="@Url.Content(Model.Avatar.Url + Model.Avatar.FileName)" width="150" height="150">
+        }
+        <div class="contact_info">
+            <table>
+                <tr>
+                    <td>Имя:</td>
+                    <td>@Model.FirstName</td>
+                </tr>
+                <tr>
+                    <td>Фамилия:</td>
+                    <td>@Model.SecondName</td>
+                </tr>
+                <tr>
+                    <td>Отчество:</td>
+                    <td>@Model.FatherName</td>
+                </tr>
+                <tr>
+                    <td>Логин:</td>
+                    <td>@Model.Login</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>@Model.Email</td>
+                </tr>
+                @if (Model.Phones != null && Model.Phones.Count > 0)
+                {
+                    foreach (var item in Model.Phones)
+                    {
+                        <tr>
+                            <td>Телефон:</td>
+                            <td>@item.TelePhone</td>
+                        </tr>
+                    }
 
-        <img src="~/Content/images/www.jpg" width="150" height="150">
-        <form enctype="multipart/form-data" action="№" method="POST">
-            <div class="file_upload">
-                <input name="f" type="file">
-            </div>
-            <input type="submit" value="Сменить фото">
-        </form>
+                }
+
+                <tr>
+                    <td>О себе</td>
+                    <td>@Model.About</td>
+                </tr>
+                <tr>
+                    <td>Адрес</td>
+                    <td>@Model.Adress</td>
+                </tr>
+                <tr>
+                    <td>Должность</td>
+                    <td>@Model.Position</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button onclick="window.location.href= '/cabinet/profile/edit';">Редактировать</button></td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div class="contact_info">
-        <table>
-            <tr>
-                <td>Имя:</td>
-                <td>Светлана Полякова</td>
-                <td><button>Редактировать</button></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td>rehouse@gmail.com</td>
-                <td><button>Редактировать</button></td>
-            </tr>
-            <tr>
-                <td>Контакты:</td>
-                <td>00380990000000</td>
-                <td><button>Редактировать</button></td>
-            </tr>
-            <tr>
-                <td>VK</td>
-                <td>oooooooooooo</td>
-                <td><button>Редактировать</button></td>
-            </tr>
-            <tr>
-                <td>FB</td>
-                <td>oooooooooo</td>
-                <td><button>Редактировать</button></td>
-        </table>
-    </div>
+
 </div>

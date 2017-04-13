@@ -61,7 +61,6 @@ input {
 	position:relative; 
 	z-index:1; 
 	padding:0.5em 1em; 
-	display:none;
 }
 .tabset_label { 
 	display:none;
@@ -182,11 +181,11 @@ table.added .edit_del {
 select.added_select {
 	width: 300px;
 }
-input._cost_ {
+input {
 	width: 300px;
 }
 textarea {
-	width: 600px;
+	width: 300px;
 }
 input.youtube-video {
 	width: 300px;
@@ -231,4 +230,46 @@ button.delete_all2 {
 	margin-left: 408px;
 }
 .headline button {
-	margin-top: 10px;
+    margin-top: 10px;
+}
+
+/*.list_ ul li a {
+    display:block;
+}
+.list_ ul li:hover {
+	background-color: rgba(3, 2, 2, 0.6);
+	-webkit-transition: .3s ease;
+	transition: .3s ease;
+}
+.list_ ul li {
+	position: relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+.list_ ul li a:hover {
+	color: white;
+	-webkit-transition: .2s ease;
+	transition: .2s ease;
+}*/
+.list_ ul ol {
+	display:none;
+	position:absolute;
+	left: 0px;
+	background-color: rgba(3, 2, 2, 0.6);
+    margin-left: 210px;
+	color: white;
+	width: 230px;
+}
+.list_ ul ol li a{
+	padding: 17px 0px 15px 20px;	
+	color: white;
+	font-size: 16px;
+	width: 210px;
+}
+.list_ ul li:hover > ol {
+	display:block;
+	z-index: 10000;
+	-webkit-transition: .3s ease;
+	transition: .3s ease;
+}

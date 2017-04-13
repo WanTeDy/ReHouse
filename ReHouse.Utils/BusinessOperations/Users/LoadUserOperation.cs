@@ -30,7 +30,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                 {
                     var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
                 }
-                var userForWatching = Context.Users.FirstOrDefault(x => x.Id == _userId && !x.Deleted);
+                var userForWatching = Context.Users.FirstOrDefault(x => x.Id == _userId && !x.Deleted && x.IsActive);
                 if (userForWatching != null)
                 {
                     _user = new User
@@ -45,6 +45,8 @@ namespace ReHouse.Utils.BusinessOperations.Users
                         FatherName = userForWatching.FatherName,
                         Role = userForWatching.Role,
                         Email = userForWatching.Email,
+                        Avatar = userForWatching.Avatar,
+                        AvatarId = userForWatching.AvatarId,
                         //Password = userForWatching.Password,
                         IsActive = userForWatching.IsActive,
                         Deleted = userForWatching.Deleted,

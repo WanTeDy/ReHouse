@@ -26,7 +26,7 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
                 new LoadUserOperation(null, 0),
                 new AddUserOperation(null, null, null, 0),
                 new DeleteUserOperation(0, null),
-                new UpdateUserOperation(null, null),
+                new UpdateUserOperation(null, null, null),
                 new UpdateRoleForUserOperation(0, 0, null),
                 new UpdateTitleOperation(null, 0, null),
                 new AddTitleOperation(null, null),

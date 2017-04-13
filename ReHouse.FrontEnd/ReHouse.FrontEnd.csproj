@@ -222,6 +222,7 @@
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
     <Compile Include="Areas\Cabinet\Controllers\NewsController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\RentController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -242,10 +243,7 @@
     </Compile>
     <Compile Include="Helpers\CurrencyHelper.cs" />
     <Compile Include="Helpers\ErrorHelpers.cs" />
-    <Compile Include="Helpers\PagingHelpers.cs" />
     <Compile Include="Helpers\SessionHelpers.cs" />
-    <Compile Include="Helpers\TextOutHelpers.cs" />
-    <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="Models\LoadAdvertsForHomePageModel.cs" />
     <Compile Include="Models\LoadCartModel.cs" />
     <Compile Include="Models\LoadAdvertsModel.cs" />
@@ -375,6 +373,9 @@
     <Content Include="Content\images\tw.png" />
     <Content Include="Content\images\vk-g.png" />
     <Content Include="Content\images\vk.png" />
+    <Content Include="Scripts\deleteAdverts.js" />
+    <Content Include="Scripts\advertSettingsAdmin.js" />
+    <Content Include="Scripts\advertSettingsRentAdmin.js" />
     <Content Include="Scripts\detailsNews.js" />
     <Content Include="Scripts\advertSettingsRent.js" />
     <Content Include="Scripts\advertSettings.js" />
@@ -431,6 +432,15 @@
     <Content Include="Content\fonts\casper\casperitalic.woff2" />
     <Content Include="Areas\Cabinet\Views\web.config" />
     <Content Include="Areas\Cabinet\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Profile\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Rent\Add.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Rent\Commerce.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Rent\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Rent\Flat.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Rent\Homestead.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Rent\House.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Advert\_filters.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Advert\_listOfAdverts.cshtml" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />

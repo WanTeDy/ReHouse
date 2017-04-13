@@ -22,20 +22,8 @@ namespace ReHouse.Utils.BusinessOperations.News
 
         protected override void InTransaction()
         {
-            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _articles = Context.Articles.Include("User").Include("Image").Where(x => !x.Deleted).OrderByDescending(x => x.Date)
+            _articles = Context.Articles.Where(x => !x.Deleted).OrderByDescending(x => x.Date)
                 .Skip((_page - 1) * _count).Take(_count).ToList();
-            //_articles = articles.Select(x => new Article
-            //{
-            //    Id = x.Id,
-            //    Title = x.Title,
-            //    Description = x.Description,
-            //    Date = x.Date,
-            //    UserId = x.UserId,
-            //    User = x.User,
-            //    ImageId = x.ImageId,
-            //    Image = x.Image,
-            //}).ToList();
         }
     }
 }

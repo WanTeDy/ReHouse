@@ -2,6 +2,7 @@
 using System.Text;
 using System.Web;
 using Newtonsoft.Json;
+using ReHouse.FrontEnd.Models;
 
 namespace ReHouse.FrontEnd.Helpers
 {
@@ -45,6 +46,13 @@ namespace ReHouse.FrontEnd.Helpers
             var p = Encoding.UTF8.GetString(Convert.FromBase64String(cookie.Value));
             var res = JsonConvert.DeserializeObject(p, responseType);
             return res;
+        }
+        public static bool IsAuthentificated()
+        {
+            var obj = HttpContext.Current.Session["User"] as SessionModel;
+            if (obj != null)
+                return true;
+            return false;
         }
     }
 }

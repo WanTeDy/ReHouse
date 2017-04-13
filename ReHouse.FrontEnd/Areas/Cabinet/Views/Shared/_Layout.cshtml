@@ -116,10 +116,6 @@
                     <li>
                         <a id="">Продажа</a>
                         <ol>
-                            @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
-                                <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
-                                <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
-                                <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
                             <li><a href="~/sale/flat">Купить квартиру</a></li>
                             <li><a href="~/sale/house">Купить дом</a></li>
                             <li><a href="~/sale/homestead">Купить участок</a></li>
@@ -127,11 +123,8 @@
                         </ol>
                     </li>
                     <li>
-                        <a href="#" id="">Аренда</a>
+                        <a id="">Аренда</a>
                         <ol>
-                            @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
-                            @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
-                            @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
                             <li><a href="~/rent/flat">Снять квартиру</a></li>
                             <li><a href="~/rent/house">Снять дом</a></li>
                             <li><a href="~/rent/homestead">Снять участок</a></li>
@@ -178,19 +171,7 @@
         </div>
         <div id="pagecontent">
 
-            <div class="list_">
-                <h2 class="tabset_label">Table of Contents</h2>
-                <ul class="tabset_tabs">
-                    <li class="firstchild"><a href="#adminka1" class="preActive active">My Profile</a></li>
-                    <li><a class="1" href="#adminka2">Продажа</a></li>
-                    <li><a class="2" href="#adminka3">Аренда</a></li>
-                    <li><a class="3" href="#adminka4">Новостройки</a></li>
-                    <li><a class="4" href="#adminka5">Новости</a></li>
-                    <li><a class="5" href="#adminka6">Adminka</a></li>
-                    <li><a class="6" href="#adminka7">Adminka</a></li>
-                    <li><a class="7" href="#adminka8">Adminka</a></li>
-                </ul>
-            </div>
+            
 
             @RenderBody()
         </div>

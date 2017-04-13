@@ -14,11 +14,7 @@ namespace ReHouse.Utils.DataBase.Security
         /// Url of image
         /// </summary>
         public String Url { get; set; }
-        /// <summary>
-        /// User's id
-        /// </summary>
-        public Int32 UserId { get; set; }
-
+        
         public virtual User User { get; set; }
     }
 }

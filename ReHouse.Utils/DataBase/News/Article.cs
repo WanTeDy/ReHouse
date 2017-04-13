@@ -29,6 +29,6 @@ namespace ReHouse.Utils.DataBase.News
         public DateTime Date { get; set; }
 
         public virtual User User { get; set; }
-        public virtual Image Image { get; set; }
+        public virtual List<Image> Images { get; set; }
     }
 }

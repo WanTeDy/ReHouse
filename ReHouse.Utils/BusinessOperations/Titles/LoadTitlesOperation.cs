@@ -19,7 +19,7 @@ namespace ReHouse.Utils.BusinessOperations.Titles
 
         protected override void InTransaction()
         {
-            var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             var titles = Context.Titles.Where(x => !x.Deleted).ToList();
             _titles = titles.Select(x => new Title
             {
