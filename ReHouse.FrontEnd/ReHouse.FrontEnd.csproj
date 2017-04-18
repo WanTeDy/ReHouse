@@ -220,6 +220,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\NewsController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\RentController.cs" />
@@ -300,6 +301,7 @@
     <Content Include="Content\images\altair4.jpg" />
     <Content Include="Content\images\arrow-next.png" />
     <Content Include="Content\images\arrow-prev.png" />
+    <Content Include="Content\images\eksklusiv.png" />
     <Content Include="Content\images\flat1.jpg" />
     <Content Include="Content\images\flat2.jpg" />
     <Content Include="Content\images\flat3.jpg" />
@@ -324,6 +326,12 @@
     <Content Include="Content\images\rehousemin.jpg" />
     <Content Include="Content\images\select.png" />
     <Content Include="Content\images\select_hover.png" />
+    <Content Include="Content\images\share-fb-g.png" />
+    <Content Include="Content\images\share-fb.png" />
+    <Content Include="Content\images\share-tw-g.png" />
+    <Content Include="Content\images\share-tw.png" />
+    <Content Include="Content\images\share-vk-g.png" />
+    <Content Include="Content\images\share-vk.png" />
     <Content Include="Content\images\www.jpg" />
     <Content Include="Content\images\youtube.png" />
     <Content Include="Content\images\youtube_hover.png" />
@@ -501,11 +509,13 @@
     <Content Include="Views\Shared\Partial\_emailPartial.cshtml" />
     <Content Include="Views\Shared\Article\_listOfArticles.cshtml" />
     <Content Include="Views\Shared\Feedback\_listOfFeedbacks.cshtml" />
+    <Content Include="Views\News\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Cabinet\Models\" />
     <Folder Include="Areas\Cabinet\Views\Authorize\" />
+    <Folder Include="Areas\Cabinet\Views\Image\" />
     <Folder Include="Areas\Cabinet\Views\News\" />
   </ItemGroup>
   <ItemGroup>

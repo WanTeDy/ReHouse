@@ -7,7 +7,8 @@
 
 
 @section scripts {
-    @Scripts.Render("~/bundles/slides");
+    @Scripts.Render("~/bundles/slides")
+    @Scripts.Render("~/bundles/deleteImage")
     <script>
         $(function () {
             $('#products').slides({
@@ -34,7 +35,7 @@
                 <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
                 <li><a href="~/cabinet/sale/house">Дома</a></li>
                 <li><a href="~/cabinet/sale/homestead">Участки</a></li>
-                <li><a href="~/cabinet/sale/commerce">Коммерческие</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
             </ol>
         </li>
 
@@ -46,7 +47,7 @@
                 <li><a href="~/cabinet/rent/homestead">Участки</a></li>
             </ol>
         </li>
-        <li><a class="3" href="~/cabinet/newbuilding/list">Новостройки</a></li>
+        <li><a class="3" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
         <li><a class="4" href="~/cabinet/news/list">Новости</a></li>
     </ul>
 </div>
@@ -59,15 +60,6 @@
         @Html.ValidationSummary()
         <div class="contact_info">
             <table>
-                @*<tr>
-                        <td>
-                            @if (Model.Avatar != null)
-                            {
-                                <img src="@Url.Content(Model.Avatar.Url + Model.Avatar.FileName)" width="150" height="150">
-                            }
-                        </td>
-                        <td><input type="file" name="image" /></td>
-                    </tr>*@
                 @if (ViewBag.Categories != null && ViewBag.Categories.Count > 0)
                 {
                     <tr>
@@ -132,30 +124,39 @@
                         </tr>
                     }
                 }
-
-
-                <tr>
-                    <td></td>
-                    <td><button>Сохранить</button></td>
-                </tr>
             </table>
+
+            @if (Model.Images != null && Model.Images.Count > 0)
+            {
+                foreach (var image in Model.Images)
+                {
+                    <div class="photo_">
+                        <img id="image_@image.Id" src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                        <a onclick="deleteImage(@image.Id);">X</a>
+                    </div>
+                }
+            }
+            <div class="file_upload">
+                <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" />
+            </div>
+
+            @if (Model.PlanImages != null && Model.PlanImages.Count > 0)
+            {
+                foreach (var image in Model.PlanImages)
+                {
+                    <div class="photo_">
+                        <img id="image_@image.Id" src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                        <a onclick="deletePlanImage(@image.Id);">X</a>
+                    </div>
+                }
+            }
+            <div class="file_upload">
+                <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" />
+            </div>
+
+            <button type="submit">Сохранить</button>
         </div>
     </form>
-
-    <div id="products_example">
-        <div id="products">
-            <div class="slides_container">
-                <a><img src="~/Content/images/flat1.jpg" width="767" height="600" alt=""></a>
-                <a><img src="~/Content/images/flat2.jpg" width="767" height="600" alt=""></a>
-                <a><img src="~/Content/images/flat3.jpg" width="767" height="600" alt=""></a>
-            </div>
-            <ul class="pagination">
-                <li><a href="#"><img src="~/Content/images/flat1.jpg" alt=""></a></li>
-                <li><a href="#"><img src="~/Content/images/flat2.jpg" alt=""></a></li>
-                <li><a href="#"><img src="~/Content/images/flat3.jpg" alt=""></a></li>
-            </ul>
-        </div>
-    </div>
 
     <div class="map_managercard">
         <div id="mapapart_prod">

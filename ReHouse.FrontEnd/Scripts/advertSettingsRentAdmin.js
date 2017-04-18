@@ -6,7 +6,7 @@
                 price = $('#price').val(),
                 category = $('#category').val(),
                 trimcondition = $('#trimcondition').val(),
-                isOnlyUser = $('#isonlyuser').is(':checked');
+                isOnlyUser = $('#isonlyuser').val();
         var obj = {
             "DistrictId": districtID,
             "Price": price,

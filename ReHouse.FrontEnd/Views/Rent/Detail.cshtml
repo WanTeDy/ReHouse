@@ -43,7 +43,7 @@
                 action = "homestead";
                 break;
             case (int)ParrentCategories.Commerce:
-                desc = "Снять коммерческую";
+                desc = "Снять коммерцию";
                 action = "commerce";
                 break;
         }
@@ -62,7 +62,17 @@
         <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
     </div>
 </div>
-
+<div class="share_icons">
+    <div class="share_fb">
+        <a onclick="Share.facebook('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@Model.Advert.Description')"></a>
+    </div>
+    <div class="share_vk">
+        <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@Model.Advert.Description')"></a>
+    </div>
+    <div class="share_tw">
+        <a onclick="Share.twitter('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street')"></a>
+    </div>
+</div>
 
 
 <div id="products_example">

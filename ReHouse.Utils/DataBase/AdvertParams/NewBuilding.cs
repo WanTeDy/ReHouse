@@ -84,6 +84,7 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         public virtual District District { get; set; }
         public virtual ExpluatationDate ExpluatationDate { get; set; }
         public virtual List<Image> Images { get; set; }
+        public virtual List<PlanImage> PlanImages { get; set; }
         public virtual List<Builder> Builders { get; set; }
         public virtual List<Phone> Phones { get; set; }
     }

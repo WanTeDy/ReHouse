@@ -72,6 +72,7 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         public virtual TrimCondition TrimCondition { get; set; }
         public virtual User User { get; set; }
         public virtual List<Image> Images { get; set; }
+        public virtual List<PlanImage> PlanImages { get; set; }
         public virtual List<AdvertPropertyValue> AdvertPropertyValues { get; set; }
     }
 }

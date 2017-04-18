@@ -16,6 +16,9 @@ namespace ReHouse.FrontEnd
                         "~/Scripts/advertSettings.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/bundles/deleteImage").Include(
+                        "~/Scripts/deleteImage.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/deleteAdverts").Include(
                         "~/Scripts/deleteAdverts.js"
                         ));

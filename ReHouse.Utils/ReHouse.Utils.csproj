@@ -93,8 +93,11 @@
     <Compile Include="BusinessOperations\Feedbacks\DeleteFeedbackOperation.cs" />
     <Compile Include="BusinessOperations\Feedbacks\LoadFeedbacksOperation.cs" />
     <Compile Include="BusinessOperations\Feedbacks\UpdateFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\Images\DeletePlanImageOperation.cs" />
+    <Compile Include="BusinessOperations\Images\DeleteImageOperation.cs" />
     <Compile Include="BusinessOperations\News\AddArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\DeleteArticleOperation.cs" />
+    <Compile Include="BusinessOperations\News\LoadArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\LoadArticlesOperation.cs" />
     <Compile Include="BusinessOperations\News\UpdateArticleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\AddTitleOperation.cs" />
@@ -112,6 +115,7 @@
     <Compile Include="ConstV.cs" />
     <Compile Include="DataBase\AdvertParams\ExpluatationDate.cs" />
     <Compile Include="DataBase\AdvertParams\Builder.cs" />
+    <Compile Include="DataBase\AdvertParams\PlanImage.cs" />
     <Compile Include="DataBase\AdvertParams\NewBuilding.cs" />
     <Compile Include="DataBase\AdvertParams\AdvertPropertyValue.cs" />
     <Compile Include="DataBase\AdvertParams\AdvertProperty.cs" />
@@ -202,6 +206,7 @@
       <DependentUpon>201704071938429_some7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

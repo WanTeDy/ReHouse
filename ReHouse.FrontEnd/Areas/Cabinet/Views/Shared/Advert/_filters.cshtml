@@ -1,7 +1,7 @@
 ﻿@using ReHouse.FrontEnd.Models
 @model LoadAdvertsModel
 
-<div class="selection">
+<div class="selection-admin">
     <div class="typeofproperty">
         <select id="category">
             <option selected value="@Model.CategoryId">Тип недвижимости</option>
@@ -54,8 +54,14 @@
             </select>
         </div>
     }
-    <div><input type="checkbox" id="isonlyuser"/>Только мои объявления</div>
-    <div class="search-button" id="search">
+    <div class="checkbox_">
+        <select id="isonlyuser">
+            <option value="false">Все</option>
+            <option value="true">Только мои</option>
+        </select>
+    </div>
+
+    <div class="search-button-admin" id="search">
         <a>Поиск</a>
     </div>
 </div>

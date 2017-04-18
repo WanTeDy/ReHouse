@@ -30,6 +30,24 @@ namespace ReHouse.FrontEnd.Controllers
             return View(operation._articles);
         }
 
+        [HttpGet]
+        public ActionResult Detail(int? id)
+        {
+            int Id = id ?? 0;
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+            var tokenHash = "";
+            if (sessionModel != null)
+                tokenHash = sessionModel.TokenHash;
+            if (Id == 0)
+                return HttpNotFound();
+            var operation = new LoadArticleOperation(tokenHash, Id);
+            operation.ExcecuteTransaction();
+            if (operation._article == null)
+                return HttpNotFound();
+            
+            return View(operation._article);
+        }
+
         [HttpPost]
         public ActionResult Load(PageModel page)
         {

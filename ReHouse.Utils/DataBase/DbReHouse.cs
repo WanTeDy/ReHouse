@@ -40,6 +40,7 @@ namespace ReHouse.Utils.DataBase
         //public DbSet<PriceFilterNewBuilding> PriceFilterNewBuildings { get; set; }
         public DbSet<PriceFilter> PriceFilters { get; set; }
         public DbSet<Image> Images { get; set; }        
+        public DbSet<PlanImage> PlanImages { get; set; }        
         public DbSet<Avatar> Avatars { get; set; }        
         public DbSet<Article> Articles { get; set; }        
         public DbSet<Category> Categories { get; set; }

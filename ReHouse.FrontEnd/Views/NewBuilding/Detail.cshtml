@@ -32,7 +32,7 @@
         <pre> </pre>
         <p>/</p>
         <pre> </pre>
-        @Html.ActionLink("Новостройки", "index", "newbuilding")
+        @Html.ActionLink("ЖК Новострои", "index", "newbuilding")
         <pre> </pre>
         <p>/</p>
         <pre> </pre>
@@ -43,6 +43,17 @@
     <h2>@Model.NewBuilding.Name</h2>
     <div class="favorite">
         <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true, this);" id="favorite">Добавить в избранное</a>
+    </div>
+</div>
+<div class="share_icons">
+    <div class="share_fb">
+        <a onclick="Share.facebook('http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@Model.NewBuilding.Adress')"></a>
+    </div>
+    <div class="share_vk">
+        <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@Model.NewBuilding.Adress')"></a>
+    </div>
+    <div class="share_tw">
+        <a onclick="Share.twitter('http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name')"></a>
     </div>
 </div>
 <div id="products_example">

@@ -150,8 +150,8 @@
                     <p>@article.Description</p>
                 }
                 <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
-                <a onclick="showDetails(@article.Id, this);" id="more">Подробнее</a>
-                <p id="newsHidden_@article.Id" style="display:none">@article.Description</p>
+                <a href="/news/detail/@article.Id" @*onclick="showDetails(@article.Id, this);"*@ id="more">Подробнее</a>
+                @*<p id="newsHidden_@article.Id" style="display:none">@article.Description</p>*@
             </div>
         </div>
     }

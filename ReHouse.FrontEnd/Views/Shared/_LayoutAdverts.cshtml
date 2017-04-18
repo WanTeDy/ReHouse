@@ -122,7 +122,7 @@
                             <li><a href="~/sale/flat">Купить квартиру</a></li>
                             <li><a href="~/sale/house">Купить дом</a></li>
                             <li><a href="~/sale/homestead">Купить участок</a></li>
-                            <li><a href="~/sale/commerce">Купить коммерческую</a></li>
+                            <li><a href="~/sale/commerce">Купить коммерцию</a></li>
                         </ol>
                     </li>
                     <li>
@@ -136,7 +136,7 @@
                             <li><a href="~/rent/homestead">Снять участок</a></li>                            
                         </ol>
                     </li>
-                    <li><a href="~/newbuilding/">Новостройки</a></li>
+                    <li><a href="~/newbuilding/">ЖК Новострои</a></li>
                     <li><a href="~/manager/" id="">Менеджеры</a></li>
                     <li>
                         <a href="#" id="">О нас</a>
@@ -192,7 +192,6 @@
                 <a href="#" class="">Контакты</a>
                 <a href="~/map/index" class="">Карта сайта</a>
                 <a href="~/feedback/index" class="">Отзывы</a>
-                <a href="#" class="">Правила</a>
             </div>
         </div>
     </div>
@@ -206,6 +205,37 @@
     <script type="text/javascript">
         $(document).foundation();
         $(document).foundation('dropdown', 'reflow');
+
+        Share = {
+            vkontakte: function (purl, ptitle, pimg, text) {
+                url = 'http://vkontakte.ru/share.php?';
+                url += 'url=' + encodeURIComponent(purl);
+                url += '&title=' + encodeURIComponent(ptitle);
+                url += '&description=' + encodeURIComponent(text);
+                url += '&image=' + encodeURIComponent(pimg);
+                url += '&noparse=true';
+                Share.popup(url);
+            },
+            facebook: function (purl, ptitle, pimg, text) {
+                url = 'http://www.facebook.com/sharer.php?s=100';
+                url += '&p[title]=' + encodeURIComponent(ptitle);
+                url += '&p[summary]=' + encodeURIComponent(text);
+                url += '&p[url]=' + encodeURIComponent(purl);
+                url += '&p[images][0]=' + encodeURIComponent(pimg);
+                Share.popup(url);
+            },
+            twitter: function (purl, ptitle) {
+                url = 'http://twitter.com/share?';
+                url += 'text=' + encodeURIComponent(ptitle);
+                url += '&url=' + encodeURIComponent(purl);
+                url += '&counturl=' + encodeURIComponent(purl);
+                Share.popup(url);
+            },
+
+            popup: function (url) {
+                window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+            }
+        }
     </script>    
 </body>
 </html>
