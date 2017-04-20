@@ -25,7 +25,7 @@ namespace ReHouse.Utils.BusinessOperations.Categories
             
             if (_categoryId == 0)
             {
-                _categories = Context.Categories.Where(x => !x.Deleted).ToList();                
+                _categories = Context.Categories.Where(x => !x.Deleted && x.Parent == null).ToList();                
             }
             else
             {

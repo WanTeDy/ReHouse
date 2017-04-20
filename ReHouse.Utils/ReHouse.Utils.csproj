@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessOperations\AdvertProperties\LoadAdvertPropertiesOperation.cs" />
     <Compile Include="BusinessOperations\AuthoritiesOp\FillAuthorityOperation.cs" />
     <Compile Include="BusinessOperations\AuthoritiesOp\LoadRolesWithAuthorityOperation.cs" />
     <Compile Include="BusinessOperations\Auth\Roles\AddRoleOperation.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="DataBase\AdvertParams\Title.cs" />
     <Compile Include="DataBase\BaseObj.cs" />
     <Compile Include="DataBase\DbReHouse.cs" />
+    <Compile Include="DataBase\Vacancies\Vacancy.cs" />
     <Compile Include="DataBase\Feedback\UserFeedback.cs" />
     <Compile Include="DataBase\Geo\District.cs" />
     <Compile Include="DataBase\Geo\City.cs" />
@@ -174,6 +176,14 @@
     <Compile Include="Migrations\201704071938429_some7.Designer.cs">
       <DependentUpon>201704071938429_some7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704182208551_plans.cs" />
+    <Compile Include="Migrations\201704182208551_plans.Designer.cs">
+      <DependentUpon>201704182208551_plans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191930111_new.cs" />
+    <Compile Include="Migrations\201704191930111_new.Designer.cs">
+      <DependentUpon>201704191930111_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -204,6 +214,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704071938429_some7.resx">
       <DependentUpon>201704071938429_some7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704182208551_plans.resx">
+      <DependentUpon>201704182208551_plans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191930111_new.resx">
+      <DependentUpon>201704191930111_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

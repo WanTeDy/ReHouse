@@ -11,14 +11,24 @@ function deleteChekedProducts() {
 
 function deleteProducts(ids) {
     if (confirm("Вы действительно хотите удалить объявления?")) {
+        var districtID = $('#district').val(),
+               price = $('#price').val(),
+               category = $('#category').val(),
+               trimcondition = $('#trimcondition').val(),
+               isOnlyUser = $('#isonlyuser').val();
         var obj = {
-            "ProductsId": ids
+            "DistrictId": districtID,
+            "Price": price,
+            "CategoryId": category,
+            "TrimconditionId": trimcondition,
+            "IsOnlyUser": isOnlyUser,
+            "AdvertsId": ids
         }
-
+        
         var json = JSON.stringify(obj);
 
         $.ajax({
-            url: "/cabinet/rent/delete",
+            url: deleteUrl,
             type: "POST",
             contentType: 'application/json; charset=utf-8',
             data: json,

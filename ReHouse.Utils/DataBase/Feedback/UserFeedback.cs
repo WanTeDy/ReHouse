@@ -19,5 +19,9 @@ namespace ReHouse.Utils.DataBase.Feedback
         /// Feedback's creation datetime
         /// </summary> 
         public DateTime Date { get; set; }
+        /// <summary>
+        /// Is comment past moderation
+        /// </summary> 
+        public Boolean IsModerated { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿@using ReHouse.FrontEnd.Models
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.FrontEnd.Models
 @model LoadAdvertsModel
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
@@ -32,7 +33,7 @@
 <div id="adminka2" class="tabset_content">
     <div class="headline">
         <h2>Добавленные объявления аренды участков</h2>
-        <form method="LINK" action="/cabinet/rent/add">
+        <form method="LINK" action="/cabinet/rent/add/@((int)ParrentCategories.Homestead)">
             <button>Добавить новое объявление ►</button>
         </form>
     </div>
@@ -50,7 +51,7 @@
             </table>
         </div>
         <div>
-            <div class="products">
+            <div class="products1">
                 <div id="button-more">
                     <a id="more">Больше объявлений</a>
                 </div>
@@ -62,6 +63,10 @@
     }
 
 </div>
-
-@Scripts.Render("~/bundles/advertSettingsRentAdmin")
-@Scripts.Render("~/bundles/deleteAdverts")
+@section scripts {
+    @Scripts.Render("~/bundles/advertSettingsRentAdmin")
+    @Scripts.Render("~/bundles/deleteAdverts")
+    <script>
+        var deleteUrl = "/cabinet/rent/delete";
+    </script>
+}

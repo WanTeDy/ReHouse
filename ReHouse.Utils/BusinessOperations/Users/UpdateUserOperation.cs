@@ -39,7 +39,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                 {
                     if (user.Id != _user.Id)
                     {
-                        var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+                        //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
                     }
                     var userForUpdating = Context.Users.FirstOrDefault(x => x.Id == _user.Id && !x.Deleted);
                     if (userForUpdating != null)
@@ -111,16 +111,23 @@ namespace ReHouse.Utils.BusinessOperations.Users
             }
             if (_user.Phones != null && _user.Phones.Count > 0)
             {
-                _user.Phones.ForEach(x => x.TelePhone = x.TelePhone.Trim());
-                List<Phone> newPhones = _user.Phones.Where(x => x.Id == 0 && !String.IsNullOrEmpty(x.TelePhone)).ToList();
-                List<Phone> oldPhones = _user.Phones.Where(x => x.Id > 0 && !String.IsNullOrEmpty(x.TelePhone)).ToList();
+                _user.Phones = _user.Phones.Where(x => x.Id > 0 || !String.IsNullOrWhiteSpace(x.TelePhone)).ToList();
+                _user.Phones.ForEach(x => x.TelePhone = x.TelePhone != null ? x.TelePhone.Trim() : "");
+                List<Phone> newPhones = _user.Phones.Where(x => x.Id == 0).ToList();
+                List<Phone> oldPhones = _user.Phones.Where(x => x.Id > 0).ToList();
                 if (oldPhones.Count > 0)
                 {
                     foreach (var phone in oldPhones)
                     {
                         var exPhone = Context.Phones.FirstOrDefault(x => x.Id == phone.Id);
                         if (exPhone != null)
-                            exPhone.TelePhone = phone.TelePhone;
+                        {
+                            if (String.IsNullOrWhiteSpace(phone.TelePhone))
+                                exPhone.Deleted = true;
+                            else
+                                exPhone.TelePhone = phone.TelePhone;
+
+                        }
                     }
                 }
                 if (newPhones.Count > 0)

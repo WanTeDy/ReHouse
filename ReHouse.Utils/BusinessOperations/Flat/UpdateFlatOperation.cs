@@ -6,20 +6,21 @@ using System.Web;
 using System.IO;
 using ImageResizer;
 
-namespace ReHouse.Utils.BusinessOperations.Building
+namespace ReHouse.Utils.BusinessOperations.Flat
 {
     public class UpdateFlatOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        private Advert _advert { get; set; }
+        public Advert _model { get; set; }
         private IEnumerable<HttpPostedFileBase> _images { get; set; }
         private IEnumerable<HttpPostedFileBase> _planImages { get; set; }
+        public Advert _advert { get; set; }
 
 
         public UpdateFlatOperation(string tokenHash, Advert advert, IEnumerable<HttpPostedFileBase> images, IEnumerable<HttpPostedFileBase> planImages)
         {
             _tokenHash = tokenHash;
-            _advert = advert;
+            _model = advert;
             _images = images;
             _planImages = planImages;
             RussianName = "Изменение объявлений";
@@ -27,15 +28,15 @@ namespace ReHouse.Utils.BusinessOperations.Building
 
         protected override void InTransaction()
         {
-            var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            if (_advert.Price < 0)
+            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            if (_model.Price < 0)
             {
                 Errors.Add("Price", "Цена не может быть отрицательная");
             }
             else
             {
-                var advert = Context.Adverts.FirstOrDefault(x => x.Id == _advert.Id && !x.Deleted);
-                if (advert != null)
+                _advert = Context.Adverts.FirstOrDefault(x => x.Id == _model.Id && !x.Deleted);
+                if (_advert != null)
                 {
                     if (_images != null)
                     {
@@ -56,7 +57,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                                 ImageBuilder.Current.Build(
                                     new ImageJob(imageFile.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1600&maxheight=1200&format=jpg&quality=80"),
+                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
                                     false,
                                     true));
 
@@ -66,7 +67,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                                     Url = url,
                                 };
                                 Context.Images.Add(image);
-                                advert.Images.Add(image);
+                                _advert.Images.Add(image);
                             }
                         }
                     }
@@ -90,7 +91,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                                 ImageBuilder.Current.Build(
                                     new ImageJob(imageFile.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1600&maxheight=1200&format=jpg&quality=80"),
+                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
                                     false,
                                     true));
 
@@ -100,21 +101,21 @@ namespace ReHouse.Utils.BusinessOperations.Building
                                     Url = url,
                                 };
                                 Context.PlanImages.Add(image);
-                                advert.PlanImages.Add(image);
+                                _advert.PlanImages.Add(image);
                             }
                         }
                     }
-                    advert.CategoryId = _advert.CategoryId;
-                    advert.TitleId = _advert.TitleId;
-                    advert.Price = _advert.Price;
-                    advert.Description = _advert.Description;
-                    advert.Street = _advert.Street;
-                    advert.YouTubeUrl = _advert.YouTubeUrl;
-                    advert.MarketTypeId = _advert.MarketTypeId;
-                    advert.TrimConditionId = _advert.TrimConditionId;
-                    foreach (var prop in _advert.AdvertPropertyValues)
+                    _advert.CategoryId = _model.CategoryId;
+                    _advert.TitleId = _model.TitleId;
+                    _advert.Price = _model.Price;
+                    _advert.Description = _model.Description;
+                    _advert.Street = _model.Street;
+                    _advert.YouTubeUrl = _model.YouTubeUrl;
+                    _advert.MarketTypeId = _model.MarketTypeId;
+                    _advert.TrimConditionId = _model.TrimConditionId;
+                    foreach (var prop in _model.AdvertPropertyValues)
                     {
-                        var property = advert.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == prop.AdvertPropertyId);
+                        var property = _advert.AdvertPropertyValues.FirstOrDefault(x => x.Id == prop.Id);
                         property.PropertiesValue = prop.PropertiesValue;
                     }
                     Context.SaveChanges();

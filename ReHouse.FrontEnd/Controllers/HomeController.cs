@@ -19,18 +19,17 @@ using ReHouse.Utils.BusinessOperations;
 namespace ReHouse.FrontEnd.Controllers
 {
     public class HomeController : Controller
-    {        
+    {
         public ActionResult Index()
         {
             ViewBag.Route = RouteEnum.HomeIndex;
             ViewBag.MainPage = true;
-                        
+
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             var tokenHash = "";
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
-            else
-                SessionHelpers.Session("CountProducts", 0);
+
             var operation = new LoadAdvertsForHomePageOperation(tokenHash);
             operation.ExcecuteTransaction();
             var model = new LoadAdvertsForHomePageModel
@@ -42,6 +41,15 @@ namespace ReHouse.FrontEnd.Controllers
                 Articles = operation._articles,
             };
             return View(model);
+        }
+
+        public ActionResult About()
+        {
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+            var tokenHash = "";
+            if (sessionModel != null)
+                tokenHash = sessionModel.TokenHash;
+            return View();
         }
     }
 }

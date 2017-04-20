@@ -223,10 +223,12 @@
     <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\NewsController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\SaleController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\RentController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\VacancyController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MapController.cs" />
@@ -295,6 +297,10 @@
     <Content Include="Content\fancybox\jquery.easing.1.3.js" />
     <Content Include="Content\fancybox\jquery.fancybox-1.2.1.pack.js" />
     <Content Include="Content\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\images\adverts\images\img_1514_131350239275052451_131371146148607426.jpg" />
+    <Content Include="Content\images\adverts\images\img_1526_131350239286771210_131371146158918819.jpg" />
+    <Content Include="Content\images\adverts\plans\img_1579_0_131350239325364947_131371146164629548.jpg" />
+    <Content Include="Content\images\adverts\plans\img_1592_131350239336614944_131371146167734941.jpg" />
     <Content Include="Content\images\altair1.jpg" />
     <Content Include="Content\images\altair2.jpg" />
     <Content Include="Content\images\altair3.jpg" />
@@ -323,6 +329,8 @@
     <Content Include="Content\images\plan2.jpg" />
     <Content Include="Content\images\plan3.jpg" />
     <Content Include="Content\images\plan4.jpg" />
+    <Content Include="Content\images\rehouse10.jpeg" />
+    <Content Include="Content\images\rehouse11.jpeg" />
     <Content Include="Content\images\rehousemin.jpg" />
     <Content Include="Content\images\select.png" />
     <Content Include="Content\images\select_hover.png" />
@@ -384,6 +392,7 @@
     <Content Include="Scripts\deleteAdverts.js" />
     <Content Include="Scripts\advertSettingsAdmin.js" />
     <Content Include="Scripts\advertSettingsRentAdmin.js" />
+    <Content Include="Scripts\deleteImage.js" />
     <Content Include="Scripts\detailsNews.js" />
     <Content Include="Scripts\advertSettingsRent.js" />
     <Content Include="Scripts\advertSettings.js" />
@@ -449,6 +458,12 @@
     <Content Include="Areas\Cabinet\Views\Rent\House.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\Advert\_filters.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\Advert\_listOfAdverts.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Sale\Commerce.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Sale\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Sale\Flat.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Sale\Homestead.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Sale\House.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Sale\Add.cshtml" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
@@ -463,6 +478,8 @@
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Areas\Cabinet\Views\Profile\Index.cshtml" />
     <Content Include="Views\Email\Index.cshtml" />
+    <Content Include="Views\Vacancy\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
@@ -510,6 +527,7 @@
     <Content Include="Views\Shared\Article\_listOfArticles.cshtml" />
     <Content Include="Views\Shared\Feedback\_listOfFeedbacks.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
+    <Content Include="Views\Shared\Vacancy\_listOfVacancies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

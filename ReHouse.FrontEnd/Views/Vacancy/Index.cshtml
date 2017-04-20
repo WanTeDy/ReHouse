@@ -1,0 +1,19 @@
+﻿@using ReHouse.Utils.DataBase.Feedback
+@model List<UserFeedback>
+
+
+<div class="navigation_string">
+    <div class="way">
+        @Html.ActionLink("Главная", "index", "home")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink("Вакансии агенства", "index", "vacancy")
+    </div>
+</div>
+<div class="about_company">
+    <h2>Наши вакансии</h2>    
+
+    @Html.Partial("Vacancy/_listOfVacancies", Model)
+
+</div>

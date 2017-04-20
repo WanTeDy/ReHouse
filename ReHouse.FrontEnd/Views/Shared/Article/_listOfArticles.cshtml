@@ -19,7 +19,7 @@
                 {
                     <p>@article.Description</p>
                 }
-                <div class="share_icons1">
+                @*<div class="share_icons1">
                     <div class="share_fb">
                         <a onclick="Share.facebook('http://rehouse-realty.com.ua/news/', '@article.Title', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@article.Description')"></a>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="share_tw">
                         <a onclick="Share.twitter('http://rehouse-realty.com.ua/news/', '@article.Title')"></a>
                     </div>
-                </div>
+                </div>*@
                 <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
                 <a href="/news/detail/@article.Id" @*onclick="showDetails(@article.Id, this);"*@ id="more">Подробнее</a>
                 @*<p id="newsHidden_@article.Id" style="display:none">@article.Description</p>*@

@@ -2,49 +2,50 @@
 using System.Linq;
 using ReHouse.Utils.DataBase.News;
 using ReHouse.Utils.Helpers;
+using ReHouse.Utils.DataBase.Feedback;
 
 namespace ReHouse.Utils.BusinessOperations.Feedbacks
 {
     public class AddFeedbackOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        private String _title { get; set; }
-        private String _description { get; set; }
-        public Article _article { get; set; }
+        private String _username { get; set; }
+        private String _comment { get; set; }
+        public UserFeedback _userFeedback { get; set; }
 
-        public AddFeedbackOperation(string tokenHash, string title, string description)
+        public AddFeedbackOperation(string tokenHash, string username, string comment)
         {
             _tokenHash = tokenHash;
-            _title = title;
-            _description = description;
-            RussianName = "Добавление новой новости";
+            _username = username;
+            _comment = comment;
+            RussianName = "Добавление нового коммента";
         }
 
         protected override void InTransaction()
         {
-            var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash && !x.Deleted);
-            if (user == null)
-                Errors.Add("Id", "Неверный TokemHash пользователя");
+
+            if (String.IsNullOrWhiteSpace(_username))
+                Errors.Add("Username", "*Укажите своё имя!");
             else
             {
-                var article = Context.Articles.FirstOrDefault(x => x.Title.ToLower() == _title.ToLower());
-                if (article != null)
-                    Errors.Add("Title", "Такой заголовок новости уже существует!");
+                if (String.IsNullOrWhiteSpace(_comment))
+                    Errors.Add("Description", "*Укажите свой отзыв!");
                 else
                 {
-                    _article = new Article
+                    _userFeedback = new UserFeedback
                     {
-                        Title = _title,
-                        Description = _description,
+                        Username = _username,
+                        Description = _comment,
                         Date = DateTime.Now,
-                        UserId = user.Id,
+                        IsModerated = false,
                         Deleted = false,
                     };
-                    Context.Articles.Add(article);
+                    Context.UserFeedbacks.Add(_userFeedback);
                     Context.SaveChanges();
                 }
-            }           
+            }
         }
     }
 }

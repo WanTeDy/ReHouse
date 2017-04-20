@@ -125,7 +125,7 @@
                     }
                 }
             </table>
-
+            <h3>Общие фотографии</h3>
             @if (Model.Images != null && Model.Images.Count > 0)
             {
                 foreach (var image in Model.Images)
@@ -139,6 +139,7 @@
             <div class="file_upload">
                 <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" />
             </div>
+            <h3>Планировки</h3>
 
             @if (Model.PlanImages != null && Model.PlanImages.Count > 0)
             {

@@ -8,7 +8,7 @@ body {
 	padding:0; 
 	background-image: linear-gradient(to top, #0e2447 0%, #0e2447 13.5%, #163d7d 50%, #0e2447 86.5%, #0e2447 100%);
 }
-body a, select {
+body a, select, button {
 	cursor: pointer;
 }
 .container {
@@ -1855,7 +1855,7 @@ transition: .5s ease;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	width: 635px;
+	width: 1220px;
 	justify-content: space-between;
 	margin-top: 32px;
 }
@@ -1903,7 +1903,7 @@ transition: .5s ease;
 	font-family: "Century Gothic";
 	font-size: 15px;
 	font-weight: 700;
-	margin-top: 9px;
+	margin-top: 8px;
 }
 .search-button-admin a {
 	padding: 5px 75px 5px 75px;
@@ -1919,6 +1919,143 @@ transition: .5s ease;
 .search-button-admin a:hover {
 	background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
     color: #25406a;
+    -webkit-transition: .5s ease;
+	transition: .5s ease;
+}
+
+.about_company {
+	padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 85px;
+    margin-bottom: 20px;
+    text-align: justify;
+    width: 1332px;
+}
+.about_company1 {
+	padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 225px;
+    margin-bottom: 20px;
+    text-align: justify;
+    width: 1332px;
+}
+
+.about_company p {
+    color: white;
+    line-height: 22px;
+    font-size: 18px;
+    font-family: "Century Gothic";
+    font-weight: bold;
+}
+.about_company h2 {
+    margin-top: 35px;
+    margin-bottom: 9px;
+    color: white;
+    font-family: "Century Gothic";
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+#map_company {
+	margin-bottom: 60px;
+	margin-left: 225px;
+}
+.photo_company {
+	width: 821px;
+	margin-left: 340.5px;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.photo_company img {
+	object-fit: contain;
+}
+
+.about_company .call_us {
+	margin-top: 50px;
+	margin-bottom: 18px;
+}
+.about_company .call_us p {
+	color: white;
+    line-height: 22px;
+    font-size: 22px;
+    font-family: "Century Gothic";
+    font-weight: bold;
+}
+.about_company1 p {
+    color: white;
+    line-height: 22px;
+    font-size: 18px;
+    font-family: "Century Gothic";
+    font-weight: bold;
+}
+.about_company1 h2 {
+    margin-top: 35px;
+    margin-bottom: 9px;
+    color: white;
+    font-family: "Century Gothic";
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.form_comment {
+    width: 500px;
+    margin-left: 85px;
+    margin-top: 25px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.form_comment h3 {
+    color: white;
+    font-family: "Century Gothic";
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.form_comment input, textarea {
+    border: 1px solid white;
+    color: white;
+    font-family: "Arial";
+    font-size: 18px;
+    font-weight: 700;
+    padding: 4px;
+    background: none;
+}
+.form_comment p {
+    margin-bottom: 10px;
+        color: white;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.products1 {
+	text-align:center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.products1 #more {
+	padding: 11px 443px 10px 443px;
+	
+	border-radius: 10px;
+	background: none;
+	border: 1px solid white;
+
+	color: white;
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: 700;
+	text-decoration: none;	
+}
+.products1 #more:hover {
+	background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
+	color: #213b64;
     -webkit-transition: .5s ease;
 	transition: .5s ease;
 }

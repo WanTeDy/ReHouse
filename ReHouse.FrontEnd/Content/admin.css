@@ -7,6 +7,16 @@
 button {
 	cursor: pointer;
 	font-size: 16px;
+	    background: none;
+    color: white;
+    padding: 5px;
+    border: 1px solid white;
+}
+button:hover {
+    background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
+    color: #25406a;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
 }
 input {
 	cursor: pointer;
@@ -61,6 +71,7 @@ input {
 	position:relative; 
 	z-index:1; 
 	padding:0.5em 1em; 
+	/*display:none;*/
 }
 .tabset_label { 
 	display:none;
@@ -70,7 +81,7 @@ input {
 	width:1350px; 
 }
 #adminka1 {
-	height: 800px;
+	/*height: 800px;*/
 }
 @media aural{
 .tabset_content,	
@@ -131,7 +142,7 @@ input {
 	margin-top: 20px;
 	padding: 10px;
 }
-#admonka5 .header_admin {	
+#adminka5 .header_admin {	
 	width: 600px;
 	border: 1px solid white;
 	margin-top: 20px;
@@ -181,7 +192,7 @@ table.added .edit_del {
 select.added_select {
 	width: 300px;
 }
-input {
+input._cost_ {
 	width: 300px;
 }
 textarea {
@@ -210,7 +221,7 @@ input.youtube-video {
 	padding: 10px 40px 10px 40px;
 }
 button.delete_all {
-	margin-left: 476px;
+	/*margin-left: 476px;*/
 }
 .img_news img {
 	object-fit: cover;
@@ -230,7 +241,10 @@ button.delete_all2 {
 	margin-left: 408px;
 }
 .headline button {
-    margin-top: 10px;
+	margin-top: 10px;
+}
+.edit_del p {
+	font-size: 30px;
 }
 
 /*.list_ ul li a {
@@ -273,3 +287,36 @@ button.delete_all2 {
 	-webkit-transition: .3s ease;
 	transition: .3s ease;
 }
+
+.contact_info table select {
+ 	width: 302px;
+ 	background: none;
+     border: 1px solid white;
+     color: white;
+ }
+ .contact_info table select option {
+     background-color: #163d7d;
+     color: #ffffff;
+     font-size: 14px;
+     font-weight: 700;
+     text-transform: none;
+    }
+ .contact_info table input {
+    background: none;
+     border: 1px solid white;
+     color: white;
+     width: 300px;
+ }
+ .contact_info table textarea {
+    background: none;
+     border: 1px solid white;
+     color: white;
+     font-size: 14px;
+     width: 294px;
+ }
+ .contact_info .file_upload {
+ 	margin-bottom: 10px;
+ }
+ .contact_info button {
+ 	margin-bottom: 20px;
+  } 

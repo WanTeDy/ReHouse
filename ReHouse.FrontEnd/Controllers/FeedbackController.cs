@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
-using ReHouse.Utils.DataBase;
+using ReHouse.Utils.DataBase.Feedback;
 using ReHouse.Utils.BusinessOperations.Home;
 using ReHouse.Utils.Helpers;
 using ReHouse.FrontEnd.Helpers;
@@ -26,11 +26,30 @@ namespace ReHouse.FrontEnd.Controllers
             var tokenHash = "";
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
-            else
-                SessionHelpers.Session("CountProducts", 0);
+            
             var operation = new LoadFeedbacksOperation(tokenHash, 1, ConstV.ItemsPerPage);
             operation.ExcecuteTransaction();
-            return View(operation._userFeedbacks);
+            ViewBag.Feedbacks = operation._userFeedbacks;
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult Index(UserFeedback model)
+        {
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+            var tokenHash = "";
+            if (sessionModel != null)
+                tokenHash = sessionModel.TokenHash;
+
+            var operation = new AddFeedbackOperation(tokenHash, model.Username, model.Description);
+            operation.ExcecuteTransaction();
+            if(!operation.Success)
+            {
+                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
+                return View(model);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

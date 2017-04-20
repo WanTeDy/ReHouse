@@ -79,7 +79,7 @@
 
                     <div class="your_name">
                         <div><p>Ваш логин:</p></div>
-                        <div class="your_login"><p><a href="#" class="" id="#">@session.User.Login</a></p></div>
+                        <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
                         <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
                     </div>
                 }
@@ -135,8 +135,8 @@
                     <li>
                         <a href="#" id="">О нас</a>
                         <ol>
-                            <li><a href="#">О компании</a></li>
-                            <li><a href="#">Вакансии агенства</a></li>
+                            <li><a href="~/home/about">О компании</a></li>
+                            <li><a href="~/vacancy/">Вакансии агенства</a></li>
                         </ol>
                     </li>
                     <li>
@@ -185,7 +185,7 @@
             </div>
             <div class="bottomnav">
                 <a href="~/news/index" class="">Новости</a>
-                <a href="#" class="">Контакты</a>
+                <a href="~/home/about" class="">Контакты</a>
                 <a href="~/map/index" class="">Карта сайта</a>
                 <a href="~/feedback/index" class="">Отзывы</a>
             </div>

@@ -5,12 +5,14 @@
         var districtID = $('#district').val(),
                 price = $('#price').val(),
                 category = $('#category').val(),
-                trimcondition = $('#trimcondition').val();
+                trimcondition = $('#trimcondition').val(),
+                isOnlyUser = $('#isonlyuser').val();
         var obj = {
             "DistrictId": districtID,
             "Price": price,
             "CategoryId": category,
-            "TrimconditionId": trimcondition
+            "TrimconditionId": trimcondition,
+            "IsOnlyUser": isOnlyUser
         }
 
         lazyload(obj, url, false);
@@ -20,12 +22,14 @@
         var districtID = $('#district').val(),
                price = $('#price').val(),
                category = $('#category').val(),
-               trimcondition = $('#trimcondition').val();
+               trimcondition = $('#trimcondition').val(),
+               isOnlyUser = $('#isonlyuser').val();
         var obj = {
             "DistrictId": districtID,
             "Price": price,
             "CategoryId": category,
-            "TrimconditionId": trimcondition
+            "TrimconditionId": trimcondition,
+            "IsOnlyUser": isOnlyUser
         }
 
         lazyload(obj, url, true);

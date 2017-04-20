@@ -1,5 +1,5 @@
 ﻿@using ReHouse.Utils.DataBase.Feedback
-@model List<UserFeedback>
+@model UserFeedback
 
 @section Scripts {
     <script>
@@ -62,10 +62,31 @@
         @Html.ActionLink("Отзывы", "index", "feedback")
     </div>
 </div>
+
+<div class="form_comment">
+    <h3>Оставить отзыв</h3>
+    <form method="post">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <p>
+            <label>Имя:</label>
+            @Html.TextBoxFor(m=> m.Username)
+        </p>
+        <p>
+            <label>Комментарий:</label>
+            <br />
+            @Html.TextAreaFor(m => m.Description, new { @cols = "47", @rows = "3" })
+        </p>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+    </form>
+</div>
+
 <div class="news1">
     <h2>Отзывы</h2>
     <div id="data-container">
-        @Html.Partial("Feedback/_listOfFeedbacks", Model)
+        @Html.Partial("Feedback/_listOfFeedbacks", ViewBag.Feedbacks as List<UserFeedback>)
     </div> 
 
 

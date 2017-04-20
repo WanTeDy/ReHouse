@@ -18,5 +18,7 @@ namespace ReHouse.FrontEnd.Models
         public Int32 PageNumber { get; set; }
 
         public Boolean IsOnlyUser { get; set; }
+
+        public Int32[] AdvertsId { get; set; }
     }
 }

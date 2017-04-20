@@ -1,0 +1,171 @@
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.Utils.DataBase.AdvertParams
+@model Advert
+@{
+            Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/slides")
+    @Scripts.Render("~/bundles/deleteImage")
+    <script>
+        $(function () {
+            $('#products').slides({
+                preload: true,
+                preloadImage: '',
+                effect: 'slide, fade',
+                crossfade: true,
+                slideSpeed: 200,
+                fadeSpeed: 500,
+                generateNextPrev: true,
+                generatePagination: false
+            });
+        });
+    </script>
+}
+
+<div class="list_">
+    <h2 class="tabset_label">Table of Contents</h2>
+    <ul class="tabset_tabs">
+        <li class="firstchild"><a href="~/cabinet/profile">Профиль</a></li>
+        <li>
+            <a class="preActive active">Продажа</a>
+            <ol>
+                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/sale/house">Дома</a></li>
+                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a class="1">Аренда</a>
+            <ol>
+                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/rent/house">Дома</a></li>
+                <li><a href="~/cabinet/rent/homestead">Участки</a></li>
+            </ol>
+        </li>
+        <li><a class="3" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
+        <li><a class="4" href="~/cabinet/news/list">Новости</a></li>
+    </ul>
+</div>
+<div id="adminka1" class="tabset_content tabset_content_active">
+    <h2 class="tabset_label">adminka</h2>
+
+    <form enctype="multipart/form-data" action="" method="POST">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Id)
+        @Html.ValidationSummary()
+        <div class="contact_info">
+            <table>
+                @if (ViewBag.Categories != null && ViewBag.Categories.Count > 0)
+                {
+                    <tr>
+                        <td>Категория:</td>
+                        <td>@Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewBag.Categories, "Id", "RussianName"))</td>
+                    </tr>
+                }
+                @if (ViewBag.Titles != null && ViewBag.Titles.Count > 0)
+                {
+                    <tr>
+                        <td>Заголовок:</td>
+                        <td>@Html.DropDownListFor(m => m.TitleId, new SelectList(ViewBag.Titles, "Id", "RussianName"))</td>
+                    </tr>
+                }
+                <tr>
+                    <td>Цена($/мес):</td>
+                    <td>@Html.TextBoxFor(m => m.Price)</td>
+                </tr>
+                <tr>
+                    <td>Описание:</td>
+                    <td>@Html.TextAreaFor(m => m.Description, new { @rows = "4" })</td>
+                </tr>
+
+                <tr>
+                    <td>Адрес:</td>
+                    <td>@Html.TextBoxFor(m => m.Street)</td>
+                </tr>
+
+                <tr>
+                    <td>YouTube:</td>
+                    <td>@Html.TextBoxFor(m => m.YouTubeUrl)</td>
+                </tr>
+                @if (ViewBag.MarketTypes != null && ViewBag.MarketTypes.Count > 0)
+                {
+                    <tr>
+                        <td>Тип рынка: </td>
+                        <td>@Html.DropDownListFor(m => m.MarketTypeId, new SelectList(ViewBag.MarketTypes, "Id", "RussianName"))</td>
+                    </tr>
+                }
+
+                @if (Model.Category.ParentId != (int)ParrentCategories.Homestead)
+                {
+                    if (ViewBag.TrimConditions != null && ViewBag.TrimConditions.Count > 0)
+                    {
+                        <tr>
+                            <td>Состояние: </td>
+                            <td>@Html.DropDownListFor(m => m.TrimConditionId, new SelectList(ViewBag.TrimConditions, "Id", "RussianName"))</td>
+                        </tr>
+                    }
+                }
+
+                @if (Model.AdvertPropertyValues != null && Model.AdvertPropertyValues.Count > 0)
+                {
+                    for (var i = 0; i < Model.AdvertPropertyValues.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model.AdvertPropertyValues[i].AdvertProperty.RussianName: </td>
+                            <td>
+                                <input type="hidden" value="@Model.AdvertPropertyValues[i].Id" name="AdvertPropertyValues[@i].Id" />
+                                <input type="text" value="@Model.AdvertPropertyValues[i].PropertiesValue" name="AdvertPropertyValues[@i].PropertiesValue" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+            <h3>Общие фотографии</h3>
+            @if (Model.Images != null && Model.Images.Count > 0)
+            {
+                foreach (var image in Model.Images)
+                {
+                    <div class="photo_">
+                        <img id="image_@image.Id" src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                        <a onclick="deleteImage(@image.Id);">X</a>
+                    </div>
+                }
+            }
+            <div class="file_upload">
+                <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" />
+            </div>
+            <h3>Планировки</h3>
+
+            @if (Model.PlanImages != null && Model.PlanImages.Count > 0)
+            {
+                foreach (var image in Model.PlanImages)
+                {
+                    <div class="photo_">
+                        <img id="image_@image.Id" src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                        <a onclick="deletePlanImage(@image.Id);">X</a>
+                    </div>
+                }
+            }
+            <div class="file_upload">
+                <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" />
+            </div>
+
+            <button type="submit">Сохранить</button>
+        </div>
+    </form>
+
+    <div class="map_managercard">
+        <div id="mapapart_prod">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+
+
+

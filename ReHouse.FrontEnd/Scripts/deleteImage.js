@@ -1,6 +1,6 @@
 function deleteImage(id) {    
     var obj = {
-        "Id": id
+        "imageId": id
     }
 
 

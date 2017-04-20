@@ -1,0 +1,72 @@
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.FrontEnd.Models
+@model LoadAdvertsModel
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+<div class="list_">
+    <h2 class="tabset_label">Table of Contents</h2>
+    <ul class="tabset_tabs">
+        <li class="firstchild"><a href="~/cabinet/profile">Профиль</a></li>
+        <li>
+            <a class="preActive active">Продажа</a>
+            <ol>
+                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/sale/house">Дома</a></li>
+                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a class="1">Аренда</a>
+            <ol>
+                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/rent/house">Дома</a></li>
+                <li><a href="~/cabinet/rent/homestead">Участки</a></li>
+            </ol>
+        </li>
+        <li><a class="3" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
+        <li><a class="4" href="~/cabinet/news/list">Новости</a></li>
+    </ul>
+</div>
+<div id="adminka2" class="tabset_content">
+    <div class="headline">
+        <h2>Добавленные объявления продажи участков</h2>
+        <form method="LINK" action="/cabinet/sale/add/@((int)ParrentCategories.Homestead)">
+            <button>Добавить новое объявление ►</button>
+        </form>
+    </div>
+
+
+    @Html.Partial("Advert/_filters", Model)
+
+    @if (!ViewBag.NoElements)
+    {
+
+        <div class="added">
+            <button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>
+            <table class="added" id="data-container">
+                @Html.Partial("Advert/_listOfAdverts", Model.Adverts)
+            </table>
+        </div>
+        <div>
+            <div class="products1">
+                <div id="button-more">
+                    <a id="more">Больше объявлений</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading-div">
+
+        </div>
+    }
+
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/advertSettingsAdmin")
+    @Scripts.Render("~/bundles/deleteAdverts")
+    <script>
+        var deleteUrl = "/cabinet/sale/delete";
+    </script>
+}
