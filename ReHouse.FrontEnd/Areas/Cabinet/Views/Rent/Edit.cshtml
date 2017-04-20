@@ -60,6 +60,14 @@
         @Html.ValidationSummary()
         <div class="contact_info">
             <table>
+                <tr>
+                    <td>Горячее:</td>
+                    <td>@Html.CheckBoxFor(m => m.IsHot)</td>
+                </tr>
+                <tr>
+                    <td>Эксклюзив:</td>
+                    <td>@Html.CheckBox("exclusive")</td>
+                </tr>
                 @if (ViewBag.Categories != null && ViewBag.Categories.Count > 0)
                 {
                     <tr>
@@ -72,6 +80,14 @@
                     <tr>
                         <td>Заголовок:</td>
                         <td>@Html.DropDownListFor(m => m.TitleId, new SelectList(ViewBag.Titles, "Id", "RussianName"))</td>
+                    </tr>
+                }
+
+                @if (ViewBag.Districts != null && ViewBag.Districts.Count > 0)
+                {
+                    <tr>
+                        <td>Район:</td>
+                        <td>@Html.DropDownListFor(m => m.DistrictId, new SelectList(ViewBag.Districts, "Id", "RussianName"))</td>
                     </tr>
                 }
                 <tr>

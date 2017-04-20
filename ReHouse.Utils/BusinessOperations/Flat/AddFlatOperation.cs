@@ -47,19 +47,22 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                     {
                         CategoryId = _model.CategoryId,
                         TitleId = _model.TitleId,
+                        DistrictId = _model.DistrictId,
                         Price = _model.Price,
                         Description = _model.Description,
                         Street = _model.Street,
                         YouTubeUrl = _model.YouTubeUrl,
                         MarketTypeId = _model.MarketTypeId,
                         TrimConditionId = _model.TrimConditionId,
-                        //PublicationDate = DateTime.Now,
+                        ExpireDate = DateTime.Now.AddMonths(2),
+                        PublicationDate = DateTime.Now,
                         Type = _model.Type,
                         UserId = user.Id,
                         AdvertPropertyValues = new List<AdvertPropertyValue>(),
                         Images = new List<Image>(),
                         PlanImages = new List<PlanImage>(),
-                    };
+                        IsHot = _model.IsHot,
+                };
                     if (_images != null)
                     {
                         foreach (var imageFile in _images)

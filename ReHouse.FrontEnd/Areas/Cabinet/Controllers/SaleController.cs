@@ -190,6 +190,11 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op4.ExcecuteTransaction();
             ViewBag.Categories = op4._categories;
 
+            var op5 = new LoadDistrictsOperation(sessionModel.TokenHash);
+            op5.ExcecuteTransaction();
+            ViewBag.Districts = op5._districts;
+
+
             return View(operation._advert);
         }
 
@@ -219,6 +224,11 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var op4 = new LoadCategoriesOperation(sessionModel.TokenHash, operation._advert.Category.ParentId.Value);
             op4.ExcecuteTransaction();
             ViewBag.Categories = op4._categories;
+
+            var op5 = new LoadDistrictsOperation(sessionModel.TokenHash);
+            op5.ExcecuteTransaction();
+            ViewBag.Districts = op5._districts;
+
             if (!operation.Success)
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
 
@@ -271,12 +281,16 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op4.ExcecuteTransaction();
             ViewBag.Categories = op4._categories;
 
-            var op5 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, id.Value);
+            var op5 = new LoadDistrictsOperation(sessionModel.TokenHash);
             op5.ExcecuteTransaction();
+            ViewBag.Districts = op5._districts;
+
+            var op6 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, id.Value);
+            op6.ExcecuteTransaction();
             //ViewBag.AdvertProperties = op5._advertProperties;
             Advert model = new Advert
             {
-                AdvertPropertyValues = op5._advertProperties.Select(x => new AdvertPropertyValue
+                AdvertPropertyValues = op6._advertProperties.Select(x => new AdvertPropertyValue
                 {
                     Advert = null,
                     AdvertId = 0,
@@ -320,9 +334,12 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op4.ExcecuteTransaction();
             ViewBag.Categories = op4._categories;
 
-            var op5 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, operation._category.ParentId.Value);
+            var op5 = new LoadDistrictsOperation(sessionModel.TokenHash);
             op5.ExcecuteTransaction();
-            ViewBag.AdvertProperties = op5._advertProperties;
+            ViewBag.Districts = op5._districts;
+
+            var op6 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, operation._category.ParentId.Value);
+            op6.ExcecuteTransaction();
 
             ViewBag.ParentId = operation._category.ParentId.Value;
             if (!operation.Success)

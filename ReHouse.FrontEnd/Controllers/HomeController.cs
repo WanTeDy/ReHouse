@@ -51,6 +51,15 @@ namespace ReHouse.FrontEnd.Controllers
                 tokenHash = sessionModel.TokenHash;
             return View();
         }
+
+        public ActionResult Contacts()
+        {
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+            var tokenHash = "";
+            if (sessionModel != null)
+                tokenHash = sessionModel.TokenHash;
+            return View();
+        }
     }
 }
 

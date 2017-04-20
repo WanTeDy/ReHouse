@@ -297,8 +297,10 @@
     <Content Include="Content\fancybox\jquery.easing.1.3.js" />
     <Content Include="Content\fancybox\jquery.fancybox-1.2.1.pack.js" />
     <Content Include="Content\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\images\adverts\images\253_131371478043202070.jpg" />
     <Content Include="Content\images\adverts\images\img_1514_131350239275052451_131371146148607426.jpg" />
     <Content Include="Content\images\adverts\images\img_1526_131350239286771210_131371146158918819.jpg" />
+    <Content Include="Content\images\adverts\plans\253_131371478046384656.jpg" />
     <Content Include="Content\images\adverts\plans\img_1579_0_131350239325364947_131371146164629548.jpg" />
     <Content Include="Content\images\adverts\plans\img_1592_131350239336614944_131371146167734941.jpg" />
     <Content Include="Content\images\altair1.jpg" />
@@ -480,6 +482,7 @@
     <Content Include="Views\Email\Index.cshtml" />
     <Content Include="Views\Vacancy\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contacts.cshtml" />
     <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">

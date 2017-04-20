@@ -52,7 +52,10 @@
                             <td>
                                 @if (Model.Avatar != null)
                                 {
-                                    <img src="@Url.Content(Model.Avatar.Url + Model.Avatar.FileName)" width="150" height="150">
+                                    <div class="photo_of_manager">
+                                        <img src="@Url.Content(Model.Avatar.Url + Model.Avatar.FileName)" width="150" height="150">
+                                        @*<a onclick="deleteAvatar(@Model.Avatar.Id)">X</a>*@
+                                    </div>
                                 }
                             </td>
                             <td><input type="file" name="image" /></td>

@@ -103,6 +103,7 @@
     <Compile Include="BusinessOperations\News\UpdateArticleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\AddTitleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\DeleteTitleOperation.cs" />
+    <Compile Include="BusinessOperations\Titles\LoadDistrictsOperation.cs" />
     <Compile Include="BusinessOperations\Titles\LoadTrimConditionsOperation.cs" />
     <Compile Include="BusinessOperations\Titles\LoadMarketTypesOperation.cs" />
     <Compile Include="BusinessOperations\Titles\LoadTitlesOperation.cs" />

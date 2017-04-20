@@ -60,6 +60,14 @@
         @Html.ValidationSummary()
         <div class="contact_info">
             <table>
+                <tr>
+                    <td>Горячее:</td>
+                    <td>@Html.CheckBoxFor(m => m.IsHot)</td>
+                </tr>
+                <tr>
+                    <td>Эксклюзив:</td>
+                    <td>@Html.CheckBox("exclusive")</td>
+                </tr>
                 @if (ViewBag.Categories != null && ViewBag.Categories.Count > 0)
                 {
                     <tr>
@@ -72,6 +80,13 @@
                     <tr>
                         <td>Заголовок:</td>
                         <td>@Html.DropDownListFor(m => m.TitleId, new SelectList(ViewBag.Titles, "Id", "RussianName"))</td>
+                    </tr>
+                }
+                @if (ViewBag.Districts != null && ViewBag.Districts.Count > 0)
+                {
+                    <tr>
+                        <td>Район:</td>
+                        <td>@Html.DropDownListFor(m => m.DistrictId, new SelectList(ViewBag.Districts, "Id", "RussianName"))</td>
                     </tr>
                 }
                 <tr>
@@ -117,6 +132,7 @@
                         <tr>
                             <td>@Model.AdvertPropertyValues[i].AdvertProperty.RussianName: </td>
                             <td>
+                                <input type="hidden" value="@Model.AdvertPropertyValues[i].AdvertProperty.RussianName" name="AdvertPropertyValues[@i].AdvertProperty.RussianName" />
                                 <input type="hidden" value="@Model.AdvertPropertyValues[i].AdvertPropertyId" name="AdvertPropertyValues[@i].AdvertPropertyId" />
                                 <input type="text" value="@Model.AdvertPropertyValues[i].PropertiesValue" name="AdvertPropertyValues[@i].PropertiesValue" />
                             </td>

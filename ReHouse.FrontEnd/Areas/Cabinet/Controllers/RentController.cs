@@ -190,6 +190,10 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op4.ExcecuteTransaction();
             ViewBag.Categories = op4._categories;
 
+            var op5 = new LoadDistrictsOperation(sessionModel.TokenHash);
+            op5.ExcecuteTransaction();
+            ViewBag.Districts = op5._districts;
+
             return View(operation._advert);
         }
 
@@ -219,10 +223,33 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var op4 = new LoadCategoriesOperation(sessionModel.TokenHash, operation._advert.Category.ParentId.Value);
             op4.ExcecuteTransaction();
             ViewBag.Categories = op4._categories;
-            if (!operation.Success)
-                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
 
-            return View(operation._advert);
+            var op5 = new LoadDistrictsOperation(sessionModel.TokenHash);
+            op5.ExcecuteTransaction();
+            ViewBag.Districts = op5._districts;
+
+            if (!operation.Success)
+            {
+                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
+                return View(operation._advert);
+            }
+            string action = "Flat";
+            switch(operation._advert.Category.ParentId.Value)
+            {
+                case (int)ParrentCategories.Commerce:
+                    action = "Commerce";
+                    break;
+                case (int)ParrentCategories.Flat:
+                    action = "Flat";
+                    break;
+                case (int)ParrentCategories.Homestead:
+                    action = "Homestead";
+                    break;
+                case (int)ParrentCategories.House:
+                    action = "House";
+                    break;
+            }
+            return RedirectToAction(action);
         }
 
         [HttpPost]
@@ -271,12 +298,16 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op4.ExcecuteTransaction();
             ViewBag.Categories = op4._categories;
 
-            var op5 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, id.Value);
+            var op5 = new LoadDistrictsOperation(sessionModel.TokenHash);
             op5.ExcecuteTransaction();
+            ViewBag.Districts = op5._districts;
+
+            var op6 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, id.Value);
+            op6.ExcecuteTransaction();
             //ViewBag.AdvertProperties = op5._advertProperties;
             Advert model = new Advert
             {
-                AdvertPropertyValues = op5._advertProperties.Select(x => new AdvertPropertyValue
+                AdvertPropertyValues = op6._advertProperties.Select(x => new AdvertPropertyValue
                 {
                     Advert = null,
                     AdvertId = 0,
@@ -320,15 +351,36 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op4.ExcecuteTransaction();
             ViewBag.Categories = op4._categories;
 
-            var op5 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, operation._category.ParentId.Value);
+            var op5 = new LoadDistrictsOperation(sessionModel.TokenHash);
             op5.ExcecuteTransaction();
-            ViewBag.AdvertProperties = op5._advertProperties;
+            ViewBag.Districts = op5._districts;
+
+            var op6 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, operation._category.ParentId.Value);
+            op6.ExcecuteTransaction();
 
             ViewBag.ParentId = operation._category.ParentId.Value;
             if (!operation.Success)
+            {
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
-
-            return View(model);
+                return View(model);
+            }
+            string action = "Flat";
+            switch (operation._category.ParentId.Value)
+            {
+                case (int)ParrentCategories.Commerce:
+                    action = "Commerce";
+                    break;
+                case (int)ParrentCategories.Flat:
+                    action = "Flat";
+                    break;
+                case (int)ParrentCategories.Homestead:
+                    action = "Homestead";
+                    break;
+                case (int)ParrentCategories.House:
+                    action = "House";
+                    break;
+            }
+            return RedirectToAction(action);
         }
     }
 }
