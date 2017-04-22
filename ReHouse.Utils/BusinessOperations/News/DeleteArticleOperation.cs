@@ -10,25 +10,27 @@ namespace ReHouse.Utils.BusinessOperations.News
     public class DeleteArticleOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        private Int32 _articleId { get; set; }
+        private Int32[] _articlesId { get; set; }
         public Article _article { get; set; }
 
-        public DeleteArticleOperation(string tokenHash, int articleId)
+        public DeleteArticleOperation(string tokenHash, int[] articlesId)
         {
             _tokenHash = tokenHash;
-            _articleId = articleId;
+            _articlesId = articlesId;
             RussianName = "Удаление новости";
         }
 
         protected override void InTransaction()
         {
-            var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _article = Context.Articles.FirstOrDefault(x => x.Id == _articleId && !x.Deleted);
-            if (_article == null)
-                Errors.Add("Id", "Выбранная новость не найдена. ArticleId = " + _articleId);
-            else
+            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            if (_articlesId != null && _articlesId.Length > 0)
             {
-                _article.Deleted = true;
+                foreach (var articleId in _articlesId)
+                {
+                    var article = Context.Articles.FirstOrDefault(x => x.Id == articleId);
+                    if (article != null)
+                        article.Deleted = true;
+                }
                 Context.SaveChanges();
             }
         }

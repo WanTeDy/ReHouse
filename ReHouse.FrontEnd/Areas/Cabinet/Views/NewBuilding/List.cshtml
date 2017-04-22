@@ -1,0 +1,107 @@
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.FrontEnd.Models
+@model LoadNewBuildingsModel
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+<div class="list_">
+    <h2 class="tabset_label">Table of Contents</h2>
+    <ul class="tabset_tabs">
+        <li class="firstchild"><a href="~/cabinet/profile">Профиль</a></li>
+        <li>
+            <a class="1">Продажа</a>
+            <ol>
+                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/sale/house">Дома</a></li>
+                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a class="1">Аренда</a>
+            <ol>
+                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/rent/house">Дома</a></li>
+                <li><a href="~/cabinet/rent/homestead">Участки</a></li>
+            </ol>
+        </li>
+        <li><a class="preActive active" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
+        <li><a class="4" href="~/cabinet/news/list">Новости</a></li>
+    </ul>
+</div>
+<div id="adminka2" class="tabset_content">
+    <div class="headline">
+        <h2>Добавленные ЖК Новострои</h2>
+        <form method="LINK" action="/cabinet/newbuilding/add">
+            <button>Добавить ЖК Новострой ►</button>
+        </form>
+    </div>
+    @Html.Partial("NewB/_filters", Model)
+
+
+    @if (!ViewBag.NoElements)
+    {
+
+        <div class="added">
+            <button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>
+            <table class="added" id="data-container">
+                @Html.Partial("NewB/_listOfNewBuildings", Model.NewBuildings)
+            </table>
+        </div>
+        <div>
+            <div class="products1">
+                <div id="button-more">
+                    <a id="more">Больше объявлений</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading-div">
+
+        </div>
+    }
+
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/deleteBuildings")
+
+    <script>
+        var url = "/cabinet/newbuilding/load";
+        $('#button-more').click(function () {
+
+            var districtID = $('#district').val(),
+                    price = $('#price').val(),
+                    builderId = $('#builder').val(),
+                    expluatationId = $('#date').val(),
+                    isOnlyUser = $('#isonlyuser').val();
+            var obj = {
+                "DistrictId": districtID,
+                "Price": price,
+                "BuilderId": builderId,
+                "ExpluatationDateId": expluatationId,
+            "IsOnlyUser": isOnlyUser
+        }
+
+            lazyload(obj, url, false);
+        });
+
+        $('#search').click(function () {
+            var districtID = $('#district').val(),
+                    price = $('#price').val(),
+                    builderId = $('#builder').val(),
+                    expluatationId = $('#date').val(),
+                    isOnlyUser = $('#isonlyuser').val();
+
+            var obj = {
+                "DistrictId": districtID,
+                "Price": price,
+                "BuilderId": builderId,
+                "ExpluatationDateId": expluatationId,
+                "IsOnlyUser": isOnlyUser
+        }
+
+            lazyload(obj, url, true);
+        });
+    </script>
+
+}

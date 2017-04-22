@@ -145,8 +145,8 @@
             {
                 foreach (var image in Model.Images)
                 {
-                    <div class="photo_">
-                        <img id="image_@image.Id" src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                    <div class="photo_" id="image_@image.Id">
+                        <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
                         <a onclick="deleteImage(@image.Id);">X</a>
                     </div>
                 }
@@ -160,8 +160,8 @@
             {
                 foreach (var image in Model.PlanImages)
                 {
-                    <div class="photo_">
-                        <img id="image_@image.Id" src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                    <div class="photo_" id="planimage_@image.Id">
+                        <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
                         <a onclick="deletePlanImage(@image.Id);">X</a>
                     </div>
                 }

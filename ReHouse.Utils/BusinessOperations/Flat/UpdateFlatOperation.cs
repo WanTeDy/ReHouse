@@ -40,6 +40,9 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 {
                     if (_images != null)
                     {
+                        if (_advert.Images == null)
+                            _advert.Images = new List<Image>();
+
                         foreach (var imageFile in _images)
                         {
                             if (imageFile != null)
@@ -74,6 +77,9 @@ namespace ReHouse.Utils.BusinessOperations.Flat
 
                     if (_planImages != null)
                     {
+                        if (_advert.Images == null)
+                            _advert.PlanImages = new List<PlanImage>();
+
                         foreach (var imageFile in _planImages)
                         {
                             if (imageFile != null)

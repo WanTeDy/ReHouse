@@ -207,7 +207,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
             var operation = new UpdateFlatOperation(sessionModel.TokenHash, model, images, planimages);
-            operation.ExcecuteTransaction();            
+            operation.ExcecuteTransaction();
 
             var op = new LoadTitlesOperation(sessionModel.TokenHash);
             op.ExcecuteTransaction();
@@ -230,9 +230,27 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             ViewBag.Districts = op5._districts;
 
             if (!operation.Success)
+            {
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
-
-            return View(operation._advert);
+                return View(operation._advert);
+            }
+            string action = "Flat";
+            switch (operation._advert.Category.ParentId.Value)
+            {
+                case (int)ParrentCategories.Commerce:
+                    action = "Commerce";
+                    break;
+                case (int)ParrentCategories.Flat:
+                    action = "Flat";
+                    break;
+                case (int)ParrentCategories.Homestead:
+                    action = "Homestead";
+                    break;
+                case (int)ParrentCategories.House:
+                    action = "House";
+                    break;
+            }
+            return RedirectToAction(action);
         }
 
         [HttpPost]
@@ -343,9 +361,27 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             ViewBag.ParentId = operation._category.ParentId.Value;
             if (!operation.Success)
+            {
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
-
-            return View(model);
+                return View(model);
+            }
+            string action = "Flat";
+            switch (operation._category.ParentId.Value)
+            {
+                case (int)ParrentCategories.Commerce:
+                    action = "Commerce";
+                    break;
+                case (int)ParrentCategories.Flat:
+                    action = "Flat";
+                    break;
+                case (int)ParrentCategories.Homestead:
+                    action = "Homestead";
+                    break;
+                case (int)ParrentCategories.House:
+                    action = "House";
+                    break;
+            }
+            return RedirectToAction(action);
         }
     }
 }

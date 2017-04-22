@@ -1,0 +1,210 @@
+﻿@using ReHouse.Utils.DataBase.AdvertParams
+@model NewBuilding
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/deleteImage")
+    <script>
+        var counter = parseInt($('#counter').val());
+        function addPhone() {
+            $('#phonebtn').before('<tr><td>Телефон:</td><td><input type="text" name="Phones[' + counter + '].Telephone" /></td></tr>');
+            counter += 1;
+        }
+
+        $('#builders').mousedown(function (e) {
+            $(e.target).attr('selected', !$(e.target).attr('selected'));
+            e.preventDefault();
+        });
+    </script>
+}
+<div class="list_">
+    <h2 class="tabset_label">Table of Contents</h2>
+    <ul class="tabset_tabs">
+        <li class="firstchild 1"><a href="~/cabinet/profile">Профиль</a></li>
+        <li>
+            <a class="1">Продажа</a>
+            <ol>
+                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/sale/house">Дома</a></li>
+                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a class="2">Аренда</a>
+            <ol>
+                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/rent/house">Дома</a></li>
+                <li><a href="~/cabinet/rent/homestead">Участки</a></li>
+            </ol>
+        </li>
+        <li><a class="preActive active" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
+        <li><a class="4" href="~/cabinet/news/list">Новости</a></li>
+    </ul>
+</div>
+<div id="adminka1" class="tabset_content tabset_content_active">
+    <h2 class="tabset_label">adminka</h2>
+
+    <form enctype="multipart/form-data" action="" method="POST">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Id)
+        @Html.ValidationSummary()
+        <div class="contact_info">
+            <table>
+                <tr>
+                    <td>Название:</td>
+                    <td>@Html.TextBoxFor(m => m.Name)</td>
+                </tr>
+                @if (ViewBag.BuildersList != null && ViewBag.BuildersList.Count > 0)
+                {
+                    <tr>
+                        <td>Застройщики:</td>
+                        <td>@Html.ListBoxFor(m => m.BuildersId, new SelectList(ViewBag.BuildersList, "Id", "Name", Model.BuildersId), new { @id = "builders" })</td>
+                    </tr>
+                }
+                @if (ViewBag.ExpluatationDates != null && ViewBag.ExpluatationDates.Count > 0)
+                {
+                    <tr>
+                        <td>Сдача в эксплуатацию:</td>
+                        <td>@Html.DropDownListFor(m => m.ExpluatationDateId, new SelectList(ViewBag.ExpluatationDates, "Id", "Name"))</td>
+                    </tr>
+                }
+
+                @if (ViewBag.Districts != null && ViewBag.Districts.Count > 0)
+                {
+                    <tr>
+                        <td>Район:</td>
+                        <td>@Html.DropDownListFor(m => m.DistrictId, new SelectList(ViewBag.Districts, "Id", "RussianName"))</td>
+                    </tr>
+                }
+                <tr>
+                    <td>Цена(грн/м²):</td>
+                    <td>@Html.TextBoxFor(m => m.Price)</td>
+                </tr>
+                <tr>
+                    <td>Адрес:</td>
+                    <td>@Html.TextBoxFor(m => m.Adress)</td>
+                </tr>
+                <tr>
+                    <td>Планировка квартир:</td>
+                    <td>@Html.TextBoxFor(m => m.Construct)</td>
+                </tr>
+                <tr>
+                    <td>Количество квартир:</td>
+                    <td>@Html.TextBoxFor(m => m.FloatQuantity)</td>
+                </tr>
+                <tr>
+                    <td>Этажность:</td>
+                    <td>@Html.TextBoxFor(m => m.FloorQuantity)</td>
+                </tr>
+                <tr>
+                    <td>Отопление:</td>
+                    <td>@Html.TextBoxFor(m => m.Heating)</td>
+                </tr>
+                <tr>
+                    <td>Количество домов:</td>
+                    <td>@Html.TextBoxFor(m => m.HouseQuantity)</td>
+                </tr>
+                <tr>
+                    <td>Парковка:</td>
+                    <td>@Html.TextBoxFor(m => m.Parking)</td>
+                </tr>
+                <tr>
+                    <td>Количество секций:</td>
+                    <td>@Html.TextBoxFor(m => m.SectionQuantity)</td>
+                </tr>
+                <tr>
+                    <td>Высота потолков:</td>
+                    <td>@Html.TextBoxFor(m => m.WallHeight)</td>
+                </tr>
+                <tr>
+                    <td>Материал стен:</td>
+                    <td>@Html.TextBoxFor(m => m.WallMaterial)</td>
+                </tr>
+                <tr>
+                    <td>Сайт:</td>
+                    <td>@Html.TextBoxFor(m => m.Url)</td>
+                </tr>
+                <tr>
+                    <td>Youtube видео:</td>
+                    <td>@Html.TextBoxFor(m => m.YouTubeUrl)</td>
+                </tr>
+                @if (Model.Phones != null && Model.Phones.Count > 0)
+                {
+                    for (var i = 0; i < Model.Phones.Count; i++)
+                    {
+                        <tr>
+                            <td>Телефон:</td>
+                            <td>
+                                <input type="hidden" value="@Model.Phones[i].Id" name="Phones[@i].Id" />
+                                <input type="text" value="@Model.Phones[i].TelePhone" name="Phones[@i].Telephone" />
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>Телефон:</td>
+                        <td>
+                            <input type="hidden" id="counter" name="counter" value="@(Model.Phones.Count+1)" />
+                            <input type="text" name="Phones[@Model.Phones.Count].Telephone" />
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>Телефон:</td>
+                        <td>
+                            <input type="hidden" id="counter" name="counter" value="1" />
+                            <input type="text" name="Phones[0].Telephone" />
+                        </td>
+                    </tr>
+                }
+
+                <tr id="phonebtn">
+                    <td></td>
+                    <td><a onclick="addPhone();">Добавить еще телефон</a></td>
+                </tr>
+            </table>
+            <h3>Общие фотографии</h3>
+            @if (Model.Images != null && Model.Images.Count > 0)
+            {
+                foreach (var image in Model.Images)
+                {
+                    <div class="photo_" id="image_@image.Id">
+                        <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                        <a onclick="deleteImage(@image.Id);">X</a>
+                    </div>
+                }
+            }
+            <div class="file_upload">
+                <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" />
+            </div>
+            <h3>Планировки</h3>
+
+            @if (Model.PlanImages != null && Model.PlanImages.Count > 0)
+            {
+                foreach (var image in Model.PlanImages)
+                {
+                    <div class="photo_" id="planimage_@image.Id">
+                        <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                        <a onclick="deletePlanImage(@image.Id);">X</a>
+                    </div>
+                }
+            }
+            <div class="file_upload">
+                <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" />
+            </div>
+
+            <button type="submit">Сохранить</button>
+        </div>
+    </form>
+
+    <div class="map_managercard">
+        <div id="mapapart_prod">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

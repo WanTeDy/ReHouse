@@ -223,6 +223,7 @@
     <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\NewsController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\NewBuildingController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\SaleController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\RentController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
@@ -320,11 +321,16 @@
     <Content Include="Content\images\liked.png" />
     <Content Include="Content\images\like_hover.png" />
     <Content Include="Content\images\load.gif" />
+    <Content Include="Content\images\loaded\avatars\www_131372913375655779.jpg" />
     <Content Include="Content\images\logout.png" />
     <Content Include="Content\images\manager.jpg" />
     <Content Include="Content\images\manager.png" />
     <Content Include="Content\images\minphone.png" />
+    <Content Include="Content\images\newBuildings\images\img_1538_131350239299583769_131372868828285270.jpg" />
+    <Content Include="Content\images\newBuildings\images\img_1545_131350239306771193_131372868842892271.jpg" />
+    <Content Include="Content\images\newBuildings\images\img_1553_131350239312083706_131372868849282115.jpg" />
     <Content Include="Content\images\newred.png" />
+    <Content Include="Content\images\news\img_1514_131350239275052451_131372751947354835.jpg" />
     <Content Include="Content\images\OSo6WLs.png" />
     <Content Include="Content\images\PhJdR34.png" />
     <Content Include="Content\images\plan1.jpg" />
@@ -391,6 +397,8 @@
     <Content Include="Content\images\tw.png" />
     <Content Include="Content\images\vk-g.png" />
     <Content Include="Content\images\vk.png" />
+    <Content Include="Scripts\deleteBuildings.js" />
+    <Content Include="Scripts\deleteArticles.js" />
     <Content Include="Scripts\deleteAdverts.js" />
     <Content Include="Scripts\advertSettingsAdmin.js" />
     <Content Include="Scripts\advertSettingsRentAdmin.js" />
@@ -466,6 +474,15 @@
     <Content Include="Areas\Cabinet\Views\Sale\Homestead.cshtml" />
     <Content Include="Areas\Cabinet\Views\Sale\House.cshtml" />
     <Content Include="Areas\Cabinet\Views\Sale\Add.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Article\_listOfArticles.cshtml" />
+    <Content Include="Areas\Cabinet\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\News\List.cshtml" />
+    <Content Include="Areas\Cabinet\Views\News\Add.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\NewB\_filters.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\NewB\_listOfNewBuildings.cshtml" />
+    <Content Include="Areas\Cabinet\Views\NewBuilding\Add.cshtml" />
+    <Content Include="Areas\Cabinet\Views\NewBuilding\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\NewBuilding\List.cshtml" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
@@ -537,7 +554,7 @@
     <Folder Include="Areas\Cabinet\Models\" />
     <Folder Include="Areas\Cabinet\Views\Authorize\" />
     <Folder Include="Areas\Cabinet\Views\Image\" />
-    <Folder Include="Areas\Cabinet\Views\News\" />
+    <Folder Include="Content\images\newBuildings\plans\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

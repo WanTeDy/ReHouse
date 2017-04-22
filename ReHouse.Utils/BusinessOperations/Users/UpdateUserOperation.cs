@@ -52,37 +52,39 @@ namespace ReHouse.Utils.BusinessOperations.Users
                                 var url = "~/Content/images/loaded/avatars/";
 
                                 var path = HttpContext.Current.Server.MapPath(url);
-                                _image.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                                int point = _image.FileName.LastIndexOf('.');
-                                var ext = _image.FileName.Substring(point);
-                                var filename = _image.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime() + ext;
                                 if (!Directory.Exists(path))
                                     Directory.CreateDirectory(path);
+
+                                _image.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                                int point = _image.FileName.LastIndexOf('.');
+                                var filename = _image.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                                 ImageBuilder.Current.Build(
                                     new ImageJob(_image.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=800&maxheight=800"),
+                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
                                     false,
-                                    false));
+                                    true));
+
 
                                 var avatar = new Avatar
                                 {
-                                    FileName = filename,
+                                    FileName = filename + ".jpg",
                                     Url = url,
                                 };
 
                                 var deleteImg = _user.Avatar;
-                                FileInfo fileInf = new FileInfo(path + deleteImg.FileName);
-                                if (fileInf.Exists)
+                                if (deleteImg != null)
                                 {
-                                    fileInf.Delete();
+                                    FileInfo fileInf = new FileInfo(path + deleteImg.FileName);
+                                    if (fileInf.Exists)
+                                    {
+                                        fileInf.Delete();
+                                    }
+                                    Context.Avatars.Remove(deleteImg);
                                 }
                                 Context.Avatars.Add(avatar);
-                                userForUpdating.Avatar = avatar;
-
-                                if (deleteImg != null)
-                                    Context.Avatars.Remove(deleteImg);
+                                userForUpdating.Avatar = avatar;                                
                             }
                             Context.SaveChanges();
                         }

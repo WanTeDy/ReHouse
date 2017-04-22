@@ -15,7 +15,7 @@
 <div class="list_">
     <h2 class="tabset_label">Table of Contents</h2>
     <ul class="tabset_tabs">
-        <li class="firstchild preActive active"><a href="~/cabinet/profile">Профиль</a></li>
+        <li class="firstchild"><a class="preActive active" href="~/cabinet/profile">Профиль</a></li>
         <li>
             <a class="1">Продажа</a>
             <ol>
@@ -77,6 +77,18 @@
                             <td>Email:</td>
                             <td>@Html.TextBoxFor(m => m.Email)</td>
                         </tr>
+                        <tr>
+                            <td>О себе:</td>
+                            <td>@Html.TextAreaFor(m => m.About, new { @rows = "4" })</td>
+                        </tr>
+                        <tr>
+                            <td>Адрес:</td>
+                            <td>@Html.TextBoxFor(m => m.Adress)</td>
+                        </tr>
+                        <tr>
+                            <td>Должность:</td>
+                            <td>@Html.TextBoxFor(m => m.Position)</td>
+                        </tr>
                         @if (Model.Phones != null && Model.Phones.Count > 0)
                         {
                             for (var i = 0; i < Model.Phones.Count; i++)
@@ -112,18 +124,7 @@
                             <td></td>
                             <td><a onclick="addPhone();">Добавить еще телефон</a></td>
                         </tr>
-                        <tr>
-                            <td>О себе:</td>
-                            <td>@Html.TextAreaFor(m => m.About, new { @rows = "4" })</td>
-                        </tr>
-                        <tr>
-                            <td>Адрес:</td>
-                            <td>@Html.TextBoxFor(m => m.Adress)</td>
-                        </tr>
-                        <tr>
-                            <td>Должность:</td>
-                            <td>@Html.TextBoxFor(m => m.Position)</td>
-                        </tr>
+                        
                         <tr>
                             <td></td>
                             <td><button>Сохранить</button></td>

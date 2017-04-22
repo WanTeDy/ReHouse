@@ -31,9 +31,9 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
                 new UpdateTitleOperation(null, 0, null),
                 new AddTitleOperation(null, null),
                 new DeleteTitleOperation(null, 0),                
-                new UpdateArticleOperation(null, 0, null, null),
-                new AddArticleOperation(null, null, null),
-                new DeleteArticleOperation(null, 0),
+                new UpdateArticleOperation(null, 0, null, null, null),
+                new AddArticleOperation(null, null, null, null),
+                new DeleteArticleOperation(null, null),
 
             };            
         }

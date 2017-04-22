@@ -54,7 +54,8 @@ namespace ReHouse.FrontEnd.Controllers
             var tokenHash = "";
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
-            var operation = new LoadNewBuildingsOperation(tokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPage, pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId);
+            var operation = new LoadNewBuildingsOperation(tokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPage, 
+                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, pageAndFilter.IsOnlyUser);
             operation.ExcecuteTransaction();
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
                 return Json(new { noElements = true });
@@ -77,20 +78,7 @@ namespace ReHouse.FrontEnd.Controllers
                 NewBuilding = operation._newBuilding,
                 OtherNewBuildings = operation._otherNewBuilding
             });
-        }
-
-        [HttpGet]
-        public ActionResult Add()
-        {
-
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Add(NewBuildingModel newBuilding)
-        {
-
-            return View(newBuilding);
-        }
+        }        
     }
 }
 

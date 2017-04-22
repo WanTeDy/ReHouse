@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.DataBase.Geo;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ReHouse.Utils.DataBase.AdvertParams
 {
@@ -18,7 +20,7 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// <summary>
         /// Adress for this advert
         /// </summary>
-        public String Adress { get; set; }        
+        public String Adress { get; set; }
         /// <summary>
         /// Price for this advert
         /// </summary>
@@ -86,6 +88,8 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         public virtual List<Image> Images { get; set; }
         public virtual List<PlanImage> PlanImages { get; set; }
         public virtual List<Builder> Builders { get; set; }
+        [NotMapped]
+        public virtual List<int> BuildersId { get; set; }
         public virtual List<Phone> Phones { get; set; }
     }
 }

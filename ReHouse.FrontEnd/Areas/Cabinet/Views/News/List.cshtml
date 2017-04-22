@@ -1,0 +1,77 @@
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.Utils.DataBase.News;
+@model List<Article>
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+<div class="list_">
+    <h2 class="tabset_label">Table of Contents</h2>
+    <ul class="tabset_tabs">
+        <li class="firstchild"><a href="~/cabinet/profile">Профиль</a></li>
+        <li>
+            <a class="1">Продажа</a>
+            <ol>
+                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/sale/house">Дома</a></li>
+                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a class="1">Аренда</a>
+            <ol>
+                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/rent/house">Дома</a></li>
+                <li><a href="~/cabinet/rent/homestead">Участки</a></li>
+            </ol>
+        </li>
+        <li><a class="3" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
+        <li><a class="preActive active" href="~/cabinet/news/list">Новости</a></li>
+    </ul>
+</div>
+<div id="adminka2" class="tabset_content">
+    <div class="headline">
+        <h2>Добавленные новости</h2>
+        <form method="LINK" action="/cabinet/news/add">
+            <button>Добавить новость ►</button>
+        </form>
+    </div>
+
+    @if (!ViewBag.NoElements)
+    {
+
+        <div class="added">
+            <button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>
+            <table class="added" id="data-container">
+                @Html.Partial("Article/_listOfArticles", Model)
+            </table>
+        </div>
+        <div>
+            <div class="products1">
+                <div id="button-more">
+                    <a id="more">Больше новостей</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading-div">
+
+        </div>
+    }
+
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/deleteArticles")
+
+    <script>
+        var url = "/cabinet/news/load";
+        $('#button-more').click(function () {
+
+            var obj = {
+        }
+
+            lazyload(obj, url, false);
+        });       
+    </script>
+
+}
