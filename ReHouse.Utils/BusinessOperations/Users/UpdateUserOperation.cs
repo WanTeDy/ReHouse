@@ -73,7 +73,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                                     Url = url,
                                 };
 
-                                var deleteImg = _user.Avatar;
+                                var deleteImg = userForUpdating.Avatar;
                                 if (deleteImg != null)
                                 {
                                     FileInfo fileInf = new FileInfo(path + deleteImg.FileName);
@@ -125,7 +125,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                         if (exPhone != null)
                         {
                             if (String.IsNullOrWhiteSpace(phone.TelePhone))
-                                exPhone.Deleted = true;
+                                Context.Phones.Remove(exPhone);
                             else
                                 exPhone.TelePhone = phone.TelePhone;
 

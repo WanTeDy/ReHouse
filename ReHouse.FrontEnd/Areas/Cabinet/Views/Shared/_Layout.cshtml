@@ -79,7 +79,15 @@
 
                     <div class="your_name">
                         <div><p>Ваш логин:</p></div>
-                        <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
+                        @if (!String.IsNullOrEmpty(session.User.Login))
+                        {
+                            <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
+
+                        }
+                        else
+                        {
+                            <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Email</a></p></div>
+                        }
                         <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
                     </div>
                 }

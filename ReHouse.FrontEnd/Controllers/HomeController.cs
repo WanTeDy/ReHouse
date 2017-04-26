@@ -21,7 +21,7 @@ namespace ReHouse.FrontEnd.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
+        {            
             ViewBag.Route = RouteEnum.HomeIndex;
             ViewBag.MainPage = true;
 

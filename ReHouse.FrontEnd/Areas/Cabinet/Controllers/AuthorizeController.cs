@@ -228,7 +228,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Session.RemoveAll();
             SessionHelpers.SessionRemoveAll();
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return Redirect("/");
         }
 
         //[HttpPost]
