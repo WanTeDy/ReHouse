@@ -62,7 +62,11 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         Images = new List<Image>(),
                         PlanImages = new List<PlanImage>(),
                         IsHot = _model.IsHot,
-                };
+                        Latitude = _model.Latitude,
+                        Longitude = _model.Longitude,
+                        IsExclusive = _model.IsExclusive,
+                        IsModerated = _model.IsModerated,
+                    };
                     if (_images != null)
                     {
                         foreach (var imageFile in _images)

@@ -31,6 +31,8 @@ namespace ReHouse.Utils
         //public const Int32 TURL = 20;
         
         public const String RoleAdministrator = "Администратор";
+        public const String RoleManager = "Менеджер";
+        public const String RoleRieltor = "Риэлтор";
         //public const String RoleManager = "Менеджер";
         //public const String RolePartner = "Партнер";
         //public const String RoleClient = "Клиент";

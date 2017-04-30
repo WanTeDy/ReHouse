@@ -35,11 +35,11 @@ namespace ReHouse.Utils.BusinessOperations.Building
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             if (_isOnlyUser)
             {
-                _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
+                _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && x.User.TokenHash == _tokenHash).ToList();
             }
             else
             {
-                _newBuildings = Context.NewBuildings.Where(x => !x.Deleted).ToList();
+                _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated).ToList();
             }
             if (_districtId != 0)
             {

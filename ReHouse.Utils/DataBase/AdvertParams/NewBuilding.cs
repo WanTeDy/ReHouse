@@ -78,9 +78,29 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// </summary>
         public String YouTubeUrl { get; set; }
         /// <summary>
+        /// Latitude for this advert
+        /// </summary>
+        public Double Latitude { get; set; }
+        /// <summary>
+        /// Longitude for this advert
+        /// </summary>
+        public Double Longitude { get; set; }
+        /// <summary>
         /// Url to site for this advert
         /// </summary>
         public String Url { get; set; }
+        /// <summary>
+        /// Is this advert HOT
+        /// </summary>
+        public Boolean IsHot { get; set; }
+        /// <summary>
+        /// Is this advert Exclusive
+        /// </summary>
+        public Boolean IsExclusive { get; set; }
+        /// <summary>
+        /// Is this advert moderated by admin
+        /// </summary>
+        public Boolean IsModerated { get; set; }
 
         public virtual User User { get; set; }
         public virtual District District { get; set; }

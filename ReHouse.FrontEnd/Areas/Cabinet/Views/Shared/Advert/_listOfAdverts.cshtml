@@ -20,9 +20,18 @@
             <td>@item.Price$</td>
             <td>
                 <div class="edit_del">
-                    <form method="LINK" action="/cabinet/rent/edit/@item.Id">
-                        <button>Редактировать</button>
-                    </form>
+                    @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Rent)
+                    {
+                        <form method="LINK" action="/cabinet/rent/edit/@item.Id">
+                            <button>Редактировать</button>
+                        </form>
+                    }
+                    else if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+                    {
+                        <form method="LINK" action="/cabinet/sale/edit/@item.Id">
+                            <button>Редактировать</button>
+                        </form>
+                    }
                     <pre> </pre>
                     <p>/</p>
                     <pre> </pre>

@@ -6,6 +6,8 @@ using System.Web;
 using System.IO;
 using ImageResizer;
 using ReHouse.Utils.DataBase.Security;
+using ReHouse.Utils.Except;
+using ReHouse.Utils;
 
 namespace ReHouse.Utils.BusinessOperations.Building
 {
@@ -39,137 +41,150 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 _newBuilding = Context.NewBuildings.FirstOrDefault(x => x.Id == _model.Id && !x.Deleted);
                 if (_newBuilding != null)
                 {
-                    if (_images != null)
+                    var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
+                    if (user != null && (_newBuilding.UserId == user.Id || user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
                     {
-                        if (_newBuilding.Images == null)
-                            _newBuilding.Images = new List<Image>();
-
-                        foreach (var imageFile in _images)
+                        if (_images != null)
                         {
-                            if (imageFile != null)
+                            if (_newBuilding.Images == null)
+                                _newBuilding.Images = new List<Image>();
+
+                            foreach (var imageFile in _images)
                             {
-                                var url = "~/Content/images/newBuildings/images/";
-
-                                var path = HttpContext.Current.Server.MapPath(url);
-                                if (!Directory.Exists(path))
-                                    Directory.CreateDirectory(path);
-
-                                imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                                int point = imageFile.FileName.LastIndexOf('.');
-                                var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
-
-                                ImageBuilder.Current.Build(
-                                    new ImageJob(imageFile.InputStream,
-                                    path + filename,
-                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
-                                    false,
-                                    true));
-
-                                var image = new Image
+                                if (imageFile != null)
                                 {
-                                    FileName = filename + ".jpg",
-                                    Url = url,
-                                };
-                                Context.Images.Add(image);
-                                _newBuilding.Images.Add(image);
-                            }
-                        }
-                    }
+                                    var url = "~/Content/images/newBuildings/images/";
 
-                    if (_planImages != null)
-                    {
-                        if (_newBuilding.PlanImages == null)
-                            _newBuilding.PlanImages = new List<PlanImage>();
+                                    var path = HttpContext.Current.Server.MapPath(url);
+                                    if (!Directory.Exists(path))
+                                        Directory.CreateDirectory(path);
 
-                        foreach (var imageFile in _planImages)
-                        {
-                            if (imageFile != null)
-                            {
-                                var url = "~/Content/images/newBuildings/plans/";
+                                    imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                                    int point = imageFile.FileName.LastIndexOf('.');
+                                    var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
-                                var path = HttpContext.Current.Server.MapPath(url);
-                                if (!Directory.Exists(path))
-                                    Directory.CreateDirectory(path);
+                                    ImageBuilder.Current.Build(
+                                        new ImageJob(imageFile.InputStream,
+                                        path + filename,
+                                        new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
+                                        false,
+                                        true));
 
-                                imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                                int point = imageFile.FileName.LastIndexOf('.');
-                                var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
-
-                                ImageBuilder.Current.Build(
-                                    new ImageJob(imageFile.InputStream,
-                                    path + filename,
-                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
-                                    false,
-                                    true));
-
-                                var image = new PlanImage
-                                {
-                                    FileName = filename + ".jpg",
-                                    Url = url,
-                                };
-                                Context.PlanImages.Add(image);
-                                _newBuilding.PlanImages.Add(image);
-                            }
-                        }
-                    }
-                    _newBuilding.Name = _model.Name;
-                    _newBuilding.Adress = _model.Adress;
-                    _newBuilding.Construct = _model.Construct;
-                    _newBuilding.DistrictId = _model.DistrictId;
-                    _newBuilding.ExpluatationDateId = _model.ExpluatationDateId;
-                    _newBuilding.FloatQuantity = _model.FloatQuantity;
-                    _newBuilding.FloorQuantity = _model.FloorQuantity;
-                    _newBuilding.Heating = _model.Heating;
-                    _newBuilding.HouseQuantity = _model.HouseQuantity;
-                    _newBuilding.Parking = _model.Parking;
-                    _newBuilding.Price = _model.Price;
-                    _newBuilding.SectionQuantity = _model.SectionQuantity;
-                    _newBuilding.Url = _model.Url;
-                    _newBuilding.WallHeight = _model.WallHeight;
-                    _newBuilding.WallMaterial = _model.WallMaterial;
-                    _newBuilding.YouTubeUrl = _model.YouTubeUrl;
-
-                    if (_model.Phones != null && _model.Phones.Count > 0)
-                    {
-                        _model.Phones = _model.Phones.Where(x => x.Id > 0 || !String.IsNullOrWhiteSpace(x.TelePhone)).ToList();
-                        _model.Phones.ForEach(x => x.TelePhone = x.TelePhone != null ? x.TelePhone.Trim() : "");
-                        List<Phone> newPhones = _model.Phones.Where(x => x.Id == 0).ToList();
-                        List<Phone> oldPhones = _model.Phones.Where(x => x.Id > 0).ToList();
-                        if (oldPhones.Count > 0)
-                        {
-                            foreach (var phone in oldPhones)
-                            {
-                                var exPhone = Context.Phones.FirstOrDefault(x => x.Id == phone.Id);
-                                if (exPhone != null)
-                                {
-                                    if (String.IsNullOrWhiteSpace(phone.TelePhone))
-                                        exPhone.Deleted = true;
-                                    else
-                                        exPhone.TelePhone = phone.TelePhone;
+                                    var image = new Image
+                                    {
+                                        FileName = filename + ".jpg",
+                                        Url = url,
+                                    };
+                                    Context.Images.Add(image);
+                                    _newBuilding.Images.Add(image);
                                 }
                             }
                         }
-                        if (newPhones.Count > 0)
+
+                        if (_planImages != null)
                         {
-                            foreach (var phone in newPhones)
+                            if (_newBuilding.PlanImages == null)
+                                _newBuilding.PlanImages = new List<PlanImage>();
+
+                            foreach (var imageFile in _planImages)
                             {
-                                Context.Phones.Add(phone);
+                                if (imageFile != null)
+                                {
+                                    var url = "~/Content/images/newBuildings/plans/";
+
+                                    var path = HttpContext.Current.Server.MapPath(url);
+                                    if (!Directory.Exists(path))
+                                        Directory.CreateDirectory(path);
+
+                                    imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                                    int point = imageFile.FileName.LastIndexOf('.');
+                                    var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+
+                                    ImageBuilder.Current.Build(
+                                        new ImageJob(imageFile.InputStream,
+                                        path + filename,
+                                        new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
+                                        false,
+                                        true));
+
+                                    var image = new PlanImage
+                                    {
+                                        FileName = filename + ".jpg",
+                                        Url = url,
+                                    };
+                                    Context.PlanImages.Add(image);
+                                    _newBuilding.PlanImages.Add(image);
+                                }
                             }
-                            if (_newBuilding.Phones != null)
-                                _newBuilding.Phones.AddRange(newPhones);
-                            else
-                                _newBuilding.Phones = newPhones;
                         }
-                    }
-                    _newBuilding.Builders.RemoveAll(t => true);
-                    if (_model.BuildersId != null && _model.BuildersId.Count > 0)
-                    {
-                        foreach (var id in _model.BuildersId)
+                        _newBuilding.Name = _model.Name;
+                        _newBuilding.Adress = _model.Adress;
+                        _newBuilding.Construct = _model.Construct;
+                        _newBuilding.DistrictId = _model.DistrictId;
+                        _newBuilding.ExpluatationDateId = _model.ExpluatationDateId;
+                        _newBuilding.FloatQuantity = _model.FloatQuantity;
+                        _newBuilding.FloorQuantity = _model.FloorQuantity;
+                        _newBuilding.Heating = _model.Heating;
+                        _newBuilding.HouseQuantity = _model.HouseQuantity;
+                        _newBuilding.Parking = _model.Parking;
+                        _newBuilding.Price = _model.Price;
+                        _newBuilding.SectionQuantity = _model.SectionQuantity;
+                        _newBuilding.Url = _model.Url;
+                        _newBuilding.WallHeight = _model.WallHeight;
+                        _newBuilding.WallMaterial = _model.WallMaterial;
+                        _newBuilding.YouTubeUrl = _model.YouTubeUrl;
+                        _newBuilding.Latitude = _model.Latitude;
+                        _newBuilding.Longitude = _model.Longitude;
+                        _newBuilding.IsHot = _model.IsHot;
+                        _newBuilding.IsExclusive = _model.IsExclusive;
+                        _newBuilding.IsModerated = _model.IsModerated;
+
+                        if (_model.Phones != null && _model.Phones.Count > 0)
                         {
-                            _newBuilding.Builders.Add(Context.Builders.FirstOrDefault(x => x.Id == id));
+                            _model.Phones = _model.Phones.Where(x => x.Id > 0 || !String.IsNullOrWhiteSpace(x.TelePhone)).ToList();
+                            _model.Phones.ForEach(x => x.TelePhone = x.TelePhone != null ? x.TelePhone.Trim() : "");
+                            List<Phone> newPhones = _model.Phones.Where(x => x.Id == 0).ToList();
+                            List<Phone> oldPhones = _model.Phones.Where(x => x.Id > 0).ToList();
+                            if (oldPhones.Count > 0)
+                            {
+                                foreach (var phone in oldPhones)
+                                {
+                                    var exPhone = Context.Phones.FirstOrDefault(x => x.Id == phone.Id);
+                                    if (exPhone != null)
+                                    {
+                                        if (String.IsNullOrWhiteSpace(phone.TelePhone))
+                                            exPhone.Deleted = true;
+                                        else
+                                            exPhone.TelePhone = phone.TelePhone;
+                                    }
+                                }
+                            }
+                            if (newPhones.Count > 0)
+                            {
+                                foreach (var phone in newPhones)
+                                {
+                                    Context.Phones.Add(phone);
+                                }
+                                if (_newBuilding.Phones != null)
+                                    _newBuilding.Phones.AddRange(newPhones);
+                                else
+                                    _newBuilding.Phones = newPhones;
+                            }
                         }
+                        _newBuilding.Builders.RemoveAll(t => true);
+                        if (_model.BuildersId != null && _model.BuildersId.Count > 0)
+                        {
+                            foreach (var id in _model.BuildersId)
+                            {
+                                _newBuilding.Builders.Add(Context.Builders.FirstOrDefault(x => x.Id == id));
+                            }
+                        }
+                        Context.SaveChanges();
                     }
-                    Context.SaveChanges();
+                    else
+                    {
+                        throw new ActionNotAllowedException("Недостаточно прав на редактирование чужих объектов");
+                    }
                 }
             }
         }

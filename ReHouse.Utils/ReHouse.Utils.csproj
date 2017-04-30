@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201704191930111_new.Designer.cs">
       <DependentUpon>201704191930111_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704291050545_map-coords.cs" />
+    <Compile Include="Migrations\201704291050545_map-coords.Designer.cs">
+      <DependentUpon>201704291050545_map-coords.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -221,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704191930111_new.resx">
       <DependentUpon>201704191930111_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704291050545_map-coords.resx">
+      <DependentUpon>201704291050545_map-coords.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -6,6 +6,7 @@ using System.Web;
 using System.IO;
 using ImageResizer;
 using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.Except;
 
 namespace ReHouse.Utils.BusinessOperations.News
 {
@@ -33,55 +34,64 @@ namespace ReHouse.Utils.BusinessOperations.News
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             _article = Context.Articles.FirstOrDefault(x => x.Id == _articleId && !x.Deleted);
             if (_article == null)
-                Errors.Add("Id", "Выбранная новость не найдена. ArticleId = " + _articleId);            
+                Errors.Add("Id", "Выбранная новость не найдена. ArticleId = " + _articleId);
             else
             {
                 var article = Context.Articles.FirstOrDefault(x => x.Title.ToLower() == _title.ToLower());
-                if (article != null)                
+                if (article != null)
                     Errors.Add("Title", "Такой заголовок новости уже существует!");
                 else
                 {
-                    if (_image != null)
+                    var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
+                    if (user != null && (article.UserId == user.Id || user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
                     {
-                        var url = "~/Content/images/news/";
-
-                        var path = HttpContext.Current.Server.MapPath(url);
-                        if (!Directory.Exists(path))
-                            Directory.CreateDirectory(path);
-
-                        _image.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                        int point = _image.FileName.LastIndexOf('.');
-                        var filename = _image.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
-
-                        ImageBuilder.Current.Build(
-                            new ImageJob(_image.InputStream,
-                            path + filename,
-                            new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
-                            false,
-                            true));
-
-                        var image = new Image
+                        if (_image != null)
                         {
-                            FileName = filename + ".jpg",
-                            Url = url,
-                        };
+                            var url = "~/Content/images/news/";
 
-                        var deleteImg = _article.Images.FirstOrDefault();
-                        if (deleteImg != null)
-                        {
-                            FileInfo fileInf = new FileInfo(path + deleteImg.FileName);
-                            if (fileInf.Exists)
+                            var path = HttpContext.Current.Server.MapPath(url);
+                            if (!Directory.Exists(path))
+                                Directory.CreateDirectory(path);
+
+                            _image.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                            int point = _image.FileName.LastIndexOf('.');
+                            var filename = _image.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+
+                            ImageBuilder.Current.Build(
+                                new ImageJob(_image.InputStream,
+                                path + filename,
+                                new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
+                                false,
+                                true));
+
+                            var image = new Image
                             {
-                                fileInf.Delete();
+                                FileName = filename + ".jpg",
+                                Url = url,
+                            };
+
+                            var deleteImg = _article.Images.FirstOrDefault();
+                            if (deleteImg != null)
+                            {
+                                FileInfo fileInf = new FileInfo(path + deleteImg.FileName);
+                                if (fileInf.Exists)
+                                {
+                                    fileInf.Delete();
+                                }
+                                Context.Images.Remove(deleteImg);
                             }
-                            Context.Images.Remove(deleteImg);
+                            Context.Images.Add(image);
+                            _article.Images = new List<Image> { image };
                         }
-                        Context.Images.Add(image);
-                        _article.Images = new List<Image> { image };                        
+                        _article.Title = _title;
+                        _article.Description = _description;
+                        Context.SaveChanges();
                     }
-                    _article.Title = _title;
-                    _article.Description = _description;
-                    Context.SaveChanges();
+
+                    else
+                    {
+                        throw new ActionNotAllowedException("Недостаточно прав на редактирование чужих новостей");
+                    }
                 }
             }
         }
