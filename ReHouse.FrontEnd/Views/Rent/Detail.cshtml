@@ -171,7 +171,19 @@
     </table>
 </div>
 
+<div class="planirovka">
+    @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
+    {
+        foreach (var item in Model.Advert.PlanImages)
+        {
+            <a class="plan" rel="group" title="Планировка" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
+        }
+    }
+</div>
 
+<div class="video-youtube">
+    <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <div class="map_managercard">
     <div id="mapapart_prod">
@@ -208,19 +220,7 @@
         </div>
     </div>
 </div>
-<div class="planirovka">
-    @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
-    {
-        foreach (var item in Model.Advert.PlanImages)
-        {
-            <a class="plan" rel="group" title="Планировка" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
-        }
-    }
-</div>
 
-<div class="video-youtube">
-    <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-</div>
 
 <div class="h2prodsale"><h2>Новинки аренды</h2></div>
 
