@@ -34,7 +34,7 @@ namespace ReHouse.Utils.DataBase
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Advert> Adverts { get; set; }
         public DbSet<Title> Titles { get; set; }    
-        //public DbSet<Vacancy> Vacancies { get; set; }
+        public DbSet<Vacancy> Vacancies { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<District> Districts { get; set; }

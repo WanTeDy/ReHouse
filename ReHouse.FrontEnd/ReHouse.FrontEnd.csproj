@@ -220,7 +220,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\BuilderController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\DistrictController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\VacancyController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\NewsController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\NewBuildingController.cs" />
@@ -238,7 +241,6 @@
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\NewBuildingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Filters\MyAuthorizeAttribute.cs" />
     <Compile Include="Filters\MyIdentity.cs" />
     <Compile Include="Filters\MyUser.cs" />
@@ -486,7 +488,6 @@
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
-    <Content Include="Views\NewBuilding\Add.cshtml" />
     <Content Include="Views\NewBuilding\Detail.cshtml" />
     <Content Include="Scripts\lazyload.js" />
     <Content Include="Views\Sale\Detail.cshtml" />
@@ -500,6 +501,7 @@
     <Content Include="Views\Vacancy\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contacts.cshtml" />
+    <Content Include="Views\Manager\Profile.cshtml" />
     <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
@@ -525,8 +527,6 @@
     <Content Include="Views\Authorize\RestorePasswordPartial.cshtml" />
     <Content Include="Views\Authorize\VkCallback.cshtml" />
     <Content Include="Views\Authorize\_RegisterCorporativePartial.cshtml" />
-    <Content Include="Views\Profile\Index.cshtml" />
-    <Content Include="Views\Profile\Roles.cshtml" />
     <Content Include="Views\Shared\UnregisteredUsers\_loginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutAdverts.cshtml" />
     <Content Include="Views\Shared\Advert\_listOfAdverts.cshtml" />
@@ -534,8 +534,6 @@
     <Content Include="Views\Sale\House.cshtml" />
     <Content Include="Views\Sale\Homestead.cshtml" />
     <Content Include="Views\Sale\Commerce.cshtml" />
-    <Content Include="Views\Sale\Add.cshtml" />
-    <Content Include="Views\Rent\Add.cshtml" />
     <Content Include="Views\Rent\Commerce.cshtml" />
     <Content Include="Views\Rent\Detail.cshtml" />
     <Content Include="Views\Rent\Flat.cshtml" />

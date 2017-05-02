@@ -14,22 +14,36 @@
                 else
                 {
                     <div class="redimg"><img src="~/Content/images/newred.png"></div>
-                } 
+                }
                 @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
                 {
-                <a href="~/sale/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
-                <div class="min-content">
-                    <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
+                    if (item.Image != null)
+                    {
+                        <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Image.Url + item.Image.FileName)" width="250" height="212" alt="" /></a>
+                    }
+                    else
+                    {
+                        <a href="~/sale/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
+                    }
+                    <div class="min-content">
+                        <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
 
-                    <h3>Продам @item.Name.ToLower()</h3>
-                    <h4>@item.Description</h4>
-                    <p class="cost">@item.Price $</p>
-                    <a href="~/sale/detail/@item.Id" id="follow">❯</a>
-                </div>
+                        <h3>Продам @item.Name.ToLower()</h3>
+                        <h4>@item.Description</h4>
+                        <p class="cost">@item.Price $</p>
+                        <a href="~/sale/detail/@item.Id" id="follow">❯</a>
+                    </div>
                 }
                 else if (item.Type == ReHouse.Utils.Helpers.AdvertsType.NewBuilding)
                 {
-                    <a href="~/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                    if (item.Image != null)
+                    {
+                        <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Image.Url + item.Image.FileName)" width="250" height="212" alt="" /></a>
+                    }
+                    else
+                    {
+                        <a href="~/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
+                    }
                     <div class="min-content">
                         <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
                         <h3>@item.Name</h3>
@@ -40,7 +54,14 @@
                 }
                 else
                 {
-                    <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                    if (item.Image != null)
+                    {
+                        <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Image.Url + item.Image.FileName)" width="250" height="212" alt="" /></a>
+                    }
+                    else
+                    {
+                        <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
+                    }
                     <div class="min-content">
                         <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
                         <h3>Сдам @item.Name.ToLower()</h3>

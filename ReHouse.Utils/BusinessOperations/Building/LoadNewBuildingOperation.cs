@@ -27,10 +27,11 @@ namespace ReHouse.Utils.BusinessOperations.Building
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _newBuilding = Context.NewBuildings.FirstOrDefault(x => !x.Deleted && x.IsModerated && x.Id == _id);
+            _newBuilding = Context.NewBuildings.FirstOrDefault(x => !x.Deleted /*&& x.IsModerated*/ && x.Id == _id);
             if(_page != 0)
-                _otherNewBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && x.Id != _id).OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
-            _newBuilding.BuildersId = _newBuilding.Builders?.Select(x => x.Id).ToList();
+                _otherNewBuilding = Context.NewBuildings.Where(x => !x.Deleted /*&& x.IsModerated*/ && x.Id != _id).OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            if(_newBuilding != null)
+                _newBuilding.BuildersId = _newBuilding.Builders?.Select(x => x.Id).ToList();
         }
     }
 }

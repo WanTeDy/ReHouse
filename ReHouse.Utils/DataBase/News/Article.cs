@@ -18,11 +18,7 @@ namespace ReHouse.Utils.DataBase.News
         /// <summary>
         /// Article's userId
         /// </summary> 
-        public Int32 UserId { get; set; }
-        /// <summary>
-        /// Article's imageId
-        /// </summary> 
-        public Int32 ImageId { get; set; }
+        public Int32 UserId { get; set; }        
         /// <summary>
         /// Article's creation datetime
         /// </summary> 

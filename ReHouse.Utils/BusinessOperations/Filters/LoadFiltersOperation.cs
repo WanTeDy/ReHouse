@@ -9,8 +9,8 @@ namespace ReHouse.Utils.BusinessOperations.Filters
 {
     public class LoadFiltersOperation : BaseOperation
     {
-        private String _tokenHash { get; set; }        
-        private Int32 _categoryId { get; set; }        
+        private String _tokenHash { get; set; }
+        private Int32 _categoryId { get; set; }
         private AdvertsType _advertsType { get; set; }
         public List<Category> _categories { get; set; }
         public List<Builder> _builders { get; set; }
@@ -21,7 +21,7 @@ namespace ReHouse.Utils.BusinessOperations.Filters
 
         public LoadFiltersOperation(string tokenHash, AdvertsType advertsType, int categoryId = 0)
         {
-            _tokenHash = tokenHash;            
+            _tokenHash = tokenHash;
             _categoryId = categoryId;
             _advertsType = advertsType;
             RussianName = "Получение параметров фильтров объявлений";
@@ -30,7 +30,7 @@ namespace ReHouse.Utils.BusinessOperations.Filters
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            if(_advertsType == Helpers.AdvertsType.NewBuilding)
+            if (_advertsType == Helpers.AdvertsType.NewBuilding)
             {
                 _builders = Context.Builders.Where(x => !x.Deleted).ToList();
                 _expluatationDates = Context.ExpluatationDates.Where(x => !x.Deleted).ToList();
@@ -47,8 +47,8 @@ namespace ReHouse.Utils.BusinessOperations.Filters
                 }
                 _trimConditions = Context.TrimConditions.Where(x => !x.Deleted).ToList();
             }
-            _districts = Context.Districts.Where(x => !x.Deleted).ToList();            
-            _prices = Context.PriceFilters.Where(x => !x.Deleted && x.AdvertType == _advertsType).ToList();            
+            _districts = Context.Districts.Where(x => !x.Deleted).OrderBy(x => x.ParrentId).ToList();
+            _prices = Context.PriceFilters.Where(x => !x.Deleted && x.AdvertType == _advertsType).ToList();
         }
     }
 }

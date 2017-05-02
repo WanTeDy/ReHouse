@@ -1,0 +1,128 @@
+﻿@using ReHouse.Utils.Helpers
+@model ReHouse.Utils.DataBase.Security.User
+
+<div class="navigation_string">
+    <div class="way">
+        @Html.ActionLink("Главная", "index", "home")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink("Менеджеры", "index", "manager")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink(Model.FirstName, "profile", "manager", new { id = Model.Id })
+    </div>
+</div>
+<div class="managers">
+    <h2>@Model.FirstName</h2>
+    <div class="manager_">
+        <div class="img">
+            @if (Model.Avatar != null)
+            {
+                <img src="@Url.Content(Model.Avatar.Url + Model.Avatar.FileName)" width="120" height="121" />
+            }
+            else
+            {
+                <img src="~/content/images/girl1.png" width="120" height="121">
+            }
+        </div>
+        <div class="contactinfo">            
+            <h3>@Model.Position</h3>
+            <h3>Контакты:</h3>
+            @if (Model.Phones != null && Model.Phones.Count > 0)
+            {
+                foreach (var phone in Model.Phones)
+                {
+                    <h3>@phone.TelePhone</h3>
+                }
+            }
+            <h3>@Model.Email</h3>
+        </div>
+        <div class="about_manager">
+            <p>@Model.About</p>
+        </div>
+    </div>    
+</div>
+<div class="h2prodsale"><h2>Объекты менеджера</h2></div>
+<div class="othernovostroy">
+    <ul class="prods" id="data-container">
+        @if (Model.Adverts != null && Model.Adverts.Count > 0)
+        {
+            foreach (var item in Model.Adverts)
+            {
+                <div class="data-item">
+                    <li>
+                        @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+                    {
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            if (item.Images != null && item.Images.Count > 0)
+                            {
+                                <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" alt="" /></a>
+                            }
+                            else
+                            {
+                                <a class="fix" href="~/sale/detail/@item.Id"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                            }
+                            <div class="min-content">
+                                <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
+
+                                <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                                <h4>@item.Description</h4>
+                                <p class="cost">@item.Price $</p>
+                                <a href="~/sale/detail/@item.Id" id="follow">❯</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            if (item.Images != null && item.Images.Count > 0)
+                            {
+                                <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" alt="" /></a>
+                            }
+                            else
+                            {
+                                <a class="fix" href="~/rent/detail/@item.Id"><img src="~/Content/images/prod1.jpg" alt="" /></a>
+                            }
+                            <div class="min-content">
+                                <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
+                                <h3>Сдам @item.Title.RussianName.ToLower()</h3>
+                                <h4>@item.Description</h4>
+                                <p class="cost">@item.Price $</p>
+                                <a href="~/rent/detail/@item.Id" id="follow">❯</a>
+                            </div>
+                        }
+
+                    </li>
+                </div>
+            }
+        }
+
+        @if (Model.NewBuildings != null && Model.NewBuildings.Count > 0)
+        {
+            foreach (var item in Model.NewBuildings)
+            {
+                <div class="data-item">
+                    <li>
+                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                        @if (item.Images != null && item.Images.Count > 0)
+                        {
+                            <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
+                        }
+                        else
+                        {
+                            <a href="~/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
+                        }
+                        <div class="min-content">
+                            <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"></div>
+                            <h3>@item.Name</h3>
+                            <h4>@item.Adress <br />Сдача: @item.ExpluatationDate.Name</h4>
+                            <p class="cost">от @item.Price грн/м²</p>
+                            <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>
+                        </div>
+                    </li>
+                </div>
+            }
+        }
+    </ul>
+</div>

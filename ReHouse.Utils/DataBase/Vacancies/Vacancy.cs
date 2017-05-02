@@ -6,13 +6,17 @@ using ReHouse.Utils.DataBase.AdvertParams;
 namespace ReHouse.Utils.DataBase.Vacancies
 {
     public class Vacancy : BaseObj
-    {        
+    {
         /// <summary>
-        /// Feedback's description
+        /// Vacancy's title
+        /// </summary> 
+        public String Title { get; set; }
+        /// <summary>
+        /// Vacancy's description
         /// </summary> 
         public String Description { get; set; }
         /// <summary>
-        /// Feedback's creation datetime
+        /// Vacancy's creation datetime
         /// </summary> 
         public DateTime Date { get; set; }
     }

@@ -27,7 +27,7 @@
         <pre> </pre>
 
         @{ string action = "", desc = "", pricePerSquere = ""; }
-        
+
         @switch (Model.Advert.Category.ParentId)
         {
             case (int)ParrentCategories.Flat:
@@ -78,14 +78,34 @@
 <div id="products_example">
     <div id="products">
         <div class="slides_container">
-            <a><img src="~/Content/images/flat1.jpg" width="767" height="600" alt=""></a>
-            <a><img src="~/Content/images/flat2.jpg" width="767" height="600" alt=""></a>
-            <a><img src="~/Content/images/flat3.jpg" width="767" height="600" alt=""></a>
+            @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
+            {
+                int i = 0;
+                foreach (var item in Model.Advert.Images)
+                {
+                    if (i > 2)
+                    {
+                        break;
+                    }
+                    i++;
+                    <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" alt=""></a>
+                }
+            }
         </div>
         <ul class="pagination">
-            <li><a href="#"><img src="~/Content/images/flat1.jpg" alt=""></a></li>
-            <li><a href="#"><img src="~/Content/images/flat2.jpg" alt=""></a></li>
-            <li><a href="#"><img src="~/Content/images/flat3.jpg" alt=""></a></li>
+            @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
+            {
+                int i = 0;
+                foreach (var item in Model.Advert.Images)
+                {
+                    if (i > 2)
+                    {
+                        break;
+                    }
+                    i++;
+                    <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" alt=""></a></li>
+                }
+            }
         </ul>
     </div>
 </div>
@@ -108,10 +128,10 @@
             <pre> </pre>
             <p class="grn">@ViewBag.EUR €/мес</p>
             <pre></pre>
-        }        
+        }
     </div>
 
-    <p>@*@Model.Advert.Description*@Сдам 1-ком. квартиру. Дом внутри квартала, 2-й ряд. Окна выходят в большой палисадник, есть возможность большой пристройки. Общая площадь – 34 кв. м, комната – 18 кв. м., кухня – 9 кв. м. Санузел раздельный. Парадная чистая, дверь на кодовом замке. Большой двор с детской площадкой, зонами отдыха, парковкой. Рядом рынок Южный, супермаркеты, школа, детский сад. Хорошая транспортная развязка. 24 тыс., торг!</p>
+    <p>@Model.Advert.Description</p>
 </div>
 <div class="table_of_prodapart">
     <table>
@@ -141,23 +161,48 @@
     </table>
 </div>
 
+<div class="planirovka">
+    @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
+    {
+        foreach (var item in Model.Advert.PlanImages)
+        {
+            <a class="plan" rel="group" title="Планировка" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
+        }
+    }
+</div>
+
+<div class="video-youtube">
+    <iframe width="711" height="533" src="@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+</div>
+
 <div class="map_managercard">
     <div id="mapapart_prod">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed/v1/place?q=@Model.Advert.Latitude,@Model.Advert.Longitude&amp;key=AIzaSyDV3GzGjYIAyhiMq9Cof5SEZDuh0QeBD0Q" width="1065px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
+
     </div>
 
     <div class="manager">
         <div class="photo">
-            <img src="~/Content/images/manager.png" width="90p" height="90">
+            @if (Model.Advert.User.Avatar != null)
+            {
+                <img src="@Url.Content(Model.Advert.User.Avatar.Url + Model.Advert.User.Avatar.FileName)" width="90p" height="90">
+            }
+            else
+            {
+                <img src="~/Content/images/manager.png" width="90p" height="90">
+            }
         </div>
         <div class="manager_info">
             <div class="imgtel">
                 <img src="~/Content/images/minphone.png">
             </div>
             <div class="number">
-                @foreach (var phone in Model.Advert.User.Phones)
+                @if (Model.Advert.User.Phones != null && Model.Advert.User.Phones.Count > 0)
                 {
-                    <p>@phone.TelePhone</p>
+                    foreach (var phone in Model.Advert.User.Phones)
+                    {
+                        <p>@phone.TelePhone</p>
+                    }
                 }
                 <p>@Model.Advert.User.Email</p>
                 <p class="name">@Model.Advert.User.FirstName</p>
@@ -166,10 +211,6 @@
     </div>
 </div>
 
-
-<div class="video-youtube">
-    <iframe width="711" height="533" src="@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-</div>
 
 <div class="h2prodsale"><h2>Новинки аренды</h2></div>
 
@@ -189,7 +230,14 @@
                         {
                             <div class="redimg"><img src="~/Content/images/newred.png"></div>
                         }
-                        <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                        @if (item.Images != null && item.Images.Count > 0)
+                        {
+                            <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
+                        }
+                        else
+                        {
+                            <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                        }
                         <div class="min-content">
                             <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
                             <h3>Сдам @item.Title.RussianName.ToLower()</h3>

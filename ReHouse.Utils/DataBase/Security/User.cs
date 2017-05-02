@@ -64,5 +64,6 @@ namespace ReHouse.Utils.DataBase.Security
         public virtual Avatar Avatar { get; set; }
         public virtual List<Phone> Phones { get; set; }        
         public virtual List<NewBuilding> NewBuildings { get; set; }        
+        public virtual List<Advert> Adverts { get; set; }
     }
 }

@@ -1,10 +1,13 @@
 ﻿@using ReHouse.FrontEnd.Models
+@using ReHouse.Utils.Helpers
 @model LoadAdvertsModel
 
 <div class="selection">
     <div class="typeofproperty">
         <select id="category">
+
             <option selected value="@Model.CategoryId">Тип недвижимости</option>
+
             @foreach (var category in Model.Categories)
             {
                 <option value="@category.Id">@category.RussianName</option>
@@ -14,9 +17,13 @@
     <div class="region">
         <select id="district">
             <option selected value="0">Выбрать район</option>
-            @foreach (var district in Model.Districts)
+            @foreach (var district in Model.Districts.Where(x => x.ParrentId == null))
             {
-                <option value="@district.Id">@district.RussianName</option>
+                <option disabled value="@district.Id">@district.RussianName</option>
+                foreach (var dis in Model.Districts.Where(x => x.ParrentId == district.Id))
+                {
+                    <option value="@dis.Id">@dis.RussianName</option>
+                }
             }
         </select>
     </div>

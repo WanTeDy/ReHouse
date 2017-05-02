@@ -68,8 +68,18 @@
     <Compile Include="BusinessOperations\Auth\Roles\DeleteRolesOperation.cs" />
     <Compile Include="BusinessOperations\Auth\Roles\UpdateRoleOperation.cs" />
     <Compile Include="BusinessOperations\Auth\SetPasswordOperation.cs" />
+    <Compile Include="BusinessOperations\Builders\AddBuilderOperation.cs" />
+    <Compile Include="BusinessOperations\Builders\DeleteBuilderOperation.cs" />
+    <Compile Include="BusinessOperations\Builders\LoadBuilderOperation.cs" />
+    <Compile Include="BusinessOperations\Builders\LoadBuildersOperation.cs" />
+    <Compile Include="BusinessOperations\Builders\UpdateBuilderOperation.cs" />
     <Compile Include="BusinessOperations\Cart\LoadCartOperation.cs" />
     <Compile Include="BusinessOperations\Categories\LoadCategoriesOperation.cs" />
+    <Compile Include="BusinessOperations\Districts\AddDistrictOperation.cs" />
+    <Compile Include="BusinessOperations\Districts\DeleteDistrictOperation.cs" />
+    <Compile Include="BusinessOperations\Districts\LoadDistrictsOperation.cs" />
+    <Compile Include="BusinessOperations\Districts\LoadDistrictOperation.cs" />
+    <Compile Include="BusinessOperations\Districts\UpdateDistrictOperation.cs" />
     <Compile Include="BusinessOperations\Flat\AddFlatOperation.cs" />
     <Compile Include="BusinessOperations\Flat\DeleteFlatOperation.cs" />
     <Compile Include="BusinessOperations\Filters\LoadFiltersOperation.cs" />
@@ -96,6 +106,8 @@
     <Compile Include="BusinessOperations\Feedbacks\UpdateFeedbackOperation.cs" />
     <Compile Include="BusinessOperations\Images\DeletePlanImageOperation.cs" />
     <Compile Include="BusinessOperations\Images\DeleteImageOperation.cs" />
+    <Compile Include="BusinessOperations\Managers\LoadManagerOperation.cs" />
+    <Compile Include="BusinessOperations\Managers\LoadManagersOperation.cs" />
     <Compile Include="BusinessOperations\News\AddArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\DeleteArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\LoadArticleOperation.cs" />
@@ -114,6 +126,11 @@
     <Compile Include="BusinessOperations\Users\LoadUsersOperation.cs" />
     <Compile Include="BusinessOperations\Users\UpdateRoleForUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\UpdateUserOperation.cs" />
+    <Compile Include="BusinessOperations\Vacancies\AddVacancyOperation.cs" />
+    <Compile Include="BusinessOperations\Vacancies\DeleteVacancyOperation.cs" />
+    <Compile Include="BusinessOperations\Vacancies\LoadVacancyOperation.cs" />
+    <Compile Include="BusinessOperations\Vacancies\LoadVacanciesOperation.cs" />
+    <Compile Include="BusinessOperations\Vacancies\UpdateVacancyOperation.cs" />
     <Compile Include="ConstV.cs" />
     <Compile Include="DataBase\AdvertParams\ExpluatationDate.cs" />
     <Compile Include="DataBase\AdvertParams\Builder.cs" />
@@ -189,6 +206,14 @@
     <Compile Include="Migrations\201704291050545_map-coords.Designer.cs">
       <DependentUpon>201704291050545_map-coords.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705011511252_districts.cs" />
+    <Compile Include="Migrations\201705011511252_districts.Designer.cs">
+      <DependentUpon>201705011511252_districts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705021037087_vac.cs" />
+    <Compile Include="Migrations\201705021037087_vac.Designer.cs">
+      <DependentUpon>201705021037087_vac.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -228,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704291050545_map-coords.resx">
       <DependentUpon>201704291050545_map-coords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705011511252_districts.resx">
+      <DependentUpon>201705011511252_districts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021037087_vac.resx">
+      <DependentUpon>201705021037087_vac.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

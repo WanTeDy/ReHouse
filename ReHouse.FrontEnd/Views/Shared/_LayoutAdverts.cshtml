@@ -41,6 +41,11 @@
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/styleCss")
     
+    <!-- Alert при закрытии -->
+    <!-- <script>
+        $(window).on('beforeunload', function(){ return 'Вы уверены, что хотите покинуть страницу?сука'; });
+    </script> -->
+
     <!-- TO TOP -->
     <script>
 
@@ -111,7 +116,7 @@
             </div>
 
             <div class="feedback">
-                <a href="~/cart/index" id="fav">Список желаний</a>
+                <a href="~/cart/index" id="fav">Избранное</a>
                 <a href="~/email/index" id="blink">Обратный звонок</a>
             </div>
 

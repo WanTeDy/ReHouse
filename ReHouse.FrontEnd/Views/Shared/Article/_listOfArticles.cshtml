@@ -7,7 +7,14 @@
     {
         <div class="firstnews">
             <div class="img">
-                <img src="~/Content/images/news1.jpg" width="440" height="263">
+                @if (article.Images != null && article.Images.Count > 0)
+                {
+                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" width="440" height="263"/>
+                }
+                else
+                {
+                    <img src="~/Content/images/news1.jpg" width="440" height="263">
+                }
             </div>
             <div class="content1">
                 <h3>@article.Title</h3>
@@ -20,16 +27,16 @@
                     <p>@article.Description</p>
                 }
                 @*<div class="share_icons1">
-                    <div class="share_fb">
-                        <a onclick="Share.facebook('http://rehouse-realty.com.ua/news/', '@article.Title', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@article.Description')"></a>
-                    </div>
-                    <div class="share_vk">
-                        <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/news/', '@article.Title', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@article.Description')"></a>
-                    </div>
-                    <div class="share_tw">
-                        <a onclick="Share.twitter('http://rehouse-realty.com.ua/news/', '@article.Title')"></a>
-                    </div>
-                </div>*@
+                        <div class="share_fb">
+                            <a onclick="Share.facebook('http://rehouse-realty.com.ua/news/', '@article.Title', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@article.Description')"></a>
+                        </div>
+                        <div class="share_vk">
+                            <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/news/', '@article.Title', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@article.Description')"></a>
+                        </div>
+                        <div class="share_tw">
+                            <a onclick="Share.twitter('http://rehouse-realty.com.ua/news/', '@article.Title')"></a>
+                        </div>
+                    </div>*@
                 <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
                 <a href="/news/detail/@article.Id" @*onclick="showDetails(@article.Id, this);"*@ id="more">Подробнее</a>
                 @*<p id="newsHidden_@article.Id" style="display:none">@article.Description</p>*@
