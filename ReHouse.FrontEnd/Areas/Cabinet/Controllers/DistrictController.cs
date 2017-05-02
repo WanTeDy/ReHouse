@@ -97,11 +97,11 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
 
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
             operation2.ExcecuteTransaction();
             ViewBag.Districts = operation2._districts;
 
-            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;            
             return View();
         }
 
