@@ -1,4 +1,5 @@
 ﻿@using ReHouse.Utils.Helpers
+@using System.Globalization;
 @model ReHouse.FrontEnd.Models.LoadNewBuildingModel
 @section scripts {
     <!-- Min Slider -->
@@ -56,13 +57,15 @@
         <a onclick="Share.twitter('http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name')"></a>
     </div>
 </div>
-<div id="products_example">
-    <div id="products">
-        <div class="slides_container">
-            @if (Model.NewBuilding.Images != null && Model.NewBuilding.Images.Count > 0)
-            {
-                int i = 0;
-                foreach (var item in Model.NewBuilding.Images)
+@if (Model.NewBuilding.Images != null && Model.NewBuilding.Images.Count > 0)
+{
+    int i = 0;
+    int j = 0;
+
+    <div id="products_example">
+        <div id="products">
+            <div class="slides_container">
+                @foreach (var item in Model.NewBuilding.Images)
                 {
                     if (i > 2)
                     {
@@ -71,25 +74,24 @@
                     i++;
                     <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" alt=""></a>
                 }
-            }
-        </div>
-        <ul class="pagination">
-            @if (Model.NewBuilding.Images != null && Model.NewBuilding.Images.Count > 0)
-            {
-                int i = 0;
-                foreach (var item in Model.NewBuilding.Images)
+
+            </div>
+            <ul class="pagination">
+
+                @foreach (var item in Model.NewBuilding.Images)
                 {
-                    if (i > 2)
+                    if (j > 2)
                     {
                         break;
                     }
-                    i++;
+                    j++;
                     <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" alt=""></a></li>
                 }
-            }
-        </ul>
+
+            </ul>
+        </div>
     </div>
-</div>
+}
 <div class="table_of_prod">
     <table>
         <tr>
@@ -178,6 +180,11 @@
         </tr>
     </table>
 </div>
+
+<div id="mapnovostroy_prod">
+    <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1054px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+
 <div class="planirovka">
     @if (Model.NewBuilding.PlanImages != null && Model.NewBuilding.PlanImages.Count > 0)
     {
@@ -188,10 +195,7 @@
     }
 </div>
 <div class="video-youtube">
-    <iframe width="711" height="533" src="@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-</div>
-<div id="mapnovostroy_prod">
-    <iframe src="https://www.google.com/maps/embed/v1/place?q=@Model.NewBuilding.Latitude,@Model.NewBuilding.Longitude&amp;key=AIzaSyDV3GzGjYIAyhiMq9Cof5SEZDuh0QeBD0Q" width="1065px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
 </div>
 <div class="h2novostroy"><h2>Другие Новостройки</h2></div>
 <div class="othernovostroy">
@@ -202,7 +206,18 @@
             {
                 <div class="data-item">
                     <li>
-                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                        @if (item.IsExclusive)
+                        {
+                            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                        }
+                        else if (item.IsHot)
+                        {
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                        }
+                        else
+                        {
+                            <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                        }
                         @if (item.Images != null && item.Images.Count > 0)
                         {
                             <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>

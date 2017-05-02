@@ -9,27 +9,27 @@ namespace ReHouse.Utils.BusinessOperations.Feedbacks
     public class UpdateFeedbackOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        private Boolean _isModerated { get; set; }
-        private Int32 _feedbackId { get; set; }
+        private UserFeedback _model { get; set; }
         public UserFeedback _feedback { get; set; }
 
-        public UpdateFeedbackOperation(string tokenHash, int feedbackId, bool isModerated)
+        public UpdateFeedbackOperation(string tokenHash, UserFeedback model)
         {
             _tokenHash = tokenHash;
-            _feedbackId = feedbackId;
-            _isModerated = isModerated;
+            _model = model;
             RussianName = "Изменение отзыва";
         }
 
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _feedback = Context.UserFeedbacks.FirstOrDefault(x => x.Id == _feedbackId && !x.Deleted);
+            _feedback = Context.UserFeedbacks.FirstOrDefault(x => x.Id == _model.Id && !x.Deleted);
             if (_feedback == null)
                 Errors.Add("Id", "Выбранный отзыв не найден");
             else
             {
-                _feedback.IsModerated = _isModerated;
+                _feedback.Username = _model.Username;
+                _feedback.Description = _model.Description;
+                _feedback.IsModerated = _model.IsModerated;
                 Context.SaveChanges();
             }
         }

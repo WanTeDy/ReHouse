@@ -20,7 +20,7 @@ namespace ReHouse.Utils.BusinessOperations.Districts
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
 
-            _districts = Context.Districts.Where(x => !x.Deleted).OrderBy(x => x.ParrentId).ToList();
+            _districts = Context.Districts.Where(x => !x.Deleted).OrderBy(x => x.RussianName).ToList();
         }
     }
 }

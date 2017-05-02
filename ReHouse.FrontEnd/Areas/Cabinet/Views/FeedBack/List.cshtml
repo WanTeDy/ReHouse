@@ -1,0 +1,78 @@
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.Utils.DataBase.Feedback;
+@model List<UserFeedback>
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+<div class="list_">
+    <h2 class="tabset_label">Table of Contents</h2>
+    <ul class="tabset_tabs">
+        <li class="firstchild"><a href="~/cabinet/profile">Профиль</a></li>
+        <li>
+            <a class="1">Продажа</a>
+            <ol>
+                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/sale/house">Дома</a></li>
+                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a class="1">Аренда</a>
+            <ol>
+                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/rent/house">Дома</a></li>
+                <li><a href="~/cabinet/rent/homestead">Участки</a></li>
+            </ol>
+        </li>
+        <li><a class="3" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
+        <li><a class="3" href="~/cabinet/news/list">Новости</a></li>
+        <li><a class="preActive active" href="~/cabinet/feedbacks/list">Отзывы</a></li>
+        <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
+        <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
+        <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
+    </ul>
+</div>
+<div id="adminka2" class="tabset_content">
+    <div class="headline">
+        <h2>Добавленные отзывы</h2>        
+    </div>
+
+    @if (!ViewBag.NoElements)
+    {
+
+        <div class="added">
+            <button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>
+            <table class="added" id="data-container">
+                @Html.Partial("Feedback/_listOfFeedbacks", Model)
+            </table>
+        </div>
+        <div>
+            <div class="products1">
+                <div id="button-more">
+                    <a id="more">Больше Отзывов</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading-div">
+
+        </div>
+    }
+
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/deleteFeedbacks")
+
+    <script>
+        var url = "/cabinet/feedback/load";
+        $('#button-more').click(function () {
+
+            var obj = {
+        }
+
+            lazyload(obj, url, false);
+        });       
+    </script>
+
+}

@@ -8,7 +8,18 @@
     {
         <div class="data-item">
             <li>
-                <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                @if (item.IsExclusive)
+                {
+                    <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                }
+                else if (item.IsHot)
+                {
+                    <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                }
+                else
+                {
+                    <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                }
                 @if (item.Images != null && item.Images.Count > 0)
                 {
                     <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>

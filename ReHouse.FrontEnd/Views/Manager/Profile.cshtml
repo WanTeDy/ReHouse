@@ -11,7 +11,7 @@
         <pre> </pre>
         <p>/</p>
         <pre> </pre>
-        @Html.ActionLink(Model.FirstName, "profile", "manager", new { id = Model.Id })
+        @Html.ActionLink(Model.FirstName?? "Менеджер", "profile", "manager", new { id = Model.Id })
     </div>
 </div>
 <div class="managers">

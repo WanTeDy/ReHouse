@@ -21,7 +21,7 @@ namespace ReHouse.Utils.BusinessOperations.Titles
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _districts = Context.Districts.Where(x => !x.Deleted).ToList();            
+            _districts = Context.Districts.Where(x => !x.Deleted && x.ParrentId != null).ToList();            
         }
     }
 }

@@ -7,7 +7,11 @@
     {
         <div class="data-item">
             <li>
-                @if (item.IsHot)
+                @if (item.IsExclusive)
+                {
+                    <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                }
+                else if (item.IsHot)
                 {
                     <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                 }

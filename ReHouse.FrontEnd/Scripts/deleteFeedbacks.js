@@ -10,16 +10,16 @@ function deleteChekedProducts() {
 }
 
 function deleteProducts(ids) {
-    if (confirm("Вы действительно хотите удалить новости?")) {
+    if (confirm("Вы действительно хотите удалить отзывы?")) {
         
         var obj = {            
-            "articlesId": ids
+            "feedbacksId": ids
         }
         
         var json = JSON.stringify(obj);
 
         $.ajax({
-            url: '/cabinet/news/delete',
+            url: '/cabinet/feedback/delete',
             type: "POST",
             contentType: 'application/json; charset=utf-8',
             data: json,

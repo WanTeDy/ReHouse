@@ -34,9 +34,20 @@
             @foreach (var item in Model.HotAdverts)
             {
                 <li>
-                    @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+                    @if (item.IsExclusive)
+                    {
+                        <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                    }
+                    else if (item.IsHot)
                     {
                         <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                    }
+                    else
+                    {
+                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                    }
+                    @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+                    {                        
                         if (item.Images != null && item.Images.Count > 0)
                         {
                             <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
@@ -55,8 +66,7 @@
                         </div>
                     }
                     else
-                    {
-                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                    {                        
                         if (item.Images != null && item.Images.Count > 0)
                         {
                             <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
@@ -87,6 +97,18 @@
             @foreach (var item in Model.NewBuildingAdverts)
             {
                 <li>
+                    @if (item.IsExclusive)
+                    {
+                        <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                    }
+                    else if (item.IsHot)
+                    {
+                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                    }
+                    else
+                    {
+                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                    }
                     @if (item.Images != null && item.Images.Count > 0)
                     {
                         <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
@@ -115,6 +137,18 @@
             @foreach (var item in Model.FlatSaleAdverts)
             {
                 <li>
+                    @if (item.IsExclusive)
+                    {
+                        <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                    }
+                    else if (item.IsHot)
+                    {
+                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                    }
+                    else
+                    {
+                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                    }
                     @if (item.Images != null && item.Images.Count > 0)
                     {
                         <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
@@ -144,6 +178,18 @@
             @foreach (var item in Model.HouseSaleAdverts)
             {
                 <li>
+                    @if (item.IsExclusive)
+                    {
+                        <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                    }
+                    else if (item.IsHot)
+                    {
+                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                    }
+                    else
+                    {
+                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                    }
                     @if (item.Images != null && item.Images.Count > 0)
                     {
                         <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>

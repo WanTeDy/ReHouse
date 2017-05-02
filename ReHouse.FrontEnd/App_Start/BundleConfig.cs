@@ -15,12 +15,28 @@ namespace ReHouse.FrontEnd
             bundles.Add(new ScriptBundle("~/bundles/advertSettings").Include(
                         "~/Scripts/advertSettings.js"
                         ));
-
+            
             bundles.Add(new ScriptBundle("~/bundles/deleteImage").Include(
                         "~/Scripts/deleteImage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/deleteAdverts").Include(
                         "~/Scripts/deleteAdverts.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/deleteVacancies").Include(
+                        "~/Scripts/deleteVacancies.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/deleteBuilders").Include(
+                        "~/Scripts/deleteBuilders.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/deleteFeedbacks").Include(
+                        "~/Scripts/deleteFeedbacks.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/deleteDistricts").Include(
+                        "~/Scripts/deleteDistricts.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/deleteBuildings").Include(

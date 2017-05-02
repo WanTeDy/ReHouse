@@ -43,6 +43,9 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             operation.ExcecuteTransaction();
             if (operation._district == null)
                 return HttpNotFound();
+            var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
+            operation2.ExcecuteTransaction();
+            ViewBag.Districts = operation2._districts;
 
             return View(operation._district);
         }
@@ -60,6 +63,10 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             if (!operation.Success)
             {
+                var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
+                operation2.ExcecuteTransaction();
+                ViewBag.Districts = operation2._districts;
+
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
                 return View(model);
             }            
@@ -89,7 +96,11 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
-            
+
+            var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
+            operation2.ExcecuteTransaction();
+            ViewBag.Districts = operation2._districts;
+
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;            
             return View();
         }
@@ -107,6 +118,10 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             if (!operation.Success)
             {
+                var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
+                operation2.ExcecuteTransaction();
+                ViewBag.Districts = operation2._districts;
+
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
                 return View(model);
             }

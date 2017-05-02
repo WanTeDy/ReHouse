@@ -17,9 +17,9 @@
     <div class="region">
         <select id="district">
             <option selected value="0">Выбрать район</option>
-            @foreach (var district in Model.Districts.Where(x => x.ParrentId == null))
+            @foreach (var district in Model.Districts.Where(x => x.ParrentId == null).OrderByDescending(x=>x.Id))
             {
-                <option disabled value="@district.Id">@district.RussianName</option>
+                <option disabled value="@district.Id">--@district.RussianName--</option>
                 foreach (var dis in Model.Districts.Where(x => x.ParrentId == district.Id))
                 {
                     <option value="@dis.Id">@dis.RussianName</option>

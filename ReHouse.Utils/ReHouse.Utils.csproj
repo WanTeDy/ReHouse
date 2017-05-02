@@ -80,6 +80,7 @@
     <Compile Include="BusinessOperations\Districts\LoadDistrictsOperation.cs" />
     <Compile Include="BusinessOperations\Districts\LoadDistrictOperation.cs" />
     <Compile Include="BusinessOperations\Districts\UpdateDistrictOperation.cs" />
+    <Compile Include="BusinessOperations\Feedbacks\LoadFeedbackOperation.cs" />
     <Compile Include="BusinessOperations\Flat\AddFlatOperation.cs" />
     <Compile Include="BusinessOperations\Flat\DeleteFlatOperation.cs" />
     <Compile Include="BusinessOperations\Filters\LoadFiltersOperation.cs" />

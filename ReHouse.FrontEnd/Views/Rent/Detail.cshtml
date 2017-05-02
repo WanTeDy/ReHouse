@@ -1,4 +1,5 @@
 ﻿@using ReHouse.Utils.Helpers
+@using System.Globalization;
 @model ReHouse.FrontEnd.Models.LoadAdvertModel
 
 @section scripts {
@@ -15,6 +16,14 @@
                 generateNextPrev: true,
                 generatePagination: false
             });
+        });
+    </script>
+    <!--  FancyBox -->
+    @Scripts.Render("~/bundles/fancybox");
+    <script>
+        $(document).ready(function () {
+            $("a.plan").fancybox();
+            // $("a.plan").fancybox({"frameWidth":1560,"frameHeight":1340});
         });
     </script>
 }
@@ -75,13 +84,15 @@
 </div>
 
 
-<div id="products_example">
-    <div id="products">
-        <div class="slides_container">
-            @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
-            {
-                int i = 0;
-                foreach (var item in Model.Advert.Images)
+@if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
+{
+    int i = 0;
+    int j = 0;
+
+    <div id="products_example">
+        <div id="products">
+            <div class="slides_container">
+                @foreach (var item in Model.Advert.Images)
                 {
                     if (i > 2)
                     {
@@ -90,25 +101,24 @@
                     i++;
                     <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" alt=""></a>
                 }
-            }
-        </div>
-        <ul class="pagination">
-            @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
-            {
-                int i = 0;
-                foreach (var item in Model.Advert.Images)
+
+            </div>
+            <ul class="pagination">
+
+                @foreach (var item in Model.Advert.Images)
                 {
-                    if (i > 2)
+                    if (j > 2)
                     {
                         break;
                     }
-                    i++;
+                    j++;
                     <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" alt=""></a></li>
                 }
-            }
-        </ul>
+
+            </ul>
+        </div>
     </div>
-</div>
+}
 <div class="seotext3">
     <div class="h2sale"><h2>Описание</h2></div>
 
@@ -161,24 +171,12 @@
     </table>
 </div>
 
-<div class="planirovka">
-    @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
-    {
-        foreach (var item in Model.Advert.PlanImages)
-        {
-            <a class="plan" rel="group" title="Планировка" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
-        }
-    }
-</div>
 
-<div class="video-youtube">
-    <iframe width="711" height="533" src="@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-</div>
 
 <div class="map_managercard">
     <div id="mapapart_prod">
-        <iframe src="https://www.google.com/maps/embed/v1/place?q=@Model.Advert.Latitude,@Model.Advert.Longitude&amp;key=AIzaSyDV3GzGjYIAyhiMq9Cof5SEZDuh0QeBD0Q" width="1065px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
 
+        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 
     <div class="manager">
@@ -210,7 +208,19 @@
         </div>
     </div>
 </div>
+<div class="planirovka">
+    @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
+    {
+        foreach (var item in Model.Advert.PlanImages)
+        {
+            <a class="plan" rel="group" title="Планировка" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
+        }
+    }
+</div>
 
+<div class="video-youtube">
+    <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <div class="h2prodsale"><h2>Новинки аренды</h2></div>
 
@@ -222,7 +232,11 @@
             {
                 <div class="data-item">
                     <li>
-                        @if (item.IsHot)
+                        @if (item.IsExclusive)
+                        {
+                            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                        }
+                        else if (item.IsHot)
                         {
                             <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                         }

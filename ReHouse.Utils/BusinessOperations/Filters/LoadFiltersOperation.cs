@@ -47,7 +47,7 @@ namespace ReHouse.Utils.BusinessOperations.Filters
                 }
                 _trimConditions = Context.TrimConditions.Where(x => !x.Deleted).ToList();
             }
-            _districts = Context.Districts.Where(x => !x.Deleted).OrderBy(x => x.ParrentId).ToList();
+            _districts = Context.Districts.Where(x => !x.Deleted).OrderBy(x => x.RussianName).ToList();
             _prices = Context.PriceFilters.Where(x => !x.Deleted && x.AdvertType == _advertsType).ToList();
         }
     }

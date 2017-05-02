@@ -1,0 +1,32 @@
+﻿@using ReHouse.Utils.DataBase.Feedback
+@model List<UserFeedback>
+
+@if (Model.Count > 0)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td><input type="checkbox" class="checkbox" id="checkbox" value="@item.Id" style="width:20px;" /></td>
+            <td>@item.Id</td>
+            <td>
+                <div class="prod_info">
+                    <h3>@item.Username</h3>
+                </div>
+            </td>
+            <td>@(item.IsModerated ? "Одобрено" : "Неодобрено")</td>
+            <td>@item.Date</td>
+            <td>@item.Description</td>
+            <td>
+                <div class="edit_del">
+                    <form method="LINK" action="/cabinet/feedback/edit/@item.Id">
+                        <button>Редактировать</button>
+                    </form>
+                    <pre> </pre>
+                    <p>/</p>
+                    <pre> </pre>
+                    <button onclick="deleteProducts([@item.Id])">Удалить</button>
+                </div>
+            </td>
+        </tr>
+    }
+}

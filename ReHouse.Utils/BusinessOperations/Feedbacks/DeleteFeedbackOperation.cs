@@ -10,24 +10,26 @@ namespace ReHouse.Utils.BusinessOperations.Feedbacks
     public class DeleteFeedbackOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        private Int32 _feedbackId { get; set; }
+        private Int32[] _feedbacksId { get; set; }
 
-        public DeleteFeedbackOperation(string tokenHash, int feedbackId)
+        public DeleteFeedbackOperation(string tokenHash, int[] feedbacksId)
         {
             _tokenHash = tokenHash;
-            _feedbackId = feedbackId;
+            _feedbacksId = feedbacksId;
             RussianName = "Удаление отзыва";
         }
 
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            var feedback = Context.UserFeedbacks.FirstOrDefault(x => x.Id == _feedbackId && !x.Deleted);
-            if (feedback == null)
-                Errors.Add("Id", "Выбранный отзыв не найден.");
-            else
+            if (_feedbacksId != null && _feedbacksId.Length > 0)
             {
-                feedback.Deleted = true;
+                foreach (var feedbackId in _feedbacksId)
+                {
+                    var feedback = Context.UserFeedbacks.FirstOrDefault(x => x.Id == feedbackId && !x.Deleted);
+                    if(feedback != null)
+                        feedback.Deleted = true;
+                }
                 Context.SaveChanges();
             }
         }
