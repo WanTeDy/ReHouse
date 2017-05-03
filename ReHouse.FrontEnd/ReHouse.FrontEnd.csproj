@@ -279,6 +279,11 @@
     <Compile Include="Models\SelecedCategory.cs" />
     <Compile Include="Models\SessionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -505,6 +510,7 @@
     <Content Include="Areas\Cabinet\Views\FeedBack\Edit.cshtml" />
     <Content Include="Areas\Cabinet\Views\FeedBack\List.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\Feedback\_listOfFeedbacks.cshtml" />
+    <Content Include="Content\fonts\open sans\open sans.ttf" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
@@ -586,6 +592,12 @@
       <Project>{e8256a0c-5f55-41e3-bc9a-a6658a396492}</Project>
       <Name>ReHouse.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
