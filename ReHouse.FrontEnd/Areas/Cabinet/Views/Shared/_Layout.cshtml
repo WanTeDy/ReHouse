@@ -147,29 +147,7 @@
                             <li><a href="~/vacancy/">Вакансии агенства</a></li>
                         </ol>
                     </li>
-                    <li>
-                        @if (Session == null || Session["user"] == null)
-                        {
-                            <a class="f" data-dropdown="login-modal" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
-                            <div class="forms-wrapper">
-                                <div class="form-drop f-dropdown content-mod medium" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
-                                    <ol class="login">
-                                        <li>
-                                            <div class="login">
-                                                <div class="bodyform">
-                                                    @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Выйти", "logout", "authorize")
-                        }
-                    </li>
+                    
                 </ol>
             </div>
 
@@ -196,6 +174,27 @@
                 <a href="~/home/contacts" class="">Контакты</a>
                 <a href="~/map/index" class="">Карта сайта</a>
                 <a href="~/feedback/index" class="">Отзывы</a>
+                @if (Session == null || Session["user"] == null)
+                {
+                    <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+                    <div class="forms-wrapper">
+                        <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
+                            <ol class="login">
+                                <li>
+                                    <div class="login">
+                                        <div class="bodyform">
+                                            @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @Html.ActionLink("Выйти", "logout", "authorize")
+                }
             </div>
         </div>
     </div>

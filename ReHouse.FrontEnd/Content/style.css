@@ -472,7 +472,7 @@ body {
 }
 
 #nav .sell {
-    margin-left: 118px;
+    margin-left: 100px;
     margin-top: 33px;
 }
 
@@ -1076,7 +1076,7 @@ body {
 
 .footer {
     height: 52px;
-    background-color: #0f2547;
+    /*background-color: #0f2547;*/
     display: flex;
     flex-direction: row;
 }
@@ -1768,7 +1768,7 @@ body {
 .map_managercard .manager {
     display: flex;
     margin-left: 275px;
-    margin-top: 10px;
+    margin-top: 14px;
     width: 422px;
 }
 
@@ -1810,9 +1810,15 @@ body {
         right: 219px;
     }
 
+    .h2novostroy .favorite1 {
+        position: absolute;
+        top: 113px;
+        right: 219px;
+    }
+
     .h2novostroy #favorite {
-        width: 422px;
-        padding: 15px 69px 17px 74px;
+        width: 400px;
+        padding: 10px 60px 10px 60px;
         border-radius: 10px;
         background: none;
         border: 1px solid white;
@@ -2341,3 +2347,18 @@ body {
     .managers .manager_ .contactinfo h3 a:hover {
         color: gold;
     }
+
+.adress {
+    display: flex;
+    flex-direction: row;
+    width: 1065px;
+}
+
+    .adress a {
+        text-decoration: none;
+        color: white;
+    }
+
+        .adress a:hover {
+            color: gold;
+        }
