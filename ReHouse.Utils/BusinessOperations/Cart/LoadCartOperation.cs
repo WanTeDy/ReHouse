@@ -38,7 +38,8 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                             Description = el.ExpluatationDate.Name,
                             Name = el.Name,
                             Image = el.Images.FirstOrDefault(x => !x.Deleted),
-                            IsHot = false,
+                            IsHot = el.IsHot,
+                            IsExclusive = el.IsExclusive,
                         };
                         _adverts.Add(adv);
                     }
@@ -58,6 +59,7 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                             Name = el.Title.RussianName,
                             Image = el.Images.FirstOrDefault(x => !x.Deleted),
                             IsHot = el.IsHot,
+                            IsExclusive = el.IsExclusive,
                         };
                         _adverts.Add(adv);
                     }

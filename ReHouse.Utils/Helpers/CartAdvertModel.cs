@@ -13,5 +13,6 @@ namespace ReHouse.Utils.Helpers
         public Image Image { get; set; }
         public AdvertsType Type { get; set; }
         public Boolean IsHot { get; set; }
+        public Boolean IsExclusive { get; set; }
     }
 }
