@@ -1,6 +1,6 @@
 ﻿@using ReHouse.Utils.Helpers
-@using ReHouse.Utils.DataBase.Vacancies;
-@model List<Vacancy>
+@using ReHouse.Utils.DataBase.Geo;
+@model List<District>
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
@@ -29,16 +29,16 @@
         <li><a class="3" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
         <li><a class="3" href="~/cabinet/news/list">Новости</a></li>
         <li><a class="4" href="~/cabinet/feedbacks/list">Отзывы</a></li>
-        <li><a class="preActive active" href="~/cabinet/vacancies/list">Вакансии</a></li>
+        <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
         <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
-        <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
+        <li><a class="preActive active" href="~/cabinet/districts/list">Районы</a></li>
     </ul>
 </div>
 <div id="adminka2" class="tabset_content">
     <div class="headline">
-        <h2>Добавленные вакансии</h2>
-        <form method="LINK" action="/cabinet/vacancy/add">
-            <button>Добавить вакансию ►</button>
+        <h2>Добавленные районы</h2>
+        <form method="LINK" action="/cabinet/districts/add">
+            <button>Добавить район ►</button>
         </form>
     </div>
 
@@ -48,13 +48,14 @@
         <div class="added">
             <button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>
             <table class="added" id="data-container">
-                @Html.Partial("Vacancy/_listOfVacancies", Model)
+                @Html.Partial("District/_listOfDistricts", Model)
             </table>
         </div>        
     }
 
 </div>
 @section scripts {
-    @Scripts.Render("~/bundles/deleteVacancies")
+    @Scripts.Render("~/bundles/deleteDistricts")
 
+    
 }

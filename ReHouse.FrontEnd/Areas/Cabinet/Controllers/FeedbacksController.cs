@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 {
-    public class FeedbackController : Controller
+    public class FeedbacksController : Controller
     {
         [HttpGet]
         public ActionResult List()

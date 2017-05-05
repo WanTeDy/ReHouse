@@ -292,7 +292,7 @@
                 </tr>
                 <tr>
                     <td>Эксклюзив:</td>
-                    <td>@Html.CheckBox("exclusive")</td>
+                    <td>@Html.CheckBoxFor(m => m.IsExclusive)</td>
                 </tr>
                 @if (ViewBag.Categories != null && ViewBag.Categories.Count > 0)
                 {

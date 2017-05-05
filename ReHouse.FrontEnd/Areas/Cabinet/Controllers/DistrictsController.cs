@@ -1,8 +1,8 @@
 ﻿using ReHouse.FrontEnd.Helpers;
 using ReHouse.FrontEnd.Models;
 using ReHouse.Utils;
-using ReHouse.Utils.BusinessOperations.Builders;
-using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.BusinessOperations.Districts;
+using ReHouse.Utils.DataBase.Geo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 {
-    public class BuilderController : Controller
+    public class DistrictsController : Controller
     {
         [HttpGet]
         public ActionResult List()
@@ -20,30 +20,14 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new LoadBuildersOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin);
+            var operation = new LoadDistrictsOperation(sessionModel.TokenHash);
             operation.ExcecuteTransaction();
             
             ViewBag.NoElements = false;
-            if (operation._builders == null || operation._builders.Count == 0)
+            if (operation._districts == null || operation._districts.Count == 0)
                 ViewBag.NoElements = true;
-            return View(operation._builders);
-        }
-
-        [HttpPost]
-        public ActionResult Load(PageModel page)
-        {
-            if (!SessionHelpers.IsAuthentificated())
-                return Redirect("/");
-            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
-            if (page.PageNumber < 1)
-                return Json(new { noElements = true });
-
-            var operation = new LoadBuildersOperation(sessionModel.TokenHash, page.PageNumber, ConstV.ItemsPerPageAdmin);
-            operation.ExcecuteTransaction();
-            if (operation._builders == null || operation._builders.Count == 0)
-                return Json(new { noElements = true });
-            return PartialView("Builder/_listOfBuilders", operation._builders);
-        }
+            return View(operation._districts);
+        }   
 
         [HttpGet]
         public ActionResult Edit(int? id)
@@ -55,27 +39,34 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             if (Id == 0)
                 return HttpNotFound();
-            var operation = new LoadBuilderOperation(sessionModel.TokenHash, Id);
+            var operation = new LoadDistrictOperation(sessionModel.TokenHash, Id);
             operation.ExcecuteTransaction();
-            if (operation._builder == null)
+            if (operation._district == null)
                 return HttpNotFound();
+            var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
+            operation2.ExcecuteTransaction();
+            ViewBag.Districts = operation2._districts;
 
-            return View(operation._builder);
+            return View(operation._district);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Edit(Builder model)
+        public ActionResult Edit(District model)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new UpdateBuilderOperation(sessionModel.TokenHash, model);
+            var operation = new UpdateDistrictOperation(sessionModel.TokenHash, model);
             operation.ExcecuteTransaction();
 
             if (!operation.Success)
             {
+                var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
+                operation2.ExcecuteTransaction();
+                ViewBag.Districts = operation2._districts;
+
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
                 return View(model);
             }            
@@ -83,21 +74,21 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int[] buildersId)
+        public ActionResult Delete(int[] districtsId)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
 
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             
-            var op = new DeleteBuilderOperation(sessionModel.TokenHash, buildersId);
+            var op = new DeleteDistrictOperation(sessionModel.TokenHash, districtsId);
             op.ExcecuteTransaction();
 
-            var operation = new LoadBuildersOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin);
+            var operation = new LoadDistrictsOperation(sessionModel.TokenHash);
             operation.ExcecuteTransaction();
-            if (operation._builders == null || operation._builders.Count == 0)
+            if (operation._districts == null || operation._districts.Count == 0)
                 return Json(new { noElements = true });
-            return PartialView("Builder/_listOfBuilders", operation._builders);
+            return PartialView("District/_listOfDistricts", operation._districts);
         }
 
         [HttpGet]
@@ -105,24 +96,32 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
-            
-            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;            
+
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+            var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
+            operation2.ExcecuteTransaction();
+            ViewBag.Districts = operation2._districts;
+
             return View();
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Add(Builder model, HttpPostedFileBase image)
+        public ActionResult Add(District model, HttpPostedFileBase image)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new AddBuilderOperation(sessionModel.TokenHash, model);
+            var operation = new AddDistrictOperation(sessionModel.TokenHash, model);
             operation.ExcecuteTransaction();
 
             if (!operation.Success)
             {
+                var operation2 = new LoadDistrictsOperation(sessionModel.TokenHash);
+                operation2.ExcecuteTransaction();
+                ViewBag.Districts = operation2._districts;
+
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
                 return View(model);
             }

@@ -1,6 +1,6 @@
 ﻿@using ReHouse.Utils.Helpers
-@using ReHouse.Utils.DataBase.Geo;
-@model List<District>
+@using ReHouse.Utils.DataBase.AdvertParams;
+@model List<Builder>
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
@@ -30,15 +30,15 @@
         <li><a class="3" href="~/cabinet/news/list">Новости</a></li>
         <li><a class="4" href="~/cabinet/feedbacks/list">Отзывы</a></li>
         <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
-        <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
-        <li><a class="preActive active" href="~/cabinet/districts/list">Районы</a></li>
+        <li><a class="preActive active" href="~/cabinet/builders/list">Застройщики</a></li>
+        <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
     </ul>
 </div>
 <div id="adminka2" class="tabset_content">
     <div class="headline">
-        <h2>Добавленные районы</h2>
-        <form method="LINK" action="/cabinet/district/add">
-            <button>Добавить район ►</button>
+        <h2>Добавленные застройщики</h2>
+        <form method="LINK" action="/cabinet/builders/add">
+            <button>Добавить застройщика ►</button>
         </form>
     </div>
 
@@ -48,14 +48,34 @@
         <div class="added">
             <button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>
             <table class="added" id="data-container">
-                @Html.Partial("District/_listOfDistricts", Model)
+                @Html.Partial("Builder/_listOfBuilders", Model)
             </table>
-        </div>        
+        </div>
+        <div>
+            <div class="products1">
+                <div id="button-more">
+                    <a id="more">Больше застройщиков</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading-div">
+
+        </div>
     }
 
 </div>
 @section scripts {
-    @Scripts.Render("~/bundles/deleteDistricts")
+    @Scripts.Render("~/bundles/deleteBuilders")
 
-    
+    <script>
+        var url = "/cabinet/builders/load";
+        $('#button-more').click(function () {
+
+            var obj = {
+        }
+
+            lazyload(obj, url, false);
+        });       
+    </script>
+
 }

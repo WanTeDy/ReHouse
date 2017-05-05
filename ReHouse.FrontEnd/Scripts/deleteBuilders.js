@@ -19,7 +19,7 @@ function deleteProducts(ids) {
         var json = JSON.stringify(obj);
 
         $.ajax({
-            url: '/cabinet/builder/delete',
+            url: '/cabinet/builders/delete',
             type: "POST",
             contentType: 'application/json; charset=utf-8',
             data: json,

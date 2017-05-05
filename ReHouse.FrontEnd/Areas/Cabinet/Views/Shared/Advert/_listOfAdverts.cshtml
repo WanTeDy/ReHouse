@@ -16,6 +16,7 @@
     <img src="@Url.Content(prod.Image.Url+prod.Image.FileName)" width="50" height="50" alt="" />*@
                 </div>
             </td>
+            <td>@(item.IsModerated ? "Одобрено" : "Неодобрено")</td>
             <td>@item.Description</td>
             <td>@item.Price$</td>
             <td>

@@ -287,6 +287,14 @@
                     <td>Название:</td>
                     <td>@Html.TextBoxFor(m => m.Name)</td>
                 </tr>   
+                <tr>
+                    <td>Горячее:</td>
+                    <td>@Html.CheckBoxFor(m => m.IsHot)</td>
+                </tr>
+                <tr>
+                    <td>Эксклюзив:</td>
+                    <td>@Html.CheckBoxFor(m => m.IsExclusive)</td>
+                </tr>
                 @if (Session != null && Session["user"] is SessionModel)
                 {
                     var session = Session["user"] as SessionModel;
@@ -298,7 +306,7 @@
                         </tr>
                     }
 
-                }
+                }                
                 @if (ViewBag.BuildersList != null && ViewBag.BuildersList.Count > 0)
                 {
                     <tr>

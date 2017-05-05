@@ -3,7 +3,7 @@
 
 @if (Model.Count > 0)
 {
-    foreach (var item in Model)
+    foreach (var item in Model.Where(x => x.ParrentId != null))
     {
         <tr>
             <td><input type="checkbox" class="checkbox" id="checkbox" value="@item.Id" style="width:20px;" /></td>
@@ -13,10 +13,10 @@
                     <h3>@item.RussianName</h3>
                 </div>
             </td>
-            
+
             <td>
                 <div class="edit_del">
-                    <form method="LINK" action="/cabinet/district/edit/@item.Id">
+                    <form method="LINK" action="/cabinet/districts/edit/@item.Id">
                         <button>Редактировать</button>
                     </form>
                     <pre> </pre>

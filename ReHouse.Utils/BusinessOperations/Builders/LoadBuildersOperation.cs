@@ -23,7 +23,7 @@ namespace ReHouse.Utils.BusinessOperations.Builders
 
         protected override void InTransaction()
         {
-            _builders = Context.Builders.Where(x => !x.Deleted)
+            _builders = Context.Builders.Where(x => !x.Deleted).OrderBy(x => x.Id)
                 .Skip((_page - 1) * _count).Take(_count).ToList();
         }
     }

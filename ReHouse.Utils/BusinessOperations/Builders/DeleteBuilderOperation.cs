@@ -28,7 +28,7 @@ namespace ReHouse.Utils.BusinessOperations.Builders
                 {
                     var builder = Context.Builders.FirstOrDefault(x => x.Id == builderId);
                     if (builder != null)
-                        Context.Builders.Remove(builder);
+                        builder.Deleted = true;
                 }
                 Context.SaveChanges();
             }
