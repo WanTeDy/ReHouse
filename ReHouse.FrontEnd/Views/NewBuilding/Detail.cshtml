@@ -183,18 +183,21 @@
         </tr>
     </table>
 </div>
-<div class="planirovka">
-    @if (Model.NewBuilding.PlanImages != null && Model.NewBuilding.PlanImages.Count > 0)
-    {
-        foreach (var item in Model.NewBuilding.PlanImages)
+@if (Model.NewBuilding.PlanImages != null && Model.NewBuilding.PlanImages.Count > 0)
+{
+    <div class="planirovka">
+        @foreach (var item in Model.NewBuilding.PlanImages)
         {
             <a class="plan" rel="group" title="Планировка" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
         }
-    }
-</div>
-<div class="video-youtube">
-    <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-</div>
+    </div>
+}
+@if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
+{
+    <div class="video-youtube">
+        <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+    </div>
+}
 <div id="mapnovostroy_prod">
     <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1054px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>

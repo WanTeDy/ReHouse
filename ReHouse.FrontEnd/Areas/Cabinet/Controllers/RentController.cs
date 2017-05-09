@@ -44,12 +44,13 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Rent, false);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
             model.Adverts = operation._adverts;
             ViewBag.NoElements = false;
+            ViewBag.Type = AdvertsType.Rent;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
             return View(model);
@@ -73,12 +74,13 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Rent, false);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
             model.Adverts = operation._adverts;
             ViewBag.NoElements = false;
+            ViewBag.Type = AdvertsType.Rent;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
             return View(model);
@@ -102,11 +104,12 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 //TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Rent, false);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
             ViewBag.NoElements = false;
+            ViewBag.Type = AdvertsType.Rent;
             model.Adverts = operation._adverts;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
@@ -131,11 +134,12 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Rent, false);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
             ViewBag.NoElements = false;
+            ViewBag.Type = AdvertsType.Rent;
             model.Adverts = operation._adverts;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
@@ -152,7 +156,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
             var operation = new LoadFlatsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.Price,
-                pageAndFilter.TrimconditionId, pageAndFilter.CategoryId, AdvertsType.Rent, false, pageAndFilter.IsOnlyUser);
+                pageAndFilter.TrimconditionId, pageAndFilter.CategoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });
@@ -264,7 +268,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op.ExcecuteTransaction();
 
             var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.Price,
-                pageAndFilter.TrimconditionId, pageAndFilter.CategoryId, AdvertsType.Rent, false, pageAndFilter.IsOnlyUser);
+                pageAndFilter.TrimconditionId, pageAndFilter.CategoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });

@@ -16,13 +16,14 @@ namespace ReHouse.Utils.BusinessOperations.Flat
         private Int32 _trimConditionId { get; set; }
         private Int32 _categoryId { get; set; }
         private Boolean _isOnlyHot { get; set; }
-        private Boolean _isOnlyUser { get; set; }
+        //private Boolean _isOnlyUser { get; set; }
+        private Boolean _isAdmin { get; set; }
         private AdvertsType _advertsType { get; set; }
         public Category _category { get; set; }
         public List<Advert> _adverts { get; set; }
 
         public LoadFlatsOperation(string tokenHash, int page, int count, int districtId, int priceId, 
-            int trimConditionId, int categoryId, AdvertsType advertsType, bool IsOnlyHot, bool IsOnlyUser = false)
+            int trimConditionId, int categoryId, AdvertsType advertsType, bool IsOnlyHot, /*bool IsOnlyUser = false,*/ bool IsAdmin = false)
         {
             _tokenHash = tokenHash;
             _page = page;
@@ -33,15 +34,27 @@ namespace ReHouse.Utils.BusinessOperations.Flat
             _categoryId = categoryId;
             _advertsType = advertsType;
             _isOnlyHot = IsOnlyHot;
-            _isOnlyUser = IsOnlyUser;
+            //_isOnlyUser = IsOnlyUser;
+            _isAdmin = IsAdmin;
             RussianName = "Получение нужного кол-ва объявлений c нужным фильтром";
         }
 
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            if(_isOnlyUser)
-                _adverts = Context.Adverts.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
+
+            if (_isAdmin)
+            {
+                var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
+                if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
+                {
+                    _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
+                }
+                else
+                {
+                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
+                }
+            }
             else
                 _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
             if(_advertsType != AdvertsType.All)

@@ -47,6 +47,7 @@ namespace ReHouse.FrontEnd.Controllers
                 return HttpNotFound();
             model.Adverts = operation._adverts;
             ViewBag.NoElements = false;
+            ViewBag.Type = AdvertsType.Rent;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
             return View(model);
@@ -75,6 +76,7 @@ namespace ReHouse.FrontEnd.Controllers
                 return HttpNotFound();
             model.Adverts = operation._adverts;
             ViewBag.NoElements = false;
+            ViewBag.Type = AdvertsType.Rent;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
             return View(model);
@@ -102,6 +104,7 @@ namespace ReHouse.FrontEnd.Controllers
             if (operation._category == null)
                 return HttpNotFound();
             ViewBag.NoElements = false;
+            ViewBag.Type = AdvertsType.Rent;
             model.Adverts = operation._adverts;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
@@ -130,6 +133,7 @@ namespace ReHouse.FrontEnd.Controllers
             if (operation._category == null)
                 return HttpNotFound();
             ViewBag.NoElements = false;
+            ViewBag.Type = AdvertsType.Rent;
             model.Adverts = operation._adverts;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
@@ -173,16 +177,12 @@ namespace ReHouse.FrontEnd.Controllers
                 try
                 {
                     var res = JsonConvert.DeserializeObject<CurrencyHelper>(responseString);
-                    var grnPrice = Math.Round(operation._advert.Price * res.USD.interbank.sell);
-                    var eurPrice = Math.Round(grnPrice / res.EUR.interbank.buy);
-                    ViewBag.UAH = grnPrice;
+                    var usdPrice = Math.Round(operation._advert.Price / res.USD.interbank.buy);
+                    var eurPrice = Math.Round(operation._advert.Price / res.EUR.interbank.buy);
+                    ViewBag.USD = usdPrice;
                     ViewBag.EUR = eurPrice;
                 }
-                catch
-                {
-                    ViewBag.UAH = 0;
-                    ViewBag.EUR = 0;
-                }
+                catch { }
             }
             return View(new LoadAdvertModel
             {

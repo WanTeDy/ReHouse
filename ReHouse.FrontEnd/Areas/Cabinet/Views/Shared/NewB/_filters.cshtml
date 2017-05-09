@@ -28,7 +28,7 @@
                 }
                 else if (i == Model.Prices.Count - 1)
                 {
-                    <option value="@Model.Prices[i].Id">выше @Model.Prices[i].Min грн</option>
+                    <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн</option>
                 }
                 else
                 {
@@ -58,12 +58,12 @@
         </select>
     </div>
 
-    <div class="checkbox_">
+    @*<div class="checkbox_">
         <select id="isonlyuser">
             <option value="false">Все объявления</option>
             <option value="true">Мои объявления</option>
         </select>
-    </div>
+    </div>*@
 
     <div class="search-button-admin" id="search">
         <a>Поиск</a>

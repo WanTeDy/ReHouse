@@ -124,25 +124,28 @@
 }
 <div class="seotext3">
     <div class="h2sale"><h2>Описание</h2></div>
-
     <div class="h3cost">
-        @if (ViewBag.UAH != 0)
+        <p class="grn">@Model.Advert.Price грн/мес</p>
+        <pre></pre>
+
+        @if (ViewBag.USD != 0)
         {
-            <p class="grn">@ViewBag.UAH грн/мес</p>
-            <pre></pre>
             <p class="dot">·</p>
             <pre> </pre>
+            <p class="DolUSA">ViewBag.USD $/мес</p>
+            <pre></pre>
         }
-        <p class="DolUSA">@Model.Advert.Price $/мес</p>
-        <pre></pre>
         @if (ViewBag.EUR != 0)
         {
             <p class="dot">·</p>
             <pre> </pre>
             <p class="grn">@ViewBag.EUR €/мес</p>
             <pre></pre>
+            <p class="dot">·</p>
+            <pre> </pre>
         }
-    </div>
+        <p class="square_meter">@pricePerSquere</p>
+    </div>    
 
     <p>@Model.Advert.Description</p>
 </div>
@@ -173,21 +176,22 @@
 
     </table>
 </div>
+@if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
+{
+    <div class="planirovka">
 
-<div class="planirovka">
-    @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
-    {
-        foreach (var item in Model.Advert.PlanImages)
+        @foreach (var item in Model.Advert.PlanImages)
         {
             <a class="plan" rel="group" title="Планировка" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
         }
-    }
-</div>
-
-<div class="video-youtube">
-    <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-</div>
-
+    </div>
+}
+@if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
+{
+    <div class="video-youtube">
+        <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+    </div>
+}
 <div class="map_managercard">
     <div id="mapapart_prod">
 
