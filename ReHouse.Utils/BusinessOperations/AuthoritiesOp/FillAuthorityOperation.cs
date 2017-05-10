@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ReHouse.Utils.BusinessOperations.Auth.Roles;
-using ReHouse.Utils.BusinessOperations.Users;
 using ReHouse.Utils.BusinessOperations.Titles;
+using ReHouse.Utils.BusinessOperations.Builders;
+using ReHouse.Utils.BusinessOperations.Building;
 using ReHouse.Utils.BusinessOperations.News;
 using ReHouse.Utils.DataBase.Security;
 
@@ -18,16 +18,17 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
             {
                 new LoadAuthoritiesOperation(null),
                 new LoadRolesWithAuthorityOperation(null),
-                new AddRoleOperation(null, null, null),
-                new DeleteRoleOperation(null, 0),
-                new LoadDataRolesOperation(null),
-                new UpdateRoleOperation(null, 0, null, null),
-                new LoadUsersOperation(null),
-                new LoadUserOperation(null, 0),
-                new AddUserOperation(null, null, null, 0),
-                new DeleteUserOperation(0, null),
-                new UpdateUserOperation(null, null, null),
-                new UpdateRoleForUserOperation(0, 0, null),
+                new AddBuilderOperation(null, null),
+                new DeleteBuilderOperation(null, null),
+                new LoadBuilderOperation(null, 0),
+                new LoadBuildersOperation(null, 0, 0),
+                new UpdateBuilderOperation(null, null),
+                new AddNewBuildingOperation(null, null, null, null),
+                new DeleteNewBuildingOperation(null, null),
+                new LoadNewBuildingOperation(null, 0, 0, 0),
+                new LoadNewBuildingsOperation(null, 0, 0, 0, 0, 0, 0),
+                new UpdateNewBuildingOperation(null, null, null, null),
+
                 new UpdateTitleOperation(null, 0, null),
                 new AddTitleOperation(null, null),
                 new DeleteTitleOperation(null, 0),                

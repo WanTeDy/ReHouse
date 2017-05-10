@@ -21,6 +21,7 @@ namespace ReHouse.Utils.BusinessOperations.Builders
 
         protected override void InTransaction()
         {
+            new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             _builder = Context.Builders.FirstOrDefault(x => x.Id == _id && !x.Deleted);
         }
     }

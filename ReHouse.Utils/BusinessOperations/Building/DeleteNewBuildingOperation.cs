@@ -22,7 +22,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
 
         protected override void InTransaction()
         {
-            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             if (_advertsId != null && _advertsId.Length > 0)
             {
                 foreach (var advertId in _advertsId)

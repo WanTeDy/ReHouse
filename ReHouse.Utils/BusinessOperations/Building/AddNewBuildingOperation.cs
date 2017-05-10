@@ -30,7 +30,10 @@ namespace ReHouse.Utils.BusinessOperations.Building
 
         protected override void InTransaction()
         {
-            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            if (_model == null)
+                return;
+
             var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash && !x.Deleted);
             if(user == null)
             {

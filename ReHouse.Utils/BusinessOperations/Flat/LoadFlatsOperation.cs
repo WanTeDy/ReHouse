@@ -41,16 +41,15 @@ namespace ReHouse.Utils.BusinessOperations.Flat
 
         protected override void InTransaction()
         {
-            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-
             if (_isAdmin)
             {
+                new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
                 var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
                 if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
                 {
                     _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
                 }
-                else
+                else if(user.Role.RussianName == ConstV.RoleRieltor)
                 {
                     _adverts = Context.Adverts.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
                 }

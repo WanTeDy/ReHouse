@@ -38,7 +38,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Prices = operationFilter._prices,
                 ExpluatationDates = operationFilter._expluatationDates,
             };
-            var operation = new LoadNewBuildingsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0);
+            var operation = new LoadNewBuildingsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, true);
             operation.ExcecuteTransaction();
             model.NewBuildings = operation._newBuildings;
             ViewBag.NoElements = false;
@@ -58,7 +58,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             
             var operation = new LoadNewBuildingsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin, 
-                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, pageAndFilter.IsOnlyUser);
+                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, true);
             operation.ExcecuteTransaction();
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
                 return Json(new { noElements = true });
@@ -75,7 +75,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             if (Id == 0)
                 return HttpNotFound();
-            var operation = new LoadNewBuildingOperation(sessionModel.TokenHash, Id, 0, 0);
+            var operation = new LoadNewBuildingOperation(sessionModel.TokenHash, Id, 0, 0, true);
             operation.ExcecuteTransaction();
             if (operation._newBuilding == null)
                 return HttpNotFound();
@@ -129,7 +129,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op.ExcecuteTransaction();
 
             var operation = new LoadNewBuildingsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin,
-                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, pageAndFilter.IsOnlyUser);
+                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, true);
             operation.ExcecuteTransaction();
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
                 return Json(new { noElements = true });
@@ -143,7 +143,10 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return Redirect("/");
             
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
-                        
+
+            var operation = new AddNewBuildingOperation(sessionModel.TokenHash, null, null, null);
+            operation.ExcecuteTransaction();
+
             var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
             operationFilter.ExcecuteTransaction();
 

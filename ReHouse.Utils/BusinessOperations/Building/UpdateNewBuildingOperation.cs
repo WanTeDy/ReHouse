@@ -31,7 +31,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
 
         protected override void InTransaction()
         {
-            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             if (_model.Price < 0)
             {
                 Errors.Add("Price", "Цена не может быть отрицательная");

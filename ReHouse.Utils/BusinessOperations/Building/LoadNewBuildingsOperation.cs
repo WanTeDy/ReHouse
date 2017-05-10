@@ -14,10 +14,10 @@ namespace ReHouse.Utils.BusinessOperations.Building
         private Int32 _priceId { get; set; }
         private Int32 _builderId { get; set; }
         private Int32 _expluatationDateId { get; set; }
-        private Boolean _isOnlyUser { get; set; }
+        private Boolean _isAdmin { get; set; }
         public List<NewBuilding> _newBuildings { get; set; }
 
-        public LoadNewBuildingsOperation(string tokenHash, int page, int count, int districtId, int priceId, int builderId, int expluatationDateId, bool isOnlyUser = false)
+        public LoadNewBuildingsOperation(string tokenHash, int page, int count, int districtId, int priceId, int builderId, int expluatationDateId, bool isAdmin = false)
         {
             _tokenHash = tokenHash;
             _page = page;
@@ -26,20 +26,24 @@ namespace ReHouse.Utils.BusinessOperations.Building
             _priceId = priceId;
             _builderId = builderId;
             _expluatationDateId = expluatationDateId;
-            _isOnlyUser = isOnlyUser;
+            _isAdmin = isAdmin;
             RussianName = "Получение нужного кол-ва новостроев объявлений c нужным фильтром";
         }
 
         protected override void InTransaction()
         {
-            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            if (_isOnlyUser)
+            if (_isAdmin)
             {
-                _newBuildings = Context.NewBuildings.Where(x => !x.Deleted /*&& x.IsModerated*/ && x.User.TokenHash == _tokenHash).ToList();
-            }
-            else
-            {
-                _newBuildings = Context.NewBuildings.Where(x => !x.Deleted /*&& x.IsModerated*/).ToList();
+                new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+                var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
+                if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
+                {
+                    _newBuildings = Context.NewBuildings.Where(x => !x.Deleted).ToList();
+                }
+                else if(user.Role.RussianName == ConstV.RoleNewBuildingRieltor)
+                {
+                    _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
+                }
             }
             if (_districtId != 0)
             {

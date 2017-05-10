@@ -33,6 +33,7 @@ namespace ReHouse.Utils
         public const String RoleAdministrator = "Администратор";
         public const String RoleManager = "Менеджер";
         public const String RoleRieltor = "Риэлтор";
+        public const String RoleNewBuildingRieltor = "Риэлтор по новостроям";
         //public const String RoleManager = "Менеджер";
         //public const String RolePartner = "Партнер";
         //public const String RoleClient = "Клиент";
