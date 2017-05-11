@@ -1280,6 +1280,7 @@ body {
 .form-drop {
     left: -9999px;
     position: absolute;
+    bottom:50px;
 }
 
 .navigation ol ol.login, .erroremail, .errorpas {
@@ -1287,6 +1288,7 @@ body {
 }
 
 .form-drop ol.login {
+    color: white; 
     z-index: 10001;
 }
 
