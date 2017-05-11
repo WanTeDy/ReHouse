@@ -1280,7 +1280,7 @@ body {
 .form-drop {
     left: -9999px;
     position: absolute;
-    bottom:50px;
+    bottom: 50px;
 }
 
 .navigation ol ol.login, .erroremail, .errorpas {
@@ -1288,7 +1288,7 @@ body {
 }
 
 .form-drop ol.login {
-    color: white; 
+    color: white;
     z-index: 10001;
 }
 
@@ -2364,3 +2364,7 @@ body {
         .adress a:hover {
             color: gold;
         }
+
+.manager_ .img img {
+    object-fit: cover;
+}
