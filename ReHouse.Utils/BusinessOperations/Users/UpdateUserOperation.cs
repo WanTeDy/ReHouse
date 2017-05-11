@@ -109,7 +109,15 @@ namespace ReHouse.Utils.BusinessOperations.Users
                 if (otherEmail == null)
                     user.Email = _user.Email;
                 else
-                    Errors.Add("Email", "Такой email уже сужествует.");
+                    Errors.Add("Email", "Такой email уже существует.");
+            }
+            if (user.Login.ToLower() != _user.Login.ToLower())
+            {
+                var otherLogin = Context.Users.FirstOrDefault(x => x.Login == _user.Login);
+                if (otherLogin == null)
+                    user.Login = _user.Login;
+                else
+                    Errors.Add("Login", "Такой Login уже существует.");
             }
             if (_user.Phones != null && _user.Phones.Count > 0)
             {
