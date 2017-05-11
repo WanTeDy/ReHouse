@@ -84,7 +84,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                                     Context.Avatars.Remove(deleteImg);
                                 }
                                 Context.Avatars.Add(avatar);
-                                userForUpdating.Avatar = avatar;                                
+                                userForUpdating.Avatar = avatar;
                             }
                             Context.SaveChanges();
                         }
@@ -111,13 +111,16 @@ namespace ReHouse.Utils.BusinessOperations.Users
                 else
                     Errors.Add("Email", "Такой email уже существует.");
             }
-            if (user.Login.ToLower() != _user.Login.ToLower())
+            if (!String.IsNullOrEmpty(_user.Login))
             {
-                var otherLogin = Context.Users.FirstOrDefault(x => x.Login == _user.Login);
-                if (otherLogin == null)
-                    user.Login = _user.Login;
-                else
-                    Errors.Add("Login", "Такой Login уже существует.");
+                if (String.IsNullOrEmpty(user.Login) || user.Login.ToLower() != _user.Login.ToLower())
+                {
+                    var otherLogin = Context.Users.FirstOrDefault(x => x.Login == _user.Login);
+                    if (otherLogin == null)
+                        user.Login = _user.Login;
+                    else
+                        Errors.Add("Login", "Такой Login уже существует.");
+                }
             }
             if (_user.Phones != null && _user.Phones.Count > 0)
             {

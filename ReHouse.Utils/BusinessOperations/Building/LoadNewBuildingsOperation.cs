@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.Except;
 
 namespace ReHouse.Utils.BusinessOperations.Building
 {
@@ -44,6 +45,8 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 {
                     _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
                 }
+                else
+                    throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
             }
             if (_districtId != 0)
             {

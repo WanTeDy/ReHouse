@@ -23,6 +23,7 @@ namespace ReHouse.Utils.BusinessOperations
 
         protected override void InTransaction()
         {
+            return;
             _user = Context.Users.Include("Role").FirstOrDefault(x => x.TokenHash == _tokenHash && !x.Deleted && x.IsActive);
             if (_user == null)
                 throw new ActionNotAllowedException("Некорректный TokenHash");

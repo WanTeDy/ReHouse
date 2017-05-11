@@ -65,6 +65,13 @@
                         <td><input type="file" name="image" /></td>
                     </tr>
                     <tr>
+                        <td>Email:</td>
+                        <td>
+                            @Model.Email
+                            @Html.HiddenFor(m => m.Email)
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Логин для входа:</td>
                         <td>@Html.TextBoxFor(m => m.Login)</td>
                     </tr>
@@ -79,12 +86,7 @@
                     <tr>
                         <td>Отчество:</td>
                         <td>@Html.TextBoxFor(m => m.FatherName)</td>
-                    </tr>
-
-                    <tr>
-                        <td>Email:</td>
-                        <td>@Html.TextBoxFor(m => m.Email, new { disabled = "disabled" })</td>
-                    </tr>
+                    </tr>                    
                     <tr>
                         <td>О себе:</td>
                         <td>@Html.TextAreaFor(m => m.About, new { @rows = "4" })</td>

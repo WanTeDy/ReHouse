@@ -48,10 +48,12 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             var op = new UpdateUserOperation(model, image, sessionModel.TokenHash);
             op.ExcecuteTransaction();
-            if(!op.Success)
+            if (!op.Success)
+            {
                 ErrorHelpers.AddModelErrors(ModelState, op.Errors);
-            return View(model);
+                return View(model);
+            }
+            return RedirectToAction("Index");
         }
-
     }
 }
