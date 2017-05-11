@@ -11,6 +11,8 @@ namespace ReHouse.Utils.BusinessOperations.Home
     {
         private Int32 _count = 10;
         private Int32 _articlesCount = 2;
+        private Int32 _length = 90;
+        private Int32 _subLength = 85;
         private String _tokenHash { get; set; }        
         public List<Advert> _hotAdverts { get; set; }
         public List<Advert> _flatSaleAdverts { get; set; }
@@ -29,12 +31,34 @@ namespace ReHouse.Utils.BusinessOperations.Home
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             _hotAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsHot)
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
+            _hotAdverts.ForEach(
+                x =>
+                {
+                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
+                        x.Description = x.Description.Substring(0, _subLength) + "...";
+                });
+
             _flatSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.Category.ParentId == (int)ParrentCategories.Flat)
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
+            _flatSaleAdverts.ForEach(
+                x =>
+                {
+                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
+                        x.Description = x.Description.Substring(0, _subLength) + "...";
+                });
+
             _houseSaleAdverts = Context.Adverts.Where(x => !x.Deleted && (x.Category.ParentId == (int)ParrentCategories.House || x.Category.ParentId == (int)ParrentCategories.Homestead))
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
+            _houseSaleAdverts.ForEach(
+                x =>
+                {
+                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
+                        x.Description = x.Description.Substring(0, _subLength) + "...";
+                });
+
             _newBuildingAdverts = Context.NewBuildings.Where(x => !x.Deleted)
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
+            
             _articles = Context.Articles.Where(x => !x.Deleted)
                 .OrderByDescending(x => x.Date).Take(_articlesCount).ToList();
         }

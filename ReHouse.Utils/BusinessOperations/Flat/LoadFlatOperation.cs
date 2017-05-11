@@ -8,6 +8,8 @@ namespace ReHouse.Utils.BusinessOperations.Flat //TODO
 {
     public class LoadFlatOperation : BaseOperation
     {
+        private Int32 _length = 90;
+        private Int32 _subLength = 85;
         private String _tokenHash { get; set; }
         private Int32 _id { get; set; }
         private Int32 _page { get; set; }
@@ -33,9 +35,16 @@ namespace ReHouse.Utils.BusinessOperations.Flat //TODO
             if (_advert != null)
             {
                 if (_page != 0)
+                {
                     _adverts = Context.Adverts.Where(x => !x.Deleted && x.Id != _id && x.Type == _advert.Type && x.Category.ParentId == _advert.Category.ParentId).OrderByDescending(x => x.IsHot)
                         .ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
-
+                    _adverts.ForEach(
+                        x =>
+                        {
+                            if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
+                                x.Description = x.Description.Substring(0, _subLength) + "...";
+                        });
+                }
                 var advertProperties = Context.AdvertProperties.Where(x => !x.Deleted && x.Categories
                     .Any(y => y.Id == _advert.Category.ParentId)).OrderBy(x => x.Priority).ToList();
                 var advertValues = _advert.AdvertPropertyValues.ToList();

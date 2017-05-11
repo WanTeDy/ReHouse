@@ -9,6 +9,8 @@ namespace ReHouse.Utils.BusinessOperations.Flat
 {
     public class LoadFlatsOperation : BaseOperation
     {
+        private Int32 _length = 90;
+        private Int32 _subLength = 85;
         private String _tokenHash { get; set; }
         private Int32 _page { get; set; }
         private Int32 _count { get; set; }
@@ -23,7 +25,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
         public Category _category { get; set; }
         public List<Advert> _adverts { get; set; }
 
-        public LoadFlatsOperation(string tokenHash, int page, int count, int districtId, int priceId, 
+        public LoadFlatsOperation(string tokenHash, int page, int count, int districtId, int priceId,
             int trimConditionId, int categoryId, AdvertsType advertsType, bool IsOnlyHot, /*bool IsOnlyUser = false,*/ bool IsAdmin = false)
         {
             _tokenHash = tokenHash;
@@ -50,7 +52,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 {
                     _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
                 }
-                else if(user.Role.RussianName == ConstV.RoleRieltor)
+                else if (user.Role.RussianName == ConstV.RoleRieltor)
                 {
                     _adverts = Context.Adverts.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
                 }
@@ -59,7 +61,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
             }
             else
                 _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
-            if(_advertsType != AdvertsType.All)
+            if (_advertsType != AdvertsType.All)
             {
                 _adverts = _adverts.Where(x => x.Type == _advertsType).ToList();
             }
@@ -86,12 +88,18 @@ namespace ReHouse.Utils.BusinessOperations.Flat
             if (_categoryId != 0)
             {
                 _category = Context.Categories.FirstOrDefault(x => !x.Deleted && x.Id == _categoryId);
-                if(_category != null && _category.Parent != null)
+                if (_category != null && _category.Parent != null)
                     _adverts = _adverts.Where(x => !x.Deleted && x.CategoryId == _categoryId).ToList();
                 else
                     _adverts = _adverts.Where(x => !x.Deleted && x.Category.ParentId == _categoryId).ToList();
             }
             _adverts = _adverts.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            _adverts.ForEach(
+                x =>
+                {
+                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
+                        x.Description = x.Description.Substring(0, _subLength) + "...";
+                });
         }
     }
 }
