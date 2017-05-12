@@ -15,8 +15,8 @@
 </style>
 
 @section scripts{
-@Scripts.Render("~/bundles/deleteImage")
-<script>
+    @Scripts.Render("~/bundles/deleteImage")
+    <script>
         var counter = parseInt($('#counter').val());
         function addPhone() {
             $('#phonebtn').before('<tr><td>Телефон:</td><td><input type="text" name="Phones[' + counter + '].Telephone" /></td></tr>');
@@ -27,11 +27,11 @@
             $(e.target).attr('selected', !$(e.target).attr('selected'));
             e.preventDefault();
         });
-</script>
+    </script>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDV3GzGjYIAyhiMq9Cof5SEZDuh0QeBD0Q&libraries=places&language=ru"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDV3GzGjYIAyhiMq9Cof5SEZDuh0QeBD0Q&libraries=places&language=ru"></script>
 
-<script>
+    <script>
 
 
 
@@ -242,8 +242,8 @@
         });
         google.maps.event.trigger($("#map")[0], 'resize');
 
-</script>
-    }
+    </script>
+}
 <div class="list_">
     <h2 class="tabset_label">Table of Contents</h2>
     <ul class="tabset_tabs">
@@ -282,11 +282,11 @@
         @Html.HiddenFor(m => m.Id)
         @Html.ValidationSummary()
         <div class="contact_info">
-            <table>                
+            <table>
                 <tr>
                     <td>Название:</td>
                     <td>@Html.TextBoxFor(m => m.Name)</td>
-                </tr>   
+                </tr>
                 <tr>
                     <td>Горячее:</td>
                     <td>@Html.CheckBoxFor(m => m.IsHot)</td>
@@ -306,7 +306,7 @@
                         </tr>
                     }
 
-                }                
+                }
                 @if (ViewBag.BuildersList != null && ViewBag.BuildersList.Count > 0)
                 {
                     <tr>
@@ -380,7 +380,7 @@
                 <tr>
                     <td>Youtube видео:</td>
                     <td>@Html.TextBoxFor(m => m.YouTubeUrl)</td>
-                </tr> 
+                </tr>
                 @if (Model.Phones != null && Model.Phones.Count > 0)
                 {
                     for (var i = 0; i < Model.Phones.Count; i++)
@@ -417,16 +417,18 @@
                     <td><a onclick="addPhone();">Добавить еще телефон</a></td>
                 </tr>
             </table>
-            <h3>Общие фотографии</h3>
+            <h3>Общие фотографии(не более 3-х)</h3>
             @if (Model.Images != null && Model.Images.Count > 0)
             {
-                foreach (var image in Model.Images)
-                {
-                    <div class="photo_" id="image_@image.Id">
-                        <img  src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
-                        <a onclick="deleteImage(@image.Id);">X</a>
-                    </div>
-                }
+                <div class="add_photo">
+                    @foreach (var image in Model.Images)
+                    {
+                        <div class="photo_" id="image_@image.Id">
+                            <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                            <a onclick="deleteImage(@image.Id);">X</a>
+                        </div>
+                    }
+                </div>
             }
             <div class="file_upload">
                 <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" />
@@ -435,13 +437,15 @@
 
             @if (Model.PlanImages != null && Model.PlanImages.Count > 0)
             {
-                foreach (var image in Model.PlanImages)
-                {
-                    <div class="photo_" id="planimage_@image.Id">
-                        <img  src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
-                        <a onclick="deletePlanImage(@image.Id);">X</a>
-                    </div>
-                }
+                <div class="add_photo">
+                    @foreach (var image in Model.PlanImages)
+                    {
+                        <div class="photo_" id="planimage_@image.Id">
+                            <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                            <a onclick="deletePlanImage(@image.Id);">X</a>
+                        </div>
+                    }
+                </div>
             }
             <div class="file_upload">
                 <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" />

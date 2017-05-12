@@ -29,7 +29,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _hotAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsHot)
+            _hotAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.IsHot)
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
             _hotAdverts.ForEach(
                 x =>
@@ -38,7 +38,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
                         x.Description = x.Description.Substring(0, _subLength) + "...";
                 });
 
-            _flatSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.Category.ParentId == (int)ParrentCategories.Flat)
+            _flatSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.Category.ParentId == (int)ParrentCategories.Flat)
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
             _flatSaleAdverts.ForEach(
                 x =>
@@ -47,7 +47,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
                         x.Description = x.Description.Substring(0, _subLength) + "...";
                 });
 
-            _houseSaleAdverts = Context.Adverts.Where(x => !x.Deleted && (x.Category.ParentId == (int)ParrentCategories.House || x.Category.ParentId == (int)ParrentCategories.Homestead))
+            _houseSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && (x.Category.ParentId == (int)ParrentCategories.House || x.Category.ParentId == (int)ParrentCategories.Homestead))
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
             _houseSaleAdverts.ForEach(
                 x =>
@@ -56,7 +56,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
                         x.Description = x.Description.Substring(0, _subLength) + "...";
                 });
 
-            _newBuildingAdverts = Context.NewBuildings.Where(x => !x.Deleted)
+            _newBuildingAdverts = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated)
                 .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
             
             _articles = Context.Articles.Where(x => !x.Deleted)

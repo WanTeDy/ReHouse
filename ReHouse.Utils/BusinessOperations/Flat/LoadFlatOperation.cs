@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.Except;
 
 namespace ReHouse.Utils.BusinessOperations.Flat //TODO
 {
@@ -14,29 +15,46 @@ namespace ReHouse.Utils.BusinessOperations.Flat //TODO
         private Int32 _id { get; set; }
         private Int32 _page { get; set; }
         private Int32 _count { get; set; }
+        private Boolean _isAdmin { get; set; }
         public Advert _advert { get; set; }
         public List<Advert> _adverts { get; set; }
         public Dictionary<AdvertProperty, AdvertPropertyValue> _properties { get; set; }
         public Int32 _square { get; set; }
 
-        public LoadFlatOperation(string tokenHash, int id, int page, int count)
+        public LoadFlatOperation(string tokenHash, int id, int page, int count, bool isAdmin = false)
         {
             _tokenHash = tokenHash;
             _id = id;
             _page = page;
             _count = count;
+            _isAdmin = isAdmin;
             RussianName = "Получение обьявления";
         }
 
         protected override void InTransaction()
         {
-            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _advert = Context.Adverts.FirstOrDefault(x => !x.Deleted && x.Id == _id);
+            if (_isAdmin)
+            {
+                new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+                var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
+                _advert = Context.Adverts.FirstOrDefault(x => !x.Deleted && x.Id == _id);
+                if (_advert != null)
+                {
+                    if (user == null || (user.Role.RussianName != ConstV.RoleAdministrator && user.Role.RussianName != ConstV.RoleManager && user.Id != _advert.UserId))
+                        throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
+                }
+                else
+                    return;
+            }
+            else
+            {
+                _advert = Context.Adverts.FirstOrDefault(x => !x.Deleted && x.IsModerated && x.Id == _id);
+            }
             if (_advert != null)
             {
                 if (_page != 0)
                 {
-                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.Id != _id && x.Type == _advert.Type && x.Category.ParentId == _advert.Category.ParentId).OrderByDescending(x => x.IsHot)
+                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.Id != _id && x.Type == _advert.Type && x.Category.ParentId == _advert.Category.ParentId && x.IsModerated).OrderByDescending(x => x.IsHot)
                         .ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
                     _adverts.ForEach(
                         x =>

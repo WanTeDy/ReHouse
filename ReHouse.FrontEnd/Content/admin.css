@@ -16,6 +16,7 @@ button {
 }
 
     button:hover {
+        background-image: -webkit-gradient(linear, left bottom, left top, from(#797f2b), color-stop(13.5%, #959958), color-stop(50%, #ffffff), color-stop(86.5%, #f9feb1), to(#f6fea3));
         background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
         color: #25406a;
         -webkit-transition: .5s ease;
@@ -39,8 +40,13 @@ input {
     .tabset_tabs li {
         margin: 0;
         padding: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         width: 210px;
     }
 
@@ -111,17 +117,28 @@ input {
 }
 
 #pagecontent {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
 .photo_of_manager {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
     .photo_of_manager img {
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
     }
 
     .photo_of_manager form {
@@ -192,8 +209,13 @@ input {
 .add_photo .photo1,
 .photo2,
 .photo3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
 .add_photo div {
@@ -226,8 +248,13 @@ table.added .prod_info {
     }
 
 table.added .edit_del {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     color: white;
     font-size: 16px bold;
 }
@@ -277,12 +304,18 @@ button.delete_all {
 }
 
 .img_news img {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .img_news {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
     .img_news input {
@@ -291,7 +324,8 @@ button.delete_all {
     }
 
 .prod_info img {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 button.delete_all2 {
@@ -310,20 +344,20 @@ button.delete_all2 {
     display:block;
 }
 .list_ ul li:hover {
-	background-color: rgba(3, 2, 2, 0.6);
-	-webkit-transition: .3s ease;
-	transition: .3s ease;
+    background-color: rgba(3, 2, 2, 0.6);
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
 }
 .list_ ul li {
-	position: relative;
-	float:left;
-	margin:0;
-	padding:0
+    position: relative;
+    float:left;
+    margin:0;
+    padding:0
 }
 .list_ ul li a:hover {
-	color: white;
-	-webkit-transition: .2s ease;
-	transition: .2s ease;
+    color: white;
+    -webkit-transition: .2s ease;
+    transition: .2s ease;
 }*/
 .list_ ul ol {
     display: none;

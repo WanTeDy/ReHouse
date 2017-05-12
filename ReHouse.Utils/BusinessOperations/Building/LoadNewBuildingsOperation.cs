@@ -41,13 +41,16 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 {
                     _newBuildings = Context.NewBuildings.Where(x => !x.Deleted).ToList();
                 }
-                else if(user.Role.RussianName == ConstV.RoleNewBuildingRieltor)
+                else if (user != null && user.Role.RussianName == ConstV.RoleNewBuildingRieltor)
                 {
                     _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
                 }
                 else
                     throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
             }
+            else
+                _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated).ToList();
+
             if (_districtId != 0)
             {
                 _newBuildings = _newBuildings.Where(x => x.DistrictId == _districtId).ToList();

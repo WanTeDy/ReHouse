@@ -26,7 +26,7 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                 CartAdvertModel adv = null;
                 if (item.Type == AdvertsType.NewBuilding)
                 {
-                    var el = Context.NewBuildings.FirstOrDefault(x => !x.Deleted && x.Id == item.AdvertId);
+                    var el = Context.NewBuildings.FirstOrDefault(x => !x.Deleted && x.IsModerated && x.Id == item.AdvertId);
                     if (el != null)
                     {
                         adv = new CartAdvertModel()
@@ -46,7 +46,7 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                 }
                 else
                 {
-                    var el = Context.Adverts.FirstOrDefault(x => !x.Deleted && x.Id == item.AdvertId);
+                    var el = Context.Adverts.FirstOrDefault(x => !x.Deleted && x.IsModerated && x.Id == item.AdvertId);
                     if (el != null)
                     {
                         adv = new CartAdvertModel()

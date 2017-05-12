@@ -52,7 +52,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 {
                     _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
                 }
-                else if (user.Role.RussianName == ConstV.RoleRieltor)
+                else if (user != null && user.Role.RussianName == ConstV.RoleRieltor)
                 {
                     _adverts = Context.Adverts.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
                 }
@@ -60,7 +60,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                     throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
             }
             else
-                _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
+                _adverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated).ToList();
             if (_advertsType != AdvertsType.All)
             {
                 _adverts = _adverts.Where(x => x.Type == _advertsType).ToList();

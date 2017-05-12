@@ -24,7 +24,7 @@ namespace ReHouse.Utils.BusinessOperations.Managers
             _user = Context.Users.FirstOrDefault(x => x.Id == _userId && !x.Deleted && x.IsActive && x.Role.RussianName != ConstV.RoleAdministrator);
             if (_user != null)
             {
-                _user.Adverts = _user.Adverts.Where(x => !x.Deleted/* && x.IsModerated*/).OrderByDescending(x => x.IsHot)
+                _user.Adverts = _user.Adverts.Where(x => !x.Deleted && x.IsModerated).OrderByDescending(x => x.IsHot)
                         .ThenByDescending(x => x.PublicationDate).ToList();
                 _user.Adverts.ForEach(
                         x =>
@@ -33,7 +33,7 @@ namespace ReHouse.Utils.BusinessOperations.Managers
                                 x.Description = x.Description.Substring(0, _subLength) + "...";
                         });
 
-                _user.NewBuildings = _user.NewBuildings.Where(x => !x.Deleted /*&& x.IsModerated*/).OrderByDescending(x => x.IsHot)
+                _user.NewBuildings = _user.NewBuildings.Where(x => !x.Deleted && x.IsModerated).OrderByDescending(x => x.IsHot)
                         .ThenByDescending(x => x.PublicationDate).ToList();
 
             }

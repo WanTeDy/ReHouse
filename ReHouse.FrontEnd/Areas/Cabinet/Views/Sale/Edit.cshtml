@@ -11,9 +11,9 @@
 
 <style>
     #map {
-        width:614px;
+        width: 614px;
         height: 428px;
-        border:0;
+        border: 0;
     }
 </style>
 
@@ -383,16 +383,18 @@
                     }
                 }
             </table>
-            <h3>Общие фотографии</h3>
+            <h3>Общие фотографии(не более 3-х)</h3>
             @if (Model.Images != null && Model.Images.Count > 0)
             {
-                foreach (var image in Model.Images)
-                {
-                    <div class="photo_" id="image_@image.Id">
-                        <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
-                        <a onclick="deleteImage(@image.Id);">X</a>
-                    </div>
-                }
+                <div class="add_photo">
+                    @foreach (var image in Model.Images)
+                    {
+                        <div class="photo_" id="image_@image.Id">
+                            <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                            <a onclick="deleteImage(@image.Id);">X</a>
+                        </div>
+                    }
+                </div>
             }
             <div class="file_upload">
                 <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" />
@@ -401,20 +403,22 @@
 
             @if (Model.PlanImages != null && Model.PlanImages.Count > 0)
             {
-                foreach (var image in Model.PlanImages)
-                {
-                    <div class="photo_" id="planimage_@image.Id">
-                        <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
-                        <a onclick="deletePlanImage(@image.Id);">X</a>
-                    </div>
-                }
+                <div class="add_photo">
+                    @foreach (var image in Model.PlanImages)
+                    {
+                        <div class="photo_" id="planimage_@image.Id">
+                            <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                            <a onclick="deletePlanImage(@image.Id);">X</a>
+                        </div>
+                    }
+                </div>
             }
             @Html.HiddenFor(m => m.Latitude, new { @id = "place-ltd" })
             @Html.HiddenFor(m => m.Longitude, new { @id = "place-lgd" })
 
             <div class="file_upload">
                 <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" />
-            </div>            
+            </div>
 
             <button type="submit">Сохранить</button>
         </div>

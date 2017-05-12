@@ -173,7 +173,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             if (Id == 0)
                 return HttpNotFound();
-            var operation = new LoadFlatOperation(sessionModel.TokenHash, Id, 0, 0);
+            var operation = new LoadFlatOperation(sessionModel.TokenHash, Id, 0, 0, true);
             operation.ExcecuteTransaction();
             if (operation._advert == null)
                 return HttpNotFound();
