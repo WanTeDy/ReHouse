@@ -15,6 +15,7 @@
 </style>
 
 @section scripts {
+@Scripts.Render("~/bundles/imageLoader")
     @Scripts.Render("~/bundles/slides")
     @Scripts.Render("~/bundles/deleteImage")
     <script>
@@ -433,7 +434,9 @@
                 }
             }
             <div class="file_upload">
-                <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" />
+                <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" id="files" />
+                <br />
+                <output id="list"></output>
             </div>
             <h3>Планировки</h3>
 
@@ -448,7 +451,9 @@
                 }
             }
             <div class="file_upload">
-                <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" />
+                <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" id="files_plan" />
+                <br />
+                <output id="list_plan"></output>
             </div>
 
             <button type="submit">Сохранить</button>

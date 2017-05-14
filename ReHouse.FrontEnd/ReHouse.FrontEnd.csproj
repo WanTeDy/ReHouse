@@ -405,6 +405,7 @@
     <Content Include="Content\images\tw.png" />
     <Content Include="Content\images\vk-g.png" />
     <Content Include="Content\images\vk.png" />
+    <Content Include="Scripts\imageLoader.js" />
     <Content Include="Scripts\deleteFeedbacks.js" />
     <Content Include="Scripts\deleteDistricts.js" />
     <Content Include="Scripts\deleteBuilders.js" />
