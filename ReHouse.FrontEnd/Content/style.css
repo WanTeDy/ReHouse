@@ -2604,3 +2604,10 @@ body {
 .header .contactinfo .tel {
     margin-top: 20px;
 }
+
+.thumb {
+    width: 272px;
+    height: 211px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
