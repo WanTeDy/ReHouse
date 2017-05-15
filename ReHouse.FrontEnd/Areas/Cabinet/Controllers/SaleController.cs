@@ -42,9 +42,10 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Categories = operationFilter._categories,
                 Prices = operationFilter._prices,
                 TrimConditions = operationFilter._trimConditions,
+                Users = operationFilter._users,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Sale, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, categoryId, AdvertsType.Sale, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -72,9 +73,10 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Categories = operationFilter._categories,
                 Prices = operationFilter._prices,
                 TrimConditions = operationFilter._trimConditions,
+                Users = operationFilter._users,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Sale, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, categoryId, AdvertsType.Sale, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -101,10 +103,11 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Districts = operationFilter._districts,
                 Categories = operationFilter._categories,
                 Prices = operationFilter._prices,
+                Users = operationFilter._users,
                 //TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Sale, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, categoryId, AdvertsType.Sale, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -131,10 +134,11 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Districts = operationFilter._districts,
                 Categories = operationFilter._categories,
                 Prices = operationFilter._prices,
+                Users = operationFilter._users,
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, categoryId, AdvertsType.Sale, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, categoryId, AdvertsType.Sale, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -156,7 +160,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
             var operation = new LoadFlatsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.Price,
-                pageAndFilter.TrimconditionId, pageAndFilter.CategoryId, AdvertsType.Sale, false, true);
+                pageAndFilter.TrimconditionId, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Sale, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });
@@ -269,7 +273,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op.ExcecuteTransaction();
 
             var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.Price,
-                pageAndFilter.TrimconditionId, pageAndFilter.CategoryId, AdvertsType.Sale, false, true);
+                pageAndFilter.TrimconditionId, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Sale, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });

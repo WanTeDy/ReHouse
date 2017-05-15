@@ -17,6 +17,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
         private Int32 _districtId { get; set; }
         private Int32 _priceId { get; set; }
         private Int32 _trimConditionId { get; set; }
+        private Int32 _userId { get; set; }
         private Int32 _categoryId { get; set; }
         private Boolean _isOnlyHot { get; set; }
         //private Boolean _isOnlyUser { get; set; }
@@ -26,7 +27,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
         public List<Advert> _adverts { get; set; }
 
         public LoadFlatsOperation(string tokenHash, int page, int count, int districtId, int priceId,
-            int trimConditionId, int categoryId, AdvertsType advertsType, bool IsOnlyHot, /*bool IsOnlyUser = false,*/ bool IsAdmin = false)
+            int trimConditionId, int userId, int categoryId, AdvertsType advertsType, bool IsOnlyHot, /*bool IsOnlyUser = false,*/ bool IsAdmin = false)
         {
             _tokenHash = tokenHash;
             _page = page;
@@ -37,6 +38,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
             _categoryId = categoryId;
             _advertsType = advertsType;
             _isOnlyHot = IsOnlyHot;
+            _userId = userId;
             //_isOnlyUser = IsOnlyUser;
             _isAdmin = IsAdmin;
             RussianName = "Получение нужного кол-ва объявлений c нужным фильтром";
@@ -51,6 +53,10 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
                 {
                     _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
+                    if (_userId != 0)
+                    {
+                        _adverts = _adverts.Where(x => x.UserId == _userId).ToList();
+                    }
                 }
                 else if (user != null && user.Role.RussianName == ConstV.RoleRieltor)
                 {

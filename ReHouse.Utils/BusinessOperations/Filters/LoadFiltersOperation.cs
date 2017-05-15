@@ -4,6 +4,7 @@ using System.Linq;
 using ReHouse.Utils.DataBase.AdvertParams;
 using ReHouse.Utils.DataBase.Geo;
 using ReHouse.Utils.Helpers;
+using ReHouse.Utils.DataBase.Security;
 
 namespace ReHouse.Utils.BusinessOperations.Filters
 {
@@ -18,6 +19,7 @@ namespace ReHouse.Utils.BusinessOperations.Filters
         public List<District> _districts { get; set; }
         public List<ExpluatationDate> _expluatationDates { get; set; }
         public List<TrimCondition> _trimConditions { get; set; }
+        public List<User> _users { get; set; }
 
         public LoadFiltersOperation(string tokenHash, AdvertsType advertsType, int categoryId = 0)
         {
@@ -30,6 +32,11 @@ namespace ReHouse.Utils.BusinessOperations.Filters
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
+            if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
+            {
+                _users = Context.Users.Where(x => !x.Deleted).ToList();
+            }
             if (_advertsType == Helpers.AdvertsType.NewBuilding)
             {
                 _builders = Context.Builders.Where(x => !x.Deleted).ToList();

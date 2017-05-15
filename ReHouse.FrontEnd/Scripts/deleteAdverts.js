@@ -15,12 +15,14 @@ function deleteProducts(ids) {
                price = $('#price').val(),
                category = $('#category').val(),
                trimcondition = $('#trimcondition').val(),
+                    managerId = $('#managers').val(),
                isOnlyUser = $('#isonlyuser').val();
         var obj = {
             "DistrictId": districtID,
             "Price": price,
             "CategoryId": category,
             "TrimconditionId": trimcondition,
+            "UserId": managerId,
             "IsOnlyUser": isOnlyUser,
             "AdvertsId": ids
         }

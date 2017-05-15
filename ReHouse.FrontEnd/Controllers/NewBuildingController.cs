@@ -37,7 +37,7 @@ namespace ReHouse.FrontEnd.Controllers
                 Prices = operationFilter._prices,
                 ExpluatationDates = operationFilter._expluatationDates,
             };
-            var operation = new LoadNewBuildingsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0);
+            var operation = new LoadNewBuildingsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, 0);
             operation.ExcecuteTransaction();
             model.NewBuildings = operation._newBuildings;
             ViewBag.NoElements = false;
@@ -55,7 +55,7 @@ namespace ReHouse.FrontEnd.Controllers
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
             var operation = new LoadNewBuildingsOperation(tokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPage, 
-                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, pageAndFilter.IsOnlyUser);
+                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, pageAndFilter.UserId, pageAndFilter.IsOnlyUser);
             operation.ExcecuteTransaction();
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
                 return Json(new { noElements = true });

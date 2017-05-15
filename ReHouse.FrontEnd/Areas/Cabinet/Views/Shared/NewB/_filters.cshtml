@@ -1,5 +1,11 @@
 ﻿@using ReHouse.FrontEnd.Models
+@using ReHouse.Utils
 @model LoadNewBuildingsModel
+@if (Session != null && Session["user"] is SessionModel)
+{
+    var session = Session["user"] as SessionModel;
+
+
 
 
 <div class="selection-admin">
@@ -58,14 +64,26 @@
         </select>
     </div>
 
+    @if (session != null && (session.Role.RussianName == ConstV.RoleAdministrator || session.Role.RussianName == ConstV.RoleManager))
+    {
+        <div class="ck">
+            <select id="managers">
+                <option selected value="0">Менеджер</option>
+                @foreach (var user in Model.Users)
+                {
+                    <option value="@user.Id">@user.FirstName</option>
+                }
+            </select>
+        </div>
+    }
     @*<div class="checkbox_">
-        <select id="isonlyuser">
-            <option value="false">Все объявления</option>
-            <option value="true">Мои объявления</option>
-        </select>
-    </div>*@
-
+            <select id="isonlyuser">
+                <option value="false">Все объявления</option>
+                <option value="true">Мои объявления</option>
+            </select>
+        </div>*@
     <div class="search-button-admin" id="search">
         <a>Поиск</a>
     </div>
 </div>
+}

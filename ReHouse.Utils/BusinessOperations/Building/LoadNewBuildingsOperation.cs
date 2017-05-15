@@ -15,10 +15,11 @@ namespace ReHouse.Utils.BusinessOperations.Building
         private Int32 _priceId { get; set; }
         private Int32 _builderId { get; set; }
         private Int32 _expluatationDateId { get; set; }
+        private Int32 _userId { get; set; }
         private Boolean _isAdmin { get; set; }
         public List<NewBuilding> _newBuildings { get; set; }
 
-        public LoadNewBuildingsOperation(string tokenHash, int page, int count, int districtId, int priceId, int builderId, int expluatationDateId, bool isAdmin = false)
+        public LoadNewBuildingsOperation(string tokenHash, int page, int count, int districtId, int priceId, int builderId, int expluatationDateId, int userId, bool isAdmin = false)
         {
             _tokenHash = tokenHash;
             _page = page;
@@ -27,6 +28,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
             _priceId = priceId;
             _builderId = builderId;
             _expluatationDateId = expluatationDateId;
+            _userId = userId;
             _isAdmin = isAdmin;
             RussianName = "Получение нужного кол-ва новостроев объявлений c нужным фильтром";
         }
@@ -40,6 +42,10 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
                 {
                     _newBuildings = Context.NewBuildings.Where(x => !x.Deleted).ToList();
+                    if (_userId != 0)
+                    {
+                        _newBuildings = _newBuildings.Where(x => x.UserId == _userId).ToList();
+                    }
                 }
                 else if (user != null && user.Role.RussianName == ConstV.RoleNewBuildingRieltor)
                 {

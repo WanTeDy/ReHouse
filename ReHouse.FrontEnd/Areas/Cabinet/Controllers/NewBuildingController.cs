@@ -37,8 +37,9 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Builders = operationFilter._builders,
                 Prices = operationFilter._prices,
                 ExpluatationDates = operationFilter._expluatationDates,
+                Users = operationFilter._users
             };
-            var operation = new LoadNewBuildingsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, true);
+            var operation = new LoadNewBuildingsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, true);
             operation.ExcecuteTransaction();
             model.NewBuildings = operation._newBuildings;
             ViewBag.NoElements = false;
@@ -58,7 +59,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             
             var operation = new LoadNewBuildingsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin, 
-                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, true);
+                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, pageAndFilter.UserId, true);
             operation.ExcecuteTransaction();
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
                 return Json(new { noElements = true });
@@ -129,7 +130,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op.ExcecuteTransaction();
 
             var operation = new LoadNewBuildingsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin,
-                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, true);
+                pageAndFilter.DistrictId, pageAndFilter.Price, pageAndFilter.BuilderId, pageAndFilter.ExpluatationDateId, pageAndFilter.UserId, true);
             operation.ExcecuteTransaction();
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
                 return Json(new { noElements = true });

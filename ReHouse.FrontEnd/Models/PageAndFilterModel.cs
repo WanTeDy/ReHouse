@@ -13,6 +13,8 @@ namespace ReHouse.FrontEnd.Models
         
         public Int32 BuilderId { get; set; }
 
+        public Int32 UserId { get; set; }
+
         public Int32 ExpluatationDateId { get; set; }
 
         public Int32 PageNumber { get; set; }
