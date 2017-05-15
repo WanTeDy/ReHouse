@@ -54,7 +54,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 }
                 else if (user != null && user.Role.RussianName == ConstV.RoleRieltor)
                 {
-                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
+                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.UserId == user.Id).ToList();
                 }
                 else
                     throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
@@ -93,7 +93,11 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 else
                     _adverts = _adverts.Where(x => !x.Deleted && x.Category.ParentId == _categoryId).ToList();
             }
-            _adverts = _adverts.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            if(_isAdmin)
+                _adverts = _adverts.OrderBy(x => x.IsModerated).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            else
+                _adverts = _adverts.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+
             _adverts.ForEach(
                 x =>
                 {

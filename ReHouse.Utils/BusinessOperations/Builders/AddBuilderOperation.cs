@@ -51,6 +51,7 @@ namespace ReHouse.Utils.BusinessOperations.Builders
                         _builder.Phones = _model.Phones;
                     }
                 }
+                Context.Builders.Add(_builder);
                 Context.SaveChanges();
             }
         }

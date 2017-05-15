@@ -43,7 +43,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 }
                 else if (user != null && user.Role.RussianName == ConstV.RoleNewBuildingRieltor)
                 {
-                    _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.User.TokenHash == _tokenHash).ToList();
+                    _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.UserId == user.Id).ToList();
                 }
                 else
                     throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
@@ -71,7 +71,10 @@ namespace ReHouse.Utils.BusinessOperations.Building
             {
                 _newBuildings = _newBuildings.Where(x => x.ExpluatationDateId == _expluatationDateId).ToList();
             }
-            _newBuildings = _newBuildings.OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            if(_isAdmin)
+                _newBuildings = _newBuildings.OrderBy(x => x.IsModerated).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            else
+                _newBuildings = _newBuildings.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
         }
     }
 }

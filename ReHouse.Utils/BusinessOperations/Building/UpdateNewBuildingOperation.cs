@@ -153,7 +153,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                                     if (exPhone != null)
                                     {
                                         if (String.IsNullOrWhiteSpace(phone.TelePhone))
-                                            exPhone.Deleted = true;
+                                            Context.Phones.Remove(exPhone);
                                         else
                                             exPhone.TelePhone = phone.TelePhone;
                                     }

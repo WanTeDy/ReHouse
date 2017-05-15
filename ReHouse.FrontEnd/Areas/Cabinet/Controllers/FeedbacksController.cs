@@ -20,7 +20,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new LoadFeedbacksOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin);
+            var operation = new LoadFeedbacksOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, true);
             operation.ExcecuteTransaction();
             
             ViewBag.NoElements = false;
@@ -38,7 +38,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             if (page.PageNumber < 1)
                 return Json(new { noElements = true });
 
-            var operation = new LoadFeedbacksOperation(sessionModel.TokenHash, page.PageNumber, ConstV.ItemsPerPageAdmin);
+            var operation = new LoadFeedbacksOperation(sessionModel.TokenHash, page.PageNumber, ConstV.ItemsPerPageAdmin, true);
             operation.ExcecuteTransaction();
             if (operation._userFeedbacks == null || operation._userFeedbacks.Count == 0)
                 return Json(new { noElements = true });
@@ -93,7 +93,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var op = new DeleteFeedbackOperation(sessionModel.TokenHash, buildersId);
             op.ExcecuteTransaction();
 
-            var operation = new LoadFeedbacksOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin);
+            var operation = new LoadFeedbacksOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, true);
             operation.ExcecuteTransaction();
             if (operation._userFeedbacks == null || operation._userFeedbacks.Count == 0)
                 return Json(new { noElements = true });

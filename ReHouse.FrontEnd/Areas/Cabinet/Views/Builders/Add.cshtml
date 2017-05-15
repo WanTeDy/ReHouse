@@ -62,7 +62,7 @@
                         <td>Ссылка на сайт:</td>
                         <td>@Html.TextBoxFor(m => m.Url)</td>
                     </tr>
-                    @if (Model.Phones != null && Model.Phones.Count > 0)
+                    @if (Model != null && Model.Phones != null && Model.Phones.Count > 0)
                     {
                         for (var i = 0; i < Model.Phones.Count; i++)
                         {
