@@ -15,7 +15,7 @@ namespace ReHouse.FrontEnd
             bundles.Add(new ScriptBundle("~/bundles/advertSettings").Include(
                         "~/Scripts/advertSettings.js"
                         ));
-
+                        
             bundles.Add(new ScriptBundle("~/bundles/imageLoader").Include(
                         "~/Scripts/imageLoader.js"
                         ));

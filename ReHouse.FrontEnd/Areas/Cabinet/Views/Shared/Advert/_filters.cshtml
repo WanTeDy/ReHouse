@@ -89,7 +89,14 @@
                     <option selected value="0">Менеджер</option>
                     @foreach (var user in Model.Users)
                     {
-                        <option value="@user.Id">@user.FirstName</option>
+                        if (!String.IsNullOrEmpty(user.FirstName) && !String.IsNullOrEmpty(user.SecondName))
+                        {
+                            <option value="@user.Id">@(user.FirstName + " " + user.SecondName)</option>
+                        }
+                        else
+                        {
+                            <option value="@user.Id">@user.Email</option>
+                        }
                     }
                 </select>
             </div>

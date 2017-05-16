@@ -76,10 +76,10 @@
 </div>
 <div class="share_icons">
     <div class="share_fb">
-        <a onclick="Share.facebook('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@Model.Advert.Description')"></a>
+        <a onclick="Share.facebook('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
     </div>
     <div class="share_vk">
-        <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@Model.Advert.Description')"></a>
+        <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
     </div>
     <div class="share_tw">
         <a onclick="Share.twitter('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street')"></a>
@@ -127,10 +127,10 @@
     <div class="h3cost">
         <p class="grn">@Model.Advert.Price грн/мес</p>
         <pre></pre>
+        <p class="dot">·</p>
 
         @*@if (ViewBag.USD != 0)
     {
-        <p class="dot">·</p>
         <pre> </pre>
         <p class="DolUSA">@ViewBag.USD $/мес</p>
         <pre></pre>
@@ -142,8 +142,8 @@
         <p class="grn">@ViewBag.EUR €/мес</p>
         <pre></pre>
         <p class="dot">·</p>
-        <pre> </pre>
     }*@
+        <pre> </pre>
         <p class="square_meter">@pricePerSquere</p>
     </div>    
 

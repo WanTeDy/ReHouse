@@ -63,7 +63,7 @@ namespace ReHouse.Utils.BusinessOperations.News
                         ImageBuilder.Current.Build(
                             new ImageJob(_image.InputStream,
                             path + filename,
-                            new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80"),
+                            new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80&watermark=water"),
                             false,
                             true));
 

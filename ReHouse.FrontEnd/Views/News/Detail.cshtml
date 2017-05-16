@@ -30,10 +30,10 @@
             <p>@Model.Description</p>
             <div class="share_icons1">
                 <div class="share_fb">
-                    <a onclick="Share.facebook('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@Model.Description')"></a>
+                    <a onclick="Share.facebook('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title', 'http://rehouse-realty.com.ua@(Url.Content(Model.Images?.FirstOrDefault() != null ? Model.Images.FirstOrDefault().Url + Model.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Description?.Replace(Environment.NewLine, " "))')"></a>
                 </div>
                 <div class="share_vk">
-                    <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title', 'http://rehouse-realty.com.ua@(Url.Content("~/Content/images/news1.jpg"))', '@Model.Description')"></a>
+                    <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title', 'http://rehouse-realty.com.ua@(Url.Content(Model.Images?.FirstOrDefault() != null ? Model.Images.FirstOrDefault().Url + Model.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Description?.Replace(Environment.NewLine, " "))')"></a>
                 </div>
                 <div class="share_tw">
                     <a onclick="Share.twitter('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title')"></a>

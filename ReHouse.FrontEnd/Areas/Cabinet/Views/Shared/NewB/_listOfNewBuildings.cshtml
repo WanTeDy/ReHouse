@@ -7,7 +7,14 @@
     {
         <tr>
             <td><input type="checkbox" class="checkbox" id="checkbox" value="@item.Id" style="width:20px;" /></td>
-            <td>@item.User.FirstName</td>
+            @if (!String.IsNullOrEmpty(item.User.FirstName) && !String.IsNullOrEmpty(item.User.SecondName))
+            {
+                <td>@(item.User.FirstName + " " + item.User.SecondName)</td>
+            }
+            else
+            {
+                <td>@(item.User.Email)</td>
+            }
             <td>
                 <div class="prod_info">
                     <h3>@item.Name</h3>
