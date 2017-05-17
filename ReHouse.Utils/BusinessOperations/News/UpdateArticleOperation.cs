@@ -38,12 +38,12 @@ namespace ReHouse.Utils.BusinessOperations.News
             else
             {
                 var article = Context.Articles.FirstOrDefault(x => x.Title.ToLower() == _title.ToLower());
-                if (article != null)
+                if (article != null && _article.Id != article.Id)
                     Errors.Add("Title", "Такой заголовок новости уже существует!");
                 else
                 {
                     var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
-                    if (user != null && (article.UserId == user.Id || user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
+                    if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
                     {
                         if (_image != null)
                         {
