@@ -41,6 +41,92 @@
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/styleCss")
 
+    <style media='print' type='text/css'>
+        .noprint {
+            display: none;
+        }
+
+        .othernovostroy {
+            display: none;
+        }
+
+        .footer {
+            display: none;
+        }
+
+        .print {
+            display: none;
+        }
+
+        .print1 {
+            display: none;
+        }
+
+        body {
+            background: #FFF;
+            color: black;
+        }
+
+        .seotext3 h1 {
+            color: black;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        .seotext3 p {
+            color: black;
+            text-decoration: none;
+            font-size: 24px;
+            line-height: 24px;
+        }
+
+        .seotext3 h2 {
+            color: black;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        .h2novostroy h2 {
+            color: black;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        .table_of_prodapart table tr td {
+            color: black;
+            text-decoration: none;
+            font-size: 26px;
+            line-height: 26px;
+        }
+
+        .container {
+            margin-left: -165px;
+        }
+
+        .seotext3 p.text {
+            width: 1000px;
+        }
+
+        .seotext3 {
+            margin-top: -45px;
+        }
+
+        .favorite {
+            display: none;
+        }
+
+        .favorite1 {
+            display: none;
+        }
+
+        .planirovka {
+            display: none;
+        }
+
+        .table_of_prod table tr td {
+            color: black;
+        }
+    </style>
     <!-- Alert при закрытии -->
     <!-- <script>
         $(window).on('beforeunload', function(){ return 'Вы уверены, что хотите покинуть страницу?сука'; });
@@ -64,129 +150,130 @@
 </head>
 <body>
     <div class="container" id="container">
+        <span class="noprint">
 
 
-        <div class="header">
+            <div class="header">
 
-            <div class="logo">
-                <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="300"></a>
-                <p class="textlogo">Международная риэлторская инвестиционная компания</p>
-            </div>
+                <div class="logo">
+                    <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="300"></a>
+                    <p class="textlogo">Международная риэлторская инвестиционная компания</p>
+                </div>
 
-            <div class="search">
-                <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
+                <div class="search">
+                    <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
 
-                @if (Session != null && Session["user"] is SessionModel)
-                {
-                    var session = Session["user"] as SessionModel;
+                    @if (Session != null && Session["user"] is SessionModel)
+                    {
+                        var session = Session["user"] as SessionModel;
 
-                    <div class="your_name">
-                        <div><p>Ваш логин:</p></div>
-                        @if (!String.IsNullOrEmpty(session.User.Login))
-                        {
-                            <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
+                        <div class="your_name">
+                            <div><p>Ваш логин:</p></div>
+                            @if (!String.IsNullOrEmpty(session.User.Login))
+                            {
+                                <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
 
-                        }
-                        else
-                        {
-                            <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Email</a></p></div>
-                        }
-                        <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
+                            }
+                            else
+                            {
+                                <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Email</a></p></div>
+                            }
+                            <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
+                        </div>
+                    }
+                </div>
+
+                <div class="contactinfo">
+                    <div class="tel">
+                        <div class="imgtel">
+                            <img src="~/Content/images/tel.png">
+                        </div>
+                        <div class="number">
+                            <p>+38093 057 7110</p>
+                            <p>+38048 788 6707</p>
+                        </div>
                     </div>
-                }
-            </div>
-
-            <div class="contactinfo">
-                <div class="tel">
-                    <div class="imgtel">
-                        <img src="~/Content/images/tel.png">
-                    </div>
-                    <div class="number">
-                        <p>+38093 057 7110</p>
-                        <p>+38048 788 6707</p>
+                    <div class="social">
+                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                        <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                        <a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>
                     </div>
                 </div>
+
+                <div class="feedback">
+                    <a href="~/cart/index" id="fav">Избранное</a>
+                    <a href="~/email/index" id="blink">Обратный звонок</a>
+                </div>
+
+            </div>
+
+            <div id="nav">
+                <div class="navigation">
+                    <ol>
+                        <li>
+                            <a id="">Продажа</a>
+                            <ol>
+                                @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
+                                    <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
+                                    <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
+                                    <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
+                                <li><a href="~/sale/flat">Купить квартиру</a></li>
+                                <li><a href="~/sale/house">Купить дом</a></li>
+                                <li><a href="~/sale/homestead">Купить участок</a></li>
+                                <li><a href="~/sale/commerce">Купить коммерцию</a></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#" id="">Аренда</a>
+                            <ol>
+                                @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
+                                @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
+                                @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
+                                <li><a href="~/rent/flat">Снять квартиру</a></li>
+                                <li><a href="~/rent/house">Снять дом</a></li>
+                                <li><a href="~/rent/homestead">Снять участок</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="~/newbuilding/">ЖК Новострои</a></li>
+                        <li><a href="~/manager/" id="">Менеджеры</a></li>
+                        <li>
+                            <a href="#" id="">О нас</a>
+                            <ol>
+                                <li><a href="~/home/about">О компании</a></li>
+                                <li><a href="~/vacancy/">Вакансии агенства</a></li>
+                            </ol>
+                        </li>
+
+
+
+                    </ol>
+                </div>
+
+                <div class="sell">
+                    <a href="~/email/index" id="">Хочу продать!</a>
+                </div>
+            </div>
+        </span>
+
+        @RenderBody()
+        <span class="noprint">
+            <div class="footer">
+                <div id="toTop"></div>
                 <div class="social">
                     <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
                     <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
                     <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
                     <a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>
                 </div>
-            </div>
-
-            <div class="feedback">
-                <a href="~/cart/index" id="fav">Избранное</a>
-                <a href="~/email/index" id="blink">Обратный звонок</a>
-            </div>
-
-        </div>
-
-        <div id="nav">
-            <div class="navigation">
-                <ol>
-                    <li>
-                        <a id="">Продажа</a>
-                        <ol>
-                            @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
-                                <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
-                                <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
-                                <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
-                            <li><a href="~/sale/flat">Купить квартиру</a></li>
-                            <li><a href="~/sale/house">Купить дом</a></li>
-                            <li><a href="~/sale/homestead">Купить участок</a></li>
-                            <li><a href="~/sale/commerce">Купить коммерцию</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#" id="">Аренда</a>
-                        <ol>
-                            @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
-                            @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
-                            @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
-                            <li><a href="~/rent/flat">Снять квартиру</a></li>
-                            <li><a href="~/rent/house">Снять дом</a></li>
-                            <li><a href="~/rent/homestead">Снять участок</a></li>
-                        </ol>
-                    </li>
-                    <li><a href="~/newbuilding/">ЖК Новострои</a></li>
-                    <li><a href="~/manager/" id="">Менеджеры</a></li>
-                    <li>
-                        <a href="#" id="">О нас</a>
-                        <ol>
-                            <li><a href="~/home/about">О компании</a></li>
-                            <li><a href="~/vacancy/">Вакансии агенства</a></li>
-                        </ol>
-                    </li>
-
-
-
-                </ol>
-            </div>
-
-            <div class="sell">
-                <a href="~/email/index" id="">Хочу продать!</a>
-            </div>
-        </div>
-
-
-        @RenderBody()
-
-        <div class="footer">
-            <div id="toTop"></div>
-            <div class="social">
-                <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                <a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>
-            </div>
-            <div class="bottomnav">
-                <a href="~/news/index" class="">Новости</a>
-                <a href="~/home/contacts" class="">Контакты</a>
-                <a href="~/map/index" class="">Карта сайта</a>
-                <a href="~/feedback/index" class="">Отзывы</a>
-                @if (Session == null || Session["user"] == null)
-                {
-                    <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+                <div class="bottomnav">
+                    <a href="~/news/index" class="">Новости</a>
+                    <a href="~/home/contacts" class="">Контакты</a>
+                    <a href="~/map/index" class="">Карта сайта</a>
+                    <a href="~/feedback/index" class="">Отзывы</a>
+                    @if (Session == null || Session["user"] == null)
+                    {
+                        <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
                         <div class="forms-wrapper">
                             <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
                                 <ol class="login">
@@ -200,15 +287,17 @@
                                 </ol>
                             </div>
                         </div>
-                }
-                else
-                {
-                    @Html.ActionLink("Выйти", "logout", "authorize")
-                }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Выйти", "logout", "authorize")
+                    }
 
+                </div>
             </div>
-        </div>
+        </span>
     </div>
+
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")

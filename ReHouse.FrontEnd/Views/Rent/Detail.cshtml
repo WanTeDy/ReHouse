@@ -27,44 +27,45 @@
         });
     </script>
 }
+<span class="noprint">
 
-<div class="navigation_string">
-    <div class="way">
-        @Html.ActionLink("Главная", "Index", "Home")
-        <pre> </pre>
-        <p>/</p>
-        <pre> </pre>
+    <div class="navigation_string">
+        <div class="way">
+            @Html.ActionLink("Главная", "Index", "Home")
+            <pre> </pre>
+            <p>/</p>
+            <pre> </pre>
 
-        @{ string action = "", desc = "", pricePerSquere = ""; }
+            @{ string action = "", desc = "", pricePerSquere = ""; }
 
-        @switch (Model.Advert.Category.ParentId)
-        {
-            case (int)ParrentCategories.Flat:
-                desc = "Снять квартиру";
-                action = "flat";
-                break;
-            case (int)ParrentCategories.House:
-                desc = "Снять дом";
-                action = "house";
-                break;
-            case (int)ParrentCategories.Homestead:
-                desc = "Снять участок";
-                action = "homestead";
-                break;
-            case (int)ParrentCategories.Commerce:
-                desc = "Снять коммерцию";
-                action = "commerce";
-                break;
-        }
+            @switch (Model.Advert.Category.ParentId)
+            {
+                case (int)ParrentCategories.Flat:
+                    desc = "Снять квартиру";
+                    action = "flat";
+                    break;
+                case (int)ParrentCategories.House:
+                    desc = "Снять дом";
+                    action = "house";
+                    break;
+                case (int)ParrentCategories.Homestead:
+                    desc = "Снять участок";
+                    action = "homestead";
+                    break;
+                case (int)ParrentCategories.Commerce:
+                    desc = "Снять коммерцию";
+                    action = "commerce";
+                    break;
+            }
 
-        @Html.ActionLink(desc, action, "rent")
-        <pre> </pre>
-        <p>/</p>
-        <pre> </pre>
-        <a href="~/rent/@action/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+            @Html.ActionLink(desc, action, "rent")
+            <pre> </pre>
+            <p>/</p>
+            <pre> </pre>
+            <a href="~/rent/@action/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+        </div>
     </div>
-</div>
-
+</span>
 <div class="h2novostroy">
     <h2>Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>
     <div class="favorite">
@@ -91,38 +92,44 @@
 {
     int i = 0;
     int j = 0;
-
-    <div id="products_example">
-        <div id="products">
-            <div class="slides_container">
-                @foreach (var item in Model.Advert.Images)
+    <span class="noprint">
+        <div id="products_example">
+            <div id="products">
+                <div class="slides_container">
+                    @foreach (var item in Model.Advert.Images)
                 {
                     if (i > 2)
                     {
                         break;
                     }
                     i++;
-                    <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" alt=""></a>
-                }
+                        <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" alt=""></a>
+                    }
 
-            </div>
-            <ul class="pagination">
+                </div>
+                <ul class="pagination">
 
-                @foreach (var item in Model.Advert.Images)
+                    @foreach (var item in Model.Advert.Images)
                 {
                     if (j > 2)
                     {
                         break;
                     }
                     j++;
-                    <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" alt=""></a></li>
-                }
+                        <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" alt=""></a></li>
+                    }
 
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
+    </span>
 }
 <div class="seotext3">
+    <div class="print">
+        <a href='javascript:window.print(); void 0;'>
+            <img src="~/Content/images/pechat.png" />
+        </a>
+    </div>
     <div class="h2sale"><h2>Описание</h2></div>
     <div class="h3cost">
         <p class="grn">@Model.Advert.Price грн/мес</p>
@@ -130,24 +137,24 @@
         <p class="dot">·</p>
 
         @*@if (ViewBag.USD != 0)
-    {
-        <pre> </pre>
-        <p class="DolUSA">@ViewBag.USD $/мес</p>
-        <pre></pre>
-    }
-    @if (ViewBag.EUR != 0)
-    {
-        <p class="dot">·</p>
-        <pre> </pre>
-        <p class="grn">@ViewBag.EUR €/мес</p>
-        <pre></pre>
-        <p class="dot">·</p>
-    }*@
+            {
+                <pre> </pre>
+                <p class="DolUSA">@ViewBag.USD $/мес</p>
+                <pre></pre>
+            }
+            @if (ViewBag.EUR != 0)
+            {
+                <p class="dot">·</p>
+                <pre> </pre>
+                <p class="grn">@ViewBag.EUR €/мес</p>
+                <pre></pre>
+                <p class="dot">·</p>
+            }*@
         <pre> </pre>
         <p class="square_meter">@pricePerSquere</p>
-    </div>    
+    </div>
 
-    <p>@Model.Advert.Description</p>
+    <p class="text">@Model.Advert.Description</p>
 </div>
 <div class="table_of_prodapart">
     <table>
@@ -156,7 +163,7 @@
             <td>@Model.Advert.MarketType.RussianName</td>
         </tr>
         @if (Model.Advert.Category.ParentId != (int)ParrentCategories.Homestead)
-        {
+            {
             <tr>
                 <td>Состояние: </td>
                 <td>@Model.Advert.TrimCondition.RussianName</td>
@@ -167,7 +174,7 @@
             <td>@Model.Advert.Street</td>
         </tr>
         @foreach (var prop in Model.Properties)
-        {
+            {
             <tr>
                 <td>@prop.Key.RussianName: </td>
                 <td>@prop.Value.PropertiesValue</td>
@@ -181,94 +188,96 @@
     <div class="planirovka">
 
         @foreach (var item in Model.Advert.PlanImages)
-        {
-            <a class="plan" rel="group" title="Планировка" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
-        }
-    </div>
-}
-@if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
-{
-    <div class="video-youtube">
-        <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-    </div>
-}
-<div class="map_managercard">
-    <div id="mapapart_prod">
-
-        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-
-    <div class="manager">
-        <div class="photo">
-            @if (Model.Advert.User.Avatar != null)
-            {
-                <img src="@Url.Content(Model.Advert.User.Avatar.Url + Model.Advert.User.Avatar.FileName)" width="90p" height="90">
-            }
-            else
-            {
-                <img src="~/Content/images/manager.png" width="90p" height="90">
-            }
-        </div>
-        <div class="manager_info">
-            <div class="imgtel">
-                <img src="~/Content/images/minphone.png">
-            </div>
-            <div class="number">
-                @if (Model.Advert.User.Phones != null && Model.Advert.User.Phones.Count > 0)
                 {
-                    foreach (var phone in Model.Advert.User.Phones)
-                    {
-                        <p>@phone.TelePhone</p>
-                    }
+            <a class="plan" rel="group" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
+        }
+    </div>
+}
+<span class="noprint">
+    @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
+    {
+
+        <div class="video-youtube">
+            <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+        </div>
+    }
+    <div class="map_managercard">
+        <div id="mapapart_prod">
+
+            <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+        <div class="manager">
+            <div class="photo">
+                @if (Model.Advert.User.Avatar != null)
+            {
+                    <img src="@Url.Content(Model.Advert.User.Avatar.Url + Model.Advert.User.Avatar.FileName)" width="90p" height="90">
                 }
-                <p>@Model.Advert.User.Email</p>
-                <p class="name">@Model.Advert.User.FirstName</p>
+                else
+                {
+                    <img src="~/Content/images/manager.png" width="90p" height="90">
+                }
+            </div>
+            <div class="manager_info">
+                <div class="imgtel">
+                    <img src="~/Content/images/minphone.png">
+                </div>
+                <div class="number">
+                    @if (Model.Advert.User.Phones != null && Model.Advert.User.Phones.Count > 0)
+                    {
+                        foreach (var phone in Model.Advert.User.Phones)
+                        {
+                            <p>@phone.TelePhone</p>
+                        }
+                    }
+                    <p>@Model.Advert.User.Email</p>
+                    <p class="name">@Model.Advert.User.FirstName</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<div class="h2prodsale"><h2>Новинки аренды</h2></div>
-
-<div class="othernovostroy">
-    <ul class="prods" id="data-container">
-        @if (Model.OtherAdverts.Count > 0)
-        {
-            foreach (var item in Model.OtherAdverts)
+    <div class="h2prodsale"><h2>Новинки аренды</h2></div>
+    <div class="othernovostroy">
+        <ul class="prods" id="data-container">
+            @if (Model.OtherAdverts.Count > 0)
             {
-                <div class="data-item">
-                    <li>
-                        @if (item.IsExclusive)
-                        {
-                            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
-                        }
-                        else if (item.IsHot)
-                        {
-                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                        }
-                        else
-                        {
-                            <div class="redimg"><img src="~/Content/images/newred.png"></div>
-                        }
-                        @if (item.Images != null && item.Images.Count > 0)
-                        {
-                            <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
-                        }
-                        else
-                        {
-                            <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
-                        }
-                        <div class="min-content">
-                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
-                            <h3>Сдам @item.Title.RussianName.ToLower()</h3>
-                            <h4>@item.Description</h4>
-                            <p class="cost">@item.Price $</p>
-                            <a href="~/rent/detail/@item.Id" id="follow">❯</a>
-                        </div>
-                    </li>
-                </div>
+                foreach (var item in Model.OtherAdverts)
+                {
+                    <div class="data-item">
+                        <li>
+                            @if (item.IsExclusive)
+                            {
+                                <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                            }
+                            else if (item.IsHot)
+                            {
+                                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            }
+                            else
+                            {
+                                <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                            }
+                            @if (item.Images != null && item.Images.Count > 0)
+                            {
+                                <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
+                            }
+                            else
+                            {
+                                <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                            }
+                            <div class="min-content">
+                                <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
+                                <h3>Сдам @item.Title.RussianName.ToLower()</h3>
+                                <h4>@item.Description</h4>
+                                <p class="cost">@item.Price $</p>
+                                <a href="~/rent/detail/@item.Id" id="follow">❯</a>
+                            </div>
+                        </li>
+                    </div>
+                }
             }
-        }
-    </ul>
-</div>
+        </ul>
+    </div>
+</span>

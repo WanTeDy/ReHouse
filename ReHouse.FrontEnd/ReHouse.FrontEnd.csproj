@@ -339,6 +339,7 @@
     <Content Include="Content\images\like_hover.png" />
     <Content Include="Content\images\load.gif" />
     <Content Include="Content\images\loaded\avatars\www_131372913375655779.jpg" />
+    <Content Include="Content\images\pechat.png" />
     <Content Include="Content\images\watermark.png" />
     <Content Include="Content\images\logout.png" />
     <Content Include="Content\images\manager.jpg" />

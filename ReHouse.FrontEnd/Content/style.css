@@ -2611,3 +2611,27 @@ body {
     border: 1px solid #000;
     margin: 10px 5px 0 0;
 }
+
+.error_status {
+ 	color: red;
+ 	font-family: Arial;
+ 	font-size: 18px;
+ }
+
+.print { 
+width: 22px; 
+height: 22px; 
+position: absolute; 
+left: 140px; 
+}
+.print1 { 
+width: 22px; 
+height: 22px; 
+position: absolute; 
+left: 345px; 
+top: 370px; 
+}
+
+.seotext3 { 
+position: relative; 
+}
