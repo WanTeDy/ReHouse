@@ -182,9 +182,9 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             if (operation._advert == null)
                 return HttpNotFound();
 
-            var op = new LoadTitlesOperation(sessionModel.TokenHash);
-            op.ExcecuteTransaction();
-            ViewBag.Titles = op._titles;
+            //var op = new LoadTitlesOperation(sessionModel.TokenHash);
+            //op.ExcecuteTransaction();
+            //ViewBag.Titles = op._titles;
 
             var op2 = new LoadMarketTypesOperation(sessionModel.TokenHash);
             op2.ExcecuteTransaction();
@@ -217,9 +217,9 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var operation = new UpdateFlatOperation(sessionModel.TokenHash, model, images, planimages);
             operation.ExcecuteTransaction();
 
-            var op = new LoadTitlesOperation(sessionModel.TokenHash);
-            op.ExcecuteTransaction();
-            ViewBag.Titles = op._titles;
+            //var op = new LoadTitlesOperation(sessionModel.TokenHash);
+            //op.ExcecuteTransaction();
+            //ViewBag.Titles = op._titles;
 
             var op2 = new LoadMarketTypesOperation(sessionModel.TokenHash);
             op2.ExcecuteTransaction();
@@ -291,9 +291,9 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             if (Id == 0)
                 return HttpNotFound();
 
-            var op = new LoadTitlesOperation(sessionModel.TokenHash);
-            op.ExcecuteTransaction();
-            ViewBag.Titles = op._titles;
+            //var op = new LoadTitlesOperation(sessionModel.TokenHash);
+            //op.ExcecuteTransaction();
+            //ViewBag.Titles = op._titles;
 
             var op2 = new LoadMarketTypesOperation(sessionModel.TokenHash);
             op2.ExcecuteTransaction();
@@ -344,9 +344,9 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var operation = new AddFlatOperation(sessionModel.TokenHash, model, images, planimages);
             operation.ExcecuteTransaction();
 
-            var op = new LoadTitlesOperation(sessionModel.TokenHash);
-            op.ExcecuteTransaction();
-            ViewBag.Titles = op._titles;
+            //var op = new LoadTitlesOperation(sessionModel.TokenHash);
+            //op.ExcecuteTransaction();
+            //ViewBag.Titles = op._titles;
 
             var op2 = new LoadMarketTypesOperation(sessionModel.TokenHash);
             op2.ExcecuteTransaction();

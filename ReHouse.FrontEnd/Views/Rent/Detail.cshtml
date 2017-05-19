@@ -67,7 +67,8 @@
     </div>
 </span>
 <div class="h2novostroy">
-    <h2>Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>
+    @*<h2>Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>*@
+    <h2>@Model.Advert.TitleName, @Model.Advert.Street</h2>
     <div class="favorite">
         <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
     </div>
@@ -269,7 +270,8 @@
                             }
                             <div class="min-content">
                                 <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
-                                <h3>Сдам @item.Title.RussianName.ToLower()</h3>
+                                @*<h3>Сдам @item.Title.RussianName.ToLower()</h3>*@
+                                <h3>@item.TitleName</h3>
                                 <h4>@item.Description</h4>
                                 <p class="cost">@item.Price $</p>
                                 <a href="~/rent/detail/@item.Id" id="follow">❯</a>

@@ -272,7 +272,8 @@
             <ol>
                 <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
                 <li><a href="~/cabinet/rent/house">Дома</a></li>
-                <li><a href="~/cabinet/rent/homestead">Участки</a></li>
+                @*<li><a href="~/cabinet/rent/homestead">Участки</a></li>*@
+                <li><a href="~/cabinet/rent/commerce">Коммерция</a></li>
             </ol>
         </li>
         <li><a class="3" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
@@ -319,13 +320,17 @@
                         <td>@Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewBag.Categories, "Id", "RussianName"))</td>
                     </tr>
                 }
-                @if (ViewBag.Titles != null && ViewBag.Titles.Count > 0)
+                @*@if (ViewBag.Titles != null && ViewBag.Titles.Count > 0)
                 {
                     <tr>
                         <td>Заголовок:</td>
                         <td>@Html.DropDownListFor(m => m.TitleId, new SelectList(ViewBag.Titles, "Id", "RussianName"))</td>
                     </tr>
-                }
+                }*@
+                <tr>
+                    <td>Заголовок:</td>
+                    <td>@Html.TextBoxFor(m => m.TitleName)</td>
+                </tr>
                 @if (ViewBag.Districts != null && ViewBag.Districts.Count > 0)
                 {
                     <tr>
@@ -334,7 +339,7 @@
                     </tr>
                 }
                 <tr>
-                    <td>Цена($/мес):</td>
+                    <td>Цена($):</td>
                     <td>@Html.TextBoxFor(m => m.Price)</td>
                 </tr>
                 <tr>

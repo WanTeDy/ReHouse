@@ -66,6 +66,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         Longitude = _model.Longitude,
                         IsExclusive = _model.IsExclusive,
                         IsModerated = _model.IsModerated,
+                        TitleName = _model.TitleName,
                     };
                     if (_images != null)
                     {

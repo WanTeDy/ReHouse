@@ -37,6 +37,10 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// </summary>
         public String Street { get; set; }
         /// <summary>
+        /// Title for this advert
+        /// </summary>
+        public String TitleName { get; set; }
+        /// <summary>
         /// Price for this advert
         /// </summary>
         public Int32 Price { get; set; }

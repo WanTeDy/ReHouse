@@ -130,6 +130,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         _advert.IsHot = _model.IsHot;
                         _advert.IsExclusive = _model.IsExclusive;
                         _advert.IsModerated = _model.IsModerated;
+                        _advert.TitleName = _model.TitleName;
                         foreach (var prop in _model.AdvertPropertyValues)
                         {
                             var property = _advert.AdvertPropertyValues.FirstOrDefault(x => x.Id == prop.Id);

@@ -32,7 +32,8 @@
                     <div class="min-content">
                         <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
 
-                        <h3>Продам @item.Name.ToLower()</h3>
+                        @*<h3>Продам @item.Name.ToLower()</h3>*@
+                        <h3>@item.Name</h3>
                         <h4>@item.Description</h4>
                         <p class="cost">@item.Price $</p>
                         <a href="~/sale/detail/@item.Id" id="follow">❯</a>
@@ -68,7 +69,8 @@
                     }
                     <div class="min-content">
                         <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this);"></div>
-                        <h3>Сдам @item.Name.ToLower()</h3>
+                        @*<h3>Сдам @item.Name.ToLower()</h3>*@
+                        <h3>@item.Name</h3>
                         <h4>@item.Description</h4>
                         <p class="cost">@item.Price $</p>
                         <a href="~/rent/detail/@item.Id" id="follow">❯</a>
