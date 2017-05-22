@@ -51,7 +51,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                             {
                                 if (imageFile != null)
                                 {
-                                    var url = "~/Content/images/adverts/images/";
+                                    var url = "~/Content/images/flats/images/";
 
                                     var path = HttpContext.Current.Server.MapPath(url);
                                     if (!Directory.Exists(path))
@@ -88,7 +88,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                             {
                                 if (imageFile != null)
                                 {
-                                    var url = "~/Content/images/adverts/plans/";
+                                    var url = "~/Content/images/flats/plans/";
 
                                     var path = HttpContext.Current.Server.MapPath(url);
                                     if (!Directory.Exists(path))
