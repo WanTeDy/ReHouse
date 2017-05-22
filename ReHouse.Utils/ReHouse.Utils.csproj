@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201705021037087_vac.Designer.cs">
       <DependentUpon>201705021037087_vac.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705220652171_title.cs" />
+    <Compile Include="Migrations\201705220652171_title.Designer.cs">
+      <DependentUpon>201705220652171_title.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -260,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705021037087_vac.resx">
       <DependentUpon>201705021037087_vac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705220652171_title.resx">
+      <DependentUpon>201705220652171_title.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
