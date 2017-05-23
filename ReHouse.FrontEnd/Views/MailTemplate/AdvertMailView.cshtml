@@ -1,0 +1,159 @@
+﻿@model ReHouse.Utils.Helpers.AdvertEmailModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>
+        Заявка
+    </title>
+    <style type="text/css">
+        a:hover {
+            text-decoration: none !important;
+        }
+
+        .header h1 {
+            color: #fff !important;
+            font: normal 33px Georgia, serif;
+            margin: 0;
+            padding: 0;
+            line-height: 33px;
+        }
+
+        .header p {
+            color: #dfa575;
+            font: normal 11px Georgia, serif;
+            margin: 0;
+            padding: 0;
+            line-height: 11px;
+            letter-spacing: 2px;
+        }
+
+        .content h2 {
+            color: #8598a3 !important;
+            font-weight: normal;
+            margin: 0;
+            padding: 0;
+            font-style: italic;
+            line-height: 30px;
+            font-size: 30px;
+            font-family: Georgia, serif;
+        }
+
+        .content p {
+            color: #767676;
+            font-weight: normal;
+            margin: 0;
+            padding: 0;
+            line-height: 20px;
+            font-size: 12px;
+            font-family: Georgia, serif;
+        }
+
+        .content a {
+            color: #d18648;
+            text-decoration: none;
+        }
+
+        .footer p {
+            padding: 0;
+            font-size: 11px;
+            color: #fff;
+            margin: 0;
+            font-family: Georgia, serif;
+        }
+
+        .footer a {
+            color: #f7a766;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background: white;">
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+        <tr>
+            <td align="center" style="margin: 0; padding: 0;padding: 35px 0">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="650" style="font-family: Georgia, serif;" class="header">
+                    <tr>
+                        <td bgcolor="#1d3960" height="115" align="center">
+                            <h1 style="color: #fff !important; font: normal 33px Georgia, serif; margin: 0; padding: 0; line-height: 33px;"><singleline label="Title">Принята заявка</singleline></h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 1px; height: 5px; line-height: 1px;" height="5">&nbsp;</td>
+                    </tr>
+                </table><!-- header-->
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="650" style="font-family: Georgia, serif; background: #fff;" bgcolor="#ffffff">
+                    <tr>
+                        <td width="14" style="font-size: 0px;" bgcolor="#ffffff">&nbsp;</td>
+                        <td width="620" valign="top" align="left" bgcolor="#ffffff" style="font-family: Georgia, serif; background: #fff; padding: 0 0 10px;" class="content">
+                            <table cellpadding="0" cellspacing="0" border="0" style="color: #717171; font: normal 11px Georgia, serif; margin: 0; padding: 0;" width="620">
+
+                                <repeater>
+                                    <tr>
+                                        <td valign="top" style="padding: 0; margin: 0">
+                                            <table cellpadding="0" cellspacing="0" border="0" style="color: #717171; font: normal 11px Georgia, serif; margin: 0; padding: 0;" width="620">
+
+                                                <tr>
+                                                    <td style="padding: 15px 0 15px; border-bottom: 2px solid #1d3960;" valign="top" width="10%">
+                                                        <p><multiline label="Description">Наименование:
+                                                        </multiline></p>
+                                                        <p>@Model.Title</p></multiline></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 15px 0 15px; border-bottom: 2px solid #1d3960;" valign="top">
+                                                        <p><multiline label="Description">Адрес:
+                                                        </multiline></p>
+                                                        <p>@Model.Adress</p></multiline></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 15px 0 15px; border-bottom: 2px solid #1d3960;" valign="top">
+                                                        <p><multiline label="Description">Цена:
+                                                        </multiline></p>
+                                                        <p>@Model.Price</p></multiline></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding: 15px 0 15px; border-bottom: 2px solid #1d3960;" valign="top">
+                                                        <p><multiline label="Description">Ссылка на объект:
+                                                        </multiline></p>
+                                                        <p><a href="@Model.Url" target="_blank">@Model.Url</a></p></multiline></p>
+                                                    </td>
+                                                </tr>
+
+                                                <td style="padding: 15px 0 15px; border-bottom: 2px solid #1d3960;" valign="top">
+                                                    <img width="300" style="padding-bottom: 15px; padding-left: 15px;" align="right" editable="true" label="Image" />
+                                                    <p><multiline label="Description"><strong>Дата:</strong></multiline></p><p>@Model.Date.ToShortDateString() в @Model.Date.ToShortTimeString()</p></multiline></p>
+                                                    <p><multiline label="Description"><strong>Имя:</strong></multiline></p><p>@Model.UserName</p></multiline></p>
+                                                    <p><multiline label="Description"><strong>Телефон:</strong></multiline></p><p>@Model.UserPhone</p></multiline></p>
+                                                    @*<p><multiline label="Description"><strong>Email:</strong></multiline></p><p>lololo@mail.lolo</p></multiline></p>*@
+                                                    <p><multiline label="Description"><strong>Комментарий:</strong></multiline></p><p>@Model.UserMessage</p></multiline></p>    
+                                                 </td>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </repeater>
+                            </table>
+                        </td>
+                    </tr>
+                    </repeater>
+                </table>
+                <br /><br />
+            </td>
+            <td width="16" bgcolor="#ffffff" style="font-size: 0px; font-family: Georgia, serif; background: #fff;">&nbsp;</td>
+        </tr>
+    </table><!-- body -->
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="650" style="font-family: Georgia, serif; line-height: 10px;" bgcolor="#698291" class="footer">
+        <tr>
+            <td bgcolor="#1d3960" align="center" style="padding: 15px 0 10px; font-size: 11px; color:#fff; margin: 0; line-height: 1.2;font-family: Georgia, serif;" valign="top"></td>
+        </tr>
+    </table><!-- footer-->
+    </td>
+    </tr>
+    </table>
+</body>
+</html>

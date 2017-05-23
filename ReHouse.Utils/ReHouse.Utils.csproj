@@ -49,10 +49,18 @@
       <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.9.3.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.9.3\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,6 +88,7 @@
     <Compile Include="BusinessOperations\Districts\LoadDistrictsOperation.cs" />
     <Compile Include="BusinessOperations\Districts\LoadDistrictOperation.cs" />
     <Compile Include="BusinessOperations\Districts\UpdateDistrictOperation.cs" />
+    <Compile Include="BusinessOperations\Emails\SendEmailOperation.cs" />
     <Compile Include="BusinessOperations\Feedbacks\LoadFeedbackOperation.cs" />
     <Compile Include="BusinessOperations\Flat\AddFlatOperation.cs" />
     <Compile Include="BusinessOperations\Flat\DeleteFlatOperation.cs" />
@@ -147,6 +156,7 @@
     <Compile Include="DataBase\AdvertParams\Title.cs" />
     <Compile Include="DataBase\BaseObj.cs" />
     <Compile Include="DataBase\DbReHouse.cs" />
+    <Compile Include="DataBase\Feedback\UserEmailMessage.cs" />
     <Compile Include="DataBase\Vacancies\Vacancy.cs" />
     <Compile Include="DataBase\Feedback\UserFeedback.cs" />
     <Compile Include="DataBase\Geo\District.cs" />
@@ -160,12 +170,15 @@
     <Compile Include="DataBase\Security\User.cs" />
     <Compile Include="Except\ActionNotAllowedException.cs" />
     <Compile Include="Except\ReHouseException.cs" />
+    <Compile Include="Helpers\AdvertEmailModel.cs" />
+    <Compile Include="Helpers\CommonEmailModel.cs" />
     <Compile Include="Helpers\CartAdvertModel.cs" />
     <Compile Include="Helpers\CartModel.cs" />
     <Compile Include="Helpers\ParrentCategories.cs" />
     <Compile Include="Helpers\AdvertsType.cs" />
     <Compile Include="Helpers\GenerateHash.cs" />
     <Compile Include="DataBase\AdvertParams\TrimCondition.cs" />
+    <Compile Include="Helpers\SmtpEmailSender.cs" />
     <Compile Include="Internet.cs" />
     <Compile Include="Migrations\201701111238155_InitialCreate.cs" />
     <Compile Include="Migrations\201701111238155_InitialCreate.Designer.cs">
@@ -219,6 +232,10 @@
     <Compile Include="Migrations\201705220652171_title.Designer.cs">
       <DependentUpon>201705220652171_title.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705230952310_emails.cs" />
+    <Compile Include="Migrations\201705230952310_emails.Designer.cs">
+      <DependentUpon>201705230952310_emails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -267,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705220652171_title.resx">
       <DependentUpon>201705220652171_title.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705230952310_emails.resx">
+      <DependentUpon>201705230952310_emails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

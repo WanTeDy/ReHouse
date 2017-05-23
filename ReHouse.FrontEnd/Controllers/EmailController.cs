@@ -19,21 +19,27 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using SendGrid;
+using ReHouse.Utils.DataBase.Feedback;
+using ReHouse.Utils.Helpers;
 
 namespace ReHouse.FrontEnd.Controllers
 {
     public class EmailController : Controller
     {
-        public ActionResult Index()
-        {            
+        public ActionResult Index(int flat = 0, AdvertsType type = 0)
+        {
+            ViewBag.AdvertId = flat;       
+            ViewBag.Type = type;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Index(EmailModel model)
+        public ActionResult Index(UserEmailMessage model, int flat = 0, AdvertsType type = 0)
         {
+            ViewBag.AdvertId = flat;
+            ViewBag.Type = type;
             if (ModelState.IsValid)
             {
                 

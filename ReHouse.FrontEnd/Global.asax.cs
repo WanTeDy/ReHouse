@@ -5,6 +5,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using ReHouse.Utils.BusinessOperations.AuthoritiesOp;
 using ReHouse.FrontEnd.Helpers;
+using ReHouse.Utils;
 
 namespace ReHouse.FrontEnd
 {
@@ -20,6 +21,7 @@ namespace ReHouse.FrontEnd
             ModelBinders.Binders.Add(typeof(double), new DoubleModelBinder());
             var operation = new FillAuthorityOperation();
             operation.ExcecuteTransaction();
+            ConstV.ServerLocalPath = Server.MapPath("~/Views/");
         }
 
         //protected void Application_Error(object sender, EventArgs e)

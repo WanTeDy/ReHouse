@@ -1,4 +1,5 @@
-﻿@model ReHouse.FrontEnd.Models.EmailModel
+﻿@using ReHouse.Utils.DataBase.Feedback
+@model UserEmailMessage
 @section Scripts {
     @Scripts.Render("~/Scripts/jqueryval")
 }
@@ -13,16 +14,18 @@
 
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    @Html.Hidden("advertId", (int)ViewBag.AdvertId)
+    @Html.Hidden("type", (int)ViewBag.Type)
     <h3>Имя</h3>
-    @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "Введите ваше имя", @id = "applicationName" })
+    @Html.TextBoxFor(x => x.Username, new { @placeholder = "Введите ваше имя", @id = "applicationName" })
     <div class="errortext">
-        @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "erroremail" })
+        @Html.ValidationMessageFor(model => model.Username, null, new { @class = "erroremail" })
     </div>
-            <h3>Email</h3>
+            @*<h3>Email</h3>
             @Html.TextBoxFor(x => x.Email, new { @placeholder = "Введите ваш Email", @id = "applicationEmail" })
             <div class="errortext">
                 @Html.ValidationMessageFor(model => model.Email, null, new { @class = "erroremail" })
-            </div>
+            </div>*@
             <h3>Телефон</h3>
             @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Введите ваш телефон", @id = "applicationTelephone" })
             <div class="errortext">

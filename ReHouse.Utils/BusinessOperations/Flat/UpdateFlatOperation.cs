@@ -117,7 +117,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         }
                         _advert.IsHot = _model.IsHot;
                         _advert.CategoryId = _model.CategoryId;
-                        _advert.TitleId = _model.TitleId;
+                        _advert.TitleId = 1;
                         _advert.DistrictId = _model.DistrictId;
                         _advert.Price = _model.Price;
                         _advert.Description = _model.Description;

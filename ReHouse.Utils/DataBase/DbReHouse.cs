@@ -27,6 +27,7 @@ namespace ReHouse.Utils.DataBase
         public DbSet<ExpluatationDate> ExpluatationDates { get; set; }
         public DbSet<Authority> Authorities { get; set; }
         public DbSet<UserFeedback> UserFeedbacks { get; set; }
+        public DbSet<UserEmailMessage> Emails { get; set; }
         public DbSet<Builder> Builders { get; set; }
         public DbSet<NewBuilding> NewBuildings { get; set; }
         public DbSet<User> Users { get; set; }

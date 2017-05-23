@@ -46,7 +46,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                     var _advert = new Advert
                     {
                         CategoryId = _model.CategoryId,
-                        TitleId = _model.TitleId,
+                        TitleId = 1,
                         DistrictId = _model.DistrictId,
                         Price = _model.Price,
                         Description = _model.Description,

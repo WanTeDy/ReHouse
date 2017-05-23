@@ -24,12 +24,12 @@ namespace ReHouse.Utils
         //public const Int32 N_DDP = 14; //can be empty
         //public const Int32 OWarranty = 15; //can be empty
         public const Int32 ItemsPerPage = 8; 
-        public const Int32 ItemsPerPageAdmin = 100; 
+        public const Int32 ItemsPerPageAdmin = 100;
         //public const Int32 QNote = 17;  //can be empty
         //public const Int32 RDayDelivery = 18; //0 1 2 3 Days
         //public const Int32 SProductId = 19; //пропускаем
         //public const Int32 TURL = 20;
-        
+        public static String ServerLocalPath { get; set; }
         public const String RoleAdministrator = "Администратор";
         public const String RoleManager = "Менеджер";
         public const String RoleRieltor = "Риэлтор";
@@ -61,7 +61,7 @@ namespace ReHouse.Utils
         //public const String PathCarousel = "C:\\inetpub\\wwwroot\\images\\carousel";
         //public const String PathStocks = "C:\\inetpub\\wwwroot\\images\\stocks";
         //public const String PathAppManager = "C:\\inetpub\\wwwroot\\AppManager";
-        //public const String UrlCarousel = "http://www.ReHouse.com.ua/images/carousel/";
+        public const String Url = "http://www.rehouse-realty.com.ua/";
         //public const String UrlStocks = "http://www.ReHouse.com.ua/images/stocks/";
         //public const String UrlAppManager = "http://www.ReHouse.com.ua/AppManager/";
 
@@ -76,7 +76,7 @@ namespace ReHouse.Utils
         //    {FromWhatProvider.All, "Все поставщки"},
         //    //{FromWhatProvider.Provider2, "От 2 Поставщика"},            
         //};
-        
+
         //public static readonly Dictionary<String, OrderOutType> OrderOutTypeFromString = new Dictionary<string, OrderOutType>
         //{
         //    //{"Все", OrderOutType.All},

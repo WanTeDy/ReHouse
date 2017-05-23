@@ -541,6 +541,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contacts.cshtml" />
     <Content Include="Views\Manager\Profile.cshtml" />
+    <Content Include="Views\MailTemplate\AdvertMailView.cshtml" />
+    <Content Include="Views\MailTemplate\CommonUserMailView.cshtml" />
     <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
