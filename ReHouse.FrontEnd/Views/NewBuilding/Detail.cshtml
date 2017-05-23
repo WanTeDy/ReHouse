@@ -34,7 +34,7 @@
             <pre> </pre>
             <p>/</p>
             <pre> </pre>
-            @Html.ActionLink("ЖК Новострои", "index", "newbuilding")
+            @Html.ActionLink("Новострои", "index", "newbuilding")
             <pre> </pre>
             <p>/</p>
             <pre> </pre>
@@ -48,7 +48,7 @@
         <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true, this);" id="favorite">Добавить в избранное</a>
     </div>
     <div class="favorite1">
-        <a href="~/email/index" id="favorite">Подать заявку</a>
+        <a href="~/email/index?flat=@(Model.NewBuilding.Id)&type=@((int)AdvertsType.NewBuilding)" id="favorite">Подать заявку</a>
     </div>
 </div>
 <div class="share_icons">
@@ -73,25 +73,37 @@
                 <div class="slides_container">
                     @foreach (var item in Model.NewBuilding.Images)
                 {
-                    if (i > 2)
+                    if (i >= 2)
                     {
                         break;
                     }
                     i++;
                         <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" alt=""></a>
                     }
+                    @if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
+                    {
+                        <a><iframe width="767" height="600" src="https://www.youtube.com/embed/@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe></a>
+                    }
 
                 </div>
                 <ul class="pagination">
 
                     @foreach (var item in Model.NewBuilding.Images)
-                {
-                    if (j > 2)
                     {
-                        break;
-                    }
-                    j++;
+                        if (j >= 2)
+                        {
+                            break;
+                        }
+                        j++;
                         <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" alt=""></a></li>
+                    }
+                    @if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
+                    {
+                        <li>
+                            <a href="#">
+                                <iframe width="244" height="188" src="https://www.youtube.com/embed/@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+                            </a>
+                        </li>
                     }
 
                 </ul>
@@ -99,12 +111,15 @@
         </div>
     </span>
 }
-<div class="seotext">
-    <div class="print1">
+<div class="seotext3">
+    <div class="print">
         <a href='javascript:window.print(); void 0;'>
             <img src="~/Content/images/pechat.png" />
         </a>
     </div>
+    <div class="h2sale"><h2>Описание</h2></div>
+    
+    <p class="text">@Model.NewBuilding.Description</p>
 </div>
 <div class="table_of_prod">
     <table>
@@ -204,12 +219,6 @@
     </div>
 }
 <span class="noprint">
-    @if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
-            {
-        <div class="video-youtube">
-            <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-        </div>
-    }
     <div id="mapnovostroy_prod">
         <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1054px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>

@@ -1,5 +1,5 @@
-﻿@using ReHouse.Utils.DataBase.Feedback
-@model UserEmailMessage
+﻿@using ReHouse.FrontEnd.Models
+@model EmailModel
 @section Scripts {
     @Scripts.Render("~/Scripts/jqueryval")
 }
@@ -7,26 +7,27 @@
 
 @using (Ajax.BeginForm("index", "email", null, new AjaxOptions
 {
-    UpdateTargetId = "application",
-    OnSuccess = "LoginOnComplete"
-}, new { @Id = "application" }))
+    UpdateTargetId = "emailForm",
+    OnBegin = "preEmailSended",
+}, new { @Id = "emailForm" }))
 {
-
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    @Html.Hidden("advertId", (int)ViewBag.AdvertId)
-    @Html.Hidden("type", (int)ViewBag.Type)
-    <h3>Имя</h3>
-    @Html.TextBoxFor(x => x.Username, new { @placeholder = "Введите ваше имя", @id = "applicationName" })
-    <div class="errortext">
-        @Html.ValidationMessageFor(model => model.Username, null, new { @class = "erroremail" })
-    </div>
-            @*<h3>Email</h3>
+    if (ViewBag.Success == null)
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.Hidden("advertId", (int)ViewBag.AdvertId)
+        @Html.Hidden("type", (int)ViewBag.Type)
+        <h3>Имя</h3>
+        @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "Введите ваше имя", @id = "applicationName" })
+        <div class="errortext">
+            @Html.ValidationMessageFor(model => model.Username, null, new { @class = "erroremail" })
+        </div>
+        @*<h3>Email</h3>
             @Html.TextBoxFor(x => x.Email, new { @placeholder = "Введите ваш Email", @id = "applicationEmail" })
             <div class="errortext">
                 @Html.ValidationMessageFor(model => model.Email, null, new { @class = "erroremail" })
             </div>*@
-            <h3>Телефон</h3>
+        <h3>Телефон</h3>
             @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Введите ваш телефон", @id = "applicationTelephone" })
             <div class="errortext">
                 @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "erroremail" })
@@ -37,6 +38,10 @@
                 @Html.ValidationMessageFor(model => model.Message, null, new { @class = "erroremail" })
             </div>
 
-            <button class="applicationButton" type="submit" form="application">Отправить</button>
-
+            <button class="applicationButton" type="submit" form="emailForm">Отправить</button>
+    }
+    else
+    {
+        <h3>Ваше сообщение отправлено!</h3>
+    }
 }

@@ -236,7 +236,7 @@
                                 <li><a href="~/rent/commerce">Снять коммерцию</a></li>
                             </ol>
                         </li>
-                        <li><a href="~/newbuilding/">ЖК Новострои</a></li>
+                        <li><a href="~/newbuilding/">Новострои</a></li>
                         <li><a href="~/manager/" id="">Менеджеры</a></li>
                         <li>
                             <a href="#" id="">О нас</a>
@@ -258,6 +258,41 @@
         </span>
 
         @RenderBody()
+        @*<div class="news">
+            <h2>Новости</h2>
+            @foreach (var article in Model.Articles)
+            {
+                <div class="firstnews">
+                    <div class="img">
+                        @if (article.Images != null && article.Images.Count > 0)
+                {
+                            <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" width="440" height="263" />
+                        }
+                        else
+                        {
+                            <img src="~/Content/images/news1.jpg" width="440" height="263">
+                        }
+                    </div>
+                    <div class="content1">
+                        <h3>@article.Title</h3>
+                        @if (@article.Description.Length > 750)
+                {
+                            <p id="news_@article.Id">@article.Description.Substring(0, 749) ...</p>
+                        }
+                        else
+                        {
+                            <p>@article.Description</p>
+                        }
+                        <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
+                        <a href="/news/detail/@article.Id" id="more">Подробнее</a>
+                    </div>
+                </div>
+            }
+
+            <div class="morenews">
+                <a href="~/news/index" id="more">Все новости</a>
+            </div>
+        </div>*@
         <span class="noprint">
             <div class="footer">
                 <div id="toTop"></div>

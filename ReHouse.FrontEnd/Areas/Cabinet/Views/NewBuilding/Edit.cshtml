@@ -268,7 +268,7 @@
                 <li><a href="~/cabinet/rent/commerce">Коммерция</a></li>
             </ol>
         </li>
-        <li><a class="preActive active" href="~/cabinet/newbuilding/list">ЖК Новострои</a></li>
+        <li><a class="preActive active" href="~/cabinet/newbuilding/list">Новострои</a></li>
         <li><a class="4" href="~/cabinet/news/list">Новости</a></li>
         <li><a class="4" href="~/cabinet/feedbacks/list">Отзывы</a></li>
         <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
@@ -282,7 +282,9 @@
     <form enctype="multipart/form-data" action="" method="POST">
         @Html.AntiForgeryToken()
         @Html.HiddenFor(m => m.Id)
-        @Html.ValidationSummary()
+        <div class="error_status">
+            @Html.ValidationSummary()
+        </div>
         <div class="contact_info">
             <table>
                 <tr>
@@ -309,6 +311,10 @@
                     }
 
                 }
+                <tr>
+                    <td>Описание:</td>
+                    <td>@Html.TextAreaFor(m => m.Description, new { @rows = "20" })</td>
+                </tr>
                 @if (ViewBag.BuildersList != null && ViewBag.BuildersList.Count > 0)
                 {
                     <tr>
@@ -419,7 +425,7 @@
                     <td><a onclick="addPhone();">Добавить еще телефон</a></td>
                 </tr>
             </table>
-            <h3>Общие фотографии(не более 3-х)</h3>
+            <h3>Общие фотографии(не более 2-х)</h3>
             @if (Model.Images != null && Model.Images.Count > 0)
             {
                 <div class="add_photo">

@@ -101,6 +101,10 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// Is this advert moderated by admin
         /// </summary>
         public Boolean IsModerated { get; set; }
+        /// <summary>
+        /// Description for this advert
+        /// </summary>
+        public String Description { get; set; }
 
         public virtual User User { get; set; }
         public virtual District District { get; set; }

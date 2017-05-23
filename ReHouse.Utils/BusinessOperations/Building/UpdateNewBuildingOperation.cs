@@ -138,6 +138,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                         _newBuilding.IsHot = _model.IsHot;
                         _newBuilding.IsExclusive = _model.IsExclusive;
                         _newBuilding.IsModerated = _model.IsModerated;
+                        _newBuilding.Description = _model.Description;
 
                         if (_model.Phones != null && _model.Phones.Count > 0)
                         {

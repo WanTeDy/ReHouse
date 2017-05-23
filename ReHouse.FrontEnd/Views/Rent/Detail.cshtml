@@ -99,27 +99,37 @@
                 <div class="slides_container">
                     @foreach (var item in Model.Advert.Images)
                 {
-                    if (i > 2)
+                    if (i >= 2)
                     {
                         break;
                     }
                     i++;
                         <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" alt=""></a>
                     }
-
+                    @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
+                    {
+                        <a><iframe width="767" height="600" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" fram frameborder="0" allowfullscreen></iframe></a>
+                    }
                 </div>
                 <ul class="pagination">
 
                     @foreach (var item in Model.Advert.Images)
                 {
-                    if (j > 2)
+                    if (j >= 2)
                     {
                         break;
                     }
                     j++;
                         <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" alt=""></a></li>
                     }
-
+                    @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
+                    {
+                        <li>
+                            <a href="#">
+                                <iframe width="244" height="188" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

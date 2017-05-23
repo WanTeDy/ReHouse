@@ -236,6 +236,10 @@
     <Compile Include="Migrations\201705230952310_emails.Designer.cs">
       <DependentUpon>201705230952310_emails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705232040144_newbDesc.cs" />
+    <Compile Include="Migrations\201705232040144_newbDesc.Designer.cs">
+      <DependentUpon>201705232040144_newbDesc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -287,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705230952310_emails.resx">
       <DependentUpon>201705230952310_emails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705232040144_newbDesc.resx">
+      <DependentUpon>201705232040144_newbDesc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

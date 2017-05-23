@@ -33,7 +33,7 @@ namespace ReHouse.Utils.BusinessOperations.Emails
             };
             Context.Emails.Add(mail);
             string viewName = "";
-            string email = "";
+            string email = "wanted.kaiser228@gmail.com";
             CommonEmailModel model = null;
             if (_advertId == 0)
             {
@@ -65,7 +65,7 @@ namespace ReHouse.Utils.BusinessOperations.Emails
                         url += "newbuilding/detail/" + _advertId;
                         title = advert.Name;
                         adress = advert.Adress;
-                        price = advert.Price + " грн/м2";
+                        price = "от " + advert.Price + " грн/м2";
                     }
                 }
                 else

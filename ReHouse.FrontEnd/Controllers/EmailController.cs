@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using SendGrid;
 using ReHouse.Utils.DataBase.Feedback;
 using ReHouse.Utils.Helpers;
+using ReHouse.Utils.BusinessOperations.Emails;
 
 namespace ReHouse.FrontEnd.Controllers
 {
@@ -36,13 +37,20 @@ namespace ReHouse.FrontEnd.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Index(UserEmailMessage model, int flat = 0, AdvertsType type = 0)
+        public ActionResult Index(EmailModel model, int advertId = 0, AdvertsType type = 0)
         {
-            ViewBag.AdvertId = flat;
+            ViewBag.AdvertId = advertId;
             ViewBag.Type = type;
             if (ModelState.IsValid)
             {
-                
+                var operation = new SendEmailOperation(new UserEmailMessage
+                {
+                    Message = model.Message,
+                    Phone = model.Phone,
+                    Username = model.FirstName
+                }, advertId, type);
+                operation.ExcecuteTransaction();
+                ViewBag.Success = true;
             }
             return PartialView("Partial/_emailPartial", model);
         }        

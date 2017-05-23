@@ -2046,14 +2046,14 @@ body {
 
 
 
-#application {
+#application, #emailForm {
     /*margin: 0 auto;*/
     width: 462px;
     margin-bottom: 285px;
     margin-left: 519px;
 }
 
-    #application h3 {
+    #application h3, #emailForm h3 {
         color: #ffffff;
         font-family: "Century Gothic";
         font-size: 24px;

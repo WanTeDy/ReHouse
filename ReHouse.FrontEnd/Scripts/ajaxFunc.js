@@ -7,6 +7,10 @@
             window.location.href = data.url;
         }
     }
+    function preEmailSended(data, resul, xhr) {
+        $("#emailForm .applicationButton").prop("disabled", true);
+    }
+    
     function RemindOnComplete(data, resul, xhr) {
         if (data.url) {
              window.location.href = data.url;

@@ -61,9 +61,7 @@ namespace ReHouse.Utils
         //public const String PathCarousel = "C:\\inetpub\\wwwroot\\images\\carousel";
         //public const String PathStocks = "C:\\inetpub\\wwwroot\\images\\stocks";
         //public const String PathAppManager = "C:\\inetpub\\wwwroot\\AppManager";
-        public const String Url = "http://www.rehouse-realty.com.ua/";
-        //public const String UrlStocks = "http://www.ReHouse.com.ua/images/stocks/";
-        //public const String UrlAppManager = "http://www.ReHouse.com.ua/AppManager/";
+        public const String Url = "http://rehouse-realty.com.ua/";
 
         //public const String BrainUrlForImages = "";
         //public const String ReHouseUrlForImages = "";
