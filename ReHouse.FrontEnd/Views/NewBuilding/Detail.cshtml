@@ -66,6 +66,7 @@
 {
     int i = 0;
     int j = 0;
+    int max = !String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl) ? 2 : 3;
     <span class="noprint">
 
         <div id="products_example">
@@ -73,7 +74,7 @@
                 <div class="slides_container">
                     @foreach (var item in Model.NewBuilding.Images)
                 {
-                    if (i >= 2)
+                    if (i >= max)
                     {
                         break;
                     }
@@ -90,7 +91,7 @@
 
                     @foreach (var item in Model.NewBuilding.Images)
                     {
-                        if (j >= 2)
+                        if (j >= max)
                         {
                             break;
                         }

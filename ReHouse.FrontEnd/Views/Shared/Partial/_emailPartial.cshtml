@@ -20,7 +20,7 @@
         <h3>Имя</h3>
         @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "Введите ваше имя", @id = "applicationName" })
         <div class="errortext">
-            @Html.ValidationMessageFor(model => model.Username, null, new { @class = "erroremail" })
+            @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "erroremail" })
         </div>
         @*<h3>Email</h3>
             @Html.TextBoxFor(x => x.Email, new { @placeholder = "Введите ваш Email", @id = "applicationEmail" })
