@@ -13,7 +13,7 @@ using ReHouse.Utils.BusinessOperations.Managers;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class ManagerController : Controller
+    public class ManagerController : BaseController
     {        
         public ActionResult Index()
         {            

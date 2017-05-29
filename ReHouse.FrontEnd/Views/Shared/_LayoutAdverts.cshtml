@@ -1,5 +1,6 @@
 ﻿@using ReHouse.FrontEnd.Helpers
 @using ReHouse.FrontEnd.Models
+@using ReHouse.Utils.DataBase.News
 
 <!DOCTYPE html>
 <html>
@@ -149,66 +150,68 @@
     </script>
 </head>
 <body>
-    <div class="container" id="container">
-        <span class="noprint">
+    <span class="noprint">
+        <div class="header">
+            <div class="container" id="container">
+                <span class="flex_header">
+                    <div class="logo">
+                        <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="350"></a>
+                        <p class="textlogo">Международная риэлторская инвестиционная компания</p>
+                    </div>
+                    <div class="search">
+                        <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
 
+                        @if (Session != null && Session["user"] is SessionModel)
+                        {
+                            var session = Session["user"] as SessionModel;
 
-            <div class="header">
+                            <div class="your_name">
+                                <div><p>Ваш логин:</p></div>
+                                @if (!String.IsNullOrEmpty(session.User.Login))
+                                {
+                                    <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
 
-                <div class="logo">
-                    <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="300"></a>
-                    <p class="textlogo">Международная риэлторская инвестиционная компания</p>
-                </div>
+                                }
+                                else
+                                {
+                                    <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Email</a></p></div>
+                                }
+                                <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
+                            </div>
+                        }
+                    </div>
 
-                <div class="search">
-                    <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
-
-                    @if (Session != null && Session["user"] is SessionModel)
-                    {
-                        var session = Session["user"] as SessionModel;
-
-                        <div class="your_name">
-                            <div><p>Ваш логин:</p></div>
-                            @if (!String.IsNullOrEmpty(session.User.Login))
-                            {
-                                <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
-
-                            }
-                            else
-                            {
-                                <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Email</a></p></div>
-                            }
-                            <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
+                    <div class="contactinfo">
+                        <div class="tel">
+                            <div class="imgtel">
+                                <img src="~/Content/images/tel.png">
+                            </div>
+                            <div class="number">
+                                <p>+38093 057 7110</p>
+                                <p>+38048 788 6707</p>
+                            </div>
                         </div>
-                    }
-                </div>
-
-                <div class="contactinfo">
-                    <div class="tel">
-                        <div class="imgtel">
-                            <img src="~/Content/images/tel.png">
-                        </div>
-                        <div class="number">
-                            <p>+38093 057 7110</p>
-                            <p>+38048 788 6707</p>
+                        <div class="social">
+                            <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                            <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                            <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                            <a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>
                         </div>
                     </div>
-                    <div class="social">
-                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                        <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                        <a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>
+
+                    <div class="feedback">
+                        <a href="~/cart/index" id="fav">Избранное</a>
+                        <a href="~/email/index" id="blink">Обратный звонок</a>
                     </div>
-                </div>
 
-                <div class="feedback">
-                    <a href="~/cart/index" id="fav">Избранное</a>
-                    <a href="~/email/index" id="blink">Обратный звонок</a>
-                </div>
-
+                </span>
             </div>
+        </div>
 
-            <div id="nav">
+
+
+        <div id="nav">
+            <div class="container" id="container">
                 <div class="navigation">
                     <ol>
                         <li>
@@ -244,9 +247,9 @@
                                 <li><a href="~/home/about">О компании</a></li>
                                 <li><a href="~/vacancy/">Вакансии агенства</a></li>
                             </ol>
+
+
                         </li>
-
-
 
                     </ol>
                 </div>
@@ -255,44 +258,50 @@
                     <a href="~/email/index" id="">Хочу продать!</a>
                 </div>
             </div>
-        </span>
+        </div>
+    </span>
+    <div class="container" id="container">
 
         @RenderBody()
-        @*<div class="news">
-            <h2>Новости</h2>
-            @foreach (var article in Model.Articles)
-            {
-                <div class="firstnews">
-                    <div class="img">
-                        @if (article.Images != null && article.Images.Count > 0)
+        @if (ViewBag.Articles != null && ViewBag.NotShowNews == null)
+        {
+            <div class="news">
+                <h2>Новости</h2>
+                @foreach (Article article in ViewBag.Articles)
                 {
-                            <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" width="440" height="263" />
-                        }
-                        else
-                        {
-                            <img src="~/Content/images/news1.jpg" width="440" height="263">
-                        }
+                    <div class="firstnews">
+                        <div class="img">
+                            @if (article.Images != null && article.Images.Count > 0)
+                            {
+                                <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" width="440" height="263" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/images/news1.jpg" width="440" height="263">
+                            }
+                        </div>
+                        <div class="content1">
+                            <h3>@article.Title</h3>
+                            @if (@article.Description.Length > 750)
+                            {
+                                <p id="news_@article.Id">@article.Description.Substring(0, 749) ...</p>
+                            }
+                            else
+                            {
+                                <p>@article.Description</p>
+                            }
+                            <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
+                            <a href="/news/detail/@article.Id" @*onclick="showDetails(@article.Id, this);"*@ id="more">Подробнее</a>
+                            @*<p id="newsHidden_@article.Id" style="display:none">@article.Description</p>*@
+                        </div>
                     </div>
-                    <div class="content1">
-                        <h3>@article.Title</h3>
-                        @if (@article.Description.Length > 750)
-                {
-                            <p id="news_@article.Id">@article.Description.Substring(0, 749) ...</p>
-                        }
-                        else
-                        {
-                            <p>@article.Description</p>
-                        }
-                        <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
-                        <a href="/news/detail/@article.Id" id="more">Подробнее</a>
-                    </div>
-                </div>
-            }
+                }
 
-            <div class="morenews">
-                <a href="~/news/index" id="more">Все новости</a>
+                <div class="morenews">
+                    <a href="~/news/index" id="more">Все новости</a>
+                </div>
             </div>
-        </div>*@
+        }
         <span class="noprint">
             <div class="footer">
                 <div id="toTop"></div>

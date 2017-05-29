@@ -18,7 +18,7 @@ using ReHouse.Utils.BusinessOperations;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {            
@@ -38,7 +38,7 @@ namespace ReHouse.FrontEnd.Controllers
                 FlatSaleAdverts = operation._flatSaleAdverts,
                 HouseSaleAdverts = operation._houseSaleAdverts,
                 NewBuildingAdverts = operation._newBuildingAdverts,
-                Articles = operation._articles,
+                //Articles = operation._articles,
             };
             return View(model);
         }

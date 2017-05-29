@@ -25,7 +25,7 @@ using ReHouse.Utils.BusinessOperations.Emails;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class EmailController : Controller
+    public class EmailController : BaseController
     {
         public ActionResult Index(int flat = 0, AdvertsType type = 0)
         {

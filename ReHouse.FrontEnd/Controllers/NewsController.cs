@@ -17,7 +17,7 @@ using ReHouse.Utils;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseController
     {        
         public ActionResult Index()
         {            
@@ -26,7 +26,8 @@ namespace ReHouse.FrontEnd.Controllers
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
             var operation = new LoadArticlesOperation(tokenHash, 1, ConstV.ItemsPerPage);
-            operation.ExcecuteTransaction();            
+            operation.ExcecuteTransaction();
+            ViewBag.NotShowNews = true;     
             return View(operation._articles);
         }
 
@@ -44,7 +45,9 @@ namespace ReHouse.FrontEnd.Controllers
             operation.ExcecuteTransaction();
             if (operation._article == null)
                 return HttpNotFound();
-            
+            ViewBag.NotShowNews = true;
+
+
             return View(operation._article);
         }
 

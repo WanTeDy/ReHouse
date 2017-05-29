@@ -238,6 +238,7 @@
     <Compile Include="Areas\Cabinet\Controllers\NewBuildingController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\SaleController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\RentController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -315,6 +316,10 @@
     <Content Include="Content\fancybox\jquery.easing.1.3.js" />
     <Content Include="Content\fancybox\jquery.fancybox-1.2.1.pack.js" />
     <Content Include="Content\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\2.png" />
+    <Content Include="Content\images\3.png" />
+    <Content Include="Content\images\4.png" />
     <Content Include="Content\images\adverts\images\253_131371478043202070.jpg" />
     <Content Include="Content\images\adverts\images\img_1514_131350239275052451_131371146148607426.jpg" />
     <Content Include="Content\images\adverts\images\img_1526_131350239286771210_131371146158918819.jpg" />
@@ -594,6 +599,7 @@
     <Folder Include="Areas\Cabinet\Views\Authorize\" />
     <Folder Include="Areas\Cabinet\Views\Image\" />
     <Folder Include="Content\images\newBuildings\plans\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

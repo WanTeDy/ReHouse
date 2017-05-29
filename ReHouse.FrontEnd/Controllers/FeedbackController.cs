@@ -18,7 +18,7 @@ using System.Threading;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class FeedbackController : Controller
+    public class FeedbackController : BaseController
     {        
         public ActionResult Index()
         {                  

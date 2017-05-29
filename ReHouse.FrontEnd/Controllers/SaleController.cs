@@ -21,7 +21,7 @@ using Newtonsoft.Json;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class SaleController : Controller
+    public class SaleController : BaseController
     {
         [HttpGet]
         public ActionResult Flat(int? id)

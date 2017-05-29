@@ -18,7 +18,7 @@ using System.Threading;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class VacancyController : Controller
+    public class VacancyController : BaseController
     {        
         public ActionResult Index()
         {                  

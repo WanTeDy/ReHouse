@@ -16,7 +16,7 @@ using ReHouse.FrontEnd.Models;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class MapController : Controller
+    public class MapController : BaseController
     {        
         public ActionResult Index()
         {            

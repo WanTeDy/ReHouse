@@ -17,7 +17,7 @@ using ReHouse.FrontEnd.Models;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class CartController : Controller
+    public class CartController : BaseController
     {
         public ActionResult Index()
         {

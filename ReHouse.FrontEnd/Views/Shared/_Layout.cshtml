@@ -1,5 +1,6 @@
 ﻿@using ReHouse.FrontEnd.Helpers
 @using ReHouse.FrontEnd.Models
+@using ReHouse.Utils.DataBase.News
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +46,6 @@
     @Scripts.Render("~/bundles/jcarouselLite")
 
     <!-- Alert при закрытии -->
-    
     <!-- <script>
         $(window).on('beforeunload', function(){ return 'Вы уверены, что хотите покинуть страницу?сука'; });
     </script> -->
@@ -95,123 +95,129 @@
     </script>
 </head>
 <body>
+    <div class="header">
+        <div class="container" id="container">
+            <span class="flex_header">
+                <div class="logo">
+                    <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="350"></a>
+                    <p class="textlogo">Международная риэлторская инвестиционная компания</p>
+                </div>
+                <div class="search">
+                    <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
+
+                    @if (Session != null && Session["user"] is SessionModel)
+                    {
+                        var session = Session["user"] as SessionModel;
+
+                        <div class="your_name">
+                            <div><p>Ваш логин:</p></div>
+                            @if (!String.IsNullOrEmpty(session.User.Login))
+                            {
+                                <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
+
+                            }
+                            else
+                            {
+                                <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Email</a></p></div>
+                            }
+                            <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
+                        </div>
+                    }
+                </div>
+
+                <div class="contactinfo">
+                    <div class="tel">
+                        <div class="imgtel">
+                            <img src="~/Content/images/tel.png">
+                        </div>
+                        <div class="number">
+                            <p>+38093 057 7110</p>
+                            <p>+38048 788 6707</p>
+                        </div>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                        <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                        <a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>
+                    </div>
+                </div>
+
+                <div class="feedback">
+                    <a href="~/cart/index" id="fav">Избранное</a>
+                    <a href="~/email/index" id="blink">Обратный звонок</a>
+                </div>
+
+            </span>
+        </div>
+    </div>
+
+
+
+    <div id="nav">
+        <div class="container" id="container">
+            <div class="navigation">
+                <ol>
+                    <li>
+                        <a id="">Продажа</a>
+                        <ol>
+                            @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
+                                <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
+                                <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
+                                <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
+                            <li><a href="~/sale/flat">Купить квартиру</a></li>
+                            <li><a href="~/sale/house">Купить дом</a></li>
+                            <li><a href="~/sale/homestead">Купить участок</a></li>
+                            <li><a href="~/sale/commerce">Купить коммерцию</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#" id="">Аренда</a>
+                        <ol>
+                            @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
+                            @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
+                            @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
+                            <li><a href="~/rent/flat">Снять квартиру</a></li>
+                            <li><a href="~/rent/house">Снять дом</a></li>
+                            @*<li><a href="~/rent/homestead">Снять участок</a></li>*@
+                            <li><a href="~/rent/commerce">Снять коммерцию</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="~/newbuilding/">Новострои</a></li>
+                    <li><a href="~/manager/" id="">Менеджеры</a></li>
+                    <li>
+                        <a href="#" id="">О нас</a>
+                        <ol>
+                            <li><a href="~/home/about">О компании</a></li>
+                            <li><a href="~/vacancy/">Вакансии агенства</a></li>
+                        </ol>
+
+
+                    </li>
+
+                </ol>
+            </div>
+
+            <div class="sell">
+                <a href="~/email/index" id="">Хочу продать!</a>
+            </div>
+        </div>
+    </div>
     <div class="container" id="container">
 
         <div id="slidebox">
+
             <div class="textinslider">
-                <div class="header">
-
-                    <div class="logo">
-                        <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="300"></a>
-                        <p class="textlogo">Международная риэлторская инвестиционная компания</p>
-                    </div>
-
-                    <div class="search">
-                        <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
-
-                        @if (Session != null && Session["user"] is SessionModel)
-                        {
-                            var session = Session["user"] as SessionModel;
-
-                            <div class="your_name">
-                                <div><p>Ваш логин:</p></div>
-                                @if (!String.IsNullOrEmpty(session.User.Login))
-                                {
-                                    <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
-
-                                }
-                                else
-                                {
-                                    <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Email</a></p></div>
-                                }
-                                <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
-                            </div>
-                        }
-                    </div>
-
-                    <div class="contactinfo">
-                        <div class="tel">
-                            <div class="imgtel">
-                                <img src="~/Content/images/tel.png">
-                            </div>
-                            <div class="number">
-                                <p>+38093 057 7110</p>
-                                <p>+38048 788 6707</p>
-                            </div>
-                        </div>
-                        <div class="social">
-                            <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                            <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                            <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                            <a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>
-                        </div>
-                    </div>
-
-                    <div class="feedback">
-                        <a href="~/cart/index" id="fav">Избранное</a>
-                        <a href="~/email/index" id="blink">Обратный звонок</a>
-                    </div>
-
-                </div>
-
-                <div id="nav">
-                    <div class="navigation">
-                        <ol>
-                            <li>
-                                <a id="">Продажа</a>
-                                <ol>
-                                    @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
-                                        <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
-                                        <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
-                                        <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
-                                    <li><a href="~/sale/flat">Купить квартиру</a></li>
-                                    <li><a href="~/sale/house">Купить дом</a></li>
-                                    <li><a href="~/sale/homestead">Купить участок</a></li>
-                                    <li><a href="~/sale/commerce">Купить коммерцию</a></li>
-                                </ol>
-                            </li>
-                            <li>
-                                <a href="#" id="">Аренда</a>
-                                <ol>
-                                    @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
-                                    @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
-                                    @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
-                                    <li><a href="~/rent/flat">Снять квартиру</a></li>
-                                    <li><a href="~/rent/house">Снять дом</a></li>
-                                    @*<li><a href="~/rent/homestead">Снять участок</a></li>*@
-                                    <li><a href="~/rent/commerce">Снять коммерцию</a></li>
-                                </ol>
-                            </li>                            
-                            <li><a href="~/newbuilding/">Новострои</a></li>
-                            <li><a href="~/manager/" id="">Менеджеры</a></li>
-                            <li>
-                                <a href="#" id="">О нас</a>
-                                <ol>
-                                    <li><a href="~/home/about">О компании</a></li>
-                                    <li><a href="~/vacancy/">Вакансии агенства</a></li>
-                                </ol>
-
-
-                            </li>
-                            
-                        </ol>
-                    </div>
-
-                    <div class="sell">
-                        <a href="~/email/index" id="">Хочу продать!</a>
-                    </div>
-                </div>
-
                 <div class="h1">
-                    <h1>REHOUSE</h1>
+                    @*<h1>REHOUSE</h1>*@
                 </div>
 
 
                 <div class="h2">
-                    <h2>Ваш дом - наш успех</h2>
+       @*             <h2>Ваш дом - наш успех</h2>*@
                 </div>
                 <div class="knowmore">
-                    <a href="~/home/about">Узнать больше</a>
+                    <a href="~/newbuilding">Подробнее</a>
                 </div>
             </div>
             <div class="next"></div>
@@ -223,14 +229,53 @@
                 <a href="#" onclick="" class="4" id="d"></a> <!-- ◯ -->
             </div>
             <ul class="listofimg">
-                <li><img src="~/Content/images/1.jpg" width="1500px" height="570px"></li>
-                <li><img src="~/Content/images/2.jpg" width="1500px" height="570px"></li>
-                <li><img src="~/Content/images/3.jpg" width="1500px" height="570px"></li>
-                <li><img src="~/Content/images/4.jpg" width="1500px" height="570px"></li>
+                <li><img src="~/Content/images/1.png" width="1500px" height="380px"></li>
+                <li><img src="~/Content/images/2.png" width="1500px" height="380px"></li>
+                <li><img src="~/Content/images/3.png" width="1500px" height="380px"></li>
+                <li><img src="~/Content/images/4.png" width="1500px" height="380px"></li>
             </ul>
         </div>
         @RenderBody()
 
+        @if (ViewBag.Articles != null)
+        {
+            <div class="news">
+                <h2>Новости</h2>
+                @foreach (Article article in ViewBag.Articles)
+                {
+                    <div class="firstnews">
+                        <div class="img">
+                            @if (article.Images != null && article.Images.Count > 0)
+                            {
+                                <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" width="440" height="263" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/images/news1.jpg" width="440" height="263">
+                            }
+                        </div>
+                        <div class="content1">
+                            <h3>@article.Title</h3>
+                            @if (@article.Description.Length > 750)
+                            {
+                                <p id="news_@article.Id">@article.Description.Substring(0, 749) ...</p>
+                            }
+                            else
+                            {
+                                <p>@article.Description</p>
+                            }
+                            <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
+                            <a href="/news/detail/@article.Id" @*onclick="showDetails(@article.Id, this);"*@ id="more">Подробнее</a>
+                            @*<p id="newsHidden_@article.Id" style="display:none">@article.Description</p>*@
+                        </div>
+                    </div>
+                }
+
+                <div class="morenews">
+                    <a href="~/news/index" id="more">Все новости</a>
+                </div>
+            </div>
+        }
         <div class="footer">
             <div id="toTop"></div>
             <div class="social">
@@ -279,4 +324,5 @@
         $(document).foundation('dropdown', 'reflow');
     </script>
 </body>
+
 </html>

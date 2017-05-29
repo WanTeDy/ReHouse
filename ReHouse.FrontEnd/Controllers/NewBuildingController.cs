@@ -19,7 +19,7 @@ using ReHouse.FrontEnd.Models;
 
 namespace ReHouse.FrontEnd.Controllers
 {
-    public class NewBuildingController : Controller
+    public class NewBuildingController : BaseController
     {
         [HttpGet]
         public ActionResult Index()

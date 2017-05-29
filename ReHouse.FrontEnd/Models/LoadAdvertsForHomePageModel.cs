@@ -13,6 +13,6 @@ namespace ReHouse.FrontEnd.Models
         public List<Advert> FlatSaleAdverts { get; set; }
         public List<Advert> HouseSaleAdverts { get; set; }
         public List<NewBuilding> NewBuildingAdverts { get; set; }
-        public List<Article> Articles { get; set; }
+        //public List<Article> Articles { get; set; }
     }
 }
