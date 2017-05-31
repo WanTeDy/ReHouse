@@ -12,20 +12,22 @@ namespace ReHouse.Utils.BusinessOperations.Building
         private Int32 _page { get; set; }
         private Int32 _count { get; set; }
         private Int32 _districtId { get; set; }
-        private Int32 _priceId { get; set; }
+        private Int32 _priceMin { get; set; }
+        private Int32 _priceMax { get; set; }
         private Int32 _builderId { get; set; }
         private Int32 _expluatationDateId { get; set; }
         private Int32 _userId { get; set; }
         private Boolean _isAdmin { get; set; }
         public List<NewBuilding> _newBuildings { get; set; }
 
-        public LoadNewBuildingsOperation(string tokenHash, int page, int count, int districtId, int priceId, int builderId, int expluatationDateId, int userId, bool isAdmin = false)
+        public LoadNewBuildingsOperation(string tokenHash, int page, int count, int districtId, int priceMin, int priceMax, int builderId, int expluatationDateId, int userId, bool isAdmin = false)
         {
             _tokenHash = tokenHash;
             _page = page;
             _count = count;
             _districtId = districtId;
-            _priceId = priceId;
+            _priceMin = priceMin;
+            _priceMax = priceMax;
             _builderId = builderId;
             _expluatationDateId = expluatationDateId;
             _userId = userId;
@@ -61,13 +63,14 @@ namespace ReHouse.Utils.BusinessOperations.Building
             {
                 _newBuildings = _newBuildings.Where(x => x.DistrictId == _districtId).ToList();
             }
-            if (_priceId != 0)
+            if (_priceMin != 0 || _priceMax != 0)
             {
-                var priceFilter = Context.PriceFilters.FirstOrDefault(x => !x.Deleted && x.Id == _priceId && x.AdvertType == Helpers.AdvertsType.NewBuilding);
-                if (priceFilter != null)
-                {
-                    _newBuildings = _newBuildings.Where(x => x.Price >= priceFilter.Min && x.Price < priceFilter.Max).ToList();
-                }
+                //var priceFilter = Context.PriceFilters.FirstOrDefault(x => !x.Deleted && x.Id == _priceMin && x.AdvertType == Helpers.AdvertsType.NewBuilding);
+                //if (priceFilter != null)
+                //{
+                //    _newBuildings = _newBuildings.Where(x => x.Price >= priceFilter.Min && x.Price < priceFilter.Max).ToList();
+                //}
+                _newBuildings = _newBuildings.Where(x => x.Price >= _priceMin && x.Price <= _priceMax).ToList();
             }
             if (_builderId != 0)
             {
@@ -77,7 +80,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
             {
                 _newBuildings = _newBuildings.Where(x => x.ExpluatationDateId == _expluatationDateId).ToList();
             }
-            if(_isAdmin)
+            if (_isAdmin)
                 _newBuildings = _newBuildings.OrderBy(x => x.IsModerated).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
             else
                 _newBuildings = _newBuildings.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();

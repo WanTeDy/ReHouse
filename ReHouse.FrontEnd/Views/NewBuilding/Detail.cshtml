@@ -28,24 +28,27 @@
     </script>
 }
 <span class="noprint">
-    <div class="navigation_string">
-        <div class="way">
-            @Html.ActionLink("Главная", "index", "home")
-            <pre> </pre>
-            <p>/</p>
-            <pre> </pre>
-            @Html.ActionLink("Новострои", "index", "newbuilding")
-            <pre> </pre>
-            <p>/</p>
-            <pre> </pre>
-            @Html.ActionLink(Model.NewBuilding.Name, "detail", "newbuilding", new { id = Model.NewBuilding.Id })
+    <span class="none">
+        <div class="navigation_string">
+            <div class="way">
+                @Html.ActionLink("Главная", "index", "home")
+                <pre> </pre>
+                <p>/</p>
+                <pre> </pre>
+                @Html.ActionLink("Новострои", "index", "newbuilding")
+                <pre> </pre>
+                <p>/</p>
+                <pre> </pre>
+                @Html.ActionLink(Model.NewBuilding.Name, "detail", "newbuilding", new { id = Model.NewBuilding.Id })
+            </div>
         </div>
-    </div>
+    </span>
 </span>
 <div class="h2novostroy">
     <h2>@Model.NewBuilding.Name</h2>
     <div class="favorite">
         <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true, this);" id="favorite">Добавить в избранное</a>
+        <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true, this);" id="fav2"></a>
     </div>
     <div class="favorite1">
         <a href="~/email/index?flat=@(Model.NewBuilding.Id)&type=@((int)AdvertsType.NewBuilding)" id="favorite">Подать заявку</a>
@@ -119,7 +122,7 @@
         </a>
     </div>
     <div class="h2sale"><h2>Описание</h2></div>
-    
+
     <p class="text">@Model.NewBuilding.Description</p>
 </div>
 <div class="table_of_prod">
@@ -223,9 +226,13 @@
     <div id="mapnovostroy_prod">
         <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1054px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
+    <div id="mapnovostroy1">
+        <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <span class="none">
 
-
-    <div class="h2novostroy"><h2>Другие Новостройки</h2></div>
+        <div class="h2novostroy"><h2>Другие Новостройки</h2></div>
+    </span>
     <div class="othernovostroy">
         <ul class="prods" id="data-container">
             @if (Model.OtherNewBuildings.Count > 0)

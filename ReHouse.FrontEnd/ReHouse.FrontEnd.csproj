@@ -344,6 +344,7 @@
     <Content Include="Content\images\like_hover.png" />
     <Content Include="Content\images\load.gif" />
     <Content Include="Content\images\loaded\avatars\www_131372913375655779.jpg" />
+    <Content Include="Content\images\logomobile.png" />
     <Content Include="Content\images\pechat.png" />
     <Content Include="Content\images\watermark.png" />
     <Content Include="Content\images\logout.png" />
@@ -376,6 +377,7 @@
     <Content Include="Content\images\youtube.png" />
     <Content Include="Content\images\youtube_hover.png" />
     <Content Include="Content\minslider.css" />
+    <Content Include="Content\mobile.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style\images\bg.png" />

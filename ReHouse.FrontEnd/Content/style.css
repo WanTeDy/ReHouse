@@ -20,11 +20,15 @@ body {
     }
 
 .container {
-    min-width: 1500px;
+    /*min-width: 1500px;*/
     max-width: 1500px;
     margin: 0 auto;
     position: relative;
 }
+
+.header_mobile {
+ 	display: none;
+ }
 
 #slidebox {
     position: relative;
@@ -1472,6 +1476,10 @@ body {
     padding-left: 5px;
 }
 
+.selection ._cost select {
+     width: 120px;
+ }
+
     .selection select option {
         background-color: #163d7d;
         color: #ffffff;
@@ -2643,3 +2651,16 @@ body {
 .seotext3 {
     position: relative;
 }
+
+.favprod {
+ 	height: cover;
+ }
+
+#mapnovostroy1 {
+	display: none;
+}
+
+#fav2 {
+	display: none;
+} 
+

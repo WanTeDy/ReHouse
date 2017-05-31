@@ -9,7 +9,9 @@ namespace ReHouse.FrontEnd.Models
     {
         public Int32 DistrictId { get; set; }
         
-        public Int32 Price { get; set; }
+        public Int32 PriceMin { get; set; }
+
+        public Int32 PriceMax { get; set; }
         
         public Int32 CategoryId { get; set; }
 

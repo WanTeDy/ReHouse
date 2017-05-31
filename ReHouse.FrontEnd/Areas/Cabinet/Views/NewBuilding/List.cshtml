@@ -75,14 +75,16 @@
         $('#button-more').click(function () {
 
             var districtID = $('#district').val(),
-                    price = $('#price').val(),
+                    priceMin = $('#price').val(),
+                    priceMax = $('#price_max').val(),
                     builderId = $('#builder').val(),
                     expluatationId = $('#date').val(),
                     managerId = $('#managers').val(),
                     isOnlyUser = $('#isonlyuser').val();
             var obj = {
                 "DistrictId": districtID,
-                "Price": price,
+                "PriceMin": priceMin,
+                "PriceMax": priceMax,
                 "BuilderId": builderId,
                 "ExpluatationDateId": expluatationId,
                 "UserId": managerId,
@@ -94,7 +96,8 @@
 
         $('#search').click(function () {
             var districtID = $('#district').val(),
-                    price = $('#price').val(),
+                    priceMin = $('#price').val(),
+                    priceMax = $('#price_max').val(),
                     builderId = $('#builder').val(),
                     expluatationId = $('#date').val(),
                     managerId = $('#managers').val(),
@@ -102,7 +105,8 @@
 
             var obj = {
                 "DistrictId": districtID,
-                "Price": price,
+                "PriceMin": priceMin,
+                "PriceMax": priceMax,
                 "BuilderId": builderId,
                 "ExpluatationDateId": expluatationId,
                 "UserId": managerId,

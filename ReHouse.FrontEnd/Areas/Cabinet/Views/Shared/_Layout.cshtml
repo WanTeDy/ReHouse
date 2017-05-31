@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/mobile.css">
     @if (!String.IsNullOrEmpty(ViewBag.Title))
     {
         <title>@ViewBag.Title</title>
@@ -166,6 +167,65 @@
             <div class="sell">
                 <a href="~/email/index" id="">Хочу продать!</a>
             </div>
+        </div>
+    </div>
+    <div class="header_mobile">
+        <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+        <label class="btn-menu" for="hmt">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+        </label>
+        <ul class="hidden-menu">
+            <li class="bgh"><a href="" class="bold">Продажа</a></li>
+            <ol>
+                <li><a href="~/sale/flat">Купить квартиру</a></li>
+                <li><a href="~/sale/house">Купить дом</a></li>
+                <li><a href="~/sale/homestead">Купить участок</a></li>
+                <li><a href="~/sale/commerce">Купить коммерцию</a></li>
+            </ol>
+            <br>
+            <li class="bgh"><a href="" class="bold">Аренда</a></li>
+            <ol>
+                <li><a href="~/rent/flat">Снять квартиру</a></li>
+                <li><a href="~/rent/house">Снять дом</a></li>
+                @*<li><a href="~/rent/homestead">Снять участок</a></li>*@
+                <li><a href="~/rent/commerce">Снять коммерцию</a></li>
+            </ol>
+            <br>
+            <li class="bgh"><a href="~/newbuilding/" class="bold">Новострои</a></li>
+            <br>
+            <li class="bgh"><a href="~/manager/" class="bold">Менеджеры</a></li>
+            <br>
+            <li class="bgh"><a href="" class="bold">О нас</a></li>
+            <ol>
+                <li><a href="~/home/about">О компании</a></li>
+                <li><a href="~/vacancy/">Вакансии агенства</a></li>
+            </ol>
+        </ul>
+        <div class="header">
+            <div class="logo">
+                <a href="~/home" id=""><img src="~/Content/images/logomobile.png"></a>
+            </div>
+            <div class="contactinfo">
+                <div class="feedback">
+                    <a href="~/email/index" id="blink1"></a>
+                    <a href="~/cart/index" id="fav1"></a>
+                </div>
+
+                <div class="tel">
+                    <div class="imgtel">
+                        <img src="~/Content/images/tel.png">
+                    </div>
+                    <div class="number">
+                        <p>+38093 057 7110</p>
+                        <p>+38048 788 6707</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search">
+            <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
         </div>
     </div>
     <div class="container" id="container">

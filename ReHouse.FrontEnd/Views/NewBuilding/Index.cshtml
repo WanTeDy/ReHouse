@@ -1,15 +1,16 @@
 ﻿@using ReHouse.FrontEnd.Models
 @model LoadNewBuildingsModel
-
-<div class="navigation_string">
-    <div class="way">
-        @Html.ActionLink("Главная", "index", "home")
-        <pre> </pre>
-        <p>/</p>
-        <pre> </pre>
-        @Html.ActionLink("Новострои", "index", "newbuilding")
+<span class="none">
+    <div class="navigation_string">
+        <div class="way">
+            @Html.ActionLink("Главная", "index", "home")
+            <pre> </pre>
+            <p>/</p>
+            <pre> </pre>
+            @Html.ActionLink("Новострои", "index", "newbuilding")
+        </div>
     </div>
-</div>
+</span>
 <div class="h2novostroy"><h2>Новострои</h2></div>
 <div class="selection">
     <div class="region">
@@ -28,10 +29,11 @@
 
     <div class="_cost">
         <select id="price">
-            <option selected value="0">Цена за м²</option>
+            @*<option selected value="0">Цена за м² от</option>*@
             @for (int i = 0; i < Model.Prices.Count; i++)
             {
-                if (i == 0)
+                <option value="@Model.Prices[i].Min">от @Model.Prices[i].Min грн/м²</option>
+                @*if (i == 0)
                 {
                     <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн</option>
                 }
@@ -42,7 +44,26 @@
                 else
                 {
                     <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн</option>
+                }*@
+            }
+        </select>
+        <select id="price_max">
+            @*<option selected value="0">Цена за м² до</option>*@
+            @for (int i = 0; i < Model.Prices.Count; i++)
+            {
+                <option value="@Model.Prices[i].Min">до @Model.Prices[i].Min грн/м²</option>
+                @*if (i == 0)
+                {
+                    <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн</option>
                 }
+                else if (i == Model.Prices.Count - 1)
+                {
+                    <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн</option>
+                }
+                else
+                {
+                    <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн</option>
+                }*@
             }
         </select>
     </div>
@@ -74,6 +95,7 @@
 
 @if (!ViewBag.NoElements)
 {
+    <div class="h2novostroy"><h2>Новые объявления</h2></div>
     <div class="products">
         <ul class="prods" id="data-container">
             @Html.Partial("NewB/_listOfNewBuildings", Model.NewBuildings);
@@ -82,46 +104,50 @@
             <a id="more">Больше объявлений</a>
         </div>
     </div>
-    <div id="loading-div">
-    </div>
+        <div id="loading-div">
+        </div>
 }
-@*<div id="mapnovostroy">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="1065px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
-</div>*@
-<div class="seotext">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</p>
-</div>
+        @*<div id="mapnovostroy">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="1065px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>*@
+        <div class="seotext">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</p>
+        </div>
 
-<script>
-    var url = "./Index/";    
-    $('#button-more').click(function () {
+        <script>
+            var url = "./Index/";
+            $('#button-more').click(function () {
 
-        var districtID = $('#district').val(),
-                price = $('#price').val(),
-                builderId = $('#builder').val(),
-                expluatationId = $('#date').val();
-        var obj = {
-            "DistrictId": districtID,
-            "Price": price,
-            "BuilderId": builderId,
-            "ExpluatationDateId": expluatationId
-        }
+                var districtID = $('#district').val(),
+                        priceMin = $('#price').val(),
+                        priceMax = $('#price_max').val(),
+                        builderId = $('#builder').val(),
+                        expluatationId = $('#date').val();
+                var obj = {
+                    "DistrictId": districtID,
+                    "PriceMin": priceMin,
+                    "PriceMax": priceMax,
+                    "BuilderId": builderId,
+                    "ExpluatationDateId": expluatationId
+                }
 
-        lazyload(obj, url, false);
-    });
+                lazyload(obj, url, false);
+            });
 
-    $('#search').click(function () {
-        var districtID = $('#district').val(),
-                price = $('#price').val(),
-                builderId = $('#builder').val(),
-                expluatationId = $('#date').val();
-        var obj = {
-            "DistrictId": districtID,
-            "Price": price,
-            "BuilderId": builderId,
-            "ExpluatationDateId": expluatationId
-        }
+            $('#search').click(function () {
+                var districtID = $('#district').val(),
+                        priceMin = $('#price').val(),
+                        priceMax = $('#price_max').val(),
+                        builderId = $('#builder').val(),
+                        expluatationId = $('#date').val();
+                var obj = {
+                    "DistrictId": districtID,
+                    "PriceMin": priceMin,
+                    "PriceMax": priceMax,
+                    "BuilderId": builderId,
+                    "ExpluatationDateId": expluatationId
+                }
 
-        lazyload(obj, url, true);
-    });
-</script>
+                lazyload(obj, url, true);
+            });
+        </script>

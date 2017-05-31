@@ -15,7 +15,8 @@ namespace ReHouse.Utils.BusinessOperations.Flat
         private Int32 _page { get; set; }
         private Int32 _count { get; set; }
         private Int32 _districtId { get; set; }
-        private Int32 _priceId { get; set; }
+        private Int32 _priceMin { get; set; }
+        private Int32 _priceMax { get; set; }
         private Int32 _trimConditionId { get; set; }
         private Int32 _userId { get; set; }
         private Int32 _categoryId { get; set; }
@@ -26,14 +27,15 @@ namespace ReHouse.Utils.BusinessOperations.Flat
         public Category _category { get; set; }
         public List<Advert> _adverts { get; set; }
 
-        public LoadFlatsOperation(string tokenHash, int page, int count, int districtId, int priceId,
+        public LoadFlatsOperation(string tokenHash, int page, int count, int districtId, int priceMin, int priceMax,
             int trimConditionId, int userId, int categoryId, AdvertsType advertsType, bool IsOnlyHot, /*bool IsOnlyUser = false,*/ bool IsAdmin = false)
         {
             _tokenHash = tokenHash;
             _page = page;
             _count = count;
             _districtId = districtId;
-            _priceId = priceId;
+            _priceMin = priceMin;
+            _priceMax = priceMax;
             _trimConditionId = trimConditionId;
             _categoryId = categoryId;
             _advertsType = advertsType;
@@ -79,13 +81,14 @@ namespace ReHouse.Utils.BusinessOperations.Flat
             {
                 _adverts = _adverts.Where(x => x.DistrictId == _districtId).ToList();
             }
-            if (_priceId != 0)
+            if (_priceMin != 0 || _priceMax != 0)
             {
-                var priceFilter = Context.PriceFilters.FirstOrDefault(x => !x.Deleted && x.Id == _priceId);
-                if (priceFilter != null)
-                {
-                    _adverts = _adverts.Where(x => x.Price >= priceFilter.Min && x.Price < priceFilter.Max).ToList();
-                }
+                //var priceFilter = Context.PriceFilters.FirstOrDefault(x => !x.Deleted && x.Id == _priceMin);
+                //if (priceFilter != null)
+                //{
+                //    _adverts = _adverts.Where(x => x.Price >= priceFilter.Min && x.Price < priceFilter.Max).ToList();
+                //}
+                _adverts = _adverts.Where(x => x.Price >= _priceMin && x.Price <= _priceMax).ToList();
             }
             if (_trimConditionId != 0)
             {

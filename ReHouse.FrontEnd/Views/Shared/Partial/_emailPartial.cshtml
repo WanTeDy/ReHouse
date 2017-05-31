@@ -33,7 +33,7 @@
                 @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "erroremail" })
             </div>
             <h3>Сообщение</h3>
-            <p>@Html.TextAreaFor(x => x.Message, new { @placeholder = "Введите ваше сообщение", @rows = 10, @cols = 45, @id = "applicationText" })</p>
+            <p>@Html.TextAreaFor(x => x.Message, new { @placeholder = "Введите ваше сообщение", @rows = 3, @cols = 36, @id = "applicationText" })</p>
             <div class="errortext">
                 @Html.ValidationMessageFor(model => model.Message, null, new { @class = "erroremail" })
             </div>

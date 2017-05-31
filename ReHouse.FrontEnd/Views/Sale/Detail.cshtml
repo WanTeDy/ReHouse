@@ -28,20 +28,21 @@
     </script>
 }
 <span class="noprint">
+    <span class="none">
 
-    <div class="navigation_string">
-        <div class="way">
-            @Html.ActionLink("Главная", "Index", "Home")
-            <pre> </pre>
-            <p>/</p>
-            <pre> </pre>
+        <div class="navigation_string">
+            <div class="way">
+                @Html.ActionLink("Главная", "Index", "Home")
+                <pre> </pre>
+                <p>/</p>
+                <pre> </pre>
 
-            @{ string action = "", desc = "", pricePerSquere = ""; }
-            @if (Model.Square > 0)
+                @{ string action = "", desc = "", pricePerSquere = ""; }
+                @if (Model.Square > 0)
             {
                 pricePerSquere = Model.Advert.Price / Model.Square + " $ за м²";
             }
-            @switch (Model.Advert.Category.ParentId)
+                @switch (Model.Advert.Category.ParentId)
             {
                 case (int)ParrentCategories.Flat:
                     desc = "Купить квартиру";
@@ -61,19 +62,21 @@
                     break;
             }
 
-            @Html.ActionLink(desc, action, "sale")
-            <pre> </pre>
-            <p>/</p>
-            <pre> </pre>
-            <a href="~/sale/@action/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+                @Html.ActionLink(desc, action, "sale")
+                <pre> </pre>
+                <p>/</p>
+                <pre> </pre>
+                <a href="~/sale/@action/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+            </div>
         </div>
-    </div>
+    </span>
 </span>
 <div class="h2novostroy">
     @*<h2>Продам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>*@
     <h2>@Model.Advert.TitleName, @Model.Advert.Street</h2>
     <div class="favorite">
         <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
+        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="fav2"></a>
     </div>
     <div class="favorite1">
         <a href="~/email/index" id="favorite">Подать заявку</a>
@@ -210,16 +213,18 @@
     @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
     {
 
-        <div class="video-youtube">
-            <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-        </div>
+        @*<div class="video-youtube">
+                <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
+            </div>*@
     }
     <div class="map_managercard">
         <div id="mapapart_prod">
 
             <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-
+        <div id="mapnovostroy1">
+            <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
         <div class="manager">
             <div class="photo">
                 @if (Model.Advert.User.Avatar != null)
@@ -253,8 +258,9 @@
 
 
 
-    <div class="h2prodsale"><h2>Новинки продаж</h2></div>
-
+    <span class="none">
+        <div class="h2prodsale"><h2>Новинки продаж</h2></div>
+    </span>
     <div class="othernovostroy">
         <ul class="prods" id="data-container">
             @if (Model.OtherAdverts.Count > 0)

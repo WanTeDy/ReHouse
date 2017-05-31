@@ -45,7 +45,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Users = operationFilter._users,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -76,7 +76,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Users = operationFilter._users,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -107,7 +107,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 //TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -138,7 +138,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -159,7 +159,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return Json(new { noElements = true });
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.Price,
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.PriceMin, pageAndFilter.PriceMax,
                 pageAndFilter.TrimconditionId, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
@@ -271,7 +271,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             DeleteFlatOperation op = new DeleteFlatOperation(sessionModel.TokenHash, pageAndFilter.AdvertsId);
             op.ExcecuteTransaction();
 
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.Price,
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.PriceMin, pageAndFilter.PriceMax,
                 pageAndFilter.TrimconditionId, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
