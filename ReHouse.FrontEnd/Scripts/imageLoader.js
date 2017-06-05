@@ -1,5 +1,6 @@
 ﻿  function handleFileSelect(evt) {
       var files = evt.target.files; // FileList object
+      document.getElementById('list').innerHTML = '';
 
       // Loop through the FileList and render image files as thumbnails.
       for (var i = 0, f; f = files[i]; i++) {
@@ -15,7 +16,6 @@
           reader.onload = (function(theFile) {
               return function(e) {
                   // Render thumbnail.
-                  document.getElementById('list').innerHTML('');
                   var span = document.createElement('span');
                   span.innerHTML = ['<img class="thumb" src="', e.target.result,
                                     '" title="', escape(theFile.name), '"/>'].join('');
@@ -30,6 +30,7 @@
 
 function handleFileSelect_plan(evt) {
     var files = evt.target.files; // FileList object
+    document.getElementById('list_plan').innerHTML = '';
 
     // Loop through the FileList and render image files as thumbnails.
     for (var i = 0, f; f = files[i]; i++) {
@@ -45,7 +46,6 @@ function handleFileSelect_plan(evt) {
         reader.onload = (function (theFile) {
             return function (e) {
                 // Render thumbnail.
-                document.getElementById('list_plan').innerHTML('');
                 var span = document.createElement('span');
                 span.innerHTML = ['<img class="thumb" src="', e.target.result,
                                   '" title="', escape(theFile.name), '"/>'].join('');
