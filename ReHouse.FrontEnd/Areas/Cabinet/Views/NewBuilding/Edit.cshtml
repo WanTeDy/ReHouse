@@ -309,7 +309,10 @@
                             <td>@Html.CheckBoxFor(m => m.IsModerated)</td>
                         </tr>
                     }
-
+                    else
+                    {
+                        @Html.HiddenFor(m => m.IsModerated)
+                    }
                 }
                 <tr>
                     <td>Описание:</td>

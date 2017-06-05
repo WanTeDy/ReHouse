@@ -46,7 +46,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                     var _advert = new Advert
                     {
                         CategoryId = _model.CategoryId,
-                        TitleId = 1,
+                        TitleId = _model.TitleId,
                         DistrictId = _model.DistrictId,
                         Price = _model.Price,
                         Description = _model.Description,
@@ -66,7 +66,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         Longitude = _model.Longitude,
                         IsExclusive = _model.IsExclusive,
                         IsModerated = _model.IsModerated,
-                        TitleName = _model.TitleName,
+                        //TitleName = _model.TitleName,
                     };
                     if (_images != null)
                     {

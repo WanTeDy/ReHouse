@@ -117,7 +117,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         }
                         _advert.IsHot = _model.IsHot;
                         _advert.CategoryId = _model.CategoryId;
-                        _advert.TitleId = 1;
+                        _advert.TitleId = _model.TitleId;
                         _advert.DistrictId = _model.DistrictId;
                         _advert.Price = _model.Price;
                         _advert.Description = _model.Description;
@@ -130,7 +130,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         _advert.IsHot = _model.IsHot;
                         _advert.IsExclusive = _model.IsExclusive;
                         _advert.IsModerated = _model.IsModerated;
-                        _advert.TitleName = _model.TitleName;
+                        //_advert.TitleName = _model.TitleName;
                         foreach (var prop in _model.AdvertPropertyValues)
                         {
                             var property = _advert.AdvertPropertyValues.FirstOrDefault(x => x.Id == prop.Id);

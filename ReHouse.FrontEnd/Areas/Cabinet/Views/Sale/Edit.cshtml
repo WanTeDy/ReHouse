@@ -305,7 +305,10 @@
                             <td>@Html.CheckBoxFor(m => m.IsModerated)</td>
                         </tr>
                     }
-
+                    else
+                    {
+                        @Html.HiddenFor(m => m.IsModerated)
+                    }
                 }
                 <tr>
                     <td>Горячее:</td>
@@ -322,17 +325,17 @@
                         <td>@Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewBag.Categories, "Id", "RussianName"))</td>
                     </tr>
                 }
-                @*@if (ViewBag.Titles != null && ViewBag.Titles.Count > 0)
+                @if (ViewBag.Titles != null && ViewBag.Titles.Count > 0)
                 {
                     <tr>
                         <td>Заголовок:</td>
                         <td>@Html.DropDownListFor(m => m.TitleId, new SelectList(ViewBag.Titles, "Id", "RussianName"))</td>
                     </tr>
-                }*@
-                <tr>
+                }
+                @*<tr>
                     <td>Заголовок:</td>
                     <td>@Html.TextBoxFor(m => m.TitleName)</td>
-                </tr>
+                </tr>*@
                 @if (ViewBag.Districts != null && ViewBag.Districts.Count > 0)
                 {
                     <tr>

@@ -15,6 +15,7 @@
           reader.onload = (function(theFile) {
               return function(e) {
                   // Render thumbnail.
+                  document.getElementById('list').innerHTML('');
                   var span = document.createElement('span');
                   span.innerHTML = ['<img class="thumb" src="', e.target.result,
                                     '" title="', escape(theFile.name), '"/>'].join('');
@@ -44,6 +45,7 @@ function handleFileSelect_plan(evt) {
         reader.onload = (function (theFile) {
             return function (e) {
                 // Render thumbnail.
+                document.getElementById('list_plan').innerHTML('');
                 var span = document.createElement('span');
                 span.innerHTML = ['<img class="thumb" src="', e.target.result,
                                   '" title="', escape(theFile.name), '"/>'].join('');
