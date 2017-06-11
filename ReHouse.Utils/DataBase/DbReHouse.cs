@@ -4,6 +4,7 @@
 //using ReHouse.Utils.DataBase.Filters;
 //using ReHouse.Utils.DataBase.ModelForUI;
 //using ReHouse.Utils.DataBase.OtherOurDataForDb;
+using ReHouse.Utils.DataBase.Common;
 using ReHouse.Utils.DataBase.Geo;
 using ReHouse.Utils.DataBase.News;
 using ReHouse.Utils.DataBase.Feedback;
@@ -25,6 +26,8 @@ namespace ReHouse.Utils.DataBase
     //    public DbSet<PathImages> PathImageses { get; set; }
 
         public DbSet<ExpluatationDate> ExpluatationDates { get; set; }
+        public DbSet<PageText> PageTexts { get; set; }
+        public DbSet<SeoParam> SeoParams { get; set; }
         public DbSet<Authority> Authorities { get; set; }
         public DbSet<UserFeedback> UserFeedbacks { get; set; }
         public DbSet<UserEmailMessage> Emails { get; set; }

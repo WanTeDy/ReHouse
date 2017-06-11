@@ -228,6 +228,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\BaseCabinetController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\FeedbacksController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\BuildersController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />

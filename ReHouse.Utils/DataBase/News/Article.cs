@@ -1,4 +1,5 @@
 ﻿using System;
+//using System.Web.Mvc;
 using System.Collections.Generic;
 using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.DataBase.AdvertParams;
@@ -14,6 +15,7 @@ namespace ReHouse.Utils.DataBase.News
         /// <summary>
         /// Article's description
         /// </summary> 
+        //[AllowHtml]
         public String Description { get; set; }
         /// <summary>
         /// Article's userId

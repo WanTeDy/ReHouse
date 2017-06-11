@@ -51,7 +51,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 if (_page != 0)
                     _otherNewBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && x.Id != _id).OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
 
-                _newBuilding.BuildersId = _newBuilding.Builders?.Select(x => x.Id).ToList();
+                _newBuilding.BuildersId = _newBuilding.Builders.Select(x => x.Id).ToList();
             }
         }
     }

@@ -1,7 +1,10 @@
 ﻿@using ReHouse.FrontEnd.Helpers
 @using ReHouse.FrontEnd.Models
 @using ReHouse.Utils.DataBase.News
-
+@using ReHouse.Utils.DataBase.Common
+@{
+    var seo = ViewBag.SeoParams as SeoParam;
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +13,18 @@
     <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/Content/mobile.css">
-    @if (!String.IsNullOrEmpty(ViewBag.Title))
+    @if (seo != null)
     {
         <title>@ViewBag.Title</title>
-        <meta property="og:title" content="@ViewBag.Title" />
-        <meta name="twitter:title" content="@ViewBag.Title">
-        <meta itemprop="name" content="@ViewBag.Title" />
-        <meta property="og:site_name" content="@ViewBag.Title" />
+        <meta property="og:title" content="@seo.Title" />
+        <meta name="twitter:title" content="@seo.Title">
+        <meta itemprop="name" content="@seo.Title" />
+        <meta property="og:site_name" content="@seo.Title" />
+        <meta name="keywords" content="@seo.Keywords" />
+        <meta name="description" content="@seo.Description" />
+        <meta property="og:description" content="@seo.Description" />
+        <meta name="twitter:description" content="@seo.Description" />
+        <meta itemprop="description" content="@seo.Description" />
     }
     else
     {
@@ -25,14 +33,11 @@
         <meta name="twitter:title" content="Международная риэлторская инвестиционная компания REHOUSE">
         <meta itemprop="name" content="Международная риэлторская инвестиционная компания REHOUSE" />
         <meta property="og:site_name" content="Международная риэлторская инвестиционная компания REHOUSE" />
-    }
-    <meta name="keywords" content="Международная риэлторская инвестиционная компания REHOUSE" />
-    @if (!String.IsNullOrEmpty(ViewBag.Description))
-    {
-        <meta name="description" content="@ViewBag.Description" />
-        <meta property="og:description" content="@ViewBag.Description" />
-        <meta name="twitter:description" content="@ViewBag.Description" />
-        <meta itemprop="description" content="@ViewBag.Description" />
+        <meta name="keywords" content="Международная риэлторская инвестиционная компания REHOUSE" />
+        <meta name="description" content="Международная риэлторская инвестиционная компания REHOUSE" />
+        <meta property="og:description" content="Международная риэлторская инвестиционная компания REHOUSE">
+        <meta name="twitter:description" content="Международная риэлторская инвестиционная компания REHOUSE" />
+        <meta itemprop="description" content="Международная риэлторская инвестиционная компания REHOUSE" />
     }
     @if (!String.IsNullOrEmpty(ViewBag.Image))
     {
@@ -42,7 +47,6 @@
     }
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/styleCss")
-
     <style media='print' type='text/css'>
         .noprint {
             display: none;
@@ -161,7 +165,6 @@
                     </div>
                     <div class="search">
                         <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
-
                         @if (Session != null && Session["user"] is SessionModel)
                         {
                             var session = Session["user"] as SessionModel;
@@ -181,7 +184,6 @@
                             </div>
                         }
                     </div>
-
                     <div class="contactinfo">
                         <div class="tel">
                             <div class="imgtel">
@@ -199,17 +201,13 @@
                             <a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>
                         </div>
                     </div>
-
                     <div class="feedback">
                         <a href="~/cart/index" id="fav">Избранное</a>
                         <a href="~/email/index" id="blink">Обратный звонок</a>
                     </div>
-
                 </span>
             </div>
         </div>
-
-
 
         <div id="nav">
             <div class="container" id="container">
@@ -249,12 +247,9 @@
                                 <li><a href="~/vacancy/">Вакансии агенства</a></li>
                             </ol>
 
-
                         </li>
-
                     </ol>
                 </div>
-
                 <div class="sell">
                     <a href="~/email/index" id="">Хочу продать!</a>
                 </div>
@@ -304,7 +299,6 @@
                     <a href="~/email/index" id="blink1"></a>
                     <a href="~/cart/index" id="fav1"></a>
                 </div>
-
                 <div class="tel">
                     <div class="imgtel">
                         <img src="~/Content/images/tel.png">
@@ -321,7 +315,6 @@
         </div>
     </div>
     <div class="container" id="container">
-
         @RenderBody()
         @if (ViewBag.Articles != null && ViewBag.NotShowNews == null)
         {
@@ -356,7 +349,6 @@
                         </div>
                     </div>
                 }
-
                 <div class="morenews">
                     <a href="~/news/index" id="more">Все новости</a>
                 </div>
@@ -397,12 +389,10 @@
                     {
                         @Html.ActionLink("Выйти", "logout", "authorize")
                     }
-
                 </div>
             </div>
         </span>
     </div>
-
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")

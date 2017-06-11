@@ -119,6 +119,11 @@
     <Compile Include="BusinessOperations\News\LoadArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\LoadArticlesOperation.cs" />
     <Compile Include="BusinessOperations\News\UpdateArticleOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadSeoParamsOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadPageTextsOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\AddSeoParamOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\UpdateSeoParamOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\UpdatePageTextOperation.cs" />
     <Compile Include="BusinessOperations\Titles\AddTitleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\DeleteTitleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\LoadDistrictsOperation.cs" />
@@ -151,6 +156,8 @@
     <Compile Include="DataBase\AdvertParams\MarketType.cs" />
     <Compile Include="DataBase\AdvertParams\Title.cs" />
     <Compile Include="DataBase\BaseObj.cs" />
+    <Compile Include="DataBase\Common\SeoParam.cs" />
+    <Compile Include="DataBase\Common\PageText.cs" />
     <Compile Include="DataBase\DbReHouse.cs" />
     <Compile Include="DataBase\Feedback\UserEmailMessage.cs" />
     <Compile Include="DataBase\Vacancies\Vacancy.cs" />
