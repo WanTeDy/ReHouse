@@ -2,6 +2,7 @@
 @using ReHouse.Utils.DataBase.AdvertParams
 @using System.Globalization;
 @using ReHouse.FrontEnd.Models
+@using ReHouse.Utils
 
 @model Advert
 @{
@@ -308,6 +309,22 @@
                     else
                     {
                         @Html.HiddenFor(m => m.IsModerated)
+                    }
+                    if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
+                    {
+                        <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
+                        <tr>
+                            <td>SEO Title:</td>
+                            <td><input type="text" name="seo_title" value="@ViewBag.SeoParam.Title" /></td>
+                        </tr>
+                        <tr>
+                            <td>SEO Description:</td>
+                            <td><textarea name="seo_description">@ViewBag.SeoParam.Description</textarea></td>
+                        </tr>
+                        <tr>
+                            <td>SEO Keywords:</td>
+                            <td><textarea name="seo_keywords">@ViewBag.SeoParam.Keywords</textarea></td>
+                        </tr>
                     }
                 }
                 <tr>

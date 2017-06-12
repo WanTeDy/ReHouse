@@ -28,24 +28,26 @@ namespace ReHouse.FrontEnd.Controllers
             var tokenHash = "";
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
+            if (HttpContext.Request.HttpMethod.ToLower() == "get")
+            {
+                var operation = new LoadArticlesOperation(tokenHash, 1, _articlesCount);
+                operation.ExcecuteTransaction();
+                ViewBag.Articles = operation._articles;
 
-            var operation = new LoadArticlesOperation(tokenHash, 1, _articlesCount);
-            operation.ExcecuteTransaction();
-            ViewBag.Articles = operation._articles;
+                var rd = HttpContext.Request.RequestContext.RouteData;
+                CurrentAction = rd.GetRequiredString("action");
+                CurrentController = rd.GetRequiredString("controller");
+                AbsoluteUrl = HttpContext.Request.Url.AbsolutePath;
+                UrlParams = AbsoluteUrl.Substring(AbsoluteUrl.LastIndexOf('/') + 1);
 
-            var rd = HttpContext.Request.RequestContext.RouteData;
-            CurrentAction = rd.GetRequiredString("action");
-            CurrentController = rd.GetRequiredString("controller");
-            AbsoluteUrl = HttpContext.Request.Url.AbsolutePath;
-            UrlParams = AbsoluteUrl.Substring(AbsoluteUrl.LastIndexOf('/') + 1);
+                var operation2 = new LoadPageTextsOperation(tokenHash, CurrentAction, CurrentController);
+                operation2.ExcecuteTransaction();
+                ViewBag.PageTexts = operation2._pageTexts;
 
-            var operation2 = new LoadPageTextsOperation(tokenHash, CurrentAction, CurrentController);
-            operation2.ExcecuteTransaction();
-            ViewBag.PageTexts = operation2._pageTexts;
-
-            var operation3 = new LoadSeoParamsOperation(tokenHash, CurrentAction, CurrentController, AbsoluteUrl, UrlParams);
-            operation3.ExcecuteTransaction();
-            ViewBag.SeoParams = operation3._seoParams;
+                var operation3 = new LoadSeoParamsOperation(tokenHash, CurrentAction, CurrentController, AbsoluteUrl, UrlParams);
+                operation3.ExcecuteTransaction();
+                ViewBag.SeoParams = operation3._seoParams;
+            }
         }
     }
 }

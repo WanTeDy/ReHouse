@@ -21,10 +21,12 @@ using Newtonsoft.Json;
 using ReHouse.Utils.BusinessOperations.Titles;
 using ReHouse.Utils.BusinessOperations.Categories;
 using System.Web;
+using ReHouse.Utils.DataBase.Common;
+using ReHouse.Utils.BusinessOperations.Seo;
 
 namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 {
-    public class RentController : Controller
+    public class RentController : BaseCabinetController
     {
         [HttpGet]
         public ActionResult Flat(int? id)
@@ -202,12 +204,17 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op5.ExcecuteTransaction();
             ViewBag.Districts = op5._districts;
 
+            var op6 = new LoadSeoParamsOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._advert.Id, operation._advert.Id.ToString());
+            op6.ExcecuteTransaction();
+            ViewBag.SeoParam = op6._seoParams ?? new SeoParam();
+
             return View(operation._advert);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Edit(Advert model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages)
+        public ActionResult Edit(Advert model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages,
+            string seo_title, string seo_description, string seo_keywords, int seo_id)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
@@ -215,6 +222,22 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             var operation = new UpdateFlatOperation(sessionModel.TokenHash, model, images, planimages);
             operation.ExcecuteTransaction();
+
+            var seoparam = new SeoParam
+            {
+                Id = seo_id,
+                ActionName = ConstV.DetailAction,
+                ControllerName = CurrentController,
+                Description = seo_description,
+                Keywords = seo_keywords,
+                Title = seo_title,
+                UrlParams = operation._advert.Id.ToString(),
+                FullUrl = "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._advert.Id,
+            };
+            ViewBag.SeoParam = seoparam;
+
+            var operation2 = new UpdateSeoParamOperation(sessionModel.TokenHash, seoparam);
+            operation2.ExcecuteTransaction();
 
             var op = new LoadTitlesOperation(sessionModel.TokenHash);
             op.ExcecuteTransaction();
@@ -313,6 +336,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var op6 = new LoadAdvertPropertiesOperation(sessionModel.TokenHash, id.Value);
             op6.ExcecuteTransaction();
             //ViewBag.AdvertProperties = op5._advertProperties;
+            
             Advert model = new Advert
             {
                 AdvertPropertyValues = op6._advertProperties.Select(x => new AdvertPropertyValue
@@ -342,7 +366,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             model.Type = AdvertsType.Rent;
             var operation = new AddFlatOperation(sessionModel.TokenHash, model, images, planimages);
             operation.ExcecuteTransaction();
-
+            
             var op = new LoadTitlesOperation(sessionModel.TokenHash);
             op.ExcecuteTransaction();
             ViewBag.Titles = op._titles;

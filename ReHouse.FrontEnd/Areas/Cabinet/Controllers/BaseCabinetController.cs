@@ -17,16 +17,15 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
         public string CurrentController { get; set; }
         public string AbsoluteUrl { get; set; }
         public string UrlParams { get; set; }
-        
-        protected override void OnActionExecuted(ActionExecutedContext filterContext)
-        {
-            base.OnActionExecuted(filterContext);
 
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
             var rd = HttpContext.Request.RequestContext.RouteData;
             CurrentAction = rd.GetRequiredString("action");
             CurrentController = rd.GetRequiredString("controller");
             AbsoluteUrl = HttpContext.Request.Url.AbsolutePath;
             UrlParams = AbsoluteUrl.Substring(AbsoluteUrl.LastIndexOf('/') + 1);
-        }
+        }        
     }
 }

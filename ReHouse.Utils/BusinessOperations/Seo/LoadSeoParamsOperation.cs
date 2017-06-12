@@ -19,9 +19,9 @@ namespace ReHouse.Utils.BusinessOperations.Seo
         public LoadSeoParamsOperation(string tokenHash, string action, string controller, string url, string urlParams)
         {
             _tokenHash = tokenHash;
-            _action = action;
-            _controller = controller;
-            _url = url;
+            _action = action.ToLower();
+            _controller = controller.ToLower();
+            _url = url.ToLower();
             _urlParams = urlParams;
             RussianName = "Получение сео параметров для страниц";
         }
@@ -29,22 +29,23 @@ namespace ReHouse.Utils.BusinessOperations.Seo
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            
-            //if (!String.IsNullOrEmpty(_urlParams))
-            //{
-            //    _seoParams = Context.SeoParams.FirstOrDefault(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller && x.FullUrl == _url).ToList();
-            //}
-            //else
-            //{
-            //    _seoParams = Context.SeoParams.FirstOrDefault(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller).ToList();
-            //    if(_seoParams == null)
-            //        Context.SeoParams.Add(new SeoParam
-            //        {
-            //           ActionName = _action,
-            //           ControllerName = _controller,
-            //           FullUrl = "/" + _controller + "/" + _action + "/"
-            //        });
-            //}
+
+            if (!String.IsNullOrEmpty(_urlParams))
+            {
+                _seoParams = Context.SeoParams.FirstOrDefault(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller && x.FullUrl == _url);
+            }
+            else
+            {
+                _seoParams = Context.SeoParams.FirstOrDefault(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller);
+                if (_seoParams == null)
+                    Context.SeoParams.Add(new SeoParam
+                    {
+                        ActionName = _action,
+                        ControllerName = _controller,
+                        FullUrl = "/" + _controller + "/" + _action + "/"
+                    });
+                Context.SaveChanges();
+            }
         }
     }
 }

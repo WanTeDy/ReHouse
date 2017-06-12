@@ -17,15 +17,15 @@ namespace ReHouse.Utils.BusinessOperations.Seo
         public LoadPageTextsOperation(string tokenHash, string action, string controller)
         {
             _tokenHash = tokenHash;
-            _action = action;
-            _controller = controller;
+            _action = action.ToLower();
+            _controller = controller.ToLower();
             RussianName = "Получение сео текстов для страниц";
         }
 
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            //_pageTexts = Context.PageTexts.Where(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller).ToList();
+            _pageTexts = Context.PageTexts.Where(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller).ToList();
         }
     }
 }

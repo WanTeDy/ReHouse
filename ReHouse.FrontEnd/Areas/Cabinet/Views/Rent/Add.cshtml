@@ -1,6 +1,7 @@
 ﻿@using ReHouse.Utils.Helpers
 @using ReHouse.Utils.DataBase.AdvertParams
 @using System.Globalization;
+@using ReHouse.FrontEnd.Models
 @model Advert
 @{
             Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
@@ -294,7 +295,7 @@
             @Html.ValidationSummary()
         </div>
         <div class="contact_info">
-            <table>
+            <table>                
                 <tr>
                     <td>Горячее:</td>
                     <td>@Html.CheckBoxFor(m => m.IsHot)</td>

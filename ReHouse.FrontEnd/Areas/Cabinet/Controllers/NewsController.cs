@@ -2,6 +2,8 @@
 using ReHouse.FrontEnd.Models;
 using ReHouse.Utils;
 using ReHouse.Utils.BusinessOperations.News;
+using ReHouse.Utils.BusinessOperations.Seo;
+using ReHouse.Utils.DataBase.Common;
 using ReHouse.Utils.DataBase.News;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ using System.Web.Mvc;
 
 namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseCabinetController
     {
         [HttpGet]
         public ActionResult List()
@@ -58,6 +60,11 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return HttpNotFound();
             var operation = new LoadArticleOperation(sessionModel.TokenHash, Id);
             operation.ExcecuteTransaction();
+
+            var op6 = new LoadSeoParamsOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._article.Id, operation._article.Id.ToString());
+            op6.ExcecuteTransaction();
+            ViewBag.SeoParam = op6._seoParams ?? new SeoParam();
+
             if (operation._article == null)
                 return HttpNotFound();
 
@@ -66,7 +73,8 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Edit(Article model, HttpPostedFileBase image)
+        public ActionResult Edit(Article model, HttpPostedFileBase image,
+            string seo_title, string seo_description, string seo_keywords, int seo_id)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
@@ -74,6 +82,22 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             var operation = new UpdateArticleOperation(sessionModel.TokenHash, model.Id, model.Title, model.Description, image);
             operation.ExcecuteTransaction();
+
+            var seoparam = new SeoParam
+            {
+                Id = seo_id,
+                ActionName = ConstV.DetailAction,
+                ControllerName = CurrentController,
+                Description = seo_description,
+                Keywords = seo_keywords,
+                Title = seo_title,
+                UrlParams = model.Id.ToString(),
+                FullUrl = "/" + CurrentController + "/" + ConstV.DetailAction + "/" + model.Id,
+            };
+            ViewBag.SeoParam = seoparam;
+
+            var operation2 = new UpdateSeoParamOperation(sessionModel.TokenHash, seoparam);
+            operation2.ExcecuteTransaction();
 
             if (!operation.Success)
             {

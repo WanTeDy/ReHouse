@@ -21,7 +21,9 @@ namespace ReHouse.Utils.BusinessOperations.Seo
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-
+            _seoParam.ActionName = _seoParam.ActionName.ToLower();
+            _seoParam.ControllerName = _seoParam.ControllerName.ToLower();
+            _seoParam.FullUrl = _seoParam.FullUrl.ToLower();
             Context.SeoParams.Add(_seoParam);
             Context.SaveChanges();
         }

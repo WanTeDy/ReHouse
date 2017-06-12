@@ -17,10 +17,12 @@ using Newtonsoft.Json;
 using System.Web;
 using ReHouse.Utils.BusinessOperations.Building;
 using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.BusinessOperations.Seo;
+using ReHouse.Utils.DataBase.Common;
 
 namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 {
-    public class NewBuildingController : Controller
+    public class NewBuildingController : BaseCabinetController
     {
         [HttpGet]
         public ActionResult List()
@@ -84,6 +86,10 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
             operationFilter.ExcecuteTransaction();
 
+            var op6 = new LoadSeoParamsOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._newBuilding.Id, operation._newBuilding.Id.ToString());
+            op6.ExcecuteTransaction();
+            ViewBag.SeoParam = op6._seoParams ?? new SeoParam();
+
             ViewBag.Districts = operationFilter._districts;
             ViewBag.BuildersList = operationFilter._builders;
             ViewBag.ExpluatationDates = operationFilter._expluatationDates;            
@@ -93,7 +99,8 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Edit(NewBuilding model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages)
+        public ActionResult Edit(NewBuilding model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages,
+            string seo_title, string seo_description, string seo_keywords, int seo_id)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
@@ -101,6 +108,22 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             var operation = new UpdateNewBuildingOperation(sessionModel.TokenHash, model, images, planimages);
             operation.ExcecuteTransaction();
+
+            var seoparam = new SeoParam
+            {
+                Id = seo_id,
+                ActionName = ConstV.DetailAction,
+                ControllerName = CurrentController,
+                Description = seo_description,
+                Keywords = seo_keywords,
+                Title = seo_title,
+                UrlParams = operation._newBuilding.Id.ToString(),
+                FullUrl = "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._newBuilding.Id,
+            };
+            ViewBag.SeoParam = seoparam;
+
+            var operation2 = new UpdateSeoParamOperation(sessionModel.TokenHash, seoparam);
+            operation2.ExcecuteTransaction();
 
             var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
             operationFilter.ExcecuteTransaction();

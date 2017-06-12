@@ -15,6 +15,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
         private IEnumerable<HttpPostedFileBase> _images { get; set; }
         private IEnumerable<HttpPostedFileBase> _planImages { get; set; }
         public Category _category { get; set; }
+        public Advert _advert { get; set; }
 
 
         public AddFlatOperation(string tokenHash, Advert advert, IEnumerable<HttpPostedFileBase> images, IEnumerable<HttpPostedFileBase> planImages)
@@ -43,7 +44,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 else
                 {
                     _category = Context.Categories.FirstOrDefault(x => !x.Deleted && x.Id == _model.CategoryId);
-                    var _advert = new Advert
+                    _advert = new Advert
                     {
                         CategoryId = _model.CategoryId,
                         TitleId = _model.TitleId,

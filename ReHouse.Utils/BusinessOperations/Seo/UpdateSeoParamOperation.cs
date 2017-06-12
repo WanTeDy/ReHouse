@@ -9,30 +9,33 @@ namespace ReHouse.Utils.BusinessOperations.Seo
     public class UpdateSeoParamOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        public SeoParam SeoParam { get; set; }
+        public SeoParam _seoParam { get; set; }
 
         public UpdateSeoParamOperation(string tokenHash, SeoParam seoParam)
         {
             _tokenHash = tokenHash;
-            SeoParam = seoParam;
+            _seoParam = seoParam;
             RussianName = "Изменение сео параметров";
         }
 
         protected override void InTransaction()
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            SeoParam seoParam = Context.SeoParams.FirstOrDefault(x => x.Id == SeoParam.Id && !x.Deleted);
+            SeoParam seoParam = Context.SeoParams.FirstOrDefault(x => x.Id == _seoParam.Id && !x.Deleted);
             if (seoParam == null)
             {
-                Errors.Add("Id", "*Страница не найдена!");
+                _seoParam.ActionName = _seoParam.ActionName.ToLower();
+                _seoParam.ControllerName = _seoParam.ControllerName.ToLower();
+                _seoParam.FullUrl = _seoParam.FullUrl.ToLower();
+                Context.SeoParams.Add(_seoParam);
             }
             else
             {
-                seoParam.Title = SeoParam.Title;
-                seoParam.Description = SeoParam.Description;
-                seoParam.Keywords = SeoParam.Keywords;
-                Context.SaveChanges();
+                seoParam.Title = _seoParam.Title;
+                seoParam.Description = _seoParam.Description;
+                seoParam.Keywords = _seoParam.Keywords;
             }
+            Context.SaveChanges();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿@using ReHouse.Utils.DataBase.News
+@using ReHouse.Utils
+@using ReHouse.FrontEnd.Models
 @model Article
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
@@ -36,41 +38,61 @@
 </div>
 <div id="adminka1" class="tabset_content tabset_content_active">
     <h2 class="tabset_label">adminka</h2>
-            
-        <div class="photo_of_manager">
-            <form enctype="multipart/form-data" action="" method="POST">
-                @Html.AntiForgeryToken()
-                @Html.HiddenFor(m => m.Id)
-                @Html.ValidationSummary()
-                <div class="contact_info">
-                    <table>
-                        <tr>
-                            <td>
-                                @if (Model.Images != null && Model.Images.FirstOrDefault() != null)
-                                {
-                                    <div class="photo_of_manager">
-                                        <img src="@Url.Content(Model.Images.FirstOrDefault().Url + Model.Images.FirstOrDefault().FileName)" width="150" height="150">
-                                        @*<a onclick="deleteAvatar(@Model.Avatar.Id)">X</a>*@
-                                    </div>
-                                }
-                            </td>
-                            <td><input type="file" name="image" /></td>
-                        </tr>
-                        <tr>
-                            <td>Заголовок:</td>
-                            <td>@Html.TextBoxFor(m => m.Title)</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Содержание:</td>
-                            <td>@Html.TextAreaFor(m => m.Description, new { @rows = "7" })</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><button>Сохранить</button></td>
-                        </tr>
-                    </table>
-                </div>
-            </form>
-        </div>
+
+    <div class="photo_of_manager">
+        <form enctype="multipart/form-data" action="" method="POST">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+            @Html.ValidationSummary()
+            <div class="contact_info">
+                <table>
+                    @if (Session != null && Session["user"] is SessionModel)
+                    {
+                        var session = Session["user"] as SessionModel;
+                        @if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
+                        {
+                            <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
+                            <tr>
+                                <td>SEO Title:</td>
+                                <td><input type="text" name="seo_title" value="@ViewBag.SeoParam.Title" /></td>
+                            </tr>
+                            <tr>
+                                <td>SEO Description:</td>
+                                <td><textarea name="seo_description">@ViewBag.SeoParam.Description</textarea></td>
+                            </tr>
+                            <tr>
+                                <td>SEO Keywords:</td>
+                                <td><textarea name="seo_keywords">@ViewBag.SeoParam.Keywords</textarea></td>
+                            </tr>
+                        }
+                    }
+                    <tr>
+                        <td>
+                            @if (Model.Images != null && Model.Images.FirstOrDefault() != null)
+                            {
+                                <div class="photo_of_manager">
+                                    <img src="@Url.Content(Model.Images.FirstOrDefault().Url + Model.Images.FirstOrDefault().FileName)" width="150" height="150">
+                                    @*<a onclick="deleteAvatar(@Model.Avatar.Id)">X</a>*@
+                                </div>
+                            }
+                        </td>
+                        <td><input type="file" name="image" /></td>
+                    </tr>
+                    <tr>
+                        <td>Заголовок:</td>
+                        <td>@Html.TextBoxFor(m => m.Title)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Содержание:</td>
+                        <td>@Html.TextAreaFor(m => m.Description, new { @rows = "7" })</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button>Сохранить</button></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
     </div>
+</div>

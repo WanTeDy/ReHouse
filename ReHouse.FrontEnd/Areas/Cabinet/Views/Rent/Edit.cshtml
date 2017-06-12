@@ -1,4 +1,5 @@
 ﻿@using ReHouse.Utils.Helpers
+@using ReHouse.Utils
 @using ReHouse.Utils.DataBase.AdvertParams
 @using System.Globalization;
 @using ReHouse.FrontEnd.Models
@@ -284,11 +285,11 @@
             @Html.ValidationSummary()
         </div>
         <div class="contact_info">
-            <table>
+            <table>               
                 @if (Session != null && Session["user"] is SessionModel)
                 {
                     var session = Session["user"] as SessionModel;
-                    if (session.Role.RussianName == "Администратор" || session.Role.RussianName == "Менеджер")
+                    if (session.Role.RussianName == ConstV.RoleAdministrator || session.Role.RussianName == ConstV.RoleManager)
                     {
                         <tr>
                             <td>Одобрено:</td>
@@ -299,7 +300,22 @@
                     {
                         @Html.HiddenFor(m => m.IsModerated)
                     }
-
+                    if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
+                    {
+                        <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
+                        <tr>
+                            <td>SEO Title:</td>
+                            <td><input type="text" name="seo_title" value="@ViewBag.SeoParam.Title" /></td>
+                        </tr>
+                        <tr>
+                            <td>SEO Description:</td>
+                            <td><textarea name="seo_description">@ViewBag.SeoParam.Description</textarea></td>
+                        </tr>
+                        <tr>
+                            <td>SEO Keywords:</td>
+                            <td><textarea name="seo_keywords">@ViewBag.SeoParam.Keywords</textarea></td>
+                        </tr>
+                    }
                 }
                 <tr>
                     <td>Горячее:</td>
