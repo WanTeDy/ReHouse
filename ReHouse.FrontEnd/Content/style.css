@@ -149,7 +149,7 @@ body {
 
 .logo {
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 28px;
 }
 
     .logo .textlogo {
@@ -164,8 +164,8 @@ body {
 .form-search {
     border-radius: 10px;
     padding: 4px;
-    margin-left: 60px;
-    margin-top: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
 }
 
     .form-search input {
@@ -233,7 +233,7 @@ body {
 }
 
 .contactinfo {
-    margin-left: 28px;
+    margin-left: 0px;
     /*margin-top: 20px;*/
     color: white;
     font-family: "Casper";
@@ -338,7 +338,7 @@ body {
     flex-direction: column;
     position: relative;
     margin-top: 20px;
-    margin-left: 30px;
+    margin-left: 11px;
     width: 100px;
 }
 
@@ -452,6 +452,7 @@ body {
     -ms-flex-direction: row;
     flex-direction: row;
     background-color: #ccbf61;
+min-width:1500px;
 }
 
 .navigation > ol {
@@ -853,12 +854,14 @@ body {
     }
 
     .news h3 {
-        margin-bottom: 20px;
-        color: white;
-        font-family: "Century Gothic";
-        font-size: 19px;
-        font-weight: 700;
-        text-transform: uppercase;
+    margin-bottom: 20px;
+    color: white;
+    font-family: "Century Gothic";
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 25px;
+    text-align: center;
     }
 
     .news h4 {
@@ -872,8 +875,8 @@ body {
 
     .news p {
         color: white;
-        line-height: 15px;
-        font-size: 12px;
+       line-height: 19px;
+       font-size: 15px;
         font-family: "Century Gothic";
         margin-bottom: 20px;
     }
@@ -981,6 +984,7 @@ body {
         -o-object-fit: cover;
         object-fit: cover;
         margin-left: 139px;
+margin-right: 15px;
     }
 
     .managers .manager_ {
@@ -2663,4 +2667,10 @@ body {
 #fav2 {
 	display: none;
 } 
+
+
+
+
+
+
 

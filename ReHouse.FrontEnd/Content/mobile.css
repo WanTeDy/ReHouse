@@ -1,4 +1,3 @@
-
 @media (max-width: 768px){
 .container {
   width: 768px;
@@ -9,7 +8,22 @@
 	.header_mobile {
 	display: block;
 }
+	.header_mobile .header {
+	display: flex;
+}
 
+#slidebox {
+    display: none;
+}
+.navigation_string {
+display:none;
+}
+#application, #emailForm {
+    /* margin: 0 auto; */
+    width: 462px;
+    margin-bottom: 63px;
+    margin-left: 152px;
+}
 
 .hidden-menu {
   display: block;
@@ -103,8 +117,7 @@
   top: -10px;
 }
 .header_mobile {
-  max-width: 768px;
-  width: 100%;
+  width: 768px;
 }
 .header {
   max-width: 768px;
@@ -148,8 +161,8 @@
   text-align:center;
 }
 .header_mobile .header .logo {
-    margin-top: 5px;
     margin-left: 42.5%;
+    margin-top: 1px;
 }
 .header_mobile .header .contactinfo .tel {
     display: flex;
@@ -217,14 +230,15 @@ text-align: center;
   margin-bottom: 9px;
 }
 .news h2 {
-  margin-top: 35px;
-  margin-left: 150px;
-  margin-bottom: 9px;
-  color: white;
-  font-family: "Century Gothic";
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
+margin-top: 35px;
+    margin-left: 0px;
+    margin-bottom: 9px;
+    color: white;
+    font-family: "Century Gothic";
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
 }
 .news h3 {
   margin-bottom: 20px;
@@ -317,13 +331,14 @@ text-align: center;
 
 .news .morenews a#more {
   padding-top:7px;
+    margin-left: 22px;
 }
 .footer {
   height: 52px;
   display: flex;
   flex-direction: column;
   width: 718px;
-  margin-left: 48px;
+  margin-left: 25px;
   margin-top: -50px;
 }
 .footer .social {
@@ -376,6 +391,7 @@ display: block;
   flex-direction: column;
   text-align: center;
   width: 768px;
+    margin-bottom: 60px;
 }
 .selection select {
   width: 400px;
@@ -404,6 +420,7 @@ width: 768px;
     margin-top: -20px;
     margin-left: 0px;
     margin-bottom: 5px;
+    width: 768px;
 }
 .sorting form a {
   width: 400px;
@@ -433,7 +450,7 @@ width: 768px;
   font-weight: 700;
   text-decoration: none;
   text-align: center;
-  margin-left: 39px;
+  margin-left: 30px;
 }
 
 
@@ -475,8 +492,8 @@ width: 768px;
     background-image: url(images/heart.png);
     background-repeat: no-repeat;
 
-    top: -60px;
-    left: 188px;
+       top: 44px;
+    left: -553px;
 }
 #products_example {
   display: none;
@@ -496,6 +513,7 @@ width: 768px;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
+margin-bottom: 64px;
 }
 #mapnovostroy_prod {
     display: none;
@@ -529,7 +547,7 @@ margin-bottom: 70px;
 }
 .map_managercard .manager {
     display: flex;
-    margin-left: -320px;
+        margin-left: -615px;
     margin-top: -73px;
     width: 422px;
 }
@@ -695,7 +713,7 @@ margin-bottom: 70px;
     font-size: 18px;
 }
 .contactinfo {
-     margin-left: 0px; 
+     margin-left: 214px; 
 
 }
 
@@ -859,12 +877,10 @@ margin-bottom: 70px;
   top: -10px;
 }
 .header_mobile {
-  max-width: 768px;
-  width: 100%;
+  width: 480px;
 }
 .header {
-  max-width: 768px;
-  width: 100%;
+  width: 480px;
   height: 100px;
 }
 
@@ -1036,7 +1052,7 @@ text-align: center;
 }
 
 .news .content1, .content2 {
-  width: 542px;
+  width: 480px;
   text-align: justify;
   display: inline-block;
   vertical-align: top;
@@ -1104,6 +1120,7 @@ text-align: center;
 
 .news .morenews a#more {
   padding-top:7px;
+    margin-left: 5px;
 }
 .footer {
        height: 52px;
@@ -1139,7 +1156,7 @@ text-align: center;
 }
 #toTop {
     bottom: 10px;
-    right: -30px;
+    right: 60px;
   }
 
 /*sale of apart*/
@@ -1153,6 +1170,7 @@ text-align: center;
 }
 .h2novostroy h2 {
 margin-left: 0;
+width: 100%;
 }
 
 .h2novostroy {
@@ -1193,6 +1211,7 @@ width: 480px;
     margin-top: -20px;
     margin-left: 0px;
     margin-bottom: 5px;
+    width: 480px;
 }
 .sorting form a {
   width: 400px;
@@ -1336,13 +1355,12 @@ margin-bottom: 70px;
     margin-top: 345px;
     width: 480px;
 }
-}
 #mapnovostroy1 {
     margin-bottom: 60px;
 }
 
 .streak {
-    width: 480px;    
+    width: 100%;    
     margin-left: 0;
 }
 .selection ._cost select {
@@ -1498,7 +1516,7 @@ margin-bottom: 70px;
     font-size: 18px;
 }
 .contactinfo {
-     margin-left: 0px; 
+     margin-left: 71px; 
 
 }
 
@@ -1554,13 +1572,44 @@ margin-bottom: 70px;
     margin-left: 0px;
     text-align: center;
 }
+.navigation_string {
+display:none;
+}
 
-
-
+#application, #emailForm {
+    /* margin: 0 auto; */
+    width: 462px;
+    margin-bottom: 63px;
+    margin-left: 12px;
+}
 
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
