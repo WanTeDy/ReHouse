@@ -49,7 +49,7 @@
                     @if (Session != null && Session["user"] is SessionModel)
                     {
                         var session = Session["user"] as SessionModel;
-                        @if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
+                        if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
                         {
                             <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
                             <tr>
