@@ -147,7 +147,9 @@
     <Compile Include="BusinessOperations\News\LoadArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\LoadArticlesOperation.cs" />
     <Compile Include="BusinessOperations\News\UpdateArticleOperation.cs" />
-    <Compile Include="BusinessOperations\Seo\LoadSeoParamsOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadSeoParametrsOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadSeoParamByIdOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\LoadPageTextsOperation.cs" />
     <Compile Include="BusinessOperations\Seo\AddSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdateSeoParamOperation.cs" />

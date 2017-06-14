@@ -20,11 +20,11 @@
                 <h3>@article.Title</h3>
                 @if (@article.Description.Length > 750)
                 {
-                    <p id="news_@article.Id">@article.Description.Substring(0, 749) ...</p>
+                    <p id="news_@article.Id">@Html.Raw(article.Description.Substring(0, 749)) ...</p>
                 }
                 else
                 {
-                    <p>@article.Description</p>
+                    <p>@Html.Raw(article.Description)</p>
                 }
                 @*<div class="share_icons1">
                         <div class="share_fb">

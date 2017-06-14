@@ -1,5 +1,5 @@
-﻿@using ReHouse.Utils.DataBase.Vacancies
-@model Vacancy
+﻿@using ReHouse.Utils.DataBase.Common
+@model SeoParam
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
@@ -29,12 +29,11 @@
         <li><a class="3" href="~/cabinet/newbuilding/list">Новострои</a></li>
         <li><a class="3" href="~/cabinet/news/list">Новости</a></li>
         <li><a class="4" href="~/cabinet/feedbacks/list">Отзывы</a></li>
-        <li><a class="preActive active" href="~/cabinet/vacancies/list">Вакансии</a></li>
+        <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
         <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
         <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
-        <li><a class="4" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
+        <li><a class="preActive active" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
         <li><a class="4" href="~/cabinet/texts/list">Тексты</a></li>
-    </ul>
 </div>
 <div id="adminka1" class="tabset_content tabset_content_active">
     <h2 class="tabset_label">adminka</h2>
@@ -42,17 +41,26 @@
         <div class="photo_of_manager">
             <form enctype="multipart/form-data" action="" method="POST">
                 @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.Id)
                 @Html.ValidationSummary()
                 <div class="contact_info">
-                    <table>                        
+                    <table>
+                        <input type="hidden" name="seo_id" value="@Model.Id" />
                         <tr>
-                            <td>Заголовок:</td>
-                            <td>@Html.TextBoxFor(m => m.Title)</td>
+                            <td>Url:</td>
+                            <td>@Model.FullUrl</td>
+                        </tr>                        
+                        <tr>
+                            <td>SEO Title:</td>
+                            <td><input type="text" name="seo_title" value="@Model.Title" /></td>
                         </tr>
-                        
                         <tr>
-                            <td>Содержание:</td>
-                            <td>@Html.TextAreaFor(m => m.Description, new { @rows = "30", @cols = "30" })</td>
+                            <td>SEO Description:</td>
+                            <td><textarea name="seo_description">@Model.Description</textarea></td>
+                        </tr>
+                        <tr>
+                            <td>SEO Keywords:</td>
+                            <td><textarea name="seo_keywords">@Model.Keywords</textarea></td>
                         </tr>
                         <tr>
                             <td></td>

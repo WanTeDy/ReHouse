@@ -42,7 +42,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 if (_newBuilding != null)
                 {
                     var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
-                    if (user != null && (_newBuilding.UserId == user.Id || user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
+                    if (user != null && (_newBuilding.UserId == user.Id || user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager || user.Role.RussianName == ConstV.RoleSeo))
                     {
                         if (_images != null)
                         {

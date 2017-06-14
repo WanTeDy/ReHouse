@@ -41,7 +41,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
             {
                 new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
                 var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
-                if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
+                if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager || user.Role.RussianName == ConstV.RoleSeo))
                 {
                     _newBuildings = Context.NewBuildings.Where(x => !x.Deleted).ToList();
                     if (_userId != 0)

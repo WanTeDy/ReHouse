@@ -7,7 +7,7 @@ using ReHouse.Utils.DataBase.AdvertParams;
 
 namespace ReHouse.Utils.BusinessOperations.Seo
 {
-    public class LoadSeoParamsOperation : BaseOperation
+    public class LoadSeoParamOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
         private String _action { get; set; }
@@ -16,7 +16,7 @@ namespace ReHouse.Utils.BusinessOperations.Seo
         private String _urlParams { get; set; }
         public SeoParam _seoParams { get; set; }
 
-        public LoadSeoParamsOperation(string tokenHash, string action, string controller, string url, string urlParams)
+        public LoadSeoParamOperation(string tokenHash, string action, string controller, string url, string urlParams)
         {
             _tokenHash = tokenHash;
             _action = action.ToLower();

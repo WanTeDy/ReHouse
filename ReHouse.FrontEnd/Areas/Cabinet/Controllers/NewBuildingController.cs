@@ -86,7 +86,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
             operationFilter.ExcecuteTransaction();
 
-            var op6 = new LoadSeoParamsOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._newBuilding.Id, operation._newBuilding.Id.ToString());
+            var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._newBuilding.Id, operation._newBuilding.Id.ToString());
             op6.ExcecuteTransaction();
             ViewBag.SeoParam = op6._seoParams ?? new SeoParam();
 

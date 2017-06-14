@@ -36,7 +36,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 _newBuilding = Context.NewBuildings.FirstOrDefault(x => !x.Deleted && x.Id == _id);
                 if (_newBuilding != null)
                 {
-                    if (user == null || (user.Role.RussianName != ConstV.RoleAdministrator && user.Role.RussianName != ConstV.RoleManager && user.Id != _newBuilding.UserId))
+                    if (user == null || (user.Role.RussianName != ConstV.RoleAdministrator && user.Role.RussianName != ConstV.RoleManager && user.Role.RussianName != ConstV.RoleSeo && user.Id != _newBuilding.UserId))
                         throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
                 }
                 else

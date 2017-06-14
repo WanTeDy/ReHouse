@@ -229,6 +229,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
     <Compile Include="Areas\Cabinet\Controllers\BaseCabinetController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\SeoParametrsController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\FeedbacksController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\BuildersController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />
@@ -532,6 +533,9 @@
     <Content Include="Areas\Cabinet\Views\FeedBacks\List.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\Feedback\_listOfFeedbacks.cshtml" />
     <Content Include="Content\fonts\open sans\open sans.ttf" />
+    <Content Include="Areas\Cabinet\Views\SeoParametrs\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\SeoParametrs\List.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\SeoParametrs\_listOfSeoParams.cshtml" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />

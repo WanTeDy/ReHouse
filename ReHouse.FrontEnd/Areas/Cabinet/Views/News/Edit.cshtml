@@ -34,6 +34,8 @@
         <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
         <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
         <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
+        <li><a class="4" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
+        <li><a class="4" href="~/cabinet/texts/list">Тексты</a></li>
     </ul>
 </div>
 <div id="adminka1" class="tabset_content tabset_content_active">
@@ -85,7 +87,7 @@
 
                     <tr>
                         <td>Содержание:</td>
-                        <td>@Html.TextAreaFor(m => m.Description, new { @rows = "7" })</td>
+                        <td>@Html.TextAreaFor(m => m.Description, new { @rows = "30", @cols = "30" })</td>
                     </tr>
                     <tr>
                         <td></td>

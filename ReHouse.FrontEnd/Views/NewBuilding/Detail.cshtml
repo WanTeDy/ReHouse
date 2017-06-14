@@ -222,56 +222,54 @@
         }
     </div>
 }
-<span class="noprint">
-    <div id="mapnovostroy_prod">
-        <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1054px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-    <div id="mapnovostroy1">
-        <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-    <span class="none">
+<div id="mapnovostroy_prod">
+    <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1054px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+<div id="mapnovostroy1">
+    <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+<span class="none">
 
-        <div class="h2novostroy"><h2>Другие Новостройки</h2></div>
-    </span>
-    <div class="othernovostroy">
-        <ul class="prods" id="data-container">
-            @if (Model.OtherNewBuildings.Count > 0)
+    <div class="h2novostroy"><h2>Другие Новостройки</h2></div>
+</span>
+<div class="othernovostroy">
+    <ul class="prods" id="data-container">
+        @if (Model.OtherNewBuildings.Count > 0)
             {
                 foreach (var item in Model.OtherNewBuildings)
                 {
-                    <div class="data-item">
-                        <li>
-                            @if (item.IsExclusive)
-                            {
-                                <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
-                            }
-                            else if (item.IsHot)
-                            {
-                                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                            }
-                            else
-                            {
-                                <div class="redimg"><img src="~/Content/images/newred.png"></div>
-                            }
-                            @if (item.Images != null && item.Images.Count > 0)
-                            {
-                                <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
-                            }
-                            else
-                            {
-                                <a href="~/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
-                            }
-                            <div class="min-content">
-                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"></div>
-                                <h3>@item.Name</h3>
-                                <h4>@item.Adress <br />Сдача: @item.ExpluatationDate.Name</h4>
-                                <p class="cost">от @item.Price грн/м²</p>
-                                <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>
-                            </div>
-                        </li>
-                    </div>
-                }
+                <div class="data-item">
+                    <li>
+                        @if (item.IsExclusive)
+                        {
+                            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                        }
+                        else if (item.IsHot)
+                        {
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                        }
+                        else
+                        {
+                            <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                        }
+                        @if (item.Images != null && item.Images.Count > 0)
+                        {
+                            <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
+                        }
+                        else
+                        {
+                            <a href="~/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
+                        }
+                        <div class="min-content">
+                            <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"></div>
+                            <h3>@item.Name</h3>
+                            <h4>@item.Adress <br />Сдача: @item.ExpluatationDate.Name</h4>
+                            <p class="cost">от @item.Price грн/м²</p>
+                            <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>
+                        </div>
+                    </li>
+                </div>
             }
-        </ul>
-    </div>
-</span>
+        }
+    </ul>
+</div>

@@ -204,7 +204,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op5.ExcecuteTransaction();
             ViewBag.Districts = op5._districts;
 
-            var op6 = new LoadSeoParamsOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._advert.Id, operation._advert.Id.ToString());
+            var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._advert.Id, operation._advert.Id.ToString());
             op6.ExcecuteTransaction();
             ViewBag.SeoParam = op6._seoParams ?? new SeoParam();
 

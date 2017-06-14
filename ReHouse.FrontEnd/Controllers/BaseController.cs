@@ -19,7 +19,7 @@ namespace ReHouse.FrontEnd.Controllers
         public string CurrentController { get; set; }
         public string AbsoluteUrl { get; set; }
         public string UrlParams { get; set; }
-        
+
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             base.OnActionExecuted(filterContext);
@@ -38,13 +38,14 @@ namespace ReHouse.FrontEnd.Controllers
                 CurrentAction = rd.GetRequiredString("action");
                 CurrentController = rd.GetRequiredString("controller");
                 AbsoluteUrl = HttpContext.Request.Url.AbsolutePath;
-                UrlParams = AbsoluteUrl.Substring(AbsoluteUrl.LastIndexOf('/') + 1);
+                if (AbsoluteUrl.Count(x => x == '/') > 2)
+                    UrlParams = AbsoluteUrl.Substring(AbsoluteUrl.LastIndexOf('/') + 1);
 
                 var operation2 = new LoadPageTextsOperation(tokenHash, CurrentAction, CurrentController);
                 operation2.ExcecuteTransaction();
                 ViewBag.PageTexts = operation2._pageTexts;
 
-                var operation3 = new LoadSeoParamsOperation(tokenHash, CurrentAction, CurrentController, AbsoluteUrl, UrlParams);
+                var operation3 = new LoadSeoParamOperation(tokenHash, CurrentAction, CurrentController, AbsoluteUrl, UrlParams);
                 operation3.ExcecuteTransaction();
                 ViewBag.SeoParams = operation3._seoParams;
             }

@@ -40,7 +40,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat //TODO
                 _advert = Context.Adverts.FirstOrDefault(x => !x.Deleted && x.Id == _id);
                 if (_advert != null)
                 {
-                    if (user == null || (user.Role.RussianName != ConstV.RoleAdministrator && user.Role.RussianName != ConstV.RoleManager && user.Id != _advert.UserId))
+                    if (user == null || (user.Role.RussianName != ConstV.RoleAdministrator && user.Role.RussianName != ConstV.RoleManager && user.Role.RussianName != ConstV.RoleSeo && user.Id != _advert.UserId))
                         throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
                 }
                 else

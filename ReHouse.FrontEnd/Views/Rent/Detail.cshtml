@@ -208,97 +208,95 @@
         }
     </div>
 }
-<span class="noprint">
-    @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
-    {
+@if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
+{
 
-        @*<div class="video-youtube">
+    @*<div class="video-youtube">
             <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
         </div>*@
-    }
-    <div class="map_managercard">
-        <div id="mapapart_prod">
+}
+<div class="map_managercard">
+    <div id="mapapart_prod">
 
-            <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
-        <div id="mapnovostroy1">
-            <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
+        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div id="mapnovostroy1">
+        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
 
-        <div class="manager">
-            <div class="photo">
-                @if (Model.Advert.User.Avatar != null)
+    <div class="manager">
+        <div class="photo">
+            @if (Model.Advert.User.Avatar != null)
             {
-                    <img src="@Url.Content(Model.Advert.User.Avatar.Url + Model.Advert.User.Avatar.FileName)" width="90p" height="90">
-                }
-                else
-                {
-                    <img src="~/Content/images/manager.png" width="90p" height="90">
-                }
+                <img src="@Url.Content(Model.Advert.User.Avatar.Url + Model.Advert.User.Avatar.FileName)" width="90p" height="90">
+            }
+            else
+            {
+                <img src="~/Content/images/manager.png" width="90p" height="90">
+            }
+        </div>
+        <div class="manager_info">
+            <div class="imgtel">
+                <img src="~/Content/images/minphone.png">
             </div>
-            <div class="manager_info">
-                <div class="imgtel">
-                    <img src="~/Content/images/minphone.png">
-                </div>
-                <div class="number">
-                    @if (Model.Advert.User.Phones != null && Model.Advert.User.Phones.Count > 0)
+            <div class="number">
+                @if (Model.Advert.User.Phones != null && Model.Advert.User.Phones.Count > 0)
+                {
+                    foreach (var phone in Model.Advert.User.Phones)
                     {
-                        foreach (var phone in Model.Advert.User.Phones)
-                        {
-                            <p>@phone.TelePhone</p>
-                        }
+                        <p>@phone.TelePhone</p>
                     }
-                    <p>@Model.Advert.User.Email</p>
-                    <p class="name">@Model.Advert.User.FirstName</p>
-                </div>
+                }
+                <p>@Model.Advert.User.Email</p>
+                <p class="name">@Model.Advert.User.FirstName</p>
             </div>
         </div>
     </div>
+</div>
 
-    <span class="none">
+<span class="none">
 
-        <div class="h2prodsale"><h2>Новинки аренды</h2></div>
-    </span>
-    <div class="othernovostroy">
-        <ul class="prods" id="data-container">
-            @if (Model.OtherAdverts.Count > 0)
+    <div class="h2prodsale"><h2>Новинки аренды</h2></div>
+</span>
+<div class="othernovostroy">
+    <ul class="prods" id="data-container">
+        @if (Model.OtherAdverts.Count > 0)
             {
                 foreach (var item in Model.OtherAdverts)
                 {
-                    <div class="data-item">
-                        <li>
-                            @if (item.IsExclusive)
-                            {
-                                <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
-                            }
-                            else if (item.IsHot)
-                            {
-                                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                            }
-                            else
-                            {
-                                <div class="redimg"><img src="~/Content/images/newred.png"></div>
-                            }
-                            @if (item.Images != null && item.Images.Count > 0)
-                            {
-                                <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
-                            }
-                            else
-                            {
-                                <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
-                            }
-                            <div class="min-content">
-                                <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
-                                <h3>Сдам @item.Title.RussianName.ToLower()</h3>
-                                @*<h3>@item.TitleName</h3>*@
-                                <h4>@item.Description</h4>
-                                <p class="cost">@item.Price $</p>
-                                <a href="~/rent/detail/@item.Id" id="follow">❯</a>
-                            </div>
-                        </li>
-                    </div>
-                }
+                <div class="data-item">
+                    <li>
+                        @if (item.IsExclusive)
+                        {
+                            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                        }
+                        else if (item.IsHot)
+                        {
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                        }
+                        else
+                        {
+                            <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                        }
+                        @if (item.Images != null && item.Images.Count > 0)
+                        {
+                            <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
+                        }
+                        else
+                        {
+                            <a href="~/rent/detail/@item.Id" class="fix"><img src="~/Content/images/news1.jpg" width="250" height="212" alt="" /></a>
+                        }
+                        <div class="min-content">
+                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"></div>
+                            <h3>Сдам @item.Title.RussianName.ToLower()</h3>
+                            @*<h3>@item.TitleName</h3>*@
+                            <h4>@item.Description</h4>
+                            <p class="cost">@item.Price $</p>
+                            <a href="~/rent/detail/@item.Id" id="follow">❯</a>
+                        </div>
+                    </li>
+                </div>
             }
-        </ul>
-    </div>
-</span>
+        }
+    </ul>
+</div>

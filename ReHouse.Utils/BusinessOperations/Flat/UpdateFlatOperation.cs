@@ -40,7 +40,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 if (_advert != null)
                 {
                     var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
-                    if (user != null && (_advert.UserId == user.Id || user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
+                    if (user != null && (_advert.UserId == user.Id || user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager || user.Role.RussianName == ConstV.RoleSeo))
                     {
                         if (_images != null)
                         {

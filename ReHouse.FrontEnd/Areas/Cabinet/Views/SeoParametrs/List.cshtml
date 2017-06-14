@@ -1,12 +1,13 @@
-﻿@using ReHouse.Utils.DataBase.Vacancies
-@model Vacancy
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.Utils.DataBase.Common;
+@model List<SeoParam>
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
 <div class="list_">
     <h2 class="tabset_label">Table of Contents</h2>
     <ul class="tabset_tabs">
-        <li class="firstchild 1"><a href="~/cabinet/profile">Профиль</a></li>
+        <li class="firstchild"><a href="~/cabinet/profile">Профиль</a></li>
         <li>
             <a class="1">Продажа</a>
             <ol>
@@ -18,7 +19,7 @@
         </li>
 
         <li>
-            <a class="2">Аренда</a>
+            <a class="1">Аренда</a>
             <ol>
                 <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
                 <li><a href="~/cabinet/rent/house">Дома</a></li>
@@ -29,37 +30,52 @@
         <li><a class="3" href="~/cabinet/newbuilding/list">Новострои</a></li>
         <li><a class="3" href="~/cabinet/news/list">Новости</a></li>
         <li><a class="4" href="~/cabinet/feedbacks/list">Отзывы</a></li>
-        <li><a class="preActive active" href="~/cabinet/vacancies/list">Вакансии</a></li>
+        <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
         <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
         <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
         <li><a class="4" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
-        <li><a class="4" href="~/cabinet/texts/list">Тексты</a></li>
+        <li><a class="preActive active" href="~/cabinet/texts/list">Тексты</a></li>
     </ul>
 </div>
-<div id="adminka1" class="tabset_content tabset_content_active">
-    <h2 class="tabset_label">adminka</h2>
-            
-        <div class="photo_of_manager">
-            <form enctype="multipart/form-data" action="" method="POST">
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary()
-                <div class="contact_info">
-                    <table>                        
-                        <tr>
-                            <td>Заголовок:</td>
-                            <td>@Html.TextBoxFor(m => m.Title)</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Содержание:</td>
-                            <td>@Html.TextAreaFor(m => m.Description, new { @rows = "30", @cols = "30" })</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><button>Сохранить</button></td>
-                        </tr>
-                    </table>
-                </div>
-            </form>
-        </div>
+<div id="adminka2" class="tabset_content">
+    <div class="headline">
+        <h2>SEO параметры страниц</h2>        
     </div>
+
+    @if (!ViewBag.NoElements)
+    {
+
+        <div class="added">
+            @*<button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>*@
+            <table class="added" id="data-container">
+                @Html.Partial("SeoParametrs/_listOfSeoParams", Model)
+            </table>
+        </div>
+        @*<div>
+            <div class="products1">
+                <div id="button-more">
+                    <a id="more">Больше Отзывов</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading-div">
+
+        </div>*@
+    }
+
+</div>
+@*@section scripts {
+    @Scripts.Render("~/bundles/deleteFeedbacks")
+
+    <script>
+        var url = "/cabinet/feedback/load";
+        $('#button-more').click(function () {
+
+            var obj = {
+        }
+
+            lazyload(obj, url, false);
+        });       
+    </script>
+
+}*@
