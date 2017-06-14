@@ -132,12 +132,14 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return Redirect("/");
             
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;            
+            ViewBag.SeoParam = new SeoParam();
             return View();
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Add(Article model, HttpPostedFileBase image)
+        public ActionResult Add(Article model, HttpPostedFileBase image,
+            string seo_title, string seo_description, string seo_keywords, int seo_id)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
@@ -145,6 +147,21 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             var operation = new AddArticleOperation(sessionModel.TokenHash, model.Title, model.Description, image);
             operation.ExcecuteTransaction();
+
+            var seoparam = new SeoParam
+            {
+                Id = seo_id,
+                ActionName = ConstV.DetailAction,
+                ControllerName = CurrentController,
+                Description = seo_description,
+                Keywords = seo_keywords,
+                Title = seo_title,
+                UrlParams = model.Id.ToString(),
+                FullUrl = "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._article.Id,
+            };
+            ViewBag.SeoParam = seoparam;
+
+            var op6 = new AddSeoParamOperation(sessionModel.TokenHash, seoparam);
 
             if (!operation.Success)
             {

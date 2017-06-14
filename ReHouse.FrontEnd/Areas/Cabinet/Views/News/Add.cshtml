@@ -1,4 +1,6 @@
 ﻿@using ReHouse.Utils.DataBase.News
+@using ReHouse.Utils
+@using ReHouse.FrontEnd.Models
 @model Article
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
@@ -45,6 +47,26 @@
                 @Html.ValidationSummary()
                 <div class="contact_info">
                     <table>
+                        @if (Session != null && Session["user"] is SessionModel)
+                        {
+                            var session = Session["user"] as SessionModel;
+                            <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
+                            if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
+                            {
+                                <tr>
+                                    <td>SEO Title:</td>
+                                    <td><input type="text" name="seo_title" value="@ViewBag.SeoParam.Title" /></td>
+                                </tr>
+                                <tr>
+                                    <td>SEO Description:</td>
+                                    <td><textarea name="seo_description">@ViewBag.SeoParam.Description</textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>SEO Keywords:</td>
+                                    <td><textarea name="seo_keywords">@ViewBag.SeoParam.Keywords</textarea></td>
+                                </tr>
+                            }
+                        }
                         <tr>
                             <td>
                                 Изображение:

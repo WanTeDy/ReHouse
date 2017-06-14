@@ -24,6 +24,7 @@ namespace ReHouse.Utils.BusinessOperations.Seo
             _seoParam.ActionName = _seoParam.ActionName.ToLower();
             _seoParam.ControllerName = _seoParam.ControllerName.ToLower();
             _seoParam.FullUrl = _seoParam.FullUrl.ToLower();
+            _seoParam.Id = 0;
             Context.SeoParams.Add(_seoParam);
             Context.SaveChanges();
         }

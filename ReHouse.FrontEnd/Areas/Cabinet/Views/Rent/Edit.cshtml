@@ -302,9 +302,9 @@
                     {
                         @Html.HiddenFor(m => m.IsModerated)
                     }
+                    <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
                     if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
                     {
-                        <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
                         <tr>
                             <td>SEO Title:</td>
                             <td><input type="text" name="seo_title" value="@ViewBag.SeoParam.Title" /></td>
