@@ -43,7 +43,7 @@ namespace ReHouse.Utils.BusinessOperations.News
                 else
                 {
                     var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
-                    if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager))
+                    if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager || user.Role.RussianName == ConstV.RoleSeo))
                     {
                         if (_image != null)
                         {
