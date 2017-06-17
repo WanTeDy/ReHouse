@@ -1,0 +1,30 @@
+﻿@using ReHouse.FrontEnd.Models
+@model LoadCartModel
+
+<div class="navigation_string">
+    <div class="way">
+        @Html.ActionLink("Главная", "index", "home")
+        <pre> </pre>
+        <p>/</p>
+        <pre> </pre>
+        @Html.ActionLink("Поиск", "flats", "search")
+    </div>
+</div>
+<div class="h2novostroy"><h2>Найденные объявления</h2></div>
+
+@if (!ViewBag.NoElements)
+{
+    <div class="othernovostroy">
+        <ul class="prods" id="data-container">
+
+            @Html.Partial("Search/_listOfAdverts", Model.Adverts);
+
+        </ul>
+        @*<div id="button-more">
+            <a id="more">Больше объявлений</a>
+        </div>*@
+    </div>
+    @*<div id="loading-div">
+
+    </div>*@
+}

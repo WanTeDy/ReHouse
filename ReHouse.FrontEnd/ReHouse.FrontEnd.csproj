@@ -241,6 +241,7 @@
     <Compile Include="Areas\Cabinet\Controllers\SaleController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\RentController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -555,6 +556,7 @@
     <Content Include="Views\Manager\Profile.cshtml" />
     <Content Include="Views\MailTemplate\AdvertMailView.cshtml" />
     <Content Include="Views\MailTemplate\CommonUserMailView.cshtml" />
+    <Content Include="Views\Search\Flats.cshtml" />
     <None Include="Views\NewBuilding\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
@@ -599,6 +601,7 @@
     <Content Include="Views\Shared\Feedback\_listOfFeedbacks.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Shared\Vacancy\_listOfVacancies.cshtml" />
+    <Content Include="Views\Shared\Search\_listOfAdverts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -107,6 +107,7 @@
     <Compile Include="BusinessOperations\Builders\UpdateBuilderOperation.cs" />
     <Compile Include="BusinessOperations\Cart\LoadCartOperation.cs" />
     <Compile Include="BusinessOperations\Categories\LoadCategoriesOperation.cs" />
+    <Compile Include="BusinessOperations\Common\SearchAdvertsOperation.cs" />
     <Compile Include="BusinessOperations\Districts\AddDistrictOperation.cs" />
     <Compile Include="BusinessOperations\Districts\DeleteDistrictOperation.cs" />
     <Compile Include="BusinessOperations\Districts\LoadDistrictsOperation.cs" />
