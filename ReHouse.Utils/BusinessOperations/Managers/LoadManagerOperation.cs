@@ -6,8 +6,6 @@ namespace ReHouse.Utils.BusinessOperations.Managers
 {
     public class LoadManagerOperation : BaseOperation
     {
-        private Int32 _length = 90;
-        private Int32 _subLength = 85;
         private String _tokenHash { get; set; }
         private Int32 _userId { get; set; }
         public User _user { get; set; }
@@ -29,8 +27,8 @@ namespace ReHouse.Utils.BusinessOperations.Managers
                 _user.Adverts.ForEach(
                         x =>
                         {
-                            if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
-                                x.Description = x.Description.Substring(0, _subLength) + "...";
+                            if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > ConstV.DescMinimizeSymbols + 5)
+                                x.Description = x.Description.Substring(0, ConstV.DescMinimizeSymbols) + "...";
                         });
 
                 _user.NewBuildings = _user.NewBuildings.Where(x => !x.Deleted && x.IsModerated).OrderByDescending(x => x.IsHot)

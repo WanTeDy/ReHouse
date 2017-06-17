@@ -9,8 +9,6 @@ namespace ReHouse.Utils.BusinessOperations.Flat //TODO
 {
     public class LoadFlatOperation : BaseOperation
     {
-        private Int32 _length = 90;
-        private Int32 _subLength = 85;
         private String _tokenHash { get; set; }
         private Int32 _id { get; set; }
         private Int32 _page { get; set; }
@@ -59,8 +57,8 @@ namespace ReHouse.Utils.BusinessOperations.Flat //TODO
                     _adverts.ForEach(
                         x =>
                         {
-                            if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
-                                x.Description = x.Description.Substring(0, _subLength) + "...";
+                            if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > ConstV.DescMinimizeSymbols + 5)
+                                x.Description = x.Description.Substring(0, ConstV.DescMinimizeSymbols) + "...";
                         });
                 }
                 var advertProperties = Context.AdvertProperties.Where(x => !x.Deleted && x.Categories

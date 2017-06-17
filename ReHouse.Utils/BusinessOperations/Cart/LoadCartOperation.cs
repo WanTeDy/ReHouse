@@ -8,8 +8,6 @@ namespace ReHouse.Utils.BusinessOperations.Cart
 {
     public class LoadCartOperation : BaseOperation
     {
-        private Int32 _length = 90;
-        private Int32 _subLength = 85;
         private List<CartModel> _cartModel { get; set; }
         public List<CartAdvertModel> _adverts { get; set; }
 
@@ -57,7 +55,7 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                             Price = el.Price,
                             Adress = el.Street,
                             Type = item.Type,
-                            Description = el.Description.Length > _length ? el.Description.Substring(0, _subLength) + "..." : el.Description,
+                            Description = el.Description.Length > ConstV.DescMinimizeSymbols + 5 ? el.Description.Substring(0, ConstV.DescMinimizeSymbols) + "..." : el.Description,
                             Name = el.Title.RussianName,
                             //Name = el.TitleName,
                             Image = el.Images.FirstOrDefault(x => !x.Deleted),

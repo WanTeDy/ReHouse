@@ -11,8 +11,6 @@ namespace ReHouse.Utils.BusinessOperations.Home
     {
         private Int32 _count = 10;
         private Int32 _articlesCount = 2;
-        private Int32 _length = 90;
-        private Int32 _subLength = 85;
         private String _tokenHash { get; set; }        
         public List<Advert> _hotAdverts { get; set; }
         public List<Advert> _flatSaleAdverts { get; set; }
@@ -34,8 +32,8 @@ namespace ReHouse.Utils.BusinessOperations.Home
             _hotAdverts.ForEach(
                 x =>
                 {
-                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
-                        x.Description = x.Description.Substring(0, _subLength) + "...";
+                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > ConstV.DescMinimizeSymbols + 5)
+                        x.Description = x.Description.Substring(0, ConstV.DescMinimizeSymbols) + "...";
                 });
 
             _flatSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.Category.ParentId == (int)ParrentCategories.Flat)
@@ -43,8 +41,8 @@ namespace ReHouse.Utils.BusinessOperations.Home
             _flatSaleAdverts.ForEach(
                 x =>
                 {
-                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
-                        x.Description = x.Description.Substring(0, _subLength) + "...";
+                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > ConstV.DescMinimizeSymbols + 5)
+                        x.Description = x.Description.Substring(0, ConstV.DescMinimizeSymbols) + "...";
                 });
 
             _houseSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && (x.Category.ParentId == (int)ParrentCategories.House || x.Category.ParentId == (int)ParrentCategories.Homestead))
@@ -52,8 +50,8 @@ namespace ReHouse.Utils.BusinessOperations.Home
             _houseSaleAdverts.ForEach(
                 x =>
                 {
-                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > _length)
-                        x.Description = x.Description.Substring(0, _subLength) + "...";
+                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > ConstV.DescMinimizeSymbols + 5)
+                        x.Description = x.Description.Substring(0, ConstV.DescMinimizeSymbols) + "...";
                 });
 
             _newBuildingAdverts = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated)
