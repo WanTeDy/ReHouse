@@ -1,6 +1,6 @@
 ﻿@using ReHouse.Utils.Helpers
 @using ReHouse.Utils.DataBase.Common;
-@model List<SeoParam>
+@model List<PageText>
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
@@ -33,13 +33,13 @@
         <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
         <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
         <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
-        <li><a class="preActive active" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
-        <li><a class="4" href="~/cabinet/texts/list">Тексты</a></li>
+        <li><a class="4" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
+        <li><a class="preActive active" href="~/cabinet/texts/list">Тексты</a></li>
     </ul>
 </div>
 <div id="adminka2" class="tabset_content">
     <div class="headline">
-        <h2>SEO параметры страниц</h2>        
+        <h2>Тексты страниц</h2>        
     </div>
 
     @if (!ViewBag.NoElements)
@@ -48,7 +48,7 @@
         <div class="added">
             @*<button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>*@
             <table class="added" id="data-container">
-                @Html.Partial("SeoParametrs/_listOfSeoParams", Model)
+                @Html.Partial("Texts/_listOfTexts", Model)
             </table>
         </div>
         @*<div>

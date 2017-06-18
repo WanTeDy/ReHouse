@@ -4,28 +4,31 @@ using System.Linq;
 using ReHouse.Utils.DataBase.Common;
 using ReHouse.Utils.Helpers;
 using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.Except;
 
 namespace ReHouse.Utils.BusinessOperations.Seo
 {
     public class LoadPageTextsOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
-        private String _action { get; set; }
-        private String _controller { get; set; }
-        public List<PageText> _pageTexts { get; set; }
 
-        public LoadPageTextsOperation(string tokenHash, string action, string controller)
+        public List<PageText> _texts { get; set; }
+
+        public LoadPageTextsOperation(string tokenHash)
         {
             _tokenHash = tokenHash;
-            _action = action.ToLower();
-            _controller = controller.ToLower();
-            RussianName = "Получение сео текстов для страниц";
+
+            RussianName = "Получение текстов для всех страниц";
         }
 
         protected override void InTransaction()
         {
-            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            _pageTexts = Context.PageTexts.Where(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller).ToList();
+            var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
+            if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator /*|| user.Role.RussianName == ConstV.RoleManager*/ || user.Role.RussianName == ConstV.RoleSeo))
+                _texts = Context.PageTexts.Where(x => !x.Deleted).ToList();
+            else
+                throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
         }
     }
 }

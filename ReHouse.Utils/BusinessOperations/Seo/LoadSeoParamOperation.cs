@@ -33,6 +33,8 @@ namespace ReHouse.Utils.BusinessOperations.Seo
             if (!String.IsNullOrEmpty(_urlParams))
             {
                 _seoParams = Context.SeoParams.FirstOrDefault(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller && x.FullUrl == _url);
+                if (_seoParams == null)
+                    _seoParams = Context.SeoParams.FirstOrDefault(x => !x.Deleted && x.ActionName == _action && x.ControllerName == _controller);
             }
             else
             {

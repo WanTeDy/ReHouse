@@ -43,6 +43,8 @@ namespace ReHouse.FrontEnd.Controllers
             ViewBag.NoElements = false;
             if (operation._newBuildings == null || operation._newBuildings.Count == 0)
                 ViewBag.NoElements = true;
+
+            this.LoadPageText();
             return View(model);
         }
         [HttpPost]

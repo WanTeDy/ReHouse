@@ -49,6 +49,8 @@ namespace ReHouse.FrontEnd.Controllers
             var tokenHash = "";
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
+
+            this.LoadPageText();
             return View();
         }
 
@@ -58,6 +60,7 @@ namespace ReHouse.FrontEnd.Controllers
             var tokenHash = "";
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
+
             return View();
         }
     }

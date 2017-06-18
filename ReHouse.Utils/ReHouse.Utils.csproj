@@ -148,11 +148,14 @@
     <Compile Include="BusinessOperations\News\LoadArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\LoadArticlesOperation.cs" />
     <Compile Include="BusinessOperations\News\UpdateArticleOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadPageTextsOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadPageTextByIdOperation.cs" />
     <Compile Include="BusinessOperations\Seo\LoadSeoParametrsOperation.cs" />
     <Compile Include="BusinessOperations\Seo\LoadSeoParamByIdOperation.cs" />
     <Compile Include="BusinessOperations\Seo\LoadSeoParamOperation.cs" />
-    <Compile Include="BusinessOperations\Seo\LoadPageTextsOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadPageTextOperation.cs" />
     <Compile Include="BusinessOperations\Seo\AddSeoParamOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\AddPageTextOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdateSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdatePageTextOperation.cs" />
     <Compile Include="BusinessOperations\Titles\AddTitleOperation.cs" />
@@ -278,6 +281,10 @@
     <Compile Include="Migrations\201706120846110_seo.Designer.cs">
       <DependentUpon>201706120846110_seo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706181108253_pagetext.cs" />
+    <Compile Include="Migrations\201706181108253_pagetext.Designer.cs">
+      <DependentUpon>201706181108253_pagetext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -335,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706120846110_seo.resx">
       <DependentUpon>201706120846110_seo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706181108253_pagetext.resx">
+      <DependentUpon>201706181108253_pagetext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

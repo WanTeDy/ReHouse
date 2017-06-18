@@ -19,18 +19,19 @@ namespace ReHouse.FrontEnd.Controllers
         public string CurrentController { get; set; }
         public string AbsoluteUrl { get; set; }
         public string UrlParams { get; set; }
+        public string TokenHash { get; set; }
 
-        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            base.OnActionExecuted(filterContext);
+            base.OnActionExecuting(filterContext);
 
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
-            var tokenHash = "";
+            TokenHash = "";
             if (sessionModel != null)
-                tokenHash = sessionModel.TokenHash;
+                TokenHash = sessionModel.TokenHash;
             if (HttpContext.Request.HttpMethod.ToLower() == "get")
             {
-                var operation = new LoadArticlesOperation(tokenHash, 1, _articlesCount);
+                var operation = new LoadArticlesOperation(TokenHash, 1, _articlesCount);
                 operation.ExcecuteTransaction();
                 ViewBag.Articles = operation._articles;
 
@@ -40,15 +41,18 @@ namespace ReHouse.FrontEnd.Controllers
                 AbsoluteUrl = HttpContext.Request.Url.AbsolutePath;
                 if (AbsoluteUrl.Count(x => x == '/') > 2)
                     UrlParams = AbsoluteUrl.Substring(AbsoluteUrl.LastIndexOf('/') + 1);
-
-                var operation2 = new LoadPageTextsOperation(tokenHash, CurrentAction, CurrentController);
-                operation2.ExcecuteTransaction();
-                ViewBag.PageTexts = operation2._pageTexts;
-
-                var operation3 = new LoadSeoParamOperation(tokenHash, CurrentAction, CurrentController, AbsoluteUrl, UrlParams);
+                
+                var operation3 = new LoadSeoParamOperation(TokenHash, CurrentAction, CurrentController, AbsoluteUrl, UrlParams);
                 operation3.ExcecuteTransaction();
                 ViewBag.SeoParams = operation3._seoParams;
             }
+        }
+
+        protected void LoadPageText()
+        {
+            var operation3 = new LoadPageTextOperation(TokenHash, CurrentAction, CurrentController, AbsoluteUrl, UrlParams);
+            operation3.ExcecuteTransaction();
+            ViewBag.PageTexts = operation3._pageTexts;
         }
     }
 }

@@ -50,6 +50,8 @@ namespace ReHouse.FrontEnd.Controllers
             ViewBag.Type = AdvertsType.Sale;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
+
+            this.LoadPageText();
             return View(model);
         }
         [HttpGet]
@@ -79,6 +81,8 @@ namespace ReHouse.FrontEnd.Controllers
             ViewBag.Type = AdvertsType.Sale;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
+
+            this.LoadPageText();
             return View(model);
         }
         [HttpGet]
@@ -108,6 +112,8 @@ namespace ReHouse.FrontEnd.Controllers
             ViewBag.Type = AdvertsType.Sale;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
+
+            this.LoadPageText();
             return View(model);
         }
         [HttpGet]
@@ -137,6 +143,8 @@ namespace ReHouse.FrontEnd.Controllers
             model.Adverts = operation._adverts;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
+            
+            this.LoadPageText();
             return View(model);
         }
 

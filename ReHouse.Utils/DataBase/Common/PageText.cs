@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace ReHouse.Utils.DataBase.Common
 {
@@ -16,13 +17,19 @@ namespace ReHouse.Utils.DataBase.Common
         public String ControllerName { get; set; }
 
         /// <summary>
+        /// Full URL
+        /// </summary>       
+        public String FullUrl { get; set; }
+
+        /// <summary>
         /// Text Block name
         /// </summary>       
         public String TextBlockName { get; set; }
 
         /// <summary>
         /// Description
-        /// </summary>       
+        /// </summary>   
+        [AllowHtml]    
         public String Description { get; set; }
 
         /// <summary>

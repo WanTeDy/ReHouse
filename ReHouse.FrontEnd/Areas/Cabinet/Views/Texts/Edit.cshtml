@@ -1,5 +1,5 @@
 ﻿@using ReHouse.Utils.DataBase.Common
-@model SeoParam
+@model PageText
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
@@ -31,8 +31,8 @@
         <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
         <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
         <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
-        <li><a class="preActive active" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
-        <li><a class="4" href="~/cabinet/texts/list">Тексты</a></li>
+        <li><a class="4" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
+        <li><a class="preActive active" href="~/cabinet/texts/list">Тексты</a></li>
     </ul>
 </div>
 <div id="adminka1" class="tabset_content tabset_content_active">
@@ -51,16 +51,16 @@
                         <td>@Model.FullUrl</td>
                     </tr>
                     <tr>
-                        <td>SEO Title:</td>
+                        <td>Блок:</td>
+                        <td>@Model.TextBlockName</td>
+                    </tr>
+                    <tr>
+                        <td>Заголовок:</td>
                         <td>@Html.TextBoxFor(m => m.Title)</td>
                     </tr>
                     <tr>
-                        <td>SEO Description:</td>
+                        <td>Текст:</td>
                         <td>@Html.TextAreaFor(m => m.Description, new { @rows = "30", @cols = "30" })</td>
-                    </tr>
-                    <tr>
-                        <td>SEO Keywords:</td>
-                        <td>@Html.TextAreaFor(m => m.Keywords, new { @rows = "30", @cols = "30" })</td>
                     </tr>
                     <tr>
                         <td></td>
