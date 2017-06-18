@@ -6,7 +6,7 @@ using System.Web;
 using System.Net.Mail;
 using ReHouse.Utils;
 using System.IO;
-//using static RazorEngine.Razor;
+using static RazorEngine.Razor;
 
 namespace ReHouse.Utils.Helpers
 {
@@ -35,8 +35,8 @@ namespace ReHouse.Utils.Helpers
             var fileText = File.ReadAllText(url);
 
             //var result = Engine.Razor.RunCompile(fileText, "templateKey", null, new { Name = "World" });
-            return null;
-            //return Parse(fileText, model);
+            //return null;
+            return Parse(fileText, model);
         }
 
         public void Send(string destination, string subject, string body)

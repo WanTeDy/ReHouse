@@ -402,7 +402,7 @@ button.delete_all2 {
     background: none;
     border: 1px solid white;
     color: white;
-    width: 300px;
+    width: 608px;
 }
 
 .contact_info table textarea {
@@ -410,7 +410,7 @@ button.delete_all2 {
     border: 1px solid white;
     color: white;
     font-size: 14px;
-    width: 294px;
+    width: 600px;
 }
 
 .contact_info .file_upload {

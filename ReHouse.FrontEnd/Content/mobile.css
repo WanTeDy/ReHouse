@@ -11,7 +11,10 @@
 	.header_mobile .header {
 	display: flex;
 }
-
+body {
+background-color: #0a2a5d;
+background-image: none;
+}
 #slidebox {
     display: none;
 }
@@ -123,6 +126,7 @@ display:none;
   max-width: 768px;
   width: 100%;
   height: 100px;
+background-color: #0a2a5d;
 }
 
 .header_mobile .header .contactinfo #fav1 {
@@ -366,7 +370,7 @@ margin-top: 35px;
 }
 #toTop {
     bottom: 10px;
-    right: -30px;
+    right: 1px;
   }
 
 /*sale of apart*/
@@ -475,12 +479,39 @@ width: 768px;
 }
 
 
+.favorite1 {
+display:none;
+}
+.favorite {
+display:none;
+}
+
+/*
 .favorite {
   position: relative;
 }
-#favorite {
-  display: none;
+.favorite {
+    position: absolute;
+    top: 598px;
+    left: 444px;
+    width: 355px;
 }
+.favorite1 {
+      position: absolute;
+    top: 655px;
+    left: 527px;
+    width: 270px;
+}
+.h2novostroy #favorite {
+    padding: 5px 20px 5px 20px;  
+}
+*/
+
+
+
+
+
+
 #fav2 {
   display: block;
     position: absolute;
@@ -513,7 +544,7 @@ width: 768px;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-margin-bottom: 64px;
+margin-bottom: 70px;
 }
 #mapnovostroy_prod {
     display: none;
@@ -526,7 +557,7 @@ margin-bottom: 70px;
 }
 .share_icons {   
     width: 135px;    
-    margin-left: 67px;   
+    margin-left: 320px;   
 }
 .seotext3 {
     width: 750px;
@@ -548,7 +579,7 @@ margin-bottom: 70px;
 .map_managercard .manager {
     display: flex;
         margin-left: -615px;
-    margin-top: -73px;
+    margin-top: -81px;
     width: 422px;
 }
 #mapnovostroy1 {
@@ -759,7 +790,9 @@ margin-bottom: 70px;
     font-size: 25px;
     line-height: 35px;
 }
-
+#button-more {
+    width: 740px;
+}
 
 
 
@@ -783,7 +816,10 @@ margin-bottom: 70px;
   .header_mobile {
   display: block;
 }
-
+body {
+background-color: #0a2a5d;
+background-image: none;
+}
 
 .hidden-menu {
   display: block;
@@ -882,6 +918,7 @@ margin-bottom: 70px;
 .header {
   width: 480px;
   height: 100px;
+background-color: #0a2a5d;
 }
 
 .header_mobile .header .contactinfo #fav1 {
@@ -1223,7 +1260,7 @@ width: 480px;
 }
 
 .products .prods {
-    width: 480px;
+    width: 370px;
     margin-left: 114px;
 }
 
@@ -1269,7 +1306,10 @@ width: 480px;
 .favorite {
   position: relative;
 }
-#favorite {
+.favorite {
+  display: none;
+}
+.favorite1 {
   display: none;
 }
 #fav2 {
@@ -1393,12 +1433,13 @@ margin-bottom: 70px;
 .adress {
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 430px;
     justify-content: space-between;
     margin-left: 30px;
 }
 .about_company1 {
     margin-left: 10px;
+    width: 430px;
 }
 .form_comment {
     margin-left: 5px;  
@@ -1462,7 +1503,7 @@ margin-bottom: 70px;
     flex-wrap: wrap;
     position: relative;
 
-    width: 480px;
+    width: 370px;
     margin-left: 114px;
 }
 
@@ -1582,11 +1623,32 @@ display:none;
     margin-bottom: 63px;
     margin-left: 12px;
 }
-
+#button-more {
+    width: 475px;
+}
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

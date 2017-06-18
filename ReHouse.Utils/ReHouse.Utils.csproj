@@ -152,10 +152,9 @@
     <Compile Include="BusinessOperations\Seo\LoadPageTextByIdOperation.cs" />
     <Compile Include="BusinessOperations\Seo\LoadSeoParametrsOperation.cs" />
     <Compile Include="BusinessOperations\Seo\LoadSeoParamByIdOperation.cs" />
-    <Compile Include="BusinessOperations\Seo\LoadSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\LoadPageTextOperation.cs" />
+    <Compile Include="BusinessOperations\Seo\LoadSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\AddSeoParamOperation.cs" />
-    <Compile Include="BusinessOperations\Seo\AddPageTextOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdateSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdatePageTextOperation.cs" />
     <Compile Include="BusinessOperations\Titles\AddTitleOperation.cs" />

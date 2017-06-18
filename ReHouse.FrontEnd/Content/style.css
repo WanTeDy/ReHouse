@@ -191,7 +191,7 @@ body {
     font-family: Casper;
     font-size: 12px;
     margin-left: 350px;
-    margin-top: 61px;
+    margin-top: 50px;
 }
 
     .your_name a {
@@ -233,17 +233,24 @@ body {
 }
 
 .contactinfo {
-    margin-left: 0px;
-    /*margin-top: 20px;*/
+    /*margin-left: 0px;
+    margin-top: 20px;
     color: white;
     font-family: "Casper";
     font-weight: 600;
-    font-size: 20px;
+    font-size: 20px;*/
+
+    margin-left: 0px;
+    margin-top: 3px;
+    color: white;
+    font-family: "Casper";
+    font-weight: 600;
+    font-size: 18px;
 }
 
     .contactinfo .social {
         margin-top: 11px;
-        margin-left: 42px;
+        margin-left: 63px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -269,7 +276,7 @@ body {
     }
 
 .social a {
-    margin-left: 2px;
+    margin-left: 5px;
 }
 
 .social .vk {
@@ -889,7 +896,7 @@ min-width:1500px;
         margin-left: 69px;
     }
 
-        .news .content1 a, .content2 a {
+.news .content1 a#more, .content2 a#more {
             padding: 10px 220px 10px 220px;
             border-radius: 10px;
             background: none;
@@ -901,7 +908,7 @@ min-width:1500px;
             text-decoration: none;
         }
 
-            .news .content1 a:hover {
+            .news .content1 a#more:hover {
                 background-image: -webkit-gradient(linear, left bottom, left top, from(#797f2b), color-stop(13.5%, #959958), color-stop(50%, #ffffff), color-stop(86.5%, #f9feb1), to(#f6fea3));
                 background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
                 color: #213b64;
@@ -909,7 +916,7 @@ min-width:1500px;
                 transition: .5s ease;
             }
 
-    .news .content2 a:hover {
+    .news .content2 a#more:hover {
         background-image: -webkit-gradient(linear, left bottom, left top, from(#797f2b), color-stop(13.5%, #959958), color-stop(50%, #ffffff), color-stop(86.5%, #f9feb1), to(#f6fea3));
         background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
         color: #213b64;
@@ -1980,12 +1987,14 @@ margin-right: 15px;
         position: absolute;
         top: 113px;
         left: 1015px;
+    width: 270px;
     }
 
     .h2novostroy .favorite {
         position: absolute;
         top: 60px;
         left: 1015px;
+ width: 355px;
     }
 
     .h2novostroy #favorite {
@@ -2165,6 +2174,7 @@ margin-right: 15px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
     .news .share_icons1 a {
@@ -2667,6 +2677,75 @@ margin-right: 15px;
 #fav2 {
 	display: none;
 } 
+
+.tags {
+	width: 1065px;
+    margin-left: 225px;
+    margin-top: 82px;
+    margin-bottom: 96px;
+    text-align: center;
+}
+.tags a {
+	text-decoration: none;
+	color: white;
+	font-family: "Century Gothic";
+}
+.tags a:hover {
+	color: gold;
+}
+#button-more {
+    width: 1070px;
+}
+
+
+.news .content1 a.intext {
+    padding: 0;
+    border-radius: none;
+    background: none;
+    border: none;
+    color: white;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.news .content1 a.intext:hover {
+color:gold;
+}
+
+.news .content1 ul, ol {
+    color: white;
+    line-height: 19px;
+    font-size: 15px;
+    font-family: "Century Gothic";
+}
+.news .content1 p {
+    color: white;
+    line-height: 19px;
+    font-size: 15px;
+    font-family: "Century Gothic";
+margin-bottom:0px;
+}
+.news .content1 h1 {
+    color: white;
+    line-height: 19px;
+    font-size: 19px;
+    font-family: "Century Gothic";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
