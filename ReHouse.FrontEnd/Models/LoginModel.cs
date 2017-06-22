@@ -8,7 +8,7 @@ namespace ReHouse.FrontEnd.Models
         [Display(Name = "Логин")]
         [Required(ErrorMessage = "* Поле {0} должно быть установлено.")]
         [StringLength(120, ErrorMessage = "* Поле {0} должно быть больше {2} и меньше {1} символов.", MinimumLength = 4)]
-        [EmailAddress(ErrorMessage = "Неправильный email")]
+        //[EmailAddress(ErrorMessage = "Неправильный email")]
         public String Login { get; set; }
 
         [Display(Name = "Пароль")]
