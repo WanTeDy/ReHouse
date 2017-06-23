@@ -27,12 +27,12 @@ namespace ReHouse.Utils.BusinessOperations.AuthoritiesOp
                 new DeleteNewBuildingOperation(null, null),
                 new LoadNewBuildingOperation(null, 0, 0, 0),
                 new LoadNewBuildingsOperation(null, 0, 0, 0, 0, 0, 0, 0, 0),
-                new UpdateNewBuildingOperation(null, null, null, null),
+                new UpdateNewBuildingOperation(null, null, null, null, null, null),
 
                 new UpdateTitleOperation(null, 0, null),
                 new AddTitleOperation(null, null),
                 new DeleteTitleOperation(null, 0),                
-                new UpdateArticleOperation(null, 0, null, null, null),
+                new UpdateArticleOperation(null, 0, null, null, null, null),
                 new AddArticleOperation(null, null, null, null),
                 new DeleteArticleOperation(null, null),
 

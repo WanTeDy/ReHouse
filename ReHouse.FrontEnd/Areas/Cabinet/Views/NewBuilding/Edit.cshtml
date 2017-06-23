@@ -5,6 +5,7 @@
 @model NewBuilding
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+    SessionModel session = Session["user"] as SessionModel;
 }
 
 <style>
@@ -302,10 +303,9 @@
                     <td>Эксклюзив:</td>
                     <td>@Html.CheckBoxFor(m => m.IsExclusive)</td>
                 </tr>
-                @if (Session != null && Session["user"] is SessionModel)
+                @if (session != null)
                 {
-                    var session = Session["user"] as SessionModel;
-                    if (session.Role.RussianName == "Администратор" || session.Role.RussianName == "Менеджер")
+                    if (session.Role.RussianName == ConstV.RoleAdministrator || session.Role.RussianName == ConstV.RoleManager)
                     {
                         <tr>
                             <td>Одобрено:</td>
@@ -450,12 +450,24 @@
             <h3>Общие фотографии(не более 3-х)</h3>
             @if (Model.Images != null && Model.Images.Count > 0)
             {
+                int i = 0;
                 <div class="add_photo">
                     @foreach (var image in Model.Images)
                     {
                         <div class="photo_" id="image_@image.Id">
-                            <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
+                            <img src="@Url.Content(image.Url + image.FileName)" width="272" height="211" />
                             <a onclick="deleteImage(@image.Id);">X</a>
+                            @if (session != null)
+                            {
+                                if (session.Role.RussianName == ConstV.RoleAdministrator || session.Role.RussianName == ConstV.RoleSeo)
+                                {
+                                    <input type="hidden" name="imageData[@i].Id" value="@image.Id" />
+                                    <div>Title</div>
+                                    <input type="text" name="imageData[@i].Title" value="@image.Title" />
+                                    <div>Alt</div>
+                                    <input type="text" name="imageData[@(i++)].Alt" value="@image.Alt" />
+                                }
+                            }
                         </div>
                     }
                 </div>
@@ -469,12 +481,24 @@
 
             @if (Model.PlanImages != null && Model.PlanImages.Count > 0)
             {
+                int i = 0;
                 <div class="add_photo">
                     @foreach (var image in Model.PlanImages)
                     {
                         <div class="photo_" id="planimage_@image.Id">
                             <img src="@Url.Content(image.Url+image.FileName)" width="272" height="211" />
                             <a onclick="deletePlanImage(@image.Id);">X</a>
+                            @if (session != null)
+                            {
+                                if (session.Role.RussianName == ConstV.RoleAdministrator || session.Role.RussianName == ConstV.RoleSeo)
+                                {
+                                    <input type="hidden" name="planimageData[@i].Id" value="@image.Id" />
+                                    <div>Title</div>
+                                    <input type="text" name="planimageData[@i].Title" value="@image.Title" />
+                                    <div>Alt</div>
+                                    <input type="text" name="planimageData[@(i++)].Alt" value="@image.Alt" />
+                                }
+                            }
                         </div>
                     }
                 </div>

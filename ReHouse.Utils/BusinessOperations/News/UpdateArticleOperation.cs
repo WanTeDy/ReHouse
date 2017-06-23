@@ -17,15 +17,17 @@ namespace ReHouse.Utils.BusinessOperations.News
         private String _description { get; set; }
         private Int32 _articleId { get; set; }
         private HttpPostedFileBase _image { get; set; }
+        private Image _imageData { get; set; }
         public Article _article { get; set; }
 
-        public UpdateArticleOperation(string tokenHash, int articleId, string title, string description, HttpPostedFileBase image)
+        public UpdateArticleOperation(string tokenHash, int articleId, string title, string description, HttpPostedFileBase image, Image imageData)
         {
             _tokenHash = tokenHash;
             _articleId = articleId;
             _title = title;
             _description = description;
             _image = image;
+            _imageData = imageData;
             RussianName = "Изменение новости";
         }
 
@@ -83,11 +85,19 @@ namespace ReHouse.Utils.BusinessOperations.News
                             Context.Images.Add(image);
                             _article.Images = new List<Image> { image };
                         }
+                        if (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleSeo)
+                        {
+                            var image = _article.Images.FirstOrDefault(x => !x.Deleted);
+                            if (image != null)
+                            {
+                                image.Title = _imageData.Title;
+                                image.Alt = _imageData.Alt;
+                            }
+                        }
                         _article.Title = _title;
                         _article.Description = _description;
                         Context.SaveChanges();
                     }
-
                     else
                     {
                         throw new ActionNotAllowedException("Недостаточно прав на редактирование чужих новостей");

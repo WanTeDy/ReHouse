@@ -9,7 +9,7 @@
             <div class="img">
                 @if (article.Images != null && article.Images.Count > 0)
                 {
-                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" width="440" height="263"/>
+                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263"/>
                 }
                 else
                 {

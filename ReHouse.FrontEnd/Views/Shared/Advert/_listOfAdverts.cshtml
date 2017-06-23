@@ -23,7 +23,7 @@
                 {
                     if (item.Images != null && item.Images.Count > 0)
                     {
-                        <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
+                        <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
                     }
                     else
                     {
@@ -43,7 +43,7 @@
                 {
                     if (item.Images != null && item.Images.Count > 0)
                     {
-                        <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
+                        <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
                     }
                     else
                     {

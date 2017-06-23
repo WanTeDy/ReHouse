@@ -284,6 +284,10 @@
     <Compile Include="Migrations\201706181108253_pagetext.Designer.cs">
       <DependentUpon>201706181108253_pagetext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706230847184_image.cs" />
+    <Compile Include="Migrations\201706230847184_image.Designer.cs">
+      <DependentUpon>201706230847184_image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -344,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706181108253_pagetext.resx">
       <DependentUpon>201706181108253_pagetext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230847184_image.resx">
+      <DependentUpon>201706230847184_image.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

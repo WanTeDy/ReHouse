@@ -100,13 +100,13 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Edit(NewBuilding model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages,
-            string seo_title, string seo_description, string seo_keywords, int seo_id)
+            string seo_title, string seo_description, string seo_keywords, int seo_id, Image[] imageData, PlanImage[] planimageData)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new UpdateNewBuildingOperation(sessionModel.TokenHash, model, images, planimages);
+            var operation = new UpdateNewBuildingOperation(sessionModel.TokenHash, model, images, planimages, imageData, planimageData);
             operation.ExcecuteTransaction();
 
             var seoparam = new SeoParam

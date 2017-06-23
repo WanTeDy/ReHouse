@@ -108,7 +108,7 @@
                         break;
                     }
                     i++;
-                        <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" alt=""></a>
+                        <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" title="@item.Title" alt="@item.Alt"></a>
                     }
                     @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
                     {
@@ -124,7 +124,7 @@
                         break;
                     }
                     j++;
-                        <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" alt=""></a></li>
+                        <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" title="@item.Title" alt="@item.Alt"></a></li>
                     }
                     @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
                     {
@@ -204,7 +204,7 @@
 
         @foreach (var item in Model.Advert.PlanImages)
                 {
-            <a class="plan" rel="group" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0" /></a>
+            <a class="plan" rel="group" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" title="@item.Title" alt="@item.Alt" border="0" /></a>
         }
     </div>
 }
@@ -280,7 +280,7 @@
                         }
                         @if (item.Images != null && item.Images.Count > 0)
                         {
-                            <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" width="250" height="212" alt="" /></a>
+                            <a class="fix" href="~/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
                         }
                         else
                         {

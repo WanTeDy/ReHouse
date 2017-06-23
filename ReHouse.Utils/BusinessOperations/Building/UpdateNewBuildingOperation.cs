@@ -17,15 +17,19 @@ namespace ReHouse.Utils.BusinessOperations.Building
         public NewBuilding _model { get; set; }
         private IEnumerable<HttpPostedFileBase> _images { get; set; }
         private IEnumerable<HttpPostedFileBase> _planImages { get; set; }
+        private Image[] _imageData { get; set; }
+        private PlanImage[] _planimageData { get; set; }
         public NewBuilding _newBuilding { get; set; }
 
 
-        public UpdateNewBuildingOperation(string tokenHash, NewBuilding newBuilding, IEnumerable<HttpPostedFileBase> images, IEnumerable<HttpPostedFileBase> planImages)
+        public UpdateNewBuildingOperation(string tokenHash, NewBuilding newBuilding, IEnumerable<HttpPostedFileBase> images, IEnumerable<HttpPostedFileBase> planImages, Image[] imageData, PlanImage[] planimageData)
         {
             _tokenHash = tokenHash;
             _model = newBuilding;
             _images = images;
             _planImages = planImages;
+            _imageData = imageData;
+            _planimageData = planimageData;
             RussianName = "Изменение новостроек";
         }
 
@@ -178,6 +182,27 @@ namespace ReHouse.Utils.BusinessOperations.Building
                             foreach (var id in _model.BuildersId)
                             {
                                 _newBuilding.Builders.Add(Context.Builders.FirstOrDefault(x => x.Id == id));
+                            }
+                        }
+                        if (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleSeo)
+                        {
+                            foreach (var img in _imageData)
+                            {
+                                var image = Context.Images.FirstOrDefault(x => x.Id == img.Id && !x.Deleted);
+                                if (image != null)
+                                {
+                                    image.Title = img.Title;
+                                    image.Alt = img.Alt;
+                                }
+                            }
+                            foreach (var img in _planimageData)
+                            {
+                                var image = Context.PlanImages.FirstOrDefault(x => x.Id == img.Id && !x.Deleted);
+                                if (image != null)
+                                {
+                                    image.Title = img.Title;
+                                    image.Alt = img.Alt;
+                                }
                             }
                         }
                         Context.SaveChanges();

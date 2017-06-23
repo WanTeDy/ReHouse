@@ -3,6 +3,7 @@ using ReHouse.FrontEnd.Models;
 using ReHouse.Utils;
 using ReHouse.Utils.BusinessOperations.News;
 using ReHouse.Utils.BusinessOperations.Seo;
+using ReHouse.Utils.DataBase.AdvertParams;
 using ReHouse.Utils.DataBase.Common;
 using ReHouse.Utils.DataBase.News;
 using System;
@@ -74,13 +75,13 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Edit(Article model, HttpPostedFileBase image,
-            string seo_title, string seo_description, string seo_keywords, int seo_id)
+            string seo_title, string seo_description, string seo_keywords, int seo_id, Image imageData)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new UpdateArticleOperation(sessionModel.TokenHash, model.Id, model.Title, model.Description, image);
+            var operation = new UpdateArticleOperation(sessionModel.TokenHash, model.Id, model.Title, model.Description, image, imageData);
             operation.ExcecuteTransaction();
 
             var seoparam = new SeoParam

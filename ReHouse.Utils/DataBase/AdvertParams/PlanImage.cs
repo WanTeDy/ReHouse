@@ -15,6 +15,14 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// Url of image
         /// </summary>
         public String Url { get; set; }
+        /// <summary>
+        /// Alt param of image
+        /// </summary>
+        public String Alt { get; set; }
+        /// <summary>
+        /// Title param of image
+        /// </summary>
+        public String Title { get; set; }
 
         public virtual List<Advert> Adverts { get; set; }
         public virtual List<NewBuilding> NewBuildings { get; set; }

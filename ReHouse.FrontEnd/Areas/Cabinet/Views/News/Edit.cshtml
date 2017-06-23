@@ -4,6 +4,7 @@
 @model Article
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+    SessionModel session = Session["user"] as SessionModel;
 }
 <div class="list_">
     <h2 class="tabset_label">Table of Contents</h2>
@@ -48,9 +49,8 @@
             @Html.ValidationSummary()
             <div class="contact_info">
                 <table>
-                    @if (Session != null && Session["user"] is SessionModel)
+                    @if (session != null)
                     {
-                        var session = Session["user"] as SessionModel;
                         <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
                         if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
                         {
@@ -80,6 +80,28 @@
                         </td>
                         <td><input type="file" name="image" /></td>
                     </tr>
+                    @if (session != null)
+                    {
+                        if (session.Role.RussianName == ConstV.RoleAdministrator || session.Role.RussianName == ConstV.RoleSeo)
+                        {
+                            <tr>
+                                <td>
+                                    <div>Title</div>
+                                    <div>Alt</div>
+
+                                </td>
+                                <td>
+                                    @if (Model.Images != null && Model.Images.FirstOrDefault() != null)
+                                    {
+                                        <input type="hidden" name="imageData.Id" value="@Model.Images.FirstOrDefault().Id" />
+                                        <input type="text" name="imageData.Title" value="@Model.Images.FirstOrDefault().Title" />
+                                        <input type="text" name="imageData.Alt" value="@Model.Images.FirstOrDefault().Alt" />
+                                    }
+                                </td>
+                            </tr>
+
+                        }
+                    }
                     <tr>
                         <td>Заголовок:</td>
                         <td>@Html.TextBoxFor(m => m.Title)</td>
