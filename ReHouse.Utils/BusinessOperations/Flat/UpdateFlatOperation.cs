@@ -142,22 +142,28 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         }
                         if (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleSeo)
                         {
-                            foreach (var img in _imageData)
+                            if (_images != null)
                             {
-                                var image = Context.Images.FirstOrDefault(x => x.Id == img.Id && !x.Deleted);
-                                if (image != null)
+                                foreach (var img in _imageData)
                                 {
-                                    image.Title = img.Title;
-                                    image.Alt = img.Alt;
+                                    var image = Context.Images.FirstOrDefault(x => x.Id == img.Id && !x.Deleted);
+                                    if (image != null)
+                                    {
+                                        image.Title = img.Title;
+                                        image.Alt = img.Alt;
+                                    }
                                 }
                             }
-                            foreach (var img in _planimageData)
+                            if (_planImages != null)
                             {
-                                var image = Context.PlanImages.FirstOrDefault(x => x.Id == img.Id && !x.Deleted);
-                                if (image != null)
+                                foreach (var img in _planimageData)
                                 {
-                                    image.Title = img.Title;
-                                    image.Alt = img.Alt;
+                                    var image = Context.PlanImages.FirstOrDefault(x => x.Id == img.Id && !x.Deleted);
+                                    if (image != null)
+                                    {
+                                        image.Title = img.Title;
+                                        image.Alt = img.Alt;
+                                    }
                                 }
                             }
                         }
