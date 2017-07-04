@@ -29,6 +29,7 @@ namespace ReHouse.FrontEnd.Controllers
 
             var operation = new LoadVacanciesOperation(tokenHash);
             operation.ExcecuteTransaction();
+            ViewBag.NotShowNews = true;
             return View(operation._vacancies);
         }        
     }

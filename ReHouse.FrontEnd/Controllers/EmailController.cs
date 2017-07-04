@@ -31,6 +31,7 @@ namespace ReHouse.FrontEnd.Controllers
         {
             ViewBag.AdvertId = flat;       
             ViewBag.Type = type;
+            ViewBag.NotShowNews = true;
             return View();
         }
 

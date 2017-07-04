@@ -30,6 +30,7 @@ namespace ReHouse.FrontEnd.Controllers
             var operation = new LoadFeedbacksOperation(tokenHash, 1, ConstV.ItemsPerPage);
             operation.ExcecuteTransaction();
             ViewBag.Feedbacks = operation._userFeedbacks;
+            ViewBag.NotShowNews = true;
             return View();
         }
 

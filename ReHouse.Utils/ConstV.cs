@@ -23,7 +23,7 @@ namespace ReHouse.Utils
         //public const Int32 MRecommendedPrice = 13; //can be empty
         //public const Int32 N_DDP = 14; //can be empty
         //public const Int32 OWarranty = 15; //can be empty
-        public const Int32 ItemsPerPage = 8; 
+        public const Int32 ItemsPerPage = 12; 
         public const Int32 DescMinimizeSymbols = 75; 
         public const Int32 ItemsPerPageAdmin = 100;
         //public const Int32 QNote = 17;  //can be empty

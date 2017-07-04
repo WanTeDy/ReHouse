@@ -35,6 +35,7 @@ namespace ReHouse.FrontEnd.Controllers
             //    HouseSaleAdverts = operation._houseSaleAdverts,
             //    NewBuildingAdverts = operation._newBuildingAdverts,
             //};
+            ViewBag.NotShowNews = true;
             return View();
         }
     }

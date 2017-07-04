@@ -51,6 +51,7 @@ namespace ReHouse.FrontEnd.Controllers
                 tokenHash = sessionModel.TokenHash;
 
             this.LoadPageText();
+            ViewBag.NotShowNews = true;
             return View();
         }
 
@@ -61,6 +62,7 @@ namespace ReHouse.FrontEnd.Controllers
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
 
+            ViewBag.NotShowNews = true;
             return View();
         }
     }

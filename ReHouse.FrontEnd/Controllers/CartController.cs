@@ -23,6 +23,7 @@ namespace ReHouse.FrontEnd.Controllers
         {
             var cart = SessionHelpers.Session("Cart") as List<CartModel>;
             ViewBag.NoElements = true;
+            ViewBag.NotShowNews = true;
             if (cart != null)
             {
                 var operation = new LoadCartOperation(cart);

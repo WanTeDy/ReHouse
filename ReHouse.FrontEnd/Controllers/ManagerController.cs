@@ -24,6 +24,7 @@ namespace ReHouse.FrontEnd.Controllers
             var operation = new LoadManagersOperation(tokenHash);
             operation.ExcecuteTransaction();
 
+            ViewBag.NotShowNews = true;
             return View(operation._users);
         }
 
@@ -38,6 +39,7 @@ namespace ReHouse.FrontEnd.Controllers
                 tokenHash = sessionModel.TokenHash;
             var operation = new LoadManagerOperation(tokenHash, Id);
             operation.ExcecuteTransaction();
+            ViewBag.NotShowNews = true;
             if(operation._user == null)
                 return HttpNotFound();
             return View(operation._user);

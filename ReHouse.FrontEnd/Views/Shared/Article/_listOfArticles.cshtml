@@ -18,9 +18,9 @@
             </div>
             <div class="content1">
                 <h3>@article.Title</h3>
-                @if (@article.Description.Length > 750)
+                @if (@article.Description.Length > 400)
                 {
-                    <p id="news_@article.Id">@Html.Raw(article.Description.Substring(0, 749)) ...</p>
+                    <p id="news_@article.Id">@Html.Raw(article.Description.Substring(0, 399)) ...</p>
                 }
                 else
                 {

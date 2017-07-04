@@ -35,7 +35,7 @@
             @*<option selected value="0">Цена за м² от</option>*@
             @for (int i = 0; i < Model.Prices.Count; i++)
             {
-                <option value="@Model.Prices[i].Min">от @Model.Prices[i].Min</option>
+                <option value="@Model.Prices[i].Min">от @Model.Prices[i].Min грн</option>
                 @*if (i == 0)
                     {
                         <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн</option>
@@ -54,7 +54,7 @@
             @*<option selected value="0">Цена за м² до</option>*@
             @for (int i = 0; i < Model.Prices.Count; i++)
             {
-                <option value="@Model.Prices[i].Min">до @Model.Prices[i].Min</option>
+                <option value="@Model.Prices[i].Min">до @Model.Prices[i].Min грн</option>
                 @*if (i == 0)
                     {
                         <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн</option>
@@ -115,11 +115,20 @@
             var main = texts.FirstOrDefault(x => x.TextBlockName == "Main");
             if (main != null)
             {
-                <p>@Html.Raw(main.Description)</p>
+                if (main.Description.Length > 400)
+                {
+                    <div id="text_@main.Id">@Html.Raw(main.Description.Substring(0, 399)) ...</div>
+                    <a onclick="showSeoTextDetails(@main.Id, this);" id="more">Подробнее</a>
+                    <div id="textHidden_@main.Id" style="display:none;">@Html.Raw(main.Description)</div>
+                }
+                else
+                {
+                    <div>@Html.Raw(main.Description)</div>
+                }
             }
         }
     </div>
-    <script>
+    <script>        
         var url = "./Index/";
         $('#button-more').click(function () {
 
