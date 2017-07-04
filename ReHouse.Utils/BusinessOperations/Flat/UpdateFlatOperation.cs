@@ -142,7 +142,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         }
                         if (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleSeo)
                         {
-                            if (_images != null)
+                            if (_imageData != null)
                             {
                                 foreach (var img in _imageData)
                                 {
@@ -154,7 +154,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                     }
                                 }
                             }
-                            if (_planImages != null)
+                            if (_planimageData != null)
                             {
                                 foreach (var img in _planimageData)
                                 {
