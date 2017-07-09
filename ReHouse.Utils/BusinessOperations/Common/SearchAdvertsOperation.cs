@@ -29,10 +29,16 @@ namespace ReHouse.Utils.BusinessOperations.Common
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
 
-            var str = _searchRequest.ToLower().Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            var strings = _searchRequest.ToLower().Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            strings.ForEach(
+                x =>
+                {
+                    if (x.Length > 3)
+                        x = x.Substring(0, x.Length - 1);
+                });
 
-            var flats = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && str.Any(r => x.Id.ToString().Contains(r) || x.Title.RussianName.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.District.RussianName.ToLower().Contains(r) || x.AdvertPropertyValues.All(y => y.PropertiesValue.Contains(r))))
-                .OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            var flats = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Title.RussianName.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.District.RussianName.ToLower().Contains(r) || x.AdvertPropertyValues.All(y => y.PropertiesValue.Contains(r))))
+            .OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
             _adverts = new List<CartAdvertModel>();
             _adverts.AddRange(flats.Select(x =>
 
@@ -52,7 +58,7 @@ namespace ReHouse.Utils.BusinessOperations.Common
 
             ));
 
-            var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && str.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
+            var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
                 || x.District.RussianName.ToLower().Contains(r) || x.Heating.ToLower().Contains(r) || x.Parking.ToLower().Contains(r)))
                 .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Take(_count).ToList();
 
@@ -73,7 +79,7 @@ namespace ReHouse.Utils.BusinessOperations.Common
                 }
 
             ));
-            
+
             //_articles = Context.Articles.Where(x => !x.Deleted)
             //    .OrderByDescending(x => x.Date).Take(_articlesCount).ToList();
         }
