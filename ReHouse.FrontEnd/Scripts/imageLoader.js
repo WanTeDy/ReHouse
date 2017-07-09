@@ -1,5 +1,5 @@
-﻿var previewWidth = 272, // ширина превью
-    previewHeight = 211, // высота превью
+﻿var previewWidth = 300, // ширина превью
+    previewHeight = 150, // высота превью
     maxFileSize = 10 * 1024 * 1024, // (байт) Максимальный размер файла (2мб)
     selectedFiles = {},// объект, в котором будут храниться выбранные файлы
     queue = [],
