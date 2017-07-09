@@ -41,7 +41,7 @@ namespace ReHouse.FrontEnd.Controllers
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false);
+            var operation = new LoadFlatsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, RentPeriodType.All, 0, categoryId, AdvertsType.Rent, false);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -72,7 +72,7 @@ namespace ReHouse.FrontEnd.Controllers
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false);
+            var operation = new LoadFlatsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, RentPeriodType.All, 0, categoryId, AdvertsType.Rent, false);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -103,7 +103,7 @@ namespace ReHouse.FrontEnd.Controllers
                 //TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false);
+            var operation = new LoadFlatsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, RentPeriodType.All, 0, categoryId, AdvertsType.Rent, false);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -134,7 +134,7 @@ namespace ReHouse.FrontEnd.Controllers
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false);
+            var operation = new LoadFlatsOperation(tokenHash, 1, ConstV.ItemsPerPage, 0, 0, 0, 0, RentPeriodType.All, 0, categoryId, AdvertsType.Rent, false);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -159,7 +159,7 @@ namespace ReHouse.FrontEnd.Controllers
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
             var operation = new LoadFlatsOperation(tokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPage, pageAndFilter.DistrictId, pageAndFilter.PriceMin, pageAndFilter.PriceMax,
-                pageAndFilter.TrimconditionId, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Rent, false);
+                pageAndFilter.TrimconditionId, pageAndFilter.RentPeriodType, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Rent, false);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });

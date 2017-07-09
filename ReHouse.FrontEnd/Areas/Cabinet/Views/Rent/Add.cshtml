@@ -334,6 +334,15 @@
                     </tr>
                 }
                 <tr>
+                    <td>Период сдачи:</td>
+                    <td>
+                        <select name="RentPeriodType">
+                            <option value="1" selected>Посуточно</option>
+                            <option value="2">Помесячно</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td>Цена(грн/мес):</td>
                     <td>@Html.TextBoxFor(m => m.Price)</td>
                 </tr>
@@ -396,10 +405,10 @@
                 }
             }
             <div class="file_upload">
-                <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" id="files" />
-                <br />
-                <output id="list"></output>
+                <input type="file" multiple="multiple" accept="image/*" name="files" class="select_photo" id="files" />
+            </div>
 
+            <div class="add_photo" id="list">
             </div>
             <h3>Планировки</h3>
 
@@ -414,11 +423,12 @@
                 }
             }
             <div class="file_upload">
-                <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" id="files_plan" />
-                <br/>
-                <output id="list_plan"></output>
+                <input type="file" multiple="multiple" accept="image/*" name="files_plan" class="select_photo" id="files_plan" />
             </div>
-
+            <div class="add_photo" id="list_plan">
+            </div>
+            @Html.HiddenFor(m => m.Latitude, new { @id = "place-ltd" })
+            @Html.HiddenFor(m => m.Longitude, new { @id = "place-lgd" })
             <button type="submit">Сохранить</button>
         </div>
     </form>
@@ -426,6 +436,7 @@
     <div class="map_managercard">
         <div id="mapapart_prod">
             <div id="map" class="shadow"></div>
+            <input type="text" id="pac-input" style="top: 25px; height: 30px; font-size: 16px; padding: 5px; width: 300px; margin-top: 11px;" value="" />
             @*<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>*@
         </div>
     </div>

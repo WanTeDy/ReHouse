@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using ReHouse.Utils.DataBase.Geo;
 using ReHouse.Utils.DataBase.AdvertParams;
+using ReHouse.Utils.Helpers;
 
 namespace ReHouse.FrontEnd.Models
 {
@@ -24,5 +25,7 @@ namespace ReHouse.FrontEnd.Models
         public Boolean IsOnlyUser { get; set; }
 
         public Int32[] AdvertsId { get; set; }
+
+        public RentPeriodType RentPeriodType { get; set; }
     }
 }

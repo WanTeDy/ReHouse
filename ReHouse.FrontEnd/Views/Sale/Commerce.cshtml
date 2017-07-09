@@ -61,13 +61,13 @@
             {
                 if (main.Description.Length > 400)
                 {
-                    <p id="text_@main.Id">@Html.Raw(main.Description.Substring(0, 399)) ...</p>
+                    <div id="text_@main.Id">@Html.Raw(main.Description.Substring(0, 399)) ...</div>
                     <a onclick="showSeoTextDetails(@main.Id, this);" id="more">Подробнее</a>
-                    <p id="textHidden_@main.Id" style="display:none;">@Html.Raw(main.Description)</p>
+                    <div id="textHidden_@main.Id" style="display:none;">@Html.Raw(main.Description)</div>
                 }
                 else
                 {
-                    <p>@Html.Raw(main.Description)</p>
+                    <div>@Html.Raw(main.Description)</div>
                 }
             }
         }

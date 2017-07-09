@@ -5,6 +5,7 @@
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
 
+<link href="https://unpkg.com/uppy/dist/uppy.min.css" rel="stylesheet">
 
 <style>
     #map {
@@ -12,12 +13,21 @@
         height: 428px;
         border: 0;
     }
-</style>
 
+    #dropZone {
+        background: gray;
+        border: black dashed 3px;
+        width: 200px;
+        padding: 50px;
+        text-align: center;
+        color: white;
+    }
+</style>
 @section scripts {
-@Scripts.Render("~/bundles/imageLoader")
+    @Scripts.Render("~/bundles/imageLoader")
     @Scripts.Render("~/bundles/slides")
     @Scripts.Render("~/bundles/deleteImage")
+
     <script>
         $(function () {
             $('#products').slides({
@@ -353,9 +363,9 @@
                     <td>@Html.TextBoxFor(m => m.Adress)</td>
                 </tr>
                 @*<tr>
-                    <td>Планировка квартир:</td>
-                    <td>@Html.TextBoxFor(m => m.Construct)</td>
-                </tr>*@
+                        <td>Планировка квартир:</td>
+                        <td>@Html.TextBoxFor(m => m.Construct)</td>
+                    </tr>*@
                 <tr>
                     <td>Количество квартир:</td>
                     <td>@Html.TextBoxFor(m => m.FloatQuantity)</td>
@@ -389,9 +399,9 @@
                     <td>@Html.TextBoxFor(m => m.WallMaterial)</td>
                 </tr>
                 @*<tr>
-                    <td>Сайт:</td>
-                    <td>@Html.TextBoxFor(m => m.Url)</td>
-                </tr>*@
+                        <td>Сайт:</td>
+                        <td>@Html.TextBoxFor(m => m.Url)</td>
+                    </tr>*@
                 <tr>
                     <td>Youtube видео:</td>
                     <td>@Html.TextBoxFor(m => m.YouTubeUrl)</td>
@@ -443,10 +453,13 @@
                     </div>
                 }
             }
+
+
             <div class="file_upload">
-                <input type="file" multiple="multiple" accept="image/*" name="images" class="select_photo" id="files" />
-                <br />
-                <output id="list"></output>
+                <input type="file" multiple="multiple" accept="image/*" name="files" class="select_photo" id="files" />
+            </div>
+
+            <div class="add_photo" id="list">
             </div>
             <h3>Планировки</h3>
 
@@ -461,11 +474,12 @@
                 }
             }
             <div class="file_upload">
-                <input type="file" multiple="multiple" accept="image/*" name="planimages" class="select_photo" id="files_plan" />
-                <br />
-                <output id="list_plan"></output>
+                <input type="file" multiple="multiple" accept="image/*" name="files_plan" class="select_photo" id="files_plan" />                
             </div>
-
+            <div class="add_photo" id="list_plan">
+            </div>
+            @Html.HiddenFor(m => m.Latitude, new { @id = "place-ltd" })
+            @Html.HiddenFor(m => m.Longitude, new { @id = "place-lgd" })
             <button type="submit">Сохранить</button>
         </div>
     </form>
@@ -473,8 +487,7 @@
     <div class="map_managercard">
         <div id="mapapart_prod">
             <div id="map" class="shadow"></div>
-            
-    @*<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+            <input type="text" id="pac-input" style="top: 25px; height: 30px; font-size: 16px; padding: 5px; width: 300px; margin-top: 11px;" value="" />
         </div>
     </div>
 </div>

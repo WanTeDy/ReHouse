@@ -147,7 +147,14 @@
     </div>
     <div class="h2sale"><h2>Описание</h2></div>
     <div class="h3cost">
-        <p class="grn">@Model.Advert.Price грн/мес</p>
+        @if (Model.Advert.RentPeriodType == RentPeriodType.Daily)
+        {
+            <p class="grn">@Model.Advert.Price грн/сутки</p>
+        }
+        else
+        {
+            <p class="grn">@Model.Advert.Price грн/мес</p>
+        }
         <pre></pre>
         <p class="dot">·</p>
 
@@ -176,6 +183,17 @@
         <tr>
             <td>Тип рынка: </td>
             <td>@Model.Advert.MarketType.RussianName</td>
+        </tr>
+        <tr>
+            <td>Период сдачи: </td>
+            @if (Model.Advert.RentPeriodType == RentPeriodType.Daily)
+            {
+                <td>Посуточно</td>
+            }
+            else
+            {
+                <td>Помесячно</td>
+            }
         </tr>
         @if (Model.Advert.Category.ParentId != (int)ParrentCategories.Homestead)
             {

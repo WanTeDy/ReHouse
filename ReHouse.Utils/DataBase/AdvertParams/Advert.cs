@@ -84,6 +84,10 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// Type of this advert
         /// </summary>
         public AdvertsType Type { get; set; }
+        /// <summary>
+        /// Type of this advert
+        /// </summary>
+        public RentPeriodType RentPeriodType { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual MarketType MarketType { get; set; }

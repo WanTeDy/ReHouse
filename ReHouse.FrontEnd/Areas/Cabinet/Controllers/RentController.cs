@@ -47,7 +47,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Users = operationFilter._users,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, RentPeriodType.All, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 Users = operationFilter._users,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, RentPeriodType.All, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 //TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, RentPeriodType.All, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -140,7 +140,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 TrimConditions = operationFilter._trimConditions,
                 CategoryId = categoryId,
             };
-            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, 0, categoryId, AdvertsType.Rent, false, true);
+            var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, 0, 0, 0, 0, RentPeriodType.All, 0, categoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null)
                 return HttpNotFound();
@@ -162,7 +162,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
             var operation = new LoadFlatsOperation(sessionModel.TokenHash, pageAndFilter.PageNumber, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.PriceMin, pageAndFilter.PriceMax,
-                pageAndFilter.TrimconditionId, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Rent, false, true);
+                pageAndFilter.TrimconditionId, pageAndFilter.RentPeriodType, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });
@@ -213,14 +213,14 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Edit(Advert model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages,
+        public ActionResult Edit(Advert model, String[] image, String[] planimage,
             string seo_title, string seo_description, string seo_keywords, int seo_id, Image[] imageData, PlanImage[] planimageData)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new UpdateFlatOperation(sessionModel.TokenHash, model, images, planimages, imageData, planimageData);
+            var operation = new UpdateFlatOperation(sessionModel.TokenHash, model, image, planimage, imageData, planimageData);
             operation.ExcecuteTransaction();
 
             var seoparam = new SeoParam
@@ -295,7 +295,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             op.ExcecuteTransaction();
 
             var operation = new LoadFlatsOperation(sessionModel.TokenHash, 1, ConstV.ItemsPerPageAdmin, pageAndFilter.DistrictId, pageAndFilter.PriceMin, pageAndFilter.PriceMax,
-                pageAndFilter.TrimconditionId, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Rent, false, true);
+                pageAndFilter.TrimconditionId, pageAndFilter.RentPeriodType, pageAndFilter.UserId, pageAndFilter.CategoryId, AdvertsType.Rent, false, true);
             operation.ExcecuteTransaction();
             if (operation._category == null || operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });
@@ -357,14 +357,14 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Add(Advert model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages)
+        public ActionResult Add(Advert model, String[] image, String[] planimage)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
             model.Type = AdvertsType.Rent;
-            var operation = new AddFlatOperation(sessionModel.TokenHash, model, images, planimages);
+            var operation = new AddFlatOperation(sessionModel.TokenHash, model, image, planimage);
             operation.ExcecuteTransaction();
             
             var op = new LoadTitlesOperation(sessionModel.TokenHash);

@@ -320,6 +320,7 @@
     <Content Include="Content\fancybox\jquery.easing.1.3.js" />
     <Content Include="Content\fancybox\jquery.fancybox-1.2.1.pack.js" />
     <Content Include="Content\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\imagePreloader.css" />
     <Content Include="Content\images\1.png" />
     <Content Include="Content\images\2.png" />
     <Content Include="Content\images\3.png" />
@@ -427,7 +428,7 @@
     <Content Include="Content\images\tw.png" />
     <Content Include="Content\images\vk-g.png" />
     <Content Include="Content\images\vk.png" />
-    <Content Include="Scripts\imageLoader.js" />
+    <Content Include="Scripts\imageLoaderOld.js" />
     <Content Include="Scripts\deleteFeedbacks.js" />
     <Content Include="Scripts\deleteDistricts.js" />
     <Content Include="Scripts\deleteBuilders.js" />
@@ -447,6 +448,7 @@
     <Content Include="Scripts\corp\corp.js" />
     <Content Include="Scripts\fastclick.js" />
     <Content Include="Scripts\foundation.js" />
+    <Content Include="Scripts\imageLoader.js" />
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jcarousel\js\jquery.jcarousel.js" />
     <Content Include="Scripts\jcarousel_lite\jcarousellite_1.0.1c5.js" />

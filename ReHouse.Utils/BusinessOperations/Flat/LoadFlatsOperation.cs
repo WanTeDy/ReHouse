@@ -22,11 +22,12 @@ namespace ReHouse.Utils.BusinessOperations.Flat
         //private Boolean _isOnlyUser { get; set; }
         private Boolean _isAdmin { get; set; }
         private AdvertsType _advertsType { get; set; }
+        private RentPeriodType _rentPeriodType { get; set; }
         public Category _category { get; set; }
         public List<Advert> _adverts { get; set; }
 
         public LoadFlatsOperation(string tokenHash, int page, int count, int districtId, int priceMin, int priceMax,
-            int trimConditionId, int userId, int categoryId, AdvertsType advertsType, bool IsOnlyHot, /*bool IsOnlyUser = false,*/ bool IsAdmin = false)
+            int trimConditionId, RentPeriodType rentPeriodType, int userId, int categoryId, AdvertsType advertsType, bool IsOnlyHot, /*bool IsOnlyUser = false,*/ bool IsAdmin = false)
         {
             _tokenHash = tokenHash;
             _page = page;
@@ -37,6 +38,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
             _trimConditionId = trimConditionId;
             _categoryId = categoryId;
             _advertsType = advertsType;
+            _rentPeriodType = rentPeriodType;
             _isOnlyHot = IsOnlyHot;
             _userId = userId;
             //_isOnlyUser = IsOnlyUser;
@@ -70,6 +72,10 @@ namespace ReHouse.Utils.BusinessOperations.Flat
             if (_advertsType != AdvertsType.All)
             {
                 _adverts = _adverts.Where(x => x.Type == _advertsType).ToList();
+            }
+            if (_rentPeriodType != RentPeriodType.All)
+            {
+                _adverts = _adverts.Where(x => x.RentPeriodType == _rentPeriodType).ToList();
             }
             if (_isOnlyHot)
             {

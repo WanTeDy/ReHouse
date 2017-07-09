@@ -6,6 +6,7 @@ using System.Web;
 using System.IO;
 using ImageResizer;
 using ReHouse.Utils.Except;
+using ReHouse.Utils.Helpers;
 
 namespace ReHouse.Utils.BusinessOperations.Flat
 {
@@ -13,14 +14,14 @@ namespace ReHouse.Utils.BusinessOperations.Flat
     {
         private String _tokenHash { get; set; }
         public Advert _model { get; set; }
-        private IEnumerable<HttpPostedFileBase> _images { get; set; }
-        private IEnumerable<HttpPostedFileBase> _planImages { get; set; }
+        private IEnumerable<String> _images { get; set; }
+        private IEnumerable<String> _planImages { get; set; }
         private Image[] _imageData { get; set; }
         private PlanImage[] _planimageData { get; set; }
         public Advert _advert { get; set; }
 
 
-        public UpdateFlatOperation(string tokenHash, Advert advert, IEnumerable<HttpPostedFileBase> images, IEnumerable<HttpPostedFileBase> planImages, Image[] imageData, PlanImage[] planimageData)
+        public UpdateFlatOperation(string tokenHash, Advert advert, IEnumerable<String> images, IEnumerable<String> planImages, Image[] imageData, PlanImage[] planimageData)
         {
             _tokenHash = tokenHash;
             _model = advert;
@@ -61,14 +62,16 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                     if (!Directory.Exists(path))
                                         Directory.CreateDirectory(path);
 
-                                    imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                                    int point = imageFile.FileName.LastIndexOf('.');
-                                    var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                                    byte[] data = System.Convert.FromBase64String(GenerateHash.FixBase64ForImage(imageFile));
+                                    MemoryStream ms = new MemoryStream(data);
+                                    //imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                                    //int point = imageFile.FileName.LastIndexOf('.');
+                                    var filename = HashHelper.GetMd5Hash("image_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                                     ImageBuilder.Current.Build(
-                                        new ImageJob(imageFile.InputStream,
+                                        new ImageJob(ms, //imageFile.InputStream,
                                         path + filename,
-                                        new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80&watermark=water"),
+                                        new Instructions("maxwidth=1000&maxheight=1000&format=jpg&quality=70&watermark=water"),
                                         false,
                                         true));
 
@@ -98,14 +101,16 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                     if (!Directory.Exists(path))
                                         Directory.CreateDirectory(path);
 
-                                    imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                                    int point = imageFile.FileName.LastIndexOf('.');
-                                    var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                                    byte[] data = System.Convert.FromBase64String(GenerateHash.FixBase64ForImage(imageFile));
+                                    MemoryStream ms = new MemoryStream(data);
+                                    //imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                                    //int point = imageFile.FileName.LastIndexOf('.');
+                                    var filename = HashHelper.GetMd5Hash("image_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                                     ImageBuilder.Current.Build(
-                                        new ImageJob(imageFile.InputStream,
+                                        new ImageJob(ms, //imageFile.InputStream,
                                         path + filename,
-                                        new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80&watermark=water"),
+                                        new Instructions("maxwidth=1000&maxheight=1000&format=jpg&quality=70&watermark=water"),
                                         false,
                                         true));
 
@@ -134,6 +139,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         _advert.IsHot = _model.IsHot;
                         _advert.IsExclusive = _model.IsExclusive;
                         _advert.IsModerated = _model.IsModerated;
+                        _advert.RentPeriodType = _model.RentPeriodType;
                         //_advert.TitleName = _model.TitleName;
                         foreach (var prop in _model.AdvertPropertyValues)
                         {

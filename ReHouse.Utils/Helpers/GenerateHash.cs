@@ -45,6 +45,15 @@ namespace ReHouse.Utils.Helpers
                 // Return the hexadecimal string.
                 return sBuilder.ToString();// + Guid.NewGuid().ToString();
             }
-        } 
+        }        
+        public static string FixBase64ForImage(string Image)
+        {
+            string base64 = Image.Substring(Image.IndexOf(',') + 1);
+            base64 = base64.Trim('\0');
+
+            System.Text.StringBuilder sbText = new System.Text.StringBuilder(base64, base64.Length);
+            sbText.Replace("\r\n", String.Empty); sbText.Replace(" ", String.Empty);
+            return sbText.ToString();
+        }
     }
 }

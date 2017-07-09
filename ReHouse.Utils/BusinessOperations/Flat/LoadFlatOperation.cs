@@ -52,7 +52,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat //TODO
             {
                 if (_page != 0)
                 {
-                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.Id != _id && x.Type == _advert.Type && x.Category.ParentId == _advert.Category.ParentId && x.IsModerated).OrderByDescending(x => x.IsHot)
+                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.Id != _id && x.Type == _advert.Type && x.Category.Id == _advert.Category.Id && x.IsModerated).OrderByDescending(x => x.IsHot)
                         .ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
                     _adverts.ForEach(
                         x =>

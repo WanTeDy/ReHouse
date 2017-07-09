@@ -17,7 +17,7 @@
     <div class="region">
         <select id="district">
             <option selected value="0">Выбрать район</option>
-            @foreach (var district in Model.Districts.Where(x => x.ParrentId == null).OrderByDescending(x=>x.Id))
+            @foreach (var district in Model.Districts.Where(x => x.ParrentId == null).OrderByDescending(x => x.Id))
             {
                 <option disabled value="@district.Id">--@district.RussianName--</option>
                 foreach (var dis in Model.Districts.Where(x => x.ParrentId == district.Id))
@@ -37,33 +37,33 @@
                 {
                     <option value="@Model.Prices[i].Min">от @Model.Prices[i].Min $</option>
                     @*if (i == 0)
-                    {
-                    <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
-                    }
-                    else if (i == Model.Prices.Count - 1)
-                    {
-                    <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
-                    }
-                    else
-                    {
-                    <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
-                    }*@
+                        {
+                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
+                        }
+                        else if (i == Model.Prices.Count - 1)
+                        {
+                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
+                        }
+                        else
+                        {
+                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
+                        }*@
                 }
                 else if (ViewBag.Type == AdvertsType.Rent)
                 {
                     <option value="@Model.Prices[i].Min">от @Model.Prices[i].Min</option>
                     @*if (i == 0)
-                    {
-                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
-                    }
-                    else if (i == Model.Prices.Count - 1)
-                    {
-                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн/мес</option>
-                    }
-                    else
-                    {
-                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
-                    }*@
+                        {
+                            <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
+                        }
+                        else if (i == Model.Prices.Count - 1)
+                        {
+                            <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн/мес</option>
+                        }
+                        else
+                        {
+                            <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
+                        }*@
                 }
             }
         </select>
@@ -75,37 +75,47 @@
                 {
                     <option value="@Model.Prices[i].Min">до @Model.Prices[i].Min $</option>
                     @*if (i == 0)
-                    {
-                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
-                    }
-                    else if (i == Model.Prices.Count - 1)
-                    {
-                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
-                    }
-                    else
-                    {
-                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
-                    }*@
+                        {
+                            <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
+                        }
+                        else if (i == Model.Prices.Count - 1)
+                        {
+                            <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
+                        }
+                        else
+                        {
+                            <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
+                        }*@
                 }
                 else if (ViewBag.Type == AdvertsType.Rent)
                 {
                     <option value="@Model.Prices[i].Min">до @Model.Prices[i].Min</option>
                     @*if (i == 0)
-                    {
-                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
-                    }
-                    else if (i == Model.Prices.Count - 1)
-                    {
-                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн/мес</option>
-                    }
-                    else
-                    {
-                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
-                    }*@
+                        {
+                            <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
+                        }
+                        else if (i == Model.Prices.Count - 1)
+                        {
+                            <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн/мес</option>
+                        }
+                        else
+                        {
+                            <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
+                        }*@
                 }
             }
         </select>
     </div>
+    @if (ViewBag.Type == AdvertsType.Rent)
+    {
+        <div class="typeofproperty">
+            <select id="rent_type">
+                <option value="0">Период сдачи</option>
+                <option value="1">Посуточно</option>
+                <option value="2">Помесячно</option>
+            </select>
+        </div>
+    }
 
     @if (Model.TrimConditions != null)
     {

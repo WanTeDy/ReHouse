@@ -241,7 +241,7 @@ body {
     font-size: 20px;*/
 
     margin-left: 0px;
-    margin-top: 3px;
+    margin-top: 0px;
     color: white;
     font-family: "Casper";
     font-weight: 600;
@@ -344,8 +344,8 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     position: relative;
-    margin-top: 20px;
-    margin-left: 11px;
+    margin-top: 30px;
+    margin-left: 37px;
     width: 100px;
 }
 
@@ -872,7 +872,8 @@ min-width:1500px;
     }
 
     .news h4 {
-        margin-bottom: 20px;
+            margin-bottom: 30px;
+    margin-top: 20px;
         color: white;
         font-family: "Century Gothic";
         font-size: 18px;
@@ -1632,6 +1633,7 @@ margin-right: 15px;
     margin-left: 225px;
     margin-top: 82px;
     margin-bottom: 96px;
+opacity: 0.7;
 }
 
     .seotext p {
@@ -1640,7 +1642,6 @@ margin-right: 15px;
         font-size: 18px;
         font-weight: 600;
         line-height: 20px;
-        opacity: 0.6;
         text-align: justify;
     }
 
@@ -2175,6 +2176,7 @@ margin-right: 15px;
     -ms-flex-pack: justify;
     justify-content: space-between;
     margin-top: 20px;
+margin-left: 12px;
 }
 
     .news .share_icons1 a {
@@ -2626,12 +2628,20 @@ margin-right: 15px;
     position: relative;
 }
 
+.photo_ canvas {
+    width:272px;
+    height:211px;
+}
+#list .photo_, #list_plan .photo_ {
+    display:inline-block;
+}
+
     .add_photo .photo_ a:hover {
         color: orange;
     }
 
 .header .contactinfo .tel {
-    margin-top: 20px;
+    margin-top: 29px;
 }
 
 .thumb {
@@ -2694,7 +2704,8 @@ margin-right: 15px;
 	color: gold;
 }
 #button-more {
-    width: 1070px;
+   /* width: 1070px;*/
+    max-width: 100%;
 }
 
 
@@ -2732,6 +2743,80 @@ margin-bottom:0px;
     font-size: 19px;
     font-family: "Century Gothic";
 }
+
+a[href^=tel]{
+    color: #fff;
+  text-decoration: none;
+}
+
+
+
+.seotext3 p {
+    font-size: 16px;
+    text-align: left; 
+}
+.seotext p {
+    font-size: 16px;
+    text-align: left; 
+}
+.seotext2 p {
+    font-size: 16px;
+    text-align: left; 
+}
+.about_company {
+    text-align: left; 
+}
+.about_company p {
+    font-size: 15px;
+}
+.managers .about_manager {
+    text-align: left;
+}
+
+
+
+
+#text_2, #text_3, #text_4, #text_5, #text_6, #text_7, #text_8, #text_9 {
+    color: #ffffff;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    /* opacity: 0.6; */
+    text-align: justify;
+}
+
+#textHidden_2, #textHidden_3, #textHidden_4, #textHidden_5, #textHidden_6, #textHidden_7, #textHidden_8, #textHidden_9 {
+    color: #ffffff;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    /* opacity: 0.6; */
+    text-align: justify;
+}
+.seotext a#more {
+   color:gold;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    /* opacity: 0.6; */
+    text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

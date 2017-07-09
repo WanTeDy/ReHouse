@@ -109,6 +109,16 @@
                 }
             </select>
         </div>
+        @if (ViewBag.Type == AdvertsType.Rent)
+        {
+        <div class="typeofproperty">
+            <select id="rent_type">
+                <option value="0">Период сдачи</option>
+                <option value="1">Посуточно</option>
+                <option value="2">Помесячно</option>
+            </select>
+        </div>
+        }
 
         @if (Model.TrimConditions != null)
         {

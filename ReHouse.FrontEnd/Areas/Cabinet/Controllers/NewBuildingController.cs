@@ -99,14 +99,14 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Edit(NewBuilding model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages,
+        public ActionResult Edit(NewBuilding model, String[] image, String[] planimage,
             string seo_title, string seo_description, string seo_keywords, int seo_id, Image[] imageData, PlanImage[] planimageData)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new UpdateNewBuildingOperation(sessionModel.TokenHash, model, images, planimages, imageData, planimageData);
+            var operation = new UpdateNewBuildingOperation(sessionModel.TokenHash, model, image, planimage, imageData, planimageData);
             operation.ExcecuteTransaction();
 
             var seoparam = new SeoParam
@@ -183,13 +183,13 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Add(NewBuilding model, HttpPostedFileBase[] images, HttpPostedFileBase[] planimages)
+        public ActionResult Add(NewBuilding model, String[] image, String[] planimage)
         {
             if (!SessionHelpers.IsAuthentificated())
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new AddNewBuildingOperation(sessionModel.TokenHash, model, images, planimages);
+            var operation = new AddNewBuildingOperation(sessionModel.TokenHash, model, image, planimage);
             operation.ExcecuteTransaction();
 
             var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);

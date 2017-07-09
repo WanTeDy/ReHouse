@@ -207,6 +207,7 @@
     <Compile Include="Except\ActionNotAllowedException.cs" />
     <Compile Include="Except\ReHouseException.cs" />
     <Compile Include="Helpers\AdvertEmailModel.cs" />
+    <Compile Include="Helpers\RentPeriodType.cs" />
     <Compile Include="Helpers\CommonEmailModel.cs" />
     <Compile Include="Helpers\CartAdvertModel.cs" />
     <Compile Include="Helpers\CartModel.cs" />
@@ -288,6 +289,10 @@
     <Compile Include="Migrations\201706230847184_image.Designer.cs">
       <DependentUpon>201706230847184_image.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707091240593_rent_period.cs" />
+    <Compile Include="Migrations\201707091240593_rent_period.Designer.cs">
+      <DependentUpon>201707091240593_rent_period.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -351,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706230847184_image.resx">
       <DependentUpon>201706230847184_image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707091240593_rent_period.resx">
+      <DependentUpon>201707091240593_rent_period.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

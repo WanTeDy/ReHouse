@@ -163,7 +163,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             ViewBag.SeoParam = seoparam;
 
             var op6 = new AddSeoParamOperation(sessionModel.TokenHash, seoparam);
-
+            op6.ExcecuteTransaction();
             if (!operation.Success)
             {
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);

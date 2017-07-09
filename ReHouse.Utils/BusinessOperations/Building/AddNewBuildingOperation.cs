@@ -7,6 +7,7 @@ using System.Web;
 using System.IO;
 using ImageResizer;
 using ReHouse.Utils.DataBase.Security;
+using System.Text;
 
 namespace ReHouse.Utils.BusinessOperations.Building
 {
@@ -14,12 +15,12 @@ namespace ReHouse.Utils.BusinessOperations.Building
     {
         private String _tokenHash { get; set; }
         public NewBuilding _model { get; set; }
-        private IEnumerable<HttpPostedFileBase> _images { get; set; }
-        private IEnumerable<HttpPostedFileBase> _planImages { get; set; }
+        private IEnumerable<String> _images { get; set; }
+        private IEnumerable<String> _planImages { get; set; }
         public NewBuilding _newBuilding { get; set; }
 
 
-        public AddNewBuildingOperation(string tokenHash, NewBuilding newBuilding, IEnumerable<HttpPostedFileBase> images, IEnumerable<HttpPostedFileBase> planImages)
+        public AddNewBuildingOperation(string tokenHash, NewBuilding newBuilding, IEnumerable<String> images, IEnumerable<String> planImages)
         {
             _tokenHash = tokenHash;
             _model = newBuilding;
@@ -88,14 +89,16 @@ namespace ReHouse.Utils.BusinessOperations.Building
                                 if (!Directory.Exists(path))
                                     Directory.CreateDirectory(path);
 
-                                imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                                int point = imageFile.FileName.LastIndexOf('.');
-                                var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                                byte[] data = System.Convert.FromBase64String(GenerateHash.FixBase64ForImage(imageFile));
+                                MemoryStream ms = new MemoryStream(data);
+                                //imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                                //int point = imageFile.FileName.LastIndexOf('.');
+                                var filename = HashHelper.GetMd5Hash("image_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                                 ImageBuilder.Current.Build(
-                                    new ImageJob(imageFile.InputStream,
+                                    new ImageJob(ms, //imageFile.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80&watermark=water"),
+                                    new Instructions("maxwidth=1000&maxheight=1000&format=jpg&quality=70&watermark=water"),
                                     false,
                                     true));
 
@@ -125,14 +128,16 @@ namespace ReHouse.Utils.BusinessOperations.Building
                                 if (!Directory.Exists(path))
                                     Directory.CreateDirectory(path);
 
-                                imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
-                                int point = imageFile.FileName.LastIndexOf('.');
-                                var filename = imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                                byte[] data = System.Convert.FromBase64String(GenerateHash.FixBase64ForImage(imageFile));
+                                MemoryStream ms = new MemoryStream(data);
+                                //imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
+                                //int point = imageFile.FileName.LastIndexOf('.');
+                                var filename = HashHelper.GetMd5Hash("image_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                                 ImageBuilder.Current.Build(
-                                    new ImageJob(imageFile.InputStream,
+                                    new ImageJob(ms, //imageFile.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=80&watermark=water"),
+                                    new Instructions("maxwidth=1000&maxheight=1000&format=jpg&quality=70&watermark=water"),
                                     false,
                                     true));
 
