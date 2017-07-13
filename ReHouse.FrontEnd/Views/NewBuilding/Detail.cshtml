@@ -64,6 +64,9 @@
     <div class="share_tw">
         <a onclick="Share.twitter('http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name')"></a>
     </div>
+    <div class="advert_id">
+        <h2>№@Model.NewBuilding.Id</h2>
+    </div>
 </div>
 @if (Model.NewBuilding.Images != null && Model.NewBuilding.Images.Count > 0)
 {

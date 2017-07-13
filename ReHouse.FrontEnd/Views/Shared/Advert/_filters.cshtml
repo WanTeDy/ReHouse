@@ -2,7 +2,7 @@
 @using ReHouse.Utils.Helpers
 @model LoadAdvertsModel
 
-<div class="selection">
+<div class="@(Model.TrimConditions == null? "selection1": "selection")">
     <div class="typeofproperty">
         <select id="category">
 

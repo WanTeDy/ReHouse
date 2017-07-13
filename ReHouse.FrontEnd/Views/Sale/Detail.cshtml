@@ -92,6 +92,9 @@
     <div class="share_tw">
         <a onclick="Share.twitter('http://rehouse-realty.com.ua/sale/detail/@(Model.Advert.Id)', 'Продам @Model.Advert.Title.RussianName, @Model.Advert.Street')"></a>
     </div>
+    <div class="advert_id">
+        <h2>№@Model.Advert.Id</h2>
+    </div>
 </div>
 
 @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
@@ -282,7 +285,7 @@
                         }
                         @if (item.Images != null && item.Images.Count > 0)
                         {
-                            <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                            <a class="fix" href="~/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212" /></a>
                         }
                         else
                         {

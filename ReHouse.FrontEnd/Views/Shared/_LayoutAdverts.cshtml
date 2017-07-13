@@ -333,8 +333,13 @@
         <div class="search">
             <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
         </div>
+        @if (seo != null)
+        {
+            <h1 style="display:none;">@seo.Title</h1>
+        }
     </div>
     <div class="container" id="container">
+
         @RenderBody()
         @if (ViewBag.Articles != null && ViewBag.NotShowNews == null)
         {
