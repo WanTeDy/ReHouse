@@ -37,7 +37,7 @@ namespace ReHouse.Utils.BusinessOperations.Common
                         x = x.Substring(0, x.Length - 1);
                 });
 
-            var flats = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Title.RussianName.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.District.RussianName.ToLower().Contains(r) || x.AdvertPropertyValues.All(y => y.PropertiesValue.Contains(r))))
+            var flats = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Title.RussianName.ToLower().Contains(r) || x.Street.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.District.RussianName.ToLower().Contains(r) || x.AdvertPropertyValues.All(y => y.PropertiesValue.Contains(r))))
             .OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
             _adverts = new List<CartAdvertModel>();
             _adverts.AddRange(flats.Select(x =>
