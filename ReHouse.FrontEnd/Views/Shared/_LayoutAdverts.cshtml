@@ -184,7 +184,7 @@
                         <p class="textlogo">Международная риэлторская инвестиционная компания</p>
                     </div>
                     <div class="search">
-                        <p><form class="form-search" method="get" action="/search/flats" target="_blank"><input type="text" name="query" placeholder="Введите слово или фразу" value="" /></form></p>
+                        <p><form class="form-search" method="get" action="/search/flats" target="_blank"><input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" /></form></p>
                         @if (Session != null && Session["user"] is SessionModel)
                         {
                             var session = Session["user"] as SessionModel;
@@ -347,18 +347,18 @@
                 <h2>Новости</h2>
                 @foreach (Article article in ViewBag.Articles)
                 {
-                    <div class="firstnews">
-                        <div class="img">
-                            @if (article.Images != null && article.Images.Count > 0)
-                            {
-                                <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
-                            }
-                            else
-                            {
-                                <img src="~/Content/images/news1.jpg" width="440" height="263">
-                            }
-                        </div>
+                    <div class="firstnews">                        
                         <div class="content1">
+                            <div class="img">
+                                @if (article.Images != null && article.Images.Count > 0)
+                                {
+                                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
+                                }
+                                else
+                                {
+                                    <img src="~/Content/images/news1.jpg" width="440" height="263">
+                                }
+                            </div>
                             <h3>@article.Title</h3>
                             @if (@article.Description.Length > 400)
                             {

@@ -1,4 +1,270 @@
+
+@media (max-width: 1450px) and (min-width: 769px) {
+.container {
+ width: 1100px;
+ margin: auto;
+  }
+.header {
+    width: 1100px;
+  }
+.form-search input {
+    width: 340px;
+    margin-left: 40px;
+    margin-right: 35px;
+}
+.form-search {
+    margin-left: -58px;
+}
+.contactinfo .tel {
+     margin-left: 0px; 
+}
+.contactinfo .social {
+    margin-left: 28px;
+    margin-bottom: 15px;
+}
+.logo a img {
+    width: 300px;
+}
+
+.logo {
+    margin-left: 0px;
+}
+.header .feedback {
+    margin-left: 24px;
+}
+
+
+.navigation > ol {
+    margin-left: 75px;
+}
+#nav {
+    min-width: 1100px;
+}
+#nav .sell {
+     margin-left: 0px; 
+     margin-top: 0px; 
+    position: absolute;
+    top: 33px;
+    left: 928px;
+}
+
+#slidebox {
+    width: 1100px !important;
+}
+#slidebox, #slidebox .listofimg {
+        width:1100px;
+        height: 278px;
+    }
+#slidebox .textinslider {
+     min-width: 110px; 
+}
+#slidebox .thumbs {
+  bottom: 5px;
+    left: 512.5px;
+}
+#slidebox ul.listofimg li img {
+    width: 1100px;
+    height: 278px;
+}
+#slidebox .next, #slidebox .previous {
+            top: 119px;
+        }
+.d-carousel {
+     margin-left: -20px; 
+}
+
+.streak {
+    width: 1100px;
+    margin-left: 0;
+}
+.news {
+    width: 1100px;
+}
+.news .firstnews, .secondnews {
+    width: 1100px;
+    margin-left: 0px;
+}
+
+.news .morenews #more {
+    margin-left: 25px;
+}
+
+.footer .social {
+    margin-left: 130px;
+}
+.news .morenews {
+    margin-bottom: 40px;
+}
+.news .img img {
+    width: 370px !important;
+}
+
+.h2novostroy h2 {
+     margin-left: 21px; 
+}
+.selection {
+    margin-left: 21px;
+}
+.sorting form {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.products {
+    margin-left: 21px;
+}
+.seotext, .seotext2, .seotext3 {
+    margin-left: 22px;
+    margin-bottom: 35px;
+}
+.news h2 {
+    margin-left: 22px;
+}
+.selection1 {
+    margin-left: 21px;
+}
+
+#products_example {
+    width: 1100px;
+    height: 600px;
+    position: relative;
+     margin-left: 0px; 
+    margin-top: 28px;
+}
+.h2novostroy #favorite {
+    width: 376px;
+    padding: 10px 27px 10px 27px;
+}
+.h2novostroy .favorite {
+    left: 790px;
+}
+.h2novostroy .favorite1 {
+    left: 875px;
+}
+.share_icons {
+    margin-left: 24px;
+}
+.table_of_prodapart table {
+    margin-left: 22px;
+}
+#mapapart_prod iframe {
+    margin-left: 22px;
+}
+.map_managercard .manager {
+    margin-left: 35px;
+}
+.h2prodsale h2 {
+    margin-left: 22px;
+}
+.othernovostroy {
+    margin-top: 29px;
+    margin-left: 22px;
+    margin-bottom: 36px;
+}
+.navigation_string {
+    min-width: 1100px;
+}
+.planirovka {
+    width: 1055px;
+    margin-left: 22px;
+  }
+
+.table_of_prod table {
+    margin-left: 22px;
+}
+#mapnovostroy_prod iframe {
+    margin-left: 22px;
+}
+
+.managers .manager_ {
+  margin-left: 22px;
+    width: 1100px;
+}
+.managers h2 {
+    margin-left: 22px;
+}
+
+.managers .img {
+    margin-left: 0px;
+}
+#application, #emailForm {
+    margin-bottom: 135px;
+    margin-left: 330px;
+}
+.about_company {
+  margin-left: 0px;
+    width: 1100px;
+}
+.photo_company {
+    margin-left: 139.5px;
+}
+#map_company {
+  margin-left: 0px;
+}
+
+.about_company1 {
+    margin-left: 0px;
+}
+.map_website ol {
+  margin-left: 22px;
+}
+
+.news1 .morenews1 #more {
+    margin-left: 22px;
+}
+.news1 h2 {
+    margin-left: 22px;
+}
+.news .morenews1 #more {
+    margin-left: 22px;
+}
+
+
+}
+
+
+
+
+
 @media (max-width: 768px){
+
+
+
+
+/*.d-carousel .jcarousel-prev-horizontal {
+    position: absolute;
+    top: 149px;
+    left: 0;
+    margin-left: 3px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: transparent url(style/images/smprev.png) no-repeat top left;
+}
+
+.d-carousel .jcarousel-next-horizontal {
+    position: absolute;
+    top: 149px;
+    right: 0;
+    margin-right: 3px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: transparent url(style/images/smnext.png) no-repeat top right;
+}
+
+.d-carousel .jcarousel-prev-horizontal:hover {
+    background: transparent url(style/images/smprev-g.png) no-repeat top left;
+}
+
+.d-carousel .jcarousel-next-horizontal:hover {
+    background: transparent url(style/images/smnext-g.png) no-repeat top right;
+}
+*/
+
+
+
+
+
 .container {
   width: 768px;
 	}
@@ -7,6 +273,7 @@
 	}
 	.header_mobile {
 	display: block;
+    margin: auto;
 }
 	.header_mobile .header {
 	display: flex;
@@ -14,6 +281,11 @@
 body {
 background-color: #0a2a5d;
 background-image: none;
+}
+body {
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 #slidebox {
     display: none;
@@ -27,7 +299,9 @@ display:none;
     margin-bottom: 63px;
     margin-left: 152px;
 }
-
+.logo a img {
+    width: 144px;
+}
 .hidden-menu {
   display: block;
   position: fixed;
@@ -37,7 +311,7 @@ display:none;
   box-sizing: border-box;
   width: 80%;
   background-color: #eee;
-  height: 100%;
+  /*height: 100%;*/
   top: 0;
   left: -100%;
   transition: left .2s;
@@ -78,10 +352,9 @@ display:none;
 }
 .btn-menu {
   color: #fff;
-  background-color: #666;
   padding: 5px;
   position: fixed;
-  top: 25px;
+      top: 12px;
   left: 25px;
   cursor: pointer;
   transition: left .23s;
@@ -103,14 +376,14 @@ display:none;
 }
 
 .hidden-menu-ticker:checked ~ .btn-menu {
-  left: 73%;
+  left: 70%;
 }
 .hidden-menu-ticker:checked ~ .hidden-menu {
   left: 0;
 }
 .hidden-menu-ticker:checked ~ .btn-menu span.first {
   -webkit-transform: rotate(45deg);
-  top: 10px;
+  top: 11px;
 }
 .hidden-menu-ticker:checked ~ .btn-menu span.second {
   opacity: 0;
@@ -164,15 +437,19 @@ background-color: #0a2a5d;
 .search {
   text-align:center;
 }
+.form-search {
+    margin-left: 65px;
+        margin-right: 35px;
+}
 .header_mobile .header .logo {
-    margin-left: 42.5%;
+    margin-left: 40.5%;
     margin-top: 1px;
 }
 .header_mobile .header .contactinfo .tel {
     display: flex;
     flex-direction: row;
-    margin-left: 110px;
     margin-top: 5px;
+        margin-left: 125px;
 }
 .d-carousel {
     margin-left: 1px;
@@ -390,6 +667,12 @@ margin-left: 0;
 text-align: center;
 display: block;
 }
+
+
+
+
+
+
 .selection {
   margin-left: 0;
   flex-direction: column;
@@ -401,6 +684,30 @@ display: block;
   width: 400px;
   margin-bottom: 12px;
 }
+
+
+
+.selection1 {
+  margin-left: 0;
+  flex-direction: column;
+  text-align: center;
+  width: 768px;
+    margin-bottom: 60px;
+}
+.selection1 select {
+  width: 400px;
+  margin-bottom: 12px;
+}
+
+
+
+
+
+
+
+
+
+
 
 .search-button {
 width: 768px;
@@ -475,7 +782,7 @@ width: 768px;
 }
 .seotext p {
   width: 730px;
-  padding: 0 19px 0 19px;
+  /*padding: 0 19px 0 19px;*/
 }
 
 
@@ -707,7 +1014,7 @@ margin-bottom: 70px;
     margin-bottom: 68px;
 }
 .managers h2 {
-     margin-left: 0px;   
+      margin-left: -11px;   
     text-align: center;
 }
 #application {
@@ -793,8 +1100,103 @@ margin-bottom: 70px;
 #button-more {
     width: 740px;
 }
+.d-carousel h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h3 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news .content1 p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.footer .bottomnav a {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h4 {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.selection select {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.search-button a {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.sorting form a {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.products #more {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.seotext p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
 
-
+.news .content1 a#more, .content2 a#more {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news .morenews a#more {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.seotext3 p {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.table_of_prod table {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.map_managercard .manager .manager_info {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company1 h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company1 p {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company h2 {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company p {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company .call_us p {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.map_website a {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.form_comment h3 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.form_comment p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers h2 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers .contactinfo h3 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.d-carousel a#more {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#application h3, #emailForm h3 {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#applicationName, #applicationEmail, #applicationTelephone {
+ font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#applicationText {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.applicationButton {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
 
 }
 
@@ -815,10 +1217,16 @@ margin-bottom: 70px;
   }
   .header_mobile {
   display: block;
+    margin: auto;
 }
 body {
 background-color: #0a2a5d;
 background-image: none;
+}
+body {
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 .hidden-menu {
@@ -830,7 +1238,7 @@ background-image: none;
   box-sizing: border-box;
   width: 80%;
   background-color: #eee;
-  height: 100%;
+  /*height: 100%;*/
   top: 0;
   left: -100%;
   transition: left .2s;
@@ -865,19 +1273,21 @@ background-image: none;
   font-weight: 900;
   color: #0e2447;
 }
+.logo a img {
+    width: 135px;
+}
 
 .hidden-menu-ticker {
   display: none;
 }
 .btn-menu {
   color: #fff;
-  background-color: #666;
   padding: 5px;
   position: fixed;
-  top: 25px;
+  top: 12px;
   left: 25px;
   cursor: pointer;
-  transition: left .23s;
+  transition: left .33s;
   z-index: 10004;
   width: 25px;
   -webkit-transform: translateZ(0);
@@ -896,14 +1306,14 @@ background-image: none;
 }
 
 .hidden-menu-ticker:checked ~ .btn-menu {
-  left: 73%;
+  left: 70%;
 }
 .hidden-menu-ticker:checked ~ .hidden-menu {
   left: 0;
 }
 .hidden-menu-ticker:checked ~ .btn-menu span.first {
   -webkit-transform: rotate(45deg);
-  top: 10px;
+  top: 11px;
 }
 .hidden-menu-ticker:checked ~ .btn-menu span.second {
   opacity: 0;
@@ -964,16 +1374,6 @@ background-color: #0a2a5d;
     width: 475px;
 }
 
-
-
-
-
-
-
-
-
-
-
 .header_mobile .header .logo {
     margin-top: 5px;
     margin-left: 36.5%;
@@ -981,7 +1381,7 @@ background-color: #0a2a5d;
 .header_mobile .header .contactinfo .tel {
        display: flex;
     flex-direction: row;
-    margin-left: 13px;
+    margin-left: 8px;
     margin-top: 11px;
     font-size: 17px;
 }
@@ -1095,9 +1495,9 @@ text-align: center;
   vertical-align: top;
   margin-left: 0px;
 }
-.news .content1 a, .content2 a {
+.news .content1 a#more, .content2 a#more {
      padding: 10px 175px 10px 175px;
-    margin-left: 7px;
+margin-left: 9px;
   border-radius: 10px;
   background: none;
   border: 1px solid white;
@@ -1107,13 +1507,13 @@ text-align: center;
   font-weight: 700;
   text-decoration: none;
 }
-.news .content1 a:hover {
+.news .content1 a#more:hover {
   background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
   color: #213b64;
 -webkit-transition: .5s ease;
   transition: .5s ease;
 }
-.news .content2 a:hover {
+.news .content2 a#more:hover {
   background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
   color: #213b64;
 -webkit-transition: .5s ease;
@@ -1226,6 +1626,17 @@ display: block;
   margin-bottom: 12px;
 }
 
+.selection1 {
+  margin-left: 0;
+  flex-direction: column;
+  text-align: center;
+  width: 480px;
+}
+.selection1 select {
+  width: 400px;
+  margin-bottom: 12px;
+}
+
 .search-button {
 width: 480px;
 text-align: center;
@@ -1299,7 +1710,7 @@ width: 480px;
 }
 .seotext p {
   width: 450px;
-    padding: 0 15px 0 15px;
+    /*padding: 0 15px 0 15px;*/
 }
 
 
@@ -1361,8 +1772,6 @@ margin-bottom: 70px;
     height: cover;
     object-fit: cover;
 }
-
-
 
 .othernovostroy {
   display: block;
@@ -1519,8 +1928,8 @@ margin-bottom: 70px;
     width: 480px;
     margin-bottom: 68px;
 }
-.managers h2 {
-     margin-left: 0px;   
+.managers h2 {  
+    margin-left: -11px; 
     text-align: center;
 }
 #application {
@@ -1560,8 +1969,6 @@ margin-bottom: 70px;
      margin-left: 71px; 
 
 }
-
-
 .news .morenews1 #more  {
   display: block;
  max-width: 470px;
@@ -1626,10 +2033,534 @@ display:none;
 #button-more {
     width: 475px;
 }
+.d-carousel h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h3 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news .content1 p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.footer .bottomnav a {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h4 {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.selection select {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.search-button a {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.sorting form a {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.products #more {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.seotext p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
 
+.news .content1 a#more, .content2 a#more {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news .morenews a#more {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.seotext3 p {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.table_of_prod table {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.map_managercard .manager .manager_info {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company1 h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company1 p {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company h2 {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company p {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company .call_us p {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.map_website a {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.form_comment h3 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.form_comment p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers h2 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers .contactinfo h3 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.d-carousel a#more {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
 
+#application h3, #emailForm h3 {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#applicationName, #applicationEmail, #applicationTelephone {
+ font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#applicationText {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.applicationButton {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.header_mobile .header .contactinfo .tel p {
+-ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
 
 }
+
+
+
+
+
+
+@media (max-width: 415px){
+.container {
+ max-width: 320px;
+    }
+body {
+background-color: #0a2a5d;
+background-image: none;
+}
+body {
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+.header_mobile {
+ max-width: 320px;
+    margin: auto;
+}
+.header {
+ /* width: 320px;*/
+    width: 100%;
+ /* height: 100px;*/
+background-color: #0a2a5d;
+}
+.header_mobile .header .contactinfo .feedback {
+    margin-left: 0px;
+}
+.header_mobile .header .contactinfo .tel {
+    margin-left: -166px;
+    margin-top: 61px;
+}
+.header_mobile .header .contactinfo .tel p {
+-ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+.form-search {
+    margin-top: 40px;
+}
+.form-search input {
+    width: 318px;
+}
+.d-carousel h2 {
+    margin-top: 15px;
+}
+.d-carousel .jcarousel-container-horizontal {
+    padding: 0px 33px;
+    margin-left: 0%;
+}
+.d-carousel #more {
+    width: 315px;
+}
+.news {
+    width: 320px;
+}
+.news .firstnews {
+    width: 310px;
+}
+
+.news p {
+    width: 300px;
+    margin-left: 5px;
+}
+.news h3 {
+    width: 290px;
+}
+
+.news .content1 a#more, .content2 a#more {
+    padding: 10px 95px 10px 95px;
+    margin-left: 12px;
+}
+.footer {
+    width: 320px;
+}
+#toTop {
+    bottom: 10px;
+    right: -5px;
+}
+.footer .social {
+    width: 200px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 18.5%;
+}
+
+.footer .bottomnav {
+    width: 320px;
+}
+.news .content1, .content2 {
+    width: 310px;
+}
+.news h4 {
+    width: 283px;
+}
+.selection {
+    margin-left: 5px;
+    flex-direction: column;
+    text-align: center;
+    width: 310px;
+}
+.selection select {
+    width: 310px;
+    margin-bottom: 12px;
+}
+.selection1 {
+    margin-left: 5px;
+    flex-direction: column;
+    text-align: center;
+    width: 310px;
+}
+.selection1 select {
+    width: 310px;
+    margin-bottom: 12px;
+}
+.selection, .selection1 ._cost {
+    width: 310px;
+    margin-left: 0px;
+}
+.selection, .selection1 ._cost select {
+    width: 150px;
+}
+.search-button {
+    width: 310px;
+    text-align: center;
+}
+.seotext2 {
+    width: 300px;
+    padding: 0 10px 0 10px;
+}
+.sorting {
+    text-align: center;
+    width: 300px;
+}
+.sorting form a {
+    width: 300px;
+    margin-left: 10px;
+}
+
+.sorting form {
+    width: 320px;
+}
+.products .prods {
+    width: 250px;
+    margin-left: 35px;
+}
+.products #more {
+    max-width: 310px;
+}
+.seotext {
+    width: 320px;
+}
+.seotext p {
+    width: 300px;
+    /*padding: 0 10px 0 10px;*/
+}
+#button-more {
+    width: 320px;
+}
+
+
+.form_comment {
+    margin-left: -6px;
+    width: 310px;
+}
+.news1 {
+    width: 320px;
+}
+.news1 .firstnews {
+    width: 320px;
+}
+
+.news1 .comment1 {
+    width: 320px;
+}
+.news1 p {
+    width: 320px;
+}
+#mapnovostroy1 iframe {
+    width: 305px;
+    height: 300px;
+}
+.about_company1 {
+    margin-left: 10px;
+    width: 310px;
+}
+.adress {
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+.header_mobile .header .logo {
+    margin-top: 5px;
+    margin-left: 31%;
+}
+.share_icons {
+    width: 135px;
+    margin-left: 94.5px;
+}
+.seotext3 {
+    width: 310px;
+    margin-left: 0px;
+    padding: 5px;
+}
+.table_of_prod table {
+    width: 315px;
+    margin-left: 2px;
+    font-size: 17px;
+}
+.table_of_prod table tr td {
+    padding: 6px 0px 7px 6px;
+}
+.planirovka {
+    width: 315px;
+margin-bottom: -5px;
+margin-left: 3px;
+}
+.planirovka img {
+    width: 315px;
+}
+.othernovostroy .prods {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    width: 320px;
+    margin-left: 38px;
+}
+.news1 .morenews1 #more {
+    margin-left: 0px;
+}
+.about_company {
+    margin-left: 5px;
+    width: 310px;
+}
+.photo_company {
+    width: 315px;
+    margin-left: 4px;
+}
+.photo_company img {
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: 315px;
+height: 455px;
+}
+.table_of_prodapart table {
+    width: 305px;
+}
+.map_managercard .manager {
+    margin-left: -200px;
+    width: 305px;
+}
+
+.map_managercard .manager .manager_info {
+    margin-top: 103px;
+    margin-left: -196px;
+}
+.managers {
+    width: 320px;
+    margin-bottom: 68px;
+}
+#application, #emailForm {
+    width: 310px;
+    margin-left: 5px;
+}
+
+#applicationName, #applicationEmail, #applicationTelephone {
+    width: 315px;
+     margin-left: 0px; 
+}
+#applicationText {
+    width: 315px;
+}
+.applicationButton {
+    margin-left: -5px;
+}
+
+.managers .manager_ {
+    width: 320px;
+}
+.managers .img {
+     margin-right: 0px; 
+}
+.manager_ .contactinfo {
+    width: 320px;
+    margin-left: 4px;
+}
+.managers .about_manager {
+    width: 320px;
+    margin-left: 10px;
+}
+.selection ._cost {
+    width: 310px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 0px;
+}
+.selection ._cost select {
+    width: 150px;
+}
+.d-carousel h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h3 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news .content1 p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.footer .bottomnav a {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h4 {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.selection select {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.search-button a {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.sorting form a {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.products #more {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.seotext p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news .content1 a#more, .content2 a#more {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news .morenews a#more {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.news h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.seotext3 p {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.table_of_prod table {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.map_managercard .manager .manager_info {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company1 h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company1 p {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company h2 {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company p {
+   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.about_company .call_us p {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.map_website a {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.form_comment h3 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.form_comment p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers h2 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers .contactinfo h3 {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.managers p {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.d-carousel a#more {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#application h3, #emailForm h3 {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#applicationName, #applicationEmail, #applicationTelephone {
+ font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#applicationText {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.applicationButton {
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.streak {
+    width: 103%;
+    margin-left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
