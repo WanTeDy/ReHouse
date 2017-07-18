@@ -21,13 +21,27 @@
                     <h3>@item.Title.RussianName</h3>
                     @*<h3>@item.TitleName</h3>*@
                     @*<img src="@Url.Content(prod.Image.Url+prod.Image.FileName)" width="50" height="50" alt="" />
-    <img src="@Url.Content(prod.Image.Url+prod.Image.FileName)" width="50" height="50" alt="" />
-    <img src="@Url.Content(prod.Image.Url+prod.Image.FileName)" width="50" height="50" alt="" />*@
+                        <img src="@Url.Content(prod.Image.Url+prod.Image.FileName)" width="50" height="50" alt="" />
+                        <img src="@Url.Content(prod.Image.Url+prod.Image.FileName)" width="50" height="50" alt="" />*@
                 </div>
             </td>
             <td>@(item.IsModerated ? "Одобрено" : "Неодобрено")</td>
             <td>@item.Description</td>
-            <td>@item.Price$</td>
+            @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+            {
+                <td>@item.Price $</td>
+            }
+            else
+            {
+                if (item.RentPeriodType == ReHouse.Utils.Helpers.RentPeriodType.Daily)
+                {
+                    <td>@item.Price грн</td>
+                }
+                else
+                {
+                    <td>@item.Price $</td>
+                }
+            }
             <td>
                 <div class="edit_del">
                     @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Rent)

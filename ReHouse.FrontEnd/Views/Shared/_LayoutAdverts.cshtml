@@ -348,18 +348,17 @@
                 @foreach (Article article in ViewBag.Articles)
                 {
                     <div class="firstnews"> 
-                        <div class="img">
-                            @if (article.Images != null && article.Images.Count > 0)
-                            {
-                                <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
-                            }
-                            else
-                            {
-                                <img src="~/Content/images/news1.jpg" width="440" height="263">
-                            }
-                        </div>                       
                         <div class="content1">
-                            
+                            <div class="img">
+                                @if (article.Images != null && article.Images.Count > 0)
+                                {
+                                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
+                                }
+                                else
+                                {
+                                    <img src="~/Content/images/news1.jpg" width="440" height="263">
+                                }
+                            </div>  
                             <h3>@article.Title</h3>
                             @if (@article.Description.Length > 400)
                             {

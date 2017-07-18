@@ -6,6 +6,22 @@
 {
     var session = Session["user"] as SessionModel;
 
+    <script>
+    function rentTypeChanged() {
+        var type = $('#rent_type').val();
+        if (type == 1) {
+            $('#price2').hide();
+            $('#price_max2').hide();
+            $('#price').show();
+            $('#price_max').show();
+        } else {
+            $('#price').hide();
+            $('#price_max').hide();
+            $('#price2').show();
+            $('#price_max2').show();
+        }
+    }
+    </script>
 
     <div class="selection-admin">
         <div class="typeofproperty">
@@ -32,13 +48,33 @@
         </div>
 
         <div class="_cost">
-            <select id="price">
-                @*<option selected value="0">Цена</option>*@
-                @for (int i = 0; i < Model.Prices.Count; i++)
-                {
-                    if (ViewBag.Type == AdvertsType.Sale)
+            @if (ViewBag.Type == AdvertsType.Sale)
+            {
+                <select id="price">
+                    @*<option selected value="0">Цена от</option>*@
+                    @foreach (var price in Model.Prices)
                     {
-                        <option value="@Model.Prices[i].Min">от @Model.Prices[i].Min $</option>
+                        <option value="@price.Min">от @price.Min $</option>
+                        @*if (i == 0)
+                        {
+                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
+                        }
+                        else if (i == Model.Prices.Count - 1)
+                        {
+                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
+                        }
+                        else
+                        {
+                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
+                        }*@
+                    }
+                </select>
+                <select id="price_max">
+                    @*<option selected value="0">Цена до</option>*@
+                    @foreach (var price in Model.Prices)
+                    {
+
+                        <option value="@price.Min">до @price.Min $</option>
                         @*if (i == 0)
                         {
                             <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
@@ -52,9 +88,37 @@
                             <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
                         }*@
                     }
-                    else if (ViewBag.Type == AdvertsType.Rent)
+
+                </select>
+            }
+            else if (ViewBag.Type == AdvertsType.Rent)
+            {
+                <select id="price">
+                    @*<option selected value="0">Цена от</option>*@
+                    @foreach (var price in Model.Prices.Where(x => x.Currency == "uah"))
                     {
-                        <option value="@Model.Prices[i].Min">от @Model.Prices[i].Min $</option>
+
+                        <option value="@price.Min">от @price.Min грн</option>
+                        @*if (i == 0)
+                        {
+                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
+                        }
+                        else if (i == Model.Prices.Count - 1)
+                        {
+                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
+                        }
+                        else
+                        {
+                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
+                        }*@
+                    }
+                </select>
+                <select id="price_max">
+                    @*<option selected value="0">Цена до</option>*@
+                    @foreach (var price in Model.Prices.Where(x => x.Currency == "uah"))
+                    {
+
+                        <option value="@price.Min"> до @price.Min грн</option>
                         @*if (i == 0)
                         {
                             <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
@@ -68,52 +132,56 @@
                             <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
                         }*@
                     }
-                }
-            </select>
-            <select id="price_max">
-                @*<option selected value="0">Цена</option>*@
-                @for (int i = 0; i < Model.Prices.Count; i++)
-                {
-                    if (ViewBag.Type == AdvertsType.Sale)
+                </select>
+
+                <select id="price2" style="display:none;">
+                    @*<option selected value="0">Цена от</option>*@
+                    @foreach (var price in Model.Prices.Where(x => x.Currency == "usd"))
                     {
-                        <option value="@Model.Prices[i].Min">до @Model.Prices[i].Min $</option>
+
+                        <option value="@price.Min">от @price.Min $</option>
                         @*if (i == 0)
-                    {
+                        {
                         <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
-                    }
-                    else if (i == Model.Prices.Count - 1)
-                    {
+                        }
+                        else if (i == Model.Prices.Count - 1)
+                        {
                         <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
-                    }
-                    else
-                    {
+                        }
+                        else
+                        {
                         <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
-                    }*@
+                        }*@
                     }
-                    else if (ViewBag.Type == AdvertsType.Rent)
+                </select>
+                <select id="price_max2" style="display:none;">
+                    @*<option selected value="0">Цена до</option>*@
+                    @foreach (var price in Model.Prices.Where(x => x.Currency == "usd"))
                     {
-                        <option value="@Model.Prices[i].Min">до @Model.Prices[i].Min $</option>
+
+                        <option value="@price.Min"> до @price.Min $</option>
                         @*if (i == 0)
-                    {
-                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
+                        {
+                            <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
+                        }
+                        else if (i == Model.Prices.Count - 1)
+                        {
+                            <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн/мес</option>
+                        }
+                        else
+                        {
+                            <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
+                        }*@
                     }
-                    else if (i == Model.Prices.Count - 1)
-                    {
-                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн/мес</option>
-                    }
-                    else
-                    {
-                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
-                    }*@
-                    }
-                }
-            </select>
+                </select>
+
+            }
         </div>
         @if (ViewBag.Type == AdvertsType.Rent)
         {
         <div class="typeofproperty">
-            <select id="rent_type">
-                <option value="0">Период сдачи</option>
+            <select id="rent_type" onchange="rentTypeChanged();">
+                @*<option value="0">Период сдачи</option>*@
                 <option value="1">Посуточно</option>
                 <option value="2">Помесячно</option>
             </select>

@@ -102,7 +102,14 @@
                                 <h3>Сдам @item.Title.RussianName.ToLower()</h3>
                                 @*<h3>@item.TitleName</h3>*@
                                 <h4>@item.Description</h4>
-                                <p class="cost">@item.Price грн/мес</p>
+                                @if (item.RentPeriodType == ReHouse.Utils.Helpers.RentPeriodType.Daily)
+                                {
+                                    <p class="cost">@item.Price грн</p>
+                                }
+                                else
+                                {
+                                    <p class="cost">@item.Price $</p>
+                                }
                                 <a href="~/rent/detail/@item.Id" id="follow">❯</a>
                             </div>
                         }

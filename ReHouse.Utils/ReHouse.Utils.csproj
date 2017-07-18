@@ -293,6 +293,10 @@
     <Compile Include="Migrations\201707091240593_rent_period.Designer.cs">
       <DependentUpon>201707091240593_rent_period.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707181129370_rent.cs" />
+    <Compile Include="Migrations\201707181129370_rent.Designer.cs">
+      <DependentUpon>201707181129370_rent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -359,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707091240593_rent_period.resx">
       <DependentUpon>201707091240593_rent_period.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707181129370_rent.resx">
+      <DependentUpon>201707181129370_rent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

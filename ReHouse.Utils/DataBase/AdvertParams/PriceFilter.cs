@@ -18,6 +18,10 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// max price filter in Russian
         /// </summary>    
         public AdvertsType AdvertType { get; set; }
+        /// <summary>
+        /// Currency
+        /// </summary>
+        public String Currency { get; set; }
 
     }
 }
