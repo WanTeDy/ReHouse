@@ -52,5 +52,5 @@ var appendContests = function (response) {
     $(loadingId).hide();
 
     $(response).appendTo($(container));
-    page += 1;
+    //page += 1;
 };

@@ -14,17 +14,33 @@
 
 @if (!ViewBag.NoElements)
 {
-    <div class="othernovostroy">
+    <div class="products">
         <ul class="prods" id="data-container">
 
-            @Html.Partial("Search/_listOfAdverts", Model.Adverts);
+            @Html.Partial("Search/_listOfAdverts", Model.Adverts)
 
         </ul>
-        @*<div id="button-more">
+        <div id="button-more">
             <a id="more">Больше объявлений</a>
-        </div>*@
+        </div>
     </div>
-    @*<div id="loading-div">
+    <div id="loading-div">
 
-    </div>*@
+    </div>
 }
+<script>
+    var url = "/search/load/";
+
+    function search_lazyload(search) {
+        var query = '@ViewBag.Query';
+        var obj = {
+            "Query": query,
+        }
+        lazyload(obj, url, search);
+    }
+
+    $('#button-more').click(function () {
+        search_lazyload(false);
+    });
+
+</script>

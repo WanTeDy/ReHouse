@@ -23,6 +23,7 @@ namespace ReHouse.FrontEnd.Controllers
         public ActionResult Flats(string query)
         {
             ViewBag.NoElements = true;
+            ViewBag.Query = query;
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
             var tokenHash = "";
             if (sessionModel != null)
@@ -44,21 +45,29 @@ namespace ReHouse.FrontEnd.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public JsonResult Load(CartModel model)
-        //{
-        //    var cart = SessionHelpers.Session("Cart") as List<CartModel> ?? new List<CartModel>();
-        //    var adv = cart.Find(x => x.AdvertId == model.AdvertId && x.Type == model.Type);
-        //    if (adv == null && model.IsAdd)
-        //    {
-        //        cart.Add(model);
-        //    }
-        //    else if (adv != null && !model.IsAdd)
-        //    {
-        //        cart.Remove(adv);
-        //    }
-        //    SessionHelpers.Session("Cart", cart);
-        //    return Json(new { NoError = true });
-        //}
+        [HttpPost]
+        public ActionResult Load(string query, int pageNumber)
+        {
+            var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
+            var tokenHash = "";
+            if (sessionModel != null)
+                tokenHash = sessionModel.TokenHash;
+
+            if (!String.IsNullOrEmpty(query))
+            {
+                var operation = new SearchAdvertsOperation(tokenHash, query, pageNumber, ConstV.ItemsPerPage);
+                operation.ExcecuteTransaction();
+
+                if (operation._adverts == null || operation._adverts.Count == 0)
+                    return Json(new { noElements = true });
+
+                var model = new LoadCartModel()
+                {
+                    Adverts = operation._adverts,
+                };
+                return PartialView("Search/_listOfAdverts", operation._adverts);
+            }
+            return Json(new { noElements = true });
+        }
     }
 }

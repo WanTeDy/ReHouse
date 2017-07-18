@@ -37,8 +37,10 @@ namespace ReHouse.Utils.BusinessOperations.Common
                         x = x.Substring(0, x.Length - 1);
                 });
 
-            var flats = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Title.RussianName.ToLower().Contains(r) || x.Street.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.District.RussianName.ToLower().Contains(r) || x.AdvertPropertyValues.All(y => y.PropertiesValue.Contains(r))))
-            .OrderByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            var totalFlats = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Title.RussianName.ToLower().Contains(r) || x.Street.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.District.RussianName.ToLower().Contains(r) || x.AdvertPropertyValues.All(y => y.PropertiesValue.Contains(r))))
+            .OrderByDescending(x => x.PublicationDate).AsQueryable();
+            var totalFlatsCount = totalFlats.Count();
+            var flats = totalFlats.Skip((_page - 1) * _count).Take(_count).ToList();
             _adverts = new List<CartAdvertModel>();
             _adverts.AddRange(flats.Select(x =>
 
@@ -51,37 +53,61 @@ namespace ReHouse.Utils.BusinessOperations.Common
                     Description = x.Description.Length > ConstV.DescMinimizeSymbols + 5 ? x.Description.Substring(0, ConstV.DescMinimizeSymbols) + "..." : x.Description,
                     Name = x.Title.RussianName,
                     //Name = el.TitleName,
+                    RentPeriodType = x.RentPeriodType,
                     Image = x.Images.FirstOrDefault(y => !x.Deleted),
                     IsHot = x.IsHot,
                     IsExclusive = x.IsExclusive,
                 }
 
             ));
-
-            var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
+            if(_adverts.Count == 0)
+            {
+                var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
                 || x.District.RussianName.ToLower().Contains(r) || x.Heating.ToLower().Contains(r) || x.Parking.ToLower().Contains(r)))
-                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Take(_count).ToList();
+                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count - totalFlatsCount).Take(_count).ToList();
 
-            _adverts.AddRange(newBuilding.Select(x =>
+                _adverts.AddRange(newBuilding.Select(x =>
 
-                new CartAdvertModel()
-                {
-                    Id = x.Id,
-                    Price = x.Price,
-                    Adress = x.Adress,
-                    Type = AdvertsType.NewBuilding,
-                    Description = x.ExpluatationDate.Name,
-                    Name = x.Name,
+                    new CartAdvertModel()
+                    {
+                        Id = x.Id,
+                        Price = x.Price,
+                        Adress = x.Adress,
+                        Type = AdvertsType.NewBuilding,
+                        Description = x.ExpluatationDate.Name,
+                        Name = x.Name,
+                        //Name = el.TitleName,
+                        Image = x.Images.FirstOrDefault(y => !x.Deleted),
+                        IsHot = x.IsHot,
+                        IsExclusive = x.IsExclusive,
+                    }
+
+                ));
+            }
+            else if(_adverts.Count < _count)
+            {
+                var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
+                || x.District.RussianName.ToLower().Contains(r) || x.Heating.ToLower().Contains(r) || x.Parking.ToLower().Contains(r)))
+                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip(0).Take(_count - _adverts.Count).ToList();
+
+                _adverts.AddRange(newBuilding.Select(x =>
+
+                    new CartAdvertModel()
+                    {
+                        Id = x.Id,
+                        Price = x.Price,
+                        Adress = x.Adress,
+                        Type = AdvertsType.NewBuilding,
+                        Description = x.ExpluatationDate.Name,
+                        Name = x.Name,
                     //Name = el.TitleName,
                     Image = x.Images.FirstOrDefault(y => !x.Deleted),
-                    IsHot = x.IsHot,
-                    IsExclusive = x.IsExclusive,
-                }
+                        IsHot = x.IsHot,
+                        IsExclusive = x.IsExclusive,
+                    }
 
-            ));
-
-            //_articles = Context.Articles.Where(x => !x.Deleted)
-            //    .OrderByDescending(x => x.Date).Take(_articlesCount).ToList();
+                ));
+            }
         }
     }
 }

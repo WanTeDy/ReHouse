@@ -12,6 +12,7 @@ namespace ReHouse.Utils.Helpers
         public String Description { get; set; }
         public Image Image { get; set; }
         public AdvertsType Type { get; set; }
+        public RentPeriodType RentPeriodType { get; set; }
         public Boolean IsHot { get; set; }
         public Boolean IsExclusive { get; set; }
     }

@@ -57,6 +57,7 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                             Type = item.Type,
                             Description = el.Description.Length > ConstV.DescMinimizeSymbols + 5 ? el.Description.Substring(0, ConstV.DescMinimizeSymbols) + "..." : el.Description,
                             Name = el.Title.RussianName,
+                            RentPeriodType = el.RentPeriodType,
                             //Name = el.TitleName,
                             Image = el.Images.FirstOrDefault(x => !x.Deleted),
                             IsHot = el.IsHot,
