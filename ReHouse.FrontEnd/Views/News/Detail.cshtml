@@ -15,18 +15,18 @@
 </div>
 <div class="news">
     <h2>@Model.Title</h2>
-    <div class="firstnews">
-        <div class="img">
-            @if (Model.Images != null && Model.Images.Count > 0)
-            {
-                <img src="@Url.Content(Model.Images[0].Url + Model.Images[0].FileName)" title="@Model.Images[0].Title" alt="@Model.Images[0].Alt" width="440" height="263">
-            }
-            else
-            {
-                <img src="~/Content/images/news1.jpg" width="440" height="263">
-            }
-        </div>
+    <div class="firstnews">        
         <div class="content1">
+            <div class="img">
+                @if (Model.Images != null && Model.Images.Count > 0)
+            {
+                    <img src="@Url.Content(Model.Images[0].Url + Model.Images[0].FileName)" title="@Model.Images[0].Title" alt="@Model.Images[0].Alt" width="440" height="263">
+                }
+                else
+                {
+                    <img src="~/Content/images/news1.jpg" width="440" height="263">
+                }
+            </div>
             <p>@Html.Raw(Model.Description)</p>
             <div class="share_icons1">
                 <div class="share_fb">
