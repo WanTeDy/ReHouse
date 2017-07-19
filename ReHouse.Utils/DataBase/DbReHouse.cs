@@ -26,6 +26,7 @@ namespace ReHouse.Utils.DataBase
     //    public DbSet<PathImages> PathImageses { get; set; }
 
         public DbSet<ExpluatationDate> ExpluatationDates { get; set; }
+        public DbSet<TagPage> TagPages { get; set; }
         public DbSet<PageText> PageTexts { get; set; }
         public DbSet<SeoParam> SeoParams { get; set; }
         public DbSet<Authority> Authorities { get; set; }

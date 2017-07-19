@@ -14,6 +14,13 @@ namespace ReHouse.FrontEnd
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "TagPage",
+                "Special/{action}/{id}",
+                new { controller = "Special", id = UrlParameter.Optional },
+                new[] { "ReHouse.FrontEnd.Controllers" }
+                );
+
+            routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },

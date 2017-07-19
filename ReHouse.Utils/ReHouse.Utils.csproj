@@ -157,6 +157,8 @@
     <Compile Include="BusinessOperations\Seo\AddSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdateSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdatePageTextOperation.cs" />
+    <Compile Include="BusinessOperations\TagPages\LoadTagPagesOperation.cs" />
+    <Compile Include="BusinessOperations\TagPages\LoadFlatsByTagOperation.cs" />
     <Compile Include="BusinessOperations\Titles\AddTitleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\DeleteTitleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\LoadDistrictsOperation.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="BusinessOperations\Vacancies\LoadVacanciesOperation.cs" />
     <Compile Include="BusinessOperations\Vacancies\UpdateVacancyOperation.cs" />
     <Compile Include="ConstV.cs" />
+    <Compile Include="DataBase\AdvertParams\TagPage.cs" />
     <Compile Include="DataBase\AdvertParams\ExpluatationDate.cs" />
     <Compile Include="DataBase\AdvertParams\Builder.cs" />
     <Compile Include="DataBase\AdvertParams\PlanImage.cs" />
@@ -207,6 +210,7 @@
     <Compile Include="Except\ActionNotAllowedException.cs" />
     <Compile Include="Except\ReHouseException.cs" />
     <Compile Include="Helpers\AdvertEmailModel.cs" />
+    <Compile Include="Helpers\TagPageType.cs" />
     <Compile Include="Helpers\RentPeriodType.cs" />
     <Compile Include="Helpers\CommonEmailModel.cs" />
     <Compile Include="Helpers\CartAdvertModel.cs" />

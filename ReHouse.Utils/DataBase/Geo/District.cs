@@ -16,6 +16,7 @@ namespace ReHouse.Utils.DataBase.Geo
         public String RussianName { get; set; }
 
         public virtual District Parrent { get; set; }
+        public virtual List<TagPage> TagPages { get; set; }
         public virtual List<Advert> Adverts { get; set; }
         public virtual List<NewBuilding> NewBuildings { get; set; }
     }

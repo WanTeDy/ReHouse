@@ -15,6 +15,7 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         public String RussianName { get; set; }        
 
         public virtual Category Parent { get; set; }
+        public virtual List<TagPage> TagPages { get; set; }
         public virtual List<Advert> Adverts { get; set; }        
         public virtual List<AdvertProperty> AdvertProperties { get; set; }
     }
