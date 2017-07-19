@@ -120,7 +120,10 @@
                     <p class="textlogo">Международная риэлторская инвестиционная компания</p>
                 </div>
                 <div class="search">
-                    <p><form class="form-search" method="get" action="/search/flats" target="_blank"><input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" /></form></p>
+                    <p><form class="form-search" method="get" action="/search/flats" target="_blank">
+                    <input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" />
+                    <input type="submit" value="">
+                    </form></p>
                     @if (Session != null && Session["user"] is SessionModel)
                     {
                         var session = Session["user"] as SessionModel;
@@ -300,7 +303,9 @@
             </div>
         </div>
         <div class="search">
-            <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" /></form></p>
+            <p><form class="form-search" method="get" action="/search" target="_blank"><input type="text" name="q" placeholder="Введите слово или фразу" value="" />
+                    <input type="submit" value="">
+                    </form></p>
         </div>
     </div>
     <div class="container" id="container">
@@ -324,9 +329,9 @@
                                 }
                             </div>
                             <h3>@article.Title</h3>
-                            @if (@article.Description.Length > 400)
+                            @if (article.Description.Length > 350)
                             {
-                                <p id="news_@article.Id">@Html.Raw(article.Description.Substring(0, 399)) ...</p>
+                                <p id="news_@article.Id">@Html.Raw(article.Description.Substring(0, 349))...</p>
                             }
                             else
                             {

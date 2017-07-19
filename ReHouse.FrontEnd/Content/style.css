@@ -172,26 +172,43 @@ body {
     }
 
 .form-search {
-    border-radius: 10px;
     padding: 4px;
     margin-left: 20px;
     margin-top: 30px;
 }
 
     .form-search input {
-        width: 548px;
+        width: 500px;
         height: 29px;
         padding: 0 50px 0 10px;
-        background-image: url("images/search.png");
-        background-repeat: no-repeat;
-        background-position: 99% 60%, 100% 70%;
         border: 1px solid #747474;
-        border-radius: 10px;
         font-family: Casper;
         font-size: 16px;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
+        vertical-align: middle;
     }
+
+.form-search input[type="submit"] {
+    width: 50px;
+    height: 29px;
+    border: none;
+    background: url(images/search.png) no-repeat 50% 50%;
+    background-color: white;
+        border: 1px solid #747474;
+        margin-left: -4px;
+        border-radius: 0 10px 10px 0;
+        cursor: pointer;
+}
+.form-search input[type="text"] {
+    border-radius: 10px 0 0 10px;
+
+}
+
+
+
+
+
 
 .your_name {
     display: -webkit-box;
@@ -841,8 +858,13 @@ min-width:1500px;
     width: 1332px;
 }
 
-    .news .img {
-        display: inline-block;
+
+
+
+.news .img {
+    display: inline-block;
+    float: left;
+    margin-right: 19px;
     }
 
     .news .firstnews, .secondnews {
@@ -900,11 +922,11 @@ min-width:1500px;
     }
 
     .news .content1, .content2 {
-        width: 542px;
+        width: 1055px;
         text-align: justify;
         display: inline-block;
         vertical-align: top;
-        margin-left: 69px;
+        margin-left: 0px;
     }
 
 .news .content1 a#more, .content2 a#more {
@@ -917,6 +939,7 @@ min-width:1500px;
             font-size: 18px;
             font-weight: 700;
             text-decoration: none;
+       margin-left: 35px;
         }
 
             .news .content1 a#more:hover {
@@ -2107,7 +2130,7 @@ text-align: center;
         text-align: center;
         margin-top: 47px;
     }
-/*Стили полей для ввода*/
+/*Г‘ГІГЁГ«ГЁ ГЇГ®Г«ГҐГ© Г¤Г«Гї ГўГўГ®Г¤Г */
 #applicationName,
 #applicationEmail,
 #applicationTelephone {
@@ -2141,7 +2164,7 @@ text-align: center;
     font-family: "Century Gothic";
     font-weight: 700;
 }
-    /*Стили полей при клике по ним*/
+    /*Г‘ГІГЁГ«ГЁ ГЇГ®Г«ГҐГ© ГЇГ°ГЁ ГЄГ«ГЁГЄГҐ ГЇГ® Г­ГЁГ¬*/
     #applicationName:focus,
     #applicationEmail:focus,
     #applicationTelephone:focus,
@@ -2894,6 +2917,11 @@ a[href^=tel]{
         -webkit-transition: .5s ease;
         transition: .5s ease;
     }
+
+
+
+
+
 
 
 

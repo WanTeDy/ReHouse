@@ -237,14 +237,6 @@
         </div>*@
 }
 <div class="map_managercard">
-    <div id="mapapart_prod">
-
-        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-    <div id="mapnovostroy1">
-        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-
     <div class="manager">
         <div class="photo">
             @if (Model.Advert.User.Avatar != null)
@@ -273,6 +265,14 @@
             </div>
         </div>
     </div>
+    <div id="mapapart_prod">
+
+        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div id="mapnovostroy1">
+        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
 </div>
 
 <span class="none">
