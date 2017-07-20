@@ -180,7 +180,7 @@ body {
     .form-search input {
         width: 500px;
         height: 29px;
-        padding: 0 50px 0 10px;
+            padding: 0 10px 0 10px;
         border: 1px solid #747474;
         font-family: Casper;
         font-size: 16px;
@@ -972,6 +972,7 @@ min-width:1500px;
         -o-object-fit: cover;
         object-fit: cover;
         margin-top: 5px;
+            height: 290px;
     }
 
     .news .morenews #more {
@@ -1956,13 +1957,13 @@ text-align: center;
 }
 
 .map_managercard {
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
-    flex-direction: row;
+    flex-direction: row;*/
     margin-bottom: 41px;
 }
 
@@ -1979,7 +1980,7 @@ text-align: center;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin-left: 275px;
+    margin-left: 225px;
     margin-top: 14px;
     width: 422px;
 }

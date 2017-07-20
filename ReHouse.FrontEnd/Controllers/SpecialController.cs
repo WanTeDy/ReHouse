@@ -28,16 +28,17 @@ namespace ReHouse.FrontEnd.Controllers
                 tokenHash = sessionModel.TokenHash;
             //var operationFilter = new LoadFiltersOperation(tokenHash, AdvertsType.Sale, (int)ParrentCategories.Flat);
             //operationFilter.ExcecuteTransaction();
-            
+            if (String.IsNullOrEmpty(id))
+                return RedirectToAction("Index", "Home");
             var operation = new LoadFlatsByTagOperation(tokenHash, 1, ConstV.ItemsPerPage, id);
             operation.ExcecuteTransaction();
             if (operation._tagPage == null)
                 return HttpNotFound();
             ViewBag.NoElements = false;
             ViewBag.Type = AdvertsType.Sale;
-            ViewBag.TagPage = id;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
+            ViewBag.TagPage = operation._tagPage;
             return View(operation._adverts);
         }
         [HttpPost]
@@ -50,9 +51,41 @@ namespace ReHouse.FrontEnd.Controllers
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
             var operation = new LoadFlatsByTagOperation(tokenHash, pageNumber, ConstV.ItemsPerPage, tagPageName);
+            operation.ExcecuteTransaction();
             if (operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });
             return PartialView("Advert/_listOfAdverts", operation._adverts);
         }
     }
 }
+
+
+//var db = new DbReHouse();
+//var districts = db.Districts.ToList();
+//foreach (var dist in districts)
+//{
+//    db.TagPages.Add(new Utils.DataBase.AdvertParams.TagPage
+//    {
+//        AdvertsType = AdvertsType.Sale,
+//        RussianName = "Продажа квартир в " + dist.RussianName,
+//        SeoText = "Текст",
+//        ShortName =  TranslitHelper.Front("Продажа квартир в " + dist.RussianName),
+//        TagPageType = TagPageType.District,
+//        District = dist,
+//    });
+//}
+
+//var cats = db.Categories.Where(x=>x.ParentId == 1).ToList();
+//foreach (var cat in cats)
+//{
+//    db.TagPages.Add(new Utils.DataBase.AdvertParams.TagPage
+//    {
+//        AdvertsType = AdvertsType.Sale,
+//        RussianName = "Продажа " + cat.RussianName + " квартир",
+//        SeoText = "Текст",
+//        ShortName = TranslitHelper.Front("Продажа " + cat.RussianName + " квартир"),
+//        TagPageType = TagPageType.Category,
+//        Category = cat,
+//    });
+//}
+//db.SaveChanges();

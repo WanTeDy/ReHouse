@@ -1,4 +1,14 @@
 @media (max-width: 1499px) and (min-width: 769px) {
+.your_name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: #ffffff;
+    font-family: Casper;
+    font-size: 12px;
+    margin-left: 107px;
+    margin-top: 39px;
+}
 .container {
  width: 1100px;
  margin: auto;
@@ -12,7 +22,7 @@
      margin-right: 0; 
 }
 .form-search {
-    margin-left: -58px;
+    margin-left: -46px;
 }
 .contactinfo .tel {
      margin-left: 0px; 
@@ -96,6 +106,7 @@
 }
 .news .img img {
     width: 370px !important;
+        height: 290px;
 }
 
 .h2novostroy h2 {
@@ -149,7 +160,7 @@
     margin-left: 22px;
 }
 .map_managercard .manager {
-    margin-left: 35px;
+    margin-left: 24px;
 }
 .h2prodsale h2 {
     margin-left: 22px;
@@ -874,9 +885,10 @@ margin-bottom: 70px;
 }
 .map_managercard .manager {
     display: flex;
-        margin-left: -615px;
-    margin-top: -81px;
+ /*       margin-left: -615px;
+    margin-top: -81px;*/
     width: 422px;
+    margin-left: 38px;
 }
 #mapnovostroy1 {
     margin-bottom: 60px;
@@ -1799,9 +1811,10 @@ margin-bottom: 70px;
 }
 .map_managercard .manager {
         display: flex;
-    margin-left: -457px;
-    margin-top: 345px;
+   /* margin-left: -457px;
+    margin-top: 345px;*/
     width: 480px;
+    margin-left: 10px;
 }
 #mapnovostroy1 {
     margin-bottom: 60px;
@@ -2394,13 +2407,13 @@ height: 455px;
     width: 305px;
 }
 .map_managercard .manager {
-    margin-left: -200px;
+    margin-left: 0;
     width: 305px;
 }
 
 .map_managercard .manager .manager_info {
     margin-top: 103px;
-    margin-left: -196px;
+    margin-left: -100px;
 }
 .managers {
     width: 320px;

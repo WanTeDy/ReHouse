@@ -220,6 +220,7 @@
     <Compile Include="Helpers\GenerateHash.cs" />
     <Compile Include="DataBase\AdvertParams\TrimCondition.cs" />
     <Compile Include="Helpers\SmtpEmailSender.cs" />
+    <Compile Include="Helpers\TranslitHelper.cs" />
     <Compile Include="Internet.cs" />
     <Compile Include="Migrations\201701111238155_InitialCreate.cs" />
     <Compile Include="Migrations\201701111238155_InitialCreate.Designer.cs">
@@ -301,6 +302,10 @@
     <Compile Include="Migrations\201707181129370_rent.Designer.cs">
       <DependentUpon>201707181129370_rent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707200646009_seoTags.cs" />
+    <Compile Include="Migrations\201707200646009_seoTags.Designer.cs">
+      <DependentUpon>201707200646009_seoTags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -370,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707181129370_rent.resx">
       <DependentUpon>201707181129370_rent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200646009_seoTags.resx">
+      <DependentUpon>201707200646009_seoTags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -74,6 +74,7 @@ div#fancy_inner {
 	height:100%;
 	border: 1px solid #BBB;
 	background: #FFF;
+left: -12px;
 }
 
 div#fancy_content {

@@ -609,6 +609,7 @@
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Shared\Vacancy\_listOfVacancies.cshtml" />
     <Content Include="Views\Shared\Search\_listOfAdverts.cshtml" />
+    <Content Include="Views\Special\Sale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
