@@ -1,16 +1,10 @@
 ﻿@using ReHouse.Utils.DataBase.AdvertParams
-@model Builder
+@using ReHouse.Utils
+@using ReHouse.FrontEnd.Models
+@model TagPage
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
-}
-@section scripts {
-    <script>
-        var counter = parseInt($('#counter').val());
-        function addPhone() {
-            $('#phonebtn').before('<tr><td>Телефон:</td><td><input type="text" name="Phones[' + counter + '].Telephone" /></td></tr>');
-            counter += 1;
-        }
-    </script>
+    SessionModel session = Session["user"] as SessionModel;
 }
 <div class="list_">
     <h2 class="tabset_label">Table of Contents</h2>
@@ -25,7 +19,6 @@
                 <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
             </ol>
         </li>
-
         <li>
             <a class="2">Аренда</a>
             <ol>
@@ -39,11 +32,11 @@
         <li><a class="3" href="~/cabinet/news/list">Новости</a></li>
         <li><a class="4" href="~/cabinet/feedbacks/list">Отзывы</a></li>
         <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
-        <li><a class="preActive active" href="~/cabinet/builders/list">Застройщики</a></li>
+        <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
         <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
         <li><a class="4" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
         <li><a class="4" href="~/cabinet/texts/list">Тексты</a></li>
-        <li><a class="4" href="~/cabinet/tagpages/list">Страницы теги</a></li>
+        <li><a class="preActive active" href="~/cabinet/tagpages/list">Страницы теги</a></li>
     </ul>
 </div>
 <div id="adminka1" class="tabset_content tabset_content_active">
@@ -56,50 +49,36 @@
             @Html.ValidationSummary()
             <div class="contact_info">
                 <table>
-
-                    <tr>
-                        <td>Заголовок:</td>
-                        <td>@Html.TextBoxFor(m => m.Name)</td>
-                    </tr>
-
-                    <tr>
-                        <td>Ссылка на сайт:</td>
-                        <td>@Html.TextBoxFor(m => m.Url)</td>
-                    </tr>
-                    @if (Model != null && Model.Phones != null && Model.Phones.Count > 0)
+                    @if (session != null)
                     {
-                        for (var i = 0; i < Model.Phones.Count; i++)
+                        <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
+                        if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
                         {
                             <tr>
-                                <td>Телефон:</td>
-                                <td>
-                                    <input type="hidden" value="@Model.Phones[i].Id" name="Phones[@i].Id" />
-                                    <input type="text" value="@Model.Phones[i].TelePhone" name="Phones[@i].Telephone" />
-                                </td>
+                                <td>SEO Title:</td>
+                                <td><input type="text" name="seo_title" value="@ViewBag.SeoParam.Title" /></td>
+                            </tr>
+                            <tr>
+                                <td>SEO Description:</td>
+                                <td><textarea name="seo_description">@ViewBag.SeoParam.Description</textarea></td>
+                            </tr>
+                            <tr>
+                                <td>SEO Keywords:</td>
+                                <td><textarea name="seo_keywords">@ViewBag.SeoParam.Keywords</textarea></td>
                             </tr>
                         }
-                        <tr>
-                            <td>Телефон:</td>
-                            <td>
-                                <input type="hidden" id="counter" name="counter" value="@(Model.Phones.Count+1)" />
-                                <input type="text" name="Phones[@Model.Phones.Count].Telephone" />
-                            </td>
-                        </tr>
                     }
-                    else
-                    {
-                        <tr>
-                            <td>Телефон:</td>
-                            <td>
-                                <input type="hidden" id="counter" name="counter" value="1" />
-                                <input type="text" name="Phones[0].Telephone" />
-                            </td>
-                        </tr>
-                    }
-
-                    <tr id="phonebtn">
-                        <td></td>
-                        <td><a onclick="addPhone();">Добавить еще телефон</a></td>
+                    <tr>
+                        <td>Заголовок:</td>
+                        <td>@Html.TextBoxFor(m => m.RussianName)</td>
+                    </tr>
+                    <tr>
+                        <td>Уникальная ссылка:</td>
+                        <td>@Html.TextBoxFor(m => m.ShortName)</td>
+                    </tr>
+                    <tr>
+                        <td>Текст:</td>
+                        <td>@Html.TextAreaFor(m => m.SeoText, new { @rows = "30", @cols = "30" })</td>
                     </tr>
                     <tr>
                         <td></td>

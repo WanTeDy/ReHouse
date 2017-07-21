@@ -157,8 +157,10 @@
     <Compile Include="BusinessOperations\Seo\AddSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdateSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdatePageTextOperation.cs" />
+    <Compile Include="BusinessOperations\TagPages\LoadTagPageByIdOperation.cs" />
     <Compile Include="BusinessOperations\TagPages\LoadTagPagesOperation.cs" />
     <Compile Include="BusinessOperations\TagPages\LoadFlatsByTagOperation.cs" />
+    <Compile Include="BusinessOperations\TagPages\UpdateTagPageOperation.cs" />
     <Compile Include="BusinessOperations\Titles\AddTitleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\DeleteTitleOperation.cs" />
     <Compile Include="BusinessOperations\Titles\LoadDistrictsOperation.cs" />

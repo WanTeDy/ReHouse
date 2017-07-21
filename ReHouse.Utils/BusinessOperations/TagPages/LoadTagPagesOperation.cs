@@ -22,31 +22,38 @@ namespace ReHouse.Utils.BusinessOperations.TagPages
 
         protected override void InTransaction()
         {
-            _tagPages = Context.TagPages.Where(x => !x.Deleted && x.AdvertsType == _type).ToList();
-            if(_tagPages != null && _tagPages.Count > 0)
+            if (_type == AdvertsType.All)
             {
-                foreach(var page in _tagPages)
+                _tagPages = Context.TagPages.Where(x => !x.Deleted).ToList();
+            }
+            else
+            {
+                _tagPages = Context.TagPages.Where(x => !x.Deleted && x.AdvertsType == _type).ToList();
+                if (_tagPages != null && _tagPages.Count > 0)
                 {
-                    switch (page.TagPageType)
+                    foreach (var page in _tagPages)
                     {
-                        case TagPageType.Exclusive:
-                            page.Quantity = Context.Adverts.Count(x => !x.Deleted && x.IsModerated && x.IsExclusive && x.Type == page.AdvertsType);
-                            break;
-                        case TagPageType.Category:
-                            var category = Context.Categories.FirstOrDefault(x => x.TagPages.Any(y => y.Id == page.Id));
-                            if (category == null)
-                                return;
-                            page.Quantity = Context.Adverts.Count(x => !x.Deleted && x.IsModerated && x.CategoryId == category.Id && x.Type == page.AdvertsType);
-                            break;
-                        case TagPageType.District:
-                            var district = Context.Districts.FirstOrDefault(x => x.TagPages.Any(y => y.Id == page.Id));
-                            if (district == null)
-                                return;
-                            page.Quantity = Context.Adverts.Count(x => !x.Deleted && x.IsModerated && x.DistrictId == district.Id && x.Type == page.AdvertsType);
-                            break;
+                        switch (page.TagPageType)
+                        {
+                            case TagPageType.Exclusive:
+                                page.Quantity = Context.Adverts.Count(x => !x.Deleted && x.IsModerated && x.IsExclusive && x.Type == page.AdvertsType);
+                                break;
+                            case TagPageType.Category:
+                                var category = Context.Categories.FirstOrDefault(x => x.TagPages.Any(y => y.Id == page.Id));
+                                if (category == null)
+                                    return;
+                                page.Quantity = Context.Adverts.Count(x => !x.Deleted && x.IsModerated && x.CategoryId == category.Id && x.Type == page.AdvertsType);
+                                break;
+                            case TagPageType.District:
+                                var district = Context.Districts.FirstOrDefault(x => x.TagPages.Any(y => y.Id == page.Id));
+                                if (district == null)
+                                    return;
+                                page.Quantity = Context.Adverts.Count(x => !x.Deleted && x.IsModerated && x.DistrictId == district.Id && x.Type == page.AdvertsType);
+                                break;
+                        }
                     }
                 }
-            }            
+            }
         }
     }
 }

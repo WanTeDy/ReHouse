@@ -1,0 +1,26 @@
+﻿@using ReHouse.Utils.DataBase.AdvertParams
+@model List<TagPage>
+
+@if (Model.Count > 0)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>
+                <div class="prod_info">
+                    <h3>@item.RussianName</h3>
+                </div>
+            </td>
+            <td>@item.ShortName</td>
+            <td>@item.SeoText</td>
+            <td>
+                <div class="edit_del">
+                    <form method="LINK" action="/cabinet/tagpages/edit/@item.Id">
+                        <button>Редактировать</button>
+                    </form>                    
+                </div>
+            </td>
+        </tr>
+    }
+}
