@@ -13,15 +13,17 @@ namespace ReHouse.Utils.BusinessOperations.TagPages
         private Int32 _page { get; set; }
         private Int32 _count { get; set; }
         private String _tagPageName { get; set; }
+        private ParrentCategories _category { get; set; }
         public TagPage _tagPage { get; set; }
         public List<Advert> _adverts { get; set; }
 
-        public LoadFlatsByTagOperation(string tokenHash, int page, int count, string tagPageName)
+        public LoadFlatsByTagOperation(string tokenHash, int page, int count, string tagPageName, ParrentCategories cat)
         {
             _tokenHash = tokenHash;
             _page = page;
             _count = count;
             _tagPageName = tagPageName;
+            _category = cat;
             RussianName = "Получение нужного кол-ва объявлений c по тегу";
         }
 
@@ -34,7 +36,7 @@ namespace ReHouse.Utils.BusinessOperations.TagPages
             switch (_tagPage.TagPageType)
             {
                 case TagPageType.Exclusive:
-                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.IsExclusive && x.Type == _tagPage.AdvertsType).ToList();
+                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.IsExclusive && x.Type == _tagPage.AdvertsType && x.Category.ParentId == (int)_category).ToList();
                     break;
                 case TagPageType.Category:
                     var category = Context.Categories.FirstOrDefault(x => x.TagPages.Any(y => y.Id == _tagPage.Id));
@@ -46,7 +48,7 @@ namespace ReHouse.Utils.BusinessOperations.TagPages
                     var district = Context.Districts.FirstOrDefault(x => x.TagPages.Any(y => y.Id == _tagPage.Id));
                     if (district == null)
                         return;
-                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.DistrictId == district.Id && x.Type == _tagPage.AdvertsType).ToList();
+                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.DistrictId == district.Id && x.Type == _tagPage.AdvertsType && x.Category.ParentId == (int)_category).ToList();
                     break;
             }
 

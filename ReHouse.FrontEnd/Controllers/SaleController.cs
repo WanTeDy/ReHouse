@@ -17,7 +17,7 @@ using ReHouse.Utils;
 using ReHouse.FrontEnd.Helpers;
 using ReHouse.FrontEnd.Models;
 using Newtonsoft.Json;
-
+using ReHouse.Utils.BusinessOperations.TagPages;
 
 namespace ReHouse.FrontEnd.Controllers
 {
@@ -50,6 +50,10 @@ namespace ReHouse.FrontEnd.Controllers
             ViewBag.Type = AdvertsType.Sale;
             if (operation._adverts == null || operation._adverts.Count == 0)
                 ViewBag.NoElements = true;
+
+            var operation2 = new LoadTagPagesOperation(tokenHash, Utils.Helpers.AdvertsType.Sale, ParrentCategories.Flat);
+            operation2.ExcecuteTransaction();
+            ViewBag.TagPages = operation2._tagPages;
 
             this.LoadPageText();
             return View(model);

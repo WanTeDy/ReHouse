@@ -30,7 +30,7 @@ namespace ReHouse.FrontEnd.Controllers
             //operationFilter.ExcecuteTransaction();
             if (String.IsNullOrEmpty(id))
                 return RedirectToAction("Index", "Home");
-            var operation = new LoadFlatsByTagOperation(tokenHash, 1, ConstV.ItemsPerPage, id);
+            var operation = new LoadFlatsByTagOperation(tokenHash, 1, ConstV.ItemsPerPage, id, ParrentCategories.Flat);
             operation.ExcecuteTransaction();
             if (operation._tagPage == null)
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace ReHouse.FrontEnd.Controllers
             var tokenHash = "";
             if (sessionModel != null)
                 tokenHash = sessionModel.TokenHash;
-            var operation = new LoadFlatsByTagOperation(tokenHash, pageNumber, ConstV.ItemsPerPage, tagPageName);
+            var operation = new LoadFlatsByTagOperation(tokenHash, pageNumber, ConstV.ItemsPerPage, tagPageName, ParrentCategories.Flat);
             operation.ExcecuteTransaction();
             if (operation._adverts == null || operation._adverts.Count == 0)
                 return Json(new { noElements = true });

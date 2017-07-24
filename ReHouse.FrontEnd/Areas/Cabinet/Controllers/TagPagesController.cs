@@ -7,6 +7,7 @@ using ReHouse.Utils.BusinessOperations.TagPages;
 using ReHouse.Utils.DataBase.AdvertParams;
 using ReHouse.Utils.DataBase.Common;
 using ReHouse.Utils.DataBase.Feedback;
+using ReHouse.Utils.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operation = new LoadTagPagesOperation(sessionModel.TokenHash, Utils.Helpers.AdvertsType.All);
+            var operation = new LoadTagPagesOperation(sessionModel.TokenHash, Utils.Helpers.AdvertsType.All, 0);
             operation.ExcecuteTransaction();
             
             ViewBag.NoElements = false;
