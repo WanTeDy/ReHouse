@@ -38,6 +38,11 @@
         <meta itemprop="description" content="Международная риэлторская инвестиционная компания REHOUSE" />
     }
 
+    @if (!String.IsNullOrEmpty(ViewBag.CanonicalUrl))
+    {
+        <link rel="canonical" href="@ViewBag.CanonicalUrl"/>
+    }
+
     @if (!String.IsNullOrEmpty(ViewBag.Image))
     {
         <meta property="og:image" content="@ViewBag.Image" />
@@ -120,10 +125,12 @@
                     <p class="textlogo">Международная риэлторская инвестиционная компания</p>
                 </div>
                 <div class="search">
-                    <p><form class="form-search" method="get" action="/search/flats" target="_blank">
-                    <input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" />
-                    <input type="submit" value="">
-                    </form></p>
+                    <p>
+                        <form class="form-search" method="get" action="/search/flats" target="_blank">
+                            <input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" />
+                            <input type="submit" value="">
+                        </form>
+                    </p>
                     @if (Session != null && Session["user"] is SessionModel)
                     {
                         var session = Session["user"] as SessionModel;

@@ -257,6 +257,7 @@
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\NewBuildingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\CanonicalAttribute.cs" />
     <Compile Include="Filters\MyAuthorizeAttribute.cs" />
     <Compile Include="Filters\MyIdentity.cs" />
     <Compile Include="Filters\MyUser.cs" />

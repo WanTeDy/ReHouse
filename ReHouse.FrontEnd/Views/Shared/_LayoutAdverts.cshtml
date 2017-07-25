@@ -37,6 +37,10 @@
         <meta name="twitter:description" content="Международная риэлторская инвестиционная компания REHOUSE" />
         <meta itemprop="description" content="Международная риэлторская инвестиционная компания REHOUSE" />
     }
+    @if (!String.IsNullOrEmpty(ViewBag.CanonicalUrl))
+    {
+        <link rel="canonical" href="@ViewBag.CanonicalUrl" />
+    }
     @if (!String.IsNullOrEmpty(ViewBag.Image))
     {
         <meta property="og:image" content="@ViewBag.Image" />

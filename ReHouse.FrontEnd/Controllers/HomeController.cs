@@ -15,11 +15,13 @@ using ReHouse.FrontEnd.Models;
 using ReHouse.Utils.DataBase.News;
 using ReHouse.Utils.DataBase.Feedback;
 using ReHouse.Utils.BusinessOperations;
+using ReHouse.FrontEnd.Filters;
 
 namespace ReHouse.FrontEnd.Controllers
 {
     public class HomeController : BaseController
     {
+        [CanonicalAttribute("")]
         public ActionResult Index()
         {            
             ViewBag.Route = RouteEnum.HomeIndex;

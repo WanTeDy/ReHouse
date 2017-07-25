@@ -17,12 +17,13 @@ using ReHouse.Utils;
 using ReHouse.FrontEnd.Helpers;
 using ReHouse.FrontEnd.Models;
 using Newtonsoft.Json;
-
+using ReHouse.FrontEnd.Filters;
 
 namespace ReHouse.FrontEnd.Controllers
 {
     public class RentController : BaseController
     {
+        [CanonicalAttribute("rent/flat")]
         [HttpGet]
         public ActionResult Flat(int? id)
         {
@@ -54,6 +55,7 @@ namespace ReHouse.FrontEnd.Controllers
             this.LoadPageText();
             return View(model);
         }
+        [CanonicalAttribute("rent/house")]
         [HttpGet]
         public ActionResult House(int? id)
         {
@@ -85,6 +87,7 @@ namespace ReHouse.FrontEnd.Controllers
             this.LoadPageText();
             return View(model);
         }
+        [CanonicalAttribute("rent/homestead")]
         [HttpGet]
         public ActionResult Homestead(int? id)
         {
@@ -116,6 +119,7 @@ namespace ReHouse.FrontEnd.Controllers
             this.LoadPageText();
             return View(model);
         }
+        [CanonicalAttribute("rent/commerce")]
         [HttpGet]
         public ActionResult Commerce(int? id)
         {
