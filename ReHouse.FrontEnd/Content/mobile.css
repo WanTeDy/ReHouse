@@ -113,7 +113,7 @@
 }
 .news .img img {
     width: 370px !important;
-        height: 290px;
+        height: 300px;
 }
 
 .h2novostroy h2 {
@@ -256,7 +256,7 @@
 .h2novostroy .favorite {
     position: absolute;
     top: 37px;
-    left: 551px;
+    left: 546px;
     width: 195px;
 }
 .h2novostroy #favorite {
@@ -278,7 +278,7 @@
 .h2novostroy .favorite1 {
     position: absolute;
     top: 71px;
-    left: 610px;
+    left: 605px;
     width: 134px;
 }
 .news .content1 a#more, .content2 a#more {
@@ -494,8 +494,11 @@ background-color: #0a2a5d;
   text-align:center;
 }
 .form-search {
-    margin-left: 65px;
+    margin-left: 28px;
         margin-right: 35px;
+}
+.form-search input {
+    width: 460px;
 }
 .header_mobile .header .logo {
     margin-left: 40.5%;
@@ -505,7 +508,7 @@ background-color: #0a2a5d;
     display: flex;
     flex-direction: row;
     margin-top: 5px;
-        margin-left: 125px;
+        margin-left: 117px;
 }
 .d-carousel {
     margin-left: 1px;
@@ -515,7 +518,7 @@ background-color: #0a2a5d;
     height: 353px;
     padding: 0 45px;
     margin-bottom: 25px;
-    margin-left: 13%;
+    margin-left: 10%;
 }
 .d-carousel #more {
   display: block;
@@ -2410,13 +2413,15 @@ height: 455px;
     width: 305px;
 }
 .map_managercard .manager {
-    margin-left: 0;
+    margin-left: 15px;
     width: 305px;
 }
-
+.map_managercard .photo {
+  padding-left: 97px;
+}
 .map_managercard .manager .manager_info {
     margin-top: 103px;
-    margin-left: -100px;
+    margin-left: -192px;
 }
 .managers {
     width: 320px;

@@ -372,7 +372,7 @@ font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
     .contactinfo .social {
         margin-top: 11px;
-        margin-left: 51px;
+        margin-left: 62px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -586,7 +586,7 @@ min-width:1500px;
 
 .navigation > ol {
     width: 800px;
-    margin-left: 388px;
+    margin-left: 320px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -903,7 +903,7 @@ min-width:1500px;
 .cost {
     color: white;
     font-family: "Casper";
-    font-size: 15px;
+    font-size: 13.5px;
     font-weight: 600;
     padding: 8px 20px;
     background-color: none;
@@ -1064,7 +1064,7 @@ min-width:1500px;
         -o-object-fit: cover;
         object-fit: cover;
         margin-top: 5px;
-            height: 290px;
+            height: 300px;
     }
 
     .news .morenews #more {

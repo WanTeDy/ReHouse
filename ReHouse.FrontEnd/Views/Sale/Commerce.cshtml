@@ -8,11 +8,11 @@
 
     <div class="navigation_string">
         <div class="way">
-            @Html.ActionLink("Главная", "index", "home")
+            <a href="/">Главная</a>
             <pre> </pre>
             <p>/</p>
             <pre> </pre>
-            @Html.ActionLink("Купить коммерческую", "commerce", "sale")
+            <a href="/sale/commerce">Купить коммерческую</a>
         </div>
     </div>
 </span>
@@ -28,7 +28,7 @@
     <form>
         @foreach (var category in Model.Categories)
             {
-            <a href="~/sale/commerce/@category.Id">@category.RussianName</a>
+            <a href="/sale/commerce/@category.Id">@category.RussianName</a>
         }
     </form>
 </div>

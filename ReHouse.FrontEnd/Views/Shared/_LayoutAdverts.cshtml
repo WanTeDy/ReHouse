@@ -51,7 +51,7 @@
     @Styles.Render("~/Content/styleCss")
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/mobile.css">
+    <link rel="stylesheet" href="~/Content/mobile.min.css">
 
     <style media='print' type='text/css'>
         .noprint {
@@ -184,7 +184,7 @@
             <div class="container" id="container">
                 <span class="flex_header">
                     <div class="logo">
-                        <a href="~/Home/Index" id=""><img src="~/Content/images/logo.png" width="350"></a>
+                        <a href="/" id=""><img src="~/Content/images/logo.png" width="350"></a>
                         <p class="textlogo">Международная риэлторская инвестиционная компания</p>
                     </div>
                     <div class="search">
@@ -199,12 +199,12 @@
                                 <div><p>Ваш логин:</p></div>
                                 @if (!String.IsNullOrEmpty(session.User.Login))
                                 {
-                                    <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Login</a></p></div>
+                                    <div class="your_login"><p><a href="/cabinet/profile" class="">@session.User.Login</a></p></div>
 
                                 }
                                 else
                                 {
-                                    <div class="your_login"><p><a href="~/cabinet/profile" class="">@session.User.Email</a></p></div>
+                                    <div class="your_login"><p><a href="/cabinet/profile" class="">@session.User.Email</a></p></div>
                                 }
                                 <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
                             </div>
@@ -228,8 +228,8 @@
                         </div>
                     </div>
                     <div class="feedback">
-                        <a href="~/cart/index" id="fav">Избранное</a>
-                        <a href="~/email/index" id="blink">Обратный звонок</a>
+                        <a href="/cart" id="fav">Избранное</a>
+                        <a href="/email" id="blink">Обратный звонок</a>
                     </div>
                 </span>
             </div>
@@ -246,10 +246,10 @@
                                     <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
                                     <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
                                     <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
-                                <li><a href="~/sale/flat">Купить квартиру</a></li>
-                                <li><a href="~/sale/house">Купить дом</a></li>
-                                <li><a href="~/sale/homestead">Купить участок</a></li>
-                                <li><a href="~/sale/commerce">Купить коммерцию</a></li>
+                                <li><a href="/sale/flat">Купить квартиру</a></li>
+                                <li><a href="/sale/house">Купить дом</a></li>
+                                <li><a href="/sale/homestead">Купить участок</a></li>
+                                <li><a href="/sale/commerce">Купить коммерцию</a></li>
                             </ol>
                         </li>
                         <li>
@@ -258,26 +258,26 @@
                                 @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
                                 @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
                                 @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
-                                <li><a href="~/rent/flat">Снять квартиру</a></li>
-                                <li><a href="~/rent/house">Снять дом</a></li>
-                                @*<li><a href="~/rent/homestead">Снять участок</a></li>*@
-                                <li><a href="~/rent/commerce">Снять коммерцию</a></li>
+                                <li><a href="/rent/flat">Снять квартиру</a></li>
+                                <li><a href="/rent/house">Снять дом</a></li>
+                                @*<li><a href="/rent/homestead">Снять участок</a></li>*@
+                                <li><a href="/rent/commerce">Снять коммерцию</a></li>
                             </ol>
                         </li>
-                        <li><a href="~/newbuilding/">Новострои</a></li>
-                        <li><a href="~/manager/" id="">Менеджеры</a></li>
+                        <li><a href="/newbuilding">Новострои</a></li>
+                        <li><a href="/manager" id="">Менеджеры</a></li>
                         <li>
                             <a href="#" id="">О нас</a>
                             <ol>
-                                <li><a href="~/home/about">О компании</a></li>
-                                <li><a href="~/vacancy/">Вакансии агенства</a></li>
+                                <li><a href="/home/about">О компании</a></li>
+                                <li><a href="/vacancy">Вакансии агенства</a></li>
                             </ol>
 
                         </li>
                     </ol>
                 </div>
                 <div class="sell">
-                    <a href="~/email/index" id="">Хочу продать!</a>
+                    <a href="/email" id="">Хочу продать!</a>
                 </div>
             </div>
         </div>
@@ -292,38 +292,38 @@
         <ul class="hidden-menu">
             <li class="bgh"><a href="" class="bold">Покупка</a></li>
             <ol>
-                <li><a href="~/sale/flat">Купить квартиру</a></li>
-                <li><a href="~/sale/house">Купить дом</a></li>
-                <li><a href="~/sale/homestead">Купить участок</a></li>
-                <li><a href="~/sale/commerce">Купить коммерцию</a></li>
+                <li><a href="/sale/flat">Купить квартиру</a></li>
+                <li><a href="/sale/house">Купить дом</a></li>
+                <li><a href="/sale/homestead">Купить участок</a></li>
+                <li><a href="/sale/commerce">Купить коммерцию</a></li>
             </ol>
             <br>
             <li class="bgh"><a href="" class="bold">Аренда</a></li>
             <ol>
-                <li><a href="~/rent/flat">Снять квартиру</a></li>
-                <li><a href="~/rent/house">Снять дом</a></li>
-                @*<li><a href="~/rent/homestead">Снять участок</a></li>*@
-                <li><a href="~/rent/commerce">Снять коммерцию</a></li>
+                <li><a href="/rent/flat">Снять квартиру</a></li>
+                <li><a href="/rent/house">Снять дом</a></li>
+                @*<li><a href="/rent/homestead">Снять участок</a></li>*@
+                <li><a href="/rent/commerce">Снять коммерцию</a></li>
             </ol>
             <br>
-            <li class="bgh"><a href="~/newbuilding/" class="bold">Новострои</a></li>
+            <li class="bgh"><a href="/newbuilding" class="bold">Новострои</a></li>
             <br>
-            <li class="bgh"><a href="~/manager/" class="bold">Менеджеры</a></li>
+            <li class="bgh"><a href="/manager" class="bold">Менеджеры</a></li>
             <br>
             <li class="bgh"><a href="" class="bold">О нас</a></li>
             <ol>
-                <li><a href="~/home/about">О компании</a></li>
-                <li><a href="~/vacancy/">Вакансии агенства</a></li>
+                <li><a href="/home/about">О компании</a></li>
+                <li><a href="/vacancy">Вакансии агенства</a></li>
             </ol>
         </ul>
         <div class="header">
             <div class="logo">
-                <a href="~/home" id=""><img src="~/Content/images/logomobile.png"></a>
+                <a href="/" id=""><img src="~/Content/images/logomobile.png"></a>
             </div>
             <div class="contactinfo">
                 <div class="feedback">
-                    <a href="~/email/index" id="blink1"></a>
-                    <a href="~/cart/index" id="fav1"></a>
+                    <a href="/email" id="blink1"></a>
+                    <a href="/cart" id="fav1"></a>
                 </div>
                 <div class="tel">
                     <div class="imgtel">
@@ -386,7 +386,7 @@
                     </div>
                 }
                 <div class="morenews">
-                    <a href="~/news/index" id="more">Все новости</a>
+                    <a href="/news" id="more">Все новости</a>
                 </div>
             </div>
         }
@@ -400,10 +400,10 @@
                     @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
                 </div>
                 <div class="bottomnav">
-                    <a href="~/news/index" class="">Новости</a>
-                    <a href="~/home/contacts" class="">Контакты</a>
-                    <a href="~/map/index" class="">Карта сайта</a>
-                    <a href="~/feedback/index" class="">Отзывы</a>
+                    <a href="/news" class="">Новости</a>
+                    <a href="/home/contacts" class="">Контакты</a>
+                    <a href="/map" class="">Карта сайта</a>
+                    <a href="/feedback" class="">Отзывы</a>
                     @if (Session == null || Session["user"] == null)
                     {
                         <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>

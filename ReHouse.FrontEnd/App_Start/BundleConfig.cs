@@ -123,10 +123,10 @@ namespace ReHouse.FrontEnd
                 //"~/Scripts/vendor/superfish.js",
                 //"~/Scripts/vendor/respond.min.js",
                 "~/Scripts/vendor/jquery.validate.min.js",
-                "~/Scripts/vendor/jquery.validate.unobtrusive.min.js",
+                "~/Scripts/vendor/jquery.validate.unobtrusive.min.js"
 
-                "~/Scripts/vendor/jquery.tooltipster.min.js"
-                //"~/Scripts/vendor/jquery.formstyler.min.js",
+                //"~/Scripts/vendor/jquery.tooltipster.min.js",
+                //"~/Scripts/vendor/jquery.formstyler.min.js"
                 //"~/Scripts/vendor/jquery.tabslet.min.js",
                 //"~/Scripts/vendor/moment.min.js",
                 //"~/Scripts/vendor/ru.js",

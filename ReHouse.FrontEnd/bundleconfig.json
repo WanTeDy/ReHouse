@@ -1,0 +1,254 @@
+[
+  {
+    "outputFileName": "Content/admin.min.css",
+    "inputFiles": [
+      "Content/admin.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/fancybox/jquery.easing.1.3.min.js",
+    "inputFiles": [
+      "Content/fancybox/jquery.easing.1.3.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/fancybox/jquery.fancybox-1.2.1.pack.min.js",
+    "inputFiles": [
+      "Content/fancybox/jquery.fancybox-1.2.1.pack.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/fancybox/jquery.fancybox.min.css",
+    "inputFiles": [
+      "Content/fancybox/jquery.fancybox.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/style.min.css",
+    "inputFiles": [
+      "Content/style.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/reset.min.css",
+    "inputFiles": [
+      "Content/reset.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/mobile.min.css",
+    "inputFiles": [
+      "Content/mobile.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/minslider.min.css",
+    "inputFiles": [
+      "Content/minslider.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jcarousel/js/jquery.jcarousel.min.js",
+    "inputFiles": [
+      "Scripts/jcarousel/js/jquery.jcarousel.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jcarousel_lite/jcarousellite_1.0.1c5.min.js",
+    "inputFiles": [
+      "Scripts/jcarousel_lite/jcarousellite_1.0.1c5.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/hoverIntent.min.js",
+    "inputFiles": [
+      "Scripts/vendor/hoverIntent.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/jquery.transit.min.js",
+    "inputFiles": [
+      "Scripts/vendor/jquery.transit.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/legacy.min.js",
+    "inputFiles": [
+      "Scripts/vendor/legacy.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/modernizr.min.js",
+    "inputFiles": [
+      "Scripts/vendor/modernizr.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/picker.min.js",
+    "inputFiles": [
+      "Scripts/vendor/picker.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/picker.date.min.js",
+    "inputFiles": [
+      "Scripts/vendor/picker.date.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/ru.min.js",
+    "inputFiles": [
+      "Scripts/vendor/ru.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/ru_RU.min.js",
+    "inputFiles": [
+      "Scripts/vendor/ru_RU.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/vendor/superfish.min.js",
+    "inputFiles": [
+      "Scripts/vendor/superfish.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/addtocart.min.js",
+    "inputFiles": [
+      "Scripts/addtocart.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/advertSettings.min.js",
+    "inputFiles": [
+      "Scripts/advertSettings.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/advertSettingsAdmin.min.js",
+    "inputFiles": [
+      "Scripts/advertSettingsAdmin.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/advertSettingsRent.min.js",
+    "inputFiles": [
+      "Scripts/advertSettingsRent.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/advertSettingsRentAdmin.min.js",
+    "inputFiles": [
+      "Scripts/advertSettingsRentAdmin.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/ajaxFunc.min.js",
+    "inputFiles": [
+      "Scripts/ajaxFunc.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/coffee.min.js",
+    "inputFiles": [
+      "Scripts/coffee.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/deleteAdverts.min.js",
+    "inputFiles": [
+      "Scripts/deleteAdverts.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/deleteArticles.min.js",
+    "inputFiles": [
+      "Scripts/deleteArticles.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/deleteBuilders.min.js",
+    "inputFiles": [
+      "Scripts/deleteBuilders.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/deleteBuildings.min.js",
+    "inputFiles": [
+      "Scripts/deleteBuildings.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/deleteDistricts.min.js",
+    "inputFiles": [
+      "Scripts/deleteDistricts.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/deleteFeedbacks.min.js",
+    "inputFiles": [
+      "Scripts/deleteFeedbacks.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/deleteImage.min.js",
+    "inputFiles": [
+      "Scripts/deleteImage.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/deleteVacancies.min.js",
+    "inputFiles": [
+      "Scripts/deleteVacancies.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/detailsNews.min.js",
+    "inputFiles": [
+      "Scripts/detailsNews.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/fastclick.min.js",
+    "inputFiles": [
+      "Scripts/fastclick.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/foundation.min.js",
+    "inputFiles": [
+      "Scripts/foundation.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/imageLoader.min.js",
+    "inputFiles": [
+      "Scripts/imageLoader.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/imageLoaderOld.min.js",
+    "inputFiles": [
+      "Scripts/imageLoaderOld.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/index.min.js",
+    "inputFiles": [
+      "Scripts/index.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/lazyload.min.js",
+    "inputFiles": [
+      "Scripts/lazyload.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/modules.min.js",
+    "inputFiles": [
+      "Scripts/modules.js"
+    ]
+  }
+]

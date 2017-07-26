@@ -22,18 +22,18 @@
                 }
                 @if (item.Images != null && item.Images.Count > 0)
                 {
-                    <a class="fix" href="~/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                    <a class="fix" href="/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
                 }
                 else
                 {
-                    <a href="~/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
+                    <a href="/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
                 }
                 <div class="min-content">
                     <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"></div>
                     <h3>@item.Name</h3>
                     <h4>@item.Adress <br />Сдача: @item.ExpluatationDate.Name</h4>
                     <p class="cost">от @item.Price грн/м²</p>
-                    <a href="~/newbuilding/detail/@item.Id" id="follow">❯</a>                    
+                    <a href="/newbuilding/detail/@item.Id" id="follow">❯</a>                    
                 </div>
             </li>
         </div>

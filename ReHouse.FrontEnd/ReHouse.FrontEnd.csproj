@@ -305,6 +305,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\admin.css" />
+    <Content Include="Content\admin.min.css">
+      <DependentUpon>admin.css</DependentUpon>
+    </Content>
     <Content Include="Content\fancybox\fancy_closebox.png" />
     <Content Include="Content\fancybox\fancy_left.png" />
     <Content Include="Content\fancybox\fancy_progress.png" />
@@ -321,8 +324,17 @@
     <Content Include="Content\fancybox\fancy_title_main.png" />
     <Content Include="Content\fancybox\fancy_title_right.png" />
     <Content Include="Content\fancybox\jquery.easing.1.3.js" />
+    <Content Include="Content\fancybox\jquery.easing.1.3.min.js">
+      <DependentUpon>jquery.easing.1.3.js</DependentUpon>
+    </Content>
     <Content Include="Content\fancybox\jquery.fancybox-1.2.1.pack.js" />
+    <Content Include="Content\fancybox\jquery.fancybox-1.2.1.pack.min.js">
+      <DependentUpon>jquery.fancybox-1.2.1.pack.js</DependentUpon>
+    </Content>
     <Content Include="Content\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\fancybox\jquery.fancybox.min.css">
+      <DependentUpon>jquery.fancybox.css</DependentUpon>
+    </Content>
     <Content Include="Content\imagePreloader.css" />
     <Content Include="Content\images\1.png" />
     <Content Include="Content\images\2.png" />
@@ -385,9 +397,21 @@
     <Content Include="Content\images\youtube.png" />
     <Content Include="Content\images\youtube_hover.png" />
     <Content Include="Content\minslider.css" />
+    <Content Include="Content\minslider.min.css">
+      <DependentUpon>minslider.css</DependentUpon>
+    </Content>
     <Content Include="Content\mobile.css" />
+    <Content Include="Content\mobile.min.css">
+      <DependentUpon>mobile.css</DependentUpon>
+    </Content>
     <Content Include="Content\reset.css" />
+    <Content Include="Content\reset.min.css">
+      <DependentUpon>reset.css</DependentUpon>
+    </Content>
     <Content Include="Content\style.css" />
+    <Content Include="Content\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="Content\style\images\bg.png" />
     <Content Include="Content\style\images\blog-arrows.jpg" />
     <Content Include="Content\style\images\carousel.jpg" />
@@ -431,6 +455,63 @@
     <Content Include="Content\images\tw.png" />
     <Content Include="Content\images\vk-g.png" />
     <Content Include="Content\images\vk.png" />
+    <Content Include="Scripts\addtocart.min.js">
+      <DependentUpon>addtocart.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\advertSettings.min.js">
+      <DependentUpon>advertSettings.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\advertSettingsAdmin.min.js">
+      <DependentUpon>advertSettingsAdmin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\advertSettingsRent.min.js">
+      <DependentUpon>advertSettingsRent.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\advertSettingsRentAdmin.min.js">
+      <DependentUpon>advertSettingsRentAdmin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ajaxFunc.min.js">
+      <DependentUpon>ajaxFunc.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\coffee.min.js">
+      <DependentUpon>coffee.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteAdverts.min.js">
+      <DependentUpon>deleteAdverts.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteArticles.min.js">
+      <DependentUpon>deleteArticles.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteBuilders.min.js">
+      <DependentUpon>deleteBuilders.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteBuildings.min.js">
+      <DependentUpon>deleteBuildings.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteDistricts.min.js">
+      <DependentUpon>deleteDistricts.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteFeedbacks.min.js">
+      <DependentUpon>deleteFeedbacks.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteImage.min.js">
+      <DependentUpon>deleteImage.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteVacancies.min.js">
+      <DependentUpon>deleteVacancies.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\detailsNews.min.js">
+      <DependentUpon>detailsNews.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\fastclick.min.js">
+      <DependentUpon>fastclick.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\foundation.min.js">
+      <DependentUpon>foundation.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\imageLoader.min.js">
+      <DependentUpon>imageLoader.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\imageLoaderOld.js" />
     <Content Include="Scripts\deleteFeedbacks.js" />
     <Content Include="Scripts\deleteDistricts.js" />
@@ -452,16 +533,36 @@
     <Content Include="Scripts\fastclick.js" />
     <Content Include="Scripts\foundation.js" />
     <Content Include="Scripts\imageLoader.js" />
+    <Content Include="Scripts\imageLoaderOld.min.js">
+      <DependentUpon>imageLoaderOld.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jcarousel\js\jquery.jcarousel.js" />
+    <Content Include="Scripts\jcarousel\js\jquery.jcarousel.min.js">
+      <DependentUpon>jquery.jcarousel.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jcarousel_lite\jcarousellite_1.0.1c5.js" />
+    <Content Include="Scripts\jcarousel_lite\jcarousellite_1.0.1c5.min.js">
+      <DependentUpon>jcarousellite_1.0.1c5.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery.1.10.min.js" />
     <Content Include="Scripts\addtocart.js" />
     <Content Include="Scripts\jquery.watermark.min.js" />
+    <Content Include="Scripts\lazyload.min.js">
+      <DependentUpon>lazyload.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\modules.js" />
-    <Content Include="Scripts\modules.min.js" />
+    <Content Include="Scripts\modules.min.js">
+      <DependentUpon>modules.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\slides.min.jquery.js" />
     <Content Include="Scripts\vendor\hoverIntent.js" />
+    <Content Include="Scripts\vendor\hoverIntent.min.js">
+      <DependentUpon>hoverIntent.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\vendor\jquery.cookie.min.js" />
     <Content Include="Scripts\vendor\jquery.formstyler.min.js" />
     <Content Include="Scripts\vendor\jquery.magnific-popup.min.js" />
@@ -470,22 +571,45 @@
     <Content Include="Scripts\vendor\jquery.tabslet.min.js" />
     <Content Include="Scripts\vendor\jquery.tooltipster.min.js" />
     <Content Include="Scripts\vendor\jquery.transit.js" />
+    <Content Include="Scripts\vendor\jquery.transit.min.js">
+      <DependentUpon>jquery.transit.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\vendor\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\vendor\jquery.validate.min.js" />
     <Content Include="Scripts\vendor\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\vendor\legacy.js" />
+    <Content Include="Scripts\vendor\legacy.min.js">
+      <DependentUpon>legacy.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\vendor\modernizr.js" />
+    <Content Include="Scripts\vendor\modernizr.min.js">
+      <DependentUpon>modernizr.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\vendor\moment.min.js" />
     <Content Include="Scripts\vendor\picker.date.js" />
+    <Content Include="Scripts\vendor\picker.date.min.js">
+      <DependentUpon>picker.date.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\vendor\picker.js" />
+    <Content Include="Scripts\vendor\picker.min.js">
+      <DependentUpon>picker.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\vendor\respond.min.js" />
     <Content Include="Scripts\vendor\rome.standalone.min.js" />
     <Content Include="Scripts\vendor\ru.js" />
+    <Content Include="Scripts\vendor\ru.min.js">
+      <DependentUpon>ru.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\vendor\ru_RU.js" />
+    <Content Include="Scripts\vendor\ru_RU.min.js">
+      <DependentUpon>ru_RU.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\vendor\slick.js\slick\fonts\slick.svg" />
     <Content Include="Scripts\vendor\slick.min.js" />
     <Content Include="Scripts\vendor\superfish.js" />
-    <Content Include="Scripts\vendor\superfish.min.js" />
+    <Content Include="Scripts\vendor\superfish.min.js">
+      <DependentUpon>superfish.js</DependentUpon>
+    </Content>
     <Content Include="Content\fonts\casper\casper.ttf" />
     <Content Include="Content\fonts\casper\casper.woff" />
     <Content Include="Content\fonts\casper\casper.woff2" />
@@ -549,6 +673,7 @@
     <Content Include="Areas\Cabinet\Views\TagPages\Edit.cshtml" />
     <Content Include="Areas\Cabinet\Views\TagPages\List.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\TagPages\_listOfTagPages.cshtml" />
+    <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
