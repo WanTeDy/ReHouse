@@ -66,7 +66,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             if (operation._tagPage == null)
                 return HttpNotFound();
 
-            var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._tagPage.ShortName, operation._tagPage.ShortName);
+            var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._tagPage.ShortName, operation._tagPage.ShortName, true);
             op6.ExcecuteTransaction();
             ViewBag.SeoParam = op6._seoParams ?? new SeoParam();
 

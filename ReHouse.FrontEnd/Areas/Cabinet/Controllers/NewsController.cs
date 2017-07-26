@@ -62,7 +62,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var operation = new LoadArticleOperation(sessionModel.TokenHash, Id);
             operation.ExcecuteTransaction();
 
-            var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._article.Id, operation._article.Id.ToString());
+            var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._article.Id, operation._article.Id.ToString(), true);
             op6.ExcecuteTransaction();
             ViewBag.SeoParam = op6._seoParams ?? new SeoParam();
 
