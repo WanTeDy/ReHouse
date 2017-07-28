@@ -81,6 +81,10 @@
                         <td>@Html.TextAreaFor(m => m.SeoText, new { @rows = "30", @cols = "30" })</td>
                     </tr>
                     <tr>
+                        <td>Активна:</td>
+                        <td>@Html.CheckBoxFor(m => m.IsActive)</td>
+                    </tr>
+                    <tr>
                         <td></td>
                         <td><button>Сохранить</button></td>
                     </tr>

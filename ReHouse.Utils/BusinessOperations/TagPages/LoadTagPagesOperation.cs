@@ -30,7 +30,7 @@ namespace ReHouse.Utils.BusinessOperations.TagPages
             }
             else
             {
-                _tagPages = Context.TagPages.Where(x => !x.Deleted && x.AdvertsType == _type).ToList();
+                _tagPages = Context.TagPages.Where(x => !x.Deleted && x.IsActive && x.AdvertsType == _type).ToList();
                 if (_tagPages != null && _tagPages.Count > 0)
                 {
                     foreach (var page in _tagPages)

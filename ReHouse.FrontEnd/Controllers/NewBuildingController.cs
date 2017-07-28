@@ -15,12 +15,13 @@ using ReHouse.Utils.DataBase;
 using ReHouse.Utils.DataBase.AdvertParams;
 using ReHouse.FrontEnd.Helpers;
 using ReHouse.FrontEnd.Models;
-
+using ReHouse.FrontEnd.Filters;
 
 namespace ReHouse.FrontEnd.Controllers
 {
     public class NewBuildingController : BaseController
     {
+        [CanonicalAttribute("newbuilding")]
         [HttpGet]
         public ActionResult Index()
         {

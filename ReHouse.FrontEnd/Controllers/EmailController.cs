@@ -22,11 +22,13 @@ using SendGrid;
 using ReHouse.Utils.DataBase.Feedback;
 using ReHouse.Utils.Helpers;
 using ReHouse.Utils.BusinessOperations.Emails;
+using ReHouse.FrontEnd.Filters;
 
 namespace ReHouse.FrontEnd.Controllers
 {
     public class EmailController : BaseController
     {
+        [CanonicalAttribute("email")]
         public ActionResult Index(int flat = 0, AdvertsType type = 0)
         {
             ViewBag.AdvertId = flat;       

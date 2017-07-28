@@ -66,7 +66,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             if (operation._tagPage == null)
                 return HttpNotFound();
 
-            var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._tagPage.ShortName, operation._tagPage.ShortName, true);
+            var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, operation._tagPage.AdvertsType.ToString().ToLower(), "special", "/" + "special" + "/" + operation._tagPage.AdvertsType.ToString().ToLower() + "/" + operation._tagPage.ShortName, operation._tagPage.ShortName, true);
             op6.ExcecuteTransaction();
             ViewBag.SeoParam = op6._seoParams ?? new SeoParam();
 
@@ -87,13 +87,13 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var seoparam = new SeoParam
             {
                 Id = seo_id,
-                ActionName = ConstV.DetailAction,
-                ControllerName = CurrentController,
+                ActionName = operation._tagPage.AdvertsType.ToString().ToLower(),
+                ControllerName = "special",
                 Description = seo_description,
                 Keywords = seo_keywords,
                 Title = seo_title,
                 UrlParams = model.ShortName,
-                FullUrl = "/" + CurrentController + "/" + ConstV.DetailAction + "/" + model.ShortName,
+                FullUrl = "/" + "special" + "/" + operation._tagPage.AdvertsType.ToString().ToLower() + "/" + model.ShortName,
             };
             ViewBag.SeoParam = seoparam;
 

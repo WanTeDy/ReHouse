@@ -36,6 +36,8 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         [NotMapped]
         public Int32 Quantity { get; set; }
 
+        public Boolean IsActive { get; set; }
+
         public virtual District District { get; set; }
         public virtual Category Category { get; set; }
     }

@@ -32,6 +32,7 @@ namespace ReHouse.Utils.BusinessOperations.TagPages
                 tagPage.RussianName = _tagPage.RussianName;
                 tagPage.SeoText = _tagPage.SeoText;
                 tagPage.ShortName = _tagPage.ShortName;
+                tagPage.IsActive = _tagPage.IsActive;
                 Context.SaveChanges();
             }
         }

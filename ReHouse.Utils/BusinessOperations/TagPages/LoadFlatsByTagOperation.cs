@@ -29,7 +29,7 @@ namespace ReHouse.Utils.BusinessOperations.TagPages
 
         protected override void InTransaction()
         {
-            _tagPage = Context.TagPages.FirstOrDefault(x => !x.Deleted && x.ShortName.ToLower() == _tagPageName.Trim().ToLower());
+            _tagPage = Context.TagPages.FirstOrDefault(x => !x.Deleted && x.IsActive && x.ShortName.ToLower() == _tagPageName.Trim().ToLower());
             if (_tagPage == null)
                 return;
 
