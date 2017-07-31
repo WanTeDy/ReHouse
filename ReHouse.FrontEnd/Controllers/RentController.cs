@@ -23,7 +23,7 @@ namespace ReHouse.FrontEnd.Controllers
 {
     public class RentController : BaseController
     {
-        [CanonicalAttribute("rent/flat")]
+        [CanonicalAttribute("rent/flat/")]
         [HttpGet]
         public ActionResult Flat(int? id)
         {
@@ -55,7 +55,7 @@ namespace ReHouse.FrontEnd.Controllers
             this.LoadPageText();
             return View(model);
         }
-        [CanonicalAttribute("rent/house")]
+        [CanonicalAttribute("rent/house/")]
         [HttpGet]
         public ActionResult House(int? id)
         {
@@ -87,7 +87,7 @@ namespace ReHouse.FrontEnd.Controllers
             this.LoadPageText();
             return View(model);
         }
-        [CanonicalAttribute("rent/homestead")]
+        [CanonicalAttribute("rent/homestead/")]
         [HttpGet]
         public ActionResult Homestead(int? id)
         {
@@ -119,7 +119,7 @@ namespace ReHouse.FrontEnd.Controllers
             this.LoadPageText();
             return View(model);
         }
-        [CanonicalAttribute("rent/commerce")]
+        [CanonicalAttribute("rent/commerce/")]
         [HttpGet]
         public ActionResult Commerce(int? id)
         {

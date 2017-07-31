@@ -21,7 +21,7 @@ namespace ReHouse.FrontEnd.Controllers
 {
     public class NewBuildingController : BaseController
     {
-        [CanonicalAttribute("newbuilding")]
+        [CanonicalAttribute("newbuilding/")]
         [HttpGet]
         public ActionResult Index()
         {

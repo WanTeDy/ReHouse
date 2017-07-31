@@ -59,7 +59,7 @@
                     break;
             }
 
-                <a href="/rent/@action">@desc</a>
+                <a href="/rent/@action/">@desc</a>
                 <pre> </pre>
                 <p>/</p>
                 <pre> </pre>
@@ -76,7 +76,7 @@
         <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="fav2"></a>
     </div>
     <div class="favorite1">
-        <a href="/email" id="favorite">Подать заявку</a>
+        <a href="/email/index?flat=@(Model.Advert.Id)&type=@((int)AdvertsType.Rent)" id="favorite">Подать заявку</a>
     </div>
 </div>
 <div class="share_icons">

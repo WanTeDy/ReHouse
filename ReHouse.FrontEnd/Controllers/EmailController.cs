@@ -28,7 +28,7 @@ namespace ReHouse.FrontEnd.Controllers
 {
     public class EmailController : BaseController
     {
-        [CanonicalAttribute("email")]
+        [CanonicalAttribute("email/")]
         public ActionResult Index(int flat = 0, AdvertsType type = 0)
         {
             ViewBag.AdvertId = flat;       
