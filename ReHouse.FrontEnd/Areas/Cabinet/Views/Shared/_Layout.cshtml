@@ -70,8 +70,12 @@
                     <p class="textlogo">Международная риэлторская инвестиционная компания</p>
                 </div>
                 <div class="search">
-                    <p><form class="form-search" method="get" action="/search/flats" target="_blank"><input type="text" name="query" placeholder="Введите слово или фразу" value="" /></form></p>
-
+                    <p>
+                        <form class="form-search" method="get" action="/search/flats" target="_blank">
+                            <input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" />
+                            <input type="submit" value="">
+                        </form>
+                    </p>
                     @if (Session != null && Session["user"] is SessionModel)
                     {
                         var session = Session["user"] as SessionModel;
