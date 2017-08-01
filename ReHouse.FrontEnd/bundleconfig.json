@@ -24,21 +24,9 @@
     ]
   },
   {
-    "outputFileName": "Content/style.min.css",
-    "inputFiles": [
-      "Content/style.css"
-    ]
-  },
-  {
     "outputFileName": "Content/reset.min.css",
     "inputFiles": [
       "Content/reset.css"
-    ]
-  },
-  {
-    "outputFileName": "Content/mobile.min.css",
-    "inputFiles": [
-      "Content/mobile.css"
     ]
   },
   {
@@ -249,6 +237,18 @@
     "outputFileName": "Scripts/modules.min.js",
     "inputFiles": [
       "Scripts/modules.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/mobile.min.css",
+    "inputFiles": [
+      "Content/mobile.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/style.min.css",
+    "inputFiles": [
+      "Content/style.css"
     ]
   }
 ]
