@@ -1,9 +1,21 @@
 @media(max-width:1499px) and (min-width:769px) {
     .tags {
     }
-
-
-
+.news .content1 a.intext {
+    padding: 0;
+    border-radius: none;
+    background: none;
+    border: none;
+    color: #ffd700;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+    .news .content1 a.intext:hover {
+        color: #ffd700;
+    border-bottom: 1px solid #ffd700;
+    }
     .your_name {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -1333,12 +1345,43 @@
     .applicationButton {
         font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
     }
+.news .content1 a.intext {
+    padding: 0;
+    border-radius: none;
+    background: none;
+    border: none;
+    color: #ffd700;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+    .news .content1 a.intext:hover {
+        color: #ffd700;
+    border-bottom: 1px solid #ffd700;
+    }
 }
 
 @media(max-width:480px) {
     .tags {
     }
+.news .content1 a.intext {
+    padding: 0;
+    border-radius: none;
+    background: none;
+    border: none;
+    color: #ffd700;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
 
+    .news .content1 a.intext:hover {
+        color: #ffd700;
+    border-bottom: 1px solid #ffd700;
+    }
 
     .container {
         width: 480px;
@@ -2393,7 +2436,22 @@
 @media(max-width:415px) {
     .tags {
     }
+.news .content1 a.intext {
+    padding: 0;
+    border-radius: none;
+    background: none;
+    border: none;
+    color: #ffd700;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
 
+    .news .content1 a.intext:hover {
+        color: #ffd700;
+    border-bottom: 1px solid #ffd700;
+    }
 
     .container {
         max-width: 320px;
@@ -2918,3 +2976,4 @@
         margin-top: 20px;
     }
 }
+

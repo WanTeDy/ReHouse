@@ -347,7 +347,7 @@ body {
     color: #fff;
     font-family: Casper;
     font-size: 12px;
-    margin-left: 350px;
+    margin-left: 300px;
     margin-top: 50px;
 }
 
@@ -2894,7 +2894,7 @@ body {
     border-radius: none;
     background: none;
     border: none;
-    color: #fff;
+    color: #ffd700;
     font-family: "Century Gothic";
     font-size: 16px;
     font-weight: 700;
@@ -2903,6 +2903,7 @@ body {
 
     .news .content1 a.intext:hover {
         color: #ffd700;
+    border-bottom: 1px solid #ffd700;
     }
 
 .news .content1 ul, ol {
@@ -3052,3 +3053,5 @@ body a, p, button {
     -ms-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
+
+
