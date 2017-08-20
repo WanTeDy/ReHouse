@@ -47,7 +47,6 @@
         <meta name="twitter:image:src" content="@ViewBag.Image" />
         <meta itemprop="image" content="@ViewBag.Image" />
     }
-    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/styleCss")
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,45 +137,7 @@
         .table_of_prod table tr td {
             color: black;
         }
-    </style>
-    <!-- Alert при закрытии -->
-    <!-- <script>
-        $(window).on('beforeunload', function(){ return 'Вы уверены, что хотите покинуть страницу?сука'; });
-    </script> -->
-    <!-- TO TOP -->
-    <script>
-
-        $(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() != 0) {
-                    $('#toTop').fadeIn();
-                } else {
-                    $('#toTop').fadeOut();
-                }
-            });
-            $('#toTop').click(function () {
-                $('body,html').animate({ scrollTop: 0 }, 800);
-            });
-        });
-    </script>
-    <script>
-        function showSeoTextDetails(id, btn) {
-            $(btn).fadeOut();
-            $('#text_' + id).fadeOut();
-            $('#textHidden_' + id).fadeIn();
-        }
-
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-100514743-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
+    </style>    
 </head>
 <body>
     <span class="noprint">
@@ -363,7 +324,7 @@
                             <div class="img">
                                 @if (article.Images != null && article.Images.Count > 0)
                                 {
-                                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
+                                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)?w=440&h=263&mode=max" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
                                 }
                                 else
                                 {
@@ -429,6 +390,7 @@
             </div>
         </span>
     </div>
+    @Scripts.Render("~/bundles/jquery")    
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")
@@ -470,6 +432,39 @@
                 window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
             }
         }
+    </script>
+    <script>
+
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 800);
+            });
+        });
+    </script>
+    <script>
+        function showSeoTextDetails(id, btn) {
+            $(btn).fadeOut();
+            $('#text_' + id).fadeOut();
+            $('#textHidden_' + id).fadeIn();
+        }
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-100514743-1', 'auto');
+        ga('send', 'pageview');
+
     </script>
 </body>
 </html>

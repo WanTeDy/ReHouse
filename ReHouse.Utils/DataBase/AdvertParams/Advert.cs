@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.DataBase.Geo;
 using ReHouse.Utils.Helpers;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ReHouse.Utils.DataBase.AdvertParams
 {
@@ -76,6 +77,18 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// Is this advert Exclusive
         /// </summary>
         public Boolean IsExclusive { get; set; }
+        /// <summary>
+        /// Is this advert new
+        /// </summary>
+        [NotMapped]
+        public Boolean IsNew
+        {
+            get
+            {
+                var date = DateTime.Now.AddDays(-7);
+                return this.PublicationDate > date;
+            }
+        }
         /// <summary>
         /// Is this advert moderated by admin
         /// </summary>

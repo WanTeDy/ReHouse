@@ -37,29 +37,12 @@
         <meta name="twitter:image:src" content="@ViewBag.Image" />
         <meta itemprop="image" content="@ViewBag.Image" />
     }
-    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/styleCss")
     @Styles.Render("~/Content/adminCss")
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @*<link rel="stylesheet" href="~/Content/mobile.css">*@
-
-    <!-- TO TOP -->
-    <script>
-
-        $(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() != 0) {
-                    $('#toTop').fadeIn();
-                } else {
-                    $('#toTop').fadeOut();
-                }
-            });
-            $('#toTop').click(function () {
-                $('body,html').animate({ scrollTop: 0 }, 800);
-            });
-        });
-    </script>
+        
 </head>
 <body>
     <div class="header">
@@ -277,6 +260,7 @@
             </div>
         </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")
@@ -287,6 +271,22 @@
     <script type="text/javascript">
         $(document).foundation();
         $(document).foundation('dropdown', 'reflow');
+    </script>
+    <!-- TO TOP -->
+    <script>
+
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 800);
+            });
+        });
     </script>
 </body>
 </html>

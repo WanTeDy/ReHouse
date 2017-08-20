@@ -1,5 +1,8 @@
 ﻿@using ReHouse.FrontEnd.Models
 @model EmailModel
+@section scripts {
+    @Scripts.Render("~/Scripts/jqueryval")
+}
 
 <div class="navigation_string">
     <div class="way">
@@ -13,7 +16,7 @@
 <div class="managers">
     <h2>Свяжитесь с нами, заполнив форму ниже</h2>
 
-    <div class="form">        
+    <div class="form">
         @Html.Partial("Partial/_emailPartial", Model)
     </div>
 </div>

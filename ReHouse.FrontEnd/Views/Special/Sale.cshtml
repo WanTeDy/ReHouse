@@ -66,23 +66,24 @@
         }
 
     </div>
+    @section scripts {
+        <script>
+            $(document).ready(function () {
+                var url = "/special/load/";
 
-    <script>
-        $(document).ready(function () {
-            var url = "/special/load/";
+                function special_lazyload(search) {
 
-            function special_lazyload(search) {
+                    var obj = {
+                        "TagPageName": '@tagPage.ShortName',
+                    };
 
-                var obj = {
-                    "TagPageName": '@tagPage.ShortName',
-                };
+                    lazyload(obj, url, search);
+                }
 
-                lazyload(obj, url, search);
-            }
+                $('#button-more').click(function () {
+                    special_lazyload(false);
 
-            $('#button-more').click(function () {
-                special_lazyload(false);
-
+                });
             });
-        });
-    </script>
+        </script>
+    }

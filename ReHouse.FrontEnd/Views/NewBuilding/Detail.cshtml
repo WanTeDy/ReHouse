@@ -85,7 +85,7 @@
                         break;
                     }
                     i++;
-                        <a><img src="@Url.Content(item.Url + item.FileName)" width="767" height="600" title="@item.Title" alt="@item.Alt"></a>
+                        <a><img src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" width="767" height="600" title="@item.Title" alt="@item.Alt"></a>
                     }
                     @if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
                     {
@@ -102,7 +102,7 @@
                             break;
                         }
                         j++;
-                        <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)" title="@item.Title" alt="@item.Alt"></a></li>
+                        <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)?w=244&h=188&mode=max" title="@item.Title" alt="@item.Alt"></a></li>
                     }
                     @if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
                     {
@@ -221,7 +221,7 @@
     <div class="planirovka">
         @foreach (var item in Model.NewBuilding.PlanImages)
         {
-            <a class="plan" rel="group" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)" border="0"  title="@item.Title" alt="@item.Alt"/></a>
+            <a class="plan" rel="group" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)?w=522&h=390&mode=max" border="0"  title="@item.Title" alt="@item.Alt"/></a>
         }
     </div>
 }
@@ -251,13 +251,13 @@
                         {
                             <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                         }
-                        else
+                        else if (item.IsNew)
                         {
                             <div class="redimg"><img src="~/Content/images/newred.png"></div>
                         }
                         @if (item.Images != null && item.Images.Count > 0)
                         {
-                            <a class="fix" href="/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                            <a class="fix" href="/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
                         }
                         else
                         {

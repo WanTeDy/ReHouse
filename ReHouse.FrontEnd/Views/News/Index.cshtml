@@ -1,8 +1,9 @@
 ﻿@using ReHouse.Utils.DataBase.News
 @model List<Article>
 
-@Scripts.Render("~/bundles/showDetails")
+
 @section Scripts {
+    @Scripts.Render("~/bundles/showDetails")
     <script>
         var articlePage = 2,
         buttonId = "#button-more",

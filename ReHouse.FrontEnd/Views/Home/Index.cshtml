@@ -17,16 +17,18 @@
     }
 }
 
-@Scripts.Render("~/bundles/jcarousel")
-@Scripts.Render("~/bundles/showDetails")
-<script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery('.d-carousel .carousel').jcarousel({
-            scroll: 1,
-        });
-    });
-</script>
+@section scripts {
 
+    @Scripts.Render("~/bundles/jcarousel")
+    @Scripts.Render("~/bundles/showDetails")
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('.d-carousel .carousel').jcarousel({
+                scroll: 1,
+            });
+        });
+    </script>
+}
 <div class="slider-of-products">
     <div class="d-carousel" id="p">
         <h2>Горячие предложения</h2>
@@ -42,15 +44,15 @@
                     {
                         <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                     }
-                    else
+                    else if (item.IsNew)
                     {
                         <div class="redimg"><img src="~/Content/images/newred.png"></div>
                     }
                     @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
-                    {                        
+                    {
                         if (item.Images != null && item.Images.Count > 0)
                         {
-                            <a class="fix" href="/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                            <a class="fix" href="/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212" /></a>
                         }
                         else
                         {
@@ -67,10 +69,10 @@
                         </div>
                     }
                     else
-                    {                        
+                    {
                         if (item.Images != null && item.Images.Count > 0)
                         {
-                            <a class="fix" href="/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                            <a class="fix" href="/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212" /></a>
                         }
                         else
                         {
@@ -107,13 +109,13 @@
                     {
                         <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                     }
-                    else
+                    else if (item.IsNew)
                     {
                         <div class="redimg"><img src="~/Content/images/newred.png"></div>
                     }
                     @if (item.Images != null && item.Images.Count > 0)
                     {
-                        <a class="fix" href="/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                        <a class="fix" href="/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212" /></a>
                     }
                     else
                     {
@@ -147,13 +149,13 @@
                     {
                         <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                     }
-                    else
+                    else if (item.IsNew)
                     {
                         <div class="redimg"><img src="~/Content/images/newred.png"></div>
                     }
                     @if (item.Images != null && item.Images.Count > 0)
                     {
-                        <a class="fix" href="/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                        <a class="fix" href="/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212" /></a>
                     }
                     else
                     {
@@ -189,13 +191,13 @@
                     {
                         <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                     }
-                    else
+                    else if (item.IsNew)
                     {
                         <div class="redimg"><img src="~/Content/images/newred.png"></div>
                     }
                     @if (item.Images != null && item.Images.Count > 0)
                     {
-                        <a class="fix" href="/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                        <a class="fix" href="/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212" /></a>
                     }
                     else
                     {

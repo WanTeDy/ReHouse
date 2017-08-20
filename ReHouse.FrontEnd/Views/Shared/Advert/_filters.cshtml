@@ -2,23 +2,6 @@
 @using ReHouse.Utils.Helpers
 @model LoadAdvertsModel
 
-<script>
-    function rentTypeChanged() {
-        var type = $('#rent_type').val();
-        if (type == 1) {
-            $('#price2').hide();
-            $('#price_max2').hide();
-            $('#price').show();
-            $('#price_max').show();
-        } else {
-            $('#price').hide();
-            $('#price_max').hide();
-            $('#price2').show();
-            $('#price_max2').show();
-        }
-    }
-</script>
-
 <div class="@(Model.TrimConditions == null? "selection1": "selection")">
     <div class="typeofproperty">
         <select id="category">

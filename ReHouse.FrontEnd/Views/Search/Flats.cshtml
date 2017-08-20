@@ -28,19 +28,21 @@
 
     </div>
 }
-<script>
-    var url = "/search/load/";
+@section scripts {
+    <script>
+        var url = "/search/load/";
 
-    function search_lazyload(search) {
-        var query = '@ViewBag.Query';
-        var obj = {
-            "Query": query,
+        function search_lazyload(search) {
+            var query = '@ViewBag.Query';
+            var obj = {
+                "Query": query,
+            }
+            lazyload(obj, url, search);
         }
-        lazyload(obj, url, search);
-    }
 
-    $('#button-more').click(function () {
-        search_lazyload(false);
-    });
+        $('#button-more').click(function () {
+            search_lazyload(false);
+        });
 
-</script>
+    </script>
+}

@@ -1,4 +1,5 @@
 ﻿@using ReHouse.Utils.DataBase.Security
+@using ReHouse.Utils
 @model List<User>
 
 <div class="navigation_string">
@@ -16,12 +17,14 @@
     {
         foreach (var item in Model)
         {
+            if (item.Role.RussianName == ConstV.RoleSeo) { continue; }
+
             <div class="manager_">
                 <div class="img">
                     @if (item.Avatar != null)
                     {
                         <a href="/manager/profile/@item.Id">
-                            <img src="@Url.Content(item.Avatar.Url + item.Avatar.FileName)" width="120" height="121" />
+                            <img src="@Url.Content(item.Avatar.Url + item.Avatar.FileName)?w=120&h=121&mode=max" width="120" height="121" />
                         </a>
                     }
                     else

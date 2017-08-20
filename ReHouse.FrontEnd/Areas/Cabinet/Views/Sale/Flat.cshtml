@@ -4,40 +4,8 @@
 @{
     Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
 }
-<div class="list_">
-    <h2 class="tabset_label">Table of Contents</h2>
-    <ul class="tabset_tabs">
-        <li class="firstchild"><a href="~/cabinet/profile">Профиль</a></li>
-        <li>
-            <a class="preActive active">Продажа</a>
-            <ol>
-                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
-                <li><a href="~/cabinet/sale/house">Дома</a></li>
-                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
-                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
-            </ol>
-        </li>
+@Html.Partial("_navigation", "sale")
 
-        <li>
-            <a class="1">Аренда</a>
-            <ol>
-                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
-                <li><a href="~/cabinet/rent/house">Дома</a></li>
-                @*<li><a href="~/cabinet/rent/homestead">Участки</a></li>*@
-                <li><a href="~/cabinet/rent/commerce">Коммерция</a></li>
-            </ol>
-        </li>
-        <li><a class="3" href="~/cabinet/newbuilding/list">Новострои</a></li>
-        <li><a class="4" href="~/cabinet/news/list">Новости</a></li>
-        <li><a class="4" href="~/cabinet/feedbacks/list">Отзывы</a></li>
-        <li><a class="4" href="~/cabinet/vacancies/list">Вакансии</a></li>
-        <li><a class="4" href="~/cabinet/builders/list">Застройщики</a></li>
-        <li><a class="4" href="~/cabinet/districts/list">Районы</a></li>
-        <li><a class="4" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
-        <li><a class="4" href="~/cabinet/texts/list">Тексты</a></li>
-        <li><a class="4" href="~/cabinet/tagpages/list">Страницы теги</a></li>
-    </ul>
-</div>
 <div id="adminka2" class="tabset_content">
     <div class="headline">
         <h2>Добавленные объявления продажи квартир</h2>

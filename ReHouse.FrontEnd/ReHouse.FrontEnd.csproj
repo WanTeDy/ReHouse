@@ -54,7 +54,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
+      <HintPath>..\packages\ImageResizer.4.1.9\lib\net45\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.DiskCache, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.Plugins.DiskCache.4.1.9\lib\net45\ImageResizer.Plugins.DiskCache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.PrettyGifs, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.Plugins.PrettyGifs.4.1.9\lib\net45\ImageResizer.Plugins.PrettyGifs.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ImageResizer.Plugins.Watermark, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -673,6 +681,7 @@
     <Content Include="Areas\Cabinet\Views\TagPages\Edit.cshtml" />
     <Content Include="Areas\Cabinet\Views\TagPages\List.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\TagPages\_listOfTagPages.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\_navigation.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />

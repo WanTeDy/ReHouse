@@ -20,7 +20,7 @@
         <div class="img">
             @if (Model.Avatar != null)
             {
-                <img src="@Url.Content(Model.Avatar.Url + Model.Avatar.FileName)" width="240" height="320" />
+                <img src="@Url.Content(Model.Avatar.Url + Model.Avatar.FileName)?w=230&h=320&mode=max" width="240" height="320" />
             }
             else
             {
@@ -61,7 +61,7 @@
                         {
                             <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                         }
-                        else
+                        else if (item.IsNew)
                         {
                             <div class="redimg"><img src="~/Content/images/newred.png"></div>
                         }
@@ -70,7 +70,7 @@
 
                             if (item.Images != null && item.Images.Count > 0)
                             {
-                                <a class="fix" href="/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                                <a class="fix" href="/sale/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
                             }
                             else
                             {
@@ -91,7 +91,7 @@
 
                             if (item.Images != null && item.Images.Count > 0)
                             {
-                                <a class="fix" href="/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                                <a class="fix" href="/rent/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
                             }
                             else
                             {
@@ -133,13 +133,13 @@
                         {
                             <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
                         }
-                        else
+                        else if (item.IsNew)
                         {
                             <div class="redimg"><img src="~/Content/images/newred.png"></div>
                         }
                         @if (item.Images != null && item.Images.Count > 0)
                         {
-                            <a class="fix" href="/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
+                            <a class="fix" href="/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
                         }
                         else
                         {

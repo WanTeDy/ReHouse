@@ -50,71 +50,8 @@
         <meta itemprop="image" content="@ViewBag.Image" />
     }
     @Styles.Render("~/Content/styleCss")
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/mobile.min.css">
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jcarouselLite")
-    <!-- Alert при закрытии -->
-    <!-- <script>
-        $(window).on('beforeunload', function(){ return 'Вы уверены, что хотите покинуть страницу?сука'; });
-    </script> -->
-    <script type="text/javascript">
-        $(function () {
-            $('#slidebox').jCarouselLite({
-                vertical: false,
-                hoverPause: true,
-                btnPrev: ".previous",
-                btnNext: ".next",
-                visible: 1,
-                start: 0,
-                scroll: 1,
-                circular: true,
-                auto: 6000,
-                speed: 900,
-                btnGo:
-        		[".1", ".2",
-        		".3", ".4"],
-
-                afterEnd: function (a, to, btnGo) {
-                    if (btnGo.length <= to) {
-                        to = 0;
-                    }
-                    $(".thumbActive").removeClass("thumbActive");
-                    $(btnGo[to]).addClass("thumbActive");
-                }
-            });
-        });
-    </script>
-    <!-- TO TOP -->
-    <script>
-
-        $(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() != 0) {
-                    $('#toTop').fadeIn();
-                } else {
-                    $('#toTop').fadeOut();
-                }
-            });
-            $('#toTop').click(function () {
-                $('body,html').animate({ scrollTop: 0 }, 800);
-            });
-        });
-    </script>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-100514743-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
+    <link rel="stylesheet" href="~/Content/mobile.min.css">    
 </head>
 <body>
     <div class="header">
@@ -248,10 +185,10 @@
                 <a href="#" onclick="" class="4" id="d"></a> <!-- ◯ -->
             </div>
             <ul class="listofimg">
-                <li><img src="~/Content/images/1.png" width="1500px" height="380px"></li>
-                <li><img src="~/Content/images/2.png" width="1500px" height="380px"></li>
-                <li><img src="~/Content/images/3.png" width="1500px" height="380px"></li>
-                <li><img src="~/Content/images/4.png" width="1500px" height="380px"></li>
+                <li><img src="~/Content/images/1.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                <li><img src="~/Content/images/2.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                <li><img src="~/Content/images/3.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                <li><img src="~/Content/images/4.png?format=jpg&quality=70" width="1500px" height="380px"></li>
             </ul>
         </div>
     </div>
@@ -331,7 +268,7 @@
                             <div class="img">
                                 @if (article.Images != null && article.Images.Count > 0)
                                 {
-                                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
+                                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)?w=440&h=263&mode=max" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
                                 }
                                 else
                                 {
@@ -395,6 +332,8 @@
             </div>
         </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jcarouselLite")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/unob")
@@ -404,6 +343,61 @@
     <script type="text/javascript">
         $(document).foundation();
         $(document).foundation('dropdown', 'reflow');
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#slidebox').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".previous",
+                btnNext: ".next",
+                visible: 1,
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+                btnGo:
+        		[".1", ".2",
+        		".3", ".4"],
+
+                afterEnd: function (a, to, btnGo) {
+                    if (btnGo.length <= to) {
+                        to = 0;
+                    }
+                    $(".thumbActive").removeClass("thumbActive");
+                    $(btnGo[to]).addClass("thumbActive");
+                }
+            });
+        });
+    </script>
+    <!-- TO TOP -->
+    <script>
+
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 800);
+            });
+        });
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-100514743-1', 'auto');
+        ga('send', 'pageview');
+
     </script>
 </body>
 </html>

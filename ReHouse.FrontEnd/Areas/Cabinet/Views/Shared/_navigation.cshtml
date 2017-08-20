@@ -1,0 +1,43 @@
+﻿@using ReHouse.FrontEnd.Models
+@using ReHouse.Utils
+@model String
+@{
+    SessionModel session = Session["user"] as SessionModel;
+}
+<div class="list_">
+    <h2 class="tabset_label">Table of Contents</h2>
+    <ul class="tabset_tabs">
+        <li class="firstchild"><a class="@(Model == "profile"? "preActive active" : "1")" href="~/cabinet/profile">Профиль</a></li>
+        <li>
+            <a class="@(Model == "sale"? "preActive active" : "1")">Продажа</a>
+            <ol>
+                <li><a href="~/cabinet/sale/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/sale/house">Дома</a></li>
+                <li><a href="~/cabinet/sale/homestead">Участки</a></li>
+                <li><a href="~/cabinet/sale/commerce">Коммерция</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a class="@(Model == "rent"? "preActive active" : "1")">Аренда</a>
+            <ol>
+                <li><a href="~/cabinet/rent/flat">Квартиры</a></li>
+                <li><a href="~/cabinet/rent/house">Дома</a></li>
+                @*<li><a href="~/cabinet/rent/homestead">Участки</a></li>*@
+                <li><a href="~/cabinet/rent/commerce">Коммерция</a></li>
+            </ol>
+        </li>
+        <li><a class="@(Model == "newbuilding"? "preActive active" : "1")" href="~/cabinet/newbuilding/list">Новострои</a></li>
+        <li><a class="@(Model == "news"? "preActive active" : "1")" href="~/cabinet/news/list">Новости</a></li>
+        <li><a class="@(Model == "feedbacks"? "preActive active" : "1")" href="~/cabinet/feedbacks/list">Отзывы</a></li>
+        <li><a class="@(Model == "vacancies"? "preActive active" : "1")" href="~/cabinet/vacancies/list">Вакансии</a></li>
+        <li><a class="@(Model == "builders"? "preActive active" : "1")" href="~/cabinet/builders/list">Застройщики</a></li>
+        <li><a class="@(Model == "districts"? "preActive active" : "1")" href="~/cabinet/districts/list">Районы</a></li>
+        @if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
+        {
+            <li><a class="@(Model == "seoparametrs" ? "preActive active" : "1")" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>
+            <li><a class="@(Model == "texts" ? "preActive active" : "1")" href="~/cabinet/texts/list">Тексты</a></li>
+            <li><a class="@(Model == "tagpages" ? "preActive active" : "1")" href="~/cabinet/tagpages/list">Страницы теги</a></li>
+        }
+    </ul>
+</div>

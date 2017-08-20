@@ -54,3 +54,18 @@ var appendContests = function (response) {
     $(response).appendTo($(container));
     //page += 1;
 };
+
+function rentTypeChanged() {
+    var type = $('#rent_type').val();
+    if (type == 1) {
+        $('#price2').hide();
+        $('#price_max2').hide();
+        $('#price').show();
+        $('#price_max').show();
+    } else {
+        $('#price').hide();
+        $('#price_max').hide();
+        $('#price2').show();
+        $('#price_max2').show();
+    }
+}
