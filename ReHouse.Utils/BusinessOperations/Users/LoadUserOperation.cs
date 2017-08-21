@@ -43,6 +43,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                         Phones = userForWatching.Phones,
                         FirstName = userForWatching.FirstName,
                         FatherName = userForWatching.FatherName,
+                        Position = userForWatching.Position,
                         Role = userForWatching.Role,
                         Email = userForWatching.Email,
                         Avatar = userForWatching.Avatar,
