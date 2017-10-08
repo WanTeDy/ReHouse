@@ -79,12 +79,12 @@
             <option selected value="0">Cрок сдачи</option>
             @foreach (var date in Model.ExpluatationDates)
             {
-                <option value="@date.Id">@date.Name</option>
+                <option value="@date.Year">@date.Name</option>
             }
         </select>
     </div>
 
-    @if (session != null && (session.Role.RussianName == ConstV.RoleAdministrator || session.Role.RussianName == ConstV.RoleManager))
+    @*@if (session != null && (session.Role.RussianName == ConstV.RoleAdministrator || session.Role.RussianName == ConstV.RoleManager))
     {
         <div class="ck">
             <select id="managers">
@@ -102,7 +102,7 @@
                 }
             </select>
         </div>
-    }
+    }*@
     @*<div class="checkbox_">
             <select id="isonlyuser">
                 <option value="false">Все объявления</option>

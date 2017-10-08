@@ -40,7 +40,7 @@ namespace ReHouse.Utils.BusinessOperations.Filters
             if (_advertsType == Helpers.AdvertsType.NewBuilding)
             {
                 _builders = Context.Builders.Where(x => !x.Deleted).ToList();
-                _expluatationDates = Context.ExpluatationDates.Where(x => !x.Deleted).ToList();
+                _expluatationDates = Context.ExpluatationDates.Where(x => !x.Deleted && x.NewBuildings.Any(y => !y.Deleted)).ToList();
             }
             else
             {

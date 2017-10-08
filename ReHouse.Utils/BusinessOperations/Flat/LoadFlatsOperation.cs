@@ -55,15 +55,15 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                 if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager || user.Role.RussianName == ConstV.RoleSeo))
                 {
                     _adverts = Context.Adverts.Where(x => !x.Deleted).ToList();
-                    if (_userId != 0)
-                    {
-                        _adverts = _adverts.Where(x => x.UserId == _userId).ToList();
-                    }
+                    //if (_userId != 0)
+                    //{
+                    //    _adverts = _adverts.Where(x => x.UserId == _userId).ToList();
+                    //}
                 }
-                else if (user != null && user.Role.RussianName == ConstV.RoleRieltor)
-                {
-                    _adverts = Context.Adverts.Where(x => !x.Deleted && x.UserId == user.Id).ToList();
-                }
+                //else if (user != null && user.Role.RussianName == ConstV.RoleRieltor)
+                //{
+                //    _adverts = Context.Adverts.Where(x => !x.Deleted && x.UserId == user.Id).ToList();
+                //}
                 else
                     throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
             }

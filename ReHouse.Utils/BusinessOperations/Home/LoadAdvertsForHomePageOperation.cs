@@ -55,7 +55,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
                 });
 
             _newBuildingAdverts = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated)
-                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Take(_count).ToList();
+                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Take(_count).ToList();
             
             //_articles = Context.Articles.Where(x => !x.Deleted)
             //    .OrderByDescending(x => x.Date).Take(_articlesCount).ToList();

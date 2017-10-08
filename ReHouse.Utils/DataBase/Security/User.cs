@@ -58,8 +58,13 @@ namespace ReHouse.Utils.DataBase.Security
         /// <summary>
         /// User is Active
         /// </summary>
-        public Boolean IsActive { get; set; }   
-             
+        public Boolean IsActive { get; set; }
+
+        /// <summary>
+        /// Ordering in list
+        /// </summary>
+        public Int32 OrderByField { get; set; }
+
         public virtual Role Role { get; set; }
         public virtual Avatar Avatar { get; set; }
         public virtual List<Phone> Phones { get; set; }        

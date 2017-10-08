@@ -1,0 +1,53 @@
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.Utils.DataBase.Security;
+@model List<User>
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_navigation", "users")
+
+<div id="adminka2" class="tabset_content">
+    <div class="headline">
+        <h2>Сотрудники компании</h2>
+        <form method="LINK" action="/cabinet/managers/add">
+            <button>Добавить сотрудника ►</button>
+        </form>
+    </div>
+
+    @if (!ViewBag.NoElements)
+    {
+
+        <div class="added">
+            <button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>
+            <table class="added" id="data-container">
+                @Html.Partial("Manager/_listOfManagers", Model)
+            </table>
+        </div>
+        <div>
+            <div class="products1">
+                <div id="button-more">
+                    <a id="more">Больше сотрудников</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading-div">
+
+        </div>
+    }
+
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/deleteManagers")
+
+    <script>
+        var url = "/cabinet/managers/load";
+        $('#button-more').click(function () {
+
+            var obj = {
+            }
+
+            lazyload(obj, url, false);
+        });       
+    </script>
+
+}

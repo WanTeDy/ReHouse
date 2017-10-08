@@ -8,9 +8,11 @@ namespace ReHouse.Utils.BusinessOperations.Users
     public class LoadUsersOperation : BaseOperation
     {
         private String _tokenHash { get; set; }
+        private Int32 _page { get; set; }
+        private Int32 _count { get; set; }
         public List<User> _users { get; set; }
 
-        public LoadUsersOperation(string tokenHash)
+        public LoadUsersOperation(string tokenHash, int page, int count)
         {
             _tokenHash = tokenHash;
             RussianName = "Загрузка списка пользователей";
@@ -18,26 +20,11 @@ namespace ReHouse.Utils.BusinessOperations.Users
 
         protected override void InTransaction()
         {
-            var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            var users = Context.Users.ToList();
-            if (users.Count > 0)
-            {
-                _users = users.Select(x => new User
-                {
-                    Id = x.Id,
-                    Adress = x.Adress,
-                    Login = x.Login,
-                    Email = x.Email,
-                    FatherName = x.FatherName,
-                    FirstName = x.FirstName,
-                    SecondName = x.SecondName,
-                    Phones = x.Phones,
-                    RoleId = x.RoleId,
-                    IsActive = x.IsActive,
-                    Deleted = x.Deleted,
-                    Role = x.Role,                    
-                }).ToList();
-            }
+            //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            _users = Context.Users
+                        .Where(x => !x.Deleted && x.Role.RussianName != ConstV.RoleAdministrator && x.Role.RussianName != ConstV.RoleSeo)
+                        .OrderBy(x => x.OrderByField)
+                        .Skip((_page - 1) * _count).Take(_count).ToList();
         }
     }
 }

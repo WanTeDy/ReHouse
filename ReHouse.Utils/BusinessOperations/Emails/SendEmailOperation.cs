@@ -33,12 +33,13 @@ namespace ReHouse.Utils.BusinessOperations.Emails
             };
             Context.Emails.Add(mail);
             string viewName = "";
-            string email = "wanted.kaiser228@gmail.com";
+            //string email = "wanted.kaiser228@gmail.com";
+            string email = "rehouse.odessa.stars@gmail.com";
             CommonEmailModel model = null;
             if (_advertId == 0)
             {
                 viewName = "CommonUserMailView";
-                email = "rehouse.odessa.stars@gmail.com";
+                //email = "rehouse.odessa.stars@gmail.com";
                 model = new CommonEmailModel
                 {
                     UserName = _message.Username,
@@ -57,7 +58,7 @@ namespace ReHouse.Utils.BusinessOperations.Emails
                 
                 if (_type == AdvertsType.NewBuilding)
                 {
-                    email = "novostroyrehouseodessa@gmail.com";
+                    //email = "novostroyrehouseodessa@gmail.com";
 
                     var advert = Context.NewBuildings.FirstOrDefault(x => !x.Deleted && x.Id == _advertId);
                     if(advert != null)
@@ -73,7 +74,7 @@ namespace ReHouse.Utils.BusinessOperations.Emails
                     var advert = Context.Adverts.FirstOrDefault(x => !x.Deleted && x.Id == _advertId);
                     if (advert != null)
                     {
-                        email = advert.User.Email;
+                        //email = advert.User.Email;
                         title = advert.TitleName;
                         adress = advert.Street;
 

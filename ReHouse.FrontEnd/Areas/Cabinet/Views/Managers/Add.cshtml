@@ -1,0 +1,88 @@
+﻿@using ReHouse.Utils.DataBase.Security
+@model User
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script>
+        var counter = parseInt($('#counter').val());
+        function addPhone() {
+            $('#phonebtn').before('<tr><td>Телефон:</td><td><input type="text" name="Phones[' + counter + '].Telephone" /></td></tr>');
+            counter += 1;
+        }
+    </script>
+}
+@Html.Partial("_navigation", "profile")
+
+<div id="adminka1" class="tabset_content tabset_content_active">
+    <h2 class="tabset_label">adminka</h2>
+
+    <div class="photo_of_manager">
+        <form enctype="multipart/form-data" action="" method="POST">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="contact_info">
+                <table>
+                    <tr>
+                        <td><input type="file" name="image" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Email)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Логин для входа:</td>
+                        <td>@Html.TextBoxFor(m => m.Login)</td>
+                    </tr>
+                    <tr>
+                        <td>Имя:</td>
+                        <td>@Html.TextBoxFor(m => m.FirstName)</td>
+                    </tr>
+                    <tr>
+                        <td>Фамилия:</td>
+                        <td>@Html.TextBoxFor(m => m.SecondName)</td>
+                    </tr>
+                    <tr>
+                        <td>Отчество:</td>
+                        <td>@Html.TextBoxFor(m => m.FatherName)</td>
+                    </tr>
+                    <tr>
+                        <td>Позиция сортировки:</td>
+                        <td>@Html.TextBoxFor(m => m.OrderByField, new { @type = "number" })</td>
+                    </tr>
+                    @*<tr>
+                            <td>О себе:</td>
+                            <td>@Html.TextAreaFor(m => m.About, new { @rows = "4" })</td>
+                        </tr>*@
+                    <tr>
+                        <td>Адрес:</td>
+                        <td>@Html.TextBoxFor(m => m.Adress)</td>
+                    </tr>
+                    <tr>
+                        <td>Должность:</td>
+                        <td>@Html.TextBoxFor(m => m.Position)</td>
+                    </tr>
+                    <tr>
+                        <td>Телефон:</td>
+                        <td>
+                            <input type="hidden" id="counter" name="counter" value="1" />
+                            <input type="text" name="Phones[0].Telephone" />
+                        </td>
+                    </tr>
+
+                    <tr id="phonebtn">
+                        <td></td>
+                        <td><a onclick="addPhone();">Добавить еще телефон</a></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><button>Сохранить</button></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

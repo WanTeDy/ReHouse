@@ -27,10 +27,9 @@ namespace ReHouse.Utils.BusinessOperations.Builders
 
         protected override void InTransaction()
         {
-            if (_isAdmin)
-            {
-                new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-            } 
+            //if (_isAdmin)            
+            //    new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+           
             _builders = Context.Builders.Where(x => !x.Deleted).OrderBy(x => x.Id)
                 .Skip((_page - 1) * _count).Take(_count).ToList();
         }

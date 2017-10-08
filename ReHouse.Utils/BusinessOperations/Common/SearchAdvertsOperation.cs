@@ -64,7 +64,7 @@ namespace ReHouse.Utils.BusinessOperations.Common
             {
                 var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
                 || x.District.RussianName.ToLower().Contains(r) || x.Heating.ToLower().Contains(r) || x.Parking.ToLower().Contains(r)))
-                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count - totalFlatsCount).Take(_count).ToList();
+                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Skip((_page - 1) * _count - totalFlatsCount).Take(_count).ToList();
 
                 _adverts.AddRange(newBuilding.Select(x =>
 
@@ -88,7 +88,7 @@ namespace ReHouse.Utils.BusinessOperations.Common
             {
                 var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
                 || x.District.RussianName.ToLower().Contains(r) || x.Heating.ToLower().Contains(r) || x.Parking.ToLower().Contains(r)))
-                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip(0).Take(_count - _adverts.Count).ToList();
+                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Skip(0).Take(_count - _adverts.Count).ToList();
 
                 _adverts.AddRange(newBuilding.Select(x =>
 

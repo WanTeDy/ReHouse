@@ -15,12 +15,12 @@ namespace ReHouse.Utils.BusinessOperations.Building
         private Int32 _priceMin { get; set; }
         private Int32 _priceMax { get; set; }
         private Int32 _builderId { get; set; }
-        private Int32 _expluatationDateId { get; set; }
+        private Int32 _expluatationDate { get; set; }
         private Int32 _userId { get; set; }
         private Boolean _isAdmin { get; set; }
         public List<NewBuilding> _newBuildings { get; set; }
 
-        public LoadNewBuildingsOperation(string tokenHash, int page, int count, int districtId, int priceMin, int priceMax, int builderId, int expluatationDateId, int userId, bool isAdmin = false)
+        public LoadNewBuildingsOperation(string tokenHash, int page, int count, int districtId, int priceMin, int priceMax, int builderId, int expluatationDate, int userId, bool isAdmin = false)
         {
             _tokenHash = tokenHash;
             _page = page;
@@ -29,7 +29,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
             _priceMin = priceMin;
             _priceMax = priceMax;
             _builderId = builderId;
-            _expluatationDateId = expluatationDateId;
+            _expluatationDate = expluatationDate;
             _userId = userId;
             _isAdmin = isAdmin;
             RussianName = "Получение нужного кол-ва новостроев объявлений c нужным фильтром";
@@ -44,15 +44,15 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager || user.Role.RussianName == ConstV.RoleSeo))
                 {
                     _newBuildings = Context.NewBuildings.Where(x => !x.Deleted).ToList();
-                    if (_userId != 0)
-                    {
-                        _newBuildings = _newBuildings.Where(x => x.UserId == _userId).ToList();
-                    }
+                    //if (_userId != 0)
+                    //{
+                    //    _newBuildings = _newBuildings.Where(x => x.UserId == _userId).ToList();
+                    //}
                 }
-                else if (user != null && user.Role.RussianName == ConstV.RoleNewBuildingRieltor)
-                {
-                    _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.UserId == user.Id).ToList();
-                }
+                //else if (user != null && user.Role.RussianName == ConstV.RoleNewBuildingRieltor)
+                //{
+                //    _newBuildings = Context.NewBuildings.Where(x => !x.Deleted && x.UserId == user.Id).ToList();
+                //}
                 else
                     throw new ActionNotAllowedException("Недостаточно прав доступа на выполнение операции");
             }
@@ -76,14 +76,14 @@ namespace ReHouse.Utils.BusinessOperations.Building
             {
                 _newBuildings = _newBuildings.Where(x => x.Builders.FirstOrDefault(s => s.Id == _builderId) != null).ToList();
             }
-            if (_expluatationDateId != 0)
+            if (_expluatationDate != 0)
             {
-                _newBuildings = _newBuildings.Where(x => x.ExpluatationDateId == _expluatationDateId).ToList();
+                _newBuildings = _newBuildings.Where(x => x.ExpluatationDate.Year <= _expluatationDate).ToList();
             }
             if (_isAdmin)
-                _newBuildings = _newBuildings.OrderBy(x => x.IsModerated).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+                _newBuildings = _newBuildings.OrderBy(x => x.IsModerated).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Skip((_page - 1) * _count).Take(_count).ToList();
             else
-                _newBuildings = _newBuildings.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+                _newBuildings = _newBuildings.OrderByDescending(x => x.ExpluatationDate.Year).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Skip((_page - 1) * _count).Take(_count).ToList();
         }
     }
 }

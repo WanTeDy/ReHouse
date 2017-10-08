@@ -32,7 +32,7 @@ namespace ReHouse.Utils.BusinessOperations.Managers
                         });
 
                 _user.NewBuildings = _user.NewBuildings.Where(x => !x.Deleted && x.IsModerated).OrderByDescending(x => x.IsHot)
-                        .ThenByDescending(x => x.PublicationDate).ToList();
+                        .ThenByDescending(x => x.CreationDate).ToList();
 
             }
         }

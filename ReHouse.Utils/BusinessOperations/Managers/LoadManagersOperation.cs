@@ -18,7 +18,9 @@ namespace ReHouse.Utils.BusinessOperations.Managers
 
         protected override void InTransaction()
         {
-            _users = Context.Users.Where(x => !x.Deleted && x.IsActive && x.Role.RussianName != ConstV.RoleAdministrator).ToList();
+            _users = Context.Users
+                        .Where(x => !x.Deleted && x.Role.RussianName != ConstV.RoleAdministrator && x.Role.RussianName != ConstV.RoleSeo)
+                        .OrderBy(x => x.OrderByField).ToList();
         }
     }
 }

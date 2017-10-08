@@ -52,7 +52,7 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// <summary>
         /// PublicationDate for this advert
         /// </summary>
-        public DateTime PublicationDate { get; set; }
+        public DateTime CreationDate { get; set; }
         /// <summary>
         /// Construction of the house for this advert
         /// </summary>
@@ -106,7 +106,7 @@ namespace ReHouse.Utils.DataBase.AdvertParams
             get
             {
                 var date = DateTime.Now.AddDays(-7);
-                return this.PublicationDate > date;
+                return this.CreationDate > date;
             }
         }
         /// <summary>

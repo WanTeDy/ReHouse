@@ -26,10 +26,9 @@ namespace ReHouse.Utils.BusinessOperations.Users
             }
             else
             {
-                if (user.Id != _userId)
-                {
-                    var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-                }
+                //if (user.Id != _userId)                
+                //    new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+                
                 var userForWatching = Context.Users.FirstOrDefault(x => x.Id == _userId && !x.Deleted && x.IsActive);
                 if (userForWatching != null)
                 {
@@ -44,6 +43,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                         FirstName = userForWatching.FirstName,
                         FatherName = userForWatching.FatherName,
                         Position = userForWatching.Position,
+                        OrderByField = userForWatching.OrderByField,
                         Role = userForWatching.Role,
                         Email = userForWatching.Email,
                         Avatar = userForWatching.Avatar,

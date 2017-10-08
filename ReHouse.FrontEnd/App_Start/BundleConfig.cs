@@ -105,7 +105,8 @@ namespace ReHouse.FrontEnd
                      ));
 
             bundles.Add(new StyleBundle("~/Content/adminCss").Include(
-                     "~/Content/admin.css"
+                     "~/Content/admin.css",
+                     "~/Content/wysiwyg/jquery-te-1.4.0.css"
                      ));
             //bundles.Add(new StyleBundle("~/Content/vendorCss").Include(
             //         "~/Content/vendor/*.css"));
@@ -114,7 +115,9 @@ namespace ReHouse.FrontEnd
             //bundles.Add(new ScriptBundle("~/Scripts/coffeeJs").Include(
             //       "~/Scripts/coffee.js"));
             bundles.Add(new ScriptBundle("~/Scripts/modulesJs").Include(
-                "~/Scripts/modules.min.js"));
+                "~/Scripts/modules.min.js",
+                "~/Content/wysiwyg/jquery-te-1.4.0.min.js"
+                ));
             bundles.Add(new ScriptBundle("~/Scripts/vendorJs").Include(
                 //"~/Scripts/vendor/jquery.cookie.min.js",
                 //"~/Scripts/vendor/jquery.navgoco.min.js",

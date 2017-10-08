@@ -65,7 +65,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                     _newBuilding.WallHeight = _model.WallHeight;
                     _newBuilding.WallMaterial = _model.WallMaterial;
                     _newBuilding.YouTubeUrl = _model.YouTubeUrl;
-                    _newBuilding.PublicationDate = DateTime.Now;
+                    _newBuilding.CreationDate = DateTime.Now;
                     _newBuilding.UserId = user.Id;
                     _newBuilding.Latitude = _model.Latitude;
                     _newBuilding.Longitude = _model.Longitude;
@@ -73,7 +73,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                     _newBuilding.IsExclusive = _model.IsExclusive;
                     _newBuilding.IsModerated = _model.IsModerated;
                     _newBuilding.Description = _model.Description;
-
+                                       
                     if (_images != null)
                     {
                         if (_newBuilding.Images == null)

@@ -237,6 +237,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
     <Compile Include="Areas\Cabinet\Controllers\BaseCabinetController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\ManagersController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\TagPagesController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\TextsController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\SeoParametrsController.cs" />
@@ -427,6 +428,9 @@
     <Content Include="Content\style\images\next.png" />
     <Content Include="Content\style\images\prev-g.png" />
     <Content Include="Content\style\images\prev.png" />
+    <Content Include="Content\wysiwyg\jquery-te-1.4.0.css" />
+    <Content Include="Content\wysiwyg\jquery-te-1.4.0.min.js" />
+    <Content Include="Content\wysiwyg\jquery-te.png" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\casper\casper.css" />
     <Content Include="Global.asax" />
@@ -489,6 +493,10 @@
     </Content>
     <Content Include="Scripts\deleteArticles.min.js">
       <DependentUpon>deleteArticles.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\deleteManagers.js" />
+    <Content Include="Scripts\deleteBuilders - Copy.min.js">
+      <DependentUpon>deleteManagers.js</DependentUpon>
     </Content>
     <Content Include="Scripts\deleteBuilders.min.js">
       <DependentUpon>deleteBuilders.js</DependentUpon>
@@ -682,6 +690,10 @@
     <Content Include="Areas\Cabinet\Views\TagPages\List.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\TagPages\_listOfTagPages.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\_navigation.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Managers\List.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Managers\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Managers\Add.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\Manager\_listOfManagers.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />

@@ -26,7 +26,7 @@ namespace ReHouse.Utils.BusinessOperations.Builders
 
         protected override void InTransaction()
         {
-            new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            //new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             if (_model == null)
                 return;
 

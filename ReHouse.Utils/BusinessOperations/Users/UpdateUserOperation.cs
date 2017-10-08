@@ -34,13 +34,11 @@ namespace ReHouse.Utils.BusinessOperations.Users
                 var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash && !x.Deleted && x.IsActive);
                 if (user == null)
                     Errors.Add("Id", "Неверный Token");
-
                 else
                 {
-                    if (user.Id != _user.Id)
-                    {
-                        //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
-                    }
+                    //if (user.Id != _user.Id)
+                    //    new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+                    
                     var userForUpdating = Context.Users.FirstOrDefault(x => x.Id == _user.Id && !x.Deleted);
                     if (userForUpdating != null)
                     {
@@ -77,10 +75,9 @@ namespace ReHouse.Utils.BusinessOperations.Users
                                 if (deleteImg != null)
                                 {
                                     FileInfo fileInf = new FileInfo(path + deleteImg.FileName);
-                                    if (fileInf.Exists)
-                                    {
+                                    if (fileInf.Exists)                                    
                                         fileInf.Delete();
-                                    }
+                                    
                                     Context.Avatars.Remove(deleteImg);
                                 }
                                 Context.Avatars.Add(avatar);
@@ -101,15 +98,21 @@ namespace ReHouse.Utils.BusinessOperations.Users
             user.FirstName = _user.FirstName;
             user.SecondName = _user.SecondName;
             user.FatherName = _user.FatherName;
-            user.About = _user.About;
+            //user.About = _user.About;
             user.Position = _user.Position;
-            if (user.Email.ToLower() != _user.Email.ToLower())
+            user.OrderByField = _user.OrderByField;
+
+            if (!String.IsNullOrEmpty(_user.Email))
             {
-                var otherEmail = Context.Users.FirstOrDefault(x => x.Email == _user.Email);
-                if (otherEmail == null)
-                    user.Email = _user.Email;
-                else
-                    Errors.Add("Email", "Такой email уже существует.");
+                if (String.IsNullOrEmpty(user.Email) || user.Email.ToLower() != _user.Email.ToLower())
+                {
+
+                    var otherEmail = Context.Users.FirstOrDefault(x => x.Email == _user.Email);
+                    if (otherEmail == null)
+                        user.Email = _user.Email;
+                    else
+                        Errors.Add("Email", "Такой email уже существует.");
+                }
             }
             if (!String.IsNullOrEmpty(_user.Login))
             {

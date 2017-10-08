@@ -1,0 +1,33 @@
+﻿@using ReHouse.Utils.DataBase.Security
+@model List<User>
+
+@if (Model.Count > 0)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td><input type="checkbox" class="checkbox" id="checkbox" value="@item.Id" style="width:20px;" /></td>
+            <td>@item.Id</td>
+            <td>
+                <div class="prod_info">
+                    <h3>@item.FirstName</h3>
+                </div>
+            </td>
+            <td>@item.SecondName</td>
+            <td>@item.Email</td>
+            <td>@item.Position</td>
+            <td>@item.OrderByField</td>
+            <td>
+                <div class="edit_del">
+                    <form method="LINK" action="/cabinet/managers/edit/@item.Id">
+                        <button>Редактировать</button>
+                    </form>
+                    <pre> </pre>
+                    <p>/</p>
+                    <pre> </pre>
+                    <button onclick="deleteProducts([@item.Id])">Удалить</button>
+                </div>
+            </td>
+        </tr>
+    }
+}

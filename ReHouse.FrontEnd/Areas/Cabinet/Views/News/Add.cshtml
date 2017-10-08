@@ -9,23 +9,23 @@
 
 <div id="adminka1" class="tabset_content tabset_content_active">
     <h2 class="tabset_label">adminka</h2>
-            
-        <div class="photo_of_manager">
-            <form enctype="multipart/form-data" action="" method="POST">
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary()
-                <div class="contact_info">
-                    <table>
-                        @if (Session != null && Session["user"] is SessionModel)
+
+    <div class="photo_of_manager">
+        <form enctype="multipart/form-data" action="" method="POST">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="contact_info">
+                <table>
+                    @if (Session != null && Session["user"] is SessionModel)
+                    {
+                        var session = Session["user"] as SessionModel;
+                        <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
+                        if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
                         {
-                            var session = Session["user"] as SessionModel;
-                            <input type="hidden" name="seo_id" value="@ViewBag.SeoParam.Id" />
-                            if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
-                            {
-                                <tr>
-                                    <td>SEO Title:</td>
-                                    <td><input type="text" name="seo_title" value="@ViewBag.SeoParam.Title" /></td>
-                                </tr>
+                            <tr>
+                                <td>SEO Title:</td>
+                                <td><input type="text" name="seo_title" value="@ViewBag.SeoParam.Title" /></td>
+                            </tr>
                                 <tr>
                                     <td>SEO Description:</td>
                                     <td><textarea name="seo_description">@ViewBag.SeoParam.Description</textarea></td>
@@ -34,29 +34,35 @@
                                     <td>SEO Keywords:</td>
                                     <td><textarea name="seo_keywords">@ViewBag.SeoParam.Keywords</textarea></td>
                                 </tr>
-                            }
                         }
-                        <tr>
-                            <td>
-                                Изображение:
-                            </td>
-                            <td><input type="file" name="image" /></td>
-                        </tr>
-                        <tr>
-                            <td>Заголовок:</td>
-                            <td>@Html.TextBoxFor(m => m.Title)</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Содержание:</td>
-                            <td>@Html.TextAreaFor(m => m.Description, new { @rows = "30", @cols = "30" })</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><button>Сохранить</button></td>
-                        </tr>
-                    </table>
-                </div>
-            </form>
-        </div>
+                    }
+                    <tr>
+                        <td>
+                            Изображение:
+                        </td>
+                        <td><input type="file" name="image" /></td>
+                    </tr>
+                    <tr>
+                        <td>Заголовок:</td>
+                        <td>@Html.TextBoxFor(m => m.Title)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Содержание:</td>
+                        <td>@Html.TextAreaFor(m => m.Description, new { @rows = "30", @cols = "30" })</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button>Сохранить</button></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
     </div>
+</div>
+
+<script>
+    $(function () {
+        $("textarea").jqte();
+    });
+</script>

@@ -26,7 +26,7 @@ namespace ReHouse.Utils.BusinessOperations.Builders
 
         protected override void InTransaction()
         {
-            new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            //new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             _builder = Context.Builders.FirstOrDefault(x => x.Id == _model.Id && !x.Deleted);
             if (_builder == null)
                 Errors.Add("Id", "Выбранный застройщик не найден");
