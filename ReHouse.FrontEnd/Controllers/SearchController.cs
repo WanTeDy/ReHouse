@@ -33,9 +33,11 @@ namespace ReHouse.FrontEnd.Controllers
             {
                 var operation = new SearchAdvertsOperation(tokenHash, query, 1, ConstV.ItemsPerPage);
                 operation.ExcecuteTransaction();
+                ViewBag.NoElements = false;
 
-                if (operation._adverts != null && operation._adverts.Count > 0)
-                    ViewBag.NoElements = false;
+                if (operation._adverts == null || operation._adverts.Count < 1)
+                    return RedirectToAction("Flat", "Sale");
+
                 var model = new LoadCartModel()
                 {
                     Adverts = operation._adverts,

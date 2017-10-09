@@ -52,7 +52,7 @@ namespace ReHouse.Utils.BusinessOperations.TagPages
                     break;
             }
 
-            _adverts = _adverts.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            _adverts = _adverts.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Skip((_page - 1) * _count).Take(_count).ToList();
 
             _adverts.ForEach(
                 x =>

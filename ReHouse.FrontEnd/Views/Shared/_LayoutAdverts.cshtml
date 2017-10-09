@@ -2,9 +2,9 @@
 @using ReHouse.FrontEnd.Models
 @using ReHouse.Utils.DataBase.News
 @using ReHouse.Utils.DataBase.Common
-    @{
-        var seo = ViewBag.SeoParams as SeoParam;
-    }
+@{
+    var seo = ViewBag.SeoParams as SeoParam;
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +31,7 @@
         <meta name="twitter:title" content="Международная риэлторская инвестиционная компания REHOUSE">
         <meta itemprop="name" content="Международная риэлторская инвестиционная компания REHOUSE" />
         <meta property="og:site_name" content="Международная риэлторская инвестиционная компания REHOUSE" />
-    <meta name="keywords" content="Международная риэлторская инвестиционная компания REHOUSE" />
+        <meta name="keywords" content="Международная риэлторская инвестиционная компания REHOUSE" />
         <meta name="description" content="Международная риэлторская инвестиционная компания REHOUSE" />
         <meta property="og:description" content="Международная риэлторская инвестиционная компания REHOUSE">
         <meta name="twitter:description" content="Международная риэлторская инвестиционная компания REHOUSE" />
@@ -137,7 +137,7 @@
         .table_of_prod table tr td {
             color: black;
         }
-    </style>    
+    </style>
 </head>
 <body>
     <span class="noprint">
@@ -149,9 +149,12 @@
                         <p class="textlogo">Международная риэлторская инвестиционная компания</p>
                     </div>
                     <div class="search">
-                        <p><form class="form-search" method="get" action="/search/flats" target="_blank"><input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" />
-                    <input type="submit" value="">
-                    </form></p>
+                        <p>
+                            <form class="form-search" method="get" action="/search/flats">
+                                <input type="text" name="query" placeholder="Поиск" value="" />
+                                <input type="submit" value="">
+                            </form>
+                        </p>
                         @if (Session != null && Session["user"] is SessionModel)
                         {
                             var session = Session["user"] as SessionModel;
@@ -299,8 +302,8 @@
         </div>
         <div class="search">
             <p>
-                <form class="form-search" method="get" action="/search/flats" target="_blank">
-                    <input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" />
+                <form class="form-search" method="get" action="/search/flats">
+                    <input type="text" name="query" placeholder="Поиск" value="" />
                     <input type="submit" value="">
                 </form>
             </p>
@@ -319,7 +322,7 @@
                 <h2>Новости</h2>
                 @foreach (Article article in ViewBag.Articles)
                 {
-                    <div class="firstnews"> 
+                    <div class="firstnews">
                         <div class="content1">
                             <div class="img">
                                 @if (article.Images != null && article.Images.Count > 0)
@@ -330,7 +333,7 @@
                                 {
                                     <img src="~/Content/images/news1.jpg" width="440" height="263">
                                 }
-                            </div>  
+                            </div>
                             <h3>@article.Title</h3>
                             @if (article.Description.Length > 350)
                             {
@@ -390,7 +393,7 @@
             </div>
         </span>
     </div>
-    @Scripts.Render("~/bundles/jquery")    
+    @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")

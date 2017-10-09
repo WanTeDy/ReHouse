@@ -54,9 +54,13 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// </summary>
         public DateTime ExpireDate { get; set; }
         /// <summary>
-        /// Publication date for this advert
+        /// CreationDate for this advert
         /// </summary>
-        public DateTime PublicationDate { get; set; }
+        public DateTime CreationDate { get; set; }
+        /// <summary>
+        /// PublicationDate for this advert
+        /// </summary>
+        public DateTime? PublicationDate { get; set; }
         /// <summary>
         /// Url to YouTube for this advert
         /// </summary>

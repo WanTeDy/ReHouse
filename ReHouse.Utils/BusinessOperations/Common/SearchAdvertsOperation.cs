@@ -38,7 +38,7 @@ namespace ReHouse.Utils.BusinessOperations.Common
                 });
 
             var totalFlats = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Title.RussianName.ToLower().Contains(r) || x.Street.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.District.RussianName.ToLower().Contains(r) || x.AdvertPropertyValues.All(y => y.PropertiesValue.Contains(r))))
-            .OrderByDescending(x => x.PublicationDate).AsQueryable();
+            .OrderByDescending(x => x.CreationDate).AsQueryable();
             var totalFlatsCount = totalFlats.Count();
             var flats = totalFlats.Skip((_page - 1) * _count).Take(_count).ToList();
             _adverts = new List<CartAdvertModel>();

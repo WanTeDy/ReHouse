@@ -28,7 +28,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
         {
             //var check = new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             _hotAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.IsHot)
-                .OrderByDescending(x => x.PublicationDate).Take(_count).ToList();
+                .OrderByDescending(x => x.CreationDate).Take(_count).ToList();
             _hotAdverts.ForEach(
                 x =>
                 {
@@ -37,7 +37,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
                 });
 
             _flatSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && x.Category.ParentId == (int)ParrentCategories.Flat)
-                .OrderByDescending(x=>x.IsHot).ThenByDescending(x => x.PublicationDate).Take(_count).ToList();
+                .OrderByDescending(x=>x.IsHot).ThenByDescending(x => x.CreationDate).Take(_count).ToList();
             _flatSaleAdverts.ForEach(
                 x =>
                 {
@@ -46,7 +46,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
                 });
 
             _houseSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && (x.Category.ParentId == (int)ParrentCategories.House || x.Category.ParentId == (int)ParrentCategories.Homestead))
-                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Take(_count).ToList();
+                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Take(_count).ToList();
             _houseSaleAdverts.ForEach(
                 x =>
                 {

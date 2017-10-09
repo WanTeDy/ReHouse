@@ -312,6 +312,10 @@
     <Compile Include="Migrations\201707280628556_pageactive.Designer.cs">
       <DependentUpon>201707280628556_pageactive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710091906187_updates.cs" />
+    <Compile Include="Migrations\201710091906187_updates.Designer.cs">
+      <DependentUpon>201710091906187_updates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -387,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707280628556_pageactive.resx">
       <DependentUpon>201707280628556_pageactive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710091906187_updates.resx">
+      <DependentUpon>201710091906187_updates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -23,7 +23,7 @@ namespace ReHouse.Utils.BusinessOperations.Managers
             if (_user != null)
             {
                 _user.Adverts = _user.Adverts.Where(x => !x.Deleted && x.IsModerated).OrderByDescending(x => x.IsHot)
-                        .ThenByDescending(x => x.PublicationDate).ToList();
+                        .ThenByDescending(x => x.CreationDate).ToList();
                 _user.Adverts.ForEach(
                         x =>
                         {

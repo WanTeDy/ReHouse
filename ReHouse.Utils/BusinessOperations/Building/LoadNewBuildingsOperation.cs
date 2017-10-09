@@ -81,9 +81,12 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 _newBuildings = _newBuildings.Where(x => x.ExpluatationDate.Year <= _expluatationDate).ToList();
             }
             if (_isAdmin)
-                _newBuildings = _newBuildings.OrderBy(x => x.IsModerated).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+                _newBuildings = _newBuildings.OrderBy(x => x.IsModerated).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+            else if (_expluatationDate != 0)
+                _newBuildings = _newBuildings.OrderByDescending(x => x.ExpluatationDate.Year).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
             else
-                _newBuildings = _newBuildings.OrderByDescending(x => x.ExpluatationDate.Year).ThenByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+                _newBuildings = _newBuildings.OrderByDescending(x => x.IsHot).ThenByDescending(x => x.PublicationDate).Skip((_page - 1) * _count).Take(_count).ToList();
+
         }
     }
 }

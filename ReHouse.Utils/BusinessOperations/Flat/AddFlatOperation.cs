@@ -57,7 +57,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         MarketTypeId = _model.MarketTypeId,
                         TrimConditionId = _model.TrimConditionId,
                         ExpireDate = DateTime.Now.AddMonths(2),
-                        PublicationDate = DateTime.Now,
+                        CreationDate = DateTime.Now,
                         Type = _model.Type,
                         UserId = user.Id,
                         AdvertPropertyValues = new List<AdvertPropertyValue>(),

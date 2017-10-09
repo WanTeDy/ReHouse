@@ -138,6 +138,9 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         _advert.Longitude = _model.Longitude;
                         _advert.IsHot = _model.IsHot;
                         _advert.IsExclusive = _model.IsExclusive;
+                        if (_model.IsModerated && _advert.PublicationDate == null)
+                            _advert.PublicationDate = DateTime.Now;
+
                         _advert.IsModerated = _model.IsModerated;
                         _advert.RentPeriodType = _model.RentPeriodType;
                         //_advert.TitleName = _model.TitleName;

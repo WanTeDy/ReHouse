@@ -65,26 +65,25 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             return Json(new { url = Url.Action("Index", "Profile", new { Area = "Cabinet" }) });
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public ActionResult Register([Bind(Include = "Name,Email,Password,ConfirmPassword")]RegisterModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var pass = HashHelper.GetMd5Hash(model.Password);
-                var operation = new AddUserOperation(model.Name, model.Email, pass, 1);
-                operation.ExcecuteTransaction();
-                if (operation.Success)
-                {
-                    var user = operation._user;
-                    return SetSessionData(user);
-                }
-                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
-            }
-            return PartialView("UnregisteredUsers/_registerPartial", model);
-
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[AllowAnonymous]
+        //public ActionResult Register([Bind(Include = "Name,Email,Password,ConfirmPassword")]RegisterModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var pass = HashHelper.GetMd5Hash(model.Password);
+        //        var operation = new AddUserOperation(model.Name, model.Email, pass, 1);
+        //        operation.ExcecuteTransaction();
+        //        if (operation.Success)
+        //        {
+        //            var user = operation._user;
+        //            return SetSessionData(user);
+        //        }
+        //        ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
+        //    }
+        //    return PartialView("UnregisteredUsers/_registerPartial", model);
+        //}
 
         [HttpGet]
         [AllowAnonymous]

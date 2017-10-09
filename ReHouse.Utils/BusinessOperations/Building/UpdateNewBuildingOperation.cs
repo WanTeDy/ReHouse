@@ -36,7 +36,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
 
         protected override void InTransaction()
         {
-            new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
+            //new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
             if (_model.Price < 0)
             {
                 Errors.Add("Price", "Цена не может быть отрицательная");
@@ -47,7 +47,7 @@ namespace ReHouse.Utils.BusinessOperations.Building
                 if (_newBuilding != null)
                 {
                     var user = Context.Users.FirstOrDefault(x => x.TokenHash == _tokenHash);
-                    if (user != null && (_newBuilding.UserId == user.Id || user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager || user.Role.RussianName == ConstV.RoleSeo))
+                    if (user != null && (user.Role.RussianName == ConstV.RoleAdministrator || user.Role.RussianName == ConstV.RoleManager || user.Role.RussianName == ConstV.RoleSeo))
                     {
                         if (_images != null)
                         {
@@ -146,6 +146,9 @@ namespace ReHouse.Utils.BusinessOperations.Building
                         _newBuilding.Longitude = _model.Longitude;
                         _newBuilding.IsHot = _model.IsHot;
                         _newBuilding.IsExclusive = _model.IsExclusive;
+                        if (_model.IsModerated && _newBuilding.PublicationDate == null)
+                            _newBuilding.PublicationDate = DateTime.Now;
+
                         _newBuilding.IsModerated = _model.IsModerated;
                         _newBuilding.Description = _model.Description;
 
