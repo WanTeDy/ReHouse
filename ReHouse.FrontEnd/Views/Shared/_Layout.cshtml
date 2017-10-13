@@ -57,65 +57,61 @@
     <div class="header">
         <div class="container" id="container">
             <span class="flex_header">
-                <div class="logo">
-                    <a href="/" id=""><img src="~/Content/images/logo.png" width="350"></a>
-                    <p class="textlogo">Международная риэлторская инвестиционная компания</p>
-                </div>
-                <div class="search">
-                    <p>
-                        <form class="form-search" method="get" action="/search/flats">
-                            <input type="text" name="query" placeholder="Поиск" value="" />
-                            <input type="submit" value="">
-                        </form>
-                    </p>
-                    @if (Session != null && Session["user"] is SessionModel)
+               <div class="social">
+                <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
+            </div>
+        <div class="search">
+            <p>
+                <form class="form-search" method="get" action="/search/flats">
+                    <input type="text" name="query" placeholder="Поиск" value="" />
+                    <input type="submit" value="">
+                </form>
+            </p>
+            @if (Session != null && Session["user"] is SessionModel)
+            {
+                var session = Session["user"] as SessionModel;
+
+                <div class="your_name">
+                    <div><p>Ваш логин:</p></div>
+                    @if (!String.IsNullOrEmpty(session.User.Login))
                     {
-                        var session = Session["user"] as SessionModel;
+                        <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
 
-                        <div class="your_name">
-                            <div><p>Ваш логин:</p></div>
-                            @if (!String.IsNullOrEmpty(session.User.Login))
-                            {
-                                <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
-
-                            }
-                            else
-                            {
-                                <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Email</a></p></div>
-                            }
-                            <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
-                        </div>
                     }
+                    else
+                    {
+                        <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Email</a></p></div>
+                    }
+                    <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
                 </div>
-                <div class="contactinfo">
-                    <div class="tel">
-                        <div class="imgtel">
-                            <img src="~/Content/images/tel.png">
-                        </div>
-                        <div class="number">
-                            <p>+38093 057 7110</p>
-                            <p>+38048 788 6707</p>
-                        </div>
-                    </div>
-                    <div class="social">
-                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                        <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                        @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
-                    </div>
-                </div>
-                <div class="feedback">
-                    <a href="/cart/" id="fav">Избранное</a>
-                    <a href="/email/" id="blink">Обратный звонок</a>
-                </div>
-            </span>
+            }
         </div>
+        <div class="contactinfo">
+            <div class="tel">
+                    <img src="~/Content/images/tel.png">
+                    <p>+38093 057 7110</p>
+                    <p>+38048 788 6707</p>
+            </div>
+        </div>
+        <div class="feedback">
+            <a href="/cart/" id="fav">Избранное</a>
+            <a href="/email/" id="blink">Обратный звонок</a>
+        </div>
+        </span>
+    </div>
+
     </div>
 
     <div id="nav">
         <div class="container" id="container">
             <div class="navigation">
-                <ol>
+                <div class="logo">
+                    <a href="/" id=""><img src="~/Content/images/logo.png" width="360"></a>
+                </div>
+                <div class="ool"><ol>
                     <li>
                         <a id="">Покупка</a>
                         <ol>
@@ -151,7 +147,7 @@
                         </ol>
 
                     </li>
-                </ol>
+                </ol></div>
             </div>
             <div class="sell">
                 <a href="/email/" id="">Хочу продать!</a>

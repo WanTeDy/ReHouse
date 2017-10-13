@@ -1,12 +1,17 @@
-@font-face {
-    font-family: Casper;
-    src: url(fonts/casper/casper.woff);
-}
+
 
 @font-face {
-    font-family: Open Sans;
-    src: url('fonts/open sans/open sans.ttf');
-}
+            font-family: "MyriadPro";
+            src: url('fonts/MyriadPro/MyriadPro-Regular.woff');
+	}
+
+@font-face {
+            font-family: "ProximaNova";
+            src: url('fonts/ProximaNova/ProximaNova-Regular.woff');
+	}
+
+
+
 
 body {
     -ms-text-size-adjust: 100%;
@@ -21,140 +26,13 @@ body {
 }
 
     body a, p, button {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+
     }
 
     body a, select, button {
         cursor: pointer;
     }
 
-.d-carousel h2 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.news h3 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.news .content1 p {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.footer .bottomnav a {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.news h4 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.selection select {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.search-button a {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.sorting form a {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.products #more {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.seotext p {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.news .content1 a#more, .content2 a#more {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.news .morenews a#more {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.news h2 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.seotext3 p {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.table_of_prod table {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.map_managercard .manager .manager_info {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.about_company1 h2 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.about_company1 p {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.about_company h2 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.about_company p {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.about_company .call_us p {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.map_website a {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.form_comment h3 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.form_comment p {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.managers h2 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.managers .contactinfo h3 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.managers p {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.d-carousel a#more {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-#application h3, #emailForm h3 {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-#applicationName, #applicationEmail, #applicationTelephone {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-#applicationText {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
-
-.applicationButton {
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-}
 
 .container {
     max-width: 1500px;
@@ -284,15 +162,13 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    width: 1500px;
-    height: 145px;
-    background: url("images/goldline1.png") no-repeat 0% 8%,url("images/goldline2.png") no-repeat 100% 92%;
-    background-color: rgba(15,37,71,.95);
+    background-color: #114a82;
 }
 
 .logo {
     margin-left: 30px;
-    margin-top: 28px;
+    margin-top: 17px;
+    margin-bottom: 18px;
 }
 
     .logo a img {
@@ -402,9 +278,8 @@ body {
     text-size-adjust: 90%;
 }
 
-    .contactinfo .social {
-        margin-top: 11px;
-        margin-left: 62px;
+    .social {
+       
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -603,7 +478,7 @@ body {
 }
 
 #nav {
-    height: 84px;
+    height: 106px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -611,12 +486,20 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    background-color: #ccbf61;
+    background-color: #f3f3f9;
     min-width: 1500px;
 }
-
+.navigation {
+     display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
 .navigation > ol {
-    width: 800px;
+    width: 488px;
     margin-left: 320px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -631,14 +514,13 @@ body {
 }
 
 .navigation a {
-    color: #1d3960;
-    font-family: "Casper";
-    font-weight: 600;
-    font-size: 18px;
-    text-transform: uppercase;
     text-decoration: none;
-    height: 18px;
-    padding: 32px 23px 34px 23px;
+    padding: 45px 23px 43px 23px;
+    font-family: "ProximaNova";
+    color: #3e3e3e;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .navigation ol li a {
@@ -646,7 +528,7 @@ body {
 }
 
 .navigation ol li:hover {
-    background-color: rgba(3,2,2,.6);
+    background-color: rgba(3,2,2,0.8);
     -webkit-transition: .3s ease;
     transition: .3s ease;
 }
@@ -668,15 +550,19 @@ body {
     display: none;
     position: absolute;
     left: 0;
-    background-color: rgba(3,2,2,.6);
+    background-color: rgba(3,2,2,.8);
     color: #fff;
     width: 230px;
 }
 
     .navigation ol ol li a {
         padding: 17px 0 15px 20px;
-        color: #fff;
-        font-size: 16px;
+      text-decoration: none;
+    font-family: "ProximaNova";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
         width: 210px;
     }
 
