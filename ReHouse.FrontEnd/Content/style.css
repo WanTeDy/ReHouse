@@ -219,6 +219,11 @@ body {
             background-color:transparent;
             color: #ffffff;
         }
+        .form-search input[type="submit"]:hover {
+            background: url(images/search-h.png) no-repeat 50% 50%;
+            border-color: rgba(249, 163, 32, 0.5);;
+             transition:0.8s ease;
+        }
 
 
 
