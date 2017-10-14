@@ -83,6 +83,8 @@ body {
 .flex_header {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    width:1200px;
 }
 
 #slidebox .next {
@@ -166,7 +168,6 @@ body {
 }
 
 .logo {
-    margin-left: 30px;
     margin-top: 17px;
     margin-bottom: 18px;
 }
@@ -184,15 +185,16 @@ body {
     }
 
 .form-search {
-    padding: 4px;
-    margin-top: 30px;
+    /*padding: 4px;
+    margin-top: 30px;*/
 }
 
     .form-search input {
         height: 29px;
         padding: 0 10px 0 10px;
         border: 1px solid rgba(243, 243, 249, 0.5);
-        font-family: Casper;
+        font-family: MyriadPro;
+        font-style: italic;
         font-size: 16px;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
@@ -200,7 +202,7 @@ body {
     }
 
         .form-search input[type="submit"] {
-            width: 50px;
+            width: 30px;
             height: 29px;
             border: none;
             background: url(images/search.png) no-repeat 50% 50%;
@@ -217,6 +219,17 @@ body {
             background-color:transparent;
             color: #ffffff;
         }
+
+
+
+::-webkit-input-placeholder {color: #ffffff;opacity:0.9;}
+::-moz-placeholder          {color: #ffffff;opacity:0.9;}/* Firefox 19+ */
+:-moz-placeholder           {color: #ffffff;opacity:0.9;}/* Firefox 18- */
+:-ms-input-placeholder      {color: #ffffff;opacity:0.9;}
+input:focus::-webkit-input-placeholder { color:transparent;transition: 0.8s ease; }
+input:focus:-moz-placeholder { color:transparent; transition: 0.8s ease;} /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; transition: 0.8s ease;} /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; transition: 0.8s ease;} /* IE 10+ */
         
 .your_name {
     display: -webkit-box;
@@ -283,7 +296,7 @@ text-transform: uppercase;
 }
 
     .social {
-       
+           margin-right: 283px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -293,7 +306,7 @@ text-transform: uppercase;
         flex-direction: row;
     }
 
-    .contactinfo .tel {
+    .contactinfo .number {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -301,13 +314,27 @@ text-transform: uppercase;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
         flex-direction: row;
-        margin-left: 24px;
+        margin-left: 20px;
     }
 
-    .contactinfo .imgtel {
-        margin-right: 5px;
+     .contactinfo .number div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        margin-right:12px;
     }
-
+        .contactinfo .number div p {
+            font-family: "ProximaNova";
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .contactinfo .number div img {
+            margin-right:7px;
+        }
 .social a {
     margin-left: 5px;
 }
@@ -377,7 +404,6 @@ text-transform: uppercase;
     -ms-flex-direction: column;
     flex-direction: column;
     position: relative;
-    margin-top: 30px;
     margin-left: 52px;
     width: 100px;
 }
@@ -404,16 +430,15 @@ text-transform: uppercase;
 .header #fav {
     position: relative;
     padding: 11px 0 11px 46px;
-    background-color: #123360;
     text-decoration: none;
     width: 117px;
     height: 13px;
-    color: #fff;
-    font-family: Casper;
+        font-family: "ProximaNova";
+    font-size: 14px;
+    font-weight: 700;
     font-size: 15px;
-    border-radius: 10px;
     border: 1px solid #fff;
-    margin-bottom: 9px;
+    color:#fff;
 }
 
 .header #blink:before {
@@ -432,7 +457,7 @@ text-transform: uppercase;
     content: "";
     display: block;
     position: absolute;
-    background-image: url('images/heart.png');
+    background-image: url('images/star-w.png');
     background-repeat: no-repeat;
     left: 7px;
     top: 4px;
@@ -477,9 +502,36 @@ text-transform: uppercase;
     }
 }
 
+
 .header #fav:hover {
-    color: #ffd700;
+    position: relative;
+    padding: 11px 0 11px 46px;
+    text-decoration: none;
+    width: 117px;
+    height: 13px;
+        font-family: "ProximaNova";
+    font-size: 14px;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid #f9a320;
+    color:#f9a320;
+    transition:0.6s ease;
 }
+.header #fav:hover:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-image: url('images/star-h.png');
+    background-repeat: no-repeat;
+    left: 7px;
+    top: 4px;
+    width: 27px;
+    height: 26px;
+    transition:0.6s ease;
+}
+
+
+
 
 #nav {
     height: 106px;
@@ -516,10 +568,13 @@ text-transform: uppercase;
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+.navigation .ool {
+    margin-left:30px;
+}
 
 .navigation a {
     text-decoration: none;
-    padding: 45px 23px 43px 23px;
+    padding: 45px 23px 42px 23px;
     font-family: "ProximaNova";
     color: #3e3e3e;
     font-size: 14px;
@@ -582,11 +637,12 @@ text-transform: uppercase;
 }
 
 #nav .sell {
-   margin-left: 1113px;
+   margin-left: 1002px;
     margin-top: -78px;
 }
 #nav .sell img:hover {
             opacity: 0.8;
+            transition:0.6s ease;
         }
 
 .h1 {
@@ -2691,10 +2747,6 @@ text-transform: uppercase;
 
 .add_photo .photo_ a:hover {
     color: #ffa500;
-}
-
-.header .contactinfo .tel {
-    margin-top: 29px;
 }
 
 .thumb {
