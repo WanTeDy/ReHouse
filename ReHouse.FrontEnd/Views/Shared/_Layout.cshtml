@@ -269,78 +269,72 @@
         @if (ViewBag.Articles != null)
         {
             <div class="news">
-                <h2>Новости</h2>
                 @foreach (Article article in ViewBag.Articles)
                 {
-                    <div class="firstnews">
+                    <a href=""><div class="firstnews">
                         <div class="content1">
                             <div class="img">
                                 @if (article.Images != null && article.Images.Count > 0)
                                 {
-                                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)?w=440&h=263&mode=max" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
+                                    <img src="~/Content/images/news1.jpg" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="545" height="307" />
                                 }
                                 else
                                 {
                                     <img src="~/Content/images/news1.jpg" width="440" height="263">
                                 }
                             </div>
-                            <h3>@article.Title</h3>
-                            @if (article.Description.Length > 350)
-                            {
-                                <p id="news_@article.Id">@Html.Raw(article.Description.Substring(0, 349))...</p>
-                            }
-                            else
-                            {
-                                <p>@Html.Raw(article.Description)</p>
-                            }
-                            <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
-                            <a href="/news/detail/@article.Id" @*onclick="showDetails(@article.Id, this);"*@ id="more">Подробнее</a>
-                            @*<p id="newsHidden_@article.Id" style="display:none">@article.Description</p>*@
+                            <div class="h4"><h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4></div>
+                            <div class="h3"><h3>@article.Title</h3></div>
                         </div>
-                    </div>
+                    </div></a>
                 }
-                <div class="morenews">
-                    <a href="/news/" id="more">Все новости</a>
-                </div>
+            </div>
+            <div class="morenews">
+                <a href="/news/" id="more">Все новости</a>
             </div>
         }
-        <div class="footer">
-            <div id="toTop"></div>
-            <div class="social">
-                <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
-            </div>
-            <div class="bottomnav">
-                <a href="/news/" class="">Новости</a>
-                <a href="/home/contacts/" class="">Контакты</a>
-                <a href="/map/" class="">Карта сайта</a>
-                <a href="/feedback/" class="">Отзывы</a>
-                @if (Session == null || Session["user"] == null)
-                {
-                    <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
-                    <div class="forms-wrapper">
-                        <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
-                            <ol class="login">
-                                <li>
-                                    <div class="login">
-                                        <div class="bodyform">
-                                            @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
-                                        </div>
-                                    </div>
-                                </li>
-                            </ol>
-                        </div>
+    </div>
+        <div class="container" id="container">
+            <div class="footer">
+
+                
+                    <div id="toTop"></div>
+                    <div class="social">
+                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                        <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                        @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
                     </div>
-                }
-                else
-                {
-                    @Html.ActionLink("Выйти", "logout", "authorize")
-                }
+                    <div class="bottomnav">
+                        <a href="/news/" class="">Новости</a>
+                        <a href="/home/contacts/" class="">Контакты</a>
+                        <a href="/map/" class="">Карта сайта</a>
+                        <a href="/feedback/" class="">Отзывы</a>
+                        @if (Session == null || Session["user"] == null)
+                        {
+                            <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+                            <div class="forms-wrapper">
+                                <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
+                                    <ol class="login">
+                                        <li>
+                                            <div class="login">
+                                                <div class="bodyform">
+                                                    @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Выйти", "logout", "authorize")
+                        }
+                    </div>
+                
             </div>
         </div>
-    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jcarouselLite")
     @RenderSection("scripts", required: false)

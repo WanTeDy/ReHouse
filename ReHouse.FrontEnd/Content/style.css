@@ -20,9 +20,7 @@ body {
     text-size-adjust: 100%;
     margin: 0;
     padding: 0;
-    background-image: -webkit-gradient(linear,left bottom,left top,from(#0e2447),color-stop(13.5%,#0e2447),color-stop(50%,#163d7d),color-stop(86.5%,#0e2447),to(#0e2447));
-    background-image: linear-gradient(to top,#0e2447 0%,#0e2447 13.5%,#163d7d 50%,#0e2447 86.5%,#0e2447 100%);
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    background-color:#f3f3f9;
 }
 
     body a, p, button {
@@ -919,62 +917,58 @@ text-transform: uppercase;
     margin-top: 9px;
     
 }
-
+#testimonials {
+    margin-bottom:20px;
+}
 .news {
-    width: 1332px;
+    width: 1200px;
+    display:flex;
+    flex-direction:row;
+    background-color:#f3f3f9;
+        justify-content: space-around;
 }
 
     .news .img {
-        display: inline-block;
-        float: left;
-        margin-right: 19px;
+        
     }
 
     .news .firstnews, .secondnews {
-        padding-top: 20px;
-        padding-bottom: 25px;
-        margin-left: 85px;
-        text-align: center;
-        width: 1332px;
-        border: 2px solid #fff;
-        border-radius: 10px;
+      
     }
 
-    .news div {
-        margin-bottom: 9px;
+    .news a{
+        text-decoration:none;
     }
-
-    .news h2 {
-        margin-top: 35px;
-        margin-left: 225px;
-        margin-bottom: 9px;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-size: 24px;
-        font-weight: 700;
-        text-transform: uppercase;
+      .news .h4 {
+       background-image: url('images/bg-date.png');
+       background-repeat:no-repeat;
+       width: 120px;
+       text-align:center;
+       margin-left: 29px;       
+        margin-top:-83px;
     }
-
+    .news .h3 {
+        width: 485px;
+        height:70px;
+        border: 1px solid #e5e5f8;
+        margin:auto;
+    }
     .news h3 {
-        margin-bottom: 20px;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-size: 19px;
+          color: #114a82;
+        font-family: "ProximaNova";
+        font-size: 18px;
         font-weight: 700;
-        text-transform: uppercase;
-        line-height: 25px;
-        text-align: center;
+        text-align:center;
+        padding: 26px 0 26px 0;
+        background-color:#fff;
     }
 
     .news h4 {
-        margin-bottom: 30px;
-        margin-top: 20px;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-size: 18px;
+        margin-bottom: 15px;
+        margin-top: 28px;
+        color: #ffffff;
+        font-family: "ProximaNova";
+        font-size: 14px;
         font-weight: 700;
         text-transform: uppercase;
     }
@@ -989,86 +983,51 @@ text-transform: uppercase;
     }
 
     .news .content1, .content2 {
-        width: 1055px;
-        text-align: justify;
-        display: inline-block;
-        vertical-align: top;
-        margin-left: 0;
+       width: 545px;
+        margin-top:30px;
+         display:flex;
+        flex-direction:column;
+    }
+    .news .content1:hover {
+            -webkit-transform: scale(1.03);
+            -moz-transform: scale(1.03);
+            -o-transform: scale(1.03);
+            -moz-transition: all 0.8s ease-out;
+            -o-transition: all 0.8s ease-out;
+            -webkit-transition: all 0.8s ease-out;
+            box-shadow: 0 0 34px rgba(0,0,0,0.5);
+}
     }
 
-        .news .content1 a#more, .content2 a#more {
-            padding: 10px 220px 10px 220px;
-            border-radius: 10px;
-            background: none;
-            border: 1px solid #fff;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            margin-left: 35px;
-        }
 
-            .news .content1 a#more:hover {
-                background-image: -webkit-gradient(linear,left bottom,left top,from(#797f2b),color-stop(13.5%,#959958),color-stop(50%,#fff),color-stop(86.5%,#f9feb1),to(#f6fea3));
-                background-image: linear-gradient(to top,#797f2b 0%,#959958 13.5%,#fff 50%,#f9feb1 86.5%,#f6fea3 100%);
-                color: #213b64;
-                -webkit-transition: .5s ease;
-                transition: .5s ease;
-            }
-
-    .news .content2 a#more:hover {
-        background-image: -webkit-gradient(linear,left bottom,left top,from(#797f2b),color-stop(13.5%,#959958),color-stop(50%,#fff),color-stop(86.5%,#f9feb1),to(#f6fea3));
-        background-image: linear-gradient(to top,#797f2b 0%,#959958 13.5%,#fff 50%,#f9feb1 86.5%,#f6fea3 100%);
-        color: #213b64;
-        -webkit-transition: .5s ease;
-        transition: .5s ease;
-    }
-
-    .news .morenews {
-        margin-top: 22px;
-        margin-bottom: 65px;
-    }
-
-    .news .morenews1 {
-        margin-top: 22px;
-        margin-bottom: 65px;
-    }
 
     .news .img img {
         -o-object-fit: cover;
         object-fit: cover;
-        margin-top: 5px;
-        height: 300px;
     }
-
-    .news .morenews #more {
-        padding: 11px 469px 10px 474px;
-        border-radius: 10px;
-        background: none;
-        border: 1px solid #fff;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-        text-decoration: none;
-        margin-left: 225px;
+.morenews {
+    margin:auto;
+    width: 145px;
+    margin-top:40px;
+    margin-bottom:90px;
+}
+ .morenews #more {
+            display: block;
+            width: 145px;
+            padding: 18px 0px 17px 0px;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: "ProximaNova";
+            font-size: 18px;
+            font-weight: 700;;
+            text-align: center;
+            background-color: #114a82;
     }
-
-    .news .morenews1 #more {
-        padding: 11px 450px 10px 448px;
-        border-radius: 10px;
-        background: none;
-        border: 1px solid #fff;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-        text-decoration: none;
-        margin-left: 225px;
+    .morenews #more:hover {
+        -webkit-transition: .8s ease;
+        transition: .8s ease;
+        background-color: #f9a320;
+        color: #114a82;
     }
 
     .news .morenews #more:hover {
@@ -1289,10 +1248,11 @@ text-transform: uppercase;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
+    background-color:#114a82;
+    margin:0 auto;
 }
 
     .footer .social {
-        margin-left: 225px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -1306,58 +1266,45 @@ text-transform: uppercase;
             margin-left: 2px;
         }
 
-        .footer .social .vk {
-            height: 39px;
-            width: 39px;
-            background-image: url('images/vk.png');
-            background-repeat: no-repeat;
-        }
-
-            .footer .social .vk:hover {
-                height: 39px;
-                width: 39px;
-                background-image: url('images/vk-g.png');
-                display: block;
-            }
-
+    
         .footer .social .fb {
-            height: 39px;
-            width: 39px;
+            height: 50px;
+            width: 50px;
             background-image: url('images/fb.png');
             background-repeat: no-repeat;
         }
 
             .footer .social .fb:hover {
-                height: 39px;
-                width: 39px;
+                height: 50px;
+                width: 50px;
                 background-image: url('images/fb-g.png');
                 display: block;
             }
 
         .footer .social .tw {
-            height: 39px;
-            width: 39px;
+            height: 50px;
+            width: 50px;
             background-image: url('images/tw.png');
             background-repeat: no-repeat;
         }
 
             .footer .social .tw:hover {
-                height: 39px;
-                width: 39px;
+                height: 50px;
+                width: 50px;
                 background-image: url('images/tw-g.png');
                 display: block;
             }
 
         .footer .social .gmail {
-            height: 39px;
-            width: 39px;
+            height: 50px;
+            width: 50px;
             background-image: url('images/gmail.png');
             background-repeat: no-repeat;
         }
 
             .footer .social .gmail:hover {
-                height: 39px;
-                width: 39px;
+                height: 50px;
+                width: 50px;
                 background-image: url('images/gmail-g.png');
                 display: block;
             }
