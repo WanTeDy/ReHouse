@@ -410,9 +410,6 @@
       <DependentUpon>minslider.css</DependentUpon>
     </Content>
     <Content Include="Content\mobile.css" />
-    <Content Include="Content\mobile.min.css">
-      <DependentUpon>mobile.css</DependentUpon>
-    </Content>
     <Content Include="Content\reset.css" />
     <Content Include="Content\reset.min.css">
       <DependentUpon>reset.css</DependentUpon>

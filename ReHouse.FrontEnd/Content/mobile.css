@@ -1,4 +1,4 @@
-@media(max-width:1499px) and (min-width:769px) {
+/*@media(max-width:1499px) and (min-width:769px) {
     .tags {
     }
 .news .content1 a.intext {
@@ -301,11 +301,8 @@
         margin-left: 65px;
     }
 }
-
+*/
 @media(max-width:768px) {
-    .tags {
-    }
-
 
     .h2novostroy .favorite {
         position: absolute;

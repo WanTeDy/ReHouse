@@ -32,6 +32,7 @@
 <div class="slider-of-products">
     <div class="d-carousel" id="p">
         <h2><span>Горячие</span> предложения</h2>
+        <div class="streak"></div>
         <ul class="carousel">
             @foreach (var item in Model.NewBuildingAdverts)
             {
@@ -57,10 +58,11 @@
         </ul>
         <a href="/sale/flat/" class="moremore" id="more">Смотреть больше</a>
     </div>
-    <div class="streak"></div>
+ 
 
     <div class="d-carousel" id="p">
         <h2><span>Квартиры</span> в Новостроях</h2>
+        <div class="streak"></div>
         <ul class="carousel">
             @foreach (var item in Model.NewBuildingAdverts)
             {
@@ -86,10 +88,11 @@
         </ul>
             <a href="/newbuilding/" id="more">Смотреть больше</a>
         </div>
-    <div class="streak"></div>
+    
 
     <div class="d-carousel" id="p">
         <h2><span>Продажа</span> квартир</h2>
+        <div class="streak"></div>
         <ul class="carousel">
             @foreach (var item in Model.NewBuildingAdverts)
             {
@@ -115,10 +118,11 @@
         </ul>
         <a href="/sale/flat/" id="more">Смотреть больше</a>
     </div>
-    <div class="streak"></div>
+  
 
     <div class="d-carousel" id="p">
         <h2><span>Продажа</span> домов и участков</h2>
+        <div class="streak"></div>
         <ul class="carousel">
             @foreach (var item in Model.NewBuildingAdverts)
             {
@@ -144,9 +148,10 @@
         </ul>
         <a href="/sale/house/" id="more">Смотреть больше</a>
     </div>
-
+    
     <div class="d-carousel" id="p">
         <h2><span>Коммерческая</span> недвижимость</h2>
+        <div class="streak"></div>
         <ul class="carousel">
             @foreach (var item in Model.NewBuildingAdverts)
             {
@@ -173,4 +178,40 @@
         <a href="/sale/flat/" id="more">Смотреть больше</a>
     </div>
 
+</div>
+
+
+
+
+
+<div id="testimonials">
+    <div class="container">
+        <div class="block-one-example">
+
+            <div id="customNav" class="owl-my-nav"></div>
+            <div class="owl-carousel block-items">
+                <div class="item">
+                    <div class="inner-testimonial">
+                        <img src="img/client1.png" class="full-opacity" alt="Клиент 1">
+                        <h3 class="city-name">Иван, Москва</h3>
+                        <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="inner-testimonial">
+                        <img src="img/client2.png" class="full-opacity" alt="Клиент 2">
+                        <h3 class="city-name">Светлана, Екатеринбург</h3>
+                        <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="inner-testimonial">
+                        <img src="img/client3.png" class="full-opacity" alt="Клиент 3">
+                        <h3 class="city-name">Александр, Ярославль</h3>
+                        <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .block-one-example -->
+    </div>
 </div>

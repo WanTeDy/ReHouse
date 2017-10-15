@@ -35,7 +35,7 @@ body {
 
 
 .container {
-    max-width: 1500px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
 }
@@ -548,7 +548,7 @@ text-transform: uppercase;
     -ms-flex-direction: row;
     flex-direction: row;
     background-color: #f3f3f9;
-    min-width: 1500px;
+    min-width: 1200px;
 }
 .navigation {
      display: -webkit-box;
@@ -825,7 +825,7 @@ text-transform: uppercase;
 
     .d-carousel .jcarousel-next-horizontal {
         position: absolute;
-        top: 0px;
+        top: 23px;
         right: 0;
         width: 30px;
         height: 30px;
@@ -839,7 +839,7 @@ text-transform: uppercase;
 
     .d-carousel .jcarousel-prev-horizontal {
         position: absolute;
-        top: 0px;
+        top: 23px;
         right: 36px;
         width: 30px;
         height: 30px;
@@ -853,7 +853,6 @@ text-transform: uppercase;
 
     .d-carousel h2 {
         margin-top: 35px;
-        margin-left: 46px;
         margin-bottom: 9px;
         color: #114a82;
         font-family: "ProximaNova";
@@ -881,7 +880,7 @@ text-transform: uppercase;
         letter-spacing: 1.5px;
         right: 0;
         margin-right: 0;
-        margin-left: 958px;
+        margin-left: 810px;
     }
 
         .d-carousel #more:hover {
@@ -912,12 +911,13 @@ text-transform: uppercase;
 
 
 .streak {
-    margin: 0;
-    width: 1333px;
-    height: 3px;
-    background-color: #fff;
-    margin-top: 29px;
-    margin-left: 84px;
+    margin: 0 auto;
+    min-width:1200px;
+    width: 1200px;
+    height: 1.1px;
+    background-color: #e5e5f8;
+    margin-top: 9px;
+    
 }
 
 .news {
