@@ -51,71 +51,78 @@
     }
     @Styles.Render("~/Content/styleCss")
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/mobile.min.css">    
+    <link rel="stylesheet" href="~/Content/mobile.css"> 
+
+    <!--New Styles-->
+    <link rel="stylesheet" href="~/Content/animate.css">
+    <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/stylecomm.css">
+    <!--end new Styyles-->
+    
+       
 </head>
 <body>
     <div class="header">
         <div class="container" id="container">
             <span class="flex_header">
-                <div class="logo">
-                    <a href="/" id=""><img src="~/Content/images/logo.png" width="350"></a>
-                    <p class="textlogo">Международная риэлторская инвестиционная компания</p>
-                </div>
-                <div class="search">
-                    <p>
-                        <form class="form-search" method="get" action="/search/flats">
-                            <input type="text" name="query" placeholder="Поиск" value="" />
-                            <input type="submit" value="">
-                        </form>
-                    </p>
-                    @if (Session != null && Session["user"] is SessionModel)
+               <div class="social">
+                <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
+            </div>
+        <div class="search">
+            <p>
+                <form class="form-search" method="get" action="/search/flats">
+                    <input type="text" name="query" placeholder="Поиск" value="" />
+                    <input type="submit" value="">
+                </form>
+            </p>
+            @if (Session != null && Session["user"] is SessionModel)
+            {
+                var session = Session["user"] as SessionModel;
+
+                <div class="your_name">
+                    <div><p>Ваш логин:</p></div>
+                    @if (!String.IsNullOrEmpty(session.User.Login))
                     {
-                        var session = Session["user"] as SessionModel;
+                        <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
 
-                        <div class="your_name">
-                            <div><p>Ваш логин:</p></div>
-                            @if (!String.IsNullOrEmpty(session.User.Login))
-                            {
-                                <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
-
-                            }
-                            else
-                            {
-                                <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Email</a></p></div>
-                            }
-                            <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
-                        </div>
                     }
+                    else
+                    {
+                        <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Email</a></p></div>
+                    }
+                    <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
                 </div>
-                <div class="contactinfo">
-                    <div class="tel">
-                        <div class="imgtel">
-                            <img src="~/Content/images/tel.png">
-                        </div>
-                        <div class="number">
-                            <p>+38093 057 7110</p>
-                            <p>+38048 788 6707</p>
-                        </div>
-                    </div>
-                    <div class="social">
-                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                        <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                        @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
-                    </div>
-                </div>
-                <div class="feedback">
-                    <a href="/cart/" id="fav">Избранное</a>
-                    <a href="/email/" id="blink">Обратный звонок</a>
-                </div>
-            </span>
+            }
         </div>
+        <div class="contactinfo">
+            <div class="tel">
+                <div class="number">
+                    <div><img src="~/Content/images/tel.png" style="width:10px" height="10px"><p>+38093 057 7110</p></div>
+                    <div><img src="~/Content/images/tel.png" style="width:10px" height="10px"><p>+38048 788 6707</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="feedback">
+            <a href="/cart/" id="fav">Избранное</a>
+            <a href="/email/" id="blink">Обратный звонок</a>
+        </div>
+        </span>
+    </div>
+
     </div>
 
     <div id="nav">
         <div class="container" id="container">
             <div class="navigation">
-                <ol>
+                <div class="logo">
+                    <a href="/" id=""><img src="~/Content/images/logo.png" width="360"></a>
+                </div>
+                <div class="ool"><ol>
                     <li>
                         <a id="">Покупка</a>
                         <ol>
@@ -151,14 +158,18 @@
                         </ol>
 
                     </li>
-                </ol>
+                </ol></div>
             </div>
             <div class="sell">
-                <a href="/email/" id="">Хочу продать!</a>
+                <a href="/email/" id=""><img src="~/Content/images/tosell.png"</a>
             </div>
         </div>
     </div>
+
+
+
     <div class="container" id="container">
+        <!--
         <div id="slidebox">
             <div class="textinslider">
                 <div class="h1">
@@ -179,16 +190,16 @@
             <div class="next"></div>
             <div class="previous"></div>
             <div class="thumbs">
-                <a href="#" onclick="" class="1 thumbActive" id="a"></a> <!-- ◯ -->
-                <a href="#" onclick="" class="2" id="b"></a> <!-- ◯ -->
-                <a href="#" onclick="" class="3" id="c"></a> <!-- ◯ -->
-                <a href="#" onclick="" class="4" id="d"></a> <!-- ◯ -->
+                <a href="#" onclick="" class="1 thumbActive" id="a"></a> 
+                <a href="#" onclick="" class="2" id="b"></a> 
+                <a href="#" onclick="" class="3" id="c"></a> 
+                <a href="#" onclick="" class="4" id="d"></a> 
             </div>
             <ul class="listofimg">
                 <li><img src="~/Content/images/1.png?format=jpg&quality=70" width="1500px" height="380px"></li>
                 <li><img src="~/Content/images/2.png?format=jpg&quality=70" width="1500px" height="380px"></li>
                 <li><img src="~/Content/images/3.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                <li><img src="~/Content/images/4.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                <li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>
             </ul>
         </div>
     </div>
@@ -236,12 +247,9 @@
                     <a href="/cart/" id="fav1"></a>
                 </div>
                 <div class="tel">
-                    <div class="imgtel">
-                        <img src="~/Content/images/tel.png">
-                    </div>
                     <div class="number">
-                        <p>+38093 057 7110</p>
-                        <p>+38048 788 6707</p>
+                        <div><img src="~/Content/images/tel.png"><p>+38093 057 7110</p></div>
+                        <div><img src="~/Content/images/tel.png"><p>+38048 788 6707</p></div>
                     </div>
                 </div>
             </div>
@@ -255,6 +263,7 @@
             </p>
         </div>
     </div>
+            -->
     <div class="container" id="container">
         @RenderBody()
         @if (ViewBag.Articles != null)
@@ -340,6 +349,20 @@
     @Scripts.Render("~/Scripts/foundation")
     @Scripts.Render("~/Scripts/vendorJs")
     @Scripts.Render("~/Scripts/modulesJs")
+
+
+
+
+        <!--new scripts-->
+        @Scripts.Render("~/Scripts/comments/jquery-2.1.3.min")
+        @Scripts.Render("~/Scripts/comments/owl.carousel.min")
+        @Scripts.Render("~/Scripts/comments/custom")
+        <!--end new scripts-->
+
+
+
+
+
     <script type="text/javascript">
         $(document).foundation();
         $(document).foundation('dropdown', 'reflow');
