@@ -44,8 +44,8 @@ namespace ReHouse.Utils.BusinessOperations.Users
                     if (Success)
                     {
                         var role = Context.Roles.FirstOrDefault(x => x.RussianName == ConstV.RoleRieltor);
-                        user.RoleId = role.Id;
-                        user.IsActive = false;
+                        newUser.RoleId = role.Id;
+                        newUser.IsActive = false;
 
                         if (_image != null)
                         {
@@ -72,20 +72,11 @@ namespace ReHouse.Utils.BusinessOperations.Users
                                 FileName = filename + ".jpg",
                                 Url = url,
                             };
-
-                            var deleteImg = newUser.Avatar;
-                            if (deleteImg != null)
-                            {
-                                FileInfo fileInf = new FileInfo(path + deleteImg.FileName);
-                                if (fileInf.Exists)
-                                {
-                                    fileInf.Delete();
-                                }
-                                Context.Avatars.Remove(deleteImg);
-                            }
+                                                        
                             Context.Avatars.Add(avatar);
                             newUser.Avatar = avatar;
                         }
+                        Context.Users.Add(newUser);
                         Context.SaveChanges();
                     }
                 }

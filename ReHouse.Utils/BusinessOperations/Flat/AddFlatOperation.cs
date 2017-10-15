@@ -71,6 +71,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                         RentPeriodType = _model.RentPeriodType,
                         //TitleName = _model.TitleName,
                     };
+                    var random = new Random(DateTime.Now.Millisecond);
                     if (_images != null)
                     {
                         foreach (var imageFile in _images)
@@ -87,12 +88,12 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                 MemoryStream ms = new MemoryStream(data);
                                 //imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
                                 //int point = imageFile.FileName.LastIndexOf('.');
-                                var filename = HashHelper.GetMd5Hash("image_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                                var filename = HashHelper.GetMd5Hash("image_" + random.Next(1000, 100000) + "_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                                 ImageBuilder.Current.Build(
                                     new ImageJob(ms, //imageFile.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1000&maxheight=1000&format=jpg&quality=70&watermark=water"),
+                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=70&watermark=water"),
                                     false,
                                     true));
 
@@ -123,12 +124,12 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                 MemoryStream ms = new MemoryStream(data);
                                 //imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
                                 //int point = imageFile.FileName.LastIndexOf('.');
-                                var filename = HashHelper.GetMd5Hash("image_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                                var filename = HashHelper.GetMd5Hash("image_" + random.Next(1000, 100000) + "_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
 
                                 ImageBuilder.Current.Build(
                                     new ImageJob(ms, //imageFile.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1000&maxheight=1000&format=jpg&quality=70&watermark=water"),
+                                    new Instructions("maxwidth=1200&maxheight=1200&format=jpg&quality=70&watermark=water"),
                                     false,
                                     true));
 

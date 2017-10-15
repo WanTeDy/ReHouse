@@ -15,6 +15,8 @@ namespace ReHouse.Utils.BusinessOperations.Users
         public LoadUsersOperation(string tokenHash, int page, int count)
         {
             _tokenHash = tokenHash;
+            _page = page;
+            _count = count;
             RussianName = "Загрузка списка пользователей";
         }
 
