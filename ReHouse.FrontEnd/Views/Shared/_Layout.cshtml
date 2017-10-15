@@ -51,7 +51,17 @@
     }
     @Styles.Render("~/Content/styleCss")
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/mobile.css">    
+    <link rel="stylesheet" href="~/Content/mobile.css"> 
+
+    <!--New Styles-->
+    <link rel="stylesheet" href="~/Content/animate.css">
+    <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/stylecomm.css">
+    <!--end new Styyles-->
+    
+       
 </head>
 <body>
     <div class="header">
@@ -339,6 +349,20 @@
     @Scripts.Render("~/Scripts/foundation")
     @Scripts.Render("~/Scripts/vendorJs")
     @Scripts.Render("~/Scripts/modulesJs")
+
+
+
+
+        <!--new scripts-->
+        @Scripts.Render("~/Scripts/comments/jquery-2.1.3.min")
+        @Scripts.Render("~/Scripts/comments/owl.carousel.min")
+        @Scripts.Render("~/Scripts/comments/custom")
+        <!--end new scripts-->
+
+
+
+
+
     <script type="text/javascript">
         $(document).foundation();
         $(document).foundation('dropdown', 'reflow');
