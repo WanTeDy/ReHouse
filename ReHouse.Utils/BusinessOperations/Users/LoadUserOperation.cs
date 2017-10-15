@@ -29,7 +29,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                 //if (user.Id != _userId)                
                 //    new CheckUserRoleAuthorityOperation(_tokenHash, Name, RussianName);
                 
-                var userForWatching = Context.Users.FirstOrDefault(x => x.Id == _userId && !x.Deleted && x.IsActive);
+                var userForWatching = Context.Users.FirstOrDefault(x => x.Id == _userId && !x.Deleted);
                 if (userForWatching != null)
                 {
                     _user = new User

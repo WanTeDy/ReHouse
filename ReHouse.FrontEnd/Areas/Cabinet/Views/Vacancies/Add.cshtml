@@ -21,7 +21,7 @@
 
                     <tr>
                         <td>Содержание:</td>
-                        <td>@Html.TextAreaFor(m => m.Description, new { @rows = "30", @cols = "30" })</td>
+                        <td>@Html.TextAreaFor(m => m.Description, new { @rows = "30", @cols = "30", @id = "wyiswyg" })</td>
                     </tr>
                     <tr>
                         <td></td>
@@ -33,8 +33,10 @@
     </div>
 </div>
 
-<script>
-    $(function () {
-        $("textarea").jqte();
-    });
-</script>
+@section scripts {
+    <script>
+        $(function () {
+            $("textarea#wyiswyg").jqte();
+        });
+    </script>
+}

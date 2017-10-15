@@ -380,9 +380,6 @@
     <Content Include="Content\images\manager.jpg" />
     <Content Include="Content\images\manager.png" />
     <Content Include="Content\images\minphone.png" />
-    <Content Include="Content\images\newBuildings\images\img_1538_131350239299583769_131372868828285270.jpg" />
-    <Content Include="Content\images\newBuildings\images\img_1545_131350239306771193_131372868842892271.jpg" />
-    <Content Include="Content\images\newBuildings\images\img_1553_131350239312083706_131372868849282115.jpg" />
     <Content Include="Content\images\newred.png" />
     <Content Include="Content\images\news\img_1514_131350239275052451_131372751947354835.jpg" />
     <Content Include="Content\images\OSo6WLs.png" />
@@ -767,6 +764,7 @@
     <Folder Include="Areas\Cabinet\Models\" />
     <Folder Include="Areas\Cabinet\Views\Authorize\" />
     <Folder Include="Areas\Cabinet\Views\Image\" />
+    <Folder Include="Content\images\newBuildings\images\" />
     <Folder Include="Content\images\newBuildings\plans\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

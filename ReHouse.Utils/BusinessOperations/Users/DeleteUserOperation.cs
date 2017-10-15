@@ -23,7 +23,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
             {
                 foreach (var userId in _usersId)
                 {
-                    var user = Context.Users.FirstOrDefault(x => x.Id == userId && !x.Deleted && x.IsActive);
+                    var user = Context.Users.FirstOrDefault(x => x.Id == userId && !x.Deleted);
                     if (user != null && user.Role.RussianName != ConstV.RoleAdministrator)
                         user.Deleted = true;
                 }
