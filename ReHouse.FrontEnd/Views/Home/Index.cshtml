@@ -29,163 +29,166 @@
         });
     </script>
 }
-<div class="slider-of-products">
-    <div class="d-carousel" id="p">
-        <h2><span>Горячие</span> предложения</h2>
-        <div class="streak"></div>
-        <ul class="carousel">
-            @foreach (var item in Model.NewBuildingAdverts)
+<div class="container" id="container">
+    <div class="slider-of-products">
+        <div class="d-carousel" id="p">
+            <h2><span>Горячие</span> предложения</h2>
+            <div class="streak"></div>
+            <ul class="carousel">
+                @foreach (var item in Model.NewBuildingAdverts)
             {
-                <li>
-                    <a href="">
+                    <li>
+                        <a href="">
 
-                        <h3>Продам дом</h3>
-                        <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                        <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
-                        <div class="meters">
-                            <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                            <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
-                        </div>
-                        <div class="bottom">
-                            <div><p class="cost">150000 $</p></div>
-                            <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
-                        </div>
-                    </a>
-                </li>
-            }
-        </ul>
-        <a href="/sale/flat/" class="moremore" id="more">Смотреть больше</a>
-    </div>
+                            <h3>Продам дом</h3>
+                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
+                            <div class="meters">
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                            </div>
+                            <div class="bottom">
+                                <div><p class="cost">150000 $</p></div>
+                                <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <a href="/sale/flat/" class="moremore" id="more">Смотреть больше</a>
+        </div>
 
 
-    <div class="d-carousel" id="p">
-        <h2><span>Квартиры</span> в Новостроях</h2>
-        <div class="streak"></div>
-        <ul class="carousel">
-            @foreach (var item in Model.NewBuildingAdverts)
+        <div class="d-carousel" id="p">
+            <h2><span>Квартиры</span> в Новостроях</h2>
+            <div class="streak"></div>
+            <ul class="carousel">
+                @foreach (var item in Model.NewBuildingAdverts)
             {
-                <li>
-                    <a href="">
+                    <li>
+                        <a href="">
 
-                        <h3>Продам дом</h3>
-                        <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                        <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
-                        <div class="meters">
-                            <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                            <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
-                        </div>
-                        <div class="bottom">
-                            <div><p class="cost">150000 $</p></div>
-                            <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
-                        </div>
-                    </a>
-                </li>
-            }
-        </ul>
-        <a href="/newbuilding/" id="more">Смотреть больше</a>
-    </div>
+                            <h3>Продам дом</h3>
+                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
+                            <div class="meters">
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                            </div>
+                            <div class="bottom">
+                                <div><p class="cost">150000 $</p></div>
+                                <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <a href="/newbuilding/" id="more">Смотреть больше</a>
+        </div>
 
 
-    <div class="d-carousel" id="p">
-        <h2><span>Продажа</span> квартир</h2>
-        <div class="streak"></div>
-        <ul class="carousel">
-            @foreach (var item in Model.NewBuildingAdverts)
+        <div class="d-carousel" id="p">
+            <h2><span>Продажа</span> квартир</h2>
+            <div class="streak"></div>
+            <ul class="carousel">
+                @foreach (var item in Model.NewBuildingAdverts)
             {
-                <li>
-                    <a href="">
+                    <li>
+                        <a href="">
 
-                        <h3>Продам дом</h3>
-                        <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                        <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
-                        <div class="meters">
-                            <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                            <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
-                        </div>
-                        <div class="bottom">
-                            <div><p class="cost">150000 $</p></div>
-                            <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
-                        </div>
-                    </a>
-                </li>
-            }
-        </ul>
-        <a href="/sale/flat/" id="more">Смотреть больше</a>
-    </div>
+                            <h3>Продам дом</h3>
+                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
+                            <div class="meters">
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                            </div>
+                            <div class="bottom">
+                                <div><p class="cost">150000 $</p></div>
+                                <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <a href="/sale/flat/" id="more">Смотреть больше</a>
+        </div>
 
 
-    <div class="d-carousel" id="p">
-        <h2><span>Продажа</span> домов и участков</h2>
-        <div class="streak"></div>
-        <ul class="carousel">
-            @foreach (var item in Model.NewBuildingAdverts)
+        <div class="d-carousel" id="p">
+            <h2><span>Продажа</span> домов и участков</h2>
+            <div class="streak"></div>
+            <ul class="carousel">
+                @foreach (var item in Model.NewBuildingAdverts)
             {
-                <li>
-                    <a href="">
+                    <li>
+                        <a href="">
 
-                        <h3>Продам дом</h3>
-                        <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                        <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
-                        <div class="meters">
-                            <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                            <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
-                        </div>
-                        <div class="bottom">
-                            <div><p class="cost">150000 $</p></div>
-                            <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
-                        </div>
-                    </a>
-                </li>
-            }
-        </ul>
-        <a href="/sale/house/" id="more">Смотреть больше</a>
-    </div>
+                            <h3>Продам дом</h3>
+                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
+                            <div class="meters">
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                            </div>
+                            <div class="bottom">
+                                <div><p class="cost">150000 $</p></div>
+                                <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <a href="/sale/house/" id="more">Смотреть больше</a>
+        </div>
 
-    <div class="d-carousel" id="p">
-        <h2><span>Коммерческая</span> недвижимость</h2>
-        <div class="streak"></div>
-        <ul class="carousel">
-            @foreach (var item in Model.NewBuildingAdverts)
+        <div class="d-carousel" id="p">
+            <h2><span>Коммерческая</span> недвижимость</h2>
+            <div class="streak"></div>
+            <ul class="carousel">
+                @foreach (var item in Model.NewBuildingAdverts)
             {
-                <li>
-                    <a href="">
+                    <li>
+                        <a href="">
 
-                        <h3>Продам дом</h3>
-                        <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                        <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
-                        <div class="meters">
-                            <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                            <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
-                        </div>
-                        <div class="bottom">
-                            <div><p class="cost">150000 $</p></div>
-                            <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
-                        </div>
-                    </a>
-                </li>
-            }
-        </ul>
-        <a href="/sale/flat/" id="more">Смотреть больше</a>
+                            <h3>Продам дом</h3>
+                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
+                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            <img src="~/Content/images/prod1.jpg" width="390" height="200" alt="" />
+                            <div class="meters">
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                            </div>
+                            <div class="bottom">
+                                <div><p class="cost">150000 $</p></div>
+                                <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <a href="/sale/flat/" id="more">Смотреть больше</a>
+        </div>
+
     </div>
-
 </div>
 
 
+<div class="wrapper-testi">
+<div class="container" id="container">
+    <div id="testimonials">
 
 
 
-<div id="testimonials">
-    <div class="container">
         <div class="f-next"></div>
         <div class="f-previous"></div>
         <div class="thumbs">
@@ -198,8 +201,14 @@
             <li>
                 <div class="item">
                     <div class="inner-testimonial">
-                        <img src="~/Content/images/client1.png" class="full-opacity" alt="Клиент 1">
-                        <h3 class="city-name">Иван, Москва</h3>
+                        <div class="client">
+                            <div class="picture"><img src="~/Content/images/client2.png" class="full-opacity" alt="Клиент 2"></div>
+                            <div class="information">
+                                <h3 class="city-name">Клиент text text text </h3>
+                                <h4 class="city-name">г. Одесса text text text</h4>
+                            </div>
+                        </div>
+                        <img src="~/Content/images/qq.png" />
                         <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
                     </div>
                 </div>
@@ -207,8 +216,14 @@
             <li>
                 <div class="item">
                     <div class="inner-testimonial">
-                        <img src="~/Content/images/client2.png" class="full-opacity" alt="Клиент 2">
-                        <h3 class="city-name">Светлана, Екатеринбург</h3>
+                        <div class="client">
+                            <div class="picture"><img src="~/Content/images/client2.png" class="full-opacity" alt="Клиент 2"></div>
+                            <div class="information">
+                                <h3 class="city-name">Клиент text text text </h3>
+                                <h4 class="city-name">г. Одесса text text text</h4>
+                            </div>
+                        </div>
+                        <img src="~/Content/images/qq.png" />
                         <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
                     </div>
                 </div>
@@ -216,14 +231,27 @@
             <li>
                 <div class="item">
                     <div class="inner-testimonial">
-                        <img src="~/Content/images/client3.png" class="full-opacity" alt="Клиент 3">
-                        <h3 class="city-name">Александр, Ярославль</h3>
+                        <div class="client">
+                            <div class="picture"><img src="~/Content/images/client2.png" class="full-opacity" alt="Клиент 2"></div>
+                            <div class="information">
+                                <h3 class="city-name">Клиент text text text </h3>
+                                <h4 class="city-name">г. Одесса text text text</h4>
+                            </div>
+                        </div>
+                        <img src="~/Content/images/qq.png" />
                         <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
                     </div>
                 </div>
             </li>
             @*<li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>*@
         </ul>
-
+        <div class="thumbs">
+            <a href="#" onclick="" class="f1 thumbActive" id="f-a"></a>
+            <a href="#" onclick="" class="f2" id="f-b"></a>
+            <a href="#" onclick="" class="f3" id="f-c"></a>
+            @*<a href="#" onclick="" class="f4" id="f-d"></a>*@
+        </div>
     </div>
 </div>
+    
+    </div>

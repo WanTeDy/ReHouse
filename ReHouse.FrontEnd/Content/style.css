@@ -2941,3 +2941,93 @@ body a, p, button {
 }
 
 
+
+/*testimonial*/
+
+#testimonials {
+    background-image:url('images/comment.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+    margin-top:100px;
+    max-width:1200px;
+    width:100% !important;
+}
+
+.thumbs {
+    width:100px;
+    height:20px;
+    display:flex;
+    flex-direction:row;
+    position:absolute;
+    top:20px;
+
+}
+.thumbs a {
+    width: 20px;
+    height: 5px;
+    color:#fff;
+    display:block;
+}
+.thumbs .thumbActive{
+    width: 20px;
+    height: 5px;
+    color:#f9a320;
+}
+.inner-testimonial .client {
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin:0 auto;
+    margin-top:51px;
+    margin-bottom:41px;
+    justify-content:center;
+}
+.inner-testimonial .client .information {
+    width:30%;
+    text-align:left;
+}
+    .inner-testimonial .client .picture {
+        width: 101px;
+        height: 100px;
+        margin-right:32px;
+    }
+    .inner-testimonial .client .picture img {
+        width: 101px;
+        height: 100px;
+        object-fit:cover;
+        border-radius:50%;
+    }
+    .inner-testimonial .client .information h3 {
+        color: #ffffff;
+        font-family: "ProximaNova";
+        font-size: 24px;       
+        font-weight: 700;
+            padding: 20px 0 5px 0;
+        text-transform: uppercase;
+    }
+    .inner-testimonial .client .information h4 {
+        color: #ffffff;
+        font-family: "ProximaNova";
+        font-size: 24px;
+        font-weight: 400;
+    }
+    .inner-testimonial p.text-testimonial {
+        color: #ffffff;
+        font-family: "ProximaNova";
+        font-size: 18px;
+        font-weight: 400;
+        text-align:center;
+        width:694px;
+        margin:auto;
+    }
+    .inner-testimonial {
+        width:1200px;
+        text-align:center;
+    }
+    .inner-testimonial img {
+        margin-bottom:30px;
+    }
+    #testimonials ul li .inner-testimonial {
+        margin-bottom:25px!important;
+    }

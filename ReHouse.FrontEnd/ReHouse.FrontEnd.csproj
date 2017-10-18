@@ -317,6 +317,7 @@
     <Content Include="Content\admin.min.css">
       <DependentUpon>admin.css</DependentUpon>
     </Content>
+    <Content Include="Content\animate.css" />
     <Content Include="Content\fancybox\fancy_closebox.png" />
     <Content Include="Content\fancybox\fancy_left.png" />
     <Content Include="Content\fancybox\fancy_progress.png" />
@@ -361,6 +362,11 @@
     <Content Include="Content\images\altair4.jpg" />
     <Content Include="Content\images\arrow-next.png" />
     <Content Include="Content\images\arrow-prev.png" />
+    <Content Include="Content\images\bg-date.png" />
+    <Content Include="Content\images\client1.png" />
+    <Content Include="Content\images\client2.png" />
+    <Content Include="Content\images\client3.png" />
+    <Content Include="Content\images\comment.png" />
     <Content Include="Content\images\eksklusiv.png" />
     <Content Include="Content\images\flat1.jpg" />
     <Content Include="Content\images\flat2.jpg" />
@@ -374,7 +380,22 @@
     <Content Include="Content\images\load.gif" />
     <Content Include="Content\images\loaded\avatars\www_131372913375655779.jpg" />
     <Content Include="Content\images\logomobile.png" />
+    <Content Include="Content\images\m2.png" />
+    <Content Include="Content\images\m21.png" />
+    <Content Include="Content\images\news1.png" />
+    <Content Include="Content\images\news2.png" />
+    <Content Include="Content\images\next.png" />
     <Content Include="Content\images\pechat.png" />
+    <Content Include="Content\images\pin.png" />
+    <Content Include="Content\images\prev.png" />
+    <Content Include="Content\images\qq.png" />
+    <Content Include="Content\images\search-h.png" />
+    <Content Include="Content\images\share-h.png" />
+    <Content Include="Content\images\share.png" />
+    <Content Include="Content\images\star-h.png" />
+    <Content Include="Content\images\star-w.png" />
+    <Content Include="Content\images\star.png" />
+    <Content Include="Content\images\tosell.png" />
     <Content Include="Content\images\watermark.png" />
     <Content Include="Content\images\logout.png" />
     <Content Include="Content\images\manager.jpg" />
@@ -415,6 +436,7 @@
     <Content Include="Content\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
+    <Content Include="Content\stylecomm.css" />
     <Content Include="Content\style\images\bg.png" />
     <Content Include="Content\style\images\blog-arrows.jpg" />
     <Content Include="Content\style\images\carousel.jpg" />
