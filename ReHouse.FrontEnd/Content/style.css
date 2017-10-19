@@ -934,6 +934,9 @@ text-transform: uppercase;
     flex-direction:row;
     background-color:#f3f3f9;
         justify-content: space-around;
+            margin-top: -137px;
+    position: absolute;
+    z-index: 9999999999;
 }
 
     .news .img {
@@ -1016,8 +1019,8 @@ text-transform: uppercase;
 .morenews {
     margin:auto;
     width: 145px;
-    margin-top:40px;
-    margin-bottom:90px;
+    margin-top:310px;
+    margin-bottom:100px;
 }
  .morenews #more {
             display: block;
@@ -2962,24 +2965,27 @@ body a, p, button {
 }
 
 .thumbs {
-    width:100px;
-    height:20px;
+    width:80px;
+    height:5px;
     display:flex;
     flex-direction:row;
+    justify-content:space-between;
     position:absolute;
-    top:20px;
+    top:325px;
+    left:560px;
+    z-index:10001;
 
 }
 .thumbs a {
     width: 20px;
     height: 5px;
-    color:#fff;
+    background-color:#fff;
     display:block;
 }
 .thumbs .thumbActive{
     width: 20px;
     height: 5px;
-    color:#f9a320;
+    background-color:#f9a320;
 }
 .inner-testimonial .client {
     display: flex;
@@ -3028,6 +3034,7 @@ body a, p, button {
         text-align:center;
         width:694px;
         margin:auto;
+        margin-bottom:182px;
     }
     .inner-testimonial {
         width:1200px;

@@ -367,6 +367,7 @@
     <Content Include="Content\images\client2.png" />
     <Content Include="Content\images\client3.png" />
     <Content Include="Content\images\comment.png" />
+    <Content Include="Content\images\eksklusiv.jpg" />
     <Content Include="Content\images\eksklusiv.png" />
     <Content Include="Content\images\flat1.jpg" />
     <Content Include="Content\images\flat2.jpg" />
@@ -382,6 +383,7 @@
     <Content Include="Content\images\logomobile.png" />
     <Content Include="Content\images\m2.png" />
     <Content Include="Content\images\m21.png" />
+    <Content Include="Content\images\newred.jpg" />
     <Content Include="Content\images\news1.png" />
     <Content Include="Content\images\news2.png" />
     <Content Include="Content\images\next.png" />
