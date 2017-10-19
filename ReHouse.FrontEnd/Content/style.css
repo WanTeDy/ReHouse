@@ -704,7 +704,7 @@ text-transform: uppercase;
     position: absolute;
     z-index: 10000;
     margin-left: 224px;
-    margin-top: -15px;
+    margin-top: 100px;
 }
 
 .d-carousel a {
@@ -713,8 +713,8 @@ text-transform: uppercase;
 .d-carousel ul li .meters {
     display:flex;
     flex-direction:row;
-    margin-top:9px;
-    margin-bottom:9px;
+        position: absolute;
+    top: 330px;
 }
     .d-carousel ul li:hover {
         -webkit-transform: scale(1.03);
@@ -728,6 +728,9 @@ text-transform: uppercase;
 .d-carousel ul li .bottom {
     display:flex;
     flex-direction:row;
+        position: absolute;
+    bottom: 0;
+}
 }
     .d-carousel ul li .bottom div {
         border: 1px solid #e5e5f8;
@@ -738,16 +741,19 @@ text-transform: uppercase;
         border-radius:7px;
     }
     .d-carousel ul li .bottom p.cost {
-        padding:22px 0 18px 23px;
-        width:224px;
+           padding: 25px 0 22px 23px;
+        width:229px;
+         border: 1px solid #e5e5f8;
         border-right:none;
     }
     .d-carousel ul li .bottom .share {
         padding:18px;
+         border: 1px solid #e5e5f8;
          border-right:none;
     }
 .d-carousel ul li .bottom .like {
         padding:18px;
+         border: 1px solid #e5e5f8;
          border-right:none;
     }
     .d-carousel ul li .meters p {
@@ -784,7 +790,7 @@ text-transform: uppercase;
         font-family: "MyriadPro";
         font-size: 18px;
         font-weight: 400;
-        line-height: 30px;
+        line-height: 23px;
         overflow: hidden;
         margin-left: 29px;
         margin-top: 5px;
@@ -888,9 +894,11 @@ text-transform: uppercase;
             color:#114a82;
         }
 
-    .d-carousel ul li img {
+    .d-carousel ul li img.main-img {
         -o-object-fit: cover;
         object-fit: cover;
+        position:absolute;
+        top:117px;
     }
 
     .d-carousel ul li a.fix {
