@@ -1263,6 +1263,7 @@ text-transform: uppercase;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
+    justify-content:space-between;
     background-color:#114a82;
     margin:0 auto;
 }
@@ -1336,8 +1337,7 @@ text-transform: uppercase;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        margin-left: 65px;
-        margin-top: 14px;
+        margin-top: 17px;
     }
 
         .footer .bottomnav a {
@@ -3065,8 +3065,8 @@ body a, p, button {
         visibility:visible;
     }
     #partners ul li {
-       width: 203px!important;
-       padding: 0 10px;
+       width: 183px!important;
+       padding: 0 9px;
        float:none!important;
        overflow:visible!important;
     }
