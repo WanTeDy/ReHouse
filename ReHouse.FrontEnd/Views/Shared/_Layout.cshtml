@@ -296,8 +296,8 @@
     </div>
     <div class="container" id="container">
         <div id="partners">
-            <div class="f-next"></div>
-            <div class="f-previous"></div>
+            <div class="p-next"></div>
+            <div class="p-previous"></div>
 
             <ul>
                 <li>
@@ -445,25 +445,14 @@
         $('#partners').jCarouselLite({
             vertical: false,
             hoverPause: true,
-            btnPrev: ".f-previous",
-            btnNext: ".f-next",
-            visible: 1,
+            btnPrev: ".p-previous",
+            btnNext: ".p-next",
+            visible: 6,
             start: 0,
             scroll: 1,
             circular: true,
             auto: 1000,
-            speed: 900,
-            btnGo:
-            [".f1", ".f2",
-            ".f3"],
-
-            afterEnd: function (a, to, btnGo) {
-                if (btnGo.length <= to) {
-                    to = 0;
-                }
-                $(".thumbActive").removeClass("thumbActive");
-                $(btnGo[to]).addClass("thumbActive");
-            }
+            speed: 900,                        
         });
             
         });
