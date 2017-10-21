@@ -35,7 +35,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
+    /*position: relative;*/
 }
 
 .advert_id h2 {
@@ -818,11 +818,12 @@ text-transform: uppercase;
         margin-bottom: 25px;
         margin: auto;
         padding-top:76px;
+        margin-left: 3px;
     }
 
     .d-carousel .jcarousel-item-horizontal {
-        margin-left: 3px;
-        margin-right: 11px;
+        margin-left: 0px;
+        margin-right:11px;
         border: 1px solid #e5e5f8;
         background-color:#fff;
     }
@@ -830,7 +831,7 @@ text-transform: uppercase;
     .d-carousel .jcarousel-next-horizontal {
         position: absolute;
         top: 23px;
-        right: 0;
+        right: 9px;
         width: 30px;
         height: 30px;
         cursor: pointer;
@@ -844,7 +845,7 @@ text-transform: uppercase;
     .d-carousel .jcarousel-prev-horizontal {
         position: absolute;
         top: 23px;
-        right: 36px;
+        right: 47px;
         width: 30px;
         height: 30px;
         cursor: pointer;
@@ -884,7 +885,7 @@ text-transform: uppercase;
         letter-spacing: 1.5px;
         right: 0;
         margin-right: 0;
-        margin-left: 810px;
+        margin-left: 805px;
     }
 
         .d-carousel #more:hover {
@@ -1343,14 +1344,13 @@ text-transform: uppercase;
         .footer .bottomnav a {
             text-decoration: none;
             color: #fff;
-            font-family: "Century Gothic";
-            font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+            font-family: "ProximaNova";
             font-size: 16px;
             font-weight: 700;
         }
 
             .footer .bottomnav a:hover {
-                color: #ffd700;
+                color: #f9a320;
             }
 
 #toTop {
@@ -2960,9 +2960,9 @@ body a, p, button {
 /*testimonial*/
 
 #testimonials {
-    background-image:url('images/comment.png');
+    /*background-image:url('images/comment.png');
     background-repeat:no-repeat;
-    background-size:cover;
+    background-size:cover;*/
     margin-top:100px;
     max-width:1200px;
     width:100% !important;
@@ -3070,3 +3070,29 @@ body a, p, button {
        float:none!important;
        overflow:visible!important;
     }
+
+#testimonials1 {
+        background-image: url(/Content/images/comment.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1200px;
+    height: 460px;
+    margin-top: 100px;
+    width: 100%;
+    position: absolute;
+    /* margin-left: -10%; */
+    left: 0;
+}
+.h23 h2 {
+    margin-top: 35px;
+    margin-bottom: 80px;
+    margin-left:7px;
+    color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.h23 h2 span {
+    color: #f9a320;
+}
