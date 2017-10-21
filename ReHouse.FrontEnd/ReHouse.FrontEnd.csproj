@@ -585,6 +585,7 @@
       <DependentUpon>jquery.jcarousel.js</DependentUpon>
     </Content>
     <Content Include="Scripts\jcarousel_lite\jcarousellite_1.0.1c5.js" />
+    <Content Include="Scripts\jcarousel_lite\jcarousellite_1.0.1c5_old.js" />
     <Content Include="Scripts\jcarousel_lite\jcarousellite_1.0.1c5.min.js">
       <DependentUpon>jcarousellite_1.0.1c5.js</DependentUpon>
     </Content>
