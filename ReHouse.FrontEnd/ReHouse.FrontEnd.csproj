@@ -363,6 +363,7 @@
     <Content Include="Content\images\arrow-next.png" />
     <Content Include="Content\images\arrow-prev.png" />
     <Content Include="Content\images\bg-date.png" />
+    <Content Include="Content\images\bud.png" />
     <Content Include="Content\images\client1.png" />
     <Content Include="Content\images\client2.png" />
     <Content Include="Content\images\client3.png" />
@@ -373,8 +374,10 @@
     <Content Include="Content\images\flat2.jpg" />
     <Content Include="Content\images\flat3.jpg" />
     <Content Include="Content\images\flat3.png" />
+    <Content Include="Content\images\gefest.png" />
     <Content Include="Content\images\girl1.png" />
     <Content Include="Content\images\girl2.png" />
+    <Content Include="Content\images\kadorr.png" />
     <Content Include="Content\images\like.png" />
     <Content Include="Content\images\liked.png" />
     <Content Include="Content\images\like_hover.png" />
@@ -387,10 +390,13 @@
     <Content Include="Content\images\news1.png" />
     <Content Include="Content\images\news2.png" />
     <Content Include="Content\images\next.png" />
+    <Content Include="Content\images\od.png" />
+    <Content Include="Content\images\ok.png" />
     <Content Include="Content\images\pechat.png" />
     <Content Include="Content\images\pin.png" />
     <Content Include="Content\images\prev.png" />
     <Content Include="Content\images\qq.png" />
+    <Content Include="Content\images\riv.png" />
     <Content Include="Content\images\search-h.png" />
     <Content Include="Content\images\share-h.png" />
     <Content Include="Content\images\share.png" />

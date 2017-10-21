@@ -1251,6 +1251,10 @@ text-transform: uppercase;
 }
 
 .footer {
+    background-color:#114a82;
+    margin:0 auto;
+}
+.wrapper-footer {
     height: 52px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3045,4 +3049,24 @@ body a, p, button {
     }
     #testimonials ul li .inner-testimonial {
         margin-bottom:25px!important;
+    }
+
+    /*//*/
+    #partners {
+        width:1200px!important;
+        height: 110px;
+        margin-bottom:100px;
+    }
+    #partners ul {
+        width:20000px!important;
+        display:flex;
+        flex-direction:row; 
+        height: 110px;
+        visibility:visible;
+    }
+    #partners ul li {
+       width: 203px!important;
+       padding: 0 10px;
+       float:none!important;
+       overflow:visible!important;
     }
