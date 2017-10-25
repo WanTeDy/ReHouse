@@ -347,6 +347,7 @@
     </Content>
     <Content Include="Content\imagePreloader.css" />
     <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\2.mp4" />
     <Content Include="Content\images\2.png" />
     <Content Include="Content\images\3.png" />
     <Content Include="Content\images\4.png" />
@@ -377,6 +378,11 @@
     <Content Include="Content\images\gefest.png" />
     <Content Include="Content\images\girl1.png" />
     <Content Include="Content\images\girl2.png" />
+    <Content Include="Content\images\image-slider-1.jpg" />
+    <Content Include="Content\images\image-slider-2.jpg" />
+    <Content Include="Content\images\image-slider-3.jpg" />
+    <Content Include="Content\images\image-slider-4.jpg" />
+    <Content Include="Content\images\image-slider-5.jpg" />
     <Content Include="Content\images\kadorr.png" />
     <Content Include="Content\images\like.png" />
     <Content Include="Content\images\liked.png" />
@@ -509,6 +515,7 @@
     <Content Include="Scripts\ajaxFunc.min.js">
       <DependentUpon>ajaxFunc.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\bullet.png" />
     <Content Include="Scripts\coffee.min.js">
       <DependentUpon>coffee.js</DependentUpon>
     </Content>
@@ -549,6 +556,7 @@
     <Content Include="Scripts\foundation.min.js">
       <DependentUpon>foundation.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\generic.css" />
     <Content Include="Scripts\imageLoader.min.js">
       <DependentUpon>imageLoader.js</DependentUpon>
     </Content>
@@ -592,9 +600,12 @@
     <Content Include="Scripts\jquery.1.10.min.js" />
     <Content Include="Scripts\addtocart.js" />
     <Content Include="Scripts\jquery.watermark.min.js" />
+    <Content Include="Scripts\js-image-slider.css" />
+    <Content Include="Scripts\js-image-slider.js" />
     <Content Include="Scripts\lazyload.min.js">
       <DependentUpon>lazyload.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\mcVideoPlugin.js" />
     <Content Include="Scripts\modules.js" />
     <Content Include="Scripts\modules.min.js">
       <DependentUpon>modules.js</DependentUpon>
@@ -722,6 +733,7 @@
     <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\video.png" />
     <Content Include="Views\Shared\NewB\_listOfNewBuildings.cshtml" />
     <Content Include="Views\NewBuilding\Detail.cshtml" />
     <Content Include="Scripts\lazyload.js" />
