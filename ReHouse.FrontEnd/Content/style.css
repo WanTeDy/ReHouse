@@ -1506,7 +1506,7 @@ opacity: .1;}}
 .navigation_string {
     width: 100%;
     min-width: 1500px;
-    border-bottom: 1px solid #c6c95e;
+    background-color:#114a82;
 }
 
     .navigation_string .way {
@@ -1519,19 +1519,21 @@ opacity: .1;}}
         flex-direction: row;
         color: #bcbcbc;
         font-size: 14px;
-        margin-top: 24px;
         margin-left: 87px;
     }
 
         .navigation_string .way a {
-            color: #bcbcbc;
-            font-family: Casper;
-            font-size: 12px;
-            text-decoration: none;
+            color: #ffffff;
+            font-family: "ProximaNova";
+            font-style:italic;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 34px;
+            text-decoration:none;
         }
 
             .navigation_string .way a:hover {
-                color: #ffd700;
+                color: #f9a11b;
             }
 
 .selection {
