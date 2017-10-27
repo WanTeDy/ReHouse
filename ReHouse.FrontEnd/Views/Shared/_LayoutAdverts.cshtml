@@ -52,7 +52,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/Content/mobile.min.css">
 
-    <style media='print' type='text/css'>
+    <!--<style media='print' type='text/css'>
         .noprint {
             display: none;
         }
@@ -137,71 +137,69 @@
         .table_of_prod table tr td {
             color: black;
         }
-    </style>
+    </style>-->
 </head>
 <body>
-    <span class="noprint">
-        <div class="header">
-            <div class="container" id="container">
-                <span class="flex_header">
-                    <div class="logo">
-                        <a href="/" id=""><img src="~/Content/images/logo.png" width="350"></a>
-                        <p class="textlogo">Международная риэлторская инвестиционная компания</p>
-                    </div>
-                    <div class="search">
-                        <p>
-                            <form class="form-search" method="get" action="/search/flats">
-                                <input type="text" name="query" placeholder="Поиск" value="" />
-                                <input type="submit" value="">
-                            </form>
-                        </p>
-                        @if (Session != null && Session["user"] is SessionModel)
-                        {
-                            var session = Session["user"] as SessionModel;
+    <div class="header">
+        <div class="container" id="container">
+            <span class="flex_header">
+                <div class="social">
+                    <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                    <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                    <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                    @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
+                </div>
+                <div class="search">
+                    <p>
+                        <form class="form-search" method="get" action="/search/flats">
+                            <input type="text" name="query" placeholder="Поиск" value="" />
+                            <input type="submit" value="">
+                        </form>
+                    </p>
+                    @if (Session != null && Session["user"] is SessionModel)
+            {
+                var session = Session["user"] as SessionModel;
 
-                            <div class="your_name">
-                                <div><p>Ваш логин:</p></div>
-                                @if (!String.IsNullOrEmpty(session.User.Login))
-                                {
-                                    <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
+                        <div class="your_name">
+                            <div><p>Ваш логин:</p></div>
+                            @if (!String.IsNullOrEmpty(session.User.Login))
+                            {
+                                <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
 
-                                }
-                                else
-                                {
-                                    <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Email</a></p></div>
-                                }
-                                <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
-                            </div>
-                        }
-                    </div>
-                    <div class="contactinfo">
-                        <div class="tel">
-                            <div class="imgtel">
-                                <img src="~/Content/images/tel.png">
-                            </div>
-                            <div class="number">
-                                <p>+38093 057 7110</p>
-                                <p>+38048 788 6707</p>
-                            </div>
+                            }
+                            else
+                            {
+                                <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Email</a></p></div>
+                            }
+                            <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
                         </div>
-                        <div class="social">
-                            <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                            <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                            <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                            @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
+                    }
+                </div>
+                <div class="contactinfo">
+                    <div class="tel">
+                        <div class="number">
+                            <div><img src="~/Content/images/tel.png" style="width:10px" height="10px"><p>+38093 057 7110</p></div>
+                            <div><img src="~/Content/images/tel.png" style="width:10px" height="10px"><p>+38048 788 6707</p></div>
                         </div>
                     </div>
-                    <div class="feedback">
-                        <a href="/cart/" id="fav">Избранное</a>
-                        <a href="/email/" id="blink">Обратный звонок</a>
-                    </div>
-                </span>
-            </div>
+                </div>
+                <div class="feedback">
+                    <a href="/cart/" id="fav">Избранное</a>
+                    <!-- <a href="/email/" id="blink">Обратный звонок</a>-->
+                    <a href="/email/" id="popup__toggle" onclick="return false;"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
+                </div>
+            </span>
         </div>
 
-        <div id="nav">
-            <div class="container" id="container">
-                <div class="navigation">
+    </div>
+
+    <div id="nav">
+        <div class="container" id="container">
+            <div class="navigation">
+                <div class="logo">
+                    <a href="/" id=""><img src="~/Content/images/logo.png" width="360"></a>
+                </div>
+                <div class="ool">
                     <ol>
                         <li>
                             <a id="">Покупка</a>
@@ -240,12 +238,16 @@
                         </li>
                     </ol>
                 </div>
-                <div class="sell">
-                    <a href="/email/" id="">Хочу продать!</a>
-                </div>
+            </div>
+            <div class="sell">
+                <a href="/email/" id=""><div class="sell1"><p>+</p></div><div class="sell2"><p>Хочу продать</p></div></a>
             </div>
         </div>
-    </span>
+    </div>
+
+
+
+
     <div class="header_mobile">
         <input type="checkbox" id="hmt" class="hidden-menu-ticker">
         <label class="btn-menu" for="hmt">
@@ -314,49 +316,76 @@
         }
     </div>
     <div class="container" id="container">
-
         @RenderBody()
-        @if (ViewBag.Articles != null && ViewBag.NotShowNews == null)
+        @if (ViewBag.Articles != null)
         {
             <div class="news">
-                <h2>Новости</h2>
                 @foreach (Article article in ViewBag.Articles)
                 {
-                    <div class="firstnews">
-                        <div class="content1">
-                            <div class="img">
-                                @if (article.Images != null && article.Images.Count > 0)
-                                {
-                                    <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)?w=440&h=263&mode=max" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="440" height="263" />
-                                }
-                                else
-                                {
-                                    <img src="~/Content/images/news1.jpg" width="440" height="263">
-                                }
+                    <a href="">
+                        <div class="firstnews">
+                            <div class="content1">
+                                <div class="img">
+                                    @if (article.Images != null && article.Images.Count > 0)
+                                    {
+                                        <img src="~/Content/images/news1.jpg" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="545" height="307" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/images/news1.jpg" width="440" height="263">
+                                    }
+                                </div>
+                                <div class="h4"><h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4></div>
+                                <div class="h3"><h3>@article.Title</h3></div>
                             </div>
-                            <h3>@article.Title</h3>
-                            @if (article.Description.Length > 350)
-                            {
-                                <p id="news_@article.Id">@Html.Raw(article.Description.Substring(0, 349))...</p>
-                            }
-                            else
-                            {
-                                <p>@Html.Raw(article.Description)</p>
-                            }
-                            <h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4>
-                            <a href="/news/detail/@article.Id" @*onclick="showDetails(@article.Id, this);"*@ id="more">Подробнее</a>
-                            @*<p id="newsHidden_@article.Id" style="display:none">@article.Description</p>*@
                         </div>
-                    </div>
+                    </a>
                 }
-                <div class="morenews">
-                    <a href="/news/" id="more">Все новости</a>
-                </div>
+            </div>
+            <div class="morenews">
+                <a href="/news/" id="more">Все новости</a>
             </div>
         }
-        <span class="noprint">
-            <div class="footer">
-                <div id="toTop"></div>
+    </div>
+        
+
+
+    <div class="container" id="container">
+        <div class="h23"><h2><span>Наши</span> партнеры</h2></div>
+        <div id="partners">
+
+            <div class="p-next"></div>
+            <div class="p-previous"></div>
+
+            <ul>
+                <li>
+                    <img src="~/Content/images/bud.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/kadorr.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/od.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/ok.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/riv.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/gefest.png" />
+                </li>
+            </ul>
+
+        </div>
+    </div>
+           
+
+    <div class="footer">
+        <div class="container" id="container">
+            <div class="wrapper-footer">
+                <div id="toTop">↑</div>
                 <div class="social">
                     <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
                     <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
@@ -390,8 +419,9 @@
                         @Html.ActionLink("Выйти", "logout", "authorize")
                     }
                 </div>
+
             </div>
-        </span>
+        </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
