@@ -412,7 +412,7 @@ text-transform: uppercase;
 }
 .header #fav {
     position: relative;
-    padding: 11px 0 11px 46px;
+    padding: 10px 0 12px 46px;
     text-decoration: none;
     width: 117px;
     height: 13px;
@@ -430,7 +430,7 @@ text-transform: uppercase;
     background-image: url('images/star-w.png');
     background-repeat: no-repeat;
     left: 7px;
-    top: 4px;
+    top: 5.5px;
     width: 27px;
     height: 26px;
 }
@@ -495,7 +495,7 @@ opacity: .1;}}
 
 .header #fav:hover {
     position: relative;
-    padding: 11px 0 11px 46px;
+    padding: 10px 0 12px 46px;
     text-decoration: none;
     width: 117px;
     height: 13px;
@@ -514,7 +514,7 @@ opacity: .1;}}
     background-image: url('images/star-h.png');
     background-repeat: no-repeat;
     left: 7px;
-    top: 4px;
+    top: 5.5px;
     width: 27px;
     height: 26px;
     transition:0.6s ease;
