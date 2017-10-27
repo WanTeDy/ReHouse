@@ -1688,6 +1688,7 @@ opacity: .1;}}
     height: 441px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    position:relative;
 
         }
 
@@ -1719,45 +1720,45 @@ opacity: .1;}}
                 margin-bottom: 28px;
         }
 
-.products .prods ul li .meters {
+.products .prods li .meters {
     display: flex;
     flex-direction: row;
     position: absolute;
     top: 330px;
 }
-.products .prods ul li .meters div {
+.products .prods li .meters div {
     display: flex;
     flex-direction: row;
     padding: 0 67px 0 10px;
 }
-.products .prods ul li .meters div img {
+.products .prods li .meters div img {
     margin-right: 15px;
 }
-.products .prods ul li .meters p {
+.products .prods li .meters p {
     color: #020107;
     font-family: "ProximaNova";
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
 }
-.products .prods ul li .bottom {
+.products .prods li .bottom {
     display: flex;
     flex-direction: row;
     position: absolute;
     bottom: 0;
 }
-.products .prods ul li .bottom p.cost {
+.products .prods li .bottom p.cost {
     padding: 25px 0 22px 23px;
     width: 229px;
     border: 1px solid #e5e5f8;
     border-right: none;
 }
-.products .prods ul li .bottom .share {
+.products .prods li .bottom .share {
     padding: 18px;
     border: 1px solid #e5e5f8;
     border-right: none;
 }
-.products .prods ul li .bottom .like {
+.products .prods li .bottom .like {
     padding: 18px;
     border: 1px solid #e5e5f8;
     border-right: none;
@@ -1765,9 +1766,25 @@ opacity: .1;}}
 .products .prods a {
     text-decoration: none;
 }
-
-
-
+.products .prods li:hover {
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    -moz-transition: all 0.8s ease-out;
+    -o-transition: all 0.8s ease-out;
+    -webkit-transition: all 0.8s ease-out;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.products .prods li .bottom div img:hover {
+    box-shadow: 0 0 10px rgba(228, 164, 14, 0.45);
+    background-color: rgba(228, 164, 14, 0.25);
+    border-radius: 7px;
+}
+.products .prods li img.main-img {
+    object-fit: cover;
+    position: absolute;
+    top: 117px;
+}
 
 
 
@@ -1792,11 +1809,16 @@ opacity: .1;}}
             transition: .5s ease;
         }
 
-.prods li img {
-        object-fit: cover;
-        position: absolute;
-        top: 117px;
-}
+
+
+
+
+
+
+
+
+
+
 
 #mapnovostroy {
     height: 495px;
