@@ -557,7 +557,6 @@
     <Content Include="Scripts\foundation.min.js">
       <DependentUpon>foundation.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\generic.css" />
     <Content Include="Scripts\imageLoader.min.js">
       <DependentUpon>imageLoader.js</DependentUpon>
     </Content>
