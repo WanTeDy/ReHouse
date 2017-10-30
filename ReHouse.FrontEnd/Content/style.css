@@ -1559,9 +1559,8 @@ opacity: .1;}}
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    margin-left: 0;
+    margin-left: 5px;
     flex-wrap: wrap;
-        margin: auto;
         margin-top: 32px;
 }
 
@@ -1616,7 +1615,7 @@ opacity: .1;}}
     font-size: 14px;
     font-weight: 700;
     text-transform: none;
-    border: 1.5px solid #114a82;
+    border:none;
 }
 
 
@@ -1628,6 +1627,7 @@ opacity: .1;}}
     border-left: 1.2px solid #f9a320;
     border-top: 1.2px solid #f9a320;
     border-right: 1.2px solid #f9a320;
+    outline:none;
 }
 
 .selection select:hover {
@@ -3200,7 +3200,6 @@ body a, p, button {
         margin-bottom:100px;
     }
     #partners ul {
-        width:20000px!important;
         display:flex;
         flex-direction:row; 
         height: 110px;
