@@ -361,42 +361,51 @@ text-transform: uppercase;
     width: 50px;
     background-image: url('images/fb.png');
     background-repeat: no-repeat;
+    background-size:50px 50px;
 }
 
-    /*.social .fb:hover {
-        height: 39px;
-        width: 39px;
-        background-image: url('images/fb-g.png');
+    .social .fb:hover {
+        height: 50px;
+        width: 50px;
+        background-image: url('images/fb-h.png');
         display: block;
-    }*/
+        background-size:50px 50px;
+        transition:.5s ease;
+    }
 
 .social .yt {
     height: 50px;
     width: 50px;
     background-image: url('images/youtube.png');
     background-repeat: no-repeat;
+    background-size:50px 50px;
 }
 
-    /*.social .yt:hover {
-        height: 39px;
-        width: 39px;
-        background-image: url('images/youtube_hover.png');
+    .social .yt:hover {
+        height: 50px;
+        width: 50px;
+        background-image: url('images/youtube-h.png');
         display: block;
-    }*/
+        background-size:50px 50px;
+        transition:.5s ease;
+    }
 
 .social .gmail {
     height: 50px;
     width: 50px;
     background-image: url('images/gmail.png');
     background-repeat: no-repeat;
+    background-size:50px 50px;
 }
 
-    /*.social .gmail:hover {
-        height: 39px;
-        width: 39px;
-        background-image: url('images/gmail-g.png');
+    .social .gmail:hover {
+        height: 50px;
+        width: 50px;
+        background-image: url('images/gmail-h.png');
         display: block;
-    }*/
+        background-size:50px 50px;
+        transition:.5s ease;
+    }
 
 .header .feedback {
     display: -webkit-box;
@@ -1318,8 +1327,9 @@ opacity: .1;}}
             .footer .social .fb:hover {
                 height: 50px;
                 width: 50px;
-                background-image: url('images/fb-g.png');
+                background-image: url('images/fb-h.png');
                 display: block;
+                transition:.5s ease;
             }
 
         .footer .social .tw {
@@ -1334,6 +1344,7 @@ opacity: .1;}}
                 width: 50px;
                 background-image: url('images/tw-g.png');
                 display: block;
+                transition:.5s ease;
             }
 
         .footer .social .gmail {
@@ -1346,8 +1357,9 @@ opacity: .1;}}
             .footer .social .gmail:hover {
                 height: 50px;
                 width: 50px;
-                background-image: url('images/gmail-g.png');
+                background-image: url('images/gmail-h.png');
                 display: block;
+                transition:.5s ease;
             }
 
     .footer .bottomnav {
@@ -3226,3 +3238,75 @@ body a, p, button {
 .h23 h2 span {
     color: #f9a320;
 }
+
+
+.shared_icons {
+        display: flex;
+    flex-direction: row;
+    position: absolute;
+    height: 30px;
+  top: 388px;
+    z-index: 1000000000000;
+    /* left: -10px; */
+    justify-content: space-between;
+    margin-left: 97px;
+}
+.shared_icons a {
+    display:block;
+    width:30px;
+    height:30px;
+    margin-right:9px;        
+}
+
+
+
+.shared_icons .fb {
+    height: 30px;
+    width: 30px;
+    background-image: url('images/facebook.png');
+    background-repeat: no-repeat;
+    background-size:30px 30px;
+}
+
+.shared_icons .fb:hover {
+        height: 30px;
+        width: 30px;
+        background-image: url('images/facebook-h.png');
+        display: block;
+        background-size:30px 30px;
+        transition:.5s ease;
+    }
+
+.shared_icons .vk {
+    height: 30px;
+    width: 30px;
+    background-image: url('images/vk1.png');
+    background-repeat: no-repeat;
+    background-size:30px 30px;
+}
+
+.shared_icons .vk:hover {
+        height: 30px;
+        width: 30px;
+        background-image: url('images/vk-h.png');
+        display: block;
+        background-size:30px 30px;
+        transition:.5s ease;
+    }
+
+.shared_icons .tw {
+    height: 30px;
+    width: 30px;
+    background-image: url('images/twitter.png');
+    background-repeat: no-repeat;
+    background-size:30px 30px;
+}
+
+.shared_icons .tw:hover {
+        height: 30px;
+        width: 30px;
+        background-image: url('images/twitter-h.png');
+        display: block;
+        background-size:30px 30px;
+        transition:.5s ease;
+    }

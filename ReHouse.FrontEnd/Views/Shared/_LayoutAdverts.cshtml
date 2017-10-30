@@ -499,5 +499,76 @@
         ga('send', 'pageview');
 
     </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#slidebox').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".previous",
+                btnNext: ".next",
+                visible: 1,
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+                btnGo:
+        		[".1", ".2",
+        		".3", ".4"],
+
+                afterEnd: function (a, to, btnGo) {
+                    if (btnGo.length <= to) {
+                        to = 0;
+                    }
+                    $(".thumbActive").removeClass("thumbActive");
+                    $(btnGo[to]).addClass("thumbActive");
+                }
+            });
+            $('#testimonials').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".f-previous",
+                btnNext: ".f-next",
+                visible: 1,
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+                //autoCSS: false,
+                autoWidth: true,
+                responsive: true,
+                btnGo:
+        		[".f1", ".f2",
+        		".f3"],
+
+                afterEnd: function (a, to, btnGo) {
+                    if (btnGo.length <= to) {
+                        to = 0;
+                    }
+                    $(".thumbActive").removeClass("thumbActive");
+                    $(btnGo[to]).addClass("thumbActive");
+                }
+            });
+
+
+        $('#partners').jCarouselLite({
+            vertical: false,
+            hoverPause: true,
+            btnPrev: ".f-previous",
+            btnNext: ".f-next",
+            visible: 6,
+            btnPrev: ".p-previous",
+            btnNext: ".p-next",
+            visible: 6,
+            start: 0,
+            scroll: 1,
+            circular: true,
+            auto: 6000,
+            speed: 900,
+        });
+
+        });
+    </script>
 </body>
 </html>

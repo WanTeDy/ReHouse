@@ -371,6 +371,9 @@
     <Content Include="Content\images\comment.png" />
     <Content Include="Content\images\eksklusiv.jpg" />
     <Content Include="Content\images\eksklusiv.png" />
+    <Content Include="Content\images\facebook-h.png" />
+    <Content Include="Content\images\facebook.png" />
+    <Content Include="Content\images\fb-h.png" />
     <Content Include="Content\images\flat1.jpg" />
     <Content Include="Content\images\flat2.jpg" />
     <Content Include="Content\images\flat3.jpg" />
@@ -378,6 +381,7 @@
     <Content Include="Content\images\gefest.png" />
     <Content Include="Content\images\girl1.png" />
     <Content Include="Content\images\girl2.png" />
+    <Content Include="Content\images\gmail-h.png" />
     <Content Include="Content\images\image-slider-1.jpg" />
     <Content Include="Content\images\image-slider-2.jpg" />
     <Content Include="Content\images\image-slider-3.jpg" />
@@ -405,12 +409,17 @@
     <Content Include="Content\images\qq.png" />
     <Content Include="Content\images\riv.png" />
     <Content Include="Content\images\search-h.png" />
+    <Content Include="Content\images\select-h.png" />
     <Content Include="Content\images\share-h.png" />
     <Content Include="Content\images\share.png" />
     <Content Include="Content\images\star-h.png" />
     <Content Include="Content\images\star-w.png" />
     <Content Include="Content\images\star.png" />
     <Content Include="Content\images\tosell.png" />
+    <Content Include="Content\images\twitter-h.png" />
+    <Content Include="Content\images\twitter.png" />
+    <Content Include="Content\images\vk-h.png" />
+    <Content Include="Content\images\vk1.png" />
     <Content Include="Content\images\watermark.png" />
     <Content Include="Content\images\logout.png" />
     <Content Include="Content\images\manager.jpg" />
