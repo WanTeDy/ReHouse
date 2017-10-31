@@ -2,12 +2,23 @@
 @using ReHouse.FrontEnd.Models
 @using ReHouse.Utils.DataBase.News
 @using ReHouse.Utils.DataBase.Common
-    @{
-        var seo = ViewBag.SeoParams as SeoParam;
-    }
+@{
+    var seo = ViewBag.SeoParams as SeoParam;
+}
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PRPTPN5');</script>
+    <!-- End Google Tag Manager -->
     <link rel="shortcut icon" type="image/jpg" href="~/Content/images/rehousemin.jpg">
     <meta charset="utf-8">
     <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">
@@ -31,7 +42,7 @@
         <meta name="twitter:title" content="Международная риэлторская инвестиционная компания REHOUSE">
         <meta itemprop="name" content="Международная риэлторская инвестиционная компания REHOUSE" />
         <meta property="og:site_name" content="Международная риэлторская инвестиционная компания REHOUSE" />
-    <meta name="keywords" content="Международная риэлторская инвестиционная компания REHOUSE" />
+        <meta name="keywords" content="Международная риэлторская инвестиционная компания REHOUSE" />
         <meta name="description" content="Международная риэлторская инвестиционная компания REHOUSE" />
         <meta property="og:description" content="Международная риэлторская инвестиционная компания REHOUSE">
         <meta name="twitter:description" content="Международная риэлторская инвестиционная компания REHOUSE" />
@@ -137,9 +148,15 @@
         .table_of_prod table tr td {
             color: black;
         }
-    </style>    
+    </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRPTPN5"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <span class="noprint">
         <div class="header">
             <div class="container" id="container">
@@ -149,9 +166,12 @@
                         <p class="textlogo">Международная риэлторская инвестиционная компания</p>
                     </div>
                     <div class="search">
-                        <p><form class="form-search" method="get" action="/search/flats" target="_blank"><input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" />
-                    <input type="submit" value="">
-                    </form></p>
+                        <p>
+                            <form class="form-search" method="get" action="/search/flats" target="_blank">
+                                <input type="text" name="query" placeholder="Введите слово, фразу или id объекта" value="" />
+                                <input type="submit" value="">
+                            </form>
+                        </p>
                         @if (Session != null && Session["user"] is SessionModel)
                         {
                             var session = Session["user"] as SessionModel;
@@ -319,7 +339,7 @@
                 <h2>Новости</h2>
                 @foreach (Article article in ViewBag.Articles)
                 {
-                    <div class="firstnews"> 
+                    <div class="firstnews">
                         <div class="content1">
                             <div class="img">
                                 @if (article.Images != null && article.Images.Count > 0)
@@ -330,7 +350,7 @@
                                 {
                                     <img src="~/Content/images/news1.jpg" width="440" height="263">
                                 }
-                            </div>  
+                            </div>
                             <h3>@article.Title</h3>
                             @if (article.Description.Length > 350)
                             {
@@ -390,7 +410,7 @@
             </div>
         </span>
     </div>
-    @Scripts.Render("~/bundles/jquery")    
+    @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")
