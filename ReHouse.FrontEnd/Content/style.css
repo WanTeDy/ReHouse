@@ -3313,8 +3313,63 @@ body a, p, button {
     background-size: cover !important;
 }
 #slider .inslider {
-    z-index: 3;
-    border:1px solid red;
+    z-index: 1;
     position:absolute;
-
+    text-align:right;
+    top: 166px;
+    right:50px;
 }
+    #slider .inslider h3 {
+        color: #ffffff;
+        font-family: "ProximaNova";
+        font-size: 45px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+      #slider .inslider h4 {
+        color: #ffffff;
+        font-family: "ProximaNova";
+        font-size: 45px;
+        font-weight: 600;
+    }
+        #slider .inslider h5 {
+            color: #ffffff;
+       font-family: "ProximaNova";
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 51.49px;
+    }
+    #slider .inslider p {
+        color: #114a82;
+        font-family: "ProximaNova";
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 44px;
+    }
+     #slider .inslider p span {
+        color: #114a82;
+        font-family: "ProximaNova";
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 44px;
+        font-weight: 700;
+    }
+
+    #slider .inslider button {
+        width: 145px;
+        height:50px;
+        color: #114a82;
+        font-family: "ProximaNova";
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        background-color:#ffffff;
+
+        margin-top:30px;
+        border:none;
+    }
+        #slider .inslider button:hover {
+            background-color: #f9a320;
+            color: #fff;
+            transition:.5s ease;
+        }

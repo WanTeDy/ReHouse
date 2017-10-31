@@ -10,7 +10,7 @@
 }
   
 #slider, #slider .sliderInner {
-   height:600px;/* Must be the same size as the slider images */
+   height:702px;/* Must be the same size as the slider images */
     border-radius: 6px;
 }
 
@@ -36,7 +36,7 @@
 
 /* ------ built-in navigation bullets wrapper ------*/
 #slider .navBulletsWrapper  {
-    top:570px;
+    top:670px;
     text-align:center;
     background:none;
     position:relative;
