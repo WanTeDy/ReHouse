@@ -3309,3 +3309,12 @@ body a, p, button {
         background-size:30px 30px;
         transition:.5s ease;
     }
+#slider .bgLayer {
+    background-size: cover !important;
+}
+#slider .inslider {
+    z-index: 3;
+    border:1px solid red;
+    position:absolute;
+
+}
