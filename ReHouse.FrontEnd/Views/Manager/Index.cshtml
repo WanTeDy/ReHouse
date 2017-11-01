@@ -2,59 +2,63 @@
 @using ReHouse.Utils
 @model List<User>
 
+</div>
 <div class="navigation_string">
-    <div class="way">
-        <a href="/">Главная</a>
-        <pre> </pre>
-        <p>/</p>
-        <pre> </pre>
-        <a href="/manager/">Менеджеры</a>
+    <div class="container">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <a>/</a>
+            <pre> </pre>
+            <a href="/manager/">Менеджеры</a>
+        </div>
     </div>
 </div>
-<div class="managers">
-    <h2>Менеджеры</h2>
-    @if (Model != null && Model.Count > 0)
-    {
-        foreach (var item in Model)
+<div class="container">
+    <div class="h2novostroy"><h2><span>Наши</span> менеджеры</h2></div>
+    <div class="managers">
+        @if (Model != null && Model.Count > 0)
         {
-            if (item.Role.RussianName == ConstV.RoleSeo) { continue; }
+            foreach (var item in Model)
+            {
+                if (item.Role.RussianName == ConstV.RoleSeo) { continue; }
 
-            <div class="manager_">
-                <div class="img">
-                    @if (item.Avatar != null)
+                <div class="manager_">
+                    <div class="img">
+                        @if (item.Avatar != null)
                     {
-                        <a href="/manager/profile/@item.Id">
-                            <img src="@Url.Content(item.Avatar.Url + item.Avatar.FileName)?w=120&h=121&mode=max" width="120" height="121" />
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="/manager/profile/@item.Id">
-                            <img src="~/content/images/girl1.png" width="120" height="121">
-                        </a>
-                    }
-                </div>
-                <div class="contactinfo">
-                    <h3>
-                        <a href="/manager/profile/@item.Id">
-                            @item.FirstName
-                        </a>
-                    </h3>
-                    <h3>@item.Position</h3>
-                    <h3>Контакты:</h3>
-                    @if (item.Phones != null && item.Phones.Count > 0)
+                            <a href="/manager/profile/@item.Id">
+                                <img src="@Url.Content(item.Avatar.Url + item.Avatar.FileName)?w=120&h=121&mode=max" width="120" height="121" />
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/manager/profile/@item.Id">
+                                <img src="~/content/images/girl1.png" width="120" height="121">
+                            </a>
+                        }
+                    </div>
+                    <div class="contactinfo">
+                        <h3>
+                            <a href="/manager/profile/@item.Id">
+                                @item.FirstName
+                            </a>
+                        </h3>
+                        <h3>@item.Position</h3>
+                        <h3>Контакты:</h3>
+                        @if (item.Phones != null && item.Phones.Count > 0)
                     {
                         foreach (var phone in item.Phones)
                         {
-                            <h3>@phone.TelePhone</h3>
+                                <h3>@phone.TelePhone</h3>
+                            }
                         }
-                    }
-                    <h3>@item.Email</h3>
+                        <h3>@item.Email</h3>
+                    </div>
+                   <!-- <div class="about_manager">
+                        <p>@item.About</p>
+                    </div>-->
                 </div>
-                <div class="about_manager">
-                    <p>@item.About</p>
-                </div>
-            </div>
+            }
         }
-    }
-</div>  
+    </div>

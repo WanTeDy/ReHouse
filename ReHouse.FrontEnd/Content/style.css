@@ -1093,8 +1093,11 @@ opacity: .1;}}
     }
 
 .managers {
-    width: 1332px;
+    width: 1200px;
     margin-bottom: 68px;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
 }
 
     .managers .img {
@@ -1107,9 +1110,8 @@ opacity: .1;}}
     .managers .manager_ {
         padding-top: 20px;
         padding-bottom: 20px;
-        margin-left: 85px;
         text-align: center;
-        width: 1332px;
+        width: 600px;
     }
 
     .managers div {
@@ -1128,33 +1130,35 @@ opacity: .1;}}
 
 .managers h2 {
     margin-top: 35px;
-    margin-left: 225px;
     margin-bottom: 9px;
-    color: #fff;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    font-size: 24px;
-    font-weight: 700;
+        color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
     text-transform: uppercase;
 }
 
 .managers .contactinfo h3 {
     margin-bottom: 4px;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+        color: #114a82;
+    font-family: "ProximaNova";
     font-size: 16px;
-    font-weight: bold;
-    color: #fff;
+    font-weight: 600;
+    line-height: 20px;
     text-align: left;
+    text-transform:none;
 }
 
 .managers p {
-    color: #fff;
-    line-height: 15px;
-    font-size: 12px;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    font-weight: bold;
+       color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    text-transform:none;
 }
 
 .managers .about_manager {
@@ -2272,13 +2276,13 @@ opacity: .1;}}
 }
 
 .h2novostroy span {
-    color: #ffd700;
+    color: #f9a320;
 }
 
 .map_website ol {
-    margin-left: 225px;
+    margin-left: 30px;
     margin-top: 30px;
-    margin-bottom: 400px;
+    /* margin-bottom: 400px; */
 }
 
     .map_website ol li ul {
@@ -2287,16 +2291,16 @@ opacity: .1;}}
 
 .map_website a {
     text-decoration: none;
-    color: #fffffe;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     line-height: 30px;
+        color: #114a82;
+    font-family: "ProximaNova";
 }
 
     .map_website a:hover {
-        color: #ffd700;
+        color: #f9a320;
+        transition:.4s ease;
     }
 
 #application, #emailForm {
@@ -2640,7 +2644,6 @@ opacity: .1;}}
 }
 
 .about_company p {
-
     color: #114a82;
     font-family: "ProximaNova";
     font-size: 16px;
@@ -2681,34 +2684,33 @@ opacity: .1;}}
     }
 
 .about_company .call_us {
-    margin-top: 50px;
+    margin-top: 10px;
     margin-bottom: 18px;
 }
 
     .about_company .call_us p {
-        color: #fff;
-        line-height: 22px;
-        font-size: 22px;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-weight: bold;
+         color: #114a82;
+            font-family: "ProximaNova";
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20px;
+            text-align: left;
     }
 
 .about_company1 p {
-    color: #fff;
-    line-height: 22px;
+    color: #114a82;
+    font-family: "ProximaNova";
     font-size: 18px;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    font-weight: bold;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
 }
 
 .about_company1 h2 {
     margin-top: 35px;
     margin-bottom: 9px;
-    color: #fff;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    color: #f9a320;
+    font-family: "ProximaNova";
     font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
@@ -2716,39 +2718,57 @@ opacity: .1;}}
 
 .form_comment {
     width: 500px;
-    margin-left: 85px;
+    margin:auto;
     margin-top: 25px;
     padding: 10px;
-    border: 1px solid #fff;
+    border: 1px solid #114a82;
     border-radius: 10px;
 }
 
     .form_comment h3 {
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-size: 18px;
-        font-weight: 700;
         text-transform: uppercase;
-        margin-bottom: 15px;
+        margin-bottom: 17px;
+        color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
     }
 
-    .form_comment input, textarea {
-        border: 1px solid #fff;
-        color: #fff;
-        font-family: "Arial";
-        font-size: 18px;
-        font-weight: 700;
+    .form_comment textarea {
+        border: 1px solid #114a82;
+         color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 16px;
         padding: 4px;
         background: none;
+        width:98%;
     }
+    .form_comment input {
+        border: 1px solid #114a82;
+         color: #114a82;
+        font-family: "ProximaNova";
+        font-size: 16px;
+        padding: 4px;
+        background: none;
+        width:50%;
+    }
+   .form_comment input[type="submit"] {
+        width:100%;
+    }
+   .form_comment input[type="submit"]:hover {
+       transition:.4s ease;
+        color:#f9a320;
+          border-color:#f9a320;
+            cursor:pointer;
+   }
 
     .form_comment p {
         margin-bottom: 10px;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-size: 16px;
+         color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 16px;
         font-weight: bold;
         line-height: 20px;
     }
@@ -2782,7 +2802,9 @@ opacity: .1;}}
 
 .managers .manager_ .contactinfo h3 a {
     text-decoration: none;
-    color: #fff;
+    color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 16px;
 }
 
     .managers .manager_ .contactinfo h3 a:hover {
@@ -2797,16 +2819,17 @@ opacity: .1;}}
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    width: 1065px;
+    width: 670px;
 }
 
     .adress a {
         text-decoration: none;
-        color: #fff;
+        color: #f9a320;
     }
 
         .adress a:hover {
-            color: #ffd700;
+            color: #114a82;
+            transition:.5s ease;
         }
 
 .manager_ .img img {

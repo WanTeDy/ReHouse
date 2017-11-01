@@ -52,47 +52,50 @@
         };
     </script>
 }
-
+</div>
 <div class="navigation_string">
-    <div class="way">
-        <a href="/">Главная</a>
-        <pre> </pre>
-        <p>/</p>
-        <pre> </pre>
-        <a href="/feedback/">Отзывы</a>
+    <div class="container">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <a>/</a>
+            <pre> </pre>
+            <a href="/feedback/">Отзывы</a>
+        </div>
     </div>
 </div>
+<div class="container">
 
-<div class="form_comment">
-    <h3>Оставить отзыв</h3>
-    <form method="post">
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary()
-        <p>
-            <label>Имя:</label>
-            @Html.TextBoxFor(m=> m.Username)
-        </p>
-        <p>
-            <label>Комментарий:</label>
-            <br />
-            @Html.TextAreaFor(m => m.Description, new { @cols = "26", @rows = "3" })
-        </p>
-        <p>
-            <input type="submit" value="Отправить" />
-        </p>
-    </form>
-</div>
-
-<div class="news1">
-    <h2>Отзывы</h2>
-    <div id="data-container">
-        @Html.Partial("Feedback/_listOfFeedbacks", ViewBag.Feedbacks as List<UserFeedback>)
-    </div> 
-
-
-    <div class="morenews1" id="button-more" onclick="">
-        <a onclick="load();" id="more">Больше отзывов</a>
+    <div class="form_comment">
+        <h3>Оставить отзыв</h3>
+        <form method="post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <p>
+                <label>Имя:</label>
+                @Html.TextBoxFor(m => m.Username)
+            </p>
+            <p>
+                <label>Комментарий:</label>
+                <br />
+                @Html.TextAreaFor(m => m.Description, new {@rows = "3" })
+            </p>
+            <p>
+                <input type="submit" value="Отправить" />
+            </p>
+        </form>
     </div>
-    <div id="loading-div">
+
+    <div class="news1">
+        <h2>Отзывы</h2>
+        <div id="data-container">
+            @Html.Partial("Feedback/_listOfFeedbacks", ViewBag.Feedbacks as List<UserFeedback>)
+        </div>
+
+
+        <div class="morenews1" id="button-more" onclick="">
+            <a onclick="load();" id="more">Больше отзывов</a>
+        </div>
+        <div id="loading-div">
+        </div>
     </div>
-</div>
