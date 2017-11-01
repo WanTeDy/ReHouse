@@ -1,19 +1,23 @@
 ﻿@using ReHouse.Utils.DataBase.Vacancies
 @model List<Vacancy>
 
-
+</div>
 <div class="navigation_string">
-    <div class="way">
-        <a href="/">Главная</a>
-        <pre> </pre>
-        <p>/</p>
-        <pre> </pre>
-        <a href="/vacancy/">Вакансии агенства</a>
+    <div class="container">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <a>/</a>
+            <pre> </pre>
+            <a href="/vacancy/">Вакансии агенства</a>
+        </div>
     </div>
 </div>
-<div class="about_company">
-    <h2>Наши вакансии</h2>    
+<div class="container">
+    
+    <div class="about_company">
+        <h2>Наши вакансии</h2>
 
-    @Html.Partial("Vacancy/_listOfVacancies", Model)
+        @Html.Partial("Vacancy/_listOfVacancies", Model)
 
-</div>
+    </div>
