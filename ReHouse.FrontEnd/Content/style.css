@@ -764,6 +764,15 @@ opacity: .1;}}
          -webkit-transition: all 0.8s ease-out;
          box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
+
+
+    .d-carousel ul li:hover .bottom {
+        top: 363px;
+        transition:.8s ease;
+    }
+
+
+
 .d-carousel ul li .bottom {
     display:flex;
     flex-direction:row;
@@ -789,7 +798,7 @@ opacity: .1;}}
         border-top:none;
     }
     .d-carousel ul li .bottom .share {
-        padding:18px;
+        padding:20px;
          border: 1px solid #e5e5f8;
          border-right:none;
          border-top:none;
