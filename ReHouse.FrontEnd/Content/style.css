@@ -790,6 +790,11 @@ opacity: .1;}}
          border: 1px solid #e5e5f8;
          border-right:none;
     }
+.d-carousel ul li .bottom .liked {
+        padding:18px;
+         border: 1px solid #e5e5f8;
+         border-right:none;
+    }
     .d-carousel ul li .meters p {
         color: #020107;
         font-family: "ProximaNova";
@@ -1864,7 +1869,7 @@ opacity: .1;}}
     margin-left: 0px;
     margin:auto;
     margin-top: 82px;
-    margin-bottom: 137px;
+   /* margin-bottom: 137px;*/
     opacity: .7;
     text-align: left;
 }
