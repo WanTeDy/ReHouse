@@ -40,7 +40,8 @@
                     <li>
                         @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
                 {
-                            <a href="/sale/detail/@item.Id">
+                            
+                            <div>
                                 @if (item.IsExclusive)
                                 {
                                     <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
@@ -77,7 +78,8 @@
                                         <a onclick="Share.twitter('http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Title.RussianName, @item.Street')" class="tw"></a>
                                     </div>
                                 </div>
-                            </a>
+                            
+                                </div>
                         }
                         else
                         {
