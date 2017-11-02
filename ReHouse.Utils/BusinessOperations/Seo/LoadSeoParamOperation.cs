@@ -20,9 +20,9 @@ namespace ReHouse.Utils.BusinessOperations.Seo
         public LoadSeoParamOperation(string tokenHash, string action, string controller, string url, string urlParams, bool isAdmin = false)
         {
             _tokenHash = tokenHash;
-            _action = action.ToLower();
-            _controller = controller.ToLower();
-            _url = url.ToLower();
+            _action = action;
+            _controller = controller;
+            _url = url;
             _urlParams = urlParams;
             _isAdmin = isAdmin;
             RussianName = "Получение сео параметров для страниц";

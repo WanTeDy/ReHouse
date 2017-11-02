@@ -31,20 +31,23 @@ namespace ReHouse.FrontEnd.Controllers
                 TokenHash = sessionModel.TokenHash;
             if (HttpContext.Request.HttpMethod.ToLower() == "get")
             {
-                var operation = new LoadArticlesOperation(TokenHash, 1, _articlesCount);
-                operation.ExcecuteTransaction();
-                ViewBag.Articles = operation._articles;
-
                 var rd = HttpContext.Request.RequestContext.RouteData;
-                CurrentAction = rd.GetRequiredString("action");
-                CurrentController = rd.GetRequiredString("controller");
-                AbsoluteUrl = HttpContext.Request.Url.AbsolutePath;
+                CurrentAction = rd.GetRequiredString("action").ToLower();
+                CurrentController = rd.GetRequiredString("controller").ToLower();
+                AbsoluteUrl = HttpContext.Request.Url.AbsolutePath.ToLower();
                 if (AbsoluteUrl.Count(x => x == '/') > 2)
                     UrlParams = AbsoluteUrl.Substring(AbsoluteUrl.LastIndexOf('/') + 1);
-                
+
                 var operation3 = new LoadSeoParamOperation(TokenHash, CurrentAction, CurrentController, AbsoluteUrl, UrlParams);
                 operation3.ExcecuteTransaction();
                 ViewBag.SeoParams = operation3._seoParams;
+
+                if(CurrentController == "rent" || CurrentController == "sale" || CurrentController == "newbuilding" || (CurrentController == "home" && CurrentAction == "index"))
+                {
+                    var operation = new LoadArticlesOperation(TokenHash, 1, _articlesCount);
+                    operation.ExcecuteTransaction();
+                    ViewBag.Articles = operation._articles;
+                }
             }
         }
 

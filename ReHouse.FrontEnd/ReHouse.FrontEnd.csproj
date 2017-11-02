@@ -807,6 +807,7 @@
     <Content Include="Views\Shared\Vacancy\_listOfVacancies.cshtml" />
     <Content Include="Views\Shared\Search\_listOfAdverts.cshtml" />
     <Content Include="Views\Special\Sale.cshtml" />
+    <Content Include="Views\Shared\Partial\_newsFeedbacks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

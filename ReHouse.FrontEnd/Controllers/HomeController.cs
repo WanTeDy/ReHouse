@@ -39,6 +39,7 @@ namespace ReHouse.FrontEnd.Controllers
                 HotAdverts = operation._hotAdverts,
                 FlatSaleAdverts = operation._flatSaleAdverts,
                 HouseSaleAdverts = operation._houseSaleAdverts,
+                CommerceSaleAdverts = operation._commerceSaleAdverts,
                 NewBuildingAdverts = operation._newBuildingAdverts,
                 //Articles = operation._articles,
             };

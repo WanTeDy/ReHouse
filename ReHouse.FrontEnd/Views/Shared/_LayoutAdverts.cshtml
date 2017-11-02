@@ -316,44 +316,10 @@
         }
     </div>
 
-
     <div class="container" id="container">
-        
         @RenderBody()
-        @if (ViewBag.Articles != null)
-        {
-            <div class="news">
-                @foreach (Article article in ViewBag.Articles)
-                {
-                    <a href="">
-                        <div class="firstnews">
-                            <div class="content1">
-                                <div class="img">
-                                    @if (article.Images != null && article.Images.Count > 0)
-                                    {
-                                        <img src="~/Content/images/news1.jpg" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="545" height="307" />
-                                    }
-                                    else
-                                    {
-                                        <img src="~/Content/images/news1.jpg" width="440" height="263">
-                                    }
-                                </div>
-                                <div class="h4"><h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4></div>
-                                <div class="h3"><h3>@article.Title</h3></div>
-                            </div>
-                        </div>
-                    </a>
-                }
-            </div>
-            <div class="morenews">
-                <a href="/news/" id="more">Все новости</a>
-            </div>
-        }
+        @Html.Partial("Partial/_newsFeedbacks")
     </div>
-        
-
-
-           
 
     <div class="footer">
         <div class="container" id="container">
@@ -397,6 +363,7 @@
         </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jcarouselLite")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")
@@ -474,29 +441,6 @@
     </script>
     <script type="text/javascript">
         $(function () {
-            $('#slidebox').jCarouselLite({
-                vertical: false,
-                hoverPause: true,
-                btnPrev: ".previous",
-                btnNext: ".next",
-                visible: 1,
-                start: 0,
-                scroll: 1,
-                circular: true,
-                auto: 6000,
-                speed: 900,
-                btnGo:
-        		[".1", ".2",
-        		".3", ".4"],
-
-                afterEnd: function (a, to, btnGo) {
-                    if (btnGo.length <= to) {
-                        to = 0;
-                    }
-                    $(".thumbActive").removeClass("thumbActive");
-                    $(btnGo[to]).addClass("thumbActive");
-                }
-            });
             $('#testimonials').jCarouselLite({
                 vertical: false,
                 hoverPause: true,
@@ -525,21 +469,21 @@
             });
 
 
-        $('#partners').jCarouselLite({
-            vertical: false,
-            hoverPause: true,
-            btnPrev: ".f-previous",
-            btnNext: ".f-next",
-            visible: 6,
-            btnPrev: ".p-previous",
-            btnNext: ".p-next",
-            visible: 6,
-            start: 0,
-            scroll: 1,
-            circular: true,
-            auto: 6000,
-            speed: 900,
-        });
+            $('#partners').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".f-previous",
+                btnNext: ".f-next",
+                visible: 6,
+                btnPrev: ".p-previous",
+                btnNext: ".p-next",
+                visible: 6,
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+            });
 
         });
     </script>

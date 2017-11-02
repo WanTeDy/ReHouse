@@ -1,7 +1,5 @@
-function addtocart(id, type, isAdd, element) {
-    element.onclick = function () {
-        return false;
-    };
+function addtocart(id, type, isAdd, element, e) {
+    e.preventDefault();
 
     var obj = {
         "AdvertId": id,

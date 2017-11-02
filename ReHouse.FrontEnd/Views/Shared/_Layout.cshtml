@@ -380,68 +380,8 @@
        
     <div class="container" id="container">
         @RenderBody()
-        @if (ViewBag.Articles != null)
-        {
-            <div class="news">
-                @foreach (Article article in ViewBag.Articles)
-                {
-                    <a href=""><div class="firstnews">
-                        <div class="content1">
-                            <div class="img">
-                                @if (article.Images != null && article.Images.Count > 0)
-                                {
-                                    <img src="~/Content/images/news1.jpg" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="545" height="307" />
-                                }
-                                else
-                                {
-                                    <img src="~/Content/images/news1.jpg" width="440" height="263">
-                                }
-                            </div>
-                            <div class="h4"><h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4></div>
-                            <div class="h3"><h3>@article.Title</h3></div>
-                        </div>
-                    </div></a>
-                }
-            </div>
-            <div class="morenews">
-                <a href="/news/" id="more">Все новости</a>
-            </div>
-        }
+        @Html.Partial("Partial/_newsFeedbacks")
     </div>
-
-
-
-    <div class="container" id="container">
-        <div class="h23"><h2><span>Наши</span> партнеры</h2></div>
-        <div id="partners">
-            
-            <div class="p-next"></div>
-            <div class="p-previous"></div>
-
-            <ul>
-                <li>
-                    <img src="~/Content/images/bud.png" />
-                </li>
-                <li>
-                    <img src="~/Content/images/kadorr.png" />
-                </li>
-                <li>
-                    <img src="~/Content/images/od.png" />
-                </li>
-                <li>
-                    <img src="~/Content/images/ok.png" />
-                </li>
-                <li>
-                    <img src="~/Content/images/riv.png" />
-                </li>
-                <li>
-                    <img src="~/Content/images/gefest.png" />
-                </li>
-            </ul>
-
-        </div>
-    </div>
-
 
     <div class="footer">
         <div class="container" id="container">
