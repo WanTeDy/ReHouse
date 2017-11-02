@@ -69,17 +69,17 @@
     <div class="news">
         @foreach (Article article in ViewBag.Articles)
                 {
-            <a href="">
+            <a href="/news/detail/@article.Id">
                 <div class="firstnews">
                     <div class="content1">
                         <div class="img">
                             @if (article.Images != null && article.Images.Count > 0)
                             {
-                                <img src="~/Content/images/news1.jpg" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="545" height="307" />
+                                <img src="@Url.Content(article.Images[0].Url + article.Images[0].FileName)?w=545&h=307&mode=max" title="@article.Images[0].Title" alt="@article.Images[0].Alt" width="545" height="307" />
                             }
                             else
                             {
-                                <img src="~/Content/images/news1.jpg" width="440" height="263">
+                                <img src="~/Content/images/news1.jpg" width="545" height="307">
                             }
                         </div>
                         <div class="h4"><h4>@article.Date.ToShortDateString() в @article.Date.ToShortTimeString()</h4></div>
