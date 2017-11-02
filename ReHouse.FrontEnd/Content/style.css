@@ -985,7 +985,8 @@ opacity: .1;}}
 }
 
     .news .img {
-        
+        width:545px;
+        height:307px;
     }
 
     .news .firstnews, .secondnews {
