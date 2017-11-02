@@ -26,8 +26,23 @@ function addtocart(id, type, isAdd, element, e) {
             }
         },
         error: function (response) {
-        //    $(loadingId).hide();
-        //    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
+            //    $(loadingId).hide();
+            //    $("<span>Извините, при обработке запроса произошла ошибка. Пожалуйста обновите страницу</span>").appendTo($(container));
         }
     });
+};
+
+function share(element, e) {
+    e.preventDefault();
+    var parent = $(element).parent();
+    parent.children('div.cost').hide();
+    parent.children('.shared_icons').show();
+
+};
+
+function leaveShare(element, e) {
+    e.preventDefault();
+    var parent = $(element).parent();
+    parent.children('div.cost').show();
+    parent.children('.shared_icons').hide();
 };
