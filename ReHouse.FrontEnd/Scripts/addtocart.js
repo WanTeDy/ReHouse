@@ -35,14 +35,11 @@ function addtocart(id, type, isAdd, element, e) {
 function share(element, e) {
     e.preventDefault();
     var parent = $(element).parent();
-    parent.children('div.cost').hide();
-    parent.children('.shared_icons').show();
-
-};
-
-function leaveShare(element, e) {
-    e.preventDefault();
-    var parent = $(element).parent();
-    parent.children('div.cost').show();
-    parent.children('.shared_icons').hide();
+    if (parent.children('.shared_icons').css('display') === 'none') {
+        parent.children('div').children('.cost').css('display', 'none');
+        parent.children('.shared_icons').css('display', 'flex');
+    } else {
+        parent.children('div').children('.cost').css('display', 'block');
+        parent.children('.shared_icons').css('display', 'none');
+    }
 };
