@@ -35,29 +35,88 @@
             <h2><span>Горячие</span> предложения</h2>
             <div class="streak"></div>
             <ul class="carousel">
-                @foreach (var item in Model.NewBuildingAdverts)
-            {
+                @foreach (var item in Model.HotAdverts)
+                {
                     <li>
-                        <a href="">
-                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                            <h3>Продам дом</h3>
-                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                            <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
-                            <div class="meters">
-                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
-                            </div>
-                            <div class="bottom">
-                                <div><p class="cost">150000 $</p></div>
-                                <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
-                            </div>
-                            <div class="shared_icons">
-                                <a href="" class="fb" target="_blank"></a>
-                                <a href="" class="vk" target="_blank"></a>
-                                <a href="" class="tw" target="_blank"></a>
-                            </div>
-                        </a>
+                        @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
+                {
+                            <a href="/sale/detail/@item.Id">
+                                @if (item.IsExclusive)
+                                {
+                                    <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                                }
+                                else if (item.IsHot)
+                                {
+                                    <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                                }
+                                else if (item.IsNew)
+                                {
+                                    <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                                }
+                                <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                                <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Street</h4>
+                                @if (item.Images != null && item.Images.Count > 0)
+                                {
+                                    <img class="main-img" src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=388&h=200&mode=max" width="388" height="200" title="@item.Images[0].Title" alt="@item.Images[0].Alt" />
+                                }
+                                else
+                                {
+                                    <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                                }
+                                <div class="meters">
+                                    <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue м²</p></div>
+                                    <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue м²</p></div>
+                                </div>
+                                <div class="bottom">
+                                    <div><p class="cost">@item.Price $</p></div>
+                                    <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                                    <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                                </div>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/rent/detail/@item.Id">
+                                @if (item.IsExclusive)
+                                {
+                                    <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                                }
+                                else if (item.IsHot)
+                                {
+                                    <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                                }
+                                else if (item.IsNew)
+                                {
+                                    <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                                }
+                                <h3>Сдам @item.Title.RussianName.ToLower()</h3>
+                                <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Street</h4>
+                                @if (item.Images != null && item.Images.Count > 0)
+                                {
+                                    <img class="main-img" src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=388&h=200&mode=max" width="388" height="200" title="@item.Images[0].Title" alt="@item.Images[0].Alt" />
+                                }
+                                else
+                                {
+                                    <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                                }
+                                <div class="meters">
+                                    <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue м²</p></div>
+                                    <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue м²</p></div>
+                                </div>
+                                <div class="bottom">
+                                    @if (item.RentPeriodType == ReHouse.Utils.Helpers.RentPeriodType.Daily)
+                                    {
+                                        <div><p class="cost">@item.Price грн</p></div>
+                                    }
+                                    else
+                                    {
+                                        <div><p class="cost">@item.Price $</p></div>
+                                    }
+                                    <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                                    <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                                </div>
+                            </a>
+                        }
                     </li>
                 }
             </ul>
@@ -70,19 +129,37 @@
             <div class="streak"></div>
             <ul class="carousel">
                 @foreach (var item in Model.NewBuildingAdverts)
-            {
+                {
                     <li>
-                        <a href="">
-                            <div class="redimg"><img src="~/Content/images/newred.jpg"></div>
-                            <h3>Продам дом</h3>
+                        <a href="/newbuilding/detail/@item.Id">
+                            @if (item.IsExclusive)
+                            {
+                                <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                            }
+                            else if (item.IsHot)
+                            {
+                                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            }
+                            else if (item.IsNew)
+                            {
+                                <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                            }
+                            <h3>@item.Name</h3>
                             <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                            <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                            @if (item.Images != null && item.Images.Count > 0)
+                            {
+                                <img class="main-img" src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=388&h=200&mode=max" width="388" height="200" title="@item.Images[0].Title" alt="@item.Images[0].Alt" />
+                            }
+                            else
+                            {
+                                <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                            }
                             <div class="meters">
-                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>0 м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>0 м²</p></div>
                             </div>
                             <div class="bottom">
-                                <div><p class="cost">150000 $</p></div>
+                                <div><p class="cost">от @item.Price грн/м²</p></div>
                                 <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
                                 <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
                             </div>
@@ -98,22 +175,40 @@
             <h2><span>Продажа</span> квартир</h2>
             <div class="streak"></div>
             <ul class="carousel">
-                @foreach (var item in Model.NewBuildingAdverts)
+                @foreach (var item in Model.FlatSaleAdverts)
             {
                     <li>
-                        <a href="">
-                            <div class="redimg"><img src="~/Content/images/eksklusiv.jpg"></div>
-                            <h3>Продам дом</h3>
-                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                            <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                        <a href="/sale/detail/@item.Id">
+                            @if (item.IsExclusive)
+                            {
+                                <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                            }
+                            else if (item.IsHot)
+                            {
+                                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            }
+                            else if (item.IsNew)
+                            {
+                                <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                            }
+                            <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Street</h4>
+                            @if (item.Images != null && item.Images.Count > 0)
+                            {
+                                <img class="main-img" src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=388&h=200&mode=max" width="388" height="200" title="@item.Images[0].Title" alt="@item.Images[0].Alt" />
+                            }
+                            else
+                            {
+                                <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                            }
                             <div class="meters">
-                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue м²</p></div>
                             </div>
                             <div class="bottom">
-                                <div><p class="cost">150000 $</p></div>
+                                <div><p class="cost">@item.Price $</p></div>
                                 <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                                <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
                             </div>
                         </a>
                     </li>
@@ -127,22 +222,40 @@
             <h2><span>Продажа</span> домов и участков</h2>
             <div class="streak"></div>
             <ul class="carousel">
-                @foreach (var item in Model.NewBuildingAdverts)
+                @foreach (var item in Model.HouseSaleAdverts)
             {
                     <li>
-                        <a href="">
-                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                            <h3>Продам дом</h3>
-                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                            <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                        <a href="/sale/detail/@item.Id">
+                            @if (item.IsExclusive)
+                            {
+                                <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                            }
+                            else if (item.IsHot)
+                            {
+                                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            }
+                            else if (item.IsNew)
+                            {
+                                <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                            }
+                            <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Street</h4>
+                            @if (item.Images != null && item.Images.Count > 0)
+                            {
+                                <img class="main-img" src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=388&h=200&mode=max" width="388" height="200" title="@item.Images[0].Title" alt="@item.Images[0].Alt" />
+                            }
+                            else
+                            {
+                                <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                            }
                             <div class="meters">
-                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue м²</p></div>
                             </div>
                             <div class="bottom">
-                                <div><p class="cost">150000 $</p></div>
+                                <div><p class="cost">@item.Price $</p></div>
                                 <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                                <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
                             </div>
                         </a>
                     </li>
@@ -155,29 +268,46 @@
             <h2><span>Коммерческая</span> недвижимость</h2>
             <div class="streak"></div>
             <ul class="carousel">
-                @foreach (var item in Model.NewBuildingAdverts)
+                @foreach (var item in Model.CommerceSaleAdverts)
             {
                     <li>
-                        <a href="">
-                            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-
-                            <h3>Продам дом</h3>
-                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
-                            <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                        <a href="/sale/detail/@item.Id">
+                            @if (item.IsExclusive)
+                            {
+                                <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                            }
+                            else if (item.IsHot)
+                            {
+                                <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                            }
+                            else if (item.IsNew)
+                            {
+                                <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                            }
+                            <h3>Продам @item.Title.RussianName.ToLower()</h3>
+                            <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Street</h4>
+                            @if (item.Images != null && item.Images.Count > 0)
+                            {
+                                <img class="main-img" src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=388&h=200&mode=max" width="388" height="200" title="@item.Images[0].Title" alt="@item.Images[0].Alt" />
+                            }
+                            else
+                            {
+                                <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                            }
                             <div class="meters">
-                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>350м²</p></div>
-                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>150м²</p></div>
+                                <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue м²</p></div>
+                                <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>0 м²</p></div>
                             </div>
                             <div class="bottom">
-                                <div><p class="cost">150000 $</p></div>
+                                <div><p class="cost">@item.Price $</p></div>
                                 <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                                <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                                <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
                             </div>
                         </a>
                     </li>
                 }
             </ul>
-            <a href="/sale/flat/" id="more">Смотреть больше</a>
+            <a href="/sale/commerce/" id="more">Смотреть больше</a>
         </div>
 
     </div>

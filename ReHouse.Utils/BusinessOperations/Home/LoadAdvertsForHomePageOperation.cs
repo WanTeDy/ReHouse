@@ -16,6 +16,7 @@ namespace ReHouse.Utils.BusinessOperations.Home
         public List<Advert> _flatSaleAdverts { get; set; }
         public List<NewBuilding> _newBuildingAdverts { get; set; }
         public List<Advert> _houseSaleAdverts { get; set; }
+        public List<Advert> _commerceSaleAdverts { get; set; }
         public List<Article> _articles { get; set; }
 
         public LoadAdvertsForHomePageOperation(string tokenHash)
@@ -48,6 +49,15 @@ namespace ReHouse.Utils.BusinessOperations.Home
             _houseSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && (x.Category.ParentId == (int)ParrentCategories.House || x.Category.ParentId == (int)ParrentCategories.Homestead))
                 .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Take(_count).ToList();
             _houseSaleAdverts.ForEach(
+                x =>
+                {
+                    if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > ConstV.DescMinimizeSymbols + 5)
+                        x.Description = x.Description.Substring(0, ConstV.DescMinimizeSymbols) + "...";
+                });
+
+            _commerceSaleAdverts = Context.Adverts.Where(x => !x.Deleted && x.IsModerated && (x.Category.ParentId == (int)ParrentCategories.Commerce))
+                .OrderByDescending(x => x.IsHot).ThenByDescending(x => x.CreationDate).Take(_count).ToList();
+            _commerceSaleAdverts.ForEach(
                 x =>
                 {
                     if (!String.IsNullOrEmpty(x.Description) && x.Description.Length > ConstV.DescMinimizeSymbols + 5)

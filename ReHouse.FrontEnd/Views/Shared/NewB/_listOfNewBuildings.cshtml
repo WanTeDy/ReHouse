@@ -8,33 +8,39 @@
     {
         <div class="data-item">
             <li>
-                @if (item.IsExclusive)
-                {
-                    <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
-                }
-                else if (item.IsHot)
-                {
-                    <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
-                }
-                else if (item.IsNew)
-                {
-                    <div class="redimg"><img src="~/Content/images/newred.png"></div>
-                }
-                @if (item.Images != null && item.Images.Count > 0)
-                {
-                    <a class="fix" href="/newbuilding/detail/@item.Id"><img src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=250&h=212&mode=max" title="@item.Images[0].Title" alt="@item.Images[0].Alt" width="250" height="212"/></a>
-                }
-                else
-                {
-                    <a href="/newbuilding/detail/@item.Id" class="fix"><img src="~/Content/images/prod1.jpg" width="250" height="212" alt="" /></a>
-                }
-                <div class="min-content">
-                    <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"></div>
+                <a href="/newbuilding/detail/@item.Id">
+                    @if (item.IsExclusive)
+                    {
+                        <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                    }
+                    else if (item.IsHot)
+                    {
+                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                    }
+                    else if (item.IsNew)
+                    {
+                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                    }
                     <h3>@item.Name</h3>
-                    <h4>@item.Adress <br />Сдача: @item.ExpluatationDate.Name</h4>
-                    <p class="cost">от @item.Price грн/м²</p>
-                    <a href="/newbuilding/detail/@item.Id" id="follow">❯</a>                    
-                </div>
+                    <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
+                    @if (item.Images != null && item.Images.Count > 0)
+                    {
+                        <img class="main-img" src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=388&h=200&mode=max" width="388" height="200" title="@item.Images[0].Title" alt="@item.Images[0].Alt" />
+                    }
+                    else
+                    {
+                        <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                    }
+                    <div class="meters">
+                        <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>0 м²</p></div>
+                        <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>0 м²</p></div>
+                    </div>
+                    <div class="bottom">
+                        <div><p class="cost">от @item.Price грн/м²</p></div>
+                        <div class="share"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                        <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                    </div>
+                </a>
             </li>
         </div>
     }

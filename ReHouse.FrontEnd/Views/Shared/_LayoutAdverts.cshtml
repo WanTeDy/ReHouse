@@ -316,11 +316,11 @@
         }
     </div>
 
-    <div class="container" id="container">        
-        @RenderBody()        
+    <div class="container" id="container">
+        @RenderBody()
         @Html.Partial("Partial/_newsFeedbacks")
     </div>
-        
+
     <div class="footer">
         <div class="container" id="container">
             <div class="wrapper-footer">
@@ -363,6 +363,7 @@
         </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jcarouselLite")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")
     @Scripts.Render("~/bundles/lazyLoad")
@@ -440,29 +441,6 @@
     </script>
     <script type="text/javascript">
         $(function () {
-            $('#slidebox').jCarouselLite({
-                vertical: false,
-                hoverPause: true,
-                btnPrev: ".previous",
-                btnNext: ".next",
-                visible: 1,
-                start: 0,
-                scroll: 1,
-                circular: true,
-                auto: 6000,
-                speed: 900,
-                btnGo:
-        		[".1", ".2",
-        		".3", ".4"],
-
-                afterEnd: function (a, to, btnGo) {
-                    if (btnGo.length <= to) {
-                        to = 0;
-                    }
-                    $(".thumbActive").removeClass("thumbActive");
-                    $(btnGo[to]).addClass("thumbActive");
-                }
-            });
             $('#testimonials').jCarouselLite({
                 vertical: false,
                 hoverPause: true,
@@ -491,21 +469,21 @@
             });
 
 
-        $('#partners').jCarouselLite({
-            vertical: false,
-            hoverPause: true,
-            btnPrev: ".f-previous",
-            btnNext: ".f-next",
-            visible: 6,
-            btnPrev: ".p-previous",
-            btnNext: ".p-next",
-            visible: 6,
-            start: 0,
-            scroll: 1,
-            circular: true,
-            auto: 6000,
-            speed: 900,
-        });
+            $('#partners').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".f-previous",
+                btnNext: ".f-next",
+                visible: 6,
+                btnPrev: ".p-previous",
+                btnNext: ".p-next",
+                visible: 6,
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+            });
 
         });
     </script>
