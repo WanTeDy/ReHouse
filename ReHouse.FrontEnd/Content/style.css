@@ -3279,7 +3279,7 @@ body a, p, button {
     flex-direction: row;
     position: absolute;
     height: 30px;
-  top: 388px;
+  top: 23px;
     z-index: 1000000000000;
     /* left: -10px; */
     justify-content: space-between;
