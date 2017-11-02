@@ -54,24 +54,28 @@
         };
     </script>
 }
-
+</div>
 <div class="navigation_string">
-    <div class="way">
-        <a href="/">Главная</a>
-        <pre> </pre>
-        <p>/</p>
-        <pre> </pre>
-        <a href="/news/">Новости</a>
+    <div class="container">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <a>/</a>
+            <pre> </pre>
+            <a href="/news/">Новости</a>
+        </div>
     </div>
 </div>
-<div class="news">
-    <h2>Новости</h2>
-    <div id="data-container">
-        @Html.Partial("Article/_listOfArticles", Model)
+<div class="container">
+
+    <div class="news12">
+        <div class="h2novostroy"><h2 style="margin-left:0;">Новости</h2></div>
+        <div id="data-container">
+            @Html.Partial("Article/_listOfArticles", Model)
+        </div>
+        <div class="morenews1" id="button-more" onclick="load();">
+            <a id="more">Больше новостей</a>
+        </div>
+        <div id="loading-div">
+        </div>
     </div>
-    <div class="morenews1" id="button-more" onclick="load();">
-        <a id="more">Больше новостей</a>
-    </div>
-    <div id="loading-div">
-    </div>
-</div>
