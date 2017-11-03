@@ -17,33 +17,34 @@
 </div>
 <div class="container">
     <div class="news123">
-        <h2>@Model.Title</h2>
-        <div class="firstnews">
-            <div class="content1">
-                <div class="img">
-                    @if (Model.Images != null && Model.Images.Count > 0)
+        <div class="h2novostroy">
+            <h2>@Model.Title</h2></div>
+            <div class="firstnews">
+                <div class="content1">
+                    <div class="img">
+                        @if (Model.Images != null && Model.Images.Count > 0)
             {
-                        <img src="@Url.Content(Model.Images[0].Url + Model.Images[0].FileName)?w=440&h=263&mode=max" title="@Model.Images[0].Title" alt="@Model.Images[0].Alt" width="440" height="263">
-                    }
-                    else
-                    {
-                        <img src="~/Content/images/news1.jpg" width="440" height="263">
-                    }
+                            <img src="@Url.Content(Model.Images[0].Url + Model.Images[0].FileName)?w=440&h=263&mode=max" title="@Model.Images[0].Title" alt="@Model.Images[0].Alt" width="440" height="263">
+                        }
+                        else
+                        {
+                            <img src="~/Content/images/news1.jpg" width="440" height="263">
+                        }
+                    </div>
+                    <p>@Html.Raw(Model.Description)</p>
+                    <div class="share_icons1">
+                        <div class="share_fb">
+                            <a onclick="Share.facebook('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title', 'http://rehouse-realty.com.ua@(Url.Content(Model.Images?.FirstOrDefault() != null ? Model.Images.FirstOrDefault().Url + Model.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Description?.Replace(Environment.NewLine, " "))')"></a>
+                        </div>
+                        <div class="share_vk">
+                            <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title', 'http://rehouse-realty.com.ua@(Url.Content(Model.Images?.FirstOrDefault() != null ? Model.Images.FirstOrDefault().Url + Model.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Description?.Replace(Environment.NewLine, " "))')"></a>
+                        </div>
+                        <div class="share_tw">
+                            <a onclick="Share.twitter('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title')"></a>
+                        </div>
+                    </div>
+                    <h4>@Model.Date.ToShortDateString() в @Model.Date.ToShortTimeString()</h4>
                 </div>
-                <p>@Html.Raw(Model.Description)</p>
-                <div class="share_icons1">
-                    <div class="share_fb">
-                        <a onclick="Share.facebook('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title', 'http://rehouse-realty.com.ua@(Url.Content(Model.Images?.FirstOrDefault() != null ? Model.Images.FirstOrDefault().Url + Model.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Description?.Replace(Environment.NewLine, " "))')"></a>
-                    </div>
-                    <div class="share_vk">
-                        <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title', 'http://rehouse-realty.com.ua@(Url.Content(Model.Images?.FirstOrDefault() != null ? Model.Images.FirstOrDefault().Url + Model.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Description?.Replace(Environment.NewLine, " "))')"></a>
-                    </div>
-                    <div class="share_tw">
-                        <a onclick="Share.twitter('http://rehouse-realty.com.ua/news/detail/@(Model.Id)', '@Model.Title')"></a>
-                    </div>
-                </div>
-                <h4>@Model.Date.ToShortDateString() в @Model.Date.ToShortTimeString()</h4>
             </div>
         </div>
-    </div>
 

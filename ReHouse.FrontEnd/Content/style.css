@@ -657,7 +657,7 @@ opacity: .1;}}
 #nav .sell1 p {
     color:#f9a320;background-color:#fff;
     border-radius:50%;
-    padding:0px 6px;
+    padding:1px 5px;
     font-size: 16px;
 }
 #nav .sell1 {
@@ -1252,7 +1252,87 @@ opacity: .1;}}
 
 
 /***/
+.news123 .content1 .img {
+    width: 440px;
+    height: 263px;
+    padding: 15px 20px;
+    float: left;
+}
 
+.news123 .content1 p {
+    color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+}
+.news123 .content1 a.intext {
+    color:#f9a320;
+    text-decoration:none;
+    transition:.4s ease;
+}
+.news123 .content1 a.intext:hover {
+    color:grey;
+}
+.news123 .content1 {
+    margin-top:30px;
+    margin-bottom:80px;
+}
+.news123 .content1 .share_icons1 a {
+    display:block;
+    width:35px;
+    height:35px;
+}
+    .news123 .content1 .share_icons1 {
+        display: flex;
+        flex-direction: row;
+    }
+    .news123 .content1 .share_icons1 .share_fb a {
+        background-image:url("images/facebook.png");
+        background-repeat:no-repeat;
+        background-size: 35px 35px;
+    }
+    .news123 .content1 .share_icons1 .share_vk a {
+         background-image:url("images/vk1.png");
+        background-repeat:no-repeat;
+        background-size: 35px 35px;
+    }
+    .news123 .content1 .share_icons1 .share_tw a {
+         background-image:url("images/twitter.png");
+        background-repeat:no-repeat;
+        background-size: 35px 35px;
+    }
+    .news123 .content1 .share_icons1 .share_fb a:hover {
+        background-image:url("images/facebook-h.png");
+        background-repeat:no-repeat;
+        transition:.4s ease;
+        background-size: 35px 35px;
+    }
+    .news123 .content1 .share_icons1 .share_vk a:hover {
+         background-image:url("images/vk-h.png");
+        background-repeat:no-repeat;
+        transition:.4s ease;
+        background-size: 35px 35px;
+    }
+    .news123 .content1 .share_icons1 .share_tw a:hover {
+         background-image:url("images/twitter-h.png");
+        background-repeat:no-repeat;
+        transition:.4s ease;
+        background-size: 35px 35px;
+    }
+    .news123 .content1 .share_icons1 div {
+        padding: 10px 4px;
+    }
+    .news123 .content1 h4 {
+        color: #114a82;
+        font-family: "ProximaNova";
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        text-align: left;
+    }
+/**/
 
 
 
