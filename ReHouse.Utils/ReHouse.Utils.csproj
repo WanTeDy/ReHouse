@@ -157,6 +157,8 @@
     <Compile Include="BusinessOperations\Seo\AddSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdateSeoParamOperation.cs" />
     <Compile Include="BusinessOperations\Seo\UpdatePageTextOperation.cs" />
+    <Compile Include="BusinessOperations\Slider\LoadSliderOptionsOperation.cs" />
+    <Compile Include="BusinessOperations\Slider\UpdateSliderOperation.cs" />
     <Compile Include="BusinessOperations\TagPages\LoadTagPageByIdOperation.cs" />
     <Compile Include="BusinessOperations\TagPages\LoadTagPagesOperation.cs" />
     <Compile Include="BusinessOperations\TagPages\LoadFlatsByTagOperation.cs" />
@@ -194,6 +196,7 @@
     <Compile Include="DataBase\AdvertParams\MarketType.cs" />
     <Compile Include="DataBase\AdvertParams\Title.cs" />
     <Compile Include="DataBase\BaseObj.cs" />
+    <Compile Include="DataBase\Common\SliderParam.cs" />
     <Compile Include="DataBase\Common\SeoParam.cs" />
     <Compile Include="DataBase\Common\PageText.cs" />
     <Compile Include="DataBase\DbReHouse.cs" />
@@ -324,6 +327,14 @@
     <Compile Include="Migrations\201710151741399_dates-patch.Designer.cs">
       <DependentUpon>201710151741399_dates-patch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711052103146_slider.cs" />
+    <Compile Include="Migrations\201711052103146_slider.Designer.cs">
+      <DependentUpon>201711052103146_slider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711052106080_slider-patch.cs" />
+    <Compile Include="Migrations\201711052106080_slider-patch.Designer.cs">
+      <DependentUpon>201711052106080_slider-patch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -408,6 +419,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710151741399_dates-patch.resx">
       <DependentUpon>201710151741399_dates-patch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711052103146_slider.resx">
+      <DependentUpon>201711052103146_slider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711052106080_slider-patch.resx">
+      <DependentUpon>201711052106080_slider-patch.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

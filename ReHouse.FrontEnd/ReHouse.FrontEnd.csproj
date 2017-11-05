@@ -245,6 +245,7 @@
     <Compile Include="Areas\Cabinet\Controllers\BuildersController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ImageController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\DistrictsController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\SliderController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\VacanciesController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\NewsController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ProfileController.cs" />
@@ -741,6 +742,7 @@
     <Content Include="Areas\Cabinet\Views\Managers\Edit.cshtml" />
     <Content Include="Areas\Cabinet\Views\Managers\Add.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\Manager\_listOfManagers.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Slider\Edit.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\wanted.pubxml" />
     <None Include="Scripts\_references.js" />

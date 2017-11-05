@@ -34,6 +34,7 @@
         <li><a class="@(Model == "vacancies"? "preActive active" : "1")" href="~/cabinet/vacancies/list">Вакансии</a></li>
         <li><a class="@(Model == "builders"? "preActive active" : "1")" href="~/cabinet/builders/list">Застройщики</a></li>
         <li><a class="@(Model == "districts"? "preActive active" : "1")" href="~/cabinet/districts/list">Районы</a></li>
+        <li><a class="@(Model == "slider"? "preActive active" : "1")" href="~/cabinet/slider/edit">Слайдер</a></li>
         @if (session.Role.RussianName == ConstV.RoleSeo || session.Role.RussianName == ConstV.RoleAdministrator)
         {
             <li><a class="@(Model == "seoparametrs" ? "preActive active" : "1")" href="~/cabinet/seoparametrs/list">SEO параметры</a></li>

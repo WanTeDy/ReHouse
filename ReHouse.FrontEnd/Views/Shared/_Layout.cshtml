@@ -40,7 +40,7 @@
 
     @if (!String.IsNullOrEmpty(ViewBag.CanonicalUrl))
     {
-        <link rel="canonical" href="@ViewBag.CanonicalUrl"/>
+        <link rel="canonical" href="@ViewBag.CanonicalUrl" />
     }
 
     @if (!String.IsNullOrEmpty(ViewBag.Image))
@@ -51,7 +51,7 @@
     }
     @Styles.Render("~/Content/styleCss")
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/mobile.css"> 
+    <link rel="stylesheet" href="~/Content/mobile.css">
 
     <!--New Styles-->
     <link rel="stylesheet" href="~/Content/animate.css">
@@ -60,60 +60,60 @@
     <link rel="stylesheet" href="~/Content/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/stylecomm.css">
     <!--end new Styyles-->
-    
-       
+
+
 </head>
 <body>
     <div class="header">
         <div class="container" id="container">
             <span class="flex_header">
-               <div class="social">
-                <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
-            </div>
-        <div class="search">
-            <p>
-                <form class="form-search" method="get" action="/search/flats">
-                    <input type="text" name="query" placeholder="Поиск" value="" />
-                    <input type="submit" value="">
-                </form>
-            </p>
-            @if (Session != null && Session["user"] is SessionModel)
+                <div class="social">
+                    <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                    <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                    <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                    @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
+                </div>
+                <div class="search">
+                    <p>
+                        <form class="form-search" method="get" action="/search/flats">
+                            <input type="text" name="query" placeholder="Поиск" value="" />
+                            <input type="submit" value="">
+                        </form>
+                    </p>
+                    @if (Session != null && Session["user"] is SessionModel)
             {
                 var session = Session["user"] as SessionModel;
 
-                <div class="your_name">
-                    <div><p>Ваш логин:</p></div>
-                    @if (!String.IsNullOrEmpty(session.User.Login))
-                    {
-                        <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
+                        <div class="your_name">
+                            <div><p>Ваш логин:</p></div>
+                            @if (!String.IsNullOrEmpty(session.User.Login))
+                            {
+                                <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
 
+                            }
+                            else
+                            {
+                                <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Email</a></p></div>
+                            }
+                            <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
+                        </div>
                     }
-                    else
-                    {
-                        <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Email</a></p></div>
-                    }
-                    <div class="logout"><p>@Html.ActionLink("Выйти", "logout", "authorize")</p></div>
                 </div>
-            }
-        </div>
-        <div class="contactinfo">
-            <div class="tel">
-                <div class="number">
-                    <div><img src="~/Content/images/tel.png" style="width:10px" height="10px"><p>+38093 057 7110</p></div>
-                    <div><img src="~/Content/images/tel.png" style="width:10px" height="10px"><p>+38048 788 6707</p></div>
+                <div class="contactinfo">
+                    <div class="tel">
+                        <div class="number">
+                            <div><img src="~/Content/images/tel.png" style="width:10px" height="10px"><p>+38093 057 7110</p></div>
+                            <div><img src="~/Content/images/tel.png" style="width:10px" height="10px"><p>+38048 788 6707</p></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="feedback">
+                    <a href="/cart/" id="fav">Избранное</a>
+                    <!-- <a href="/email/" id="blink">Обратный звонок</a>-->
+                    <a href="/email/" id="popup__toggle" onclick="return false;"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
+                </div>
+            </span>
         </div>
-        <div class="feedback">
-            <a href="/cart/" id="fav">Избранное</a>
-           <!-- <a href="/email/" id="blink">Обратный звонок</a>-->
-            <a href="/email/" id="popup__toggle" onclick="return false;"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
-        </div>
-        </span>
-    </div>
 
     </div>
 
@@ -123,43 +123,45 @@
                 <div class="logo">
                     <a href="/" id=""><img src="~/Content/images/logo.png" width="360"></a>
                 </div>
-                <div class="ool"><ol>
-                    <li>
-                        <a id="">Покупка</a>
-                        <ol>
-                            @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
-                                <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
-                                <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
-                                <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
-                            <li><a href="/sale/flat/">Купить квартиру</a></li>
-                            <li><a href="/sale/house/">Купить дом</a></li>
-                            <li><a href="/sale/homestead/">Купить участок</a></li>
-                            <li><a href="/sale/commerce/">Купить коммерцию</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#" id="">Аренда</a>
-                        <ol>
-                            @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
-                            @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
-                            @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
-                            <li><a href="/rent/flat/">Снять квартиру</a></li>
-                            <li><a href="/rent/house/">Снять дом</a></li>
-                            @*<li><a href="/rent/homestead/">Снять участок</a></li>*@
-                            <li><a href="/rent/commerce/">Снять коммерцию</a></li>
-                        </ol>
-                    </li>
-                    <li><a href="/newbuilding/">Новострои</a></li>
-                    <li><a href="/manager/" id="">Менеджеры</a></li>
-                    <li>
-                        <a href="#" id="">О нас</a>
-                        <ol>
-                            <li><a href="/home/about/">О компании</a></li>
-                            <li><a href="/vacancy/">Вакансии агенства</a></li>
-                        </ol>
+                <div class="ool">
+                    <ol>
+                        <li>
+                            <a id="">Покупка</a>
+                            <ol>
+                                @*<li>@Html.ActionLink("Купить квартиру", "flat", "sale")</li>
+                                    <li>@Html.ActionLink("Купить дом", "house", "sale")</li>
+                                    <li>@Html.ActionLink("Купить участок", "homeStead", "sale")</li>
+                                    <li>@Html.ActionLink("Купить коммерческую", "commerce", "sale")</li>*@
+                                <li><a href="/sale/flat/">Купить квартиру</a></li>
+                                <li><a href="/sale/house/">Купить дом</a></li>
+                                <li><a href="/sale/homestead/">Купить участок</a></li>
+                                <li><a href="/sale/commerce/">Купить коммерцию</a></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#" id="">Аренда</a>
+                            <ol>
+                                @*<li>@Html.ActionLink("Снять квартиру", "flat", "rent")</li>*@
+                                @*<li>@Html.ActionLink("Снять дом", "house", "rent")</li>*@
+                                @*<li>@Html.ActionLink("Снять участок", "homeStead", "rent")</li>*@
+                                <li><a href="/rent/flat/">Снять квартиру</a></li>
+                                <li><a href="/rent/house/">Снять дом</a></li>
+                                @*<li><a href="/rent/homestead/">Снять участок</a></li>*@
+                                <li><a href="/rent/commerce/">Снять коммерцию</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="/newbuilding/">Новострои</a></li>
+                        <li><a href="/manager/" id="">Менеджеры</a></li>
+                        <li>
+                            <a href="#" id="">О нас</a>
+                            <ol>
+                                <li><a href="/home/about/">О компании</a></li>
+                                <li><a href="/vacancy/">Вакансии агенства</a></li>
+                            </ol>
 
-                    </li>
-                </ol></div>
+                        </li>
+                    </ol>
+                </div>
             </div>
             <div class="sell">
                 <a href="/email/" id=""><div class="sell1"><p>+</p></div><div class="sell2"><p>Хочу продать</p></div></a>
@@ -179,43 +181,6 @@
 
     <div id="sliderFrame">
         <div id="slider">
-            
-            <a class="video" href="http://www.youtube.com/watch?v=P0G_2tiivxE" data-autovideo="1">
-                <b data-src="Content/images/image-slider-1.jpg"></b>
-                <div class="inslider">
-                    <h3>27 жемчужина</h3>
-                    <h4>на каманина</h4>
-                    <h5>срок сдачи 3 квартал 2017</h5>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <button>Подробнее</button>
-                </div>
-            </a>
-            
-            <!--<a class="lazyImage" href="~/Content/images/image-slider-2.jpg">
-                <div class="inslider">
-                    <h3>27 жемчужина</h3>
-                    <h4>на каманина</h4>
-                    <h5>срок сдачи 3 квартал 2017</h5>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <button>Подробнее</button>
-                </div>
-                </a>-->
-            
-         <div style="display:block!important;"><img src="~/Content/images/image-slider-2.jpg">
-            <div class="inslider">
-                <h3>27 жемчужина</h3>
-                <h4>на каманина</h4>
-                <h5>срок сдачи 3 квартал 2017</h5>
-                <p>1 комн. квартра <span>2800$</span></p>
-                <p>1 комн. квартра <span>2600$</span></p>
-                <p>1 комн. квартра <span>2860$</span></p>
-                <button>Подробнее</button>
-            </div>
-          </div>
 
             <a class="video" href="http://www.youtube.com/watch?v=P0G_2tiivxE" data-autovideo="1">
                 <b data-src="Content/images/image-slider-1.jpg"></b>
@@ -229,7 +194,18 @@
                     <button>Подробнее</button>
                 </div>
             </a>
-            
+
+            <!--<a class="lazyImage" href="~/Content/images/image-slider-2.jpg">
+                <div class="inslider">
+                    <h3>27 жемчужина</h3>
+                    <h4>на каманина</h4>
+                    <h5>срок сдачи 3 квартал 2017</h5>
+                    <p>1 комн. квартра <span>28600$</span></p>
+                    <p>1 комн. квартра <span>28600$</span></p>
+                    <p>1 комн. квартра <span>28600$</span></p>
+                    <button>Подробнее</button>
+                </div>
+                </a>-->
 
             <div style="display:block!important;">
                 <img src="~/Content/images/image-slider-2.jpg">
@@ -244,7 +220,34 @@
                 </div>
             </div>
 
-           </div>
+            <a class="video" href="http://www.youtube.com/watch?v=P0G_2tiivxE" data-autovideo="1">
+                <b data-src="Content/images/image-slider-1.jpg"></b>
+                <div class="inslider">
+                    <h3>27 жемчужина</h3>
+                    <h4>на каманина</h4>
+                    <h5>срок сдачи 3 квартал 2017</h5>
+                    <p>1 комн. квартра <span>28600$</span></p>
+                    <p>1 комн. квартра <span>28600$</span></p>
+                    <p>1 комн. квартра <span>28600$</span></p>
+                    <button>Подробнее</button>
+                </div>
+            </a>
+
+
+            <div style="display:block!important;">
+                <img src="~/Content/images/image-slider-2.jpg">
+                <div class="inslider">
+                    <h3>27 жемчужина</h3>
+                    <h4>на каманина</h4>
+                    <h5>срок сдачи 3 квартал 2017</h5>
+                    <p>1 комн. квартра <span>2800$</span></p>
+                    <p>1 комн. квартра <span>2600$</span></p>
+                    <p>1 комн. квартра <span>2860$</span></p>
+                    <button>Подробнее</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
@@ -260,61 +263,48 @@
                     <button>Подробнее</button>
                 </div>
             </a>-->
+    <!-- <a class="lazyImage" href="~/Content/images/image-slider-2.jpg"><img src="~/Content/images/image-slider-2.jpg"></a>
+     <a class="lazyImage" href="~/Content/images/image-slider-3.jpg"><img src="~/Content/images/image-slider-3.jpg"></a>
+     <a class="lazyImage" href="~/Content/images/image-slider-5.jpg"><img src="~/Content/images/image-slider-5.jpg"></a>
+
+        -->
+    <!--  <div class="container" id="container"
+
+          <div id="slidebox">
+              <div class="textinslider">
+                  <div class="h1">
+                      @if (seo != null)
+                      {
+                          <h1 style="display:none;">@seo.Title</h1>
+                      }
+                      @*<h1>REHOUSE</h1>*@
+                  </div>
+
+                  <div class="h2">
+                      @*             <h2>Ваш дом - наш успех</h2>*@
+                  </div>
+                  <div class="knowmore">
+                      <a href="/newbuilding/">Подробнее</a>
+                  </div>
+              </div>
+              <div class="next"></div>
+              <div class="previous"></div>
+              <div class="thumbs">
+                  <a href="#" onclick="" class="1 thumbActive" id="a"></a>
+                  <a href="#" onclick="" class="2" id="b"></a>
+                  <a href="#" onclick="" class="3" id="c"></a>
+                  <a href="#" onclick="" class="4" id="d"></a>
+              </div>
+              <ul class="listofimg">
+                  <li><img src="~/Content/images/1.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                  <li><img src="~/Content/images/2.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                  <li><img src="~/Content/images/3.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                  <li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>
+              </ul>
+          </div>
+      </div>-->
 
 
-
-
-
-
-
-
-   <!-- <a class="lazyImage" href="~/Content/images/image-slider-2.jpg"><img src="~/Content/images/image-slider-2.jpg"></a>
-    <a class="lazyImage" href="~/Content/images/image-slider-3.jpg"><img src="~/Content/images/image-slider-3.jpg"></a>
-    <a class="lazyImage" href="~/Content/images/image-slider-5.jpg"><img src="~/Content/images/image-slider-5.jpg"></a>
-
-       -->
-
-
-
-
-
-  <!--  <div class="container" id="container"
-        
-        <div id="slidebox">
-            <div class="textinslider">
-                <div class="h1">
-                    @if (seo != null)
-                    {
-                        <h1 style="display:none;">@seo.Title</h1>
-                    }
-                    @*<h1>REHOUSE</h1>*@
-                </div>
-
-                <div class="h2">
-                    @*             <h2>Ваш дом - наш успех</h2>*@
-                </div>
-                <div class="knowmore">
-                    <a href="/newbuilding/">Подробнее</a>
-                </div>
-            </div>
-            <div class="next"></div>
-            <div class="previous"></div>
-            <div class="thumbs">
-                <a href="#" onclick="" class="1 thumbActive" id="a"></a> 
-                <a href="#" onclick="" class="2" id="b"></a> 
-                <a href="#" onclick="" class="3" id="c"></a> 
-                <a href="#" onclick="" class="4" id="d"></a> 
-            </div>
-            <ul class="listofimg">
-                <li><img src="~/Content/images/1.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                <li><img src="~/Content/images/2.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                <li><img src="~/Content/images/3.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                <li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>
-            </ul>
-        </div>
-    </div>-->
-
-    
 
     <div class="header_mobile">
         <input type="checkbox" id="hmt" class="hidden-menu-ticker">
@@ -376,8 +366,8 @@
             </p>
         </div>
     </div>
-        
-       
+
+
     <div class="container" id="container">
         @RenderBody()
         @Html.Partial("Partial/_newsFeedbacks")
@@ -386,43 +376,43 @@
     <div class="footer">
         <div class="container" id="container">
             <div class="wrapper-footer">
-            <div id="toTop">↑</div>
-            <div class="social">
-                <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
-            </div>
-            <div class="bottomnav">
-                <a href="/news/" class="">Новости</a>
-                <a href="/home/contacts/" class="">Контакты</a>
-                <a href="/map/" class="">Карта сайта</a>
-                <a href="/feedback/" class="">Отзывы</a>
-                @if (Session == null || Session["user"] == null)
-                {
-                    <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
-                            <div class="forms-wrapper">
-                                <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
-                                    <ol class="login">
-                                        <li>
-                                            <div class="login">
-                                                <div class="bodyform">
-                                                    @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
-                                                </div>
+                <div id="toTop">↑</div>
+                <div class="social">
+                    <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                    <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                    <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                    @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
+                </div>
+                <div class="bottomnav">
+                    <a href="/news/" class="">Новости</a>
+                    <a href="/home/contacts/" class="">Контакты</a>
+                    <a href="/map/" class="">Карта сайта</a>
+                    <a href="/feedback/" class="">Отзывы</a>
+                    @if (Session == null || Session["user"] == null)
+                    {
+                        <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+                        <div class="forms-wrapper">
+                            <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
+                                <ol class="login">
+                                    <li>
+                                        <div class="login">
+                                            <div class="bodyform">
+                                                @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
                                             </div>
-                                        </li>
-                                    </ol>
-                                </div>
+                                        </div>
+                                    </li>
+                                </ol>
                             </div>
-                }
-                else
-                {
-                    @Html.ActionLink("Выйти", "logout", "authorize")
-                }
-            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Выйти", "logout", "authorize")
+                    }
+                </div>
 
-        </div>
             </div>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
@@ -437,11 +427,11 @@
 
 
 
-        @*<!--new scripts-->
-       <!--<script src="~/Scripts/comments/jquery-2.1.3.min.js"></script>-->
-        <script src="~/Scripts/comments/owl.carousel.min.js"></script>
-        <script src="~/Scripts/comments/custom.js"></script>
-        <!--end new scripts-->*@
+    @*<!--new scripts-->
+        <!--<script src="~/Scripts/comments/jquery-2.1.3.min.js"></script>-->
+         <script src="~/Scripts/comments/owl.carousel.min.js"></script>
+         <script src="~/Scripts/comments/custom.js"></script>
+         <!--end new scripts-->*@
 
     <!--new scripts-->
     <link href="~/Scripts/js-image-slider.css" rel="stylesheet" type="text/css" />
@@ -462,9 +452,6 @@
 
 
     <script type="text/javascript">
-        $(document).foundation();
-        $(document).foundation('dropdown', 'reflow');
-
         Share = {
             vkontakte: function (purl, ptitle, pimg, text) {
                 url = 'http://vkontakte.ru/share.php?';
@@ -498,6 +485,9 @@
     </script>
     <script type="text/javascript">
         $(function () {
+            $(document).foundation();
+            $(document).foundation('dropdown', 'reflow');
+
             $('#slidebox').jCarouselLite({
                 vertical: false,
                 hoverPause: true,
@@ -547,24 +537,24 @@
                     $(btnGo[to]).addClass("thumbActive");
                 }
             });
-            
-       
-        $('#partners').jCarouselLite({
-            vertical: false,
-            hoverPause: true,
-            btnPrev: ".f-previous",
-            btnNext: ".f-next",
-            visible: 6,
-            btnPrev: ".p-previous",
-            btnNext: ".p-next",
-            visible: 6,
-            start: 0,
-            scroll: 1,
-            circular: true,
-            auto: 6000,
-            speed: 900,                        
-        });
-            
+
+
+            $('#partners').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".f-previous",
+                btnNext: ".f-next",
+                visible: 6,
+                btnPrev: ".p-previous",
+                btnNext: ".p-next",
+                visible: 6,
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+            });
+
         });
     </script>
     <!-- TO TOP -->
