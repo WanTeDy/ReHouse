@@ -1,0 +1,48 @@
+﻿@using ReHouse.Utils.Helpers
+@using ReHouse.Utils.DataBase.Common;
+@model List<SliderParam>
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_navigation", "slider")
+
+<div id="adminka2" class="tabset_content">
+    <div class="headline">
+        <h2>Настройка слайдера</h2>
+    </div>
+    <div class="added">
+        <form method="post" enctype = "multipart/form-data">
+            @Html.AntiForgeryToken()
+            <table class="added" id="data-container">
+                <tr>
+                    <td></td>
+                    <td>Видео</td>
+                    <td>Ссылка на видео</td>
+                    <td>Изображение</td>
+
+                    <td>Загрузка изображения</td>
+                </tr>
+
+                @{ var i = 0; }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><input type="hidden" name="Param[@i].Id" value="@item.Id" /></td>
+                        
+                        <td>@Html.CheckBox("Param[" + i + "].IsVideo", item.IsVideo)@*<input type="checkbox" name="" class="checkbox" id="checkbox" checked="@item.IsVideo" style="width:20px;" />*@</td>
+                        <td><input type="text" name="Param[@i].Url" value="@item.Url" /></td>
+                        <td>
+                            @if (!item.IsVideo && !String.IsNullOrEmpty(item.Url))
+                            {
+                                <img src="@Url.Content(item.Url)?w=250&h=200&mode=max" />
+                            }
+                        </td>
+                        <td><input type="file" name="Param[@i].Image" /></td>
+                    </tr>
+                    i++;
+                }
+            </table>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>

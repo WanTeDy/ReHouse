@@ -27,6 +27,7 @@ namespace ReHouse.Utils.DataBase
 
         public DbSet<ExpluatationDate> ExpluatationDates { get; set; }
         public DbSet<TagPage> TagPages { get; set; }
+        public DbSet<SliderParam> SliderParams { get; set; }
         public DbSet<PageText> PageTexts { get; set; }
         public DbSet<SeoParam> SeoParams { get; set; }
         public DbSet<Authority> Authorities { get; set; }
