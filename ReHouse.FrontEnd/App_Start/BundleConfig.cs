@@ -84,7 +84,7 @@ namespace ReHouse.FrontEnd
                         //"~/Scripts/jquery.1.10.min.js"
                         ));
             bundles.Add(new ScriptBundle("~/bundles/slides").Include(
-                        "~/Scripts/slides.min.jquery.js"
+                        "~/Scripts/jquery.sliderPro.min.js"
                         ));
             bundles.Add(new ScriptBundle("~/bundles/unob").Include(
                         "~/Scripts/vendor/jquery.unobtrusive-ajax.min.js"
@@ -105,7 +105,8 @@ namespace ReHouse.FrontEnd
                      "~/Content/style.css",
                      "~/Content/reset.css",
                      "~/Content/minslider.css",
-                     "~/Content/fancybox/jquery.fancybox.css"
+                     "~/Content/fancybox/jquery.fancybox.css",
+                     "~/Content/slider-pro.min.css"
                      ));
 
             bundles.Add(new StyleBundle("~/Content/adminCss").Include(

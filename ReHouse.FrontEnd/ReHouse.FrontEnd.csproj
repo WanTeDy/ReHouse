@@ -456,6 +456,7 @@
     <Content Include="Content\reset.min.css">
       <DependentUpon>reset.css</DependentUpon>
     </Content>
+    <Content Include="Content\slider-pro.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style.min.css">
       <DependentUpon>style.css</DependentUpon>
@@ -608,6 +609,7 @@
     </Content>
     <Content Include="Scripts\jquery.1.10.min.js" />
     <Content Include="Scripts\addtocart.js" />
+    <Content Include="Scripts\jquery.sliderPro.min.js" />
     <Content Include="Scripts\jquery.watermark.min.js" />
     <Content Include="Scripts\js-image-slider.css" />
     <Content Include="Scripts\js-image-slider.js" />
