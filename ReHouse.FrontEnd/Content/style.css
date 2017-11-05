@@ -1413,7 +1413,7 @@ opacity: .1;}}
 }
 
 .news1 {
-    width: 1332px;
+    width: 1200px;
 }
 
     .news1 .img {
@@ -1436,14 +1436,12 @@ opacity: .1;}}
 
     .news1 h2 {
         margin-top: 35px;
-        margin-left: 225px;
         margin-bottom: 9px;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-        font-size: 24px;
-        font-weight: 700;
-        text-transform: uppercase;
+    color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
     }
 
     .news1 h3 {
@@ -1486,25 +1484,27 @@ opacity: .1;}}
     }
 
         .news1 .morenews1 #more {
-            padding: 11px 450px 10px 448px;
-            border-radius: 10px;
-            background: none;
-            border: 1px solid #fff;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-            font-size: 18px;
-            font-weight: 700;
+           display: block;
+            width: 390px;
+            padding: 6px 0px 6px 0px;
             text-decoration: none;
-            margin-left: 225px;
+            color: #ffffff;
+            font-family: "ProximaNova";
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 34px;
+            text-transform: uppercase;
+            text-align: center;
+            background-color: #114a82;
+            letter-spacing: 1.5px;
+            margin:auto;
         }
 
             .news1 .morenews1 #more:hover {
-                background-image: -webkit-gradient(linear,left bottom,left top,from(#797f2b),color-stop(13.5%,#959958),color-stop(50%,#fff),color-stop(86.5%,#f9feb1),to(#f6fea3));
-                background-image: linear-gradient(to top,#797f2b 0%,#959958 13.5%,#fff 50%,#f9feb1 86.5%,#f6fea3 100%);
-                color: #213b64;
-                -webkit-transition: .5s ease;
-                transition: .5s ease;
+                    -webkit-transition: .8s ease;
+                    transition: .8s ease;
+                    background-color: #f9a320;
+                    color: #114a82;
             }
 
 .name_date {
@@ -2515,7 +2515,7 @@ opacity: .1;}}
 .map_website ol {
     margin-left: 30px;
     margin-top: 30px;
-    /* margin-bottom: 400px; */
+    margin-bottom: 200px; 
 }
 
     .map_website ol li ul {

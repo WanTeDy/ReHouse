@@ -48,16 +48,18 @@
 <span class="noprint">
     <span class="none">
 
+        </div>
         <div class="navigation_string">
-            <div class="way">
-                <a href="/">Главная</a>
-                <pre> </pre>
-                <p>/</p>
-                <pre> </pre>
+            <div class="container">
+                <div class="way">
+                    <a href="/">Главная</a>
+                    <pre> </pre>
+                    <a>/</a>
+                    <pre> </pre>
 
-                @{ string action = "", desc = "", pricePerSquere = ""; }
+                    @{ string action = "", desc = "", pricePerSquere = ""; }
 
-                @switch (Model.Advert.Category.ParentId)
+                    @switch (Model.Advert.Category.ParentId)
             {
                 case (int)ParrentCategories.Flat:
                     desc = "Снять квартиру";
@@ -77,14 +79,16 @@
                     break;
             }
 
-                <a href="/rent/@action/">@desc</a>
-                <pre> </pre>
-                <p>/</p>
-                <pre> </pre>
-                <a href="/rent/@action/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+                    <a href="/rent/@action/">@desc</a>
+                    <pre> </pre>
+                    <a>/</a>
+                    <pre> </pre>
+                    <a href="/rent/@action/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+                </div>
             </div>
         </div>
-    </span>
+        <div class="container">
+</span>
 </span>
 <div class="h2novostroy">
     <h2>Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>
@@ -136,6 +140,36 @@
                             <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
                                  data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
                         </div>
+                        <div class="sp-slide">
+
+                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
+                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
+                        </div>
+                        <div class="sp-slide">
+
+                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
+                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
+                        </div>
+                        <div class="sp-slide">
+
+                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
+                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
+                        </div>
+                        <div class="sp-slide">
+
+                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
+                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
+                        </div>
+                        <div class="sp-slide">
+
+                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
+                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
+                        </div>
+                        <div class="sp-slide">
+
+                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
+                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
+                        </div>
                     }
                 </div>
                 <div class="sp-thumbnails">
@@ -143,6 +177,11 @@
                     {
                         <img class="sp-thumbnail" src="~/Content/images/adverts/images/253_131371478043202070.jpg?w=150&h=150&mode=max" />
                         <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1514_131350239275052451_131371146148607426.jpg?w=150&h=150&mode=max" />
+                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
+                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
+                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
+                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
+                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
                         <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
                     }
                 </div>
