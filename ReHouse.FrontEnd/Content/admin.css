@@ -1,31 +1,60 @@
+.products1 #more {
+    display:block;
+    width:100%;
+    padding: 10px 0;
+    background: none;
+    border: 1px solid #114a82;
+    color:#114a82;
+    font-family:ProximaNova;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius:0;
+}
+.products1 #more:hover {
+     transition:.4s ease;
+        color: #f9a320;
+        border: 1px solid #f9a320;
+        background-image:none;
+        border-radius:0;
+}
+
+
+
 #pagecontent h3, h2, select {
     font-size: 16px;
+    color:#114a82;
+    font-family:ProximaNova;
 }
 
 .headline h2 {
     font-size: 18px;
+    color:#114a82;
+    font-family:ProximaNova;
 }
 
 button {
     cursor: pointer;
     font-size: 16px;
     background: none;
-    color: white;
+    color:#114a82;
     padding: 5px;
-    border: 1px solid white;
+    border: 1px solid #114a82;
+    font-family:ProximaNova;
 }
 
     button:hover {
-        background-image: -webkit-gradient(linear, left bottom, left top, from(#797f2b), color-stop(13.5%, #959958), color-stop(50%, #ffffff), color-stop(86.5%, #f9feb1), to(#f6fea3));
-        background-image: linear-gradient(to top, #797f2b 0%, #959958 13.5%, #ffffff 50%, #f9feb1 86.5%, #f6fea3 100%);
-        color: #25406a;
-        -webkit-transition: .5s ease;
-        transition: .5s ease;
+       transition:.4s ease;
+        color: #f9a320;
+        border: 1px solid #f9a320;
     }
 
 input {
     cursor: pointer;
     font-size: 16px;
+    font-family:ProximaNova;
+        color: #114a82;
+    background: transparent;
 }
 
 .tabset_tabs {
@@ -58,6 +87,7 @@ input {
         border-left-width: 0;
         border-bottom: none;
         padding: 15px 0 15px 15px;
+        font-family:ProximaNova;
     }
 
         .tabset_tabs a:hover {
@@ -145,11 +175,11 @@ input {
         height: cover;
         background: transparent;
         margin-left: 4px;
-        font-family: "Century Gothic";
+        font-family: ProximaNova;
         font-size: 18px;
         font-weight: 700;
         text-decoration: none;
-        color: white;
+        color:#114a82;
     }
 
     .photo_of_manager input {
@@ -157,12 +187,12 @@ input {
     }
 
 .contact_info table {
-    width: 500px;
-    font-family: "Century Gothic";
+    /*width: 500px;*/
+    font-family: ProximaNova;
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
-    color: white;
+    color:#114a82;
     margin-top: 4px;
 }
 
@@ -220,12 +250,14 @@ input {
 
 .add_photo div {
     margin-bottom: 10px;
+    color: #114a82;
+    font-family:ProximaNova;
 }
 
 .add_photo {
     margin-top: 8px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+    border-top: 1px solid #114a82;
+    border-bottom: 1px solid #114a82;
     padding: 10px;
 }
 
@@ -234,7 +266,7 @@ input {
     }
 
 table.added tr td {
-    border: 1px solid white;
+    border: 1px solid #114a82;
 }
 
 table.added .prod_info {
@@ -297,6 +329,7 @@ input.youtube-video {
 .added table tr td {
     vertical-align: middle;
     padding: 10px 40px 10px 40px;
+    color:#114a82;font-family:ProximaNova;
 }
 
 button.delete_all {
@@ -338,6 +371,7 @@ button.delete_all2 {
 
 .edit_del p {
     font-size: 30px;
+    color:#114a82;
 }
 
 /*.list_ ul li a {
@@ -386,13 +420,13 @@ button.delete_all2 {
 .contact_info table select {
     width: 302px;
     background: none;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #114a82;
+    color:#114a82;
 }
 
     .contact_info table select option {
-        background-color: #163d7d;
-        color: #ffffff;
+        background-color: none;
+        color:#114a82;
         font-size: 14px;
         font-weight: 700;
         text-transform: none;
@@ -400,15 +434,15 @@ button.delete_all2 {
 
 .contact_info table input {
     background: none;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #114a82;
+    color: #114a82;
     width: 608px;
 }
 
 .contact_info table textarea {
     background: none;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #114a82;
+    color:#114a82;
     font-size: 14px;
     width: 600px;
 }

@@ -237,20 +237,24 @@ input:focus::-moz-placeholder { color:transparent; transition: 0.8s ease;} /* FF
 input:focus:-ms-input-placeholder { color:transparent; transition: 0.8s ease;} /* IE 10+ */
         
 .your_name {
-    display: -webkit-box;
+       display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     color: #fff;
     font-family: Casper;
     font-size: 12px;
-    margin-left: 300px;
-    margin-top: 50px;
+    /* margin-left: 300px; */
+    /* margin-top: 50px; */
+    position: absolute;
+    font-family: ProximaNova;
+    top: 18px;
+    left: 284px;
 }
 
     .your_name a {
         text-decoration: none;
         color: #fff;
-        font-family: Casper;
+        font-family: ProximaNova;
         font-size: 12px;
     }
 
@@ -1749,6 +1753,7 @@ opacity: .1;}}
     left: -9999px;
     position: absolute;
     bottom: 54px;
+    z-index: 9999999999;
 }
 
 .navigation ol ol.login, .erroremail, .errorpas {

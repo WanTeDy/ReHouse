@@ -29,20 +29,21 @@
 }
 <span class="noprint">
     <span class="none">
-
+        </div>
         <div class="navigation_string">
-            <div class="way">
-                <a href="/">Главная</a>
-                <pre> </pre>
-                <p>/</p>
-                <pre> </pre>
+            <div class="container">
+                <div class="way">
+                    <a href="/">Главная</a>
+                    <pre> </pre>
+                    <a>/</a>
+                    <pre> </pre>
 
-                @{ string action = "", desc = "", pricePerSquere = ""; }
-                @if (Model.Square > 0)
+                    @{ string action = "", desc = "", pricePerSquere = ""; }
+                    @if (Model.Square > 0)
             {
                 pricePerSquere = Model.Advert.Price / Model.Square + " $ за м²";
             }
-                @switch (Model.Advert.Category.ParentId)
+                    @switch (Model.Advert.Category.ParentId)
             {
                 case (int)ParrentCategories.Flat:
                     desc = "Купить квартиру";
@@ -62,14 +63,16 @@
                     break;
             }
 
-                <a href="/sale/@action/">@desc</a>
-                <pre> </pre>
-                <p>/</p>
-                <pre> </pre>
-                <a href="/sale/@action/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+                    <a href="/sale/@action/">@desc</a>
+                    <pre> </pre>
+                    <a>/</a>
+                    <pre> </pre>
+                    <a href="/sale/@action/@Model.Advert.Category.Id">@Model.Advert.Category.RussianName</a>
+                </div>
             </div>
         </div>
-    </span>
+        <div class="container">
+</span>
 </span>
 <div class="h2novostroy">
     <h2>Продам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>
