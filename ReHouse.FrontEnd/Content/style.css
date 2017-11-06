@@ -1665,8 +1665,8 @@ opacity: .1;}}
     margin: 0 auto;
     border: 2px solid #fff;
     text-align: center;
-    font-family: "Century Gothic";
-    background-color: #143466;
+    font-family: ProximaNova;
+    background-color: #114a82;
 }
 
 .label {
@@ -1675,24 +1675,26 @@ opacity: .1;}}
 
 .user-id input {
     display: block;
-    border-radius: 15px 15px 15px 15px;
-    margin: 7px 5px 0 9px;
+    margin:auto;
+    margin-top: 7px;
+    margin-bottom:9px;
     padding: 10px 25px 8px 15px;
     color: #fff;
     outline: none;
     border: 1px solid #fff;
-    background-color: #143466;
+    background-color: #114a82;
 }
 
 .password input {
     display: block;
-    border-radius: 15px 15px 15px 15px;
-    margin: 7px 5px 0 9px;
+    margin:auto;
+    margin-top: 7px;
+    margin-bottom:9px;
     padding: 10px 25px 9px 15px;
     color: #fff;
     outline: none;
     border: 1px solid #fff;
-    background-color: #143466;
+    background-color: #114a82;
 }
 
 .headform {
@@ -1705,26 +1707,24 @@ opacity: .1;}}
     }
 
 .button {
-    margin-top: 30px;
+    margin-top: 22px;
+    margin-bottom:15px;
     width: 140px;
     height: 30px;
     background: #6b8bad;
-    border-radius: 15px;
     border: 1px solid #fff;
     color: #fff;
     cursor: pointer;
     text-shadow: 0 1px 2px black;
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 10px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#6b8bad),color-stop(48%,#39577f),color-stop(52%,#254b72),to(#102d4c));
-    background: linear-gradient(to bottom,#6b8bad 0%,#39577f 48%,#254b72 52%,#102d4c 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b8bad',endColorstr='#102d4c',GradientType=0);
+    background-color: #114a82;
 }
 
     .button:hover {
-        opacity: .8;
-        color: #ffd700;
+        transition:.6s ease;
+        color:#f9a320;
+        border: 1px solid #f9a320;
     }
 
 #forgotpas a {
@@ -1748,7 +1748,7 @@ opacity: .1;}}
 .form-drop {
     left: -9999px;
     position: absolute;
-    bottom: 50px;
+    bottom: 54px;
 }
 
 .navigation ol ol.login, .erroremail, .errorpas {
@@ -2643,11 +2643,15 @@ opacity: .1;}}
 #emailForm textarea:-ms-input-placeholder      {color:#114a82!important;}
 
 
-#emailForm input:focus::-webkit-input-placeholder { color:transparent;transition: 0.8s ease; }
-#emailForm input:focus:-moz-placeholder { color:transparent; transition: 0.8s ease;} /* FF 4-18 */
-#emailForm input:focus::-moz-placeholder { color:transparent; transition: 0.8s ease;} /* FF 19+ */
-#emailForm input:focus:-ms-input-placeholder { color:transparent; transition: 0.8s ease;} /* IE 10+ */
+#emailForm input:focus::-webkit-input-placeholder { color:transparent!important;transition: 0.8s ease; }
+#emailForm input:focus:-moz-placeholder { color:transparent!important; transition: 0.8s ease;} /* FF 4-18 */
+#emailForm input:focus::-moz-placeholder { color:transparent!important; transition: 0.8s ease;} /* FF 19+ */
+#emailForm input:focus:-ms-input-placeholder { color:transparent!important; transition: 0.8s ease;} /* IE 10+ */
 
+#emailForm textarea:focus::-webkit-input-placeholder { color:transparent!important;transition: 0.8s ease; }
+#emailForm textarea:focus:-moz-placeholder { color:transparent!important; transition: 0.8s ease;} /* FF 4-18 */
+#emailForm textarea:focus::-moz-placeholder { color:transparent!important; transition: 0.8s ease;} /* FF 19+ */
+#emailForm textarea:focus:-ms-input-placeholder { color:transparent!important; transition: 0.8s ease;} /* IE 10+ */
 
 
 .applicationButton {
@@ -3808,4 +3812,7 @@ body a, p, button {
     justify-content: space-between;
     margin-top:37px;
     margin-bottom:30px;
+}
+.forms-wrapper {
+    position:relative;
 }
