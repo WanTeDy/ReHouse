@@ -90,35 +90,14 @@
         <div class="container">
 </span>
 </span>
-<div class="h2novostroy">
-    <h2>Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2>
-    @*<h2>@Model.Advert.TitleName, @Model.Advert.Street</h2>*@
-    <div class="favorite">
-        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
-        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="fav2"></a>
-    </div>
-    <div class="favorite1">
-        <a href="/email/index?flat=@(Model.Advert.Id)&type=@((int)AdvertsType.Rent)" id="favorite">Подать заявку</a>
-    </div>
-</div>
-<div class="share_icons">
-    <div class="share_fb">
-        <a onclick="Share.facebook('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
-    </div>
-    <div class="share_vk">
-        <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
-    </div>
-    <div class="share_tw">
-        <a onclick="Share.twitter('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street')"></a>
-    </div>
-    <div class="advert_id">
-        <h2>№@Model.Advert.Id</h2>
-    </div>
-</div>
 
 @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
 {
     <span class="noprint">
+
+<div class="wrapper-prod">
+
+    <div class="left">
         <div id="products_example">
             <div id="products">
                 <div class="sp-slides">
@@ -188,14 +167,37 @@
             </div>
         </div>
     </span>
+    
 }
+
+<a class="videoyoutube" href="">Посмотреть видео</a>
+</div>
+
+<div class="right">
+    <div class="redimg"><img src="/Content/images/redcorner.png"></div>
 <div class="seotext3">
-    <div class="print">
+   <!-- <div class="print">
         <a href='javascript:window.print(); void 0;'>
             <img src="~/Content/images/pechat.png" />
         </a>
+    </div>-->
+    <div class="share_icons">
+        <div class="share_fb">
+            <a onclick="Share.facebook('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
+        </div>
+        <div class="share_vk">
+            <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
+        </div>
+        <div class="share_tw">
+            <a onclick="Share.twitter('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street')"></a>
+        </div>
+        <div class="advert_id">
+            <h2>№@Model.Advert.Id</h2>
+        </div>
     </div>
-    <div class="h2sale"><h2>Описание</h2></div>
+
+    <div class="h2sale"><h2>Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2></div>
+    <h4><img src="/Content/images/pin.png" height="13" alt="">Люсторфская дорога 55</h4>
     <div class="h3cost">
         @if (Model.Advert.RentPeriodType == RentPeriodType.Daily)
         {
@@ -225,7 +227,10 @@
         <pre> </pre>
         <p class="square_meter">@pricePerSquere</p>
     </div>
-
+    <div class="meters">
+        <div><img src="/Content/images/m2.png" height="32" alt=""><p>42 м²</p></div>
+        <div><img src="/Content/images/m21.png" height="32" alt=""><p> м²</p></div>
+    </div>
     <p class="text">@Model.Advert.Description</p>
 </div>
 <div class="table_of_prodapart">
@@ -266,15 +271,36 @@
 
     </table>
 </div>
+
+
+<div class="fav-wrap">
+    <div class="favorite">
+        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
+        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="fav2"></a>
+    </div>
+    <div class="favorite1">
+        <a href="/email/index?flat=@(Model.Advert.Id)&type=@((int)AdvertsType.Rent)" id="favorite"><span>+</span> Подать заявку</a>
+    </div>
+</div>
+</div>
+ </div>
+
+
 @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
 {
-    <div class="planirovka">
+
+
+
+
+
+
+    <!-- <div class="planirovka">
 
         @foreach (var item in Model.Advert.PlanImages)
                 {
             <a class="plan" rel="group" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)?w=522&h=390&mode=max" title="@item.Title" alt="@item.Alt" border="0" /></a>
         }
-    </div>
+    </div>-->
 }
 @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
 {
@@ -284,7 +310,7 @@
         </div>*@
 }
 <div class="map_managercard">
-    <div class="manager">
+   <!-- <div class="manager">
         <div class="photo">
             @if (Model.Advert.User.Avatar != null)
             {
@@ -311,7 +337,7 @@
                 <p class="name">@Model.Advert.User.FirstName</p>
             </div>
         </div>
-    </div>
+    </div>-->
     <div id="mapapart_prod">
 
         <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="614px" height="428px" frameborder="0" style="border:0" allowfullscreen></iframe>

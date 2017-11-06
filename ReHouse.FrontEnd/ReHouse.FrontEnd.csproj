@@ -448,6 +448,8 @@
     <Content Include="Content\images\www.jpg" />
     <Content Include="Content\images\youtube.png" />
     <Content Include="Content\images\youtube_hover.png" />
+    <Content Include="Content\images\yt.png" />
+    <Content Include="Content\images\yt2.png" />
     <Content Include="Content\minslider.css" />
     <Content Include="Content\minslider.min.css">
       <DependentUpon>minslider.css</DependentUpon>
