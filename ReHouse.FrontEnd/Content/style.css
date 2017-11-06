@@ -2584,14 +2584,13 @@ opacity: .1;}}
 
 #application, #emailForm {
     width: 462px;
+    margin:auto;
     margin-bottom: 285px;
-    margin-left: 519px;
 }
 
     #application h3, #emailForm h3 {
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+            color: #114a82;
+    font-family: "ProximaNova";
         font-size: 24px;
         font-weight: 700;
         text-align: center;
@@ -2603,13 +2602,11 @@ opacity: .1;}}
     height: 35px;
     background: none;
     margin-top: 27px;
-    border: 1px solid #fff;
-    border-radius: 10px;
+    border: 1px solid #114a82;
     text-align: center;
-    color: #fff;
     font-size: 18px;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    color: #114a82;
+    font-family: "ProximaNova";
     font-weight: 700;
     margin-left: 29.5px;
 }
@@ -2619,24 +2616,39 @@ opacity: .1;}}
     height: 188px;
     background: none;
     margin-top: 27px;
-    border: 1px solid #fff;
-    border-radius: 10px;
+    border: 1px solid #114a82;
     text-align: center;
-    color: #fff;
     font-size: 18px;
     padding: 20px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    color: #114a82;
+    font-family: "ProximaNova";
     font-weight: 700;
 }
 
     #applicationName:focus, #applicationEmail:focus, #applicationTelephone:focus, #applicationText:focus {
-        border-radius: 10px;
-        color: #ffd700;
-        border: 1px solid #ffd700;
+        color: #114a82;
+        border: 1px solid #f9a320;
     }
+
+#emailForm input::-webkit-input-placeholder {color:#114a82!important;}
+#emailForm input::-moz-placeholder          {color:#114a82!important;}/* Firefox 19+ */
+#emailForm input:-moz-placeholder           {color:#114a82!important;}/* Firefox 18- */
+#emailForm input:-ms-input-placeholder      {color:#114a82!important;}
+
+#emailForm textarea::-webkit-input-placeholder {color:#114a82!important;}
+#emailForm textarea::-moz-placeholder          {color:#114a82!important;}/* Firefox 19+ */
+#emailForm textarea:-moz-placeholder           {color:#114a82!important;}/* Firefox 18- */
+#emailForm textarea:-ms-input-placeholder      {color:#114a82!important;}
+
+
+#emailForm input:focus::-webkit-input-placeholder { color:transparent;transition: 0.8s ease; }
+#emailForm input:focus:-moz-placeholder { color:transparent; transition: 0.8s ease;} /* FF 4-18 */
+#emailForm input:focus::-moz-placeholder { color:transparent; transition: 0.8s ease;} /* FF 19+ */
+#emailForm input:focus:-ms-input-placeholder { color:transparent; transition: 0.8s ease;} /* IE 10+ */
+
+
 
 .applicationButton {
     margin-top: 25px;
@@ -2646,18 +2658,14 @@ opacity: .1;}}
     display: block;
     width: 329px;
     height: 40px;
-    border-radius: 10px;
-    font-family: "Century Gothic";
-    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    color: #114a82;
+    font-family: "ProximaNova";
     font-size: 24px;
     font-weight: 700;
-    color: #fff;
+    border: 1px solid #114a82;
 }
-
     .applicationButton:hover {
-        background-image: -webkit-gradient(linear,left bottom,left top,from(#f5fb47),color-stop(13.5%,#f5fb47),color-stop(50%,#fff),color-stop(86.5%,#f5fb47),to(#f5fb47));
-        background-image: linear-gradient(to top,#f5fb47 0%,#f5fb47 13.5%,#fff 50%,#f5fb47 86.5%,#f5fb47 100%);
-        color: #162b4d;
+        color: #f9a320;border: 1px solid #f9a320;transition:.4s ease;
     }
 
 .feedbackform textarea, input:focus {
