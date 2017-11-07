@@ -371,6 +371,14 @@
     @Scripts.Render("~/Scripts/foundation")
     @Scripts.Render("~/Scripts/vendorJs")
     @Scripts.Render("~/Scripts/modulesJs")
+    @Scripts.Render("~/bundles/jcarousel")
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('.d-carousel .carousel').jcarousel({
+                scroll: 1,
+            });
+        });
+    </script>
     <script type="text/javascript">
         $(document).foundation();
         $(document).foundation('dropdown', 'reflow');

@@ -814,6 +814,8 @@
     <Content Include="Views\Shared\Search\_listOfAdverts.cshtml" />
     <Content Include="Views\Special\Sale.cshtml" />
     <Content Include="Views\Shared\Partial\_newsFeedbacks.cshtml" />
+    <Content Include="Views\Shared\Advert\_listOfAdvertsCarousel.cshtml" />
+    <Content Include="Views\Shared\NewB\_listOfNewBuildingsCarousel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
