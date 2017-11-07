@@ -392,7 +392,7 @@
         padding: 10px;
         margin: 0;
         box-sizing: border-box;
-        width: 80%;
+        width: 40%;
         background-color: #eee;
         top: 0;
         left: -100%;
@@ -407,8 +407,8 @@
         .hidden-menu a {
             display: block;
             text-decoration: none;
-            color: #1d3960;
-            font-family: "Casper";
+            color: #114a82;
+            font-family: ProximaNova;
             font-weight: 600;
             font-size: 18px;
             text-transform: uppercase;
@@ -464,7 +464,7 @@
             }
 
     .hidden-menu-ticker:checked ~ .btn-menu {
-        left: 70%;
+        left: 33%;
     }
 
     .hidden-menu-ticker:checked ~ .hidden-menu {
@@ -535,8 +535,7 @@
     }
 
     .form-search {
-        margin-left: 28px;
-        margin-right: 35px;
+        padding-bottom: 15px;
     }
 
         .form-search input {
@@ -565,11 +564,11 @@
     }
 
         .d-carousel .jcarousel-container-horizontal {
-            width: 522px;
-            height: 353px;
+                width: 395px;
+                height: 439px;
             padding: 0 45px;
-            margin-bottom: 25px;
-            margin-left: 10%;
+            margin: auto;
+            margin-bottom: 25px;           
         }
 
         .d-carousel #more {
@@ -603,140 +602,78 @@
         .d-carousel h2 {
             text-align: center;
         }
+        .d-carousel .jcarousel-prev-horizontal {
+            top: 215px;
+            right: 451px;
+}
+        .d-carousel .jcarousel-next-horizontal {
+            top: 215px;
+}
+.form-search {
+    background-color: #114a82;
+}
+#testimonials1 {
+    background-image: url(/Content/images/comment.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1200px;
+    height: 376px;
+    margin-top: 100px;
+    width: 100%;
+    position: absolute;
+    /* margin-left: -10%; */
+    left: 0;
+    min-width: 1200px;
+}
+.inner-testimonial {
+    width: 768px;
+    text-align: center;
+}
+.inner-testimonial p.text-testimonial {
+    width: 415px;
+    margin: auto;
+    margin-bottom: 182px;
+}
+.inner-testimonial img {
+    margin-bottom: 5px;
+}
+.inner-testimonial .client {
+    margin-bottom: 8px;
+}
+.thumbs {
+    top: 336px;
+    left: 342px;
+}
 
-    .news {
-        width: 768px;
-    }
+.news {
+    width: 768px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f9;
+    justify-content: space-around;
+    margin-top: -137px;
+    position: static;
+}
+.news .content1, .content2 {
+    margin-top:30px;
+    margin: auto;
+}
+.morenews {
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+#partners {
+    width: 768px!important;
+    height: 110px;
+    margin-bottom: 100px;
+}
+  
 
-        .news .img {
-            display: none;
-        }
+           
 
-        .news .firstnews {
-            padding-top: 20px;
-            padding-bottom: 25px;
-            margin-left: 24px;
-            text-align: center;
-            width: 718px;
-            border: 2px solid #fff;
-            border-radius: 10px;
-        }
+       
 
-        .news div {
-            margin-bottom: 9px;
-        }
-
-        .news h2 {
-            margin-top: 35px;
-            margin-left: 0;
-            margin-bottom: 9px;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-size: 24px;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        .news h3 {
-            margin-bottom: 20px;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-size: 20px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .news h4 {
-            margin-bottom: 20px;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-size: 18px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .news p {
-            color: #fff;
-            line-height: 23px;
-            font-size: 18px;
-            font-family: "Century Gothic";
-            margin-bottom: 20px;
-        }
-
-        .news .content1, .content2 {
-            width: 542px;
-            text-align: justify;
-            display: inline-block;
-            vertical-align: top;
-            margin-left: 0;
-        }
-
-            .news .content1 a, .content2 a {
-                padding: 10px 220px 10px 220px;
-                border-radius: 10px;
-                background: none;
-                border: 1px solid #fff;
-                color: #fff;
-                font-family: "Century Gothic";
-                font-size: 18px;
-                font-weight: 700;
-                text-decoration: none;
-            }
-
-                .news .content1 a:hover {
-                    background-image: linear-gradient(to top,#797f2b 0%,#959958 13.5%,#fff 50%,#f9feb1 86.5%,#f6fea3 100%);
-                    color: #213b64;
-                    -webkit-transition: .5s ease;
-                    transition: .5s ease;
-                }
-
-        .news .content2 a:hover {
-            background-image: linear-gradient(to top,#797f2b 0%,#959958 13.5%,#fff 50%,#f9feb1 86.5%,#f6fea3 100%);
-            color: #213b64;
-            -webkit-transition: .5s ease;
-            transition: .5s ease;
-        }
-
-        .news .morenews {
-            margin-top: 22px;
-            margin-bottom: 65px;
-            text-align: center;
-        }
-
-        .news .img img {
-            object-fit: cover;
-            margin-top: 5px;
-        }
-
-        .news .morenews #more {
-            display: block;
-            max-width: 718px;
-            height: 25px;
-            padding: 0;
-            border-radius: 10px;
-            background: none;
-            border: 1px solid #fff;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            text-align: center;
-            margin-left: 48px;
-        }
-
-            .news .morenews #more:hover {
-                background-image: linear-gradient(to top,#797f2b 0%,#959958 13.5%,#fff 50%,#f9feb1 86.5%,#f6fea3 100%);
-                color: #213b64;
-                -webkit-transition: .5s ease;
-                transition: .5s ease;
-            }
-
-        .news .morenews a#more {
-            padding-top: 7px;
-            margin-left: 22px;
-        }
+      
 
     .footer {
         height: 52px;
@@ -1195,8 +1132,9 @@
     }
 
     .news .firstnews {
-        margin-bottom: 45px;
-    }
+       margin-bottom: 30px;
+    margin-top: 30px;
+}
 
     .map_website ol {
         margin-left: 50px;
