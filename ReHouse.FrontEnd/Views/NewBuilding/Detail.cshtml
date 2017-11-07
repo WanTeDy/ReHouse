@@ -303,9 +303,7 @@
 <span class="none">
     <div class="h2prodsale"><h2>Другие новострои</h2></div>
 </span>
-<div class="products">
-    <ul class="prods" id="data-container">
-        @Html.Partial("NewB/_listOfNewBuildings", Model.OtherNewBuildings);
-    </ul>
+<div class="d-carousel" id="p">
+    @Html.Partial("NewB/_listOfNewBuildingsCarousel", Model.OtherNewBuildings)
 </div>
     </span>

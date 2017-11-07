@@ -311,9 +311,7 @@
     <span class="none">
         <div class="h2prodsale"><h2>Новинки аренды</h2></div>
     </span>
-    <div class="products">
-        <ul class="prods" id="data-container">
-            @Html.Partial("Advert/_listOfAdverts", Model.OtherAdverts)
-        </ul>
+    <div class="d-carousel" id="p">
+        @Html.Partial("Advert/_listOfAdvertsCarousel", Model.OtherAdverts)
     </div>
 </span>

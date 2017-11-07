@@ -35,44 +35,12 @@
         </select>
     </div>
     <div class="_cost">
-        <select id="price">
-            @*<option selected value="0">Цена за м² от</option>*@
-            @for (int i = 0; i < Model.Prices.Count; i++)
-            {
-                <option value="@Model.Prices[i].Min">от @Model.Prices[i].Min грн</option>
-                @*if (i == 0)
-                    {
-                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн</option>
-                    }
-                    else if (i == Model.Prices.Count - 1)
-                    {
-                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн</option>
-                    }
-                    else
-                    {
-                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн</option>
-                    }*@
-            }
-        </select>
-        <select id="price_max">
-            @*<option selected value="0">Цена за м² до</option>*@
-            @for (int i = 0; i < Model.Prices.Count; i++)
-            {
-                <option value="@Model.Prices[i].Min">до @Model.Prices[i].Min грн</option>
-                @*if (i == 0)
-                    {
-                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн</option>
-                    }
-                    else if (i == Model.Prices.Count - 1)
-                    {
-                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн</option>
-                    }
-                    else
-                    {
-                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн</option>
-                    }*@
-            }
-        </select>
+        <div>
+            <input id="price" type="number" placeholder="от" />
+        </div>
+        <div>
+            <input id="price_max" type="number" placeholder="до" />
+        </div>
     </div>
     <div class="ck">
         <select id="builder">

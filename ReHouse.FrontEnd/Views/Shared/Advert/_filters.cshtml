@@ -29,99 +29,14 @@
     </div>
 
     <div class="_cost">
-        @if (ViewBag.Type == AdvertsType.Sale)
-        {
-            <div id="price">
-               <input type="number" placeholder="от" />
-            </div>
-            <div id="price_max">
-                <input type="number" placeholder="до" />
-            </div>
-        }
-        else if (ViewBag.Type == AdvertsType.Rent)
-        {
-            <select id="price">
-                @*<option selected value="0">Цена от</option>*@
-                @foreach (var price in Model.Prices.Where(x => x.Currency == "uah"))
-                {
 
-                    <option value="@price.Min">от @price.Min грн</option>
-                    @*if (i == 0)
-                        {
-                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
-                        }
-                        else if (i == Model.Prices.Count - 1)
-                        {
-                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
-                        }
-                        else
-                        {
-                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
-                        }*@
-                }
-            </select>
-            <select id="price_max">
-                @*<option selected value="0">Цена до</option>*@
-                @foreach (var price in Model.Prices.Where(x => x.Currency == "uah"))
-                {
+        <div>
+            <input id="price" type="number" placeholder="от" />
+        </div>
+        <div>
+            <input id="price_max" type="number" placeholder="до" />
+        </div>
 
-                    <option value="@price.Min"> до @price.Min грн</option>
-                    @*if (i == 0)
-                        {
-                            <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
-                        }
-                        else if (i == Model.Prices.Count - 1)
-                        {
-                            <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн/мес</option>
-                        }
-                        else
-                        {
-                            <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
-                        }*@
-                }
-            </select>
-
-            <select id="price2" style="display:none;">
-                @*<option selected value="0">Цена от</option>*@
-                @foreach (var price in Model.Prices.Where(x => x.Currency == "usd"))
-                {
-
-                    <option value="@price.Min">от @price.Min $</option>
-                    @*if (i == 0)
-                        {
-                        <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max $</option>
-                        }
-                        else if (i == Model.Prices.Count - 1)
-                        {
-                        <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min $</option>
-                        }
-                        else
-                        {
-                        <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max $</option>
-                        }*@
-                }
-            </select>
-            <select id="price_max2" style="display:none;">
-                @*<option selected value="0">Цена до</option>*@
-                @foreach (var price in Model.Prices.Where(x => x.Currency == "usd"))
-                {
-
-                    <option value="@price.Min"> до @price.Min $</option>
-                    @*if (i == 0)
-                        {
-                            <option value="@Model.Prices[i].Id">до @Model.Prices[i].Max грн/мес</option>
-                        }
-                        else if (i == Model.Prices.Count - 1)
-                        {
-                            <option value="@Model.Prices[i].Id">свыше @Model.Prices[i].Min грн/мес</option>
-                        }
-                        else
-                        {
-                            <option value="@Model.Prices[i].Id">@Model.Prices[i].Min-@Model.Prices[i].Max грн/мес</option>
-                        }*@
-                }
-            </select>
-        }
     </div>
     @if (ViewBag.Type == AdvertsType.Rent)
     {
