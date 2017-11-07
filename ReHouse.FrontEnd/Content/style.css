@@ -920,9 +920,10 @@ opacity: .1;}}
         background: transparent url(images/next.png) no-repeat top right;
     }
 
-        /*.d-carousel .jcarousel-next-horizontal:hover {
-            background: transparent url(style/images/next-g.png) no-repeat top right;
-        }*/
+        .d-carousel .jcarousel-next-horizontal:hover {
+            transition:.5s ease;
+            background: transparent url(images/next-g.png) no-repeat top right;
+        }
 
     .d-carousel .jcarousel-prev-horizontal {
         position: absolute;
@@ -934,9 +935,10 @@ opacity: .1;}}
         background: transparent url(images/prev.png) no-repeat top left;
     }
 
-        /*.d-carousel .jcarousel-prev-horizontal:hover {
-            background: transparent url(style/images/prev-g.png) no-repeat top left;
-        }*/
+        .d-carousel .jcarousel-prev-horizontal:hover {
+            background: transparent url(images/prev-g.png) no-repeat top left;
+            transition:.5s ease;
+        }
 
     .d-carousel h2 {
         margin-top: 35px;

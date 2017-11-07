@@ -401,11 +401,13 @@
     <Content Include="Content\images\newred.jpg" />
     <Content Include="Content\images\news1.png" />
     <Content Include="Content\images\news2.png" />
+    <Content Include="Content\images\next-g.png" />
     <Content Include="Content\images\next.png" />
     <Content Include="Content\images\od.png" />
     <Content Include="Content\images\ok.png" />
     <Content Include="Content\images\pechat.png" />
     <Content Include="Content\images\pin.png" />
+    <Content Include="Content\images\prev-g.png" />
     <Content Include="Content\images\prev.png" />
     <Content Include="Content\images\qq.png" />
     <Content Include="Content\images\riv.png" />
@@ -446,6 +448,7 @@
     <Content Include="Content\images\share-vk-g.png" />
     <Content Include="Content\images\share-vk.png" />
     <Content Include="Content\images\www.jpg" />
+    <Content Include="Content\images\youtube-h.png" />
     <Content Include="Content\images\youtube.png" />
     <Content Include="Content\images\youtube_hover.png" />
     <Content Include="Content\images\yt.png" />
