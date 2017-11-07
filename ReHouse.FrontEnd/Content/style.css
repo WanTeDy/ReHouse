@@ -453,7 +453,8 @@ text-transform: uppercase;
     opacity: .8;
     color: #ffd700;
 }
-#popup__toggle{bottom:25px;right:10px;position:fixed;z-index:19999999999;}
+a#popup__toggle{bottom:25px;right:10px;position:fixed;z-index:19999999999;width: 165px;
+    height: 121px;display: block;}
 .img-circle{background-color:#29AEE3;box-sizing:content-box;-webkit-box-sizing:content-box;}
 .circlephone{box-sizing:content-box;-webkit-box-sizing:content-box;border: 2px solid #29AEE3;width:150px;height:150px;bottom:-25px;right:10px;position:absolute;-webkit-border-radius:100%;-moz-border-radius: 100%;border-radius: 100%;opacity: .5;-webkit-animation: circle-anim 2.4s infinite ease-in-out !important;-moz-animation: circle-anim 2.4s infinite ease-in-out !important;-ms-animation: circle-anim 2.4s infinite ease-in-out !important;-o-animation: circle-anim 2.4s infinite ease-in-out !important;animation: circle-anim 2.4s infinite ease-in-out !important;-webkit-transition: all .5s;-moz-transition: all .5s;-o-transition: all .5s;transition: all 0.5s;}
 .circle-fill{box-sizing:content-box;-webkit-box-sizing:content-box;background-color:#29AEE3;width:100px;height:100px;bottom:0px;right:35px;position:absolute;-webkit-border-radius: 100%;-moz-border-radius: 100%;border-radius: 100%;border: 2px solid transparent;-webkit-animation: circle-fill-anim 2.3s infinite ease-in-out;-moz-animation: circle-fill-anim 2.3s infinite ease-in-out;-ms-animation: circle-fill-anim 2.3s infinite ease-in-out;-o-animation: circle-fill-anim 2.3s infinite ease-in-out;animation: circle-fill-anim 2.3s infinite ease-in-out;-webkit-transition: all .5s;-moz-transition: all .5s;-o-transition: all .5s;transition: all 0.5s;}
@@ -1837,7 +1838,7 @@ opacity: .1;}}
     font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
-    margin-left: 225px;
+    margin-left: 6px;
 }
 
 .selection select {
@@ -2890,9 +2891,6 @@ opacity: .1;}}
 
 
 
-
-
-
 .selection-admin {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2901,83 +2899,103 @@ opacity: .1;}}
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    width: 1220px;
+    width: 1065px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    margin-top: 32px;
+    margin-left: 5px;
+    flex-wrap: wrap;
+        margin-top: 32px;
 }
 
-    .selection-admin select {
-        width: 199px;
-        height: 30px;
-        -moz-appearance: none;
-        appearance: none;
-        -webkit-appearance: none;
-        background: transparent;
-        background: url(images/select.png) no-repeat right;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-size: 15px;
-        font-weight: 700;
-        border-bottom: 1px solid #fff;
-        border-left: 1px solid #fff;
-        border-top: 1px solid #fff;
-        padding-left: 5px;
-        margin-bottom: 10px;
-    }
+.h2novostroy1 h2 {
 
-        .selection-admin select option {
-            background-color: #163d7d;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: none;
-        }
+    margin-top: 35px;
+    margin-bottom: 9px;
+    color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 6px;
+}
 
-        .selection-admin select:focus {
-            color: #ffd700;
-            background: url(images/select_hover.png) no-repeat right;
-        }
-
-        .selection-admin select:hover {
-            color: #ffd700;
-            background: url(images/select_hover.png) no-repeat right;
-            -webkit-transition: .5s ease;
-            transition: .5s ease;
-        }
-
-.search-button-admin {
+.selection-admin select {
     width: 199px;
-    color: #25406a;
-    font-family: "Century Gothic";
+    height: 51px;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    background: url(images/select.png) no-repeat 96%;
+    color: #114a82;
+    font-family: "ProximaNova";
     font-size: 15px;
     font-weight: 700;
-    margin-top: 8px;
+    border-bottom: 1.2px solid #114a82;
+    border-left: 1.2px solid #114a82;
+    border-top: 1.2px solid #114a82;
+    border-right: 1.2px solid #114a82;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+.selection-admin ._cost select {
+    width: 120px;
+}
+
+.selection-admin select option {
+    background-color: #f3f3f9;
+    color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: none;
+    border:none;
+}
+.selection-admin select:hover {
+    color: #114a82;
+    background: url(images/select-h.png) no-repeat 96%;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+    color: #f9a320;
+    border-bottom: 1.2px solid #f9a320;
+    border-left: 1.2px solid #f9a320;
+    border-top: 1.2px solid #f9a320;
+    border-right: 1.2px solid #f9a320;
+}
+
+
+
+
+.search-button-admin {
+        width: 186px;
+    color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 17.5px;
 }
 
     .search-button-admin a {
-        padding: 5px 75px 5px 75px;
+       padding: 14px 68px 13px 68px;
         text-decoration: none;
-        border: 1px solid #fff;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-size: 15px;
+        border: 1.2px solid #114a82;
+        color: #114a82;
+        font-family: "ProximaNova";
+        font-size: 18px;
         font-weight: 700;
         background: transparent;
         cursor: pointer;
     }
 
         .search-button-admin a:hover {
-            background-image: -webkit-gradient(linear,left bottom,left top,from(#797f2b),color-stop(13.5%,#959958),color-stop(50%,#fff),color-stop(86.5%,#f9feb1),to(#f6fea3));
-            background-image: linear-gradient(to top,#797f2b 0%,#959958 13.5%,#fff 50%,#f9feb1 86.5%,#f6fea3 100%);
-            color: #25406a;
-            -webkit-transition: .5s ease;
-            transition: .5s ease;
+                border: 1.2px solid #f9a320;
+                color: #f9a320;
+                -webkit-transition: .5s ease;
+                transition: .5s ease;
         }
+
 
 .about_company {
     padding-top: 20px;
@@ -3860,3 +3878,55 @@ body a, p, button {
 .forms-wrapper {
     position:relative;
 }
+
+
+._cost {
+    display: flex;
+    flex-direction: row;
+    width: 192px;
+    justify-content:space-between;
+}
+._cost div input {
+   background:transparent;
+    width: 80px;
+    height:47px;
+        color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 15px;
+        border-bottom: 1.2px solid #114a82;
+    border-left: 1.2px solid #114a82;
+    border-top: 1.2px solid #114a82;
+    border-right: 1.2px solid #114a82;
+    padding-left:4px;
+    padding-right:2px;
+}
+._cost div input:hover {
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+    color: #f9a320;
+    border-bottom: 1.2px solid #f9a320;
+    border-left: 1.2px solid #f9a320;
+    border-top: 1.2px solid #f9a320;
+    border-right: 1.2px solid #f9a320;
+}
+._cost div input:focus {
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+    color: #f9a320;
+    border-bottom: 1.2px solid #f9a320;
+    border-left: 1.2px solid #f9a320;
+    border-top: 1.2px solid #f9a320;
+    border-right: 1.2px solid #f9a320;
+}
+
+
+._cost div input::-webkit-input-placeholder {color:#114a82!important;opacity:1!important;font-weight:700;}
+._cost div input::-moz-placeholder          {color:#114a82!important;opacity:1!important;font-weight:700;}/* Firefox 19+ */
+._cost div input:-moz-placeholder           {color:#114a82!important;opacity:1!important;font-weight:700;}/* Firefox 18- */
+._cost div input:-ms-input-placeholder      {color:#114a82!important;opacity:1!important;font-weight:700;}
+
+
+._cost div input:focus::-webkit-input-placeholder { color:transparent!important;transition: 0.8s ease; }
+._cost div input:focus:-moz-placeholder { color:transparent!important; transition: 0.8s ease;} /* FF 4-18 */
+._cost div input:focus::-moz-placeholder { color:transparent!important; transition: 0.8s ease;} /* FF 19+ */
+._cost div input:focus:-ms-input-placeholder { color:transparent!important; transition: 0.8s ease;} /* IE 10+ */
