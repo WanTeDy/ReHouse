@@ -1,30 +1,34 @@
 ﻿@using ReHouse.FrontEnd.Models
 @model LoadCartModel
-
+</div>
 <div class="navigation_string">
-    <div class="way">
-        <a href="/">Главная</a>
-        <pre> </pre>
-        <p>/</p>
-        <pre> </pre>
-        <a href="/cart/">Избранное</a>
+    <div class="container">
+        <div class="way">
+            <a href="/">Главная</a>
+            <pre> </pre>
+            <a>/</a>
+            <pre> </pre>
+            <a href="/cart/">Избранное</a>
+        </div>
     </div>
 </div>
-<div class="h2novostroy"><h2>Избранные объявления</h2></div>
+<div class="container">
 
-@if (!ViewBag.NoElements)
-{
-    <div class="othernovostroy">
-        <ul class="prods" id="data-container">
+    <div class="h2novostroy"><h2>Избранные объявления</h2></div>
 
-            @Html.Partial("Cart/_listOfAdverts", Model.Adverts);
+    @if (!ViewBag.NoElements)
+    {
+        <div class="othernovostroy">
+            <ul class="prods" id="data-container">
 
-        </ul>
-        @*<div id="button-more">
-            <a id="more">Больше объявлений</a>
-        </div>*@
-    </div>
-    @*<div id="loading-div">
+                @Html.Partial("Cart/_listOfAdverts", Model.Adverts);
 
-    </div>*@
-}
+            </ul>
+            @*<div id="button-more">
+                    <a id="more">Больше объявлений</a>
+                </div>*@
+        </div>
+        @*<div id="loading-div">
+
+            </div>*@
+    }
