@@ -921,7 +921,8 @@ opacity: .1;}}
     }
 
         .d-carousel .jcarousel-next-horizontal:hover {
-            background: transparent url(style/images/next-g.png) no-repeat top right;
+            transition:.5s ease;
+            background: transparent url(images/next-g.png) no-repeat top right;
         }
 
     .d-carousel .jcarousel-prev-horizontal {
@@ -935,7 +936,8 @@ opacity: .1;}}
     }
 
         .d-carousel .jcarousel-prev-horizontal:hover {
-            background: transparent url(style/images/prev-g.png) no-repeat top left;
+            background: transparent url(images/prev-g.png) no-repeat top left;
+            transition:.5s ease;
         }
 
     .d-carousel h2 {
