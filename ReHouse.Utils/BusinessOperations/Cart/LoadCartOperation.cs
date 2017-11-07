@@ -40,6 +40,7 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                             Image = el.Images.FirstOrDefault(x => !x.Deleted),
                             IsHot = el.IsHot,
                             IsExclusive = el.IsExclusive,
+                            IsNew = el.IsNew,
                         };
                         _adverts.Add(adv);
                     }
@@ -62,6 +63,9 @@ namespace ReHouse.Utils.BusinessOperations.Cart
                             Image = el.Images.FirstOrDefault(x => !x.Deleted),
                             IsHot = el.IsHot,
                             IsExclusive = el.IsExclusive,
+                            IsNew = el.IsNew,
+                            FullSquare = el.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3)?.PropertiesValue,
+                            Square = el.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7)?.PropertiesValue,
                         };
                         _adverts.Add(adv);
                     }

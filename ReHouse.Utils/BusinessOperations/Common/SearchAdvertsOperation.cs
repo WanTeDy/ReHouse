@@ -57,10 +57,13 @@ namespace ReHouse.Utils.BusinessOperations.Common
                     Image = x.Images.FirstOrDefault(y => !x.Deleted),
                     IsHot = x.IsHot,
                     IsExclusive = x.IsExclusive,
+                    IsNew = x.IsNew,
+                    FullSquare = x.AdvertPropertyValues.FirstOrDefault(y => y.AdvertPropertyId == 3)?.PropertiesValue,
+                    Square = x.AdvertPropertyValues.FirstOrDefault(y => y.AdvertPropertyId == 7)?.PropertiesValue,
                 }
 
             ));
-            if(_adverts.Count == 0)
+            if (_adverts.Count == 0)
             {
                 var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
                 || x.District.RussianName.ToLower().Contains(r) || x.Heating.ToLower().Contains(r) || x.Parking.ToLower().Contains(r)))
@@ -80,11 +83,12 @@ namespace ReHouse.Utils.BusinessOperations.Common
                         Image = x.Images.FirstOrDefault(y => !x.Deleted),
                         IsHot = x.IsHot,
                         IsExclusive = x.IsExclusive,
+                        IsNew = x.IsNew,
                     }
 
                 ));
             }
-            else if(_adverts.Count < _count)
+            else if (_adverts.Count < _count)
             {
                 var newBuilding = Context.NewBuildings.Where(x => !x.Deleted && x.IsModerated && strings.Any(r => x.Id.ToString().Contains(r) || x.Name.ToLower().Contains(r) || x.Description.ToLower().Contains(r) || x.Adress.ToLower().Contains(r) || x.Construct.ToLower().Contains(r)
                 || x.District.RussianName.ToLower().Contains(r) || x.Heating.ToLower().Contains(r) || x.Parking.ToLower().Contains(r)))
@@ -100,10 +104,11 @@ namespace ReHouse.Utils.BusinessOperations.Common
                         Type = AdvertsType.NewBuilding,
                         Description = x.ExpluatationDate.Name,
                         Name = x.Name,
-                    //Name = el.TitleName,
-                    Image = x.Images.FirstOrDefault(y => !x.Deleted),
+                        //Name = el.TitleName,
+                        Image = x.Images.FirstOrDefault(y => !x.Deleted),
                         IsHot = x.IsHot,
                         IsExclusive = x.IsExclusive,
+                        IsNew = x.IsNew,
                     }
 
                 ));

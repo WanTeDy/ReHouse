@@ -15,5 +15,8 @@ namespace ReHouse.Utils.Helpers
         public RentPeriodType RentPeriodType { get; set; }
         public Boolean IsHot { get; set; }
         public Boolean IsExclusive { get; set; }
+        public Boolean IsNew { get; set; }
+        public String FullSquare { get; set; }
+        public String Square { get; set; }
     }
 }
