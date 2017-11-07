@@ -616,14 +616,14 @@
     background-image: url(/Content/images/comment.png);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 1200px;
     height: 376px;
     margin-top: 100px;
     width: 100%;
     position: absolute;
     /* margin-left: -10%; */
     left: 0;
-    min-width: 1200px;
+    min-width: 768px;
+    width: 100%;
 }
 .inner-testimonial {
     width: 768px;
@@ -633,6 +633,7 @@
     width: 415px;
     margin: auto;
     margin-bottom: 182px;
+    line-height: 24px;
 }
 .inner-testimonial img {
     margin-bottom: 5px;
@@ -667,9 +668,38 @@
     height: 110px;
     margin-bottom: 100px;
 }
-  
+.wrapper-footer {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #114a82;
+    margin: 0 auto;
+}  
+.inner-testimonial .client .information {
+    width: 34%;
+    text-align: left;
+}
+.contactinfo .number {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top:7px;
+}           
+.contactinfo .number div p {
+    font-family: "ProximaNova";
+    font-size: 19px;
+    font-weight: 700;
+}
+.contactinfo .number div {
+    margin-top:10px;
+}
 
-           
 
        
 
@@ -680,17 +710,18 @@
         display: flex;
         flex-direction: column;
         width: 718px;
-        margin-left: 25px;
-        margin-top: -50px;
+        margin-left: 0;
+        margin-top: 0;
     }
 
         .footer .social {
             width: 200px;
+            margin:auto;
             margin-left: 0;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            margin-left: 34.5%;
+            padding-top:30px;
         }
 
         .footer .bottomnav {
@@ -698,8 +729,8 @@
             flex-direction: column;
             width: 547px;
             justify-content: space-between;
-            margin-left: 84px;
-            margin-top: 60px;
+            margin:auto;
+            margin-top: 30px;
             text-align: center;
         }
 
@@ -919,6 +950,7 @@
     .streak {
         width: 768px;
         margin-left: 0;
+        min-width:768px;
     }
 
     .selection ._cost select {
@@ -1128,12 +1160,13 @@
         }
 
     .footer .social {
-        margin-top: 20px;
+        margin-top: 0px;
+        margin: auto;
     }
 
     .news .firstnews {
        margin-bottom: 30px;
-    margin-top: 30px;
+        margin-top: 30px;
 }
 
     .map_website ol {
