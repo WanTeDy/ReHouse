@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using ReHouse.Utils.DataBase.AdvertParams;
 using ReHouse.Utils.DataBase.Geo;
 using ReHouse.Utils.DataBase.News;
+using ReHouse.Utils.DataBase.Common;
 
 namespace ReHouse.FrontEnd.Models
 {

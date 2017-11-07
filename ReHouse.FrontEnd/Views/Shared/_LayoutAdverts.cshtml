@@ -376,7 +376,8 @@
         $(document).foundation('dropdown', 'reflow');
 
         Share = {
-            vkontakte: function (purl, ptitle, pimg, text) {
+            vkontakte: function (e, purl, ptitle, pimg, text) {
+                e.stopPropagation();
                 url = 'http://vkontakte.ru/share.php?';
                 url += 'url=' + encodeURIComponent(purl);
                 url += '&title=' + encodeURIComponent(ptitle);
@@ -385,15 +386,17 @@
                 url += '&noparse=true';
                 Share.popup(url);
             },
-            facebook: function (purl, ptitle, pimg, text) {
-                url = 'http://www.facebook.com/sharer.php?s=100';
+            facebook: function (e, purl, ptitle, pimg, text) {
+                e.stopPropagation();
+                url = 'https://www.facebook.com/sharer.php?s=100';
                 url += '&p[title]=' + encodeURIComponent(ptitle);
                 url += '&p[summary]=' + encodeURIComponent(text);
                 url += '&p[url]=' + encodeURIComponent(purl);
                 url += '&p[images][0]=' + encodeURIComponent(pimg);
                 Share.popup(url);
             },
-            twitter: function (purl, ptitle) {
+            twitter: function (e, purl, ptitle) {
+                e.stopPropagation();
                 url = 'http://twitter.com/share?';
                 url += 'text=' + encodeURIComponent(ptitle);
                 url += '&url=' + encodeURIComponent(purl);

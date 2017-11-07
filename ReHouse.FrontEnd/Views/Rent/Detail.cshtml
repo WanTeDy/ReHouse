@@ -37,13 +37,13 @@
         });
     </script>
     <!--  FancyBox -->
-    @Scripts.Render("~/bundles/fancybox");
-    <script>
-        $(document).ready(function () {
-            $("a.plan").fancybox();
-            // $("a.plan").fancybox({"frameWidth":1560,"frameHeight":1340});
-        });
-    </script>
+    @*@Scripts.Render("~/bundles/fancybox");
+        <script>
+            $(document).ready(function () {
+                $("a.plan").fancybox();
+                // $("a.plan").fancybox({"frameWidth":1560,"frameHeight":1340});
+            });
+        </script>*@
 }
 <span class="noprint">
     <span class="none">
@@ -88,290 +88,232 @@
             </div>
         </div>
         <div class="container">
-</span>
-</span>
+    </span>
 
-@if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
-{
+
     <span class="noprint">
 
-<div class="wrapper-prod">
+        <div class="wrapper-prod">
 
-    <div class="left">
-        <div id="products_example">
-            <div id="products">
-                <div class="sp-slides">
-                    @foreach (var item in Model.Advert.Images)
-                    {
-                        <div class="sp-slide">
-                            @*<img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max"
-                                data-src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" />*@
-                            <img class="sp-image" src="/Content/images/adverts/images/253_131371478043202070.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/253_131371478043202070.jpg?w=767&h=600&mode=max" />
-                        </div>
-                        <div class="sp-slide">
+            <div class="left">
+                <div id="products_example">
+                    <div id="products">
+                        <div class="sp-slides">
+                            @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
+                            {
+                                foreach (var item in Model.Advert.Images)
+                                {
+                                    <div class="sp-slide">
+                                        <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max"
+                                             data-src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" />
+                                    </div>
 
-                            <img class="sp-image" src="/Content/images/adverts/images/img_1514_131350239275052451_131371146148607426.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/img_1514_131350239275052451_131371146148607426.jpg?w=767&h=600&mode=max" />
-                        </div>
-                        <div class="sp-slide">
+                                }
+                            }
+                            @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
+                            {
+                                foreach (var item in Model.Advert.PlanImages)
+                                {
+                                    <div class="sp-slide">
+                                        <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max"
+                                             data-src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" />
+                                    </div>
 
-                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
+                                }
+                            }
                         </div>
-                        <div class="sp-slide">
-
-                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
+                        <div class="sp-thumbnails">
+                            @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
+                            {
+                                foreach (var item in Model.Advert.Images)
+                                {
+                                    <img class="sp-thumbnail" src="@Url.Content(item.Url + item.FileName)?w=150&h=150&mode=max" />
+                                }
+                            }
+                            @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
+                            {
+                                foreach (var item in Model.Advert.PlanImages)
+                                {
+                                    <img class="sp-thumbnail" src="@Url.Content(item.Url + item.FileName)?w=150&h=150&mode=max" />
+                                }
+                            }
                         </div>
-                        <div class="sp-slide">
-
-                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
-                        </div>
-                        <div class="sp-slide">
-
-                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
-                        </div>
-                        <div class="sp-slide">
-
-                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
-                        </div>
-                        <div class="sp-slide">
-
-                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
-                        </div>
-                        <div class="sp-slide">
-
-                            <img class="sp-image" src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max"
-                                 data-src="/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=767&h=600&mode=max" />
-                        </div>
-                    }
+                    </div>
                 </div>
-                <div class="sp-thumbnails">
-                    @foreach (var item in Model.Advert.Images)
-                    {
-                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/253_131371478043202070.jpg?w=150&h=150&mode=max" />
-                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1514_131350239275052451_131371146148607426.jpg?w=150&h=150&mode=max" />
-                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
-                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
-                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
-                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
-                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
-                        <img class="sp-thumbnail" src="~/Content/images/adverts/images/img_1526_131350239286771210_131371146158918819.jpg?w=150&h=150&mode=max" />
-                    }
-                </div>
-            </div>
-        </div>
     </span>
-    
-}
 
-<a class="videoyoutube" href="">Посмотреть видео</a>
-</div>
-
-<div class="right">
-    <div class="redimg"><img src="/Content/images/redcorner.png"></div>
-<div class="seotext3">
-   <!-- <div class="print">
-        <a href='javascript:window.print(); void 0;'>
-            <img src="~/Content/images/pechat.png" />
-        </a>
-    </div>-->
-    <div class="share_icons">
-        <div class="share_fb">
-            <a onclick="Share.facebook('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
-        </div>
-        <div class="share_vk">
-            <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
-        </div>
-        <div class="share_tw">
-            <a onclick="Share.twitter('http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street')"></a>
-        </div>
-        <div class="advert_id">
-            <h2>№@Model.Advert.Id</h2>
-        </div>
+    @if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
+    {
+        <a class="videoyoutube" href="https://www.youtube.com/watch?v=@Model.Advert.YouTubeUrl">Посмотреть видео</a>
+    }
     </div>
 
-    <div class="h2sale"><h2>Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street</h2></div>
-    <h4><img src="/Content/images/pin.png" height="13" alt="">Люсторфская дорога 55</h4>
-    <div class="h3cost">
-        @if (Model.Advert.RentPeriodType == RentPeriodType.Daily)
+    <div class="right">
+        @if (Model.Advert.IsExclusive)
         {
-            <p class="grn">@Model.Advert.Price грн/сутки</p>
+            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
         }
-        else
+        else if (Model.Advert.IsHot)
         {
-            <p class="grn">@Model.Advert.Price $/мес</p>
+            <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
         }
-        <pre></pre>
-        <p class="dot">·</p>
-
-        @*@if (ViewBag.USD != 0)
-            {
-                <pre> </pre>
-                <p class="DolUSA">@ViewBag.USD $/мес</p>
-                <pre></pre>
-            }
-            @if (ViewBag.EUR != 0)
-            {
-                <p class="dot">·</p>
-                <pre> </pre>
-                <p class="grn">@ViewBag.EUR €/мес</p>
-                <pre></pre>
-                <p class="dot">·</p>
-            }*@
-        <pre> </pre>
-        <p class="square_meter">@pricePerSquere</p>
-    </div>
-    <div class="meters">
-        <div><img src="/Content/images/m2.png" height="32" alt=""><p>42 м²</p></div>
-        <div><img src="/Content/images/m21.png" height="32" alt=""><p> м²</p></div>
-    </div>
-    <p class="text">@Model.Advert.Description</p>
-</div>
-<div class="table_of_prodapart">
-    <table>
-        <tr>
-            <td>Тип рынка: </td>
-            <td>@Model.Advert.MarketType.RussianName</td>
-        </tr>
-        <tr>
-            <td>Период сдачи: </td>
-            @if (Model.Advert.RentPeriodType == RentPeriodType.Daily)
-            {
-                <td>Посуточно</td>
-            }
-            else
-            {
-                <td>Помесячно</td>
-            }
-        </tr>
-        @if (Model.Advert.Category.ParentId != (int)ParrentCategories.Homestead)
-            {
-            <tr>
-                <td>Состояние: </td>
-                <td>@Model.Advert.TrimCondition.RussianName</td>
-            </tr>
+        else if (Model.Advert.IsNew)
+        {
+            <div class="redimg"><img src="~/Content/images/newred.png"></div>
         }
-        <tr>
-            <td>Адрес: </td>
-            <td>@Model.Advert.Street</td>
-        </tr>
-        @foreach (var prop in Model.Properties)
-            {
-            <tr>
-                <td>@prop.Key.RussianName: </td>
-                <td>@prop.Value.PropertiesValue</td>
-            </tr>
-        }
-
-    </table>
-</div>
-
-
-<div class="fav-wrap">
-    <div class="favorite">
-        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
-        <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="fav2"></a>
-    </div>
-    <div class="favorite1">
-        <a href="/email/index?flat=@(Model.Advert.Id)&type=@((int)AdvertsType.Rent)" id="favorite"><span>+</span> Подать заявку</a>
-    </div>
-</div>
-</div>
- </div>
-
-
-@if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
-{
-
-
-
-
-
-
-    <!-- <div class="planirovka">
-
-        @foreach (var item in Model.Advert.PlanImages)
-                {
-            <a class="plan" rel="group" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)?w=522&h=390&mode=max" title="@item.Title" alt="@item.Alt" border="0" /></a>
-        }
-    </div>-->
-}
-@if (!String.IsNullOrEmpty(Model.Advert.YouTubeUrl))
-{
-
-    @*<div class="video-youtube">
-            <iframe width="711" height="533" src="https://www.youtube.com/embed/@Model.Advert.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-        </div>*@
-}
-<div class="map_managercard">
-   <!-- <div class="manager">
-        <div class="photo">
-            @if (Model.Advert.User.Avatar != null)
-            {
-                <img src="@Url.Content(Model.Advert.User.Avatar.Url + Model.Advert.User.Avatar.FileName)?w=90&h=90&mode=max" width="90px" height="90px">
-            }
-            else
-            {
-                <img src="~/Content/images/manager.png" width="90px" height="90px">
-            }
-        </div>
-        <div class="manager_info">
-            <div class="imgtel">
-                <img src="~/Content/images/minphone.png">
+        <div class="seotext3">
+            <!-- <div class="print">
+                 <a href='javascript:window.print(); void 0;'>
+                     <img src="~/Content/images/pechat.png" />
+                 </a>
+             </div>-->
+            <div class="share_icons">
+                <div class="share_fb">
+                    <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
+                </div>
+                <div class="share_vk">
+                    <a onclick="Share.vkontakte(event, 'http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street', 'http://rehouse-realty.com.ua@(Url.Content(Model.Advert.Images?.FirstOrDefault() != null ? Model.Advert.Images.FirstOrDefault().Url + Model.Advert.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.Advert.Description?.Replace(Environment.NewLine, " "))')"></a>
+                </div>
+                <div class="share_tw">
+                    <a onclick="Share.twitter(event, 'http://rehouse-realty.com.ua/rent/detail/@(Model.Advert.Id)', 'Сдам @Model.Advert.Title.RussianName, @Model.Advert.Street')"></a>
+                </div>
+                <div class="advert_id">
+                    <h2>№@Model.Advert.Id</h2>
+                </div>
             </div>
-            <div class="number">
-                @if (Model.Advert.User.Phones != null && Model.Advert.User.Phones.Count > 0)
+
+            <div class="h2sale"><h2>Сдам @Model.Advert.Title.RussianName</h2></div>
+            <h4><img src="/Content/images/pin.png" height="13" alt="">@Model.Advert.Street</h4>
+            <div class="h3cost">
+                @if (Model.Advert.RentPeriodType == RentPeriodType.Daily)
                 {
-                    foreach (var phone in Model.Advert.User.Phones)
-                    {
-                        <p>@phone.TelePhone</p>
-                    }
+                    <p class="grn">@Model.Advert.Price грн/сутки</p>
                 }
-                <p>@Model.Advert.User.Email</p>
-                <p class="name">@Model.Advert.User.FirstName</p>
+                else
+                {
+                    <p class="grn">@Model.Advert.Price $/мес</p>
+                }
+                <pre></pre>
+                <p class="dot">·</p>
+
+                @*@if (ViewBag.USD != 0)
+                    {
+                        <pre> </pre>
+                        <p class="DolUSA">@ViewBag.USD $/мес</p>
+                        <pre></pre>
+                    }
+                    @if (ViewBag.EUR != 0)
+                    {
+                        <p class="dot">·</p>
+                        <pre> </pre>
+                        <p class="grn">@ViewBag.EUR €/мес</p>
+                        <pre></pre>
+                        <p class="dot">·</p>
+                    }*@
+                <pre> </pre>
+                <p class="square_meter">@pricePerSquere</p>
+            </div>
+            <div class="meters">
+                <div><img src="/Content/images/m2.png" height="32" alt=""><p>@(Model.Advert.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 3)? Model.Advert.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue : "0") м²</p></div>
+                <div><img src="/Content/images/m21.png" height="32" alt=""><p>@(Model.Advert.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 7) ? Model.Advert.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue : "0") м²</p></div>
+            </div>
+            <p class="text">@Model.Advert.Description</p>
+        </div>
+        <div class="table_of_prodapart">
+            <table>
+                <tr>
+                    <td>Тип рынка: </td>
+                    <td>@Model.Advert.MarketType.RussianName</td>
+                </tr>
+                <tr>
+                    <td>Период сдачи: </td>
+                    @if (Model.Advert.RentPeriodType == RentPeriodType.Daily)
+                    {
+                        <td>Посуточно</td>
+                    }
+                    else
+                    {
+                        <td>Помесячно</td>
+                    }
+                </tr>
+                @if (Model.Advert.Category.ParentId != (int)ParrentCategories.Homestead)
+                {
+                    <tr>
+                        <td>Состояние: </td>
+                        <td>@Model.Advert.TrimCondition.RussianName</td>
+                    </tr>
+                }
+                <tr>
+                    <td>Адрес: </td>
+                    <td>@Model.Advert.Street</td>
+                </tr>
+                @foreach (var prop in Model.Properties)
+                {
+                    <tr>
+                        <td>@prop.Key.RussianName: </td>
+                        <td>@prop.Value.PropertiesValue</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+
+        <div class="fav-wrap">
+            <div class="favorite">
+                <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
+                <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="fav2"></a>
+            </div>
+            <div class="favorite1">
+                <a href="/email/index?flat=@(Model.Advert.Id)&type=@((int)AdvertsType.Rent)" id="favorite"><span>+</span> Подать заявку</a>
             </div>
         </div>
-    </div>-->
-    <div id="mapapart_prod">
-
-        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1200px" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-    <div id="mapnovostroy1">
-        <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 
-</div>
+    </div>
 
-<span class="none">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="map_managercard">
+        <!-- <div class="manager">
+             <div class="photo">
+                 @if (Model.Advert.User.Avatar != null)
+                 {
+                     <img src="@Url.Content(Model.Advert.User.Avatar.Url + Model.Advert.User.Avatar.FileName)?w=90&h=90&mode=max" width="90px" height="90px">
+                 }
+                 else
+                 {
+                     <img src="~/Content/images/manager.png" width="90px" height="90px">
+                 }
+             </div>
+             <div class="manager_info">
+                 <div class="imgtel">
+                     <img src="~/Content/images/minphone.png">
+                 </div>
+                 <div class="number">
+                     @if (Model.Advert.User.Phones != null && Model.Advert.User.Phones.Count > 0)
+                     {
+                         foreach (var phone in Model.Advert.User.Phones)
+                         {
+                             <p>@phone.TelePhone</p>
+                         }
+                     }
+                     <p>@Model.Advert.User.Email</p>
+                     <p class="name">@Model.Advert.User.FirstName</p>
+                 </div>
+             </div>
+         </div>-->
+        <div id="mapapart_prod">
+            <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1200px" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <div id="mapnovostroy1">
+            <iframe src="https://maps.google.com/maps?q=@Model.Advert.Latitude.ToString(CultureInfo.InvariantCulture),@Model.Advert.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <span class="none">
         <div class="h2prodsale"><h2>Новинки аренды</h2></div>
+    </span>
+    <div class="products">
+        <ul class="prods" id="data-container">
+            @Html.Partial("Advert/_listOfAdverts", Model.OtherAdverts)
+        </ul>
+    </div>
 </span>
-<div class="products">
-    <ul class="prods" id="data-container">
-        @Html.Partial("Advert/_listOfAdverts", Model.OtherAdverts)
-    </ul>
-</div>

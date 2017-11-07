@@ -16,6 +16,7 @@ using ReHouse.Utils.DataBase.News;
 using ReHouse.Utils.DataBase.Feedback;
 using ReHouse.Utils.BusinessOperations;
 using ReHouse.FrontEnd.Filters;
+using ReHouse.Utils.BusinessOperations.Slider;
 
 namespace ReHouse.FrontEnd.Controllers
 {
@@ -34,6 +35,9 @@ namespace ReHouse.FrontEnd.Controllers
 
             var operation = new LoadAdvertsForHomePageOperation(tokenHash);
             operation.ExcecuteTransaction();
+            var operation2 = new LoadSliderOptionsOperation(tokenHash);
+            operation2.ExcecuteTransaction();
+            ViewBag.SliderParams = operation2._params;
             var model = new LoadAdvertsForHomePageModel
             {
                 HotAdverts = operation._hotAdverts,

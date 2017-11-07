@@ -46,7 +46,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
                 return View(Param.ToList());
             }
-            return View(Param.ToList());
+            return RedirectToAction("index", "profile");
         }
     }
 }

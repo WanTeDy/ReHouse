@@ -1,6 +1,6 @@
 function addtocart(id, type, isAdd, element, e) {
     e.preventDefault();
-
+    e.stopPropagation();
     var obj = {
         "AdvertId": id,
         "Type": type,
@@ -34,6 +34,7 @@ function addtocart(id, type, isAdd, element, e) {
 
 function share(element, e) {
     e.preventDefault();
+    e.stopPropagation();
     var parent = $(element).parent();
     if (parent.children('.shared_icons').css('display') === 'none') {
         parent.children('div').children('.cost').css('display', 'none');
@@ -42,4 +43,5 @@ function share(element, e) {
         parent.children('div').children('.cost').css('display', 'block');
         parent.children('.shared_icons').css('display', 'none');
     }
+    return false;
 };
