@@ -9,10 +9,10 @@
                 priceMax = $('#price_max').val(),
                 trimcondition = $('#trimcondition').val();
 
-        if (rentPeriodType == 2) {
-            priceMin = $('#price2').val();
-            priceMax = $('#price_max2').val();
-        }
+        //if (rentPeriodType == 2) {
+        //    priceMin = $('#price2').val();
+        //    priceMax = $('#price_max2').val();
+        //}
         
         var obj = {
             "DistrictId": districtID,
