@@ -362,7 +362,7 @@
                         <td>@Html.DropDownListFor(m => m.MarketTypeId, new SelectList(ViewBag.MarketTypes, "Id", "RussianName"))</td>
                     </tr>
                 }
-                @if (Model.Category.ParentId != (int)ParrentCategories.Homestead)
+                @*@if (Model.Category.ParentId != (int)ParrentCategories.Homestead)
                 {
                     if (ViewBag.TrimConditions != null && ViewBag.TrimConditions.Count > 0)
                     {
@@ -371,7 +371,7 @@
                             <td>@Html.DropDownListFor(m => m.TrimConditionId, new SelectList(ViewBag.TrimConditions, "Id", "RussianName"))</td>
                         </tr>
                     }
-                }
+                }*@
                 @if (Model.AdvertPropertyValues != null && Model.AdvertPropertyValues.Count > 0)
                 {
                     for (var i = 0; i < Model.AdvertPropertyValues.Count; i++)

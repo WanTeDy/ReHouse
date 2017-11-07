@@ -236,13 +236,13 @@
                         <td>Помесячно</td>
                     }
                 </tr>
-                @if (Model.Advert.Category.ParentId != (int)ParrentCategories.Homestead)
+                @*@if (Model.Advert.Category.ParentId != (int)ParrentCategories.Homestead)
                 {
                     <tr>
                         <td>Состояние: </td>
                         <td>@Model.Advert.TrimCondition.RussianName</td>
                     </tr>
-                }
+                }*@
                 <tr>
                     <td>Адрес: </td>
                     <td>@Model.Advert.Street</td>

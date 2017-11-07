@@ -49,7 +49,7 @@
         </div>
     }
 
-    @if (Model.TrimConditions != null)
+    @if (Model.TrimConditions != null && ViewBag.Type != AdvertsType.Rent)
             {
         <div class="trimcondition">
             <select id="trimcondition">
