@@ -568,32 +568,33 @@
                 height: 439px;
             padding: 0 45px;
             margin: auto;
-            margin-bottom: 25px;           
+            margin-bottom: 30px;           
         }
 
         .d-carousel #more {
-            display: block;
-            max-width: 768px;
-            height: 25px;
-            padding: 0;
-            border-radius: 10px;
-            background: none;
-            border: 1px solid #fff;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            text-align: center;
-            margin-left: 0;
+              display: block;
+                width: 390px;
+                padding: 6px 0px 6px 0px;
+                text-decoration: none;
+                color: #ffffff;
+                font-family: "ProximaNova";
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 34px;
+                text-transform: uppercase;
+                text-align: center;
+                background-color: #114a82;
+                letter-spacing: 1.5px;
+                margin-left:0;
+                margin:auto;
         }
 
             .d-carousel #more:hover {
-                background-image: linear-gradient(to top,#797f2b 0%,#959958 13.5%,#fff 50%,#f9feb1 86.5%,#f6fea3 100%);
-                color: #213b64;
-                -webkit-transition: .5s ease;
-                transition: .5s ease;
-            }
+                -webkit-transition: .8s ease;
+                transition: .8s ease;
+                background-color: #f9a320;
+                color: #114a82;
+}
 
         .d-carousel a#more {
             padding-top: 7px;
@@ -617,7 +618,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 376px;
-    margin-top: 100px;
+    margin-top: 70px;
     width: 100%;
     position: absolute;
     /* margin-left: -10%; */
@@ -699,11 +700,38 @@
 .contactinfo .number div {
     margin-top:10px;
 }
+.news12 {
+    width: 768px;
+    background-color: #f3f3f9;
+}
+.news123 .content1 {
+    margin-top: 30px;
+    margin-bottom: 80px;
+    max-width: 768px;
+}
+.news123 .content1 p {
+    color: #114a82;
+    font-family: "ProximaNova";
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 23px;
+    text-align: left;
+}       
+
+  
 
 
-       
 
-      
+
+
+
+
+
+
+
+
+
+    
 
     .footer {
         height: 52px;
@@ -827,25 +855,26 @@
     }
 
         .products .prods {
-            width: 545px;
+            width: 390px;
             margin:auto;
         }
 
         .products #more {
             display: block;
-            max-width: 700px;
-            height: 25px;
-            padding: 0;
-            border-radius: 10px;
-            background: none;
-            border: 1px solid #fff;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            text-align: center;
-            margin-left: 30px;
+                width: 400px;
+                padding: 6px 0px 6px 0px;
+                text-decoration: none;
+                color: #ffffff;
+                font-family: "ProximaNova";
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 34px;
+                text-transform: uppercase;
+                text-align: center;
+                background-color: #114a82;
+                letter-spacing: 1.5px;
+                margin-left:0;
+                margin:auto;
         }
 
     #mapnovostroy {
@@ -975,9 +1004,16 @@
     flex-direction: column;
     margin-top: 59px;
 }
-
-
-
+.bgh a:hover {
+    color:#fff;
+}
+.about_company p {
+    font-size: 20px;
+    line-height:24px;
+}
+.about_company .call_us p {
+    font-size: 22px;
+}
 
 
 
@@ -1058,24 +1094,6 @@
             line-height: 20px;
             font-size: 17px;
         }
-
-        .news1 .morenews1 #more {
-            display: block;
-            max-width: 700px;
-            height: 25px;
-            padding: 0;
-            border-radius: 10px;
-            background: none;
-            border: 1px solid #fff;
-            color: #fff;
-            font-family: "Century Gothic";
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            text-align: center;
-            margin-left: 39px;
-        }
-
     .othernovostroy .prods {
         display: flex;
         flex-direction: row;
@@ -1200,7 +1218,9 @@
     }
 
     #button-more {
-        width: 740px;
+        width: 450px;
+        margin: auto;
+        margin-bottom: 40px;
     }
 
     .d-carousel h2 {
@@ -1208,7 +1228,12 @@
         margin-left: 0px;
     }
 
- 
+ #testimonials {
+    margin-top: 70px;
+}
+ #testimonials {
+    margin-bottom: 60px;
+}
 .news .content1 a.intext {
     padding: 0;
     border-radius: none;
@@ -1232,6 +1257,7 @@
 .table_of_prodapart table {
     font-size: 17px;
     line-height: 22px;
+    width: 420px;
 }
 .wrapper-prod .right .fav-wrap {
     justify-content: space-around;
@@ -1245,8 +1271,15 @@
     margin: auto;
     margin-bottom: 12px;
 }
-
-
+#partners ul li {
+    width: 183px!important;
+    padding: 0 7px;
+    float: none!important;
+    overflow: visible!important;
+}
+.sorting {
+    margin-top: 45px;
+}
 
 
 
