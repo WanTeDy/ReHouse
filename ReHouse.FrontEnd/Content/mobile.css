@@ -828,7 +828,7 @@
 
         .products .prods {
             width: 545px;
-            margin-left: 128px;
+            margin:auto;
         }
 
         .products #more {
@@ -862,7 +862,7 @@
         width: 768px;
         margin-left: 0;
         margin-top: 35px;
-        margin-bottom: 96px;
+        margin-bottom: 0px;
         text-align: center;
     }
 
@@ -908,16 +908,17 @@
 
     .share_icons {
         width: 135px;
-        margin-left: 320px;
+        margin-left: 0px;
+        justify-content:space-around;
     }
 
     .seotext3 {
-        width: 750px;
-        margin-left: 9px;
+        width: 685px;
+        margin-left: 0px;
     }
 
     .h2sale {
-        text-align: center;
+        margin-top: 10px;
     }
 
     .print {
@@ -963,7 +964,25 @@
         flex-direction: row;
         justify-content: space-between;
         margin-left: 184px;
+        margin-bottom: 12px;
     }
+._cost div input {
+    width: 179px;
+}
+.wrapper-prod {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin-top: 59px;
+}
+
+
+
+
+
+
+
+
 
     #map_company {
         display: none;
@@ -1189,129 +1208,7 @@
         margin-left: 0px;
     }
 
-    .news h3 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .news .content1 p {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .footer .bottomnav a {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .news h4 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .selection select {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .search-button a {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .sorting form a {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .products #more {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .seotext p {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .news .content1 a#more, .content2 a#more {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .news .morenews a#more {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .news h2 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .seotext3 p {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .table_of_prod table {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .map_managercard .manager .manager_info {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .about_company1 h2 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .about_company1 p {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .about_company h2 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .about_company p {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .about_company .call_us p {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .map_website a {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .form_comment h3 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .form_comment p {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .managers h2 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .managers .contactinfo h3 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .managers p {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .d-carousel a#more {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    #application h3, #emailForm h3 {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    #applicationName, #applicationEmail, #applicationTelephone {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    #applicationText {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
-
-    .applicationButton {
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
-    }
+ 
 .news .content1 a.intext {
     padding: 0;
     border-radius: none;
@@ -1328,7 +1225,46 @@
         color: #ffd700;
     border-bottom: 1px solid #ffd700;
     }
+.seotext3 p {
+    font-size: 17px;
+    line-height: 27px;
 }
+.table_of_prodapart table {
+    font-size: 17px;
+    line-height: 22px;
+}
+.wrapper-prod .right .fav-wrap {
+    justify-content: space-around;
+}
+.selection1 ._cost {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-between;
+    /* margin-bottom: 12px; */
+    margin: auto;
+    margin-bottom: 12px;
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media(max-width:480px) {
     .tags {
