@@ -11,14 +11,14 @@
         <h2>Настройка слайдера</h2>
     </div>
     <div class="added">
-        <form method="post" enctype = "multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
             @Html.AntiForgeryToken()
             <table class="added" id="data-container">
                 <tr>
-                    <td></td>
                     <td>Видео</td>
                     <td>Ссылка на видео</td>
                     <td>Изображение</td>
+                    <td>Текст</td>
 
                     <td>Загрузка изображения</td>
                 </tr>
@@ -27,8 +27,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td><input type="hidden" name="Param[@i].Id" value="@item.Id" /></td>
-                        
+                        <input type="hidden" name="Param[@i].Id" value="@item.Id" />
                         <td>@Html.CheckBox("Param[" + i + "].IsVideo", item.IsVideo)@*<input type="checkbox" name="" class="checkbox" id="checkbox" checked="@item.IsVideo" style="width:20px;" />*@</td>
                         <td><input type="text" name="Param[@i].Url" value="@item.Url" /></td>
                         <td>
@@ -37,6 +36,7 @@
                                 <img src="@Url.Content(item.Url)?w=250&h=200&mode=max" />
                             }
                         </td>
+                        <td>@Html.TextArea("Param[" + i + "].Text", new { @rows = "30", @cols = "30", @class = "wyiswyg" })</td>
                         <td><input type="file" name="Param[@i].Image" /></td>
                     </tr>
                     i++;
@@ -46,3 +46,10 @@
         </form>
     </div>
 </div>
+@section scripts {
+    <script>
+        $(function () {
+            $("textarea.wyiswyg").jqte();
+        });
+    </script>
+}

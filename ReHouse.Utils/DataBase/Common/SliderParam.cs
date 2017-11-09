@@ -18,6 +18,12 @@ namespace ReHouse.Utils.DataBase.Common
         /// </summary>       
         public bool IsVideo { get; set; }
 
+        /// <summary>
+        /// Text
+        /// </summary>   
+        [AllowHtml]
+        public String Text { get; set; }
+
         [NotMapped]  
         public HttpPostedFileBase Image { get; set; }
     }

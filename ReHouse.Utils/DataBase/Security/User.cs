@@ -20,6 +20,10 @@ namespace ReHouse.Utils.DataBase.Security
         /// </summary>
         public String FatherName { get; set; }
         /// <summary>
+        /// MessengerName
+        /// </summary>
+        public String MessengerName { get; set; }
+        /// <summary>
         /// User's Position
         /// </summary>
         public String Position { get; set; }

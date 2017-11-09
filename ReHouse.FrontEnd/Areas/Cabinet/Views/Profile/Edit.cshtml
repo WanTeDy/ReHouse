@@ -58,11 +58,15 @@
                     <tr>
                         <td>Отчество:</td>
                         <td>@Html.TextBoxFor(m => m.FatherName)</td>
-                    </tr>                    
+                    </tr> 
                     <tr>
+                        <td>Имя в Messenger:</td>
+                        <td>@Html.TextBoxFor(m => m.MessengerName)</td>
+                    </tr>                   
+                    @*<tr>
                         <td>О себе:</td>
                         <td>@Html.TextAreaFor(m => m.About, new { @rows = "4" })</td>
-                    </tr>
+                    </tr>*@
                     <tr>
                         <td>Адрес:</td>
                         <td>@Html.TextBoxFor(m => m.Adress)</td>

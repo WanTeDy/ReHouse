@@ -89,6 +89,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
             user.FirstName = _user.FirstName;
             user.SecondName = _user.SecondName;
             user.FatherName = _user.FatherName;
+            user.MessengerName = _user.MessengerName;
             //user.About = _user.About;
             user.Position = _user.Position;
             user.OrderByField = _user.OrderByField;
