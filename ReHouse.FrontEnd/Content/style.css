@@ -1965,9 +1965,12 @@ opacity: .1;}}
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     position:relative;
+    cursor:pointer;
 
         }
-
+        .d-carousel ul li {
+            cursor:pointer;
+        }
         .products .prods .redimg {
             position: absolute;
             z-index: 99999999999;
@@ -2145,7 +2148,7 @@ opacity: .1;}}
         font-size: 18px;
         font-weight: 600;
         line-height: 20px;
-        text-align: justify;
+        text-align: left;
     }
 
 .seotext2 {

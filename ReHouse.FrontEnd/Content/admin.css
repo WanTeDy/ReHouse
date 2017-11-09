@@ -64,6 +64,7 @@ input {
     position: relative;
     z-index: 2;
     white-space: nowrap;
+    margin-bottom: 40px;
 }
 
     .tabset_tabs li {
