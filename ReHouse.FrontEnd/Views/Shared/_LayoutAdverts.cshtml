@@ -50,7 +50,7 @@
     @Styles.Render("~/Content/styleCss")
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/mobile.min.css">
+    <link rel="stylesheet" href="~/Content/mobile.css">
 
     <!--<style media='print' type='text/css'>
         .noprint {
@@ -186,7 +186,7 @@
                 <div class="feedback">
                     <a href="/cart/" id="fav">Избранное</a>
                     <!-- <a href="/email/" id="blink">Обратный звонок</a>-->
-                    <a href="/email/" id="popup__toggle" onclick="return false;"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
+                    <a href="/email/" id="popup__toggle"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
                 </div>
             </span>
         </div>
@@ -292,12 +292,9 @@
                     <a href="/cart/" id="fav1"></a>
                 </div>
                 <div class="tel">
-                    <div class="imgtel">
-                        <img src="~/Content/images/tel.png">
-                    </div>
                     <div class="number">
-                        <p>+38093 057 7110</p>
-                        <p>+38048 788 6707</p>
+                        <div><img src="~/Content/images/tel.png"><p>+38093 057 7110</p></div>
+                        <div><img src="~/Content/images/tel.png"><p>+38048 788 6707</p></div>
                     </div>
                 </div>
             </div>
@@ -310,11 +307,10 @@
                 </form>
             </p>
         </div>
-        @if (seo != null)
-        {
-            <h1 style="display:none;">@seo.Title</h1>
-        }
     </div>
+
+
+
 
     <div class="container" id="container">
         @RenderBody()
