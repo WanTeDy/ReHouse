@@ -2064,7 +2064,18 @@
     .container {
         max-width: 320px;
     }
-
+.news123 .content1 {
+    margin-top: 30px;
+    margin-bottom: 80px;
+    max-width: 320px;
+        width: 100%;
+}
+.news123 {
+    width:320px;
+}
+.hidden-menu {
+    width: 64%;
+}
     body {
         -ms-text-size-adjust: 100%;
         -moz-text-size-adjust: 100%;
@@ -2082,7 +2093,7 @@
     }
 
     .header_mobile .header .contactinfo .feedback {
-        margin-left: 95px;
+        margin-left: 83px;
     }
 
     .header_mobile .header .contactinfo .tel {
@@ -2140,9 +2151,14 @@
         }
 
     .footer {
-        width: 320px;
+        width: 100%;
     }
-
+.news123 .content1 p {
+    font-size: 15px;
+}
+.h2novostroy h2 {
+    font-size: 20px;
+}
     #toTop {
         bottom: 10px;
         right: -5px;
@@ -2544,7 +2560,9 @@
     min-width: 320px;
     width: 100%;
 }
-
+.news123 .content1 .img {
+    display: none;
+}
 
 
 }
