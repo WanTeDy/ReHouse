@@ -193,10 +193,10 @@
                 {
                     <p class="grn">@Model.Advert.Price.ToString("# ### ##0") $/мес</p>
                 }
-                <pre></pre>
+                @*<pre> </pre>
                 <p class="dot">/</p>
 
-                @*@if (ViewBag.USD != 0)
+                @if (ViewBag.USD != 0)
                     {
                         <pre> </pre>
                         <p class="DolUSA">@ViewBag.USD $/мес</p>
@@ -209,9 +209,9 @@
                         <p class="grn">@ViewBag.EUR €/мес</p>
                         <pre></pre>
                         <p class="dot">·</p>
-                    }*@
+                    }
                 <pre> </pre>
-                <p class="square_meter">@pricePerSquere</p>
+                <p class="square_meter">@pricePerSquere</p>*@
             </div>
             <div class="meters">
                 <div><img src="/Content/images/m2.png" height="32" alt=""><p>@(Model.Advert.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 3)? Model.Advert.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue : "0") м²</p></div>
