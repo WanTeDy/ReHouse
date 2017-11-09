@@ -6,7 +6,7 @@
 <head>
     <link rel="shortcut icon" type="image/jpg" href="~/Content/images/rehousemin.jpg">
     <meta charset="utf-8">
-    <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">    
+    <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">
     @if (!String.IsNullOrEmpty(ViewBag.Title))
     {
         <title>@ViewBag.Title</title>
@@ -42,7 +42,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @*<link rel="stylesheet" href="~/Content/mobile.css">*@
-        
+
 </head>
 <body>
     <div class="header">
@@ -213,27 +213,27 @@
         <div id="pagecontent">
 
 
-
             @RenderBody()
         </div>
-        <div class="footer">
-            <div class="container" id="container">
-                <div class="wrapper-footer">
-                    <div id="toTop">↑</div>
-                    <div class="social">
-                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                        <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                        @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
-                    </div>
-                    <div class="bottomnav">
-                        <a href="/news/" class="">Новости</a>
-                        <a href="/home/contacts/" class="">Контакты</a>
-                        <a href="/map/" class="">Карта сайта</a>
-                        <a href="/feedback/" class="">Отзывы</a>
-                        @if (Session == null || Session["user"] == null)
-                        {
-                            <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+    </div>
+    <div class="footer">
+        <div class="container" id="container">
+            <div class="wrapper-footer">
+                <div id="toTop">↑</div>
+                <div class="social">
+                    <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                    <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                    <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                    @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
+                </div>
+                <div class="bottomnav">
+                    <a href="/news/" class="">Новости</a>
+                    <a href="/home/contacts/" class="">Контакты</a>
+                    <a href="/map/" class="">Карта сайта</a>
+                    <a href="/feedback/" class="">Отзывы</a>
+                    @if (Session == null || Session["user"] == null)
+                    {
+                        <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
                             <div class="forms-wrapper">
                                 <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
                                     <ol class="login">
@@ -247,16 +247,15 @@
                                     </ol>
                                 </div>
                             </div>
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Выйти", "logout", "authorize")
-                        }
-                    </div>
-
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Выйти", "logout", "authorize")
+                    }
                 </div>
             </div>
         </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/addtocart")

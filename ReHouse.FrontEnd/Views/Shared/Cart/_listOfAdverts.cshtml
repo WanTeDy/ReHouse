@@ -39,7 +39,7 @@
                         <div class="bottom">
                             <div><p class="cost">@item.Price.ToString("# ### ##0") $</p></div>
                             <div class="share" onclick="share(this, event);"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="liked" onclick="addtocart(@item.Id, '@item.Type', true, this, event);"></div>
+                            <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this, event);"></div>
                             <div class="shared_icons">
                                 <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Name, @item.Adress', 'http://rehouse-realty.com.ua@(Url.Content(item.Image != null ? item.Image.Url + item.Image.FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))'" class="fb"></a>
                                 <a onclick="Share.vkontakte(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Name, @item.Adress', 'http://rehouse-realty.com.ua@(Url.Content(item.Image != null ? item.Image.Url + item.Image.FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))')" class="vk"></a>
@@ -87,7 +87,7 @@
                                 <div><p class="cost">@item.Price.ToString("# ### ##0") $</p></div>
                             }
                             <div class="share" onclick="share(this, event)" onblur="leaveShare(this, event)"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="liked" onclick="addtocart(@item.Id, '@item.Type', true, this, event);"></div>
+                            <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this, event);"></div>
                             <div class="shared_icons">
                                 <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Сдам @item.Name, @item.Adress', 'http://rehouse-realty.com.ua@(Url.Content(item.Image != null ? item.Image.Url + item.Image.FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))" )" class="fb"></a>
                                 <a onclick="Share.vkontakte(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Сдам @item.Name, @item.Adress', 'http://rehouse-realty.com.ua@(Url.Content(item.Image != null ? item.Image.Url + item.Image.FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))')" class="vk"></a>
@@ -128,7 +128,7 @@
                         <div class="bottom">
                             <div><p class="cost">от @item.Price.ToString("# ### ##0") грн/м²</p></div>
                             <div class="share" onclick="share(this, event);"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="liked" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this, event);"></div>
+                            <div class="liked" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', false, this, event);"></div>
                             <div class="shared_icons">
                                 <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', '@item.Name, @item.Adress', 'http://rehouse-realty.com.ua@(Url.Content(item.Image != null ? item.Image.Url + item.Image.FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))" )" class="fb"></a>
                                 <a onclick="Share.vkontakte(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', '@item.Name, @item.Adress', 'http://rehouse-realty.com.ua@(Url.Content(item.Image != null ? item.Image.Url + item.Image.FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))')" class="vk"></a>
