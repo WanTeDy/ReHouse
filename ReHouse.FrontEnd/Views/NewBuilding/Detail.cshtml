@@ -152,7 +152,7 @@
         <div class="h2sale"><h2>@Model.NewBuilding.Name</h2></div>
         <h4><img src="/Content/images/pin.png" height="13" alt="">@Model.NewBuilding.Adress</h4>
         <div class="h3cost">
-            <p class="grn">от @Model.NewBuilding.Price грн/м²</p>
+            <p class="grn">от @Model.NewBuilding.Price.ToString("# ### ##0") грн/м²</p>
             <pre></pre>
         </div>
         <div class="meters">

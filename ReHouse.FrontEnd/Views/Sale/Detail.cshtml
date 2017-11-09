@@ -58,7 +58,7 @@
                     @{ string action = "", desc = "", pricePerSquere = ""; }
                     @if (Model.Square > 0)
             {
-                pricePerSquere = Model.Advert.Price / Model.Square + " $ за м²";
+                pricePerSquere = (Model.Advert.Price / Model.Square).ToString("# ### ##0") + " $ за м²";
             }
                     @switch (Model.Advert.Category.ParentId)
             {
@@ -183,7 +183,7 @@
             <div class="h2sale"><h2>Продам @Model.Advert.Title.RussianName</h2></div>
             <h4><img src="/Content/images/pin.png" height="13" alt="">@Model.Advert.Street</h4>
             <div class="h3cost">
-                <p class="grn">@Model.Advert.Price $</p>
+                <p class="grn">@Model.Advert.Price.ToString("# ### ##0") $</p>
                 <pre></pre>
                 <p class="dot">·</p>
 

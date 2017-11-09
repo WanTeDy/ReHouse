@@ -335,6 +335,10 @@
     <Compile Include="Migrations\201711052106080_slider-patch.Designer.cs">
       <DependentUpon>201711052106080_slider-patch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711090808428_slider-updt.cs" />
+    <Compile Include="Migrations\201711090808428_slider-updt.Designer.cs">
+      <DependentUpon>201711090808428_slider-updt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -425,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711052106080_slider-patch.resx">
       <DependentUpon>201711052106080_slider-patch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711090808428_slider-updt.resx">
+      <DependentUpon>201711090808428_slider-updt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
