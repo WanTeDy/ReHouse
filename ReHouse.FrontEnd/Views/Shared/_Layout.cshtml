@@ -188,13 +188,13 @@
                     }
                     else if(!String.IsNullOrEmpty(slide.Url))
                     {
-                        <div style="display:block!important;">
+                        <a style="display:block!important;">
                             <img src="@Url.Content(slide.Url)">
-                            <div class="inslider">
+                            <div class="inslider" style="display:block!important;">
                                 @slide.Text
                                 @*<button>Подробнее</button>*@
                             </div>
-                        </div>
+                        </a>
                     }
                 }
             }
