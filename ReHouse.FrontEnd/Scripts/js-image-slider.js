@@ -2,10 +2,10 @@ var sliderOptions =
 {
 	sliderId: "slider",
 	startSlide: 0,
-	effect: "series1",
+	effect: "9",
 	effectRandom: false,
-	pauseTime: 5500,
-	transitionTime: 900,
+	pauseTime: 7500,
+	transitionTime: 600,
 	slices: 14,
 	boxes: 8,
 	hoverPause: 1,
