@@ -2888,7 +2888,7 @@ opacity: .1;}}
             margin-top: -47px;
     }
    .wrapper-prod .right {
-       padding: 32px 0px 0px 40px;
+         padding: 32px 40px 0px 40px;
    }
 
 
@@ -3207,6 +3207,7 @@ opacity: .1;}}
 .manager_ .img img {
     -o-object-fit: cover;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .contact_info h3 {
