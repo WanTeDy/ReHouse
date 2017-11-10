@@ -1,5 +1,3 @@
-
-
 @font-face {
             font-family: "MyriadPro";
             src: url('fonts/MyriadPro/MyriadPro-Regular.woff');
@@ -23,9 +21,9 @@ body {
     background-color:#f3f3f9;
 }
 
-    body a, p, button {
+    /*body a, p, button {
 
-    }
+    }*/
 
     body a, select, button {
         cursor: pointer;
@@ -184,10 +182,10 @@ body {
         margin-top: 7px;
     }
 
-.form-search {
-    /*padding: 4px;
-    margin-top: 30px;*/
-}
+/*.form-search {
+    padding: 4px;
+    margin-top: 30px;
+}*/
 
     .form-search input {
         height: 29px;
@@ -788,7 +786,7 @@ opacity: .1;}}
     width:391px;
         border-top: 1px solid #e5e5f8;
 }
-}
+
     .d-carousel ul li .bottom div {
         border: 1px solid #e5e5f8;
     }
@@ -1029,9 +1027,9 @@ opacity: .1;}}
         height:307px;
     }
 
-    .news .firstnews, .secondnews {
+    /*.news .firstnews, .secondnews {
       
-    }
+    }*/
 
     .news a{
         text-decoration:none;
@@ -1094,7 +1092,7 @@ opacity: .1;}}
             -webkit-transition: all 0.8s ease-out;
             box-shadow: 0 0 34px rgba(0,0,0,0.5);
 }
-    }
+    
 
 
 
@@ -1163,9 +1161,9 @@ opacity: .1;}}
         height:307px;
     }
 
-    .news12 .firstnews, .secondnews {
+    /*.news12 .firstnews, .secondnews {
       
-    }
+    }*/
 
     .news12 a{
         text-decoration:none;
