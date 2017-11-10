@@ -89,7 +89,10 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                 //imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
                                 //int point = imageFile.FileName.LastIndexOf('.');
                                 var filename = HashHelper.GetMd5Hash("image_" + random.Next(1000, 100000) + "_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
-
+                                while (File.Exists(path + filename))
+                                {
+                                    filename = HashHelper.GetMd5Hash("image_" + random.Next(1000, 100000) + "_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                                }
                                 ImageBuilder.Current.Build(
                                     new ImageJob(ms, //imageFile.InputStream,
                                     path + filename,
@@ -125,7 +128,10 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                 //imageFile.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
                                 //int point = imageFile.FileName.LastIndexOf('.');
                                 var filename = HashHelper.GetMd5Hash("image_" + random.Next(1000, 100000) + "_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
-
+                                while (File.Exists(path + filename))
+                                {
+                                    filename = HashHelper.GetMd5Hash("image_" + random.Next(1000, 100000) + "_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                                }
                                 ImageBuilder.Current.Build(
                                     new ImageJob(ms, //imageFile.InputStream,
                                     path + filename,

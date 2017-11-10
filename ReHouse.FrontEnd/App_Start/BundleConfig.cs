@@ -15,7 +15,7 @@ namespace ReHouse.FrontEnd
             bundles.Add(new ScriptBundle("~/bundles/advertSettings").Include(
                         "~/Scripts/advertSettings.js"
                         ));
-                        
+
             bundles.Add(new ScriptBundle("~/bundles/imageLoader").Include(
                         "~/Scripts/imageLoader.js"
                         ));
@@ -106,13 +106,23 @@ namespace ReHouse.FrontEnd
                      "~/Content/reset.css",
                      "~/Content/minslider.css",
                      "~/Content/fancybox/jquery.fancybox.css",
-                     "~/Content/slider-pro.min.css"
+                     "~/Content/slider-pro.min.css",
+                     "~/Content/mobile.css"
                      ));
 
+            bundles.Add(new StyleBundle("~/Content/styleCss2").Include(
+                    "~/Content/animate.css",
+                    "~/Content/owl.carousel.min.css",
+                    "~/Content/owl.theme.default.min.css",
+                    "~/Content/font-awesome.min.css",
+                    "~/Content/stylecomm.css",
+                    "~/Scripts/js-image-slider.css"
+                    ));
+
             bundles.Add(new StyleBundle("~/Content/adminCss").Include(
-                     "~/Content/admin.css",
-                     "~/Content/wysiwyg/jquery-te-1.4.0.css"
-                     ));
+                    "~/Content/admin.css",
+                    "~/Content/wysiwyg/jquery-te-1.4.0.css"
+                    ));
             //bundles.Add(new StyleBundle("~/Content/vendorCss").Include(
             //         "~/Content/vendor/*.css"));
             bundles.Add(new ScriptBundle("~/Scripts/indexJs").Include(
@@ -121,8 +131,11 @@ namespace ReHouse.FrontEnd
             //       "~/Scripts/coffee.js"));
             bundles.Add(new ScriptBundle("~/Scripts/modulesJs").Include(
                 "~/Scripts/modules.min.js",
-                "~/Content/wysiwyg/jquery-te-1.4.0.min.js"
+                "~/Content/wysiwyg/jquery-te-1.4.0.min.js",
+                "~/Scripts/mcVideoPlugin.js",
+                "~/Scripts/js-image-slider.js"
                 ));
+
             bundles.Add(new ScriptBundle("~/Scripts/vendorJs").Include(
                 //"~/Scripts/vendor/jquery.cookie.min.js",
                 //"~/Scripts/vendor/jquery.navgoco.min.js",

@@ -118,7 +118,7 @@
 <div class="right">
     @if (Model.NewBuilding.IsExclusive)
     {
-        <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+        <div class="redimg"><img src="~/Content/images/eksklusiv.jpg"></div>
     }
     else if (Model.NewBuilding.IsHot)
     {
@@ -205,7 +205,7 @@
             </tr>
             <tr>
                 <td>Сдача в эксплуатацию</td>
-                <td>@Model.NewBuilding.ExpluatationDate.Name</td>
+                <td>@Model.NewBuilding.ExpluatationDate.Year год</td>
             </tr>
             <tr>
                 <td>Застройщик</td>

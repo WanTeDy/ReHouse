@@ -7,6 +7,7 @@
     image = new Image(),
     imgLoadHandler,
     isProcessing = false,
+    isProcessing_plan = false,
     errorMsg, // сообщение об ошибке при валидации файла
     previewPhotoContainer = document.querySelector('#list'); // контейнер, в котором будут отображаться превью
     previewPhotoContainer_plan = document.querySelector('#list_plan'); // контейнер, в котором будут отображаться превью
@@ -156,15 +157,15 @@ var processQueue_plan = function () {
     // Миниатюры будут создаваться поочередно
     // чтобы в один момент времени не происходило создание нескольких миниатюр
     // проверяем запущен ли процесс
-    if (isProcessing) { return; }
+    if (isProcessing_plan) { return; }
 
     // Если файлы в очереди закончились, завершаем процесс
     if (queue_plan.length == 0) {
-        isProcessing = false;
+        isProcessing_plan = false;
         return;
     }
 
-    isProcessing = true;
+    isProcessing_plan = true;
 
     var file = queue_plan.pop(); // Берем один файл из очереди
 
@@ -185,8 +186,8 @@ var processQueue_plan = function () {
         ctx.drawImage(image, 0, 0, previewWidth, previewHeight);
         URL.revokeObjectURL(image.src);
         li.appendChild(canvas);
-        isProcessing = false;
-        setTimeout(processQueue, 200); // запускаем процесс создания миниатюры для следующего изображения
+        isProcessing_plan = false;
+        setTimeout(processQueue_plan, 200); // запускаем процесс создания миниатюры для следующего изображения
     };
     li.appendChild(spanDel);
 

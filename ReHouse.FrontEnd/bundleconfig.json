@@ -250,5 +250,47 @@
     "inputFiles": [
       "Content/style.css"
     ]
+  },
+  {
+    "outputFileName": "Scripts/mcVideoPlugin.min.js",
+    "inputFiles": [
+      "Scripts/mcVideoPlugin.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/slides.min.jquery.min.js",
+    "inputFiles": [
+      "Scripts/slides.min.jquery.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/js-image-slider.min.js",
+    "inputFiles": [
+      "Scripts/js-image-slider.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/js-image-slider.min.css",
+    "inputFiles": [
+      "Scripts/js-image-slider.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/stylecomm.min.css",
+    "inputFiles": [
+      "Content/stylecomm.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/animate.min.css",
+    "inputFiles": [
+      "Content/animate.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/wysiwyg/jquery-te-1.4.0.min.css",
+    "inputFiles": [
+      "Content/wysiwyg/jquery-te-1.4.0.css"
+    ]
   }
 ]
