@@ -30,6 +30,7 @@
 
     <script>
         $(function () {
+            $("textarea#wyiswyg").jqte();
             $('#products').slides({
                 preload: true,
                 preloadImage: '',
@@ -299,7 +300,7 @@
                 </tr>
                 <tr>
                     <td>Описание:</td>
-                    <td>@Html.TextAreaFor(m => m.Description, new { @rows = "20" })</td>
+                    <td>@Html.TextAreaFor(m => m.Description, new { @rows = "20", @id = "wyiswyg" })</td>
                 </tr>
                 @if (ViewBag.BuildersList != null && ViewBag.BuildersList.Count > 0)
                 {

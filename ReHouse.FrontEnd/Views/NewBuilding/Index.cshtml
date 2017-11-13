@@ -56,7 +56,7 @@
             <option selected value="0">Cрок сдачи</option>
             @foreach (var date in Model.ExpluatationDates)
             {
-                <option value="@date.Year">@date.Name</option>
+                <option value="@date.Year">@date.Year</option>
             }
         </select>
     </div>
@@ -69,7 +69,7 @@
     <div class="h2novostroy"><h2>Новые объявления</h2></div>
     <div class="products">
         <ul class="prods" id="data-container">
-            @Html.Partial("NewB/_listOfNewBuildings", Model.NewBuildings);
+            @Html.Partial("NewB/_listOfNewBuildings", Model.NewBuildings)
         </ul>
         <div id="button-more">
             <a id="more">Больше объявлений</a>
