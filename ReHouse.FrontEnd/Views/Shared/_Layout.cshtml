@@ -8,6 +8,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PRPTPN5');</script>
+    <!-- End Google Tag Manager -->
     <link rel="shortcut icon" type="image/jpg" href="~/Content/images/rehousemin.jpg">
     <meta charset="utf-8">
     <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">
@@ -51,19 +62,15 @@
     }
     @Styles.Render("~/Content/styleCss")
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/mobile.css">
-
-    <!--New Styles-->
-    <link rel="stylesheet" href="~/Content/animate.css">
-    <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/Content/owl.theme.default.min.css">
-    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
-    <link rel="stylesheet" href="~/Content/stylecomm.css">
-    <!--end new Styyles-->
-
-
+    @Styles.Render("~/Content/styleCss2")
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRPTPN5"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="header">
         <div class="container" id="container">
             <span class="flex_header">
@@ -110,7 +117,7 @@
                 <div class="feedback">
                     <a href="/cart/" id="fav">Избранное</a>
                     <!-- <a href="/email/" id="blink">Обратный звонок</a>-->
-                    <a href="/email/" id="popup__toggle" onclick="return false;"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
+                    <a href="/email/" id="popup__toggle"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
                 </div>
             </span>
         </div>
@@ -170,395 +177,303 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-    <div id="sliderFrame">
-        <div id="slider">
-
-            <a class="video" href="http://www.youtube.com/watch?v=P0G_2tiivxE" data-autovideo="1">
-                <b data-src="Content/images/image-slider-1.jpg"></b>
-                <div class="inslider">
-                    <h3>27 жемчужина</h3>
-                    <h4>на каманина</h4>
-                    <h5>срок сдачи 3 квартал 2017</h5>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <button>Подробнее</button>
-                </div>
-            </a>
-
-            <!--<a class="lazyImage" href="~/Content/images/image-slider-2.jpg">
-                <div class="inslider">
-                    <h3>27 жемчужина</h3>
-                    <h4>на каманина</h4>
-                    <h5>срок сдачи 3 квартал 2017</h5>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <button>Подробнее</button>
-                </div>
-                </a>-->
-
-            <div style="display:block!important;">
-                <img src="~/Content/images/image-slider-2.jpg">
-                <div class="inslider">
-                    <h3>27 жемчужина</h3>
-                    <h4>на каманина</h4>
-                    <h5>срок сдачи 3 квартал 2017</h5>
-                    <p>1 комн. квартра <span>2800$</span></p>
-                    <p>1 комн. квартра <span>2600$</span></p>
-                    <p>1 комн. квартра <span>2860$</span></p>
-                    <button>Подробнее</button>
-                </div>
-            </div>
-
-            <a class="video" href="http://www.youtube.com/watch?v=P0G_2tiivxE" data-autovideo="1">
-                <b data-src="Content/images/image-slider-1.jpg"></b>
-                <div class="inslider">
-                    <h3>27 жемчужина</h3>
-                    <h4>на каманина</h4>
-                    <h5>срок сдачи 3 квартал 2017</h5>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <button>Подробнее</button>
-                </div>
-            </a>
-
-
-            <div style="display:block!important;">
-                <img src="~/Content/images/image-slider-2.jpg">
-                <div class="inslider">
-                    <h3>27 жемчужина</h3>
-                    <h4>на каманина</h4>
-                    <h5>срок сдачи 3 квартал 2017</h5>
-                    <p>1 комн. квартра <span>2800$</span></p>
-                    <p>1 комн. квартра <span>2600$</span></p>
-                    <p>1 комн. квартра <span>2860$</span></p>
-                    <button>Подробнее</button>
-                </div>
-            </div>
-
+        <div id="sliderFrame">
+            <div id="slider">
+                @if (ViewBag.SliderParams != null)
+            {
+                foreach (SliderParam slide in ViewBag.SliderParams)
+                {
+                    if (slide.IsVideo)
+                    {
+                        <a class="video" href="@slide.Url" data-autovideo="1">
+                            <b data-src="Content/images/4.png"></b>
+                            <div class="inslider">
+                                @slide.Text
+                               @* <button>Подробнее</button>*@
+                            </div>
+                        </a>
+                    }
+                    else if(!String.IsNullOrEmpty(slide.Url))
+                    {
+                        <a style="display:block!important;">
+                            <img src="@Url.Content(slide.Url)">
+                            <div class="inslider" style="display:block!important;">
+                                @slide.Text
+                                @*<button>Подробнее</button>*@
+                            </div>
+                        </a>
+                    }
+                }
+            }
         </div>
     </div>
 
+        <!--  <div class="container" id="container"
 
+              <div id="slidebox">
+                  <div class="textinslider">
+                      <div class="h1">
+                          @if (seo != null)
+                          {
+                              <h1 style="display:none;">@seo.Title</h1>
+                          }
+                          @*<h1>REHOUSE</h1>*@
+                      </div>
 
-    <!--<a class="lazyImage" href="~/Content/images/image-slider-2.jpg">
-                <div class="inslider">
-                    <h3>27 жемчужина</h3>
-                    <h4>на каманина</h4>
-                    <h5>срок сдачи 3 квартал 2017</h5>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <p>1 комн. квартра <span>28600$</span></p>
-                    <button>Подробнее</button>
-                </div>
-            </a>-->
-    <!-- <a class="lazyImage" href="~/Content/images/image-slider-2.jpg"><img src="~/Content/images/image-slider-2.jpg"></a>
-     <a class="lazyImage" href="~/Content/images/image-slider-3.jpg"><img src="~/Content/images/image-slider-3.jpg"></a>
-     <a class="lazyImage" href="~/Content/images/image-slider-5.jpg"><img src="~/Content/images/image-slider-5.jpg"></a>
-
-        -->
-    <!--  <div class="container" id="container"
-
-          <div id="slidebox">
-              <div class="textinslider">
-                  <div class="h1">
-                      @if (seo != null)
-                      {
-                          <h1 style="display:none;">@seo.Title</h1>
-                      }
-                      @*<h1>REHOUSE</h1>*@
+                      <div class="h2">
+                          @*             <h2>Ваш дом - наш успех</h2>*@
+                      </div>
+                      <div class="knowmore">
+                          <a href="/newbuilding/">Подробнее</a>
+                      </div>
                   </div>
-
-                  <div class="h2">
-                      @*             <h2>Ваш дом - наш успех</h2>*@
+                  <div class="next"></div>
+                  <div class="previous"></div>
+                  <div class="thumbs">
+                      <a href="#" onclick="" class="1 thumbActive" id="a"></a>
+                      <a href="#" onclick="" class="2" id="b"></a>
+                      <a href="#" onclick="" class="3" id="c"></a>
+                      <a href="#" onclick="" class="4" id="d"></a>
                   </div>
-                  <div class="knowmore">
-                      <a href="/newbuilding/">Подробнее</a>
-                  </div>
+                  <ul class="listofimg">
+                      <li><img src="~/Content/images/1.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                      <li><img src="~/Content/images/2.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                      <li><img src="~/Content/images/3.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                      <li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>
+                  </ul>
               </div>
-              <div class="next"></div>
-              <div class="previous"></div>
-              <div class="thumbs">
-                  <a href="#" onclick="" class="1 thumbActive" id="a"></a>
-                  <a href="#" onclick="" class="2" id="b"></a>
-                  <a href="#" onclick="" class="3" id="c"></a>
-                  <a href="#" onclick="" class="4" id="d"></a>
-              </div>
-              <ul class="listofimg">
-                  <li><img src="~/Content/images/1.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                  <li><img src="~/Content/images/2.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                  <li><img src="~/Content/images/3.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                  <li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>
-              </ul>
-          </div>
-      </div>-->
+          </div>-->
 
 
 
-    <div class="header_mobile">
-        <input type="checkbox" id="hmt" class="hidden-menu-ticker">
-        <label class="btn-menu" for="hmt">
-            <span class="first"></span>
-            <span class="second"></span>
-            <span class="third"></span>
-        </label>
-        <ul class="hidden-menu">
-            <li class="bgh"><a href="" class="bold">Покупка</a></li>
-            <ol>
-                <li><a href="/sale/flat/">Купить квартиру</a></li>
-                <li><a href="/sale/house/">Купить дом</a></li>
-                <li><a href="/sale/homestead/">Купить участок</a></li>
-                <li><a href="/sale/commerce/">Купить коммерцию</a></li>
-            </ol>
-            <br>
-            <li class="bgh"><a href="" class="bold">Аренда</a></li>
-            <ol>
-                <li><a href="/rent/flat/">Снять квартиру</a></li>
-                <li><a href="/rent/house/">Снять дом</a></li>
-                @*<li><a href="/rent/homestead/">Снять участок</a></li>*@
-                <li><a href="/rent/commerce/">Снять коммерцию</a></li>
-            </ol>
-            <br>
-            <li class="bgh"><a href="/newbuilding/" class="bold">Новострои</a></li>
-            <br>
-            <li class="bgh"><a href="/manager/" class="bold">Менеджеры</a></li>
-            <br>
-            <li class="bgh"><a href="" class="bold">О нас</a></li>
-            <ol>
-                <li><a href="/home/about/">О компании</a></li>
-                <li><a href="/vacancy/">Вакансии агенства</a></li>
-            </ol>
-        </ul>
-        <div class="header">
-            <div class="logo">
-                <a href="/" id=""><img src="~/Content/images/logomobile.png"></a>
-            </div>
-            <div class="contactinfo">
-                <div class="feedback">
-                    <a href="/email/" id="blink1"></a>
-                    <a href="/cart/" id="fav1"></a>
+        <div class="header_mobile">
+            <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+            <label class="btn-menu" for="hmt">
+                <span class="first"></span>
+                <span class="second"></span>
+                <span class="third"></span>
+            </label>
+            <ul class="hidden-menu">
+                <li class="bgh"><a href="" class="bold">Покупка</a></li>
+                <ol>
+                    <li><a href="/sale/flat/">Купить квартиру</a></li>
+                    <li><a href="/sale/house/">Купить дом</a></li>
+                    <li><a href="/sale/homestead/">Купить участок</a></li>
+                    <li><a href="/sale/commerce/">Купить коммерцию</a></li>
+                </ol>
+                <br>
+                <li class="bgh"><a href="" class="bold">Аренда</a></li>
+                <ol>
+                    <li><a href="/rent/flat/">Снять квартиру</a></li>
+                    <li><a href="/rent/house/">Снять дом</a></li>
+                    @*<li><a href="/rent/homestead/">Снять участок</a></li>*@
+                    <li><a href="/rent/commerce/">Снять коммерцию</a></li>
+                </ol>
+                <br>
+                <li class="bgh"><a href="/newbuilding/" class="bold">Новострои</a></li>
+                <br>
+                <li class="bgh"><a href="/manager/" class="bold">Менеджеры</a></li>
+                <br>
+                <li class="bgh"><a href="" class="bold">О нас</a></li>
+                <ol>
+                    <li><a href="/home/about/">О компании</a></li>
+                    <li><a href="/vacancy/">Вакансии агенства</a></li>
+                </ol>
+            </ul>
+            <div class="header">
+                <div class="logo">
+                    <a href="/" id=""><img src="~/Content/images/logomobile.png"></a>
                 </div>
-                <div class="tel">
-                    <div class="number">
-                        <div><img src="~/Content/images/tel.png"><p>+38093 057 7110</p></div>
-                        <div><img src="~/Content/images/tel.png"><p>+38048 788 6707</p></div>
+                <div class="contactinfo">
+                    <div class="feedback">
+                        <a href="/email/" id="popup__toggle"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
+                        <a href="/cart/" id="fav1"></a>
+                    </div>
+                    <div class="tel">
+                        <div class="number">
+                            <div><img src="~/Content/images/tel.png"><p>+38093 057 7110</p></div>
+                            <div><img src="~/Content/images/tel.png"><p>+38048 788 6707</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="search">
-            <p>
-                <form class="form-search" method="get" action="/search/flats">
-                    <input type="text" name="query" placeholder="Поиск" value="" />
-                    <input type="submit" value="">
-                </form>
-            </p>
-        </div>
-    </div>
-
-
-    <div class="container" id="container">
-        @RenderBody()
-        @Html.Partial("Partial/_newsFeedbacks")
-    </div>
-
-    <div class="footer">
-        <div class="container" id="container">
-            <div class="wrapper-footer">
-                <div id="toTop">↑</div>
-                <div class="social">
-                    <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                    <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
-                    <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                    @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
-                </div>
-                <div class="bottomnav">
-                    <a href="/news/" class="">Новости</a>
-                    <a href="/home/contacts/" class="">Контакты</a>
-                    <a href="/map/" class="">Карта сайта</a>
-                    <a href="/feedback/" class="">Отзывы</a>
-                    @if (Session == null || Session["user"] == null)
-                    {
-                        <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
-                        <div class="forms-wrapper">
-                            <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
-                                <ol class="login">
-                                    <li>
-                                        <div class="login">
-                                            <div class="bodyform">
-                                                @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        @Html.ActionLink("Выйти", "logout", "authorize")
-                    }
-                </div>
-
+            <div class="search">
+                <p>
+                    <form class="form-search" method="get" action="/search/flats">
+                        <input type="text" name="query" placeholder="Поиск" value="" />
+                        <input type="submit" value="">
+                    </form>
+                </p>
             </div>
         </div>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jcarouselLite")
-    @RenderSection("scripts", required: false)
-    @Scripts.Render("~/bundles/addtocart")
-    @Scripts.Render("~/bundles/unob")
-    @Scripts.Render("~/Scripts/foundation")
-    @Scripts.Render("~/Scripts/vendorJs")
-    @Scripts.Render("~/Scripts/modulesJs")
 
 
+        <div class="container" id="container">
+            @RenderBody()
+            @Html.Partial("Partial/_newsFeedbacks")
+        </div>
 
+        <div class="footer">
+            <div class="container" id="container">
+                <div class="wrapper-footer">
+                    <div id="toTop">↑</div>
+                    <div class="social">
+                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                        <a href="https://www.youtube.com/channel/UCr_t3R1EhpY6oAWnwSSmC-A" class="yt" target="_blank"></a>
+                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                        @*<a href="https://vk.com/rehouseodessastars" class="vk" target="_blank"></a>*@
+                    </div>
+                    <div class="bottomnav">
+                        <a href="/news/" class="">Новости</a>
+                        <a href="/home/contacts/" class="">Контакты</a>
+                        <a href="/map/" class="">Карта сайта</a>
+                        <a href="/feedback/" class="">Отзывы</a>
+                        @if (Session == null || Session["user"] == null)
+                        {
+                            <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+                            <div class="forms-wrapper">
+                                <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
+                                    <ol class="login">
+                                        <li>
+                                            <div class="login">
+                                                <div class="bodyform">
+                                                    @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Выйти", "logout", "authorize")
+                        }
+                    </div>
 
-    @*<!--new scripts-->
-        <!--<script src="~/Scripts/comments/jquery-2.1.3.min.js"></script>-->
-         <script src="~/Scripts/comments/owl.carousel.min.js"></script>
-         <script src="~/Scripts/comments/custom.js"></script>
-         <!--end new scripts-->*@
+                </div>
+            </div>
+        </div>
 
-    <!--new scripts-->
-    <link href="~/Scripts/js-image-slider.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/mcVideoPlugin.js" type="text/javascript"></script>
-    <script src="~/Scripts/js-image-slider.js" type="text/javascript"></script>
-    <link href="~/Scripts/generic.css" rel="stylesheet" type="text/css" />
-    <!--end new scripts-->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jcarouselLite")
+        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/addtocart")
+        @Scripts.Render("~/bundles/unob")
+        @Scripts.Render("~/Scripts/foundation")
+        @Scripts.Render("~/Scripts/vendorJs")
+        @Scripts.Render("~/Scripts/modulesJs")
+    
+        <script type="text/javascript">
+            Share = {
+                vkontakte: function (e, purl, ptitle, pimg, text) {
+                    e.stopPropagation();
+                    url = 'http://vkontakte.ru/share.php?';
+                    url += 'url=' + encodeURIComponent(purl);
+                    url += '&title=' + encodeURIComponent(ptitle);
+                    url += '&description=' + encodeURIComponent(text);
+                    url += '&image=' + encodeURIComponent(pimg);
+                    url += '&noparse=true';
+                    Share.popup(url);
+                },
+                facebook: function (e, purl, ptitle, pimg, text) {
+                    e.stopPropagation();
+                    url = 'https://www.facebook.com/sharer.php?s=100';
+                    url += '&p[title]=' + encodeURIComponent(ptitle);
+                    url += '&p[summary]=' + encodeURIComponent(text);
+                    url += '&p[url]=' + encodeURIComponent(purl);
+                    url += '&p[images][0]=' + encodeURIComponent(pimg);
+                    Share.popup(url);
+                },
+                twitter: function (e, purl, ptitle) {
+                    e.stopPropagation();
+                    url = 'http://twitter.com/share?';
+                    url += 'text=' + encodeURIComponent(ptitle);
+                    url += '&url=' + encodeURIComponent(purl);
+                    url += '&counturl=' + encodeURIComponent(purl);
+                    Share.popup(url);
+                },
 
-
-
-
-
-
-
-
-
-
-
-
-    <script type="text/javascript">
-        Share = {
-            vkontakte: function (purl, ptitle, pimg, text) {
-                url = 'http://vkontakte.ru/share.php?';
-                url += 'url=' + encodeURIComponent(purl);
-                url += '&title=' + encodeURIComponent(ptitle);
-                url += '&description=' + encodeURIComponent(text);
-                url += '&image=' + encodeURIComponent(pimg);
-                url += '&noparse=true';
-                Share.popup(url);
-            },
-            facebook: function (purl, ptitle, pimg, text) {
-                url = 'http://www.facebook.com/sharer.php?s=100';
-                url += '&p[title]=' + encodeURIComponent(ptitle);
-                url += '&p[summary]=' + encodeURIComponent(text);
-                url += '&p[url]=' + encodeURIComponent(purl);
-                url += '&p[images][0]=' + encodeURIComponent(pimg);
-                Share.popup(url);
-            },
-            twitter: function (purl, ptitle) {
-                url = 'http://twitter.com/share?';
-                url += 'text=' + encodeURIComponent(ptitle);
-                url += '&url=' + encodeURIComponent(purl);
-                url += '&counturl=' + encodeURIComponent(purl);
-                Share.popup(url);
-            },
-
-            popup: function (url) {
-                window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+                popup: function (url) {
+                    window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+                }
             }
-        }
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $(document).foundation();
-            $(document).foundation('dropdown', 'reflow');
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                $(document).foundation();
+                $(document).foundation('dropdown', 'reflow');
 
-            $('#slidebox').jCarouselLite({
-                vertical: false,
-                hoverPause: true,
-                btnPrev: ".previous",
-                btnNext: ".next",
-                visible: 1,
-                start: 0,
-                scroll: 1,
-                circular: true,
-                auto: 6000,
-                speed: 900,
-                btnGo:
-        		[".1", ".2",
-        		".3", ".4"],
+                $('#slidebox').jCarouselLite({
+                    vertical: false,
+                    hoverPause: true,
+                    btnPrev: ".previous",
+                    btnNext: ".next",
+                    visible: 1,
+                    start: 0,
+                    scroll: 1,
+                    circular: true,
+                    auto: 6000,
+                    speed: 900,
+                    btnGo:
+                    [".1", ".2",
+                    ".3", ".4"],
 
-                afterEnd: function (a, to, btnGo) {
-                    if (btnGo.length <= to) {
-                        to = 0;
+                    afterEnd: function (a, to, btnGo) {
+                        if (btnGo.length <= to) {
+                            to = 0;
+                        }
+                        $(".thumbActive").removeClass("thumbActive");
+                        $(btnGo[to]).addClass("thumbActive");
                     }
-                    $(".thumbActive").removeClass("thumbActive");
-                    $(btnGo[to]).addClass("thumbActive");
-                }
-            });
-            $('#testimonials').jCarouselLite({
-                vertical: false,
-                hoverPause: true,
-                btnPrev: ".f-previous",
-                btnNext: ".f-next",
-                visible: 1,
-                start: 0,
-                scroll: 1,
-                circular: true,
-                auto: 6000,
-                speed: 900,
-                //autoCSS: false,
-                autoWidth: true,
-                responsive: true,
-                btnGo:
-        		[".f1", ".f2",
-        		".f3"],
+                });
+                $('#testimonials').jCarouselLite({
+                    vertical: false,
+                    hoverPause: true,
+                    btnPrev: ".f-previous",
+                    btnNext: ".f-next",
+                    visible: 1,
+                    start: 0,
+                    scroll: 1,
+                    circular: true,
+                    auto: 6000,
+                    speed: 900,
+                    //autoCSS: false,
+                    autoWidth: true,
+                    responsive: true,
+                    btnGo:
+                    [".f1", ".f2",
+                    ".f3"],
 
-                afterEnd: function (a, to, btnGo) {
-                    if (btnGo.length <= to) {
-                        to = 0;
+                    afterEnd: function (a, to, btnGo) {
+                        if (btnGo.length <= to) {
+                            to = 0;
+                        }
+                        $(".thumbActive").removeClass("thumbActive");
+                        $(btnGo[to]).addClass("thumbActive");
                     }
-                    $(".thumbActive").removeClass("thumbActive");
-                    $(btnGo[to]).addClass("thumbActive");
-                }
+                });
+
+
+                $('#partners').jCarouselLite({
+                    vertical: false,
+                    hoverPause: true,
+                    btnPrev: ".f-previous",
+                    btnNext: ".f-next",
+                    visible: 6,
+                    btnPrev: ".p-previous",
+                    btnNext: ".p-next",
+                    start: 0,
+                    scroll: 1,
+                    circular: true,
+                    auto: 6000,
+                    speed: 900,
+                });
+
             });
-
-
-            $('#partners').jCarouselLite({
-                vertical: false,
-                hoverPause: true,
-                btnPrev: ".f-previous",
-                btnNext: ".f-next",
-                visible: 6,
-                btnPrev: ".p-previous",
-                btnNext: ".p-next",
-                visible: 6,
-                start: 0,
-                scroll: 1,
-                circular: true,
-                auto: 6000,
-                speed: 900,
-            });
-
-        });
-    </script>
-    <!-- TO TOP -->
-    <script>
+        </script>
+        <!-- TO TOP -->
+        <script>
 
         $(function () {
             $(window).scroll(function () {
@@ -573,7 +488,7 @@
             });
         });
     </script>
-    <script>
+    @*<script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
@@ -581,9 +496,9 @@
             m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-100514743-1', 'auto');
-        ga('send', 'pageview');
+            ga('create', 'UA-100514743-1', 'auto');
+            ga('send', 'pageview');
 
-    </script>
+    </script>*@
 </body>
 </html>

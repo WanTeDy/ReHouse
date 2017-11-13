@@ -1,0 +1,53 @@
+﻿@using ReHouse.Utils.DataBase.AdvertParams
+@using ReHouse.Utils.Helpers
+@model List<NewBuilding>
+
+@if (Model.Count > 0)
+{
+    <div class="streak"></div>
+    <ul class="carousel">
+        @foreach (var item in Model)
+        {
+            <li>
+                <div onclick="window.location='/newbuilding/detail/@item.Id'">
+                    @if (item.IsExclusive)
+                    {
+                        <div class="redimg"><img src="~/Content/images/eksklusiv.jpg"></div>
+                    }
+                    else if (item.IsHot)
+                    {
+                        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+                    }
+                    else if (item.IsNew)
+                    {
+                        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                    }
+                    <h3>@item.Name</h3>
+                    <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
+                    @if (item.Images != null && item.Images.Count > 0)
+                    {
+                        <img class="main-img" src="@Url.Content(item.Images[0].Url + item.Images[0].FileName)?w=388&h=200&mode=max" width="388" height="200" title="@item.Images[0].Title" alt="@item.Images[0].Alt" />
+                    }
+                    else
+                    {
+                        <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
+                    }
+                    <div class="meters">
+                        <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>0 м²</p></div>
+                        <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>0 м²</p></div>
+                    </div>
+                    <div class="bottom">
+                        <div><p class="cost">от @item.Price.ToString("# ### ##0") грн/м²</p></div>
+                        <div class="share" tabindex="0" onclick="share(this, event);"><img src="~/Content/images/share.png" height="32" alt="" /></div>
+                        <div class="like" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', true, this, event);"></div>
+                        <div class="shared_icons">
+                            <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', '@item.Name, @item.Adress', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))'" class="fb"></a>
+                            <a onclick="Share.vkontakte(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', '@item.Name, @item.Adress', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))')" class="vk"></a>
+                            <a onclick="Share.twitter(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', '@item.Name, @item.Adress')" class="tw"></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+}

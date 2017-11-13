@@ -8,14 +8,14 @@ namespace ReHouse.Utils.Migrations
     {
         public override void Up()
         {
-            using (var context = new DbReHouse())
-            {
-                context.SliderParams.Add(new DataBase.Common.SliderParam());
-                context.SliderParams.Add(new DataBase.Common.SliderParam());
-                context.SliderParams.Add(new DataBase.Common.SliderParam());
-                context.SliderParams.Add(new DataBase.Common.SliderParam());
-                context.SaveChanges();
-            }
+            //using (var context = new DbReHouse())
+            //{
+            //    context.SliderParams.Add(new DataBase.Common.SliderParam());
+            //    context.SliderParams.Add(new DataBase.Common.SliderParam());
+            //    context.SliderParams.Add(new DataBase.Common.SliderParam());
+            //    context.SliderParams.Add(new DataBase.Common.SliderParam());
+            //    context.SaveChanges();
+            //}
         }
         
         public override void Down()

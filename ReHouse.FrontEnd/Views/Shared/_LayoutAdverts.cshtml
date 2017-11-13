@@ -8,6 +8,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PRPTPN5');</script>
+    <!-- End Google Tag Manager -->
     <link rel="shortcut icon" type="image/jpg" href="~/Content/images/rehousemin.jpg">
     <meta charset="utf-8">
     <meta http-equiv="~/Content-Type" content="text/html; charset=utf-8">
@@ -50,7 +61,6 @@
     @Styles.Render("~/Content/styleCss")
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/Content/mobile.min.css">
 
     <!--<style media='print' type='text/css'>
         .noprint {
@@ -140,6 +150,12 @@
     </style>-->
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRPTPN5"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="header">
         <div class="container" id="container">
             <span class="flex_header">
@@ -186,7 +202,7 @@
                 <div class="feedback">
                     <a href="/cart/" id="fav">Избранное</a>
                     <!-- <a href="/email/" id="blink">Обратный звонок</a>-->
-                    <a href="/email/" id="popup__toggle" onclick="return false;"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
+                    <a href="/email/" id="popup__toggle"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
                 </div>
             </span>
         </div>
@@ -288,16 +304,13 @@
             </div>
             <div class="contactinfo">
                 <div class="feedback">
-                    <a href="/email/" id="blink1"></a>
+                    <a href="/email/" id="popup__toggle"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>
                     <a href="/cart/" id="fav1"></a>
                 </div>
                 <div class="tel">
-                    <div class="imgtel">
-                        <img src="~/Content/images/tel.png">
-                    </div>
                     <div class="number">
-                        <p>+38093 057 7110</p>
-                        <p>+38048 788 6707</p>
+                        <div><img src="~/Content/images/tel.png"><p>+38093 057 7110</p></div>
+                        <div><img src="~/Content/images/tel.png"><p>+38048 788 6707</p></div>
                     </div>
                 </div>
             </div>
@@ -310,11 +323,10 @@
                 </form>
             </p>
         </div>
-        @if (seo != null)
-        {
-            <h1 style="display:none;">@seo.Title</h1>
-        }
     </div>
+
+
+
 
     <div class="container" id="container">
         @RenderBody()
@@ -358,7 +370,6 @@
                         @Html.ActionLink("Выйти", "logout", "authorize")
                     }
                 </div>
-
             </div>
         </div>
     </div>
@@ -371,12 +382,21 @@
     @Scripts.Render("~/Scripts/foundation")
     @Scripts.Render("~/Scripts/vendorJs")
     @Scripts.Render("~/Scripts/modulesJs")
+    @Scripts.Render("~/bundles/jcarousel")
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('.d-carousel .carousel').jcarousel({
+                scroll: 1,
+            });
+        });
+    </script>
     <script type="text/javascript">
         $(document).foundation();
         $(document).foundation('dropdown', 'reflow');
 
         Share = {
-            vkontakte: function (purl, ptitle, pimg, text) {
+            vkontakte: function (e, purl, ptitle, pimg, text) {
+                e.stopPropagation();
                 url = 'http://vkontakte.ru/share.php?';
                 url += 'url=' + encodeURIComponent(purl);
                 url += '&title=' + encodeURIComponent(ptitle);
@@ -385,15 +405,17 @@
                 url += '&noparse=true';
                 Share.popup(url);
             },
-            facebook: function (purl, ptitle, pimg, text) {
-                url = 'http://www.facebook.com/sharer.php?s=100';
+            facebook: function (e, purl, ptitle, pimg, text) {
+                e.stopPropagation();
+                url = 'https://www.facebook.com/sharer.php?s=100';
                 url += '&p[title]=' + encodeURIComponent(ptitle);
                 url += '&p[summary]=' + encodeURIComponent(text);
                 url += '&p[url]=' + encodeURIComponent(purl);
                 url += '&p[images][0]=' + encodeURIComponent(pimg);
                 Share.popup(url);
             },
-            twitter: function (purl, ptitle) {
+            twitter: function (e, purl, ptitle) {
+                e.stopPropagation();
                 url = 'http://twitter.com/share?';
                 url += 'text=' + encodeURIComponent(ptitle);
                 url += '&url=' + encodeURIComponent(purl);
@@ -427,7 +449,8 @@
             $('#text_' + id).fadeOut();
             $('#textHidden_' + id).fadeIn();
         }
-
+    </script>
+    @*<script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
@@ -437,6 +460,7 @@
 
         ga('create', 'UA-100514743-1', 'auto');
         ga('send', 'pageview');
+    </script>*@
 
     </script>
     <script type="text/javascript">
@@ -477,7 +501,6 @@
                 visible: 6,
                 btnPrev: ".p-previous",
                 btnNext: ".p-next",
-                visible: 6,
                 start: 0,
                 scroll: 1,
                 circular: true,

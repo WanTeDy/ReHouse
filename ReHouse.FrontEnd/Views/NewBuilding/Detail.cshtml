@@ -2,30 +2,46 @@
 @using System.Globalization;
 @model ReHouse.FrontEnd.Models.LoadNewBuildingModel
 @section scripts {
-    <!-- Min Slider -->
     @Scripts.Render("~/bundles/slides");
     <script>
-        $(function () {
-            $('#products').slides({
-                preload: true,
-                preloadImage: '',
-                effect: 'slide, fade',
-                crossfade: true,
-                slideSpeed: 200,
-                fadeSpeed: 500,
-                generateNextPrev: true,
-                generatePagination: false
+        //$(function () {
+        //    $('#products').slides({
+        //        preload: true,
+        //        preloadImage: '',
+        //        effect: 'slide, fade',
+        //        crossfade: true,
+        //        slideSpeed: 200,
+        //        fadeSpeed: 500,
+        //        generateNextPrev: true,
+        //        generatePagination: false
+        //    });
+        //});
+
+        $(document).ready(function ($) {
+            $('#products').sliderPro({
+                width: 960,
+                height: 500,
+                fade: true,
+                arrows: true,
+                buttons: false,
+                fullScreen: true,
+                shuffle: true,
+                smallSize: 500,
+                mediumSize: 1000,
+                largeSize: 3000,
+                thumbnailArrows: true,
+                autoplay: false
             });
         });
     </script>
     <!--  FancyBox -->
-    @Scripts.Render("~/bundles/fancybox");
-    <script>
-        $(document).ready(function () {
-            $("a.plan").fancybox();
-            // $("a.plan").fancybox({"frameWidth":1560,"frameHeight":1340});
-        });
-    </script>
+    @*@Scripts.Render("~/bundles/fancybox");
+        <script>
+            $(document).ready(function () {
+                $("a.plan").fancybox();
+                // $("a.plan").fancybox({"frameWidth":1560,"frameHeight":1340});
+            });
+        </script>*@
 }
 <span class="noprint">
     <span class="none">
@@ -44,199 +60,250 @@
         </div>
     </span>
 </span>
-<div class="h2novostroy">
-    <h2>@Model.NewBuilding.Name</h2>
-    <div class="favorite">
-        <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true, this);" id="favorite">Добавить в избранное</a>
-        <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true, this);" id="fav2"></a>
-    </div>
-    <div class="favorite1">
-        <a href="/email/index?flat=@(Model.NewBuilding.Id)&type=@((int)AdvertsType.NewBuilding)" id="favorite">Подать заявку</a>
-    </div>
-</div>
-<div class="share_icons">
-    <div class="share_fb">
-        <a onclick="Share.facebook('http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name', 'http://rehouse-realty.com.ua@(Url.Content(Model.NewBuilding.Images?.FirstOrDefault() != null ? Model.NewBuilding.Images.FirstOrDefault().Url + Model.NewBuilding.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.NewBuilding.Adress?.Replace(Environment.NewLine, " "))')"></a>
-    </div>
-    <div class="share_vk">
-        <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name', 'http://rehouse-realty.com.ua@(Url.Content(Model.NewBuilding.Images?.FirstOrDefault() != null ? Model.NewBuilding.Images.FirstOrDefault().Url + Model.NewBuilding.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.NewBuilding.Adress?.Replace(Environment.NewLine, " "))')"></a>
-    </div>
-    <div class="share_tw">
-        <a onclick="Share.twitter('http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name')"></a>
-    </div>
-    <div class="advert_id">
-        <h2>№@Model.NewBuilding.Id</h2>
-    </div>
-</div>
-@if (Model.NewBuilding.Images != null && Model.NewBuilding.Images.Count > 0)
-{
-    int i = 0;
-    int j = 0;
-    int max = !String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl) ? 2 : 3;
-    <span class="noprint">
-
-        <div id="products_example">
-            <div id="products">
-                <div class="slides_container">
-                    @foreach (var item in Model.NewBuilding.Images)
-                {
-                    if (i >= max)
-                    {
-                        break;
-                    }
-                    i++;
-                        <a><img src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" width="767" height="600" title="@item.Title" alt="@item.Alt"></a>
-                    }
-                    @if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
-                    {
-                        <a><iframe width="767" height="600" src="https://www.youtube.com/embed/@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe></a>
-                    }
-
-                </div>
-                <ul class="pagination">
-
-                    @foreach (var item in Model.NewBuilding.Images)
-                    {
-                        if (j >= max)
+<span class="noprint">
+    <div class="wrapper-prod">
+        <div class="left">
+            <div id="products_example">
+                <div id="products">
+                    <div class="sp-slides">
+                        @if (Model.NewBuilding.Images != null && Model.NewBuilding.Images.Count > 0)
                         {
-                            break;
-                        }
-                        j++;
-                        <li><a href="#"><img src="@Url.Content(item.Url + item.FileName)?w=244&h=188&mode=max" title="@item.Title" alt="@item.Alt"></a></li>
-                    }
-                    @if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
-                    {
-                        <li>
-                            <a href="#">
-                                <iframe width="244" height="188" src="https://www.youtube.com/embed/@Model.NewBuilding.YouTubeUrl" frameborder="0" allowfullscreen></iframe>
-                            </a>
-                        </li>
-                    }
+                            foreach (var item in Model.NewBuilding.Images)
+                            {
+                                <div class="sp-slide">
+                                    <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max"
+                                         data-src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" />
+                                </div>
 
-                </ul>
+                            }
+                        }
+                        @if (Model.NewBuilding.PlanImages != null && Model.NewBuilding.PlanImages.Count > 0)
+                        {
+                            foreach (var item in Model.NewBuilding.PlanImages)
+                            {
+                                <div class="sp-slide">
+                                    <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max"
+                                         data-src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" />
+                                </div>
+
+                            }
+                        }
+                    </div>
+                    <div class="sp-thumbnails">
+                        @if (Model.NewBuilding.Images != null && Model.NewBuilding.Images.Count > 0)
+                        {
+                            foreach (var item in Model.NewBuilding.Images)
+                            {
+                                <img class="sp-thumbnail" src="@Url.Content(item.Url + item.FileName)?w=150&h=150&mode=max" />
+                            }
+                        }
+                        @if (Model.NewBuilding.PlanImages != null && Model.NewBuilding.PlanImages.Count > 0)
+                        {
+                            foreach (var item in Model.NewBuilding.PlanImages)
+                            {
+                                <img class="sp-thumbnail" src="@Url.Content(item.Url + item.FileName)?w=150&h=150&mode=max" />
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+</span>
+
+@if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
+{
+    <a class="videoyoutube" href="https://www.youtube.com/watch?v=@Model.NewBuilding.YouTubeUrl">Посмотреть видео</a>
+}
+    </div>
+
+<div class="right">
+    @if (Model.NewBuilding.IsExclusive)
+    {
+        <div class="redimg"><img src="~/Content/images/eksklusiv.jpg"></div>
+    }
+    else if (Model.NewBuilding.IsHot)
+    {
+        <div class="redimg"><img src="~/Content/images/redcorner.png"></div>
+    }
+    else if (Model.NewBuilding.IsNew)
+    {
+        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+    }
+    <div class="seotext3">
+        <!-- <div class="print">
+             <a href='javascript:window.print(); void 0;'>
+                 <img src="~/Content/images/pechat.png" />
+             </a>
+         </div>-->
+        <div class="share_icons">
+            <div class="share_fb">
+                <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name, @Model.NewBuilding.Adress', 'http://rehouse-realty.com.ua@(Url.Content(Model.NewBuilding.Images?.FirstOrDefault() != null ? Model.NewBuilding.Images.FirstOrDefault().Url + Model.NewBuilding.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.NewBuilding.Description?.Replace(Environment.NewLine, " "))')"></a>
+            </div>
+            <div class="share_vk">
+                <a onclick="Share.vkontakte(event, 'http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name, @Model.NewBuilding.Adress', 'http://rehouse-realty.com.ua@(Url.Content(Model.NewBuilding.Images?.FirstOrDefault() != null ? Model.NewBuilding.Images.FirstOrDefault().Url + Model.NewBuilding.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.NewBuilding.Description?.Replace(Environment.NewLine, " "))')"></a>
+            </div>
+            <div class="share_tw">
+                <a onclick="Share.twitter(event, 'http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name, @Model.NewBuilding.Adress')"></a>
+            </div>
+            <div class="advert_id">
+                <h2>№@Model.NewBuilding.Id</h2>
             </div>
         </div>
-    </span>
-}
-<div class="seotext3">
-    <div class="print">
-        <a href='javascript:window.print(); void 0;'>
-            <img src="~/Content/images/pechat.png" />
-        </a>
-    </div>
-    <div class="h2sale"><h2>Описание</h2></div>
 
-    <p class="text">@Model.NewBuilding.Description</p>
-</div>
-<div class="table_of_prod">
-    <table>
-        <tr>
-            <td>Цена</td>
-            <td>от @Model.NewBuilding.Price грн/м²</td>
-        </tr>
-        <tr>
-            <td>Адрес</td>
-            <td>@Model.NewBuilding.Adress</td>
-        </tr>
-        <tr>
-            <td>Количество домов</td>
-            <td>@Model.NewBuilding.HouseQuantity</td>
-        </tr>
-        <tr>
-            <td>Количество секций</td>
-            <td>@Model.NewBuilding.SectionQuantity</td>
-        </tr>
-        <tr>
-            <td>Этажность</td>
-            <td>@Model.NewBuilding.FloorQuantity</td>
-        </tr>
-        <tr>
-            <td>Количество квартир</td>
-            <td>@Model.NewBuilding.FloatQuantity</td>
-        </tr>
-        @*<tr>
-                <td>Планировка квартир</td>
-                <td>@Model.NewBuilding.Construct</td>
-            </tr>*@
-        <tr>
-            <td>Материал стен</td>
-            <td>@Model.NewBuilding.WallMaterial</td>
-        </tr>
-        <tr>
-            <td>Высота потолков</td>
-            <td>@Model.NewBuilding.WallHeight метра</td>
-        </tr>
-        <tr>
-            <td>Отопление</td>
-            <td>@Model.NewBuilding.Heating</td>
-        </tr>
-        <tr>
-            <td>Парковка</td>
-            <td>@Model.NewBuilding.Parking</td>
-        </tr>
-        <tr>
-            <td>Сдача в эксплуатацию</td>
-            <td>@Model.NewBuilding.ExpluatationDate.Name</td>
-        </tr>
-        <tr>
-            <td>Застройщик</td>
-            <td>
-                @{string s = ""; }
-                @for (int i = 0; i < Model.NewBuilding.Builders.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        s += Model.NewBuilding.Builders[i].Name;
-                    }
-                    else
-                    {
-                        s += ", " + Model.NewBuilding.Builders[i].Name;
-                    }
-                }
-                @s
-            </td>
-        </tr>
-        <tr>
-            <td>Отдел продаж</td>
-            <td>
-                @{s = ""; }
-                @for (int i = 0; i < Model.NewBuilding.Phones.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        s += Model.NewBuilding.Phones[i].TelePhone;
-                    }
-                    else
-                    {
-                        s += ", " + Model.NewBuilding.Phones[i].TelePhone;
-                    }
-                }
-                @s
-            </td>
-        </tr>
-    </table>
-</div>
-@if (Model.NewBuilding.PlanImages != null && Model.NewBuilding.PlanImages.Count > 0)
-            {
-    <div class="planirovka">
-        @foreach (var item in Model.NewBuilding.PlanImages)
-        {
-            <a class="plan" rel="group" href="@Url.Content(item.Url + item.FileName)"><img src="@Url.Content(item.Url + item.FileName)?w=522&h=390&mode=max" border="0"  title="@item.Title" alt="@item.Alt"/></a>
-        }
+        <div class="h2sale"><h2>@Model.NewBuilding.Name</h2></div>
+        <h4><img src="/Content/images/pin.png" height="13" alt="">@Model.NewBuilding.Adress</h4>
+        <div class="h3cost">
+            <p class="grn">от @Model.NewBuilding.Price.ToString("# ### ##0") грн/м²</p>
+            <pre></pre>
+        </div>
+        <div class="meters">
+            @*<div><img src="/Content/images/m2.png" height="32" alt=""><p>@(Model.Advert.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 3) ? Model.Advert.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue : "0") м²</p></div>
+                <div><img src="/Content/images/m21.png" height="32" alt=""><p>@(Model.Advert.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 7) ? Model.Advert.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue : "0") м²</p></div>*@
+        </div>
+        <p class="text">@Model.NewBuilding.Description</p>
     </div>
-}
-<div id="mapnovostroy_prod">
-    <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1054px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="table_of_prodapart">
+        <table>            
+            <tr>
+                <td>Адрес</td>
+                <td>@Model.NewBuilding.Adress</td>
+            </tr>
+            <tr>
+                <td>Количество домов</td>
+                <td>@Model.NewBuilding.HouseQuantity</td>
+            </tr>
+            <tr>
+                <td>Количество секций</td>
+                <td>@Model.NewBuilding.SectionQuantity</td>
+            </tr>
+            <tr>
+                <td>Этажность</td>
+                <td>@Model.NewBuilding.FloorQuantity</td>
+            </tr>
+            <tr>
+                <td>Количество квартир</td>
+                <td>@Model.NewBuilding.FloatQuantity</td>
+            </tr>
+            @*<tr>
+                    <td>Планировка квартир</td>
+                    <td>@Model.NewBuilding.Construct</td>
+                </tr>*@
+            <tr>
+                <td>Материал стен</td>
+                <td>@Model.NewBuilding.WallMaterial</td>
+            </tr>
+            <tr>
+                <td>Высота потолков</td>
+                <td>@Model.NewBuilding.WallHeight метра</td>
+            </tr>
+            <tr>
+                <td>Отопление</td>
+                <td>@Model.NewBuilding.Heating</td>
+            </tr>
+            <tr>
+                <td>Парковка</td>
+                <td>@Model.NewBuilding.Parking</td>
+            </tr>
+            <tr>
+                <td>Сдача в эксплуатацию</td>
+                <td>@Model.NewBuilding.ExpluatationDate.Year год</td>
+            </tr>
+            <tr>
+                <td>Застройщик</td>
+                <td>
+                    @{string s = ""; }
+                    @for (int i = 0; i < Model.NewBuilding.Builders.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            s += Model.NewBuilding.Builders[i].Name;
+                        }
+                        else
+                        {
+                            s += ", " + Model.NewBuilding.Builders[i].Name;
+                        }
+                    }
+                    @s
+                </td>
+            </tr>
+            <tr>
+                <td>Отдел продаж</td>
+                <td>
+                    @{s = ""; }
+                    @for (int i = 0; i < Model.NewBuilding.Phones.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            s += Model.NewBuilding.Phones[i].TelePhone;
+                        }
+                        else
+                        {
+                            s += ", " + Model.NewBuilding.Phones[i].TelePhone;
+                        }
+                    }
+                    @s
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="fav-wrap">
+        <div class="favorite">
+            <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding', true, this);" id="favorite">Добавить в избранное</a>
+            <a onclick="addtocart(@Model.NewBuilding.Id, '@AdvertsType.NewBuilding, this);" id="fav2"></a>
+        </div>
+        <div class="favorite1">
+            <a href="/email/index?flat=@(Model.NewBuilding.Id)&type=@((int)AdvertsType.NewBuilding)" id="favorite"><span>+</span> Подать заявку</a>
+        </div>
+    </div>
 </div>
-<div id="mapnovostroy1">
-    <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+</div>
+
+<div class="map_managercard">
+    <!-- <div class="manager
+
+    <div class="map_managercard">
+
+        <!-- <div class="manager">
+             <div class="photo">
+                 @if (Model.NewBuilding.User.Avatar != null)
+                 {
+                     <img src="@Url.Content(Model.NewBuilding.User.Avatar.Url + Model.NewBuilding.User.Avatar.FileName)?w=90&h=90&mode=max" width="90px" height="90px">
+                 }
+                 else
+                 {
+                     <img src="~/Content/images/manager.png" width="90px" height="90px">
+                 }
+             </div>
+             <div class="manager_info">
+                 <div class="imgtel">
+                     <img src="~/Content/images/minphone.png">
+                 </div>
+                 <div class="number">
+                     @if (Model.NewBuilding.User.Phones != null && Model.NewBuilding.User.Phones.Count > 0)
+                     {
+                         foreach (var phone in Model.NewBuilding.User.Phones)
+                         {
+                             <p>@phone.TelePhone</p>
+                         }
+                     }
+                     <p>@Model.NewBuilding.User.Email</p>
+                     <p class="name">@Model.NewBuilding.User.FirstName</p>
+                 </div>
+             </div>
+         </div>-->
+    <div id="mapapart_prod">
+        <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="1200px" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div id="mapnovostroy1">
+        <iframe src="https://maps.google.com/maps?q=@Model.NewBuilding.Latitude.ToString(CultureInfo.InvariantCulture),@Model.NewBuilding.Longitude.ToString(CultureInfo.InvariantCulture)&hl=es;z=14&amp;output=embed" width="700px" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
 </div>
 <span class="none">
-
-    <div class="h2novostroy"><h2>Другие Новострои</h2></div>
+    <div class="h2prodsale"><h2>Другие новострои</h2></div>
 </span>
-<div class="products">
-    <ul class="prods" id="data-container">
-        @Html.Partial("NewB/_listOfNewBuildings", Model.OtherNewBuildings);
-    </ul>
+<div class="d-carousel" id="p">
+    @Html.Partial("NewB/_listOfNewBuildingsCarousel", Model.OtherNewBuildings)
 </div>
+    </span>

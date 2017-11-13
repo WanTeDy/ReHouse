@@ -9,10 +9,10 @@
             <li>
                 @if (item.Type == ReHouse.Utils.Helpers.AdvertsType.Sale)
                 {
-                    <a href="/sale/detail/@item.Id">
+                    <div onclick="window.location='/sale/detail/@item.Id'">
                         @if (item.IsExclusive)
                         {
-                            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                            <div class="redimg"><img src="~/Content/images/eksklusiv.jpg"></div>
                         }
                         else if (item.IsHot)
                         {
@@ -33,24 +33,24 @@
                             <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
                         }
                         <div class="meters">
-                            <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue м²</p></div>
-                            <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue м²</p></div>
+                            <div><img src="/Content/images/m2.png" height="32" alt=""><p>@(item.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 3) ? item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue : "0") м²</p></div>
+                            <div><img src="/Content/images/m21.png" height="32" alt=""><p>@(item.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 7) ? item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue : "0") м²</p></div>
                         </div>
                         <div class="bottom">
-                            <div><p class="cost">@item.Price $</p></div>
+                            <div><p class="cost">@item.Price.ToString("# ### ##0") $</p></div>
                             <div class="share" onclick="share(this, event);"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this, event);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this, event);"></div>
                             <div class="shared_icons">
-                                <a onclick="Share.facebook('http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Title.RussianName, @item.Street', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))'" class="fb"></a>
-                                <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Title.RussianName, @item.Street', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))')" class="vk"></a>
-                                <a onclick="Share.twitter('http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Title.RussianName, @item.Street')" class="tw"></a>
+                                <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Title.RussianName, @item.Street', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))'" class="fb"></a>
+                                <a onclick="Share.vkontakte(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Title.RussianName, @item.Street', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))')" class="vk"></a>
+                                <a onclick="Share.twitter(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Продам @item.Title.RussianName, @item.Street')" class="tw"></a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 }
                 else
                 {
-                    <a href="/rent/detail/@item.Id">
+                    <div onclick="window.location='/rent/detail/@item.Id'">
                         @if (item.IsExclusive)
                         {
                             <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
@@ -74,27 +74,27 @@
                             <img class="main-img" src="~/Content/images/prod1.jpg" width="388" height="200" alt="" />
                         }
                         <div class="meters">
-                            <div><img src="~/Content/images/m2.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue м²</p></div>
-                            <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>@item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue м²</p></div>
+                            <div><img src="/Content/images/m2.png" height="32" alt=""><p>@(item.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 3) ? item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue : "0") м²</p></div>
+                            <div><img src="/Content/images/m21.png" height="32" alt=""><p>@(item.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 7) ? item.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue : "0") м²</p></div>
                         </div>
                         <div class="bottom">
                             @if (item.RentPeriodType == ReHouse.Utils.Helpers.RentPeriodType.Daily)
                             {
-                                <div><p class="cost">@item.Price грн</p></div>
+                                <div><p class="cost">@item.Price.ToString("# ### ##0") грн</p></div>
                             }
                             else
                             {
-                                <div><p class="cost">@item.Price $</p></div>
+                                <div><p class="cost">@item.Price.ToString("# ### ##0") $</p></div>
                             }
                             <div class="share" onclick="share(this, event)" onblur="leaveShare(this, event)"><img src="~/Content/images/share.png" height="32" alt="" /></div>
-                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this, event);"><img src="~/Content/images/star.png" height="32" alt="" /></div>
+                            <div class="like" onclick="addtocart(@item.Id, '@item.Type', true, this, event);"></div>
                             <div class="shared_icons">
-                                <a onclick="Share.facebook('http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Сдам @item.Title.RussianName, @item.Street', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))" )" class="fb"></a>
-                                <a onclick="Share.vkontakte('http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Сдам @item.Title.RussianName, @item.Street', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))')" class="vk"></a>
-                                <a onclick="Share.twitter('http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Сдам @item.Title.RussianName, @item.Street')" class="tw"></a>
+                                <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Сдам @item.Title.RussianName, @item.Street', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))" )" class="fb"></a>
+                                <a onclick="Share.vkontakte(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Сдам @item.Title.RussianName, @item.Street', 'http://rehouse-realty.com.ua@(Url.Content(item.Images?.FirstOrDefault() != null ? item.Images.FirstOrDefault().Url + item.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(item.Description?.Replace(Environment.NewLine, " "))')" class="vk"></a>
+                                <a onclick="Share.twitter(event, 'http://rehouse-realty.com.ua/rent/detail/@(item.Id)', 'Сдам @item.Title.RussianName, @item.Street')" class="tw"></a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 }
             </li>
         </div>

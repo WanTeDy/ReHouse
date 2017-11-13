@@ -25,22 +25,21 @@
 
                 <div class="manager_">
                     <div class="img">
-                        @if (item.Avatar != null)
-                    {
-                            <a href="/manager/profile/@item.Id">
+
+                        <a href="@(!String.IsNullOrEmpty(item.MessengerName)? "https://www.messenger.com/t/" + item.MessengerName:"#")">
+                            @if (item.Avatar != null)
+                            {
                                 <img src="@Url.Content(item.Avatar.Url + item.Avatar.FileName)?w=120&h=121&mode=max" width="120" height="121" />
-                            </a>
-                        }
-                        else
-                        {
-                            <a href="/manager/profile/@item.Id">
+                            }
+                            else
+                            {
                                 <img src="~/content/images/girl1.png" width="120" height="121">
-                            </a>
-                        }
+                            }
+                        </a>
                     </div>
                     <div class="contactinfo">
                         <h3>
-                            <a href="/manager/profile/@item.Id">
+                            <a href="@(!String.IsNullOrEmpty(item.MessengerName)? "https://www.messenger.com/t/" + item.MessengerName:"#")">
                                 @item.FirstName
                             </a>
                         </h3>
@@ -55,10 +54,10 @@
                         }
                         <h3>@item.Email</h3>
                     </div>
-                   <!-- <div class="about_manager">
-                        <p>@item.About</p>
-                    </div>-->
+                    <!-- <div class="about_manager">
+                         <p>@item.About</p>
+                     </div>-->
                 </div>
-            }
-        }
-    </div>
+                }
+                }
+            </div>
