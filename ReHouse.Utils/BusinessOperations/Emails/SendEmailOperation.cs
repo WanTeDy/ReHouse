@@ -35,12 +35,12 @@ namespace ReHouse.Utils.BusinessOperations.Emails
             string viewName = "";
             //string email = "wanted.kaiser228@gmail.com";
             string email = "rehouse.odessa.stars@gmail.com";
-            CommonEmailModel model = null;
+            AdvertEmailModel model = null;
             if (_advertId == 0)
             {
                 viewName = "CommonUserMailView";
                 //email = "rehouse.odessa.stars@gmail.com";
-                model = new CommonEmailModel
+                model = new AdvertEmailModel
                 {
                     UserName = _message.Username,
                     UserPhone = _message.Phone,
@@ -107,7 +107,7 @@ namespace ReHouse.Utils.BusinessOperations.Emails
             Send(viewName, email, model);
         }
 
-        private void Send(string viewName, string email, CommonEmailModel model)
+        private void Send(string viewName, string email, AdvertEmailModel model)
         {
             SmtpEmailSender mailSender = new SmtpEmailSender("mail.rehouse-realty.com.ua", "postmaster@rehouse-realty.com.ua", "Rehouse123456!");
             var body = SmtpEmailSender.GetHtmlRazor(model, SmtpEmailSender.FormatUrl(viewName));
