@@ -115,7 +115,7 @@
 
 @if (!String.IsNullOrEmpty(Model.NewBuilding.YouTubeUrl))
 {
-    <a class="videoyoutube" href="https://www.youtube.com/watch?v=@Model.NewBuilding.YouTubeUrl">Посмотреть видео</a>
+    <a class="videoyoutube" target="_blank" href="https://www.youtube.com/watch?v=@Model.NewBuilding.YouTubeUrl">Посмотреть видео</a>
 }
     </div>
 
@@ -130,7 +130,7 @@
     }
     else if (Model.NewBuilding.IsNew)
     {
-        <div class="redimg"><img src="~/Content/images/newred.png"></div>
+        <div class="redimg"><img src="~/Content/images/newred.jpg"></div>
     }
     <div class="seotext3">
         <!-- <div class="print">
@@ -156,7 +156,7 @@
         <div class="h2sale"><h2>@Model.NewBuilding.Name</h2></div>
         <h4><img src="/Content/images/pin.png" height="13" alt="">@Model.NewBuilding.Adress</h4>
         <div class="h3cost">
-            <p class="grn">от @Model.NewBuilding.Price.ToString("# ### ##0") грн/м²</p>
+            <p class="grn">от @Model.NewBuilding.Price.ToString("# ### ##0")грн/м²</p>
             <pre></pre>
         </div>
         <div class="meters">
