@@ -382,14 +382,14 @@ text-transform: uppercase;
     background-size:50px 50px;
 }
 
-    .social .fb:hover {
+   /* .social .fb:hover {
         height: 50px;
         width: 50px;
         background-image: url('images/fb-h.png');
         display: block;
         background-size:50px 50px;
         transition:.5s ease;
-    }
+    }*/
 
 .social .yt {
     height: 50px;
@@ -399,14 +399,14 @@ text-transform: uppercase;
     background-size:50px 50px;
 }
 
-    .social .yt:hover {
+    /*.social .yt:hover {
         height: 50px;
         width: 50px;
         background-image: url('images/youtube-h.png');
         display: block;
         background-size:50px 50px;
         transition:.5s ease;
-    }
+    }*/
 
 .social .gmail {
     height: 50px;
@@ -416,14 +416,14 @@ text-transform: uppercase;
     background-size:50px 50px;
 }
 
-    .social .gmail:hover {
+  /*  .social .gmail:hover {
         height: 50px;
         width: 50px;
         background-image: url('images/gmail-h.png');
         display: block;
         background-size:50px 50px;
         transition:.5s ease;
-    }
+    }*/
 
 .header .feedback {
     display: -webkit-box;
@@ -1596,13 +1596,13 @@ width: 545px;
             background-repeat: no-repeat;
         }
 
-            .footer .social .fb:hover {
+          /*  .footer .social .fb:hover {
                 height: 50px;
                 width: 50px;
                 background-image: url('images/fb-h.png');
                 display: block;
                 transition:.5s ease;
-            }
+            }*/
 
         .footer .social .tw {
             height: 50px;
@@ -1626,13 +1626,13 @@ width: 545px;
             background-repeat: no-repeat;
         }
 
-            .footer .social .gmail:hover {
+           /* .footer .social .gmail:hover {
                 height: 50px;
                 width: 50px;
                 background-image: url('images/gmail-h.png');
                 display: block;
                 transition:.5s ease;
-            }
+            }*/
 
     .footer .bottomnav {
         display: -webkit-box;
