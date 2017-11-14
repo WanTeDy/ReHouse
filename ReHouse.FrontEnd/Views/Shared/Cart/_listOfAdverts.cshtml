@@ -20,7 +20,7 @@
                         }
                         else if (item.IsNew)
                         {
-                            <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                            <div class="redimg"><img src="~/Content/images/newred.jpg"></div>
                         }
                         <h3>Продам @item.Name.ToLower()</h3>
                         <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
@@ -37,7 +37,7 @@
                             <div><img src="/Content/images/m21.png" height="32" alt=""><p>@item.Square м²</p></div>
                         </div>
                         <div class="bottom">
-                            <div><p class="cost">@item.Price.ToString("# ### ##0") $</p></div>
+                            <div><p class="cost">@item.Price.ToString("# ### ##0")$</p></div>
                             <div class="share" onclick="share(this, event);"><img src="~/Content/images/share.png" height="32" alt="" /></div>
                             <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this, event);"></div>
                             <div class="shared_icons">
@@ -53,7 +53,7 @@
                     <div onclick="window.location='/rent/detail/@item.Id'">
                         @if (item.IsExclusive)
                         {
-                            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                            <div class="redimg"><img src="~/Content/images/eksklusiv.jpg"></div>
                         }
                         else if (item.IsHot)
                         {
@@ -61,7 +61,7 @@
                         }
                         else if (item.IsNew)
                         {
-                            <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                            <div class="redimg"><img src="~/Content/images/newred.jpg"></div>
                         }
                         <h3>Сдам @item.Name.ToLower()</h3>
                         <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
@@ -80,11 +80,11 @@
                         <div class="bottom">
                             @if (item.RentPeriodType == ReHouse.Utils.Helpers.RentPeriodType.Daily)
                             {
-                                <div><p class="cost">@item.Price.ToString("# ### ##0") грн</p></div>
+                                <div><p class="cost">@item.Price.ToString("# ### ##0")грн</p></div>
                             }
                             else
                             {
-                                <div><p class="cost">@item.Price.ToString("# ### ##0") $</p></div>
+                                <div><p class="cost">@item.Price.ToString("# ### ##0")$</p></div>
                             }
                             <div class="share" onclick="share(this, event)" onblur="leaveShare(this, event)"><img src="~/Content/images/share.png" height="32" alt="" /></div>
                             <div class="liked" onclick="addtocart(@item.Id, '@item.Type', false, this, event);"></div>
@@ -101,7 +101,7 @@
                     <div onclick="window.location='/newbuilding/detail/@item.Id'">
                         @if (item.IsExclusive)
                         {
-                            <div class="redimg"><img src="~/Content/images/eksklusiv.png"></div>
+                            <div class="redimg"><img src="~/Content/images/eksklusiv.jpg"></div>
                         }
                         else if (item.IsHot)
                         {
@@ -109,7 +109,7 @@
                         }
                         else if (item.IsNew)
                         {
-                            <div class="redimg"><img src="~/Content/images/newred.png"></div>
+                            <div class="redimg"><img src="~/Content/images/newred.jpg"></div>
                         }
                         <h3>@item.Name</h3>
                         <h4><img src="~/Content/images/pin.png" height="13" alt="" />@item.Adress</h4>
@@ -126,7 +126,7 @@
                                 <div><img src="~/Content/images/m21.png" height="32" alt="" /><p>0 м²</p></div>*@
                         </div>
                         <div class="bottom">
-                            <div><p class="cost">от @item.Price.ToString("# ### ##0") грн/м²</p></div>
+                            <div><p class="cost">от @item.Price.ToString("# ### ##0")грн/м²</p></div>
                             <div class="share" onclick="share(this, event);"><img src="~/Content/images/share.png" height="32" alt="" /></div>
                             <div class="liked" onclick="addtocart(@item.Id, '@AdvertsType.NewBuilding', false, this, event);"></div>
                             <div class="shared_icons">
