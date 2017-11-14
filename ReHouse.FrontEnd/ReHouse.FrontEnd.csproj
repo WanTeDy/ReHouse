@@ -364,6 +364,7 @@
     <Content Include="Content\images\arrow-next.png" />
     <Content Include="Content\images\arrow-prev.png" />
     <Content Include="Content\images\bg-date.png" />
+    <Content Include="Content\images\bg_error.png" />
     <Content Include="Content\images\bud.png" />
     <Content Include="Content\images\client1.png" />
     <Content Include="Content\images\client2.png" />
