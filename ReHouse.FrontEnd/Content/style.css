@@ -3227,6 +3227,8 @@ padding: 32px 0px 0px 32px;
     -o-object-fit: cover;
     object-fit: cover;
     border-radius: 50%;
+    width: 210px!important;
+    height: 210px!important;
 }
 
 .contact_info h3 {
