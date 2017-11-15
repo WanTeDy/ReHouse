@@ -1572,7 +1572,6 @@ width: 545px;
     justify-content:space-between;
     background-color:#114a82;
     margin:0 auto;
-    min-width: 1200px;
 }
 
     .footer .social {
@@ -4032,6 +4031,7 @@ margin-bottom:30px;
     opacity:.75;
         background-color: #f9a320;
 }
+
 
 
 
