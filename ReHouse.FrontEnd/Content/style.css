@@ -662,8 +662,8 @@ opacity: .1;}}
 }
 #nav .sell {
     margin-left: 1009px;
-    margin-top: -80px;
-    width: 187px;
+    margin-top: -78px;
+    width: 184px;
 }
 #nav .sell p {
     color: #ffffff;
@@ -1572,6 +1572,7 @@ width: 545px;
     justify-content:space-between;
     background-color:#114a82;
     margin:0 auto;
+    min-width: 1200px;
 }
 
     .footer .social {
