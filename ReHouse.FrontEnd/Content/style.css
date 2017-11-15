@@ -661,9 +661,9 @@ opacity: .1;}}
     justify-content:space-between;
 }
 #nav .sell {
-    margin-left: 1009px;
-    margin-top: -80px;
-    width: 187px;
+    margin-left: 1011px;
+    margin-top: -78px;
+    width: 184px;
 }
 #nav .sell p {
     color: #ffffff;
@@ -1572,6 +1572,7 @@ width: 545px;
     justify-content:space-between;
     background-color:#114a82;
     margin:0 auto;
+    min-width: 1200px;
 }
 
     .footer .social {
@@ -1666,7 +1667,7 @@ width: 545px;
     padding: 7px 15px;
     font-size:30px;
     position: fixed;
-        bottom: 155px;
+        bottom: 77px;
     right: 73px;
     cursor: pointer;
     display: none;
@@ -3227,6 +3228,8 @@ padding: 32px 0px 0px 32px;
     -o-object-fit: cover;
     object-fit: cover;
     border-radius: 50%;
+    width: 210px!important;
+    height: 210px!important;
 }
 
 .contact_info h3 {
@@ -3956,6 +3959,7 @@ margin-bottom:30px;
 
 .nothing-found {
     width:727px;
+    height:559px;
     background-image: url('images/bg_error.png');
     background-repeat:no-repeat;
     margin:auto;
@@ -3963,22 +3967,22 @@ margin-bottom:30px;
     margin-bottom:175px;
 }
 
-.nothing-found .errorFound {
+.nothing-found h3 {
     color: #114a82;
-    font-family: "Proxima Nova - Extrabld";
+    font-family: "ProximaNova";
     font-size: 36px;
-    font-weight: 400;
-    margin:auto;
-    margin-top:428px;
+    font-weight: 900;
+    padding-top:428px;
+    text-align:center;
     margin-bottom:44px;
 }
-.nothing-found .errorFound a.backonmain {
+.nothing-found a.backonmain {
         display: block;
-        width: 190px;
+        width: 256px;
         padding: 18px 0px 15px 0px;
         text-decoration: none;
         color: #ffffff;
-        font-family: "Proxima Nova";
+        font-family: "ProximaNova";
         font-size: 18px;
         font-weight: 700;
         text-align: center;
@@ -3986,7 +3990,7 @@ margin-bottom:30px;
         letter-spacing: 1.5px;
         margin: auto;
 }
-.nothing-found .errorFound a.backonmain:hover {
+.nothing-found a.backonmain:hover {
     -webkit-transition: .8s ease;
     transition: .8s ease;
     background-color: #f9a320;
