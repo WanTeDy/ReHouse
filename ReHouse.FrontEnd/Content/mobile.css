@@ -319,6 +319,9 @@
 
 
 @media(max-width:768px) {
+    #nav.fixed {
+        display`:none;
+    }
     #sliderFrame {
     display:none;
 }

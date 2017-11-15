@@ -509,5 +509,19 @@
 
         });
     </script>
+    <!-- fixed menu -->
+    <script>
+  jQuery(function($) {
+	        $(window).scroll(function(){
+	            if($(this).scrollTop()>70){
+	                $('#nav').addClass('fixed');
+	            }
+	            else if ($(this).scrollTop()<70){
+	                $('#nav').removeClass('fixed');
+	            }
+	        });
+	    });
+    </script>
+    <!-- end fixed menu -->
 </body>
 </html>
