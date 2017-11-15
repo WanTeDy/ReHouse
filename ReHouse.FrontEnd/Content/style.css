@@ -3660,7 +3660,7 @@ body a, p, button {
     position: absolute;
     height: 30px;
     top: 23px;
-    z-index: 1000000000000;
+    z-index: 100;
     /* left: -13px; */
     justify-content: space-between;
     margin-left: 78px;
