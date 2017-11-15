@@ -1293,12 +1293,12 @@ width: 545px;
     line-height: 20px;
     text-align: left;
 }
-.news123 .content1 a.intext {
+.news123 .content1 a {
     color:#f9a320;
     text-decoration:none;
     transition:.4s ease;
 }
-.news123 .content1 a.intext:hover {
+.news123 .content1 a {
     color:grey;
 }
 .news123 .content1 {
