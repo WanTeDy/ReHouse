@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.DataBase.Geo;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace ReHouse.Utils.DataBase.AdvertParams
 {
@@ -120,6 +121,7 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// <summary>
         /// Description for this advert
         /// </summary>
+        [AllowHtml]
         public String Description { get; set; }
 
         public virtual User User { get; set; }

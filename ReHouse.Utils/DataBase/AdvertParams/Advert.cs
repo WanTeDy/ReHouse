@@ -4,6 +4,7 @@ using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.DataBase.Geo;
 using ReHouse.Utils.Helpers;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace ReHouse.Utils.DataBase.AdvertParams
 {
@@ -48,6 +49,7 @@ namespace ReHouse.Utils.DataBase.AdvertParams
         /// <summary>
         /// Discription for this advert
         /// </summary>
+        [AllowHtml]
         public String Description { get; set; }
         /// <summary>
         /// Expire date for this advert

@@ -253,6 +253,7 @@
     <Compile Include="Areas\Cabinet\Controllers\SaleController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\RentController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\SpecialController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
