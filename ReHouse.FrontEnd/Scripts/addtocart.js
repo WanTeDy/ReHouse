@@ -1,6 +1,7 @@
 function addtocart(id, type, isAdd, element, e) {
     e.preventDefault();
     e.stopPropagation();
+    isAdd = $(element).hasClass("like");
     var obj = {
         "AdvertId": id,
         "Type": type,
