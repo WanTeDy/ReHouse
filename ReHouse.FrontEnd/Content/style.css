@@ -1293,12 +1293,12 @@ width: 545px;
     line-height: 20px;
     text-align: left;
 }
-.news123 .content1 a.intext {
+.news123 .content1 a {
     color:#f9a320;
     text-decoration:none;
     transition:.4s ease;
 }
-.news123 .content1 a.intext:hover {
+.news123 .content1 a {
     color:grey;
 }
 .news123 .content1 {
@@ -3660,7 +3660,7 @@ body a, p, button {
     position: absolute;
     height: 30px;
     top: 23px;
-    z-index: 1000000000000;
+    z-index: 100;
     /* left: -13px; */
     justify-content: space-between;
     margin-left: 78px;
@@ -4006,7 +4006,7 @@ margin-bottom:30px;
 	    top: 0;
 	    width: 100%;
 	    background-color: rgba(17, 74, 130, .99);
-	    z-index: 999999999999;
+	    z-index: 99999999999999;
 	    margin-top: 0px;
 	    transition: .7s ease;
    }
