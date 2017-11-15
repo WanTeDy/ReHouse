@@ -1666,7 +1666,7 @@ width: 545px;
     padding: 7px 15px;
     font-size:30px;
     position: fixed;
-        bottom: 155px;
+        bottom: 77px;
     right: 73px;
     cursor: pointer;
     display: none;
@@ -3956,6 +3956,7 @@ margin-bottom:30px;
 
 .nothing-found {
     width:727px;
+    height:559px;
     background-image: url('images/bg_error.png');
     background-repeat:no-repeat;
     margin:auto;
@@ -3963,22 +3964,22 @@ margin-bottom:30px;
     margin-bottom:175px;
 }
 
-.nothing-found .errorFound {
+.nothing-found h3 {
     color: #114a82;
-    font-family: "Proxima Nova - Extrabld";
+    font-family: "ProximaNova";
     font-size: 36px;
-    font-weight: 400;
-    margin:auto;
-    margin-top:428px;
+    font-weight: 900;
+    padding-top:428px;
+    text-align:center;
     margin-bottom:44px;
 }
-.nothing-found .errorFound a.backonmain {
+.nothing-found a.backonmain {
         display: block;
-        width: 190px;
+        width: 256px;
         padding: 18px 0px 15px 0px;
         text-decoration: none;
         color: #ffffff;
-        font-family: "Proxima Nova";
+        font-family: "ProximaNova";
         font-size: 18px;
         font-weight: 700;
         text-align: center;
@@ -3986,7 +3987,7 @@ margin-bottom:30px;
         letter-spacing: 1.5px;
         margin: auto;
 }
-.nothing-found .errorFound a.backonmain:hover {
+.nothing-found a.backonmain:hover {
     -webkit-transition: .8s ease;
     transition: .8s ease;
     background-color: #f9a320;
