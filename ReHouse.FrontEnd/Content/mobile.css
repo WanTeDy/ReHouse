@@ -320,7 +320,7 @@
 
 @media(max-width:768px) {
     #nav.fixed {
-        display`:none;
+        display:none;
     }
     #sliderFrame {
     display:none;
