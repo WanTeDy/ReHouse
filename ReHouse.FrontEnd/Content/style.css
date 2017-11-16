@@ -97,6 +97,7 @@ body {
     align-items: center;
         min-width: 1200px;
     background-color: #114a82;
+    position:relative;
 }
 
 #slidebox .next {
@@ -433,22 +434,24 @@ text-transform: uppercase;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    position: relative;
+    /*position: relative;*/
     margin-left: 52px;
     width: 100px;
 }
 .header #fav {
-    position: relative;
+        position: absolute;
     padding: 10px 0 12px 46px;
     text-decoration: none;
     width: 117px;
     height: 13px;
-        font-family: "ProximaNova";
+    font-family: "ProximaNova";
     font-size: 14px;
     font-weight: 700;
     font-size: 15px;
     border: 1px solid #fff;
-    color:#fff;
+    color: #fff;
+    top: 6px;
+    left: 1031px;
 }
 .header #fav:before {
     content: "";
@@ -522,7 +525,6 @@ opacity: .1;}}
   100% {transform: rotate(0deg) scale(0.7) skew(1deg);opacity: .2;}}
 
 .header #fav:hover {
-    position: relative;
     padding: 10px 0 12px 46px;
     text-decoration: none;
     width: 117px;
@@ -1988,7 +1990,7 @@ width: 545px;
         }
         .products .prods .redimg {
             position: absolute;
-            z-index: 99999999999;
+            z-index: 1;
             margin-left: 224px;
             margin-top: 70px;
         }
@@ -4062,5 +4064,6 @@ margin-bottom:30px;
     text-transform: uppercase;
     width: 210px;
 }
+
 
 
