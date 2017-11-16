@@ -1990,7 +1990,7 @@ width: 545px;
         }
         .products .prods .redimg {
             position: absolute;
-            z-index: 99999999999;
+            z-index: 1;
             margin-left: 224px;
             margin-top: 70px;
         }
