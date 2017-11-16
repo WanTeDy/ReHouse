@@ -772,7 +772,7 @@ opacity: .1;}}
     display:flex;
     flex-direction:row;
         position: absolute;
-    top: 330px;
+    top: 325px;
 }
     .d-carousel ul li:hover {
         -webkit-transform: scale(1.03);
@@ -2821,6 +2821,7 @@ padding-bottom: 17px;
     flex-direction: row;
     width: 98%;
     justify-content: flex-end;
+    margin-bottom: 8px;
 }
 
     .share_icons a {
@@ -2842,6 +2843,7 @@ padding-bottom: 17px;
         background-image: url('images/share-fb.png');
         background-repeat: no-repeat;
         background-size: 22px 22px;
+            margin-right: 10px;
     }
 
         .share_icons .share_fb:hover {
@@ -2860,6 +2862,7 @@ padding-bottom: 17px;
         background-image: url('images/share-vk.png');
         background-repeat: no-repeat;
         background-size: 22px 22px;
+            margin-right: 10px;
     }
 
         .share_icons .share_vk:hover {
@@ -2907,10 +2910,10 @@ padding-bottom: 17px;
             margin-top: -47px;
     }
    .wrapper-prod .right {
-         padding: 32px 40px 0px 14px;
+         padding: 32px 18px 0px 30px;
    }
    .wrapper-prod .left {
-padding: 32px 0px 0px 32px;
+padding: 32px 0px 0px 20px;
 }
 .selection-admin {
     display: -webkit-box;
