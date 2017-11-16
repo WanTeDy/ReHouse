@@ -311,14 +311,21 @@
 
 
 
+@media(max-width:1900px) and (min-width:769px) {
 
-
-
-
-
+    .wrapper-prod {
+        min-width: 1200px;
+    }
+.wrapper-footer {
+    min-width: 1200px;
+}
+}
 
 
 @media(max-width:768px) {
+    #nav.fixed {
+        display:none;
+    }
     #sliderFrame {
     display:none;
 }

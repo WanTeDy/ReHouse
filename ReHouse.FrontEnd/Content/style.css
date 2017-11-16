@@ -772,7 +772,7 @@ opacity: .1;}}
     display:flex;
     flex-direction:row;
         position: absolute;
-    top: 330px;
+    top: 325px;
 }
     .d-carousel ul li:hover {
         -webkit-transform: scale(1.03);
@@ -1034,7 +1034,7 @@ border-bottom: none;
     flex-direction:row;
     background-color:#f3f3f9;
         justify-content: space-around;
-            margin-top: -137px;
+            margin-top: -115px;
     position: absolute;
 }
 
@@ -1293,12 +1293,12 @@ width: 545px;
     line-height: 20px;
     text-align: left;
 }
-.news123 .content1 a.intext {
+.news123 .content1 a {
     color:#f9a320;
     text-decoration:none;
     transition:.4s ease;
 }
-.news123 .content1 a.intext:hover {
+.news123 .content1 a {
     color:grey;
 }
 .news123 .content1 {
@@ -1572,7 +1572,6 @@ width: 545px;
     justify-content:space-between;
     background-color:#114a82;
     margin:0 auto;
-    min-width: 1200px;
 }
 
     .footer .social {
@@ -2822,6 +2821,7 @@ padding-bottom: 17px;
     flex-direction: row;
     width: 98%;
     justify-content: flex-end;
+    margin-bottom: 8px;
 }
 
     .share_icons a {
@@ -2843,6 +2843,7 @@ padding-bottom: 17px;
         background-image: url('images/share-fb.png');
         background-repeat: no-repeat;
         background-size: 22px 22px;
+            margin-right: 10px;
     }
 
         .share_icons .share_fb:hover {
@@ -2861,6 +2862,7 @@ padding-bottom: 17px;
         background-image: url('images/share-vk.png');
         background-repeat: no-repeat;
         background-size: 22px 22px;
+            margin-right: 10px;
     }
 
         .share_icons .share_vk:hover {
@@ -2908,10 +2910,10 @@ padding-bottom: 17px;
             margin-top: -47px;
     }
    .wrapper-prod .right {
-         padding: 32px 40px 0px 14px;
+         padding: 32px 18px 0px 30px;
    }
    .wrapper-prod .left {
-padding: 32px 0px 0px 32px;
+padding: 32px 0px 0px 20px;
 }
 .selection-admin {
     display: -webkit-box;
@@ -3532,7 +3534,7 @@ body a, p, button {
     flex-direction:row;
     justify-content:space-between;
     position:absolute;
-    top:325px;
+    top:317px;
     left:560px;
     z-index:10001;
 
@@ -3602,7 +3604,7 @@ body a, p, button {
         text-align:center;
     }
     .inner-testimonial img {
-        margin-bottom:30px;
+        margin-bottom:20px;
     }
     #testimonials ul li .inner-testimonial {
         margin-bottom:25px!important;
@@ -3660,7 +3662,7 @@ body a, p, button {
     position: absolute;
     height: 30px;
     top: 23px;
-    z-index: 1000000000000;
+    z-index: 100;
     /* left: -13px; */
     justify-content: space-between;
     margin-left: 78px;
@@ -3998,18 +4000,67 @@ margin-bottom:30px;
 }
 
 
+#nav.fixed{
+	    position: fixed;
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: flex-end;
+	    top: 0;
+	    width: 100%;
+	    background-color: rgba(17, 74, 130, .99);
+	    z-index: 99999999999999;
+	    margin-top: 0px;
+	    transition: .7s ease;
+   }
+   #nav.fixed a{
+	    color: #fff;
+   }
+    #nav.fixed a:hover{
+	    transition: .3s ease;
+   }
+
+#nav.fixed .sell a:hover .sell1 {
+    transition: .6s ease;
+    opacity:.75;
+    color: #f9a320;
+        background-color: #f9a320;
+}
+#nav.fixed .sell a:hover .sell1 p{
+    transition: .6s ease;
+    color: #f9a320;
+}
+#nav.fixed .sell a:hover .sell2 {
+    transition: .6s ease;
+    opacity:.75;
+        background-color: #f9a320;
+}
 
 
+#nav.fixed .logo {
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
 
-
-
-
-
-
-
-
-
-
-
+#nav.fixed .navigation a {
+    padding: 30px 16px 30px 16px;
+}
+#nav.fixed {
+    height: 78px;
+}
+#nav.fixed .sell {
+    margin-left: 1011px;
+    margin-top: -64px;
+    width: 184px;
+}
+#nav.fixed .navigation ol ol li a {
+    padding: 17px 0 15px 20px;
+    text-decoration: none;
+    font-family: "ProximaNova";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 210px;
+}
 
 

@@ -362,7 +362,8 @@
         @Scripts.Render("~/Scripts/foundation")
         @Scripts.Render("~/Scripts/vendorJs")
         @Scripts.Render("~/Scripts/modulesJs")
-    
+
+
         <script type="text/javascript">
             Share = {
                 vkontakte: function (e, purl, ptitle, pimg, text) {
@@ -397,7 +398,7 @@
                     window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
                 }
             }
-        </script>
+    </script>
         <script type="text/javascript">
             $(function () {
                 $(document).foundation();
@@ -487,6 +488,20 @@
             });
         });
     </script>
+    <!-- fixed menu -->
+    <script>
+  jQuery(function($) {
+	        $(window).scroll(function(){
+	            if($(this).scrollTop()>70){
+	                $('#nav').addClass('fixed');
+	            }
+	            else if ($(this).scrollTop()<70){
+	                $('#nav').removeClass('fixed');
+	            }
+	        });
+	    });
+    </script>
+    <!-- end fixed menu -->
     @*<script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
