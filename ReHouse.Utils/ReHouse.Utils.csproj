@@ -170,6 +170,11 @@
     <Compile Include="BusinessOperations\Titles\LoadMarketTypesOperation.cs" />
     <Compile Include="BusinessOperations\Titles\LoadTitlesOperation.cs" />
     <Compile Include="BusinessOperations\Titles\UpdateTitleOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\AddAdminFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\DeleteAdminFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\LoadAdminFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\LoadAdminFeedbacksOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\UpdateAdminFeedbackOperation.cs" />
     <Compile Include="BusinessOperations\Users\AddUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\DeleteUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\LoadUserOperation.cs" />
@@ -201,6 +206,7 @@
     <Compile Include="DataBase\Common\PageText.cs" />
     <Compile Include="DataBase\DbReHouse.cs" />
     <Compile Include="DataBase\Feedback\UserEmailMessage.cs" />
+    <Compile Include="DataBase\Feedback\AdminFeedback.cs" />
     <Compile Include="DataBase\Vacancies\Vacancy.cs" />
     <Compile Include="DataBase\Feedback\UserFeedback.cs" />
     <Compile Include="DataBase\Geo\District.cs" />
