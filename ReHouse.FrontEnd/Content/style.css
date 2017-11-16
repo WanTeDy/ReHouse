@@ -4033,11 +4033,31 @@ margin-bottom:30px;
 }
 
 
+#nav.fixed .logo {
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
 
-
-
-
-
-
+#nav.fixed .navigation a {
+    padding: 30px 16px 30px 16px;
+}
+#nav.fixed {
+    height: 78px;
+}
+#nav.fixed .sell {
+    margin-left: 1011px;
+    margin-top: -64px;
+    width: 184px;
+}
+#nav.fixed .navigation ol ol li a {
+    padding: 17px 0 15px 20px;
+    text-decoration: none;
+    font-family: "ProximaNova";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 210px;
+}
 
 
