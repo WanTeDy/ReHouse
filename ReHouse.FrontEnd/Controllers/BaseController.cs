@@ -42,12 +42,18 @@ namespace ReHouse.FrontEnd.Controllers
                 operation3.ExcecuteTransaction();
                 ViewBag.SeoParams = operation3._seoParams;
 
-                if(CurrentController == "rent" || CurrentController == "sale" || CurrentController == "newbuilding" || (CurrentController == "home" && CurrentAction == "index"))
+                if (CurrentController == "rent" || CurrentController == "sale" || CurrentController == "newbuilding" || (CurrentController == "home" && CurrentAction == "index"))
                 {
                     var operation = new LoadArticlesOperation(TokenHash, 1, _articlesCount);
                     operation.ExcecuteTransaction();
                     ViewBag.Articles = operation._articles;
                 }
+                if (CurrentController == "rent" || CurrentController == "sale")
+                    ViewBag.Phones = new string[] { "048 788 67 07" };
+                else if (CurrentController == "newbuilding")
+                    ViewBag.Phones = new string[] { "048 796 46 43" };
+                else
+                    ViewBag.Phones = new string[] { "048 788 67 07", "048 796 46 43" };
             }
         }
 
