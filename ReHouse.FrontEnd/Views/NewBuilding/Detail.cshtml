@@ -25,7 +25,7 @@
                 arrows: true,
                 buttons: false,
                 fullScreen: true,
-                shuffle: true,
+                shuffle: false,
                 smallSize: 500,
                 mediumSize: 1000,
                 largeSize: 3000,
@@ -75,10 +75,9 @@
                             foreach (var item in Model.NewBuilding.Images)
                             {
                                 <div class="sp-slide">
-                                    <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max"
-                                         data-src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" />
+                                    <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=600&h=312&mode=max"
+                                         data-src="@Url.Content(item.Url + item.FileName)?w=1500&h=1500&mode=max" />
                                 </div>
-
                             }
                         }
                         @if (Model.NewBuilding.PlanImages != null && Model.NewBuilding.PlanImages.Count > 0)
@@ -86,10 +85,9 @@
                             foreach (var item in Model.NewBuilding.PlanImages)
                             {
                                 <div class="sp-slide">
-                                    <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max"
-                                         data-src="@Url.Content(item.Url + item.FileName)?w=767&h=600&mode=max" />
+                                    <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=600&h=312&mode=max"
+                                         data-src="@Url.Content(item.Url + item.FileName)?w=1500&h=1500&mode=max" />
                                 </div>
-
                             }
                         }
                     </div>
