@@ -774,7 +774,7 @@ opacity: .1;}}
     display:flex;
     flex-direction:row;
         position: absolute;
-    top: 325px;
+    top: 335px;
 }
     .d-carousel ul li:hover {
         -webkit-transform: scale(1.03);
@@ -2021,7 +2021,7 @@ width: 545px;
     display: flex;
     flex-direction: row;
     position: absolute;
-    top: 330px;
+    top: 335px;
 }
 .products .prods li .meters div {
     display: flex;
