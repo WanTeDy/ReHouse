@@ -58,7 +58,7 @@ div#fancy_loading_icon {
 
 div#fancy_outer {
 	position: absolute;
-    top: 0;
+    top: 30%!important;
     left: 0;
     z-index: 90;
     padding: 18px 18px 33px 18px;
