@@ -8,18 +8,18 @@
             src: url('fonts/ProximaNova/ProximaNova-Regular.woff');
 	}
 
-
-/*ul.carousel.jcarousel-list.jcarousel-list-horizontal {
+/*
+ul.carousel.jcarousel-list.jcarousel-list-horizontal {
     overflow: hidden;
     position: relative;
     top: 0px;
     left: 0px;
     margin: 0px;
-    padding: 8px 0!important;
+    padding: 6px 0!important;
     width: 4010px;
-    height: 450px!important;
-}*/
-
+    height: 437px!important;
+}
+*/
 
 
 body{
@@ -788,8 +788,8 @@ opacity: .1;}}
 
 
     .d-carousel ul li:hover .bottom {
-        top: 363px;
-        transition:.8s ease;
+        top: 378px;
+        transition:.7s ease;
     }
 
 
@@ -798,7 +798,7 @@ opacity: .1;}}
     display:flex;
     flex-direction:row;
         position: absolute;
-    top: 365px;
+    top: 383px;
     width:391px;
         border-top: 1px solid #e5e5f8;
 }
@@ -811,7 +811,7 @@ opacity: .1;}}
         border-radius:7px;
     }
     .d-carousel ul li .bottom p.cost {
-           padding: 25px 0 22px 23px;
+           padding: 16px 0 16px 20px;
         width:229px;
          border: 1px solid #e5e5f8;
         border-right:none;
@@ -819,16 +819,17 @@ opacity: .1;}}
 border-bottom: none;
     }
     .d-carousel ul li .bottom .share {
-        padding:20px;
+        padding:18px 16px 16px 16px;
          border: 1px solid #e5e5f8;
          border-right:none;
          border-top:none;
+         border-bottom:none;
          position:absolute;
-         right:72px;
+         right:57px;
     }
     
 .d-carousel ul li .bottom .like {
-        padding: 36px;
+        padding: 28px;
     border: 1px solid #e5e5f8;
     border-right: none;
     right: 0;
@@ -836,12 +837,12 @@ border-bottom: none;
     border-top: none;
     background-image: url(images/star.png);
     background-repeat: no-repeat;
-    background-size: 32px 32px;
+    background-size: 22px 22px;
     background-position: 50%;
 border-bottom: none;
     }
 .d-carousel ul li .bottom .liked {
-      padding: 36px;
+      padding: 28px;
     border: 1px solid #e5e5f8;
     border-right: none;
     right: 0;
@@ -849,7 +850,7 @@ border-bottom: none;
     border-top: none;
     background-image: url(images/star-h.png);
     background-repeat: no-repeat;
-    background-size: 32px 32px;
+    background-size: 22px 22px;
     background-position: 50%;
 border-bottom: none;
     }
@@ -1668,8 +1669,8 @@ width: 545px;
     padding: 7px 15px;
     font-size:30px;
     position: fixed;
-        bottom: 77px;
-    right: 73px;
+    bottom: 215px;
+    right: 53px;
     cursor: pointer;
     display: none;
     opacity: .8;
@@ -2041,31 +2042,30 @@ width: 545px;
     display: flex;
     flex-direction: row;
     position: absolute;
-    top: 367px;
+    top: 380px;
     width: 391px;
     border-top: 1px solid #e5e5f8;
 }
 .products .prods li:hover .bottom {
-    top: 363px;
+    top: 381px;
     transition: .8s ease;
 }
 .products .prods li .bottom p.cost {
-    padding: 25px 0 22px 23px;
+        padding: 16px 0 16px 20px;
     width: 229px;
-    border: 1px solid #e5e5f8;
-    border-right: none;
 }
 .products .prods li .bottom .share {
-    padding: 20px;
+    padding: 18px 16px 16px 16px;
     border: 1px solid #e5e5f8;
     border-right: none;
     border-top: none;
+     border-bottom: none;
     position: absolute;
-    right: 69px;
+    right: 57px;
 padding-bottom: 17px;
 }
 .products .prods li .bottom .like {
-        padding: 36px;
+       padding: 30px 28px 28px 28px;
     border: 1px solid #e5e5f8;
     border-right: none;
     right: 0;
@@ -2073,11 +2073,12 @@ padding-bottom: 17px;
     border-top: none;
     background-image: url(images/star.png);
     background-repeat: no-repeat;
-    background-size: 32px 32px;
+    background-size: 22px 22px;
     background-position: 50%;
+    border-bottom: none;
 }
 .products .prods li .bottom .liked {
-        padding: 36px;
+    padding: 30px 28px 28px 28px;
     border: 1px solid #e5e5f8;
     border-right: none;
     right: 0;
@@ -2085,8 +2086,9 @@ padding-bottom: 17px;
     border-top: none;
     background-image: url(images/star-h.png);
     background-repeat: no-repeat;
-    background-size: 32px 32px;
+    background-size: 22px 22px;
     background-position: 50%;
+    border-bottom: none;
 }
 .products .prods a {
     text-decoration: none;
@@ -3663,11 +3665,11 @@ body a, p, button {
     flex-direction: row;
     position: absolute;
     height: 30px;
-    top: 23px;
+    top: 13px;
     z-index: 100;
     /* left: -13px; */
     justify-content: space-between;
-    margin-left: 78px;
+    margin-left: 86px;
     /* border-top: 1px solid #e5e5f8; */
     /* padding: 10px 0; */
 }
@@ -4064,6 +4066,13 @@ margin-bottom:30px;
     text-transform: uppercase;
     width: 210px;
 }
+/*//*/
 
-
-
+.d-carousel ul li .bottom .share img {
+    width: 22px;
+    height: 22px;
+}
+.prods li .bottom .share img {
+    width: 22px;
+    height: 22px;
+}
