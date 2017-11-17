@@ -583,7 +583,7 @@
         display: flex;
         flex-direction: row;
         margin-top: 5px;
-        margin-left: 108px;
+            margin-left: 80px;
         font-size: 15px;
         -moz-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
@@ -790,8 +790,9 @@
             }
 
     #toTop {
-        bottom: 77px;
-        right: 23px;
+        bottom: 215px;
+    right: 37px;
+
     }
 
     .none {
@@ -1626,8 +1627,9 @@
             }
 
     #toTop {
-        bottom: 77px;
-        right: 23px;
+       bottom: 215px;
+    right: 33px;
+
     }
 
     .none {
@@ -2266,8 +2268,9 @@
     font-size: 20px;
 }
     #toTop {
-        bottom: 77px;
-    right: 25px;
+        bottom: 215px;
+    right: 30px;
+
     }
 
     .footer .social {
@@ -2638,16 +2641,24 @@
     display: flex;
     flex-direction: row;
     position: absolute;
-        top: 292px;
+    top: 308px;
     width: 305px;
     border-top: 1px solid #e5e5f8;
 }
 .d-carousel ul li:hover .bottom {
-        top: 294px;
+        top: 308px;
         transition:.8s ease;
     }
+.d-carousel ul li .bottom p.cost {
+    padding: 18px 0 16px 12px;
+    width: 229px;
+    border: 1px solid #e5e5f8;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
 .shared_icons {
-    margin-left: 31px;
+    margin-left: 48px;
 }
 .d-carousel .jcarousel-item {
     width: 305px;
@@ -2739,7 +2750,7 @@
     margin:auto;
 }
 .products .prods li:hover .bottom {
-    top:290px;
+    top:304px;
 }
     .products .prods .data-item {
         margin-bottom: 15px;
@@ -2773,7 +2784,7 @@
     display: flex;
     flex-direction: row;
     position: absolute;
-    top: 292px;
+    top: 304px;
     width: 305px;
     border-top: 1px solid #e5e5f8;
 }
@@ -2844,7 +2855,7 @@
     font-size: 20px;
 }
 .d-carousel ul li .bottom .share {
-    right: 72px;
+    right: 56px;
 }
 .d-carousel ul li .bottom p.cost {
     border-bottom: none;
