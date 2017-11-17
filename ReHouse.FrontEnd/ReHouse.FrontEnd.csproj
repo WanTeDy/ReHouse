@@ -237,6 +237,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Cabinet\CabinetAreaRegistration.cs" />
     <Compile Include="Areas\Cabinet\Controllers\BaseCabinetController.cs" />
+    <Compile Include="Areas\Cabinet\Controllers\AdminFeedbacksController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\ManagersController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\TagPagesController.cs" />
     <Compile Include="Areas\Cabinet\Controllers\TextsController.cs" />
@@ -532,6 +533,10 @@
     <Content Include="Scripts\deleteAdverts.min.js">
       <DependentUpon>deleteAdverts.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\deleteAdminFeedbacks.js" />
+    <Content Include="Scripts\deleteArticles - Copy.min.js">
+      <DependentUpon>deleteAdminFeedbacks.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\deleteArticles.min.js">
       <DependentUpon>deleteArticles.js</DependentUpon>
     </Content>
@@ -739,6 +744,10 @@
     <Content Include="Areas\Cabinet\Views\Managers\Add.cshtml" />
     <Content Include="Areas\Cabinet\Views\Shared\Manager\_listOfManagers.cshtml" />
     <Content Include="Areas\Cabinet\Views\Slider\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\AdminFeedbacks\Add.cshtml" />
+    <Content Include="Areas\Cabinet\Views\AdminFeedbacks\Edit.cshtml" />
+    <Content Include="Areas\Cabinet\Views\AdminFeedbacks\List.cshtml" />
+    <Content Include="Areas\Cabinet\Views\Shared\AdminFeedback\_listOfFeedbacks.cshtml" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\fonts\MyriadPro\MyriadPro-Black.woff" />
     <Content Include="Content\fonts\MyriadPro\MyriadPro-Regular.woff" />

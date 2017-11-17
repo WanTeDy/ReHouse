@@ -1,0 +1,53 @@
+﻿@using ReHouse.Utils.DataBase.Feedback
+@model List<AdminFeedback>
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_navigation", "adminfeedbacks")
+
+<div id="adminka2" class="tabset_content">
+    <div class="headline">
+        <h2>Отзывы слайдера</h2>
+        <form method="LINK" action="/cabinet/adminfeedbacks/add">
+            <button>Добавить отзыв ►</button>
+        </form>
+    </div>
+
+    @if (!ViewBag.NoElements)
+    {
+
+        <div class="added">
+            <button onclick="deleteChekedProducts();" class="delete_all">Удалить выбранные</button>
+            <table class="added" id="data-container">
+                @Html.Partial("AdminFeedback/_listOfFeedbacks", Model)
+            </table>
+        </div>
+        <div>
+            <div class="products1">
+                <div id="button-more">
+                    <a id="more">Больше отзывов</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading-div">
+
+        </div>
+    }
+
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/deleteFeedbacks")
+
+    <script>
+        var url = "/cabinet/adminfeedbacks/load";
+        $('#button-more').click(function () {
+
+            var obj = {
+            }
+
+            lazyload(obj, url, false);
+        });       
+    </script>
+
+}

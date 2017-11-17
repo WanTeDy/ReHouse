@@ -18,13 +18,13 @@ namespace ReHouse.Utils.DataBase
     {
         public DbReHouse()
         //:base("Local")
-        :base("smarterAsp")
+        : base("smarterAsp")
         { }
-    //    public DbSet<Feedback> Feedbacks { get; set; }
-    //    public DbSet<UnitOfCommodity> UnitOfCommodities { get; set; }
-    //    public DbSet<OrderCities> OrderCities { get; set; }
-    //    public DbSet<PathImages> PathImageses { get; set; }
+        //    public DbSet<UnitOfCommodity> UnitOfCommodities { get; set; }
+        //    public DbSet<OrderCities> OrderCities { get; set; }
+        //    public DbSet<PathImages> PathImageses { get; set; }
 
+        public DbSet<AdminFeedback> AdminFeedbacks { get; set; }
         public DbSet<ExpluatationDate> ExpluatationDates { get; set; }
         public DbSet<TagPage> TagPages { get; set; }
         public DbSet<SliderParam> SliderParams { get; set; }
@@ -39,7 +39,7 @@ namespace ReHouse.Utils.DataBase
         public DbSet<MarketType> MarketTypes { get; set; }
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Advert> Adverts { get; set; }
-        public DbSet<Title> Titles { get; set; }    
+        public DbSet<Title> Titles { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<City> Cities { get; set; }
@@ -47,63 +47,14 @@ namespace ReHouse.Utils.DataBase
         public DbSet<TrimCondition> TrimConditions { get; set; }
         //public DbSet<PriceFilterNewBuilding> PriceFilterNewBuildings { get; set; }
         public DbSet<PriceFilter> PriceFilters { get; set; }
-        public DbSet<Image> Images { get; set; }        
-        public DbSet<PlanImage> PlanImages { get; set; }        
-        public DbSet<Avatar> Avatars { get; set; }        
-        public DbSet<Article> Articles { get; set; }        
+        public DbSet<Image> Images { get; set; }
+        public DbSet<PlanImage> PlanImages { get; set; }
+        public DbSet<Avatar> Avatars { get; set; }
+        public DbSet<Article> Articles { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<AdvertProperty> AdvertProperties { get; set; }
         public DbSet<AdvertPropertyValue> AdvertPropertyValues { get; set; }
-        //    public DbSet<BrainProduct> Products { get; set; }
-        //    public DbSet<Vendor> Vendors { get; set; }
-        //    public DbSet<BrainCategory> Categories { get; set; }
-        //    public DbSet<BrainStocks> BrainStockses { get; set; }
-
-        //    /// <summary>
-        //    /// Приходящие от клиентов и поставщиков заказы
-        //    /// </summary>
-        //    public DbSet<OrderComes> OrderComes { get; set; }
-        //    /// <summary>
-        //    /// Заказы посланые поставщику
-        //    /// </summary>
-        //    public DbSet<OrderOut> OrderOut { get; set; }
-        //    public DbSet<OrderItem> Orders { get; set; }
-        //    //public DbSet<OrderQueue> OrderQueues { get; set; }
-        //    public DbSet<OrdersItemForBrain> OrdersItemForBrain { get; set; }
-
-        //    /// <summary>
-        //    /// Периодичность для услуг
-        //    /// </summary>
-        //    public DbSet<FrequencyPayment> FrequencyPayments { get; set; }
-        //    /// <summary>
-        //    /// Услуги
-        //    /// </summary>
-        //    public DbSet<Services> Serviceses { get; set; }
-        //    public DbSet<StockProductOurStockRoom> StockProductOurStockRoom { get; set; }
-        //    /// <summary>
-        //    /// Товар на складе
-        //    /// </summary>
-        //    public DbSet<OurStocks.StockProduct> StockProducts { get; set; }
-        //    public DbSet<AdditionalStockProductData> AdditionalStockProductDatas { get; set; }
-        //    /// <summary>
-        //    /// Свои склады
-        //    /// </summary>
-        //    public DbSet<OurStockRoom> OurStockRooms { get; set; }
-
-        //    public DbSet<ReHouseCategory> ReHouseCategories { get; set; }
-        //    public DbSet<ReHouseVendor> ReHouseVendors { get; set; }
-        //    public DbSet<RuleForPrice> RuleForPrices { get; set; }
-        //    //public DbSet<RulesForCategory> RulesForCategories { get; set; }
-        //    public DbSet<Currency> Currencies { get; set; }
-        //    //public DbSet<CollectionCurrency> CollectionCurrencies { get; set; }
-        //    public DbSet<DinamicData> DinamicDatas { get; set; }
-        //    public DbSet<ProductProperty> ProductProperties { get; set; }
-        //    public DbSet<ProductPropertyValues> ProductPropertyValueses { get; set; }
-        //    public DbSet<ReservedUnit> ReservedUnits { get; set; }
-        //    public DbReHouse() : base("DbBrain")
-        //    {
-        //        //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DbReHouse>());
-        //    }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -182,15 +133,26 @@ namespace ReHouse.Utils.DataBase
             //        modelBuilder.Entity<BrainProduct>().HasRequired<Vendor>(s => s.Vendor).WithMany(s => s.BrainProducts).HasForeignKey(s => s.BrainVendorID);
 
             //        //many-to-many
-            //modelBuilder.Entity<NewBuilding>()
-            //    .HasMany(s => s.Builders)
-            //    .WithMany(x => x.NewBuildings)
-            //    .Map(m =>
-            //    {
-            //        m.MapLeftKey("NewBuilding_Id");
-            //        m.MapRightKey("Builder_Id");
-            //        m.ToTable("NewBuildingBuilders");
-            //    });  //HasRequired<BrainCategory>(s => s.BrainCategories).WithMany(s => s.Vendors).HasForeignKey(s => s.categoryID);
+            modelBuilder.Entity<NewBuilding>()
+                .HasMany(s => s.Images)
+                .WithMany(x => x.NewBuildings)
+                .Map(m =>
+                {
+                    m.MapLeftKey("NewBuilding_Id");
+                    m.MapRightKey("Image_Id");
+                    m.ToTable("ImageNewBuildings");
+                });
+
+            modelBuilder.Entity<Advert>()
+               .HasMany(s => s.Images)
+               .WithMany(x => x.Adverts)
+               .Map(m =>
+               {
+                   m.MapLeftKey("Advert_Id");
+                   m.MapRightKey("Image_Id");
+                   m.ToTable("ImageAdverts");
+               });
+            //HasRequired<BrainCategory>(s => s.BrainCategories).WithMany(s => s.Vendors).HasForeignKey(s => s.categoryID);
 
             //        //many-to-many
             //        modelBuilder.Entity<BrainStocks>().HasMany(x => x.BrainProducts).WithMany(p => p.BrainStockses);

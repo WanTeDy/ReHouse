@@ -170,6 +170,11 @@
     <Compile Include="BusinessOperations\Titles\LoadMarketTypesOperation.cs" />
     <Compile Include="BusinessOperations\Titles\LoadTitlesOperation.cs" />
     <Compile Include="BusinessOperations\Titles\UpdateTitleOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\AddAdminFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\DeleteAdminFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\LoadAdminFeedbackOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\LoadAdminFeedbacksOperation.cs" />
+    <Compile Include="BusinessOperations\AdminFeedbacks\UpdateAdminFeedbackOperation.cs" />
     <Compile Include="BusinessOperations\Users\AddUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\DeleteUserOperation.cs" />
     <Compile Include="BusinessOperations\Users\LoadUserOperation.cs" />
@@ -201,6 +206,7 @@
     <Compile Include="DataBase\Common\PageText.cs" />
     <Compile Include="DataBase\DbReHouse.cs" />
     <Compile Include="DataBase\Feedback\UserEmailMessage.cs" />
+    <Compile Include="DataBase\Feedback\AdminFeedback.cs" />
     <Compile Include="DataBase\Vacancies\Vacancy.cs" />
     <Compile Include="DataBase\Feedback\UserFeedback.cs" />
     <Compile Include="DataBase\Geo\District.cs" />
@@ -343,6 +349,14 @@
     <Compile Include="Migrations\201711101025144_summory-patch.Designer.cs">
       <DependentUpon>201711101025144_summory-patch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711170811105_adminfb.cs" />
+    <Compile Include="Migrations\201711170811105_adminfb.Designer.cs">
+      <DependentUpon>201711170811105_adminfb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711170839243_adminfb1.cs" />
+    <Compile Include="Migrations\201711170839243_adminfb1.Designer.cs">
+      <DependentUpon>201711170839243_adminfb1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -439,6 +453,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711101025144_summory-patch.resx">
       <DependentUpon>201711101025144_summory-patch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711170811105_adminfb.resx">
+      <DependentUpon>201711170811105_adminfb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711170839243_adminfb1.resx">
+      <DependentUpon>201711170839243_adminfb1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -1,71 +1,53 @@
 ﻿@using ReHouse.Utils.DataBase.News
+@using ReHouse.Utils.DataBase.Feedback
 @if (ViewBag.Articles != null)
 {
     <div id="testimonials1">
         <div class="container" id="container">
         </div>
     </div>
-    <div id="testimonials">
-        <div class="container" id="container">
-            <div class="f-next"></div>
-            <div class="f-previous"></div>
-            <div class="thumbs">
-                <a href="#" onclick="" class="f1 thumbActive" id="f-a"></a>
-                <a href="#" onclick="" class="f2" id="f-b"></a>
-                <a href="#" onclick="" class="f3" id="f-c"></a>
-                @*<a href="#" onclick="" class="f4" id="f-d"></a>*@
+    if (ViewBag.Feedbacks != null)
+    {
+        <div id="testimonials">
+            <div class="container" id="container">
+                <div class="f-next"></div>
+                <div class="f-previous"></div>
+                <div class="thumbs">
+                    @for (var i = 1; i <= ViewBag.Feedbacks.Count; i++)
+                    {
+                        <a href="#" onclick="" class="f@(i) @(i == 1? "thumbActive": "")"></a>
+                    }
+                </div>
+                <ul>
+                    @foreach (AdminFeedback fb in ViewBag.Feedbacks)
+                    {
+                        <li>
+                            <div class="item">
+                                <div class="inner-testimonial">
+                                    <div class="client">
+                                        @if (fb.Image != null)
+                                        {
+                                            <div class="picture"><img src="@Url.Content(fb.Image.Url + fb.Image.FileName)?w=101&h=100&mode=max" class="full-opacity" title="@fb.Image.Title" alt="@fb.Image.Alt"></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="picture"><img src="~/Content/images/client2.png" class="full-opacity" alt="Клиент 2"></div>
+                                        }
+                                        <div class="information">
+                                            <h3 class="city-name">@fb.Username</h3>
+                                            <h4 class="city-name">@fb.Adress</h4>
+                                            </div>
+                                        </div>
+                                        <img src="~/Content/images/qq.png" />
+                                        <p class="text-testimonial">@fb.Description</p>
+                                    </div>
+                                </div>
+                            </li>
+                    }
+                </ul>
             </div>
-            <ul>
-                <li>
-                    <div class="item">
-                        <div class="inner-testimonial">
-                            <div class="client">
-                                <div class="picture"><img src="~/Content/images/client2.png" class="full-opacity" alt="Клиент 2"></div>
-                                <div class="information">
-                                    <h3 class="city-name">Клиент text text text </h3>
-                                    <h4 class="city-name">г. Одесса text text text</h4>
-                                </div>
-                            </div>
-                            <img src="~/Content/images/qq.png" />
-                            <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="inner-testimonial">
-                            <div class="client">
-                                <div class="picture"><img src="~/Content/images/client2.png" class="full-opacity" alt="Клиент 2"></div>
-                                <div class="information">
-                                    <h3 class="city-name">Клиент text text text </h3>
-                                    <h4 class="city-name">г. Одесса text text text</h4>
-                                </div>
-                            </div>
-                            <img src="~/Content/images/qq.png" />
-                            <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="inner-testimonial">
-                            <div class="client">
-                                <div class="picture"><img src="~/Content/images/client2.png" class="full-opacity" alt="Клиент 2"></div>
-                                <div class="information">
-                                    <h3 class="city-name">Клиент text text text </h3>
-                                    <h4 class="city-name">г. Одесса text text text</h4>
-                                </div>
-                            </div>
-                            <img src="~/Content/images/qq.png" />
-                            <p class="text-testimonial">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Рот последний на берегу послушавшись, подзаголовок! Грамматики живет власти текст дорогу.</p>
-                        </div>
-                    </div>
-                </li>
-                @*<li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>*@
-            </ul>
         </div>
-    </div>
-
+    }
     <div class="news">
         @foreach (Article article in ViewBag.Articles)
                 {
@@ -93,34 +75,34 @@
         <a href="/news/" id="more">Все новости</a>
     </div>
 
-        <div class="container" id="container">
-            <div class="h23"><h2><span>Наши</span> партнеры</h2></div>
-            <div id="partners">
+    <div class="container" id="container">
+        <div class="h23"><h2><span>Наши</span> партнеры</h2></div>
+        <div id="partners">
 
-                <div class="p-next"></div>
-                <div class="p-previous"></div>
+            <div class="p-next"></div>
+            <div class="p-previous"></div>
 
-                <ul>
-                    <li>
-                        <img src="~/Content/images/bud.png" />
-                    </li>
-                    <li>
-                        <img src="~/Content/images/kadorr.png" />
-                    </li>
-                    <li>
-                        <img src="~/Content/images/od.png" />
-                    </li>
-                    <li>
-                        <img src="~/Content/images/ok.png" />
-                    </li>
-                    <li>
-                        <img src="~/Content/images/riv.png" />
-                    </li>
-                    <li>
-                        <img src="~/Content/images/gefest.png" />
-                    </li>
-                </ul>
+            <ul>
+                <li>
+                    <img src="~/Content/images/bud.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/kadorr.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/od.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/ok.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/riv.png" />
+                </li>
+                <li>
+                    <img src="~/Content/images/gefest.png" />
+                </li>
+            </ul>
 
-            </div>
         </div>
+    </div>
 }

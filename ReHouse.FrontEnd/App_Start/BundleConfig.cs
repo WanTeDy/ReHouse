@@ -31,6 +31,10 @@ namespace ReHouse.FrontEnd
                         "~/Scripts/deleteManagers.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/bundles/deleteFeedbacks").Include(
+                        "~/Scripts/deleteFeedbacks.js"
+                        ));
+
             bundles.Add(new ScriptBundle("~/bundles/deleteVacancies").Include(
                         "~/Scripts/deleteVacancies.js"
                         ));

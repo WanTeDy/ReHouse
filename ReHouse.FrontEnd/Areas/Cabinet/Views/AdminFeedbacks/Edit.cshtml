@@ -1,0 +1,52 @@
+﻿@using ReHouse.Utils.DataBase.Feedback
+@model AdminFeedback
+@{
+    Layout = "~/Areas/Cabinet/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_navigation", "adminfeedbacks")
+
+<div id="adminka1" class="tabset_content tabset_content_active">
+    <h2 class="tabset_label">adminka</h2>
+
+    <div class="photo_of_manager">
+        <form enctype="multipart/form-data" action="" method="POST">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="contact_info">
+                <table>
+                    <tr>
+                        <td>
+                            Фото:
+                            @if (Model.Image != null)
+                            {
+                                <div class="photo_of_manager">
+                                    <img src="@Url.Content(Model.Image.Url + Model.Image.FileName)" width="150" height="150">
+                                </div>
+                            }
+                        </td>
+                        <td><input type="file" name="image" /></td>
+                    </tr>
+                    <tr>
+                        <td>Имя:</td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Username)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Адрес:</td>
+                        <td>@Html.TextBoxFor(m => m.Adress)</td>
+                    </tr>
+                    <tr>
+                        <td>Текст отзыва:</td>
+                        <td>@Html.TextAreaFor(m => m.Description, new { @rows = "4" })</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button>Сохранить</button></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
