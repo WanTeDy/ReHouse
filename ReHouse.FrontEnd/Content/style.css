@@ -2165,7 +2165,7 @@ padding-bottom: 17px;
     .seotext p {
           color: #114a82;
     font-family: "ProximaNova";
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         line-height: 20px;
         text-align: left;
@@ -3331,8 +3331,7 @@ padding: 32px 0px 0px 20px;
 }
 
 .tags {
-    max-width: 1065px;
-    margin-left: 225px;
+    max-width: 1200px;
     margin-top: 45px;
     margin-bottom: 82px;
     text-align: center;
@@ -3340,13 +3339,14 @@ padding: 32px 0px 0px 20px;
 
     .tags a {
         text-decoration: none;
-        color: #fff;
-        font-family: "Century Gothic";
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+        color: #114a82;
+        font-family: "ProximaNova";
+        font-size:16px;
+        padding:0 5px;
     }
 
         .tags a:hover {
-            color: #ffd700;
+            color: #f9a320;
         }
 
 #button-more {
