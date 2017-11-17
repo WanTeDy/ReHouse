@@ -463,37 +463,43 @@
         ga('send', 'pageview');
     </script>*@
 
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $('#testimonials').jCarouselLite({
-                vertical: false,
-                hoverPause: true,
-                btnPrev: ".f-previous",
-                btnNext: ".f-next",
-                visible: 1,
-                start: 0,
-                scroll: 1,
-                circular: true,
-                auto: 6000,
-                speed: 900,
-                //autoCSS: false,
-                autoWidth: true,
-                responsive: true,
-                btnGo:
-        		[".f1", ".f2",
-        		".f3"],
-
-                afterEnd: function (a, to, btnGo) {
-                    if (btnGo.length <= to) {
-                        to = 0;
-                    }
-                    $(".thumbActive").removeClass("thumbActive");
-                    $(btnGo[to]).addClass("thumbActive");
+    @if (ViewBag.Feedbacks != null && ViewBag.Feedbacks.Count > 0)
+    {
+        <script type="text/javascript">
+            $(function () {
+                var list = [], count = @ViewBag.Feedbacks.Count;
+                for(var i = 1; i<= count; i++) {
+                    list.push(".f" + i);
                 }
+                $('#testimonials').jCarouselLite({
+                    vertical: false,
+                    hoverPause: true,
+                    btnPrev: ".f-previous",
+                    btnNext: ".f-next",
+                    visible: 1,
+                    start: 0,
+                    scroll: 1,
+                    circular: true,
+                    auto: 6000,
+                    speed: 900,
+                    //autoCSS: false,
+                    autoWidth: true,
+                    responsive: true,
+                    btnGo: list,
+
+                    afterEnd: function (a, to, btnGo) {
+                        if (btnGo.length <= to) {
+                            to = 0;
+                        }
+                        $(".thumbActive").removeClass("thumbActive");
+                        $(btnGo[to]).addClass("thumbActive");
+                    }
+                });
             });
-
-
+        </script>
+    }
+    <script type="text/javascript">
+        $(function () {            
             $('#partners').jCarouselLite({
                 vertical: false,
                 hoverPause: true,
