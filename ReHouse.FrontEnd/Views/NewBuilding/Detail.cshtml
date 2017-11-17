@@ -139,6 +139,9 @@
              </a>
          </div>-->
         <div class="share_icons">
+            <div class="advert_id">
+                <h2>№@Model.NewBuilding.Id</h2>
+            </div>
             <div class="share_fb">
                 <a onclick="Share.facebook(event, 'http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name, @Model.NewBuilding.Adress', 'http://rehouse-realty.com.ua@(Url.Content(Model.NewBuilding.Images?.FirstOrDefault() != null ? Model.NewBuilding.Images.FirstOrDefault().Url + Model.NewBuilding.Images.FirstOrDefault().FileName : "~/Content/images/news1.jpg"))', '@(Model.NewBuilding.Description?.Replace(Environment.NewLine, " "))')"></a>
             </div>
@@ -147,10 +150,7 @@
             </div>
             <div class="share_tw">
                 <a onclick="Share.twitter(event, 'http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name, @Model.NewBuilding.Adress')"></a>
-            </div>
-            <div class="advert_id">
-                <h2>№@Model.NewBuilding.Id</h2>
-            </div>
+            </div>            
         </div>
 
         <div class="h2sale"><h2>@Model.NewBuilding.Name</h2></div>
@@ -163,7 +163,7 @@
             @*<div><img src="/Content/images/m2.png" height="32" alt=""><p>@(Model.Advert.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 3) ? Model.Advert.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 3).PropertiesValue : "0") м²</p></div>
                 <div><img src="/Content/images/m21.png" height="32" alt=""><p>@(Model.Advert.AdvertPropertyValues.Any(x => x.AdvertPropertyId == 7) ? Model.Advert.AdvertPropertyValues.FirstOrDefault(x => x.AdvertPropertyId == 7).PropertiesValue : "0") м²</p></div>*@
         </div>
-        <p class="text">@Model.NewBuilding.Description</p>
+        <p class="text">@Html.Raw(Model.NewBuilding.Description)</p>
     </div>
     <div class="table_of_prodapart">
         <table>            
