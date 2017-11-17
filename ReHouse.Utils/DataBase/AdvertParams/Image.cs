@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ReHouse.Utils.DataBase.Security;
 using ReHouse.Utils.DataBase.News;
+using ReHouse.Utils.DataBase.Feedback;
 
 namespace ReHouse.Utils.DataBase.AdvertParams
 {

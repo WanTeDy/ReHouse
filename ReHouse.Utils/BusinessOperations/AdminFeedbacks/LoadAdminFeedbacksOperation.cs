@@ -23,10 +23,10 @@ namespace ReHouse.Utils.BusinessOperations.AdminFeedbacks
 
         protected override void InTransaction()
         {
-            //_feedbacks = Context.AdminFeedbacks
-            //            .Where(x => !x.Deleted)
-            //            .OrderByDescending(x => x.CreationDate)
-            //            .Skip((_page - 1) * _count).Take(_count).ToList();
+            _feedbacks = Context.AdminFeedbacks
+                        .Where(x => !x.Deleted)
+                        .OrderByDescending(x => x.CreationDate)
+                        .Skip((_page - 1) * _count).Take(_count).ToList();
         }
     }
 }

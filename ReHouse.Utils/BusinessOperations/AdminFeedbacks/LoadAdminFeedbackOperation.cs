@@ -20,7 +20,7 @@ namespace ReHouse.Utils.BusinessOperations.AdminFeedbacks
 
         protected override void InTransaction()
         {
-            //var _feedback = Context.AdminFeedbacks.FirstOrDefault(x => x.Id == _feedbackId && !x.Deleted);
+            var _feedback = Context.AdminFeedbacks.FirstOrDefault(x => x.Id == _feedbackId && !x.Deleted);
         }
     }
 }

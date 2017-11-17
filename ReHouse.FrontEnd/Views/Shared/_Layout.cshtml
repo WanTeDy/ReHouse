@@ -177,9 +177,9 @@
     </div>
 
 
-        <div id="sliderFrame">
-            <div id="slider">
-                @if (ViewBag.SliderParams != null)
+    <div id="sliderFrame">
+        <div id="slider">
+            @if (ViewBag.SliderParams != null)
             {
                 foreach (SliderParam slide in ViewBag.SliderParams)
                 {
@@ -189,11 +189,11 @@
                             <b data-src="Content/images/4.png"></b>
                             <div class="inslider">
                                 @slide.Text
-                               @* <button>Подробнее</button>*@
+                                @* <button>Подробнее</button>*@
                             </div>
                         </a>
                     }
-                    else if(!String.IsNullOrEmpty(slide.Url))
+                    else if (!String.IsNullOrEmpty(slide.Url))
                     {
                         <a style="display:block!important;">
                             <img src="@Url.Content(slide.Url)">
@@ -208,225 +208,251 @@
         </div>
     </div>
 
-        <!--  <div class="container" id="container"
+    <!--  <div class="container" id="container"
 
-              <div id="slidebox">
-                  <div class="textinslider">
-                      <div class="h1">
-                          @if (seo != null)
-                          {
-                              <h1 style="display:none;">@seo.Title</h1>
-                          }
-                          @*<h1>REHOUSE</h1>*@
-                      </div>
+          <div id="slidebox">
+              <div class="textinslider">
+                  <div class="h1">
+                      @if (seo != null)
+                      {
+                          <h1 style="display:none;">@seo.Title</h1>
+                      }
+                      @*<h1>REHOUSE</h1>*@
+                  </div>
 
-                      <div class="h2">
-                          @*             <h2>Ваш дом - наш успех</h2>*@
-                      </div>
-                      <div class="knowmore">
-                          <a href="/newbuilding/">Подробнее</a>
-                      </div>
+                  <div class="h2">
+                      @*             <h2>Ваш дом - наш успех</h2>*@
                   </div>
-                  <div class="next"></div>
-                  <div class="previous"></div>
-                  <div class="thumbs">
-                      <a href="#" onclick="" class="1 thumbActive" id="a"></a>
-                      <a href="#" onclick="" class="2" id="b"></a>
-                      <a href="#" onclick="" class="3" id="c"></a>
-                      <a href="#" onclick="" class="4" id="d"></a>
+                  <div class="knowmore">
+                      <a href="/newbuilding/">Подробнее</a>
                   </div>
-                  <ul class="listofimg">
-                      <li><img src="~/Content/images/1.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                      <li><img src="~/Content/images/2.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                      <li><img src="~/Content/images/3.png?format=jpg&quality=70" width="1500px" height="380px"></li>
-                      <li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>
-                  </ul>
               </div>
-          </div>-->
+              <div class="next"></div>
+              <div class="previous"></div>
+              <div class="thumbs">
+                  <a href="#" onclick="" class="1 thumbActive" id="a"></a>
+                  <a href="#" onclick="" class="2" id="b"></a>
+                  <a href="#" onclick="" class="3" id="c"></a>
+                  <a href="#" onclick="" class="4" id="d"></a>
+              </div>
+              <ul class="listofimg">
+                  <li><img src="~/Content/images/1.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                  <li><img src="~/Content/images/2.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                  <li><img src="~/Content/images/3.png?format=jpg&quality=70" width="1500px" height="380px"></li>
+                  <li><iframe width="1500" height="380" src="https://www.youtube.com/embed/gH3NfPbh42Q" frameborder="0" allowfullscreen></iframe></li>
+              </ul>
+          </div>
+      </div>-->
 
 
 
-        <div class="header_mobile">
-            <input type="checkbox" id="hmt" class="hidden-menu-ticker">
-            <label class="btn-menu" for="hmt">
-                <span class="first"></span>
-                <span class="second"></span>
-                <span class="third"></span>
-            </label>
-            <ul class="hidden-menu">
-                <li class="bgh"><a href="" class="bold">Покупка</a></li>
-                <ol>
-                    <li><a href="/sale/flat/">Купить квартиру</a></li>
-                    <li><a href="/sale/house/">Купить дом</a></li>
-                    <li><a href="/sale/homestead/">Купить участок</a></li>
-                    <li><a href="/sale/commerce/">Купить коммерцию</a></li>
-                </ol>
-                <br>
-                <li class="bgh"><a href="" class="bold">Аренда</a></li>
-                <ol>
-                    <li><a href="/rent/flat/">Снять квартиру</a></li>
-                    <li><a href="/rent/house/">Снять дом</a></li>
-                    @*<li><a href="/rent/homestead/">Снять участок</a></li>*@
-                    <li><a href="/rent/commerce/">Снять коммерцию</a></li>
-                </ol>
-                <br>
-                <li class="bgh"><a href="/newbuilding/" class="bold">Новострои</a></li>
-                <br>
-                <li class="bgh"><a href="/manager/" class="bold">Менеджеры</a></li>
-                <br>
-                <li class="bgh"><a href="" class="bold">О нас</a></li>
-                <ol>
-                    <li><a href="/home/about/">О компании</a></li>
-                    <li><a href="/vacancy/">Вакансии агенства</a></li>
-                </ol>
-            </ul>
-            <div class="header">
-                <div class="logo">
-                    <a href="/" id=""><img src="~/Content/images/logomobile.png"></a>
-                </div>
-                <div class="contactinfo">
-                    <div class="feedback">
-                        <!--<a href="/email/" id="popup__toggle"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>-->
-                        <a href="/cart/" id="fav1"></a>
-                    </div>
-                    <div class="tel">
-                        <div class="number">
-                            <div><img src="~/Content/images/tel.png"><p>+38093 057 7110</p></div>
-                            <div><img src="~/Content/images/tel.png"><p>+38048 788 6707</p></div>
-                        </div>
-                    </div>
-                </div>
+    <div class="header_mobile">
+        <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+        <label class="btn-menu" for="hmt">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+        </label>
+        <ul class="hidden-menu">
+            <li class="bgh"><a href="" class="bold">Покупка</a></li>
+            <ol>
+                <li><a href="/sale/flat/">Купить квартиру</a></li>
+                <li><a href="/sale/house/">Купить дом</a></li>
+                <li><a href="/sale/homestead/">Купить участок</a></li>
+                <li><a href="/sale/commerce/">Купить коммерцию</a></li>
+            </ol>
+            <br>
+            <li class="bgh"><a href="" class="bold">Аренда</a></li>
+            <ol>
+                <li><a href="/rent/flat/">Снять квартиру</a></li>
+                <li><a href="/rent/house/">Снять дом</a></li>
+                @*<li><a href="/rent/homestead/">Снять участок</a></li>*@
+                <li><a href="/rent/commerce/">Снять коммерцию</a></li>
+            </ol>
+            <br>
+            <li class="bgh"><a href="/newbuilding/" class="bold">Новострои</a></li>
+            <br>
+            <li class="bgh"><a href="/manager/" class="bold">Менеджеры</a></li>
+            <br>
+            <li class="bgh"><a href="" class="bold">О нас</a></li>
+            <ol>
+                <li><a href="/home/about/">О компании</a></li>
+                <li><a href="/vacancy/">Вакансии агенства</a></li>
+            </ol>
+        </ul>
+        <div class="header">
+            <div class="logo">
+                <a href="/" id=""><img src="~/Content/images/logomobile.png"></a>
             </div>
-            <div class="search">
-                <p>
-                    <form class="form-search" method="get" action="/search/flats">
-                        <input type="text" name="query" placeholder="Поиск" value="" />
-                        <input type="submit" value="">
-                    </form>
-                </p>
+            <div class="contactinfo">
+                <div class="feedback">
+                    <!--<a href="/email/" id="popup__toggle"><div class="circlephone" style="transform-origin: center;"></div><div class="circle-fill" style="transform-origin: center;"></div><div class="img-circle" style="transform-origin: center;"><div class="img-circleblock" style="transform-origin: center;"></div></div></a>-->
+                    <a href="/cart/" id="fav1"></a>
+                </div>
+                <div class="tel">
+                    <div class="number">
+                        <div><img src="~/Content/images/tel.png"><p>+38093 057 7110</p></div>
+                        <div><img src="~/Content/images/tel.png"><p>+38048 788 6707</p></div>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="search">
+            <p>
+                <form class="form-search" method="get" action="/search/flats">
+                    <input type="text" name="query" placeholder="Поиск" value="" />
+                    <input type="submit" value="">
+                </form>
+            </p>
+        </div>
+    </div>
 
 
+    <div class="container" id="container">
+        @RenderBody()
+        @Html.Partial("Partial/_newsFeedbacks")
+    </div>
+
+    <div class="footer">
         <div class="container" id="container">
-            @RenderBody()
-            @Html.Partial("Partial/_newsFeedbacks")
-        </div>
-
-        <div class="footer">
-            <div class="container" id="container">
-                <div class="wrapper-footer">
-                    <div id="toTop">↑</div>
-                    <div class="social">
-                        <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
-                        <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
-                        <a href="https://www.youtube.com/channel/UCq_8bnTrV3J8Vp9-vVweq8g?view_as=subscriber" class="yt" target="_blank"></a>
-                    </div>
-                    <div class="bottomnav">
-                        <a href="/news/" class="">Новости</a>
-                        <a href="/home/contacts/" class="">Контакты</a>
-                        <a href="/map/" class="">Карта сайта</a>
-                        <a href="/feedback/" class="">Отзывы</a>
-                        @if (Session == null || Session["user"] == null)
-                        {
-                            <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
-                            <div class="forms-wrapper">
-                                <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
-                                    <ol class="login">
-                                        <li>
-                                            <div class="login">
-                                                <div class="bodyform">
-                                                    @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Выйти", "logout", "authorize")
-                        }
-                    </div>
-
+            <div class="wrapper-footer">
+                <div id="toTop">↑</div>
+                <div class="social">
+                    <a href="https://www.facebook.com/rehouseodessastars/?ref=bookmarks" class="fb" target="_blank"></a>
+                    <a href="https://www.instagram.com/rehouseodessa/" class="gmail" target="_blank"></a>
+                    <a href="https://www.youtube.com/channel/UCq_8bnTrV3J8Vp9-vVweq8g?view_as=subscriber" class="yt" target="_blank"></a>
                 </div>
+                <div class="bottomnav">
+                    <a href="/news/" class="">Новости</a>
+                    <a href="/home/contacts/" class="">Контакты</a>
+                    <a href="/map/" class="">Карта сайта</a>
+                    <a href="/feedback/" class="">Отзывы</a>
+                    @if (Session == null || Session["user"] == null)
+                    {
+                        <a class="f" data-dropdown="login-modal" data-options="align:top ignore_repositioning" aria-controls="login-modal" aria-expanded="false" href="/login">Войти</a>
+                        <div class="forms-wrapper">
+                            <div class="form-drop f-dropdown drop-top" tabindex="-1" data-dropdown-content aria-hidden="true" id="login-modal">
+                                <ol class="login">
+                                    <li>
+                                        <div class="login">
+                                            <div class="bodyform">
+                                                @Html.Partial("UnregisteredUsers/_loginPartial", new LoginModel())
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Выйти", "logout", "authorize")
+                    }
+                </div>
+
             </div>
         </div>
+    </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jcarouselLite")
-        @RenderSection("scripts", required: false)
-        @Scripts.Render("~/bundles/addtocart")
-        @Scripts.Render("~/bundles/unob")
-        @Scripts.Render("~/Scripts/foundation")
-        @Scripts.Render("~/Scripts/vendorJs")
-        @Scripts.Render("~/Scripts/modulesJs")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jcarouselLite")
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/addtocart")
+    @Scripts.Render("~/bundles/unob")
+    @Scripts.Render("~/Scripts/foundation")
+    @Scripts.Render("~/Scripts/vendorJs")
+    @Scripts.Render("~/Scripts/modulesJs")
 
 
-        <script type="text/javascript">
-            Share = {
-                vkontakte: function (e, purl, ptitle, pimg, text) {
-                    e.stopPropagation();
-                    url = 'http://vkontakte.ru/share.php?';
-                    url += 'url=' + encodeURIComponent(purl);
-                    url += '&title=' + encodeURIComponent(ptitle);
-                    url += '&description=' + encodeURIComponent(text);
-                    url += '&image=' + encodeURIComponent(pimg);
-                    url += '&noparse=true';
-                    Share.popup(url);
-                },
-                facebook: function (e, purl, ptitle, pimg, text) {
-                    e.stopPropagation();
-                    url = 'https://www.facebook.com/sharer.php?s=100';
-                    url += '&p[title]=' + encodeURIComponent(ptitle);
-                    url += '&p[summary]=' + encodeURIComponent(text);
-                    url += '&p[url]=' + encodeURIComponent(purl);
-                    url += '&p[images][0]=' + encodeURIComponent(pimg);
-                    Share.popup(url);
-                },
-                twitter: function (e, purl, ptitle) {
-                    e.stopPropagation();
-                    url = 'http://twitter.com/share?';
-                    url += 'text=' + encodeURIComponent(ptitle);
-                    url += '&url=' + encodeURIComponent(purl);
-                    url += '&counturl=' + encodeURIComponent(purl);
-                    Share.popup(url);
-                },
+    <script type="text/javascript">
+        Share = {
+            vkontakte: function (e, purl, ptitle, pimg, text) {
+                e.stopPropagation();
+                url = 'http://vkontakte.ru/share.php?';
+                url += 'url=' + encodeURIComponent(purl);
+                url += '&title=' + encodeURIComponent(ptitle);
+                url += '&description=' + encodeURIComponent(text);
+                url += '&image=' + encodeURIComponent(pimg);
+                url += '&noparse=true';
+                Share.popup(url);
+            },
+            facebook: function (e, purl, ptitle, pimg, text) {
+                e.stopPropagation();
+                url = 'https://www.facebook.com/sharer.php?s=100';
+                url += '&p[title]=' + encodeURIComponent(ptitle);
+                url += '&p[summary]=' + encodeURIComponent(text);
+                url += '&p[url]=' + encodeURIComponent(purl);
+                url += '&p[images][0]=' + encodeURIComponent(pimg);
+                Share.popup(url);
+            },
+            twitter: function (e, purl, ptitle) {
+                e.stopPropagation();
+                url = 'http://twitter.com/share?';
+                url += 'text=' + encodeURIComponent(ptitle);
+                url += '&url=' + encodeURIComponent(purl);
+                url += '&counturl=' + encodeURIComponent(purl);
+                Share.popup(url);
+            },
 
-                popup: function (url) {
-                    window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
-                }
+            popup: function (url) {
+                window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
             }
+        }
     </script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).foundation();
+            $(document).foundation('dropdown', 'reflow');
+
+            $('#slidebox').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".previous",
+                btnNext: ".next",
+                visible: 1,
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+                btnGo:
+                [".1", ".2",
+                ".3", ".4"],
+
+                afterEnd: function (a, to, btnGo) {
+                    if (btnGo.length <= to) {
+                        to = 0;
+                    }
+                    $(".thumbActive").removeClass("thumbActive");
+                    $(btnGo[to]).addClass("thumbActive");
+                }
+            });
+
+            $('#partners').jCarouselLite({
+                vertical: false,
+                hoverPause: true,
+                btnPrev: ".f-previous",
+                btnNext: ".f-next",
+                visible: 6,
+                btnPrev: ".p-previous",
+                btnNext: ".p-next",
+                start: 0,
+                scroll: 1,
+                circular: true,
+                auto: 6000,
+                speed: 900,
+            });
+
+        });
+    </script>
+    @if (ViewBag.Feedbacks != null)
+    {
         <script type="text/javascript">
             $(function () {
-                $(document).foundation();
-                $(document).foundation('dropdown', 'reflow');
-
-                $('#slidebox').jCarouselLite({
-                    vertical: false,
-                    hoverPause: true,
-                    btnPrev: ".previous",
-                    btnNext: ".next",
-                    visible: 1,
-                    start: 0,
-                    scroll: 1,
-                    circular: true,
-                    auto: 6000,
-                    speed: 900,
-                    btnGo:
-                    [".1", ".2",
-                    ".3", ".4"],
-
-                    afterEnd: function (a, to, btnGo) {
-                        if (btnGo.length <= to) {
-                            to = 0;
-                        }
-                        $(".thumbActive").removeClass("thumbActive");
-                        $(btnGo[to]).addClass("thumbActive");
-                    }
-                });
+                var list = [], count = @ViewBag.Feedbacks.Count;
+                for(var i = 1; i<= count; i++) {
+                    list.push(".f" + i);
+                }
                 $('#testimonials').jCarouselLite({
                     vertical: false,
                     hoverPause: true,
@@ -441,9 +467,7 @@
                     //autoCSS: false,
                     autoWidth: true,
                     responsive: true,
-                    btnGo:
-                    [".f1", ".f2",
-                    ".f3"],
+                    btnGo: list,
 
                     afterEnd: function (a, to, btnGo) {
                         if (btnGo.length <= to) {
@@ -453,27 +477,13 @@
                         $(btnGo[to]).addClass("thumbActive");
                     }
                 });
-
-
-                $('#partners').jCarouselLite({
-                    vertical: false,
-                    hoverPause: true,
-                    btnPrev: ".f-previous",
-                    btnNext: ".f-next",
-                    visible: 6,
-                    btnPrev: ".p-previous",
-                    btnNext: ".p-next",
-                    start: 0,
-                    scroll: 1,
-                    circular: true,
-                    auto: 6000,
-                    speed: 900,
-                });
-
             });
         </script>
-        <!-- TO TOP -->
-        <script>
+    }
+
+
+    <!-- TO TOP -->
+    <script>
 
         $(function () {
             $(window).scroll(function () {
@@ -490,29 +500,29 @@
     </script>
     <!-- fixed menu -->
     <script>
-  jQuery(function($) {
-	        $(window).scroll(function(){
-	            if($(this).scrollTop()>70){
-	                $('#nav').addClass('fixed');
-	            }
-	            else if ($(this).scrollTop()<70){
-	                $('#nav').removeClass('fixed');
-	            }
-	        });
-	    });
+        jQuery(function ($) {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 70) {
+                    $('#nav').addClass('fixed');
+                }
+                else if ($(this).scrollTop() < 70) {
+                    $('#nav').removeClass('fixed');
+                }
+            });
+        });
     </script>
     <!-- end fixed menu -->
     @*<script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-100514743-1', 'auto');
-            ga('send', 'pageview');
+                ga('create', 'UA-100514743-1', 'auto');
+                ga('send', 'pageview');
 
-    </script>*@
+        </script>*@
 </body>
 </html>

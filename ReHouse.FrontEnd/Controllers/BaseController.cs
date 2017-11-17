@@ -8,12 +8,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ReHouse.Utils.BusinessOperations.Seo;
+using ReHouse.Utils.BusinessOperations.AdminFeedbacks;
 
 namespace ReHouse.FrontEnd.Controllers
 {
     public class BaseController : Controller
     {
         private const Int32 _articlesCount = 2;
+        private const Int32 _feedbacksCount = 3;
 
         public string CurrentAction { get; set; }
         public string CurrentController { get; set; }
@@ -47,6 +49,10 @@ namespace ReHouse.FrontEnd.Controllers
                     var operation = new LoadArticlesOperation(TokenHash, 1, _articlesCount);
                     operation.ExcecuteTransaction();
                     ViewBag.Articles = operation._articles;
+
+                    var operation2 = new LoadAdminFeedbacksOperation(TokenHash, 1, _feedbacksCount);
+                    operation2.ExcecuteTransaction();
+                    ViewBag.Feedbacks = operation2._feedbacks;
                 }
                 if (CurrentController == "rent" || CurrentController == "sale")
                     ViewBag.Phones = new string[] { "048 788 67 07" };
