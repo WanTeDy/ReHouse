@@ -16,21 +16,10 @@
 
 @section scripts {
 @Scripts.Render("~/bundles/imageLoader")
-    @Scripts.Render("~/bundles/slides")
     @Scripts.Render("~/bundles/deleteImage")
     <script>
         $(function () {
             $("textarea#wyiswyg").jqte();
-            $('#products').slides({
-                preload: true,
-                preloadImage: '',
-                effect: 'slide, fade',
-                crossfade: true,
-                slideSpeed: 200,
-                fadeSpeed: 500,
-                generateNextPrev: true,
-                generatePagination: false
-            });
         });
     </script>
 

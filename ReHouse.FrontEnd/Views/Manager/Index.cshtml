@@ -29,11 +29,11 @@
                         <a href="@(!String.IsNullOrEmpty(item.MessengerName)? "https://www.messenger.com/t/" + item.MessengerName:"#")">
                             @if (item.Avatar != null)
                             {
-                                <img src="@Url.Content(item.Avatar.Url + item.Avatar.FileName)?w=120&h=121&mode=max" width="120" height="121" />
+                                <img src="@Url.Content(item.Avatar.Url + item.Avatar.FileName)?w=210&h=210&mode=max"/>
                             }
                             else
                             {
-                                <img src="~/content/images/girl1.png" width="120" height="121">
+                                <img src="~/content/images/girl1.png">
                             }
                         </a>
                     </div>
