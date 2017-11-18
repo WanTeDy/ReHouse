@@ -1042,7 +1042,7 @@ border-bottom: none;
     flex-direction:row;
     background-color:#f3f3f9;
         justify-content: space-around;
-            margin-top: -80px;
+            margin-top: -105px;
     position: absolute;
 }
 
@@ -3543,7 +3543,7 @@ body a, p, button {
     flex-direction:row;
     justify-content:space-between;
     position:absolute;
-    top:317px;
+    top:355px;
     left:560px;
     z-index:10001;
 
