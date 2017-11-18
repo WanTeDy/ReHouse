@@ -14,18 +14,49 @@
     opacity: 0.7; 
 }
 .sp-full-screen-button:before {
-    color: #676666;
+    color: #f9a320;
+}
+.sp-full-screen-button:before:hover {
+    color: #114a82;
+    transition:.5s ease;
 }
 .sp-grab {
     cursor: pointer;
 /*height: 399px!important;*/
 }
 
+
+
+
+
+
+
 .sp-image {
+    /*position: relative;
+    display: block;
+    border: none;*/
+        position: relative;
+    display: block;
+    border: none;
     position: relative;
     display: block;
     border: none;
+    width: 100%!important;
+    height: auto!important;
+    margin-left: 0!important;
+    margin: 0 auto;
 }
+.sp-image-container {
+    padding-top: 50px;
+}
+
+
+
+
+
+
+
+
 
 .sp-bottom-thumbnails {
     width:600px!important;
@@ -65,7 +96,18 @@ width: 30px;
   display:none;
 }
 
-
+.sp-full-screen-button {
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
 
 
 
