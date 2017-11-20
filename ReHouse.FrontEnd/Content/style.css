@@ -3874,6 +3874,7 @@ margin-bottom:30px;
     background-color:transparent;
     border:1px solid #f9a320;
     transition:.5s ease;
+    padding: 17px 0 16px 0;
 }
 .wrapper-prod .right .fav-wrap .favorite1 a:hover {
     background-color:transparent;
