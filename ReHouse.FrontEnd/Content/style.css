@@ -8,18 +8,18 @@
             src: url('fonts/ProximaNova/ProximaNova-Regular.woff');
 	}
 
-/*
+
 ul.carousel.jcarousel-list.jcarousel-list-horizontal {
     overflow: hidden;
     position: relative;
     top: 0px;
     left: 0px;
     margin: 0px;
-    padding: 6px 0!important;
+    padding:0!important;
     width: 4010px;
-    height: 437px!important;
+    height: 460px!important;
 }
-*/
+
 
 
 body{
@@ -788,7 +788,7 @@ opacity: .1;}}
 
 
     .d-carousel ul li:hover .bottom {
-        top: 378px;
+       /* top: 378px;*/
         transition:.7s ease;
     }
 
@@ -909,6 +909,8 @@ border-bottom: none;
         height: 441px;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
+        margin-top: 10px!important;
+        position: relative;
     }
 
     .d-carousel .jcarousel-container-horizontal {
@@ -921,8 +923,10 @@ border-bottom: none;
     }
 
     .d-carousel .jcarousel-item-horizontal {
-        margin-left: 0px;
-        margin-right:11px;
+        margin-left: 8px;
+        margin-right: 0px;
+       /* margin-left: 0px;
+        margin-right:11px;*/
         border: 1px solid #e5e5f8;
         background-color:#fff;
     }
@@ -965,7 +969,8 @@ border-bottom: none;
         font-size: 30px;
         font-weight: 700;
         text-transform:uppercase;
-        margin-left: 4px;
+       /* margin-left: 4px;*/
+        margin-left: 12px;
     }
     .d-carousel h2 span {
         color: #f9a320;
@@ -1001,7 +1006,7 @@ border-bottom: none;
         -o-object-fit: cover;
         object-fit: cover;
         position:absolute;
-        top:117px;
+       top:117px;
     }
 
     .d-carousel ul li a.fix {
@@ -1037,7 +1042,7 @@ border-bottom: none;
     flex-direction:row;
     background-color:#f3f3f9;
         justify-content: space-around;
-            margin-top: -80px;
+            margin-top: -105px;
     position: absolute;
 }
 
@@ -1284,7 +1289,7 @@ width: 545px;
 .news123 .content1 .img {
     width: 440px;
     height: 263px;
-    padding: 0px 20px 15px 20px;
+    padding: 0px 20px 15px 0px;
     float: left;
 }
 
@@ -2048,7 +2053,7 @@ width: 545px;
 }
 .products .prods li:hover .bottom {
     top: 381px;
-    transition: .8s ease;
+   transition: .8s ease;
 }
 .products .prods li .bottom p.cost {
         padding: 16px 0 16px 20px;
@@ -3538,7 +3543,7 @@ body a, p, button {
     flex-direction:row;
     justify-content:space-between;
     position:absolute;
-    top:317px;
+    top:355px;
     left:560px;
     z-index:10001;
 
@@ -3565,7 +3570,6 @@ body a, p, button {
     justify-content:center;
 }
 .inner-testimonial .client .information {
-    width:30%;
     text-align:left;
 }
     .inner-testimonial .client .picture {

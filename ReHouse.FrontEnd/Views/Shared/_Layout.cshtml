@@ -175,8 +175,6 @@
             </div>
         </div>
     </div>
-
-
     <div id="sliderFrame">
         <div id="slider">
             @if (ViewBag.SliderParams != null)
@@ -188,7 +186,7 @@
                         <a class="video" href="@slide.Url" data-autovideo="1">
                             <b data-src="Content/images/4.png"></b>
                             <div class="inslider">
-                                @slide.Text
+                                @Html.Raw(slide.Text)
                                 @* <button>Подробнее</button>*@
                             </div>
                         </a>
@@ -198,7 +196,7 @@
                         <a style="display:block!important;">
                             <img src="@Url.Content(slide.Url)">
                             <div class="inslider" style="display:block!important;">
-                                @slide.Text
+                                @Html.Raw(slide.Text)
                                 @*<button>Подробнее</button>*@
                             </div>
                         </a>
@@ -243,9 +241,6 @@
               </ul>
           </div>
       </div>-->
-
-
-
     <div class="header_mobile">
         <input type="checkbox" id="hmt" class="hidden-menu-ticker">
         <label class="btn-menu" for="hmt">

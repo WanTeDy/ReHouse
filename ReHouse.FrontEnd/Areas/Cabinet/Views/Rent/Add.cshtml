@@ -18,33 +18,16 @@
 
 @section scripts {
 @Scripts.Render("~/bundles/imageLoader")
-    @Scripts.Render("~/bundles/slides")
     @Scripts.Render("~/bundles/deleteImage")
     <script>
         $(function () {
             $("textarea#wyiswyg").jqte();
-            $('#products').slides({
-                preload: true,
-                preloadImage: '',
-                effect: 'slide, fade',
-                crossfade: true,
-                slideSpeed: 200,
-                fadeSpeed: 500,
-                generateNextPrev: true,
-                generatePagination: false
-            });
         });
     </script>
 
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDV3GzGjYIAyhiMq9Cof5SEZDuh0QeBD0Q&libraries=places&language=ru"></script>
 
-
-
-
     <script>
-
-
-
         $(function () {
 
             ///map
