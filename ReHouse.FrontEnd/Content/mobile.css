@@ -323,6 +323,9 @@
 
 
 @media(max-width:768px) {
+    .streak {
+        display: none;
+    }
     .d-carousel .jcarousel-item-horizontal {
        margin-left: 0px;
         margin-right:11px;
@@ -1448,6 +1451,7 @@
         padding: none;
         background-image: url('images/heart.png');
         background-repeat: no-repeat;
+        background-size: 27px 26px;
     }
 
     .header_mobile .header .contactinfo #blink1 {

@@ -28,27 +28,6 @@
 
 
 
-
-
-
-.sp-image {
-    /*position: relative;
-    display: block;
-    border: none;*/
-        position: relative;
-    display: block;
-    border: none;
-    position: relative;
-    display: block;
-    border: none;
-    width: 100%!important;
-    height: auto!important;
-    margin-left: 0!important;
-    margin: 0 auto;
-}
-.sp-image-container {
-    padding-top: 50px!important;
-}
 .sp-next-arrow:after, .sp-next-arrow:before, .sp-previous-arrow:after, .sp-previous-arrow:before {
     content: '';
     position: absolute;
@@ -118,3 +97,23 @@ width: 30px;
 
 
 
+.sp-image {
+    /*position: relative;
+    display: block;
+    border: none;*/
+        position: relative;
+    display: block;
+    border: none;
+    position: relative;
+    display: block;
+    border: none;
+    width: 100%!important;
+    height: auto!important;
+    margin-left: 0!important;
+    margin: 0 auto;
+        object-fit: contain;
+        margin-top:0!important;
+}
+.sp-image-container {
+    display:flex;
+}
