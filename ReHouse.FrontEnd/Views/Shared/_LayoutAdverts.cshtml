@@ -311,8 +311,10 @@
                 </div>
                 <div class="tel">
                     <div class="number">
-                        <div><img src="~/Content/images/tel.png"><p>+38093 057 7110</p></div>
-                        <div><img src="~/Content/images/tel.png"><p>+38048 788 6707</p></div>
+                        @foreach (var tel in ViewBag.Phones)
+                        {
+                            <div><img src="~/Content/images/tel.png"><p>@tel</p></div>
+                        }
                     </div>
                 </div>
             </div>
