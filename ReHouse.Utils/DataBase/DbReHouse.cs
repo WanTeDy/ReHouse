@@ -51,6 +51,7 @@ namespace ReHouse.Utils.DataBase
         public DbSet<PlanImage> PlanImages { get; set; }
         public DbSet<Avatar> Avatars { get; set; }
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Partner> Partners { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<AdvertProperty> AdvertProperties { get; set; }
         public DbSet<AdvertPropertyValue> AdvertPropertyValues { get; set; }
