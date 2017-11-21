@@ -1333,9 +1333,11 @@
 @media(max-width:480px) {
     .wrapper-prod .left a.videoyoutube {
     width: 430px;
+        background-position: 27% 50%;
 }
     .wrapper-prod .left a.videoyoutube:hover {
     width: 430px;
+        background-position: 27% 50%;
 }
     .nothing-found {
     width: 450px;

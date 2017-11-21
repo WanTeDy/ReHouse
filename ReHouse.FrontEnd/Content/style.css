@@ -2911,7 +2911,7 @@ padding-bottom: 17px;
 
     .wrapper-prod .right .redimg {
             position: absolute;
-            z-index: 10000;
+            z-index: 9999;
             margin-left: 5px;
             margin-top: -47px;
     }
