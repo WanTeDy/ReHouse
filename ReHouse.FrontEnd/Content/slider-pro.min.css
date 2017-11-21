@@ -109,11 +109,12 @@ width: 30px;
     border: none;
    /* width: 100%!important;
     height: auto!important;*/
-    margin-left: 0!important;
+    /*margin-left: 0!important;*/
     margin: 0 auto;
         object-fit: contain;
         margin-top:0!important;
 }
 .sp-image-container {
-    display:flex;
+    display:flex;    
+    background-color: #f3f3f9;
 }
