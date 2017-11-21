@@ -50,6 +50,7 @@ namespace ReHouse.Utils.BusinessOperations.News
                     };
                     if (_image != null)
                     {
+                        var random = new Random(DateTime.Now.Millisecond);
                         var url = "~/Content/images/news/";
 
                         var path = HttpContext.Current.Server.MapPath(url);
@@ -58,7 +59,11 @@ namespace ReHouse.Utils.BusinessOperations.News
 
                         _image.InputStream.Seek(0, System.IO.SeekOrigin.Begin);
                         int point = _image.FileName.LastIndexOf('.');
-                        var filename = _image.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                        var filename = HashHelper.GetMd5Hash("image_" + random.Next(1000, 100000) + "_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                        while (File.Exists(path + filename))
+                        {
+                            filename = HashHelper.GetMd5Hash("image_" + random.Next(1000, 100000) + "_" + DateTime.Now.Millisecond);//imageFile.FileName.Substring(0, point) + "_" + DateTime.Now.ToFileTime();
+                        }
 
                         ImageBuilder.Current.Build(
                             new ImageJob(_image.InputStream,

@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using ReHouse.Utils.BusinessOperations.Seo;
 using ReHouse.Utils.BusinessOperations.AdminFeedbacks;
+using ReHouse.Utils;
 
 namespace ReHouse.FrontEnd.Controllers
 {
@@ -53,6 +54,10 @@ namespace ReHouse.FrontEnd.Controllers
                     var operation2 = new LoadAdminFeedbacksOperation(TokenHash, 1, _feedbacksCount);
                     operation2.ExcecuteTransaction();
                     ViewBag.Feedbacks = operation2._feedbacks;
+
+                    var operation4 = new LoadPartnersOperation(TokenHash, 1, ConstV.ItemsPerPage);
+                    operation4.ExcecuteTransaction();
+                    ViewBag.Partners = operation4._partners;
                 }
                 if (CurrentController == "rent" || CurrentController == "sale")
                     ViewBag.Phones = new string[] { "048 788 67 07" };
