@@ -330,7 +330,7 @@
     -moz-transition: all 0.8s ease-out;
     -o-transition: all 0.8s ease-out;
     -webkit-transition: all 0.8s ease-out; 
-    /box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
     .streak {
         display: none;

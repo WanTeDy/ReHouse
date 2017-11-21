@@ -3396,7 +3396,6 @@ padding: 32px 0px 0px 20px;
 }
 
 a[href^=tel] {
-    color: #fff;
     text-decoration: none;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
