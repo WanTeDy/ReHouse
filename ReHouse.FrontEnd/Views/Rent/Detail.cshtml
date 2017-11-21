@@ -259,8 +259,8 @@
 
         <div class="fav-wrap">
             <div class="favorite">
-                <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="favorite">Добавить в избранное</a>
-                <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this);" id="fav2"></a>
+                <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this, event);" id="favorite">Добавить в избранное</a>
+                <a onclick="addtocart(@Model.Advert.Id, '@Model.Advert.Type', true, this, event);" id="fav2"></a>
             </div>
             <div class="favorite1">
                 <a href="/email/index?flat=@(Model.Advert.Id)&type=@((int)AdvertsType.Rent)" id="favorite"><span>+</span> Подать заявку</a>
