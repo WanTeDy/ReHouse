@@ -4082,3 +4082,6 @@ margin-bottom:30px;
         flex-grow: 1;
     margin-left: -15px;
 }
+input[type=text], input[type=submit], textarea, select {
+	-webkit-appearance: none;
+} 
