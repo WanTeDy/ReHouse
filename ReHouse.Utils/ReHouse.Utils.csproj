@@ -143,6 +143,9 @@
     <Compile Include="BusinessOperations\Images\DeleteImageOperation.cs" />
     <Compile Include="BusinessOperations\Managers\LoadManagerOperation.cs" />
     <Compile Include="BusinessOperations\Managers\LoadManagersOperation.cs" />
+    <Compile Include="BusinessOperations\Partners\AddPartnerOperation.cs" />
+    <Compile Include="BusinessOperations\Partners\DeletePartnerOperation.cs" />
+    <Compile Include="BusinessOperations\Partners\LoadPartnersOperation.cs" />
     <Compile Include="BusinessOperations\News\AddArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\DeleteArticleOperation.cs" />
     <Compile Include="BusinessOperations\News\LoadArticleOperation.cs" />
@@ -201,6 +204,7 @@
     <Compile Include="DataBase\AdvertParams\MarketType.cs" />
     <Compile Include="DataBase\AdvertParams\Title.cs" />
     <Compile Include="DataBase\BaseObj.cs" />
+    <Compile Include="DataBase\Common\Partner.cs" />
     <Compile Include="DataBase\Common\SliderParam.cs" />
     <Compile Include="DataBase\Common\SeoParam.cs" />
     <Compile Include="DataBase\Common\PageText.cs" />
