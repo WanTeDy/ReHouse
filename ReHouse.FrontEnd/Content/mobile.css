@@ -1331,6 +1331,10 @@
 
 
 @media(max-width:480px) {
+    .sp-image-container {
+    display: flex;
+    background-color: #fff;
+}
     .wrapper-prod .left a.videoyoutube {
     width: 430px;
         background-position: 27% 50%;
