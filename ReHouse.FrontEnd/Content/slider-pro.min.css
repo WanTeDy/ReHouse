@@ -107,8 +107,8 @@ width: 30px;
     position: relative;
     display: block;
     border: none;
-    width: 100%!important;
-    height: auto!important;
+   /* width: 100%!important;
+    height: auto!important;*/
     margin-left: 0!important;
     margin: 0 auto;
         object-fit: contain;

@@ -323,12 +323,21 @@
 
 
 @media(max-width:768px) {
+    .d-carousel ul li:hover {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -moz-transition: all 0.8s ease-out;
+    -o-transition: all 0.8s ease-out;
+    -webkit-transition: all 0.8s ease-out; 
+    /box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+}
     .streak {
         display: none;
     }
     .d-carousel .jcarousel-item-horizontal {
        margin-left: 0px;
-        margin-right:11px;
+        margin-right:10px;
     }
     .d-carousel .jcarousel-item {
     width: 390px;
@@ -759,6 +768,7 @@
     margin-top: 30px;
     margin-bottom: 80px;
     max-width: 768px;
+    padding: 0 10px;
 }
 .news123 .content1 p {
     color: #114a82;
@@ -1321,6 +1331,12 @@
 
 
 @media(max-width:480px) {
+    .wrapper-prod .left a.videoyoutube {
+    width: 430px;
+}
+    .wrapper-prod .left a.videoyoutube:hover {
+    width: 430px;
+}
     .nothing-found {
     width: 450px;
     height: 400px;
@@ -2126,6 +2142,18 @@
 
 
 @media(max-width:415px) {
+    .d-carousel .jcarousel-item-horizontal {
+        margin-left: 0px;
+        margin-right: 11px;
+}
+        .wrapper-prod .left a.videoyoutube {
+    width: 240px;
+    background-position: 9% 50%;
+}
+    .wrapper-prod .left a.videoyoutube:hover {
+    width: 240px;
+    background-position: 9% 50%;
+}
 
     .nothing-found {
     width: 310px;
@@ -2194,6 +2222,7 @@
     margin-bottom: 80px;
     max-width: 320px;
         width: 100%;
+        padding: 0;
 }
 .news123 {
     width:320px;
@@ -2222,8 +2251,8 @@
     }
 
     .header_mobile .header .contactinfo .tel {
-        margin-left: -166px;
-        margin-top: 61px;
+            margin-left: -156px;
+            margin-top: 43px;
     }
 
         .header_mobile .header .contactinfo .tel p {
@@ -2233,7 +2262,7 @@
         }
 
     .form-search {
-        margin-top: 70px;
+        margin-top: 48px;
     }
 
         .form-search input {
@@ -2279,6 +2308,7 @@
 
     .footer {
         width: 100%;
+            margin-top: 20px;
     }
 .news123 .content1 p {
     font-size: 15px;
@@ -2718,7 +2748,14 @@
     width: 100%;
 }
 .news123 .content1 .img {
-    display: none;
+        width: 300px;
+    height: 190px;
+    object-fit: cover;
+}
+.news123 .content1 .img img {
+        width: 300px!important;
+    height: auto!important;
+    object-fit: cover!important;
 }
 .wrapper-prod .right {
     padding: 32px 5px 0px 5px;
