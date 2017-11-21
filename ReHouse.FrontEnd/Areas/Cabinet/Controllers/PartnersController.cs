@@ -45,16 +45,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return Json(new { noElements = true });
             return PartialView("Partner/_listOfPartners", operation._partners);
         }
-
-        [HttpGet]
-        public ActionResult Add()
-        {
-            if (!SessionHelpers.IsAuthentificated())
-                return Redirect("/");
-
-            return View();
-        }
-
+        
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Add(HttpPostedFileBase image)
