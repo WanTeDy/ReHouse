@@ -330,7 +330,8 @@
     -moz-transition: all 0.8s ease-out;
     -o-transition: all 0.8s ease-out;
     -webkit-transition: all 0.8s ease-out; 
-    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
     .streak {
         display: none;
@@ -410,6 +411,8 @@
     }
 
         .header_mobile .header {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
 
@@ -446,11 +449,14 @@
         list-style: none;
         padding: 10px;
         margin: 0;
-        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         width: 40%;
         background-color: #eee;
         top: 0;
         left: -100%;
+        -webkit-transition: left .2s;
+        -o-transition: left .2s;
         transition: left .2s;
         z-index: 10003;
         -webkit-transform: translateZ(0);
@@ -474,6 +480,7 @@
             .hidden-menu a:hover {
                 background-color: rgba(3,2,2,.6);
                 -webkit-transition: .3s ease;
+                -o-transition: .3s ease;
                 transition: .3s ease;
                 color: #fff;
             }
@@ -498,6 +505,8 @@
         top: 12px;
         left: 25px;
         cursor: pointer;
+        -webkit-transition: left .23s;
+        -o-transition: left .23s;
         transition: left .23s;
         z-index: 10004;
         width: 25px;
@@ -510,6 +519,8 @@
             height: 5px;
             background-color: #fff;
             margin: 5px 0 0;
+            -webkit-transition: all .1s linear .23s;
+            -o-transition: all .1s linear .23s;
             transition: all .1s linear .23s;
             position: relative;
         }
@@ -577,10 +588,17 @@
     }
 
         .header_mobile .header .contactinfo .feedback {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: row;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
             width: 29px;
-            justify-content: space-between;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
             margin-top: 16px;
             margin-left: 268px;
         }
@@ -603,8 +621,13 @@
     }
 
     .header_mobile .header .contactinfo .tel {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
         margin-top: 5px;
             margin-left: 70px;
         font-size: 15px;
@@ -650,6 +673,7 @@
 
             .d-carousel #more:hover {
                 -webkit-transition: .8s ease;
+                -o-transition: .8s ease;
                 transition: .8s ease;
                 background-color: #f9a320;
                 color: #114a82;
@@ -709,10 +733,16 @@
 
 .news {
     width: 768px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background-color: #f3f3f9;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
         margin-top: -205px;
     position: static;
 }
@@ -738,7 +768,9 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: column;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     background-color: #114a82;
     margin: 0 auto;
 }  
@@ -747,8 +779,13 @@
     text-align: left;
 }
 .contactinfo .number {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-left: 20px;
     margin-top:7px;
 }           
@@ -781,8 +818,13 @@
 
     .footer {
         height: 52px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         width: 718px;
         margin-left: 0;
         margin-top: 0;
@@ -792,17 +834,31 @@
             width: 200px;
             margin:auto;
             margin-left: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
             padding-top:30px;
         }
 
         .footer .bottomnav {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
             width: 547px;
-            justify-content: space-between;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
             margin:auto;
             margin-top: 30px;
             text-align: center;
@@ -840,7 +896,10 @@
 
     .selection {
         margin-left: 0;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: center;
         width: 768px;
         margin-bottom: 60px;
@@ -853,7 +912,10 @@
 
     .selection1 {
         margin-left: 0;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: center;
         width: 768px;
         margin-bottom: 60px;
@@ -883,9 +945,15 @@
     }
 
         .sorting form {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
             margin-top: -20px;
             margin-left: 0;
             margin-bottom: 5px;
@@ -959,10 +1027,18 @@
         width: 522px;
         margin-left: 125px;
         margin-top: 29px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         margin-bottom: 70px;
     }
 
@@ -981,7 +1057,8 @@
     .share_icons {
         width: 150px;
         margin-left: 0px;
-        justify-content:space-around;
+        -ms-flex-pack:distribute;
+            justify-content:space-around;
     }
 
     .seotext3 {
@@ -1006,6 +1083,8 @@
     }
 
     .map_managercard .manager {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         width: 422px;
         margin-left: 38px;
@@ -1032,9 +1111,16 @@
 
     .selection ._cost {
         width: 400px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         margin-left: 184px;
         margin-bottom: 12px;
     }
@@ -1043,8 +1129,13 @@
 }
  .wrapper-prod {
     background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column-reverse;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
     margin-top: 59px;
 }
 .bgh a:hover {
@@ -1073,16 +1164,28 @@
     .photo_company {
         width: 768px;
         margin-left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: center;
     }
 
     .adress {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
         width: 700px;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         margin-left: 30px;
     }
 
@@ -1132,9 +1235,15 @@
             font-size: 17px;
         }
     .othernovostroy .prods {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
         position: relative;
         width: 1100px;
         width: 545px;
@@ -1175,8 +1284,13 @@
     }
 
     .manager_ {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .managers .img {
@@ -1291,13 +1405,21 @@
     width: 420px;
 }
 .wrapper-prod .right .fav-wrap {
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
 }
 .selection1 ._cost {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     width: 400px;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     /* margin-bottom: 12px; */
     margin: auto;
     margin-bottom: 12px;
@@ -1332,6 +1454,8 @@
 
 @media(max-width:480px) {
     .sp-image-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background-color: #fff;
 }
@@ -1396,8 +1520,13 @@
     height: 307px;
 }
 .wrapper-prod .fav-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 .wrapper-prod .fav-wrap div {
     margin: 10px 0;
@@ -1450,8 +1579,13 @@
     font-size: 13px;
 }  
 .contactinfo .number {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-left: 28px;
     margin-top: 0px;
 }
@@ -1492,10 +1626,17 @@
     }
 
         .header_mobile .header .contactinfo .feedback {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: row;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: row;
+                        flex-direction: row;
                 width: 29px;
-                justify-content: space-between;
+                -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                        justify-content: space-between;
                 margin-top: 14px;
                 margin-left: 130px;
         }
@@ -1519,8 +1660,13 @@
     }
 
     .header_mobile .header .contactinfo .tel {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
         margin-left: 2px;
         margin-top: 1px;
         font-size: 15px;
@@ -1635,8 +1781,13 @@
 }
     .footer {
         height: 52px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         width: 480px;
         margin-left: 0;
         margin-top: -54px;
@@ -1645,17 +1796,31 @@
         .footer .social {
             width: 200px;
             margin-left: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
             margin-left: 29.5%;
         }
 
         .footer .bottomnav {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
             width: 480px;
-            justify-content: space-between;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
             margin-left: 0;
             margin-top: 60px;
             text-align: center;
@@ -1694,7 +1859,10 @@
 
     .selection {
         margin-left: 0;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: center;
         width: 480px;
     }
@@ -1706,7 +1874,10 @@
 
     .selection1 {
         margin-left: 0;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: center;
         width: 480px;
     }
@@ -1735,9 +1906,15 @@
     }
 
         .sorting form {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
             margin-top: -20px;
             margin-left: 0;
             margin-bottom: 5px;
@@ -1819,10 +1996,18 @@
         width: 460px;
         margin-left: 5px;
         margin-top: 29px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
     }
 
     #mapnovostroy_prod {
@@ -1842,7 +2027,8 @@
         margin-bottom: 14px;
         width: 460px;
         height: cover;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
     }
 
     .othernovostroy {
@@ -1878,6 +2064,8 @@
     }
 
     .map_managercard .manager {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         width: 480px;
         margin-left: 10px;
@@ -1898,9 +2086,16 @@
 
     .selection ._cost {
         width: 400px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         margin-left: 40px;
     }
 
@@ -1921,16 +2116,28 @@
     .photo_company {
         width: 480px;
         margin-left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: center;
     }
 
     .adress {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         width: 430px;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         margin-left: 30px;
     }
 
@@ -2001,9 +2208,15 @@
         }
 */
     .othernovostroy .prods {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
         position: relative;
         width: 370px;
         margin-left: 114px;
@@ -2043,8 +2256,13 @@
     }
 
     .manager_ {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .managers .img {
@@ -2331,9 +2549,16 @@
     .footer .social {
         width: 200px;
         margin-left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         margin-left: 18.5%;
     }
 
@@ -2353,7 +2578,10 @@
 }
     .selection {
         margin-left: 5px;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: center;
         width: 310px;
     }
@@ -2365,7 +2593,10 @@
 
     .selection1 {
         margin-left: 5px;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: center;
         width: 310px;
     }
@@ -2462,10 +2693,17 @@
     }
 
     .adress {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         width: 310px;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         margin-left: 5px;
     }
 
@@ -2509,9 +2747,15 @@
         }
 
     .othernovostroy .prods {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
         position: relative;
         width: 320px;
         margin-left: 38px;
@@ -2602,9 +2846,16 @@
 
     .selection ._cost {
         width: 310px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         margin-left: 0;
     }
 
@@ -2693,8 +2944,13 @@
     margin-bottom: 100px;
 }
 .d-carousel ul li .bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     position: absolute;
     top: 308px;
     width: 305px;
@@ -2702,6 +2958,8 @@
 }
 .d-carousel ul li:hover .bottom {
         top: 308px;
+        -webkit-transition:.8s ease;
+        -o-transition:.8s ease;
         transition:.8s ease;
     }
 .d-carousel ul li .bottom p.cost {
@@ -2756,19 +3014,26 @@
 .news123 .content1 .img {
         width: 320px;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 .news123 .content1 .img img {
         width: 320px!important;
     height: auto!important;
-    object-fit: cover!important;
+    -o-object-fit: cover!important;
+       object-fit: cover!important;
 }
 .wrapper-prod .right {
     padding: 32px 5px 0px 5px;
 }
 .wrapper-prod .fav-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 .wrapper-prod .fav-wrap div {
     margin: 10px 0;
@@ -2778,8 +3043,13 @@
     text-align: center;
 }
 .seotext3 .meters div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     padding: 0 19px 0 10px;
 }
 .about_company p {
@@ -2802,8 +3072,13 @@
 
 /**/
 .products .prods li .meters div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     padding: 0 30px 0 10px;
 }
 .products .prods li {
@@ -2843,8 +3118,13 @@
     top: 258px;
 }
 .products .prods li .bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     position: absolute;
     top: 304px;
     width: 305px;
@@ -2931,7 +3211,9 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: column;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     background-color: #114a82;
     width: 120%;
     margin-left: -37px;
@@ -2948,7 +3230,6 @@
 }
 
 }
-
 
 
 
