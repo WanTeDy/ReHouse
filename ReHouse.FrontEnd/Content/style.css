@@ -2348,6 +2348,7 @@ padding-bottom: 17px;
 }
 
     .table_of_prodapart table tr td {
+        -webkit-appearance: none;
         padding: 3px 0 3px 0;
             color: #3e3e3e!important;
     font-family: "ProximaNova"!important;
