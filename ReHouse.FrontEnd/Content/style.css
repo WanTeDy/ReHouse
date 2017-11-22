@@ -4333,3 +4333,12 @@ margin-bottom:30px;
 input[type=text], input[type=submit], textarea, select, a, p {
 	-webkit-appearance: none;
 } 
+
+.table_of_prodapart table tr td a[href^=tel] {
+        color: #3e3e3e!important;
+    text-decoration: none;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
