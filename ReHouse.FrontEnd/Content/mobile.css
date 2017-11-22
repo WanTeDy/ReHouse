@@ -743,7 +743,7 @@
     background-color: #f3f3f9;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-        margin-top: -205px;
+        margin-top: -60px;
     position: static;
 }
 .news .content1, .content2 {
@@ -1725,7 +1725,7 @@
     
         .news {
     width: 480px;
-    margin-top: -205px;
+    margin-top: -105px;
 }
     
 .news .content1, .content2 {
@@ -2510,6 +2510,7 @@
 
     .news {
         width: 310px;
+            margin-top: -145px;
     }
 
         .news .firstnews {
