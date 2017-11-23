@@ -324,7 +324,15 @@
 
 @media(max-width:768px) {
    .contactinfo .number div a[href^=tel] {
-       color:#fff;
+       color:#fff!important;
+    text-decoration: none;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+   .contactinfo .number a[href^=tel] {
+       color:#fff!important;
     text-decoration: none;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
@@ -722,7 +730,7 @@
     text-align: center;
 }
 .inner-testimonial p.text-testimonial {
-    width: 415px;
+    width: 575px;
     margin: auto;
     margin-bottom: 182px;
     line-height: 24px;
@@ -751,7 +759,7 @@
     background-color: #f3f3f9;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-        margin-top: -60px;
+        margin-top: -200px;
     position: static;
 }
 .news .content1, .content2 {
@@ -1733,7 +1741,7 @@
     
         .news {
     width: 480px;
-    margin-top: -105px;
+    margin-top: -215px;
 }
     
 .news .content1, .content2 {
@@ -2518,7 +2526,7 @@
 
     .news {
         width: 310px;
-            margin-top: -145px;
+            margin-top: -300px;
     }
 
         .news .firstnews {
@@ -2933,7 +2941,7 @@
         margin: auto;
         margin-bottom: 182px;
         line-height: 18px;
-        font-size: 14px;
+        font-size: 11px;
     }
     .thumbs {
     top: 336px;
