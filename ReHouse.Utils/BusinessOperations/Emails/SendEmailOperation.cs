@@ -34,7 +34,9 @@ namespace ReHouse.Utils.BusinessOperations.Emails
             Context.Emails.Add(mail);
             string viewName = "";
             //string email = "wanted.kaiser228@gmail.com";
-            string email = "rehouse.odessa.stars@gmail.com";
+            //string email = "rehouse.odessa.stars@gmail.com";
+            string email = "form.rehouse @gmail.com";
+
             AdvertEmailModel model = null;
             if (_advertId == 0)
             {
@@ -55,13 +57,13 @@ namespace ReHouse.Utils.BusinessOperations.Emails
                 string title = "";
                 string adress = "";
                 string price = "";
-                
+
                 if (_type == AdvertsType.NewBuilding)
                 {
                     //email = "novostroyrehouseodessa@gmail.com";
 
                     var advert = Context.NewBuildings.FirstOrDefault(x => !x.Deleted && x.Id == _advertId);
-                    if(advert != null)
+                    if (advert != null)
                     {
                         url += "newbuilding/detail/" + _advertId;
                         title = advert.Name;
@@ -78,7 +80,7 @@ namespace ReHouse.Utils.BusinessOperations.Emails
                         title = advert.TitleName;
                         adress = advert.Street;
 
-                        if(advert.Type == AdvertsType.Rent)
+                        if (advert.Type == AdvertsType.Rent)
                         {
                             price = advert.Price + " грн/месяц";
                             url += "rent/detail/" + _advertId;
