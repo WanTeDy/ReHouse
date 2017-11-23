@@ -231,6 +231,7 @@ body {
             margin-left: -2px;
             cursor: pointer;
             background-color:transparent;
+            margin-top: 0.5px;
         }
 
         .form-search input[type="text"] {
@@ -1112,7 +1113,7 @@ border-bottom: none;
        width: 120px;
        text-align:center;
        margin-left: 29px;       
-        margin-top:-98px;
+        margin-top:-97px;
     }
     .news .h3 {
         width: 485px;
