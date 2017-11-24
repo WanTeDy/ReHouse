@@ -8,7 +8,7 @@
 <style>
     .added table tr td {
         padding: 10px;
-        text-align:center;
+        text-align: center;
     }
 </style>
 <div id="adminka2" class="tabset_content">
@@ -18,38 +18,35 @@
     <div class="added">
         <form method="post" enctype="multipart/form-data">
             @Html.AntiForgeryToken()
-                @{ var i = 0; }
-                @foreach (var item in Model)
-                {
-                    <table class="added" id="data-container">
-                        <tr>
-                            <td rowspan="4">@(i+1)</td>
-                            <td>Видео</td>
-                            <td>Ссылка на видео</td>
-                            <td>Изображение</td>
-                        </tr>
-                        <tr>
-                            <input type="hidden" name="Param[@i].Id" value="@item.Id" />
-                            <td>@Html.CheckBox("Param[" + i + "].IsVideo", item.IsVideo)@*<input type="checkbox" name="" class="checkbox" id="checkbox" checked="@item.IsVideo" style="width:20px;" />*@</td>
-                            <td><input type="text" name="Param[@i].Url" value="@item.Url" style="width:400px;"/></td>
-                            <td>
-                                @if (!item.IsVideo && !String.IsNullOrEmpty(item.Url))
-                                {
-                                    <img src="@Url.Content(item.Url)?w=200&h=150&mode=max" />
-                                }
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="min-width:610px;">Текст</td>
-                            <td>Загрузка изображения</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">@Html.TextArea("Param[" + i + "].Text", new { @rows = "30", @cols = "30", @class = "wyiswyg" })</td>
-                            <td><input type="file" name="Param[@i].Image" /></td>
-                        </tr>
-                    </table>
-                    i++;
-                }
+            @{ var i = 0; }
+            @foreach (var item in Model)
+            {
+                <table class="added" id="data-container">
+                    <tr>
+                        <td rowspan="4">@(i + 1)</td>
+                        <td>Видео</td>
+                        <td>Ссылка на видео</td>
+                        <td>Ссылка на кнопку</td>
+                        <td>Изображение</td>
+                    </tr>
+                    <tr>
+                        <input type="hidden" name="Param[@i].Id" value="@item.Id" />
+                        <td>@Html.CheckBox("Param[" + i + "].IsVideo", item.IsVideo)@*<input type="checkbox" name="" class="checkbox" id="checkbox" checked="@item.IsVideo" style="width:20px;" />*@</td>
+                        <td><input type="text" name="Param[@i].Url" value="@item.Url" style="width:400px;" /></td>
+                        <td><input type="text" name="Param[@i].ButtonUrl" value="@item.ButtonUrl" style="width:400px;" /></td>
+                        <td><img src="@Url.Content(item.Url)?w=200&h=150&mode=max" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="min-width:610px;">Текст</td>
+                        <td>Загрузка изображения</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">@Html.TextArea("Param[" + i + "].Text", new { @rows = "30", @cols = "30", @class = "wyiswyg" })</td>
+                        <td><input type="file" name="Param[@i].Image" /></td>
+                    </tr>
+                </table>
+                i++;
+            }
             <button type="submit">Сохранить</button>
         </form>
     </div>

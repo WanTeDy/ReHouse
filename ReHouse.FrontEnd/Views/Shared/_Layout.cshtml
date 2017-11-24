@@ -180,22 +180,35 @@
                 foreach (SliderParam slide in ViewBag.SliderParams)
                 {
                     if (slide.IsVideo)
-                    {
+                    {                        
                         <a class="video" href="@slide.Url" data-autovideo="1">
-                            <b data-src="/Content/images/4.png"></b>
+                            @if (!String.IsNullOrEmpty(slide.Url))
+                            {
+                                <b data-src="@Url.Content(slide.Url)"></b>
+                            }
+                            else
+                            {
+                                <b data-src="/Content/images/4.png"></b>
+                            }
                             <div class="inslider">
                                 @Html.Raw(slide.Text)
-                                @* <button>Подробнее</button>*@
+                                @if (!String.IsNullOrEmpty(slide.ButtonUrl))
+                                {
+                                    <button onclick="window.location = '@slide.ButtonUrl'">Подробнее</button>
+                                }
                             </div>
                         </a>
                     }
-                    else if (!String.IsNullOrEmpty(slide.Url))
+                    else
                     {
                         <a style="display:block!important;">
                             <img src="@Url.Content(slide.Url)">
                             <div class="inslider" style="display:block!important;">
                                 @Html.Raw(slide.Text)
-                                @*<button>Подробнее</button>*@
+                                @if (!String.IsNullOrEmpty(slide.ButtonUrl))
+                                {
+                                    <button onclick="window.location = '@slide.ButtonUrl'">Подробнее</button>
+                                }
                             </div>
                         </a>
                     }
