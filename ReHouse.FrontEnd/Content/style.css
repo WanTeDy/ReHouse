@@ -3942,6 +3942,7 @@ body a, p, button {
     }
 #slider .bgLayer {
     background-size: cover !important;
+    background-position: center center!important;
 }
 #slider .inslider {
     z-index: 1;

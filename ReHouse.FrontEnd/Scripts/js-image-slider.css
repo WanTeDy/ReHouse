@@ -140,6 +140,9 @@ element.style {
     background:none;
     position:relative;
     z-index:3;
+    display: flex;
+    width: 100px!important;
+    margin-left: 48%;
 }
 
 /* each bullet */
@@ -177,6 +180,9 @@ element.style {
     transform: translate3d(0,0,0);             
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+        background-size: cover;
+    width: 100%!important;
+        background-position: center center;
 }
 
 #slider .inslider {
