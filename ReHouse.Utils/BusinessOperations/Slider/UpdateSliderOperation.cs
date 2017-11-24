@@ -39,7 +39,7 @@ namespace ReHouse.Utils.BusinessOperations.Slider
                     {
                         param.IsVideo = par.IsVideo;
                         param.Text = par.Text;
-                        param.Url = par.Url;
+                        param.VideoUrl = par.VideoUrl;
                         param.ButtonUrl = par.ButtonUrl;
                         if (par.Image != null)
                         {

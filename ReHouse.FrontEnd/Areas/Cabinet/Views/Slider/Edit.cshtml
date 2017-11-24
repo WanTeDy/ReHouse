@@ -32,8 +32,8 @@
                     <tr>
                         <input type="hidden" name="Param[@i].Id" value="@item.Id" />
                         <td>@Html.CheckBox("Param[" + i + "].IsVideo", item.IsVideo)@*<input type="checkbox" name="" class="checkbox" id="checkbox" checked="@item.IsVideo" style="width:20px;" />*@</td>
-                        <td><input type="text" name="Param[@i].Url" value="@item.Url" style="width:400px;" /></td>
-                        <td><input type="text" name="Param[@i].ButtonUrl" value="@item.ButtonUrl" style="width:400px;" /></td>
+                        <td><input type="text" name="Param[@i].VideoUrl" value="@item.VideoUrl" style="width:300px;" /></td>
+                        <td><input type="text" name="Param[@i].ButtonUrl" value="@item.ButtonUrl" style="width:300px;" /></td>
                         <td><img src="@Url.Content(item.Url)?w=200&h=150&mode=max" /></td>
                     </tr>
                     <tr>
