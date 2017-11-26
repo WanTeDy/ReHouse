@@ -19,22 +19,39 @@
         //    });
         //});
 
-        $(document).ready(function ($) {
-            $('#products').sliderPro({
-                width: 960,
-                height: 500,
-                fade: true,
-                arrows: true,
-                buttons: false,
-                fullScreen: true,
-                shuffle: false,
-                smallSize: 500,
-                mediumSize: 1000,
-                largeSize: 3000,
-                thumbnailArrows: true,
-                autoplay: false
-            });
-        });
+		jQuery(document).ready(function ($) {
+			var slider = $('#products');
+			slider.sliderPro({
+				width: 960,
+				height: 500,
+				fade: true,
+				arrows: true,
+				buttons: false,
+				fullScreen: true,
+				shuffle: false,
+				smallSize: 500,
+				mediumSize: 1000,
+				largeSize: 3000,
+				thumbnailArrows: true,
+				autoplay: false,
+
+				waitForLayers: true,
+				autoScaleLayers: false
+			});
+			$('<div class="sp-full-screen-button sp-fade-full-screen"></div>').appendTo('#products');
+			$('body').on('click','#products .sp-full-screen-button',function () {
+				$('#products').addClass('sp-full-screen');
+				slider.sliderPro({
+					forceSize: 'fullWindow'
+				})
+			});
+			$('body').on('click','#products.sp-full-screen .sp-full-screen-button',function () {
+				$('#products').removeClass('sp-full-screen');
+				slider.sliderPro({
+					forceSize: 'none'
+				})
+			})
+		},jQuery);
     </script>
     <!--  FancyBox -->
     @*@Scripts.Render("~/bundles/fancybox");

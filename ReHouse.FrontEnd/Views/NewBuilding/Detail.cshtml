@@ -17,8 +17,9 @@
         //    });
         //});
 
-        $(document).ready(function ($) {
-            $('#products').sliderPro({
+        jQuery(document).ready(function ($) {
+        	var slider = $('#products');
+			slider.sliderPro({
                 width: 960,
                 height: 500,
                 fade: true,
@@ -30,9 +31,44 @@
                 mediumSize: 1000,
                 largeSize: 3000,
                 thumbnailArrows: true,
-                autoplay: false
+                autoplay: false,
+
+				waitForLayers: true,
+				autoScaleLayers: false
             });
-        });
+			$('<div class="sp-full-screen-button sp-fade-full-screen"></div>').appendTo('#products');
+			$('body').on('click','#products .sp-full-screen-button',function () {
+				$('#products').addClass('sp-full-screen');
+				slider.sliderPro({
+					forceSize: 'fullWindow'
+                })
+			});
+			$('body').on('click','#products.sp-full-screen .sp-full-screen-button',function () {
+				$('#products').removeClass('sp-full-screen');
+				slider.sliderPro({
+					forceSize: 'none'
+				})
+			})
+        },jQuery);
+        
+//        $(window).load(function () {
+//        	if($('#products').length > 0){
+//				$('<div class="sp-full-screen-button sp-fade-full-screen"></div>').appendTo('#products');
+//				$('body').on('click','#products .sp-full-screen-button',function () {
+//					$('#products').addClass('sp-full-screen');
+//					setTimeout(function () {
+//						$('#products').resize();
+//					},600)
+//				});
+//
+//				$('body').on('click','#products.sp-full-screen .sp-full-screen-button',function () {
+//					$('#products').removeClass('sp-full-screen');
+////					setTimeout(function () {
+////						$('#products').resize();
+////					},800)
+//				})
+//            }
+//		})
     </script>
     <!--  FancyBox -->
     @*@Scripts.Render("~/bundles/fancybox");
@@ -148,7 +184,7 @@
             </div>
             <div class="share_tw">
                 <a onclick="Share.twitter(event, 'http://rehouse-realty.com.ua/newbuilding/detail/@(Model.NewBuilding.Id)', '@Model.NewBuilding.Name, @Model.NewBuilding.Adress')"></a>
-            </div>            
+            </div>
         </div>
 
         <div class="h2sale"><h2>@Model.NewBuilding.Name</h2></div>
@@ -164,7 +200,7 @@
         <p class="text">@Html.Raw(Model.NewBuilding.Description)</p>
     </div>
     <div class="table_of_prodapart">
-        <table>            
+        <table>
             <tr>
                 <td>Адрес</td>
                 <td>@Model.NewBuilding.Adress</td>
@@ -309,3 +345,4 @@
     @Html.Partial("NewB/_listOfNewBuildingsCarousel", Model.OtherNewBuildings)
 </div>
     </span>
+
