@@ -12,7 +12,17 @@ namespace ReHouse.Utils.DataBase.Common
         /// Url
         /// </summary>       
         public String Url { get; set; }
-        
+
+        /// <summary>
+        /// Url
+        /// </summary>       
+        public String VideoUrl { get; set; }
+
+        /// <summary>
+        /// Url
+        /// </summary>       
+        public String ButtonUrl { get; set; }
+
         /// <summary>
         /// is this url video
         /// </summary>       

@@ -366,6 +366,14 @@
     <Compile Include="Migrations\201711212003527_partners.Designer.cs">
       <DependentUpon>201711212003527_partners.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711241007419_link.cs" />
+    <Compile Include="Migrations\201711241007419_link.Designer.cs">
+      <DependentUpon>201711241007419_link.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711241013432_link-video.cs" />
+    <Compile Include="Migrations\201711241013432_link-video.Designer.cs">
+      <DependentUpon>201711241013432_link-video.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -471,6 +479,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711212003527_partners.resx">
       <DependentUpon>201711212003527_partners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241007419_link.resx">
+      <DependentUpon>201711241007419_link.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241013432_link-video.resx">
+      <DependentUpon>201711241013432_link-video.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
