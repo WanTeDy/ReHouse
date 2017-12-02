@@ -8,20 +8,20 @@
         </div>
     </div>
 }
-@if (ViewBag.Feedbacks != null)
+@if (ViewBag.AdminFeedbacks != null)
 {
     <div id="testimonials">
         <div class="container" id="container">
             <div class="f-next"></div>
             <div class="f-previous"></div>
             <div class="thumbs">
-                @for (var i = 1; i <= ViewBag.Feedbacks.Count; i++)
+                @for (var i = 1; i <= ViewBag.AdminFeedbacks.Count; i++)
                 {
                     <a href="#" onclick="" class="f@(i) @(i == 1? "thumbActive": "")"></a>
                 }
             </div>
             <ul>
-                @foreach (AdminFeedback fb in ViewBag.Feedbacks)
+                @foreach (AdminFeedback fb in ViewBag.AdminFeedbacks)
                 {
                     <li>
                         <div class="item">

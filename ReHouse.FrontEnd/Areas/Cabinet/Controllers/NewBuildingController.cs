@@ -31,7 +31,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
                 return Redirect("/");
             var sessionModel = SessionHelpers.Session("user", typeof(SessionModel)) as SessionModel;
 
-            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
+            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding, 0, true);
             operationFilter.ExcecuteTransaction();
             var model = new LoadNewBuildingsModel
             {
@@ -83,7 +83,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             if (operation._newBuilding == null)
                 return HttpNotFound();
 
-            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
+            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding, 0, true);
             operationFilter.ExcecuteTransaction();
 
             var op6 = new LoadSeoParamOperation(sessionModel.TokenHash, ConstV.DetailAction, CurrentController, "/" + CurrentController + "/" + ConstV.DetailAction + "/" + operation._newBuilding.Id, operation._newBuilding.Id.ToString(), true);
@@ -125,7 +125,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var operation2 = new UpdateSeoParamOperation(sessionModel.TokenHash, seoparam);
             operation2.ExcecuteTransaction();
 
-            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
+            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding, 0, true);
             operationFilter.ExcecuteTransaction();
 
             ViewBag.Districts = operationFilter._districts;
@@ -171,7 +171,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var operation = new AddNewBuildingOperation(sessionModel.TokenHash, null, null, null);
             operation.ExcecuteTransaction();
 
-            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
+            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding, 0, true);
             operationFilter.ExcecuteTransaction();
 
             ViewBag.Districts = operationFilter._districts;
@@ -192,7 +192,7 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
             var operation = new AddNewBuildingOperation(sessionModel.TokenHash, model, image, planimage);
             operation.ExcecuteTransaction();
 
-            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding);
+            var operationFilter = new LoadFiltersOperation(sessionModel.TokenHash, AdvertsType.NewBuilding, 0, true);
             operationFilter.ExcecuteTransaction();
 
             ViewBag.Districts = operationFilter._districts;

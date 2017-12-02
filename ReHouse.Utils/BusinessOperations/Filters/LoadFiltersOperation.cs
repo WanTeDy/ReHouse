@@ -12,6 +12,7 @@ namespace ReHouse.Utils.BusinessOperations.Filters
     {
         private String _tokenHash { get; set; }
         private Int32 _categoryId { get; set; }
+        private Boolean _isAdmin { get; set; }
         private AdvertsType _advertsType { get; set; }
         public List<Category> _categories { get; set; }
         public List<Builder> _builders { get; set; }
@@ -21,11 +22,12 @@ namespace ReHouse.Utils.BusinessOperations.Filters
         public List<TrimCondition> _trimConditions { get; set; }
         public List<User> _users { get; set; }
 
-        public LoadFiltersOperation(string tokenHash, AdvertsType advertsType, int categoryId = 0)
+        public LoadFiltersOperation(string tokenHash, AdvertsType advertsType, int categoryId = 0, bool isAdmin = false)
         {
             _tokenHash = tokenHash;
             _categoryId = categoryId;
             _advertsType = advertsType;
+            _isAdmin = isAdmin;
             RussianName = "Получение параметров фильтров объявлений";
         }
 
@@ -40,7 +42,10 @@ namespace ReHouse.Utils.BusinessOperations.Filters
             if (_advertsType == Helpers.AdvertsType.NewBuilding)
             {
                 _builders = Context.Builders.Where(x => !x.Deleted).ToList();
-                _expluatationDates = Context.ExpluatationDates.Where(x => !x.Deleted && x.NewBuildings.Any(y => !y.Deleted)).ToList();
+                if(_isAdmin)
+                    _expluatationDates = Context.ExpluatationDates.Where(x => !x.Deleted).ToList();
+                else
+                    _expluatationDates = Context.ExpluatationDates.Where(x => !x.Deleted && x.NewBuildings.Any(y => !y.Deleted)).ToList();
             }
             else
             {

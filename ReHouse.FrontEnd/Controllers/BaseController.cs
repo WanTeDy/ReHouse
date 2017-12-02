@@ -53,7 +53,7 @@ namespace ReHouse.FrontEnd.Controllers
 
                     var operation2 = new LoadAdminFeedbacksOperation(TokenHash, 1, _feedbacksCount);
                     operation2.ExcecuteTransaction();
-                    ViewBag.Feedbacks = operation2._feedbacks;
+                    ViewBag.AdminFeedbacks = operation2._feedbacks;
 
                     var operation4 = new LoadPartnersOperation(TokenHash, 1, ConstV.ItemsPerPage);
                     operation4.ExcecuteTransaction();

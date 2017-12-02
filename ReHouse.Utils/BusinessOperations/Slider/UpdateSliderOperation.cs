@@ -39,11 +39,9 @@ namespace ReHouse.Utils.BusinessOperations.Slider
                     {
                         param.IsVideo = par.IsVideo;
                         param.Text = par.Text;
-                        if (par.IsVideo)
-                        {
-                            param.Url = par.Url;
-                        }
-                        else if (par.Image != null)
+                        param.VideoUrl = par.VideoUrl;
+                        param.ButtonUrl = par.ButtonUrl;
+                        if (par.Image != null)
                         {
                             var url = "~/Content/images/slider/";
                             var path = HttpContext.Current.Server.MapPath(url);
