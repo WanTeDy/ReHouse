@@ -1,0 +1,142 @@
+﻿@using ReHouse.FrontEnd.Models
+@using ReHouse.Utils.DataBase.Common
+@model LoadNewBuildingsModel
+@{
+    List<PageText> texts = ViewBag.PageTexts as List<PageText>;
+}
+<span class="none">
+    </div>
+    <div class="navigation_string">
+        <div class="container">
+            <div class="way">
+                <a href="/">Главная</a>
+                <pre> </pre>
+                <a>/</a>
+                <pre> </pre>
+                <a href="/newbuilding/">Новострои</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+</span>
+<div class="h2novostroy"><h2>Новострои</h2></div>
+<div class="selection">
+    <div class="region">
+        <select id="district">
+            <option selected value="0">Выбрать район</option>
+            @foreach (var district in Model.Districts.Where(x => x.ParrentId == null).OrderByDescending(x => x.Id))
+            {
+                <option disabled value="@district.Id">--@district.RussianName--</option>
+                foreach (var dis in Model.Districts.Where(x => x.ParrentId == district.Id))
+                {
+                    <option value="@dis.Id">@dis.RussianName</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="_cost">
+        <div>
+            <input id="price" type="number" placeholder="от" />
+        </div>
+        <div>
+            <input id="price_max" type="number" placeholder="до" />
+        </div>
+    </div>
+    <div class="ck">
+        <select id="builder">
+            <option selected value="0">Выбрать по CK</option>
+            @foreach (var builder in Model.Builders)
+            {
+                <option value="@builder.Id">@builder.Name</option>
+            }
+        </select>
+    </div>
+    <div class="timeofready">
+        <select id="date">
+            <option selected value="0">Cрок сдачи</option>
+            @foreach (var date in Model.ExpluatationDates)
+            {
+                <option value="@date.Year">@date.Year</option>
+            }
+        </select>
+    </div>
+    <div class="search-button" id="search">
+        <a>Поиск</a>
+    </div>
+</div>
+@if (!ViewBag.NoElements)
+{
+    <div class="h2novostroy"><h2>Новые объявления</h2></div>
+    <div class="products">
+        <ul class="prods" id="data-container">
+            @Html.Partial("NewB/_listOfNewBuildings", Model.NewBuildings)
+        </ul>
+        <div id="button-more">
+            <a id="more">Больше объявлений</a>
+        </div>
+    </div>
+    <div id="loading-div">
+    </div>
+}
+    @*<div id="mapnovostroy">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d101681.05935008111!2d30.6809567124572!3d46.42350678371972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0L7QtNC10YHRgdCwINC20LXQvNGH0YPQttC40L3Riw!5e0!3m2!1sru!2sua!4v1485299309010" width="1065px" height="495px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>*@
+    <div class="seotext">
+        @if (texts != null)
+        {
+            var main = texts.FirstOrDefault(x => x.TextBlockName == "Main");
+            if (main != null)
+            {
+                if (main.Description.Length > 400)
+                {
+                    <div id="text_@main.Id">@Html.Raw(main.Description.Substring(0, 399)) ...</div>
+                    <a onclick="showSeoTextDetails(@main.Id, this);" id="more">Подробнее</a>
+                    <div id="textHidden_@main.Id" style="display:none;">@Html.Raw(main.Description)</div>
+                }
+                else
+                {
+                    <div id="text_@main.Id">@Html.Raw(main.Description)</div>
+                }
+            }
+        }
+    </div>
+@section scripts {
+
+    <script>        
+        var url = "./Index/";
+        $('#button-more').click(function () {
+
+            var districtID = $('#district').val(),
+                    priceMin = $('#price').val(),
+                    priceMax = $('#price_max').val(),
+                    builderId = $('#builder').val(),
+                    expluatationId = $('#date').val();
+            var obj = {
+                "DistrictId": districtID,
+                "PriceMin": priceMin,
+                "PriceMax": priceMax,
+                "BuilderId": builderId,
+                "ExpluatationDateId": expluatationId
+            }
+
+            lazyload(obj, url, false);
+        });
+
+        $('#search').click(function () {
+            var districtID = $('#district').val(),
+                    priceMin = $('#price').val(),
+                    priceMax = $('#price_max').val(),
+                    builderId = $('#builder').val(),
+                    expluatationId = $('#date').val();
+            var obj = {
+                "DistrictId": districtID,
+                "PriceMin": priceMin,
+                "PriceMax": priceMax,
+                "BuilderId": builderId,
+                "ExpluatationDateId": expluatationId
+            }
+
+            lazyload(obj, url, true);
+        });
+    </script>
+}

@@ -64,7 +64,7 @@ namespace ReHouse.Utils.BusinessOperations.Users
                                 ImageBuilder.Current.Build(
                                     new ImageJob(_image.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1500&maxheight=1500&format=jpg&quality=80"),
+                                    new Instructions("maxwidth=1600&maxheight=1600&format=jpg&quality=90"),
                                     false,
                                     true));
 

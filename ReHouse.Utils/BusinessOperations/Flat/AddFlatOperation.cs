@@ -96,7 +96,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                 ImageBuilder.Current.Build(
                                     new ImageJob(ms, //imageFile.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1500&maxheight=1500&format=jpg&quality=80&watermark=water"),
+                                    new Instructions("maxwidth=1600&maxheight=1600&format=jpg&quality=90&watermark=water"),
                                     false,
                                     true));
 
@@ -135,7 +135,7 @@ namespace ReHouse.Utils.BusinessOperations.Flat
                                 ImageBuilder.Current.Build(
                                     new ImageJob(ms, //imageFile.InputStream,
                                     path + filename,
-                                    new Instructions("maxwidth=1500&maxheight=1500&format=jpg&quality=80&watermark=water"),
+                                    new Instructions("maxwidth=1600&maxheight=1600&format=jpg&quality=90&watermark=water"),
                                     false,
                                     true));
 
