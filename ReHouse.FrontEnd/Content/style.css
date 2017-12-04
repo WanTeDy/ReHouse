@@ -265,12 +265,12 @@ input:focus:-ms-input-placeholder { color:transparent; -webkit-transition: 0.8s 
     display: flex;
     color: #fff;
     font-family: Casper;
-    font-size: 12px;
+    font-size: 10px;
     /* margin-left: 300px; */
     /* margin-top: 50px; */
     position: absolute;
     font-family: ProximaNova;
-    top: 18px;
+    top: 9px;
     margin-left: -279px;
 }
 
@@ -278,7 +278,7 @@ input:focus:-ms-input-placeholder { color:transparent; -webkit-transition: 0.8s 
         text-decoration: none;
         color: #fff;
         font-family: ProximaNova;
-        font-size: 12px;
+        font-size: 10px;
     }
 
         .your_name a:hover {
@@ -286,8 +286,8 @@ input:focus:-ms-input-placeholder { color:transparent; -webkit-transition: 0.8s 
         }
 
 .your_login {
-    margin-right: 10px;
-    margin-left: 4px;
+    margin-right: 2px;
+    margin-left: 1px;
 }
 
 .logout {
@@ -961,7 +961,7 @@ border-bottom: none;
     }
 
     .d-carousel .jcarousel-item-horizontal {
-        margin-left: 8px;
+        margin-left: 7.5px;
         margin-right: 0px;
        /* margin-left: 0px;
         margin-right:11px;*/
@@ -3412,6 +3412,8 @@ padding: 32px 0px 0px 20px;
 .manager_ .img img {
     -o-object-fit: cover;
     object-fit: cover;
+    -o-object-position: top;
+    object-position: top;
     border-radius: 50%;
     width: 210px!important;
     height: 210px!important;
