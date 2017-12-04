@@ -92,7 +92,7 @@
                 var session = Session["user"] as SessionModel;
 
                         <div class="your_name">
-                            <div><p>Ваш логин:</p></div>
+                           <div><p>Ваш логин:</p></div>
                             @if (!String.IsNullOrEmpty(session.User.Login))
                             {
                                 <div class="your_login"><p><a href="/cabinet/profile/" class="">@session.User.Login</a></p></div>
