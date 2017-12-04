@@ -116,23 +116,23 @@
                 <div id="products_example">
                     <div id="products">
                         <div class="sp-slides">
-                            @if (Model.NewBuilding.Images != null && Model.NewBuilding.Images.Count > 0)
+                            @if (Model.Advert.Images != null && Model.Advert.Images.Count > 0)
                             {
-                                foreach (var item in Model.NewBuilding.Images)
+                                foreach (var item in Model.Advert.Images)
                                 {
                                     <div class="sp-slide">
                                         <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=600&h=312&mode=max"
-                                             data-src="@Url.Content(item.Url + item.FileName)?w=1500&h=1500&mode=max" />
+                                             data-src="@Url.Content(item.Url + item.FileName)?w=1600&h=1600&mode=max" />
                                     </div>
                                 }
                             }
-                            @if (Model.NewBuilding.PlanImages != null && Model.NewBuilding.PlanImages.Count > 0)
+                            @if (Model.Advert.PlanImages != null && Model.Advert.PlanImages.Count > 0)
                             {
-                                foreach (var item in Model.NewBuilding.PlanImages)
+                                foreach (var item in Model.Advert.PlanImages)
                                 {
                                     <div class="sp-slide">
                                         <img class="sp-image" src="@Url.Content(item.Url + item.FileName)?w=600&h=312&mode=max"
-                                             data-src="@Url.Content(item.Url + item.FileName)?w=1500&h=1500&mode=max" />
+                                             data-src="@Url.Content(item.Url + item.FileName)?w=1600&h=1600&mode=max" />
                                     </div>
                                 }
                             }
