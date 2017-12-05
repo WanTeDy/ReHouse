@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
             font-family: "MyriadPro";
             src: url('fonts/MyriadPro/MyriadPro-Regular.woff');
 	}
@@ -4345,4 +4345,7 @@ input[type=text], input[type=submit], textarea, select, a, p {
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+}
+.validation-summary-errors {
+    color:red;
 }
