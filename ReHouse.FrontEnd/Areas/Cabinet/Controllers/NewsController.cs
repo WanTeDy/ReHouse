@@ -148,6 +148,13 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             var operation = new AddArticleOperation(sessionModel.TokenHash, model.Title, model.Description, image);
             operation.ExcecuteTransaction();
+                        
+            if (!operation.Success)
+            {
+                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
+                ViewBag.SeoParam = new SeoParam();
+                return View(model);
+            }
 
             var seoparam = new SeoParam
             {
@@ -164,11 +171,6 @@ namespace ReHouse.FrontEnd.Areas.Cabinet.Controllers
 
             var op6 = new AddSeoParamOperation(sessionModel.TokenHash, seoparam);
             op6.ExcecuteTransaction();
-            if (!operation.Success)
-            {
-                ErrorHelpers.AddModelErrors(ModelState, operation.Errors);
-                return View(model);
-            }
             return RedirectToAction("List");
         }
     }
