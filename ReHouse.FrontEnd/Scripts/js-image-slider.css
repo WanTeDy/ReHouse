@@ -153,7 +153,7 @@ element.style {
     height: 11px;
     font-size: 0;
     color: White;
-    background: transparent url(../Scripts/bullet.png) no-repeat 0 0;
+    background: transparent url('../Scripts/bullet.png') no-repeat 0 0;
     display: inline-block;
     zoom: 1;
     overflow: hidden;
